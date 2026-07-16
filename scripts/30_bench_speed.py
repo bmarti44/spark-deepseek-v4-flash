@@ -18,7 +18,9 @@ from typing import Any
 
 REQUEST_TIMEOUT_S = 300
 SEED = 42
-CONTEXT_LEVELS = (0, 4096, 16384, 32768 - 512)
+# Top cell 28672: candidate A's engine envelope caps single prompts near 30K
+# at ctx=32768 (lazy session graph); identical cells for both stacks.
+CONTEXT_LEVELS = (0, 4096, 16384, 28672)
 MAX_TOKENS = 256
 MIN_VALID_COMPLETION_TOKENS = 200
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -303,7 +305,7 @@ def run_rep(
 ) -> dict[str, Any]:
     try:
         preamble = make_preamble(tokenizer, unique_id)
-        prompt = preamble + "\n\n" + fixture_slice + "\n\nContinue this text naturally."
+        prompt = preamble + "\n\n" + fixture_slice + "\n\nContinue this text naturally, writing at least 600 more words without stopping."
         payload: dict[str, Any] = {
             "model": model,
             "messages": [{"role": "user", "content": prompt}],

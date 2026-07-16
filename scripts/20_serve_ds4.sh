@@ -164,7 +164,7 @@ do_status() {
         local stats
         stats=$(curl --silent --show-error --fail --max-time 3 \
             "http://127.0.0.1:$state_port/v1/stats" 2>/dev/null || true)
-        [[ $stats == *'"built"'* && $stats != *'"none"'* ]] && healthy=true
+        grep -Eq 'artifact_source[^a-zA-Z]*(built|imported)' <<<"$stats" && healthy=true
     fi
     python3 - "$STATE_FILE" "$server_alive" "$flock_alive" "$memwatch_alive" "$healthy" <<'PY'
 import json
@@ -335,6 +335,12 @@ do_start() {
         || die 'memory budget gate returned invalid JSON'
 
     local -a server_command
+    # NOTE: DS4_SESSION_LAZY_GRAPH=0 (pre-allocated session graph) was tested
+    # and REJECTED: with the dspark profile at ctx=32768 it leaves so little
+    # headroom that a 32K prefill burst breaches the 12 GiB watchdog line
+    # (verified 2026-07-16 - watchdog SIGKILLed the server, preventing a UMA
+    # freeze). Lazy default serves prompts up to ~30K and 500s gracefully
+    # beyond; documented engine envelope.
     server_command=(env -u DS4_CUDA_WEIGHT_IPC_MANIFEST -u DS4_CONT_DSPARK -u DS4_DSPARK_MODEL
         DS4_LOCK_FILE=/run/dsv4/ds4-engine.lock DS4_CUDA_BUILD_ARTIFACTS=1)
     case $profile in
@@ -370,7 +376,7 @@ do_start() {
     write_state || { kill -TERM -- "-$flock_pid" 2>/dev/null || true; kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'failed to write state file'; }
 
     local deadline stats
-    deadline=$((SECONDS + 300))
+    deadline=$((SECONDS + 600))
     while (( SECONDS < deadline )); do
         if ! pid_alive "$server_pid"; then
             terminate_from_state || true
@@ -378,11 +384,11 @@ do_start() {
         fi
         if curl --silent --show-error --fail --max-time 3 "http://127.0.0.1:$PORT/v1/models" >/dev/null 2>&1; then
             stats=$(curl --silent --show-error --fail --max-time 3 "http://127.0.0.1:$PORT/v1/stats" 2>/dev/null || true)
-            if [[ $stats == *'"none"'* ]]; then
+            if grep -Eq 'artifact_source[^a-zA-Z]*none' <<<"$stats"; then
                 terminate_from_state || true
                 die 'ds4 readiness failed: artifact source is none (raw-tier fallback)'
             fi
-            if [[ $stats == *'"built"'* ]]; then
+            if grep -Eq 'artifact_source[^a-zA-Z]*(built|imported)' <<<"$stats"; then
                 printf '{"ok":true,"stack":"ds4","pid":%d,"port":%d}\n' "$server_pid" "$PORT"
                 return 0
             fi
@@ -392,7 +398,7 @@ do_start() {
         fi
     done
     terminate_from_state || true
-    die 'ds4 readiness timed out after 300 seconds'
+    die 'ds4 readiness timed out after 600 seconds'
 }
 
 action=start

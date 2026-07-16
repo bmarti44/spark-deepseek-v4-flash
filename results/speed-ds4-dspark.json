@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "stack_label": "ds4-dspark",
+    "base_url": "http://127.0.0.1:8012",
+    "started_at": "2026-07-16T14:38:25.343118+00:00",
+    "finished_at": "2026-07-16T14:44:45.539460+00:00",
+    "reps": 5,
+    "warmup_reps": 1,
+    "ignore_eos_supported": false,
+    "max_tokens": 256,
+    "temperature": 0,
+    "seed": 42,
+    "prefill_rate_label": "incl. queue+setup",
+    "iqr_method": "inclusive quartiles",
+    "model": "deepseek-v4-flash",
+    "fixture_path": "fixtures/ctx-32k.txt",
+    "fixture_total_tokens": 40657
+  },
+  "cells": [
+    {
+      "ctx_tokens": 0,
+      "reps": [
+        {
+          "ttft_s": 0.4957692000007228,
+          "decode_tok_s": 19.71348650635185,
+          "prefill_tok_s": 84.71684001333436,
+          "completion_tokens": 69,
+          "valid": false,
+          "error": "early stop: 69 completion tokens, minimum is 200",
+          "prompt_tokens": 42,
+          "client_completion_tokens": 69,
+          "client_fixture_tokens": 0,
+          "data_chunks": 72
+        },
+        {
+          "ttft_s": 0.5026645289999578,
+          "decode_tok_s": 19.769438000530155,
+          "prefill_tok_s": 83.55473198707348,
+          "completion_tokens": 107,
+          "valid": false,
+          "error": "early stop: 107 completion tokens, minimum is 200",
+          "prompt_tokens": 42,
+          "client_completion_tokens": 107,
+          "client_fixture_tokens": 0,
+          "data_chunks": 110
+        },
+        {
+          "ttft_s": 0.48737348499980726,
+          "decode_tok_s": 20.257487507627488,
+          "prefill_tok_s": 86.17621042723859,
+          "completion_tokens": 164,
+          "valid": false,
+          "error": "early stop: 164 completion tokens, minimum is 200",
+          "prompt_tokens": 42,
+          "client_completion_tokens": 164,
+          "client_fixture_tokens": 0,
+          "data_chunks": 167
+        },
+        {
+          "ttft_s": 0.4907356860003347,
+          "decode_tok_s": 20.336081394364644,
+          "prefill_tok_s": 85.5857872133052,
+          "completion_tokens": 106,
+          "valid": false,
+          "error": "early stop: 106 completion tokens, minimum is 200",
+          "prompt_tokens": 42,
+          "client_completion_tokens": 106,
+          "client_fixture_tokens": 0,
+          "data_chunks": 109
+        },
+        {
+          "ttft_s": 0.4775162630003251,
+          "decode_tok_s": 20.11041069234214,
+          "prefill_tok_s": 87.95511955154375,
+          "completion_tokens": 111,
+          "valid": false,
+          "error": "early stop: 111 completion tokens, minimum is 200",
+          "prompt_tokens": 42,
+          "client_completion_tokens": 111,
+          "client_fixture_tokens": 0,
+          "data_chunks": 114
+        }
+      ],
+      "median_decode": null,
+      "iqr_decode": null,
+      "median_ttft": null,
+      "gpu_before": "2411 MHz, 55",
+      "gpu_after": "2489 MHz, 66",
+      "invalid_reps": 5,
+      "valid": false
+    },
+    {
+      "ctx_tokens": 4096,
+      "reps": [
+        {
+          "ttft_s": 5.2238282200005415,
+          "decode_tok_s": 19.94261748783193,
+          "prefill_tok_s": 792.3308014135984,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 4139,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 4096,
+          "data_chunks": 259
+        },
+        {
+          "ttft_s": 5.387008787000013,
+          "decode_tok_s": 20.248888620511675,
+          "prefill_tok_s": 768.3299143651443,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 4139,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 4096,
+          "data_chunks": 259
+        },
+        {
+          "ttft_s": 5.7359687499993015,
+          "decode_tok_s": 21.277867049744952,
+          "prefill_tok_s": 721.5869158981217,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 4139,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 4096,
+          "data_chunks": 259
+        },
+        {
+          "ttft_s": 4.9835940969996955,
+          "decode_tok_s": 17.37894392020757,
+          "prefill_tok_s": 830.5251028553525,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 4139,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 4096,
+          "data_chunks": 259
+        },
+        {
+          "ttft_s": 4.9836453699999765,
+          "decode_tok_s": 16.42767305317231,
+          "prefill_tok_s": 830.5165582036627,
+          "completion_tokens": 77,
+          "valid": false,
+          "error": "early stop: 77 completion tokens, minimum is 200",
+          "prompt_tokens": 4139,
+          "client_completion_tokens": 77,
+          "client_fixture_tokens": 4096,
+          "data_chunks": 80
+        }
+      ],
+      "median_decode": 20.0957530541718,
+      "iqr_decode": 1.2044341318941534,
+      "median_ttft": 5.305418503500277,
+      "gpu_before": "2411 MHz, 62",
+      "gpu_after": "2470 MHz, 74",
+      "invalid_reps": 1,
+      "valid": true
+    },
+    {
+      "ctx_tokens": 16384,
+      "reps": [
+        {
+          "ttft_s": 20.982358755999485,
+          "decode_tok_s": 15.851408983689355,
+          "prefill_tok_s": 782.848114981511,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 16426,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 16384,
+          "data_chunks": 259
+        },
+        {
+          "ttft_s": 21.528590648999852,
+          "decode_tok_s": 20.546682658993625,
+          "prefill_tok_s": 762.9853838464386,
+          "completion_tokens": 149,
+          "valid": false,
+          "error": "early stop: 149 completion tokens, minimum is 200",
+          "prompt_tokens": 16426,
+          "client_completion_tokens": 149,
+          "client_fixture_tokens": 16384,
+          "data_chunks": 152
+        },
+        {
+          "ttft_s": 20.222922414000095,
+          "decode_tok_s": 16.624342972960363,
+          "prefill_tok_s": 812.2466013432594,
+          "completion_tokens": 189,
+          "valid": false,
+          "error": "early stop: 189 completion tokens, minimum is 200",
+          "prompt_tokens": 16426,
+          "client_completion_tokens": 189,
+          "client_fixture_tokens": 16384,
+          "data_chunks": 192
+        },
+        {
+          "ttft_s": 19.96307324600002,
+          "decode_tok_s": 16.42224998104379,
+          "prefill_tok_s": 822.8192021131446,
+          "completion_tokens": 117,
+          "valid": false,
+          "error": "early stop: 117 completion tokens, minimum is 200",
+          "prompt_tokens": 16426,
+          "client_completion_tokens": 117,
+          "client_fixture_tokens": 16384,
+          "data_chunks": 120
+        },
+        {
+          "ttft_s": 19.967199740999604,
+          "decode_tok_s": 16.79688383673522,
+          "prefill_tok_s": 822.6491552679623,
+          "completion_tokens": 256,
+          "valid": true,
+          "prompt_tokens": 16426,
+          "client_completion_tokens": 256,
+          "client_fixture_tokens": 16384,
+          "data_chunks": 259
+        }
+      ],
+      "median_decode": 16.324146410212286,
+      "iqr_decode": 0.4727374265229294,
+      "median_ttft": 20.474779248499544,
+      "gpu_before": "2398 MHz, 69",
+      "gpu_after": "2470 MHz, 75",
+      "invalid_reps": 3,
+      "valid": false
+    },
+    {
+      "ctx_tokens": 32256,
+      "reps": [
+        {
+          "ttft_s": null,
+          "decode_tok_s": null,
+          "prefill_tok_s": null,
+          "completion_tokens": null,
+          "valid": false,
+          "error": "RuntimeError: stream returned HTTP 500: '{\"error\":{\"message\":\"lazy session graph alloc failed (ctx=32768 prefill_cap=4096); DS4_SESSION_LAZY_GRAPH=0 pre-allocates at boot\",\"type\":\"invalid_request_error\"}}\\n'"
+        },
+        {
+          "ttft_s": null,
+          "decode_tok_s": null,
+          "prefill_tok_s": null,
+          "completion_tokens": null,
+          "valid": false,
+          "error": "RuntimeError: stream returned HTTP 500: '{\"error\":{\"message\":\"lazy session graph alloc failed (ctx=32768 prefill_cap=4096); DS4_SESSION_LAZY_GRAPH=0 pre-allocates at boot\",\"type\":\"invalid_request_error\"}}\\n'"
+        },
+        {
+          "ttft_s": null,
+          "decode_tok_s": null,
+          "prefill_tok_s": null,
+          "completion_tokens": null,
+          "valid": false,
+          "error": "RuntimeError: stream returned HTTP 500: '{\"error\":{\"message\":\"lazy session graph alloc failed (ctx=32768 prefill_cap=4096); DS4_SESSION_LAZY_GRAPH=0 pre-allocates at boot\",\"type\":\"invalid_request_error\"}}\\n'"
+        },
+        {
+          "ttft_s": null,
+          "decode_tok_s": null,
+          "prefill_tok_s": null,
+          "completion_tokens": null,
+          "valid": false,
+          "error": "RuntimeError: stream returned HTTP 500: '{\"error\":{\"message\":\"lazy session graph alloc failed (ctx=32768 prefill_cap=4096); DS4_SESSION_LAZY_GRAPH=0 pre-allocates at boot\",\"type\":\"invalid_request_error\"}}\\n'"
+        },
+        {
+          "ttft_s": null,
+          "decode_tok_s": null,
+          "prefill_tok_s": null,
+          "completion_tokens": null,
+          "valid": false,
+          "error": "RuntimeError: stream returned HTTP 500: '{\"error\":{\"message\":\"lazy session graph alloc failed (ctx=32768 prefill_cap=4096); DS4_SESSION_LAZY_GRAPH=0 pre-allocates at boot\",\"type\":\"invalid_request_error\"}}\\n'"
+        }
+      ],
+      "median_decode": null,
+      "iqr_decode": null,
+      "median_ttft": null,
+      "gpu_before": "2398 MHz, 70",
+      "gpu_after": "2398 MHz, 65",
+      "invalid_reps": 5,
+      "valid": false
+    }
+  ],
+  "suite_valid": false
+}
