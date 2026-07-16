@@ -319,8 +319,12 @@ do_start() {
 
     local budget rc
     set +e
+    # overhead-gib 6: candidate B measured ~0.1 GiB non-weight overhead on this
+    # host; ds4's boot-time artifact repacks add device allocations but the
+    # project's published single-Spark footprint (~81 GiB loaded + large KV
+    # pool) leaves margin. Floor stays 16; the 12 GiB watchdog is the backstop.
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
-        --kv-bytes-per-token 2048 --overhead-gib 10 --floor-gib 16 2>&1)
+        --kv-bytes-per-token 2048 --overhead-gib 6 --floor-gib 16 2>&1)
     rc=$?
     set -e
     if (( rc != 0 )); then
