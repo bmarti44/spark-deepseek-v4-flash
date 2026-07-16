@@ -1,0 +1,55 @@
+{
+  "index": 10264,
+  "task_id": 10469,
+  "rendered_prompt_sha256": "71e21713faf8a657eff4ff9ee109a97c85d1a6278c3c71558c299717d172c124",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 0.7501956599953701
+  },
+  "response": {
+    "id": "cmpl-686",
+    "object": "text_completion",
+    "created": 1784241451,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 269,
+      "completion_tokens": 3,
+      "total_tokens": 272,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 585.9,
+      "prefill_tokens": 269,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 460.3,
+      "decode_tok_s": 18.5,
+      "spec_accept_rate": 1.0,
+      "tok_per_step": 4.0
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Explain briefly the background and applications of BASIC computer language.\n\nA. BASIC was developed by Microsoft to enhance the Windows operating system.\nB. BASIC was created by IBM as a language to program mainframe computers and has limited use today due to its complexity.\nC. BASIC stands for \"Business Acquisition and System Integration Code\" and is used mainly in the corporate finance sector.\nD. BASIC is an advanced programming language used mainly for developing complex scientific simulations and models.\nE. BASIC is an acronym for \"Binary Algorithmic Scientific Instruction Code\" and is used primarily in data analysis.\nF. BASIC was developed in the 1950s as a language for artificial intelligence research.\nG. BASIC is a language developed at Dartmouth College in the 1960s to make the computer more accessible and easy to use. It is widely used in science, business, and engineering due to its simplicity and similarity to English and algebra.\nH. BASIC was developed in the 1980s to simplify computer programming.\nI. BASIC is a language developed in the late 1970s for the exclusive use in graphical user interface design.\nJ. BASIC is a language primarily used in the field of arts and literature.\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

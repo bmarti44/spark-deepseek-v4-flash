@@ -1,0 +1,55 @@
+{
+  "index": 1172,
+  "task_id": 1172,
+  "rendered_prompt_sha256": "bc2bf2bf8b75f4a91c9d0c21b3d3a1e40624632833ea0ecaaa6acaf370e26f44",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Alice counts clouds each day from Monday to Friday.\n\n- Monday: 3  \n- Tuesday: double Monday = 3 × 2 = 6  \n- Wednesday: double Tuesday = 6 × 2 = 12  \n- Thursday: double Wednesday = 12 × 2 = 24  \n- Friday: double Thursday = 24 × 2 = 48  \n\nTotal = 3 + 6 + 12 + 24 + 48 = 93  \n\nAnswer: 93",
+  "finish_reason": "stop",
+  "expected": "93",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8214663790058694
+  },
+  "response": {
+    "id": "cmpl-604",
+    "object": "text_completion",
+    "created": 1784240958,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Alice counts clouds each day from Monday to Friday.\n\n- Monday: 3  \n- Tuesday: double Monday = 3 × 2 = 6  \n- Wednesday: double Tuesday = 6 × 2 = 12  \n- Thursday: double Wednesday = 12 × 2 = 24  \n- Friday: double Thursday = 24 × 2 = 48  \n\nTotal = 3 + 6 + 12 + 24 + 48 = 93  \n\nAnswer: 93",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "completion_tokens": 100,
+      "total_tokens": 219,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 895.6,
+      "prefill_tokens": 119,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 133.1,
+      "decode_tok_s": 34.2,
+      "spec_accept_rate": 0.89,
+      "tok_per_step": 3.88
+    }
+  },
+  "used_fallback": false
+}

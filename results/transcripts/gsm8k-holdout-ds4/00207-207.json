@@ -1,0 +1,55 @@
+{
+  "index": 207,
+  "task_id": 207,
+  "rendered_prompt_sha256": "8c71141e7f95ab144484ee884f1d054d8c32e3193f4011de20c59ed6219c961a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Each chocolate bar weighs 40g.  \n- Each candied apple weighs half of that, so 40g ÷ 2 = 20g.  \n- There are 25 chocolate bars: 25 × 40g = 1000g.  \n- There are 80 candied apples: 80 × 20g = 1600g.  \n- Total weight: 1000g + 1600g = 2600g.\n\nAnswer: 2600",
+  "finish_reason": "stop",
+  "expected": "2600",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.481568356997741
+  },
+  "response": {
+    "id": "cmpl-559",
+    "object": "text_completion",
+    "created": 1784240787,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Each chocolate bar weighs 40g.  \n- Each candied apple weighs half of that, so 40g ÷ 2 = 20g.  \n- There are 25 chocolate bars: 25 × 40g = 1000g.  \n- There are 80 candied apples: 80 × 20g = 1600g.  \n- Total weight: 1000g + 1600g = 2600g.\n\nAnswer: 2600",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 91,
+      "completion_tokens": 109,
+      "total_tokens": 200,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 790.7,
+      "prefill_tokens": 91,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 115.4,
+      "decode_tok_s": 19.2,
+      "spec_accept_rate": 0.2,
+      "tok_per_step": 1.03
+    }
+  },
+  "used_fallback": false
+}

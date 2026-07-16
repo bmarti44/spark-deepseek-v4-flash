@@ -1,0 +1,54 @@
+{
+  "index": 3885,
+  "task_id": 4009,
+  "rendered_prompt_sha256": "9a63868cc752be45b186a1d2140c23fa9dd72d0f5d043ea432fb7651d2e8164a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find the time it takes light to travel 1 cm.  \nSpeed of light = \\(3.0 \\times 10^8\\) m/s.  \n1 cm = \\(0.01\\) m.  \n\nTime = distance / speed = \\(0.01 / (3.0 \\times 10^8)\\) seconds.  \nThat equals \\(3.333... \\times 10^{-11}\\) seconds.  \n\nSo 1 jiffy ≈ \\(3.3 \\times 10^{-11}\\) seconds.  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.080266131000826
+  },
+  "response": {
+    "id": "cmpl-157",
+    "object": "text_completion",
+    "created": 1784239287,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to find the time it takes light to travel 1 cm.  \nSpeed of light = \\(3.0 \\times 10^8\\) m/s.  \n1 cm = \\(0.01\\) m.  \n\nTime = distance / speed = \\(0.01 / (3.0 \\times 10^8)\\) seconds.  \nThat equals \\(3.333... \\times 10^{-11}\\) seconds.  \n\nSo 1 jiffy ≈ \\(3.3 \\times 10^{-11}\\) seconds.  \n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 278,
+      "completion_tokens": 112,
+      "total_tokens": 390,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 594.6,
+      "prefill_tokens": 278,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 468.8,
+      "decode_tok_s": 32.1,
+      "spec_accept_rate": 0.842,
+      "tok_per_step": 3.65
+    }
+  }
+}

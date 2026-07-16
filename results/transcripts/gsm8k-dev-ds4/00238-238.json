@@ -1,0 +1,56 @@
+{
+  "index": 238,
+  "task_id": 238,
+  "rendered_prompt_sha256": "c0cef30eca515df2f0ce39f424da6844bc3ba5ba5ac0e089963f86d2d34a1789",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step:\n\n1. Jessa is 20 years old.  \n2. Joan is 5 years older than Jessa → Joan is 20 + 5 = 25 years old.  \n3. Mary is 2 years younger than Joan → Mary is 25 - 2 = 23 years old.  \n4. Sum of their ages: 20 + 25 + 23 = 68.\n\nAnswer: 68",
+  "finish_reason": "stop",
+  "expected": "68",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.3721723100024974
+  },
+  "response": {
+    "id": "cmpl-29",
+    "object": "text_completion",
+    "created": 1784238690,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step:\n\n1. Jessa is 20 years old.  \n2. Joan is 5 years older than Jessa → Joan is 20 + 5 = 25 years old.  \n3. Mary is 2 years younger than Joan → Mary is 25 - 2 = 23 years old.  \n4. Sum of their ages: 20 + 25 + 23 = 68.\n\nAnswer: 68",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 95,
+      "total_tokens": 171,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 747.9,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 102.0,
+      "decode_tok_s": 36.4,
+      "spec_accept_rate": 0.911,
+      "tok_per_step": 4.36
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Mary is two years younger than Joan, who is five years older than Jessa. If Jessa is 20 years old, what is the sum of the ages of the three girls?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

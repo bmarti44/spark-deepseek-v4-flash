@@ -1,0 +1,55 @@
+{
+  "index": 751,
+  "task_id": 751,
+  "rendered_prompt_sha256": "5eb19855605aeda2bd786b6b8b8d9061ee21a038f9202438615bad8523076f67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Gunther starts with 48 bananas.  \n2. Arnold steals half: \\( 48 \\div 2 = 24 \\) stolen, so \\( 48 - 24 = 24 \\) left.  \n3. Gunther adds 25 bananas: \\( 24 + 25 = 49 \\).  \n4. Arnold steals 12 bananas: \\( 49 - 12 = 37 \\).  \n5. Gunther adds 6 bananas: \\( 37 + 6 = 43 \\).  \n\nSo Gunther finds 43 bananas.\n\nAnswer: 43",
+  "finish_reason": "stop",
+  "expected": "43",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.279876234999392
+  },
+  "response": {
+    "id": "cmpl-617",
+    "object": "text_completion",
+    "created": 1784241009,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Gunther starts with 48 bananas.  \n2. Arnold steals half: \\( 48 \\div 2 = 24 \\) stolen, so \\( 48 - 24 = 24 \\) left.  \n3. Gunther adds 25 bananas: \\( 24 + 25 = 49 \\).  \n4. Arnold steals 12 bananas: \\( 49 - 12 = 37 \\).  \n5. Gunther adds 6 bananas: \\( 37 + 6 = 43 \\).  \n\nSo Gunther finds 43 bananas.\n\nAnswer: 43",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 143,
+      "completion_tokens": 127,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 856.1,
+      "prefill_tokens": 143,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 167.3,
+      "decode_tok_s": 37.1,
+      "spec_accept_rate": 0.905,
+      "tok_per_step": 4.13
+    }
+  },
+  "used_fallback": false
+}

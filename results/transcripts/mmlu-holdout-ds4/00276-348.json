@@ -1,0 +1,54 @@
+{
+  "index": 276,
+  "task_id": 348,
+  "rendered_prompt_sha256": "4e1569bffaa7adee310bff153be1f7c7ba4d4239161ae5cf49fce460ddb69e67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n1. **Assessed value**: $17,400  \n2. **Tax rate**: $24.90 per $1,000 of assessed value  \n   So, tax = (17,400 / 1,000) × 24.90 = 17.4 × 24.90  \n   Calculate:  \n   17.4 × 24.90 = 17.4 × (25 - 0.10) = 435 - 1.74 = 433.26  \n   So total tax = $433.26  \n\n3. **County portion**: 28% of total tax  \n   0.28 × 433.26 = 121.3128 ≈ $121.31  \n\nThat matches option **F**.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.302769065005123
+  },
+  "response": {
+    "id": "cmpl-649",
+    "object": "text_completion",
+    "created": 1784241140,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n1. **Assessed value**: $17,400  \n2. **Tax rate**: $24.90 per $1,000 of assessed value  \n   So, tax = (17,400 / 1,000) × 24.90 = 17.4 × 24.90  \n   Calculate:  \n   17.4 × 24.90 = 17.4 × (25 - 0.10) = 435 - 1.74 = 433.26  \n   So total tax = $433.26  \n\n3. **County portion**: 28% of total tax  \n   0.28 × 433.26 = 121.3128 ≈ $121.31  \n\nThat matches option **F**.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 165,
+      "total_tokens": 334,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 904.9,
+      "prefill_tokens": 169,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 187.0,
+      "decode_tok_s": 37.5,
+      "spec_accept_rate": 0.886,
+      "tok_per_step": 4.15
+    }
+  }
+}

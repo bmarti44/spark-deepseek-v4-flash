@@ -1,0 +1,55 @@
+{
+  "index": 22,
+  "task_id": 22,
+  "rendered_prompt_sha256": "e353e9fa77a2040632eea3858ab21c17777e20ed8d31b4f90d75e761ab7d6171",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Billy sells DVDs.  \nFirst 3 customers: 3 × 1 = 3 DVDs.  \nNext 2 customers: 2 × 2 = 4 DVDs.  \nLast 3 customers: 3 × 0 = 0 DVDs.  \nTotal: 3 + 4 + 0 = 7 DVDs.  \n\nAnswer: 7",
+  "finish_reason": "stop",
+  "expected": "7",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.9649058040013188
+  },
+  "response": {
+    "id": "cmpl-76",
+    "object": "text_completion",
+    "created": 1784238879,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Billy sells DVDs.  \nFirst 3 customers: 3 × 1 = 3 DVDs.  \nNext 2 customers: 2 × 2 = 4 DVDs.  \nLast 3 customers: 3 × 0 = 0 DVDs.  \nTotal: 3 + 4 + 0 = 7 DVDs.  \n\nAnswer: 7",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 93,
+      "completion_tokens": 73,
+      "total_tokens": 166,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 773.0,
+      "prefill_tokens": 93,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.6,
+      "decode_tok_s": 33.3,
+      "spec_accept_rate": 0.883,
+      "tok_per_step": 3.89
+    }
+  },
+  "used_fallback": false
+}

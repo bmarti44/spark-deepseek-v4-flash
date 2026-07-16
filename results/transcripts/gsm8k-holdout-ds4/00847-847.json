@@ -1,0 +1,56 @@
+{
+  "index": 847,
+  "task_id": 847,
+  "rendered_prompt_sha256": "0252cf175e8cfbacc9d825905bdb687f518a63dcd4757bb9a7a5d995c41d9b7d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down.\n\nBrenda invests $300.  \nThe interest rate is \"three-quarters of the original amount per year.\"  \nThat means the annual interest is \\(\\frac{3}{4} \\times 300 = 225\\) dollars per year.\n\nOver 3 years, total interest = \\(225 \\times 3 = 675\\) dollars.\n\nTotal amount after 3 years = principal + interest = \\(300 + 675 = 975\\).\n\nAnswer: 975",
+  "finish_reason": "stop",
+  "expected": "975",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.66405344800296
+  },
+  "response": {
+    "id": "cmpl-564",
+    "object": "text_completion",
+    "created": 1784240813,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down.\n\nBrenda invests $300.  \nThe interest rate is \"three-quarters of the original amount per year.\"  \nThat means the annual interest is \\(\\frac{3}{4} \\times 300 = 225\\) dollars per year.\n\nOver 3 years, total interest = \\(225 \\times 3 = 675\\) dollars.\n\nTotal amount after 3 years = principal + interest = \\(300 + 675 = 975\\).\n\nAnswer: 975",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 99,
+      "total_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 755.2,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 100.9,
+      "decode_tok_s": 34.1,
+      "spec_accept_rate": 0.867,
+      "tok_per_step": 3.85
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Brenda invested $300 into a scheme that accumulates simple interest at the rate of three-quarters of the original amount per year. How much in total will she have after 3 years?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

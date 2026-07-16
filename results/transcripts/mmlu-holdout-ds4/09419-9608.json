@@ -1,0 +1,54 @@
+{
+  "index": 9419,
+  "task_id": 9608,
+  "rendered_prompt_sha256": "b3193bac9977c8df7049c7a4c73475780e3ef489f7e610e451f245cd543f29a6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the linear expansion formula:\n\n\\[\n\\Delta L = L_0 \\alpha \\Delta T\n\\]\n\nGiven:\n- \\(L_0 = 200\\) ft\n- \\(\\alpha = 10 \\times 10^{-6} \\, \\text{per} \\, °\\text{C}\\)\n- \\(\\Delta T = 100°\\text{C} - 0°\\text{C} = 100°\\text{C}\\)\n\n\\[\n\\Delta L = 200 \\times 10 \\times 10^{-6} \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-3} = 0.20 \\text{ ft}\n\\]\n\nSo the correct answer is **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.9448760409941315
+  },
+  "response": {
+    "id": "cmpl-844",
+    "object": "text_completion",
+    "created": 1784242377,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this using the linear expansion formula:\n\n\\[\n\\Delta L = L_0 \\alpha \\Delta T\n\\]\n\nGiven:\n- \\(L_0 = 200\\) ft\n- \\(\\alpha = 10 \\times 10^{-6} \\, \\text{per} \\, °\\text{C}\\)\n- \\(\\Delta T = 100°\\text{C} - 0°\\text{C} = 100°\\text{C}\\)\n\n\\[\n\\Delta L = 200 \\times 10 \\times 10^{-6} \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-3} = 0.20 \\text{ ft}\n\\]\n\nSo the correct answer is **E**.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 153,
+      "total_tokens": 315,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 892.8,
+      "prefill_tokens": 162,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 181.7,
+      "decode_tok_s": 37.8,
+      "spec_accept_rate": 0.898,
+      "tok_per_step": 4.16
+    }
+  }
+}

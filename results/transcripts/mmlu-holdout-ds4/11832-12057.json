@@ -1,0 +1,54 @@
+{
+  "index": 11832,
+  "task_id": 12057,
+  "rendered_prompt_sha256": "78b65b8c40e584144fab4617c6fd07a0c39b0d6e8e908caeeea702ec9d97ad67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the reaction:\n\n\\[\n\\text{CO}_2 \\rightletharpoons \\text{CO} + \\frac{1}{2} \\text{O}_2\n\\]\n\nLet the initial amount of CO₂ be 1 mole. Let \\(\\epsilon\\) be the extent of reaction. Then:\n\n- Moles of CO₂ at equilibrium: \\(1 - \\epsilon\\)\n- Moles of CO at equilibrium: \\(\\epsilon\\)\n- Moles of O₂ at equilibrium: \\(\\frac{\\epsilon}{2}\\)\n\nTotal moles at equilibrium:  \n\\[\n(1 - \\epsilon) + \\epsilon + \\frac{\\epsilon}{2} = 1 + \\frac{\\epsilon}{2}\n\\]\n\nMole fractions:\n\n\\[\nx_{\\text{CO}_2} = \\frac{1 - \\epsilon}{1 + \\epsilon/2}, \\quad\nx_{\\text{CO}} = \\frac{\\epsilon}{1 + \\epsilon/2}, \\quad\nx_{\\text{O}_2} = \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\nThe equilibrium constant expression:\n\n\\[\nK_p = \\frac{x_{\\text{CO}} \\cdot x_{\\text{O}_2}^{1/2}}{x_{\\text{CO}_2}} \\cdot P^{1/2}\n\\]\n\nSince \\(P = 1\\) atm, \\(P^{1/2} = 1\\), so:\n\n\\[\nK_p = \\frac{x_{\\text{CO}} \\cdot x_{\\text{O}_2}^{1/2}}{x_{\\text{CO}_2}}\n\\]\n\nSubstitute:\n\n\\[\n0.647 = \\frac{\\frac{\\epsilon}{1 + \\epsilon/2} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2}}{\\frac{1 - \\epsilon}{1 + \\epsilon/2}}\n\\]\n\nSimplify:\n\n\\[\n0.647 = \\frac{\\epsilon}{1 - \\epsilon} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2}\n\\]\n\nSquare both sides:\n\n\\[\n0.418609 = \\frac{\\epsilon^2}{(1 - \\epsilon)^2} \\cdot \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\n\\[\n0.418609 = \\frac{\\epsilon^3}{2(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\nMultiply denominator:\n\n\\[\n0.418609 = \\frac{\\epsilon^3}{2(1 - \\epsilon)^2 (1 + 0.5\\epsilon)}\n\\]\n\nTest \\(\\epsilon = 0.478\\):\n\n- Denominator: \\(2(1 - 0.478)^2 (1 + 0.239) = 2(0.522^2)(1.239) = 2(0.272484)(1.239) \\approx 0.675\\)\n- Numerator: \\(0.478^3 \\approx 0.1092\\)\n- Ratio: \\(0.1092 / 0.675 \\approx 0.1618\\) → too low.\n\nTest \\(\\epsilon = 0.678\\):\n\n- Denominator: \\(2(0.322^2)(1.339) = 2(0.103684)(1.339) \\approx 0.2777\\)\n- Numerator: \\(0.678^3 \\approx 0.3115\\)\n- Ratio: \\(0.3115 / 0.2777 \\approx 1.121\\) → too high.\n\nTest \\(\\epsilon = 0.578\\):\n\n- Denominator: \\(2(0.422^2)(1",
+  "finish_reason": "length",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.016928798002482
+  },
+  "response": {
+    "id": "cmpl-723",
+    "object": "text_completion",
+    "created": 1784241831,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We start with the reaction:\n\n\\[\n\\text{CO}_2 \\rightletharpoons \\text{CO} + \\frac{1}{2} \\text{O}_2\n\\]\n\nLet the initial amount of CO₂ be 1 mole. Let \\(\\epsilon\\) be the extent of reaction. Then:\n\n- Moles of CO₂ at equilibrium: \\(1 - \\epsilon\\)\n- Moles of CO at equilibrium: \\(\\epsilon\\)\n- Moles of O₂ at equilibrium: \\(\\frac{\\epsilon}{2}\\)\n\nTotal moles at equilibrium:  \n\\[\n(1 - \\epsilon) + \\epsilon + \\frac{\\epsilon}{2} = 1 + \\frac{\\epsilon}{2}\n\\]\n\nMole fractions:\n\n\\[\nx_{\\text{CO}_2} = \\frac{1 - \\epsilon}{1 + \\epsilon/2}, \\quad\nx_{\\text{CO}} = \\frac{\\epsilon}{1 + \\epsilon/2}, \\quad\nx_{\\text{O}_2} = \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\nThe equilibrium constant expression:\n\n\\[\nK_p = \\frac{x_{\\text{CO}} \\cdot x_{\\text{O}_2}^{1/2}}{x_{\\text{CO}_2}} \\cdot P^{1/2}\n\\]\n\nSince \\(P = 1\\) atm, \\(P^{1/2} = 1\\), so:\n\n\\[\nK_p = \\frac{x_{\\text{CO}} \\cdot x_{\\text{O}_2}^{1/2}}{x_{\\text{CO}_2}}\n\\]\n\nSubstitute:\n\n\\[\n0.647 = \\frac{\\frac{\\epsilon}{1 + \\epsilon/2} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2}}{\\frac{1 - \\epsilon}{1 + \\epsilon/2}}\n\\]\n\nSimplify:\n\n\\[\n0.647 = \\frac{\\epsilon}{1 - \\epsilon} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2}\n\\]\n\nSquare both sides:\n\n\\[\n0.418609 = \\frac{\\epsilon^2}{(1 - \\epsilon)^2} \\cdot \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\n\\[\n0.418609 = \\frac{\\epsilon^3}{2(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\nMultiply denominator:\n\n\\[\n0.418609 = \\frac{\\epsilon^3}{2(1 - \\epsilon)^2 (1 + 0.5\\epsilon)}\n\\]\n\nTest \\(\\epsilon = 0.478\\):\n\n- Denominator: \\(2(1 - 0.478)^2 (1 + 0.239) = 2(0.522^2)(1.239) = 2(0.272484)(1.239) \\approx 0.675\\)\n- Numerator: \\(0.478^3 \\approx 0.1092\\)\n- Ratio: \\(0.1092 / 0.675 \\approx 0.1618\\) → too low.\n\nTest \\(\\epsilon = 0.678\\):\n\n- Denominator: \\(2(0.322^2)(1.339) = 2(0.103684)(1.339) \\approx 0.2777\\)\n- Numerator: \\(0.678^3 \\approx 0.3115\\)\n- Ratio: \\(0.3115 / 0.2777 \\approx 1.121\\) → too high.\n\nTest \\(\\epsilon = 0.578\\):\n\n- Denominator: \\(2(0.422^2)(1",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 536,
+      "completion_tokens": 768,
+      "total_tokens": 1304,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 843.8,
+      "prefill_tokens": 536,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 636.3,
+      "decode_tok_s": 40.0,
+      "spec_accept_rate": 0.94,
+      "tok_per_step": 4.49
+    }
+  }
+}

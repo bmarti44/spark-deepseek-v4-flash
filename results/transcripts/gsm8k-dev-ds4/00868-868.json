@@ -1,0 +1,56 @@
+{
+  "index": 868,
+  "task_id": 868,
+  "rendered_prompt_sha256": "4f87a4e4f7a78a0c3213cdc607cca2aef167a6387f511ec778c947c2385e5d87",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, figure out how many total jello cups Greg needs:  \n30 kids × 4 cups each = 120 cups.\n\nEach box makes 10 cups, so he needs:  \n120 ÷ 10 = 12 boxes.\n\nEach box costs $1.25, so total cost:  \n12 × 1.25 = $15.\n\nAnswer: 15",
+  "finish_reason": "stop",
+  "expected": "15",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.033618875000684
+  },
+  "response": {
+    "id": "cmpl-43",
+    "object": "text_completion",
+    "created": 1784238750,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "First, figure out how many total jello cups Greg needs:  \n30 kids × 4 cups each = 120 cups.\n\nEach box makes 10 cups, so he needs:  \n120 ÷ 10 = 12 boxes.\n\nEach box costs $1.25, so total cost:  \n12 × 1.25 = $15.\n\nAnswer: 15",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 121,
+      "completion_tokens": 74,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 918.3,
+      "prefill_tokens": 121,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 132.4,
+      "decode_tok_s": 35.0,
+      "spec_accept_rate": 0.857,
+      "tok_per_step": 3.95
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>A three-ounce box of flavored jello makes 10 small jello cups.  Greg wants to make small jello cups for his son's outdoor birthday party.  There will be 30 kids and he wants to have enough so that each kid can have 4 jello cups.  Jello is currently on sale for $1.25.  How much will he spend on jello?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

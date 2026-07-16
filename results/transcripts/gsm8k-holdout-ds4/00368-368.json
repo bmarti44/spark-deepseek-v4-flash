@@ -1,0 +1,55 @@
+{
+  "index": 368,
+  "task_id": 368,
+  "rendered_prompt_sha256": "289df7368e9dc50b426908e1feacfb0654c872ff8c174e5b586ca2ca6370790f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n1. Sara scored 8 points.\n2. After scoring 14 points, Erin has three times more points than Sara.\n   \"Three times more\" means Erin's points = Sara's points × 3.\n   So after scoring 14, Erin has \\( 8 \\times 3 = 24 \\) points.\n3. Before scoring those 14 points, Erin had \\( 24 - 14 = 10 \\) points.\n\nAnswer: 10",
+  "finish_reason": "stop",
+  "expected": "18",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='10' expected='18'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.269081566999375
+  },
+  "response": {
+    "id": "cmpl-540",
+    "object": "text_completion",
+    "created": 1784240717,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n1. Sara scored 8 points.\n2. After scoring 14 points, Erin has three times more points than Sara.\n   \"Three times more\" means Erin's points = Sara's points × 3.\n   So after scoring 14, Erin has \\( 8 \\times 3 = 24 \\) points.\n3. Before scoring those 14 points, Erin had \\( 24 - 14 = 10 \\) points.\n\nAnswer: 10",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 67,
+      "completion_tokens": 101,
+      "total_tokens": 168,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 678.9,
+      "prefill_tokens": 67,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 98.9,
+      "decode_tok_s": 28.1,
+      "spec_accept_rate": 0.758,
+      "tok_per_step": 3.29
+    }
+  },
+  "used_fallback": false
+}

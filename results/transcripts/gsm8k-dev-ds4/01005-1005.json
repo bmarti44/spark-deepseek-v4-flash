@@ -1,0 +1,55 @@
+{
+  "index": 1005,
+  "task_id": 1005,
+  "rendered_prompt_sha256": "c0159bc1361f52700445e35327104286a976acafc0ad03b89187f168216672f8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Total population = 50 porcupines.  \n2. Number of females = \\( \\frac{3}{5} \\times 50 = 30 \\) females.  \n3. Each female gives birth to 4 babies per month.  \n   Total babies per month = \\( 30 \\times 4 = 120 \\).  \n4. Over 12 months, total babies born = \\( 120 \\times 12 = 1440 \\).  \n5. The original 50 porcupines are still there, so total after a year = \\( 50 + 1440 = 1490 \\).\n\nAnswer: 1490",
+  "finish_reason": "stop",
+  "expected": "1490",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.792143219998252
+  },
+  "response": {
+    "id": "cmpl-39",
+    "object": "text_completion",
+    "created": 1784238732,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Total population = 50 porcupines.  \n2. Number of females = \\( \\frac{3}{5} \\times 50 = 30 \\) females.  \n3. Each female gives birth to 4 babies per month.  \n   Total babies per month = \\( 30 \\times 4 = 120 \\).  \n4. Over 12 months, total babies born = \\( 120 \\times 12 = 1440 \\).  \n5. The original 50 porcupines are still there, so total after a year = \\( 50 + 1440 = 1490 \\).\n\nAnswer: 1490",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 97,
+      "completion_tokens": 142,
+      "total_tokens": 239,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 843.4,
+      "prefill_tokens": 97,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 115.3,
+      "decode_tok_s": 36.1,
+      "spec_accept_rate": 0.915,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

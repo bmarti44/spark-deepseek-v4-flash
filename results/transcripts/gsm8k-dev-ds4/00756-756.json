@@ -1,0 +1,55 @@
+{
+  "index": 756,
+  "task_id": 756,
+  "rendered_prompt_sha256": "ccde9fe0a468e31c7708b210db200d94453f32f9fd2622a7298a2bdb5b94b336",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let \\( f \\) be the number of votes in favor and \\( a \\) be the number of votes against.  \nWe know:  \n\\( f = 2a \\)  \nand  \n\\( f + a = 33 \\).  \n\nSubstitute:  \n\\( 2a + a = 33 \\)  \n\\( 3a = 33 \\)  \n\\( a = 11 \\)  \nThen \\( f = 2 \\times 11 = 22 \\).  \n\nAnswer: 22",
+  "finish_reason": "stop",
+  "expected": "22",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.234932844003197
+  },
+  "response": {
+    "id": "cmpl-78",
+    "object": "text_completion",
+    "created": 1784238886,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let \\( f \\) be the number of votes in favor and \\( a \\) be the number of votes against.  \nWe know:  \n\\( f = 2a \\)  \nand  \n\\( f + a = 33 \\).  \n\nSubstitute:  \n\\( 2a + a = 33 \\)  \n\\( 3a = 33 \\)  \n\\( a = 11 \\)  \nThen \\( f = 2 \\times 11 = 22 \\).  \n\nAnswer: 22",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 91,
+      "completion_tokens": 98,
+      "total_tokens": 189,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 761.8,
+      "prefill_tokens": 91,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 119.6,
+      "decode_tok_s": 39.7,
+      "spec_accept_rate": 0.962,
+      "tok_per_step": 4.5
+    }
+  },
+  "used_fallback": false
+}

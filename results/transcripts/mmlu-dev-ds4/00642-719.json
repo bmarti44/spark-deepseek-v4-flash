@@ -1,0 +1,54 @@
+{
+  "index": 642,
+  "task_id": 719,
+  "rendered_prompt_sha256": "6b3d8123161e0ab89d24f649dee05040fb5e5cec679ac4518d44dfd3016aef54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The declining-balance method applies a fixed rate to the book value at the beginning of each year. The rate is 40%, and the initial cost is $4,000.\n\nYear 1: $4,000 × 40% = $1,600  \nBook value after year 1: $4,000 - $1,600 = $2,400\n\nYear 2: $2,400 × 40% = $960  \nBook value: $2,400 - $960 = $1,440\n\nYear 3: $1,440 × 40% = $576  \nBook value: $1,440 - $576 = $864\n\nYear 4: $864 × 40% = $345.6  \nBook value: $864 - $345.6 = $518.4\n\nYear 5: $518.4 × 40% = $207.36  \nBook value: $518.4 - $207.36 = $311.04 (above salvage value of $800? No, wait—check: The salvage value is $800, so depreciation stops when book value reaches salvage value. Here, after year 5, book value is $311.04, which is below $800, so we must adjust year 5 depreciation to bring book value to $800.)\n\nActually, the correct declining-balance method stops when book value hits salvage value. After year 4, book value is $518.4, which is already below $800? No, $518.4 < $800, so we should have stopped earlier. Let's recalculate properly:\n\nYear 1: $4,000 × 40% = $1,600 → BV = $2,400  \nYear 2: $2,400 × 40% = $960 → BV = $1,440  \nYear 3: $1,440 × 40% = $576 → BV = $864  \nYear 4: $864 × 40% = $345.6 → BV = $518.4  \n\nAt the end of year 4, BV = $518.4, which is less than salvage value $800. So in year 4, we should only depreciate enough to bring BV to $800: $864 - $800 = $64 depreciation. Then year 5 depreciation = $0.\n\nThus the correct depreciation schedule: $1,600, $960, $576, $64, $0.\n\nThat matches option D.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.303370787005406
+  },
+  "response": {
+    "id": "cmpl-141",
+    "object": "text_completion",
+    "created": 1784239146,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The declining-balance method applies a fixed rate to the book value at the beginning of each year. The rate is 40%, and the initial cost is $4,000.\n\nYear 1: $4,000 × 40% = $1,600  \nBook value after year 1: $4,000 - $1,600 = $2,400\n\nYear 2: $2,400 × 40% = $960  \nBook value: $2,400 - $960 = $1,440\n\nYear 3: $1,440 × 40% = $576  \nBook value: $1,440 - $576 = $864\n\nYear 4: $864 × 40% = $345.6  \nBook value: $864 - $345.6 = $518.4\n\nYear 5: $518.4 × 40% = $207.36  \nBook value: $518.4 - $207.36 = $311.04 (above salvage value of $800? No, wait—check: The salvage value is $800, so depreciation stops when book value reaches salvage value. Here, after year 5, book value is $311.04, which is below $800, so we must adjust year 5 depreciation to bring book value to $800.)\n\nActually, the correct declining-balance method stops when book value hits salvage value. After year 4, book value is $518.4, which is already below $800? No, $518.4 < $800, so we should have stopped earlier. Let's recalculate properly:\n\nYear 1: $4,000 × 40% = $1,600 → BV = $2,400  \nYear 2: $2,400 × 40% = $960 → BV = $1,440  \nYear 3: $1,440 × 40% = $576 → BV = $864  \nYear 4: $864 × 40% = $345.6 → BV = $518.4  \n\nAt the end of year 4, BV = $518.4, which is less than salvage value $800. So in year 4, we should only depreciate enough to bring BV to $800: $864 - $800 = $64 depreciation. Then year 5 depreciation = $0.\n\nThus the correct depreciation schedule: $1,600, $960, $576, $64, $0.\n\nThat matches option D.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 328,
+      "completion_tokens": 517,
+      "total_tokens": 845,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 669.8,
+      "prefill_tokens": 328,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 491.0,
+      "decode_tok_s": 33.1,
+      "spec_accept_rate": 0.854,
+      "tok_per_step": 3.78
+    }
+  }
+}

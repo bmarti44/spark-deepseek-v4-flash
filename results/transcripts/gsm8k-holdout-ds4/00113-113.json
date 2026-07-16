@@ -1,0 +1,55 @@
+{
+  "index": 113,
+  "task_id": 113,
+  "rendered_prompt_sha256": "9263234971fbeec0f950eab096c7c5b2df7867223d3e5f3de1685cc89f14bbf0",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Ryan plants 2 flowers each day for 15 days, so the total planted is \\( 2 \\times 15 = 30 \\) flowers.  \nIf 5 did not grow, then the number that grew is \\( 30 - 5 = 25 \\).  \n\nAnswer: 25",
+  "finish_reason": "stop",
+  "expected": "25",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.3180237130000023
+  },
+  "response": {
+    "id": "cmpl-582",
+    "object": "text_completion",
+    "created": 1784240881,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Ryan plants 2 flowers each day for 15 days, so the total planted is \\( 2 \\times 15 = 30 \\) flowers.  \nIf 5 did not grow, then the number that grew is \\( 30 - 5 = 25 \\).  \n\nAnswer: 25",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 67,
+      "completion_tokens": 60,
+      "total_tokens": 127,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 643.9,
+      "prefill_tokens": 67,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 104.3,
+      "decode_tok_s": 35.9,
+      "spec_accept_rate": 0.88,
+      "tok_per_step": 4.07
+    }
+  },
+  "used_fallback": false
+}

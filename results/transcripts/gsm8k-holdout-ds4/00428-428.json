@@ -1,0 +1,55 @@
+{
+  "index": 428,
+  "task_id": 428,
+  "rendered_prompt_sha256": "af63aa763f41e376eaf6a409c538e2f6ee32e3a9c448aef4f367ace1941100e2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- The caterer prepared for 36 guests.  \n- He made enough for half of those guests to have two hotdogs.  \n- Half of 36 is 18, so he prepared 18 extra hotdogs beyond the first one per guest.  \n- That means total hotdogs = 36 (first ones) + 18 (extras) = 54 hotdogs.  \n\n- 40 guests showed up.  \n- Everyone wanted a second hotdog, so total needed = 40 first hotdogs + 40 second hotdogs = 80 hotdogs.  \n\n- He only had 54 hotdogs, so 80 − 54 = 26 hotdogs short.  \n- Since each missing hotdog means one guest didn’t get a second, 26 guests did not get a second hotdog.\n\nAnswer: 26",
+  "finish_reason": "stop",
+  "expected": "26",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.934307055998943
+  },
+  "response": {
+    "id": "cmpl-561",
+    "object": "text_completion",
+    "created": 1784240798,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- The caterer prepared for 36 guests.  \n- He made enough for half of those guests to have two hotdogs.  \n- Half of 36 is 18, so he prepared 18 extra hotdogs beyond the first one per guest.  \n- That means total hotdogs = 36 (first ones) + 18 (extras) = 54 hotdogs.  \n\n- 40 guests showed up.  \n- Everyone wanted a second hotdog, so total needed = 40 first hotdogs + 40 second hotdogs = 80 hotdogs.  \n\n- He only had 54 hotdogs, so 80 − 54 = 26 hotdogs short.  \n- Since each missing hotdog means one guest didn’t get a second, 26 guests did not get a second hotdog.\n\nAnswer: 26",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 181,
+      "total_tokens": 290,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 835.8,
+      "prefill_tokens": 109,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 130.6,
+      "decode_tok_s": 29.7,
+      "spec_accept_rate": 0.804,
+      "tok_per_step": 3.43
+    }
+  },
+  "used_fallback": false
+}

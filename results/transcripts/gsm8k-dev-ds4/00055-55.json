@@ -1,0 +1,55 @@
+{
+  "index": 55,
+  "task_id": 55,
+  "rendered_prompt_sha256": "bced8f08aa4034196776c3c19e365eb654cd1ee4006141e68690e607d3feb051",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jean starts with 30 lollipops. After eating 2, she has 28 left.  \nShe puts 2 lollipops in each bag.  \n28 divided by 2 equals 14.  \n\nAnswer: 14",
+  "finish_reason": "stop",
+  "expected": "14",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.4408390069984307
+  },
+  "response": {
+    "id": "cmpl-31",
+    "object": "text_completion",
+    "created": 1784238695,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Jean starts with 30 lollipops. After eating 2, she has 28 left.  \nShe puts 2 lollipops in each bag.  \n28 divided by 2 equals 14.  \n\nAnswer: 14",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 87,
+      "completion_tokens": 49,
+      "total_tokens": 136,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 751.3,
+      "prefill_tokens": 87,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.1,
+      "decode_tok_s": 29.2,
+      "spec_accept_rate": 0.81,
+      "tok_per_step": 3.57
+    }
+  },
+  "used_fallback": false
+}

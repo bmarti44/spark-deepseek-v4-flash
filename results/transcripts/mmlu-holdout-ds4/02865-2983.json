@@ -1,0 +1,54 @@
+{
+  "index": 2865,
+  "task_id": 2983,
+  "rendered_prompt_sha256": "6fa110c3077404fdb80c224d85365f2a7953d4ee9f6d3f67ba78a04e311d65e1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "I\n\nThe correct answer is I. The behavior is an evolutionary adaptation that has been selected for because it increases the male's chances of successful mating, likely by demonstrating the male's fitness or providing a nuptial gift.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8511219060019357
+  },
+  "response": {
+    "id": "cmpl-632",
+    "object": "text_completion",
+    "created": 1784241064,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "I\n\nThe correct answer is I. The behavior is an evolutionary adaptation that has been selected for because it increases the male's chances of successful mating, likely by demonstrating the male's fitness or providing a nuptial gift.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 248,
+      "completion_tokens": 48,
+      "total_tokens": 296,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 589.5,
+      "prefill_tokens": 248,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 421.8,
+      "decode_tok_s": 21.2,
+      "spec_accept_rate": 0.587,
+      "tok_per_step": 2.45
+    }
+  }
+}

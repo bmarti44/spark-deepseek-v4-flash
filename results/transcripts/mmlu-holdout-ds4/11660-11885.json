@@ -1,0 +1,54 @@
+{
+  "index": 11660,
+  "task_id": 11885,
+  "rendered_prompt_sha256": "200ba2d0e1ed46afd0945f5a1323fe4fd8d83e22abd39e302fd9a7b942812177",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the shrinking core model for a spherical particle under diffusion control.\n\n**Given:**\n- Initial diameter \\( d_0 = 2.0 \\times 10^{-4} \\, \\text{m} \\) → initial radius \\( R_0 = 1.0 \\times 10^{-4} \\, \\text{m} \\)\n- Final diameter \\( d_f = 8.0 \\times 10^{-5} \\, \\text{m} \\) → final radius \\( R_f = 4.0 \\times 10^{-5} \\, \\text{m} \\)\n- Density of carbon: \\( \\rho = 1.35 \\times 10^3 \\, \\text{kg/m}^3 \\)\n- Diffusivity: \\( D = 1.5 \\times 10^{-4} \\, \\text{m}^2/\\text{s} \\)\n- Temperature: 1200 K (but not needed if we assume concentration driving force is constant)\n- Reaction: \\( \\text{C} + \\frac{1}{2} \\text{O}_2 \\rightarrow \\text{CO} \\)\n\nFor diffusion-controlled shrinking of a sphere, the time to reduce radius from \\( R_0 \\) to \\( R_f \\) is:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 D \\, C_{O_2,\\text{bulk}}}\n\\left[ \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right)^2 - \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right)^3 + \\frac{1}{3} \\right]\n\\]\n\nBut here we need the bulk concentration of oxygen. In air at 1200 K, mole fraction of O₂ ≈ 0.21.  \nUsing ideal gas law:  \n\\( C_{O_2} = \\frac{P y_{O_2}}{RT} = \\frac{101325 \\times 0.21}{8.314 \\times 1200} \\approx 2.13 \\, \\text{mol/m}^3 \\)\n\nBut we need mass concentration for stoichiometry:  \n1 mol C reacts with 0.5 mol O₂.  \nMass of carbon per mole: 12 g.  \nSo mass of carbon consumed per mole O₂ = \\( 0.5 \\times 32 = 16 \\, \\text{g} \\) O₂? Wait, careful:  \nFor 1 mol C → 1 mol CO, requires 0.5 mol O₂.  \nMass of C = 12 g, mass of O₂ used = 16 g.  \nSo mass ratio O₂:C = 16/12 = 1.333.\n\nThus, for diffusion control, the effective concentration driving force in terms of carbon conversion:\n\n\\[\nC_{O_2,\\text{bulk}} = 2.13 \\, \\text{mol/m}^3 \\times 32 \\, \\text{g/mol} = 68.16 \\, \\text{g/m}^3\n\\]\n\nConvert to kg/m³: 0.06816 kg/m³.\n\nBut the shrinking model uses:\n\n\\[\nt = \\frac{\\rho R_0^2}{6 D \\, C_{O_2,\\text{bulk}} / \\text{stoich factor}}\n\\]\n\nActually, the standard formula for a spherical particle under external diffusion control with stoichiometric coefficient ν (moles of solid per mole of gas) is:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 \\nu D C_{g}}\n\\left[ \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right",
+  "finish_reason": "length",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 39.04071227199893
+  },
+  "response": {
+    "id": "cmpl-720",
+    "object": "text_completion",
+    "created": 1784241765,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this using the shrinking core model for a spherical particle under diffusion control.\n\n**Given:**\n- Initial diameter \\( d_0 = 2.0 \\times 10^{-4} \\, \\text{m} \\) → initial radius \\( R_0 = 1.0 \\times 10^{-4} \\, \\text{m} \\)\n- Final diameter \\( d_f = 8.0 \\times 10^{-5} \\, \\text{m} \\) → final radius \\( R_f = 4.0 \\times 10^{-5} \\, \\text{m} \\)\n- Density of carbon: \\( \\rho = 1.35 \\times 10^3 \\, \\text{kg/m}^3 \\)\n- Diffusivity: \\( D = 1.5 \\times 10^{-4} \\, \\text{m}^2/\\text{s} \\)\n- Temperature: 1200 K (but not needed if we assume concentration driving force is constant)\n- Reaction: \\( \\text{C} + \\frac{1}{2} \\text{O}_2 \\rightarrow \\text{CO} \\)\n\nFor diffusion-controlled shrinking of a sphere, the time to reduce radius from \\( R_0 \\) to \\( R_f \\) is:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 D \\, C_{O_2,\\text{bulk}}}\n\\left[ \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right)^2 - \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right)^3 + \\frac{1}{3} \\right]\n\\]\n\nBut here we need the bulk concentration of oxygen. In air at 1200 K, mole fraction of O₂ ≈ 0.21.  \nUsing ideal gas law:  \n\\( C_{O_2} = \\frac{P y_{O_2}}{RT} = \\frac{101325 \\times 0.21}{8.314 \\times 1200} \\approx 2.13 \\, \\text{mol/m}^3 \\)\n\nBut we need mass concentration for stoichiometry:  \n1 mol C reacts with 0.5 mol O₂.  \nMass of carbon per mole: 12 g.  \nSo mass of carbon consumed per mole O₂ = \\( 0.5 \\times 32 = 16 \\, \\text{g} \\) O₂? Wait, careful:  \nFor 1 mol C → 1 mol CO, requires 0.5 mol O₂.  \nMass of C = 12 g, mass of O₂ used = 16 g.  \nSo mass ratio O₂:C = 16/12 = 1.333.\n\nThus, for diffusion control, the effective concentration driving force in terms of carbon conversion:\n\n\\[\nC_{O_2,\\text{bulk}} = 2.13 \\, \\text{mol/m}^3 \\times 32 \\, \\text{g/mol} = 68.16 \\, \\text{g/m}^3\n\\]\n\nConvert to kg/m³: 0.06816 kg/m³.\n\nBut the shrinking model uses:\n\n\\[\nt = \\frac{\\rho R_0^2}{6 D \\, C_{O_2,\\text{bulk}} / \\text{stoich factor}}\n\\]\n\nActually, the standard formula for a spherical particle under external diffusion control with stoichiometric coefficient ν (moles of solid per mole of gas) is:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 \\nu D C_{g}}\n\\left[ \\frac{1}{2} \\left( \\frac{R_f}{R_0} \\right",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 236,
+      "completion_tokens": 768,
+      "total_tokens": 1004,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 575.0,
+      "prefill_tokens": 236,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 411.4,
+      "decode_tok_s": 19.9,
+      "spec_accept_rate": 0.471,
+      "tok_per_step": 1.01
+    }
+  }
+}

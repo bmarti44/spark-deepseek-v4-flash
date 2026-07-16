@@ -1,0 +1,54 @@
+{
+  "index": 1234,
+  "task_id": 1318,
+  "rendered_prompt_sha256": "6e1db9f4f62025381b758ad909a810fccf6e7bc13f3239f25be320e145d60abc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: I\n\nExplanation: The witness's testimony about a prior similar incident is admissible to show that the restaurant had notice or knowledge of the dangerous condition (the risk of frostbite from its soft drinks). This is a classic use of prior similar incidents to prove negligence—specifically, to show that the defendant knew or should have known of the hazard. The testimony is not hearsay (the witness is testifying to her own experience), and it is relevant to the issue of negligence, not merely character or unrelated transactions. While it may also be relevant to damages, its primary probative value here is to establish notice/knowledge, which is a key element of negligence. Thus, option I best captures this reasoning.",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.7788932629991905
+  },
+  "response": {
+    "id": "cmpl-762",
+    "object": "text_completion",
+    "created": 1784241976,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: I\n\nExplanation: The witness's testimony about a prior similar incident is admissible to show that the restaurant had notice or knowledge of the dangerous condition (the risk of frostbite from its soft drinks). This is a classic use of prior similar incidents to prove negligence—specifically, to show that the defendant knew or should have known of the hazard. The testimony is not hearsay (the witness is testifying to her own experience), and it is relevant to the issue of negligence, not merely character or unrelated transactions. While it may also be relevant to damages, its primary probative value here is to establish notice/knowledge, which is a key element of negligence. Thus, option I best captures this reasoning.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 353,
+      "completion_tokens": 145,
+      "total_tokens": 498,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 688.0,
+      "prefill_tokens": 353,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 514.3,
+      "decode_tok_s": 23.8,
+      "spec_accept_rate": 0.65,
+      "tok_per_step": 2.65
+    }
+  }
+}

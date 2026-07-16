@@ -1,0 +1,55 @@
+{
+  "index": 932,
+  "task_id": 932,
+  "rendered_prompt_sha256": "4ce5b2b673f0a57fc3744f0c9f8774e4abc7a58e08516ea0dc19dffb95963868",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nMaria invited 4 friends, so there are 5 girls total (Maria + 4 friends).\n\nAt the start:\n- Each friend gets 2 balloons → 4 × 2 = 8 balloons for friends.\n- Maria has 1 balloon for herself.\n- Total so far: 8 + 1 = 9 balloons.\n\nThen her mom gives each person 3 more balloons:\n- There are 5 people, so 5 × 3 = 15 additional balloons.\n\nTotal balloons: 9 + 15 = 24.\n\nAnswer: 24",
+  "finish_reason": "stop",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.3438888669988955
+  },
+  "response": {
+    "id": "cmpl-111",
+    "object": "text_completion",
+    "created": 1784239023,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nMaria invited 4 friends, so there are 5 girls total (Maria + 4 friends).\n\nAt the start:\n- Each friend gets 2 balloons → 4 × 2 = 8 balloons for friends.\n- Maria has 1 balloon for herself.\n- Total so far: 8 + 1 = 9 balloons.\n\nThen her mom gives each person 3 more balloons:\n- There are 5 people, so 5 × 3 = 15 additional balloons.\n\nTotal balloons: 9 + 15 = 24.\n\nAnswer: 24",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 123,
+      "total_tokens": 229,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 850.4,
+      "prefill_tokens": 106,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.0,
+      "decode_tok_s": 35.3,
+      "spec_accept_rate": 0.835,
+      "tok_per_step": 4.0
+    }
+  },
+  "used_fallback": false
+}

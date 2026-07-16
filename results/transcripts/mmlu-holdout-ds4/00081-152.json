@@ -1,0 +1,54 @@
+{
+  "index": 81,
+  "task_id": 152,
+  "rendered_prompt_sha256": "127ca805966b401159dd4040f87a4b763b65c8d11d88b1f8434845d0e8f49eb7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n**Step 1: Calculate the first discount (15%)**  \nInvoice amount: $416.50  \nDiscount: 15% of $416.50 = 0.15 × 416.50 = $62.475  \nAmount after first discount: $416.50 - $62.475 = $354.025\n\n**Step 2: Calculate the second discount (2½%)**  \n2½% = 2.5% = 0.025  \nDiscount on $354.025: 0.025 × 354.025 = $8.850625  \nAmount after both discounts: $354.025 - $8.850625 = $345.174375\n\n**Step 3: Apply the cash discount terms**  \nTerms: 2% 10-EOM  \nInvoice date: March 2  \nEOM = End of month → March 31  \n10-EOM means discount period ends 10 days after month end → April 10  \nPaid on April 10 → within discount period, so 2% off applies.\n\n2% of $345.174375 = 0.02 × 345.174375 = $6.9034875  \nAmount remitted: $345.174375 - $6.9034875 = $338.2708875\n\nRounded to two decimals: **$338.27**\n\n**Answer:** E\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.978730886999983
+  },
+  "response": {
+    "id": "cmpl-644",
+    "object": "text_completion",
+    "created": 1784241116,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n**Step 1: Calculate the first discount (15%)**  \nInvoice amount: $416.50  \nDiscount: 15% of $416.50 = 0.15 × 416.50 = $62.475  \nAmount after first discount: $416.50 - $62.475 = $354.025\n\n**Step 2: Calculate the second discount (2½%)**  \n2½% = 2.5% = 0.025  \nDiscount on $354.025: 0.025 × 354.025 = $8.850625  \nAmount after both discounts: $354.025 - $8.850625 = $345.174375\n\n**Step 3: Apply the cash discount terms**  \nTerms: 2% 10-EOM  \nInvoice date: March 2  \nEOM = End of month → March 31  \n10-EOM means discount period ends 10 days after month end → April 10  \nPaid on April 10 → within discount period, so 2% off applies.\n\n2% of $345.174375 = 0.02 × 345.174375 = $6.9034875  \nAmount remitted: $345.174375 - $6.9034875 = $338.2708875\n\nRounded to two decimals: **$338.27**\n\n**Answer:** E\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 156,
+      "completion_tokens": 299,
+      "total_tokens": 455,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 856.3,
+      "prefill_tokens": 156,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 182.4,
+      "decode_tok_s": 32.8,
+      "spec_accept_rate": 0.83,
+      "tok_per_step": 3.61
+    }
+  }
+}

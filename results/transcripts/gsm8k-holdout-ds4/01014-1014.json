@@ -1,0 +1,55 @@
+{
+  "index": 1014,
+  "task_id": 1014,
+  "rendered_prompt_sha256": "900723eb91959e0ff8338fca0b22d93faec39688082dd8427061997941404d43",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\nFirst, calculate the total cost of the fruits already purchased:\n\n- 3 peaches at $0.50 each = 3 × 0.50 = $1.50  \n- 4 pears at $0.50 each = 4 × 0.50 = $2.00  \n- 2 kiwis at $1.00 each = 2 × 1.00 = $2.00  \n- 5 apples at $0.75 each = 5 × 0.75 = $3.75  \n\nAdd them up:  \n1.50 + 2.00 + 2.00 + 3.75 = $9.25\n\nHe started with $10.00, so remaining money:  \n10.00 - 9.25 = $0.75\n\nPlums cost $0.25 each, so with $0.75 he can buy:  \n0.75 ÷ 0.25 = 3 plums.\n\nAnswer: 3",
+  "finish_reason": "stop",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.578675131997443
+  },
+  "response": {
+    "id": "cmpl-625",
+    "object": "text_completion",
+    "created": 1784241044,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\nFirst, calculate the total cost of the fruits already purchased:\n\n- 3 peaches at $0.50 each = 3 × 0.50 = $1.50  \n- 4 pears at $0.50 each = 4 × 0.50 = $2.00  \n- 2 kiwis at $1.00 each = 2 × 1.00 = $2.00  \n- 5 apples at $0.75 each = 5 × 0.75 = $3.75  \n\nAdd them up:  \n1.50 + 2.00 + 2.00 + 3.75 = $9.25\n\nHe started with $10.00, so remaining money:  \n10.00 - 9.25 = $0.75\n\nPlums cost $0.25 each, so with $0.75 he can buy:  \n0.75 ÷ 0.25 = 3 plums.\n\nAnswer: 3",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "completion_tokens": 214,
+      "total_tokens": 339,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 941.8,
+      "prefill_tokens": 125,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 133.0,
+      "decode_tok_s": 38.0,
+      "spec_accept_rate": 0.89,
+      "tok_per_step": 4.22
+    }
+  },
+  "used_fallback": false
+}

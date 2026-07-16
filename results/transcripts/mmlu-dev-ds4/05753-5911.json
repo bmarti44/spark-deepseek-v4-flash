@@ -1,0 +1,54 @@
+{
+  "index": 5753,
+  "task_id": 5911,
+  "rendered_prompt_sha256": "ff4969254733fd17fa0927b82e18c7c70302748f6739dad8bc161e409679272b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: D\n\nExplanation: Under accounting standards (e.g., IFRS or GAAP), research and development costs are expensed as incurred. The labor and material costs for the prototype ($100,000) and the cost of testing the prototype ($40,000) are research and development costs. The legal costs to file a patent ($5,000) are capitalized as an intangible asset once the patent is granted, not expensed as R&D. Therefore, the total R&D expense is $100,000 + $40,000 = $140,000.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.627369314999669
+  },
+  "response": {
+    "id": "cmpl-307",
+    "object": "text_completion",
+    "created": 1784240033,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: D\n\nExplanation: Under accounting standards (e.g., IFRS or GAAP), research and development costs are expensed as incurred. The labor and material costs for the prototype ($100,000) and the cost of testing the prototype ($40,000) are research and development costs. The legal costs to file a patent ($5,000) are capitalized as an intangible asset once the patent is granted, not expensed as R&D. Therefore, the total R&D expense is $100,000 + $40,000 = $140,000.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 117,
+      "total_tokens": 286,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 934.0,
+      "prefill_tokens": 169,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 181.3,
+      "decode_tok_s": 31.7,
+      "spec_accept_rate": 0.806,
+      "tok_per_step": 3.58
+    }
+  }
+}

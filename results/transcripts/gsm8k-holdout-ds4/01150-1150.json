@@ -1,0 +1,55 @@
+{
+  "index": 1150,
+  "task_id": 1150,
+  "rendered_prompt_sha256": "058379c874559bdae130bfc166d4bd0b90b3ff908a3e7f7009c418a5a3d6d5fe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Patricia started with 30 roses. She gave 24 away, so she had 30 - 24 = 6 roses left. Then she bought 15 more, so she had 6 + 15 = 21 roses.\n\nAnswer: 21",
+  "finish_reason": "stop",
+  "expected": "21",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.0040718689997448
+  },
+  "response": {
+    "id": "cmpl-586",
+    "object": "text_completion",
+    "created": 1784240896,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Patricia started with 30 roses. She gave 24 away, so she had 30 - 24 = 6 roses left. Then she bought 15 more, so she had 6 + 15 = 21 roses.\n\nAnswer: 21",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 52,
+      "total_tokens": 122,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 656.8,
+      "prefill_tokens": 70,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.8,
+      "decode_tok_s": 38.6,
+      "spec_accept_rate": 0.907,
+      "tok_per_step": 4.42
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,56 @@
+{
+  "index": 706,
+  "task_id": 706,
+  "rendered_prompt_sha256": "d3dbe09474a2ea336c544ea72ad572ef0b92eed6672b90e483fe5fb2433094e8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down.\n\nThey raised $2100 in 3 hours, so the rate is:\n\n\\[\n\\frac{2100}{3} = 700 \\text{ dollars per hour}\n\\]\n\nTheir goal is $6300. They already have $2100, so they need:\n\n\\[\n6300 - 2100 = 4200 \\text{ more dollars}\n\\]\n\nAt $700 per hour, the additional time needed is:\n\n\\[\n\\frac{4200}{700} = 6 \\text{ hours}\n\\]\n\nTotal time including the first 3 hours:\n\n\\[\n3 + 6 = 9 \\text{ hours}\n\\]\n\nAnswer: 9",
+  "finish_reason": "stop",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.550323031995504
+  },
+  "response": {
+    "id": "cmpl-98",
+    "object": "text_completion",
+    "created": 1784238971,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down.\n\nThey raised $2100 in 3 hours, so the rate is:\n\n\\[\n\\frac{2100}{3} = 700 \\text{ dollars per hour}\n\\]\n\nTheir goal is $6300. They already have $2100, so they need:\n\n\\[\n6300 - 2100 = 4200 \\text{ more dollars}\n\\]\n\nAt $700 per hour, the additional time needed is:\n\n\\[\n\\frac{4200}{700} = 6 \\text{ hours}\n\\]\n\nTotal time including the first 3 hours:\n\n\\[\n3 + 6 = 9 \\text{ hours}\n\\]\n\nAnswer: 9",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 137,
+      "total_tokens": 238,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 848.8,
+      "prefill_tokens": 101,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 119.2,
+      "decode_tok_s": 37.0,
+      "spec_accept_rate": 0.92,
+      "tok_per_step": 4.18
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>The local firefighters are doing a “fill the boot” fundraiser. Their goal is to raise $6300. After the first 3 hours, they have raised $2100.  For how many hours do they have to fundraise in total to reach their goal, assuming an equal amount raised in every hour?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

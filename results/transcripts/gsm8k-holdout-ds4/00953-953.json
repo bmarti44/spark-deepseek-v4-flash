@@ -1,0 +1,55 @@
+{
+  "index": 953,
+  "task_id": 953,
+  "rendered_prompt_sha256": "ecb7184e08a1007e9cf06e2bcd09ceece1df5e7c41ab5edfe4880e0fe6dc5c78",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Kim normally sleeps from 10 p.m. to 6 a.m., which is 8 hours = 480 minutes.\n\nOn that day, she woke up 5 minutes earlier than usual to go to the bathroom, so she woke up at 5:55 a.m. instead of 6:00 a.m. That means her sleep ended 5 minutes earlier.\n\nAlso, she was sleepwalking from 2:15 to 2:38 a.m., which is 23 minutes. During that time, she was not in bed.\n\nSo, total time in bed = normal sleep time minus early wake-up time minus sleepwalking time.\n\nNormal sleep: 480 minutes  \nEarly wake-up: 5 minutes  \nSleepwalking: 23 minutes  \n\nTotal in bed = 480 - 5 - 23 = 452 minutes.\n\nAnswer: 452",
+  "finish_reason": "stop",
+  "expected": "452",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.017335233998892
+  },
+  "response": {
+    "id": "cmpl-531",
+    "object": "text_completion",
+    "created": 1784240680,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Kim normally sleeps from 10 p.m. to 6 a.m., which is 8 hours = 480 minutes.\n\nOn that day, she woke up 5 minutes earlier than usual to go to the bathroom, so she woke up at 5:55 a.m. instead of 6:00 a.m. That means her sleep ended 5 minutes earlier.\n\nAlso, she was sleepwalking from 2:15 to 2:38 a.m., which is 23 minutes. During that time, she was not in bed.\n\nSo, total time in bed = normal sleep time minus early wake-up time minus sleepwalking time.\n\nNormal sleep: 480 minutes  \nEarly wake-up: 5 minutes  \nSleepwalking: 23 minutes  \n\nTotal in bed = 480 - 5 - 23 = 452 minutes.\n\nAnswer: 452",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 176,
+      "total_tokens": 324,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 929.1,
+      "prefill_tokens": 148,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 159.6,
+      "decode_tok_s": 34.6,
+      "spec_accept_rate": 0.868,
+      "tok_per_step": 4.02
+    }
+  },
+  "used_fallback": false
+}

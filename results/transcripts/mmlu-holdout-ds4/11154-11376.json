@@ -1,0 +1,54 @@
+{
+  "index": 11154,
+  "task_id": 11376,
+  "rendered_prompt_sha256": "110e2e4ede8c63683cb77ef96fa35b0eec7bb8c202e5c95a14156001261288af",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can find the maximum pressure (stagnation pressure) using the formula:\n\n\\[\np_t = p_0 + \\frac{1}{2} \\rho V^2\n\\]\n\nFirst, convert 200 mph to ft/s:  \n\\( 200 \\text{ mph} \\times \\1.46667 = 293.33 \\text{ ft/s} \\)\n\nDynamic pressure:  \n\\[\nq = \\frac{1}{2} \\times 0.00238 \\times (293.33)^2\n\\]  \n\\[\nq = 0.5 \\times 0.00238 \\times 86044.4 \\approx 102.4 \\text{ lb/ft}^2\n\\]\n\nConvert to psi (1 psi = 144 psf):  \n\\[\nq \\approx \\frac{102.4}{144} \\approx 0.711 \\text{ psi}\n\\]\n\nStagnation pressure:  \n\\[\np_t = 14.7 + 0.711 \\approx 15.411 \\text{ psia}\n\\]\n\nClosest match is **15.42 psia**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.731773950996285
+  },
+  "response": {
+    "id": "cmpl-710",
+    "object": "text_completion",
+    "created": 1784241549,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can find the maximum pressure (stagnation pressure) using the formula:\n\n\\[\np_t = p_0 + \\frac{1}{2} \\rho V^2\n\\]\n\nFirst, convert 200 mph to ft/s:  \n\\( 200 \\text{ mph} \\times \\1.46667 = 293.33 \\text{ ft/s} \\)\n\nDynamic pressure:  \n\\[\nq = \\frac{1}{2} \\times 0.00238 \\times (293.33)^2\n\\]  \n\\[\nq = 0.5 \\times 0.00238 \\times 86044.4 \\approx 102.4 \\text{ lb/ft}^2\n\\]\n\nConvert to psi (1 psi = 144 psf):  \n\\[\nq \\approx \\frac{102.4}{144} \\approx 0.711 \\text{ psi}\n\\]\n\nStagnation pressure:  \n\\[\np_t = 14.7 + 0.711 \\approx 15.411 \\text{ psia}\n\\]\n\nClosest match is **15.42 psia**.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 161,
+      "completion_tokens": 234,
+      "total_tokens": 395,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 879.7,
+      "prefill_tokens": 161,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 183.3,
+      "decode_tok_s": 34.2,
+      "spec_accept_rate": 0.854,
+      "tok_per_step": 3.73
+    }
+  }
+}

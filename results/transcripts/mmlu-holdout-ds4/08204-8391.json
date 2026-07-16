@@ -1,0 +1,54 @@
+{
+  "index": 8204,
+  "task_id": 8391,
+  "rendered_prompt_sha256": "3c6bf6cd6013a4f7534c06c579cefaa920f25ab920415a5b94073093dcb53a8d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are told the rectangle has length \\(3x\\) and width \\(x+5\\).  \nArea = \\(3x(x+5)\\)  \nPerimeter = \\(2(3x + x+5) = 2(4x+5) = 8x+10\\)  \n\nSet area equal to perimeter:  \n\\[\n3x(x+5) = 8x + 10\n\\]  \n\\[\n3x^2 + 15x = 8x + 10\n\\]  \n\\[\n3x^2 + 7x - 10 = 0\n\\]  \n\nSolve:  \n\\[\nx = \\frac{-7 \\pm \\sqrt{49 + 120}}{6} = \\frac{-7 \\pm \\sqrt{169}}{6} = \\frac{-7 \\pm 13}{6}\n\\]  \nPositive solution:  \n\\[\nx = \\frac{6}{6} = 1\n\\]  \n\nThus \\(x = 1\\), which corresponds to option F.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.9613981310030795
+  },
+  "response": {
+    "id": "cmpl-786",
+    "object": "text_completion",
+    "created": 1784242125,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We are told the rectangle has length \\(3x\\) and width \\(x+5\\).  \nArea = \\(3x(x+5)\\)  \nPerimeter = \\(2(3x + x+5) = 2(4x+5) = 8x+10\\)  \n\nSet area equal to perimeter:  \n\\[\n3x(x+5) = 8x + 10\n\\]  \n\\[\n3x^2 + 15x = 8x + 10\n\\]  \n\\[\n3x^2 + 7x - 10 = 0\n\\]  \n\nSolve:  \n\\[\nx = \\frac{-7 \\pm \\sqrt{49 + 120}}{6} = \\frac{-7 \\pm \\sqrt{169}}{6} = \\frac{-7 \\pm 13}{6}\n\\]  \nPositive solution:  \n\\[\nx = \\frac{6}{6} = 1\n\\]  \n\nThus \\(x = 1\\), which corresponds to option F.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "completion_tokens": 210,
+      "total_tokens": 349,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 821.4,
+      "prefill_tokens": 139,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 169.5,
+      "decode_tok_s": 40.9,
+      "spec_accept_rate": 0.936,
+      "tok_per_step": 4.49
+    }
+  }
+}

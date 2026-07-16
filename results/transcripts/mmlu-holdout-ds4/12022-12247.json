@@ -1,0 +1,54 @@
+{
+  "index": 12022,
+  "task_id": 12247,
+  "rendered_prompt_sha256": "90586ff46b87ed2d11e0d7fcc02101ad968105a226671e0c396f775b06479f3e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to calculate the heat loss per unit length from the pipe and then find the steam condensed.\n\n**Step 1: Pipe dimensions**  \n1½ inch schedule 40 pipe:  \n- Outside diameter: 1.9 inches = 0.15833 ft  \n- Inside diameter: 1.61 inches = 0.13417 ft  \n- Wall thickness: 0.145 inches  \n\n**Step 2: Steam conditions**  \nSaturated steam at 100 psia:  \n- Temperature = 338°F (from steam tables)  \n- Latent heat = about 880 Btu/lb (approx.)\n\n**Step 3: Heat transfer**  \nOutside surface area per foot:  \nA = π × D × L = π × 0.15833 × 1 = 0.4975 ft²/ft  \n\nHeat loss by convection + radiation:  \n- Convection coefficient: h_c = 2.0 Btu/hr·ft²·°F  \n- Radiation: pipe as gray body, emissivity ~0.95 (typical for oxidized steel)  \n  Radiation coefficient: h_r ≈ ε × σ × (T_s² + T_a²)(T_s + T_a)  \n  T_s = 338°F = 798°R, T_a = 50°F = 510°R  \n  h_r ≈ 0.95 × 0.1714×10⁻⁸ × (798²+510²)(798+510)  \n  Compute:  \n  798² = 636804, 510² = 260100, sum = 896904  \n  798+510 = 1308  \n  product = 896904 × 1308 = 1.173×10⁹  \n  times 0.1714×10⁻⁸ = about 2.01  \n  times 0.95 ≈ 1.91 Btu/hr·ft²·°F  \n\nTotal h = 2.0 + 1.91 = 3.91 Btu/hr·ft²·°F  \n\nΔT = 338 - 50 = 288°F  \n\nHeat loss per foot:  \nQ = h × A × ΔT = 3.91 × 0.4975 × 288 ≈ 560 Btu/hr-ft  \n\n**Step 4: Steam condensed**  \nm = Q / h_fg = 560 / 880 ≈ 0.636 lb/hr-ft  \n\nClosest to 0.65 lb/hr-ft.\n\n**Answer: A**  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='J'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.035963480004284
+  },
+  "response": {
+    "id": "cmpl-727",
+    "object": "text_completion",
+    "created": 1784241908,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to calculate the heat loss per unit length from the pipe and then find the steam condensed.\n\n**Step 1: Pipe dimensions**  \n1½ inch schedule 40 pipe:  \n- Outside diameter: 1.9 inches = 0.15833 ft  \n- Inside diameter: 1.61 inches = 0.13417 ft  \n- Wall thickness: 0.145 inches  \n\n**Step 2: Steam conditions**  \nSaturated steam at 100 psia:  \n- Temperature = 338°F (from steam tables)  \n- Latent heat = about 880 Btu/lb (approx.)\n\n**Step 3: Heat transfer**  \nOutside surface area per foot:  \nA = π × D × L = π × 0.15833 × 1 = 0.4975 ft²/ft  \n\nHeat loss by convection + radiation:  \n- Convection coefficient: h_c = 2.0 Btu/hr·ft²·°F  \n- Radiation: pipe as gray body, emissivity ~0.95 (typical for oxidized steel)  \n  Radiation coefficient: h_r ≈ ε × σ × (T_s² + T_a²)(T_s + T_a)  \n  T_s = 338°F = 798°R, T_a = 50°F = 510°R  \n  h_r ≈ 0.95 × 0.1714×10⁻⁸ × (798²+510²)(798+510)  \n  Compute:  \n  798² = 636804, 510² = 260100, sum = 896904  \n  798+510 = 1308  \n  product = 896904 × 1308 = 1.173×10⁹  \n  times 0.1714×10⁻⁸ = about 2.01  \n  times 0.95 ≈ 1.91 Btu/hr·ft²·°F  \n\nTotal h = 2.0 + 1.91 = 3.91 Btu/hr·ft²·°F  \n\nΔT = 338 - 50 = 288°F  \n\nHeat loss per foot:  \nQ = h × A × ΔT = 3.91 × 0.4975 × 288 ≈ 560 Btu/hr-ft  \n\n**Step 4: Steam condensed**  \nm = Q / h_fg = 560 / 880 ≈ 0.636 lb/hr-ft  \n\nClosest to 0.65 lb/hr-ft.\n\n**Answer: A**  \n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 274,
+      "completion_tokens": 531,
+      "total_tokens": 805,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 605.1,
+      "prefill_tokens": 274,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 453.8,
+      "decode_tok_s": 32.3,
+      "spec_accept_rate": 0.826,
+      "tok_per_step": 3.57
+    }
+  }
+}

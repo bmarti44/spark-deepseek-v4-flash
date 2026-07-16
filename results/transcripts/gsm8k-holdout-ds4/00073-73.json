@@ -1,0 +1,55 @@
+{
+  "index": 73,
+  "task_id": 73,
+  "rendered_prompt_sha256": "8977d7008270fc4628c4d361ff120fd3073a70b02949280cd9e98541d840076e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Cost per phone: $150  \n2. Number of phones: 5  \n3. Total cost without interest: 5 × 150 = $750  \n4. Interest per phone: 2% of $150 = 0.02 × 150 = $3  \n5. Total interest for 5 phones: 5 × 3 = $15  \n6. Total amount to pay: 750 + 15 = $765  \n7. Payment over 3 months: 765 ÷ 3 = $255 per month  \n\nAnswer: 255",
+  "finish_reason": "stop",
+  "expected": "255",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.259144139999989
+  },
+  "response": {
+    "id": "cmpl-588",
+    "object": "text_completion",
+    "created": 1784240903,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Cost per phone: $150  \n2. Number of phones: 5  \n3. Total cost without interest: 5 × 150 = $750  \n4. Interest per phone: 2% of $150 = 0.02 × 150 = $3  \n5. Total interest for 5 phones: 5 × 3 = $15  \n6. Total amount to pay: 750 + 15 = $765  \n7. Payment over 3 months: 765 ÷ 3 = $255 per month  \n\nAnswer: 255",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 125,
+      "total_tokens": 207,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 736.7,
+      "prefill_tokens": 82,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 111.5,
+      "decode_tok_s": 35.5,
+      "spec_accept_rate": 0.876,
+      "tok_per_step": 3.94
+    }
+  },
+  "used_fallback": false
+}

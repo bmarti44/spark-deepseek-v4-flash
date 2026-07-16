@@ -1,0 +1,54 @@
+{
+  "index": 270,
+  "task_id": 342,
+  "rendered_prompt_sha256": "ad26d7f4dd0dc48eed7a1e5ed3987cf975d1da637566370196111595e9e1bb73",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate each cost:\n\n(a) 346 glasses @ 50¢ each:  \n346 × 0.50 = $173.00\n\n(b) 870 nails @ 3½¢ each:  \n3½¢ = 3.5¢ = $0.035  \n870 × 0.035 = $30.45\n\n(c) 125 chains @ $16.48 each:  \n125 × 16.48 = $2,060.00\n\nSo the costs are: $173.00, $30.45, $2,060.00 — which matches option H.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.24156313000276
+  },
+  "response": {
+    "id": "cmpl-648",
+    "object": "text_completion",
+    "created": 1784241135,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's calculate each cost:\n\n(a) 346 glasses @ 50¢ each:  \n346 × 0.50 = $173.00\n\n(b) 870 nails @ 3½¢ each:  \n3½¢ = 3.5¢ = $0.035  \n870 × 0.035 = $30.45\n\n(c) 125 chains @ $16.48 each:  \n125 × 16.48 = $2,060.00\n\nSo the costs are: $173.00, $30.45, $2,060.00 — which matches option H.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 273,
+      "completion_tokens": 127,
+      "total_tokens": 400,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 576.1,
+      "prefill_tokens": 273,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 475.0,
+      "decode_tok_s": 34.7,
+      "spec_accept_rate": 0.861,
+      "tok_per_step": 3.88
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index": 8058,
+  "task_id": 8243,
+  "rendered_prompt_sha256": "2b144e205ac591ad47992fddf54a279e28421bffbfacc2574cbdcbeada0a8229",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to convert 34 L 18 cL to liters.  \n1 L = 100 cL, so 18 cL = 0.18 L.  \nThus, 34 L + 0.18 L = 34.18 L.  \n\nThe correct option is I.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.5645801479986403
+  },
+  "response": {
+    "id": "cmpl-783",
+    "object": "text_completion",
+    "created": 1784242098,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to convert 34 L 18 cL to liters.  \n1 L = 100 cL, so 18 cL = 0.18 L.  \nThus, 34 L + 0.18 L = 34.18 L.  \n\nThe correct option is I.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 64,
+      "total_tokens": 173,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 766.1,
+      "prefill_tokens": 109,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 142.5,
+      "decode_tok_s": 35.6,
+      "spec_accept_rate": 0.887,
+      "tok_per_step": 4.06
+    }
+  }
+}

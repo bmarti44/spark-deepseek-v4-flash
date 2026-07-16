@@ -27,5 +27,45 @@
     "result": "/home/bmarti44/spark-deepseek-v4-flash/results/acc-mmlu-holdout-llamacpp.json",
     "n": 247,
     "correct": 183
+  },
+  {
+    "stack_label": "ds4-dspark",
+    "suite": "gsm8k",
+    "config_digest": "c039c7f71a39c13c2f06b9599c02cc69b5262ecec8f971b32655ce34c067b7fb",
+    "config_hash": "ds4-baa88902-dspark-ctx32768-nothink-v1",
+    "phase": "started",
+    "started_at": "2026-07-16T22:24:27.823021+00:00"
+  },
+  {
+    "stack_label": "ds4-dspark",
+    "suite": "gsm8k",
+    "config_digest": "c039c7f71a39c13c2f06b9599c02cc69b5262ecec8f971b32655ce34c067b7fb",
+    "config_hash": "ds4-baa88902-dspark-ctx32768-nothink-v1",
+    "phase": "completed",
+    "started_at": "2026-07-16T22:24:27.823021+00:00",
+    "completed_at": "2026-07-16T22:30:55.838392+00:00",
+    "result": "/home/bmarti44/spark-deepseek-v4-flash/results/acc-gsm8k-holdout-ds4.json",
+    "n": 100,
+    "correct": 98
+  },
+  {
+    "stack_label": "ds4-dspark",
+    "suite": "mmlu-pro",
+    "config_digest": "4b9c546e77cd1f11662c8935ba566a0019b18974dd4e7480b7a5bbdf70ab4dfc",
+    "config_hash": "ds4-baa88902-dspark-ctx32768-nothink-v1",
+    "phase": "started",
+    "started_at": "2026-07-16T22:30:55.913229+00:00"
+  },
+  {
+    "stack_label": "ds4-dspark",
+    "suite": "mmlu-pro",
+    "config_digest": "4b9c546e77cd1f11662c8935ba566a0019b18974dd4e7480b7a5bbdf70ab4dfc",
+    "config_hash": "ds4-baa88902-dspark-ctx32768-nothink-v1",
+    "phase": "completed",
+    "started_at": "2026-07-16T22:30:55.913229+00:00",
+    "completed_at": "2026-07-16T22:54:56.817608+00:00",
+    "result": "/home/bmarti44/spark-deepseek-v4-flash/results/acc-mmlu-holdout-ds4.json",
+    "n": 247,
+    "correct": 174
   }
 ]

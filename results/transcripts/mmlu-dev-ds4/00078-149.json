@@ -1,0 +1,54 @@
+{
+  "index": 78,
+  "task_id": 149,
+  "rendered_prompt_sha256": "7da2b8d476ad46716841557007a1cbe82582ec43f6b6b8bf027b001616d6d359",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the compound interest formula:\n\n\\[\nA = P \\left(1 + \\frac{r}{n}\\right)^{nt}\n\\]\n\nWhere:  \n- \\(P = 500\\)  \n- \\(r = 0.08\\)  \n- \\(n = 4\\) (quarterly)  \n- \\(t = 5\\)\n\n\\[\nA = 500 \\left(1 + \\frac{0.08}{4}\\right)^{4 \\times 5}\n= 500 \\left(1 + 0.02\\right)^{20}\n= 500 \\times (1.02)^{20}\n\\]\n\nNow compute \\((1.02)^{20}\\):\n\n\\[\n1.02^{20} \\approx 1.485947\n\\]\n\n\\[\nA \\approx 500 \\times 1.485947 = 742.9735\n\\]\n\nSo the amount is approximately **$742.97**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.729672567002126
+  },
+  "response": {
+    "id": "cmpl-127",
+    "object": "text_completion",
+    "created": 1784239053,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this using the compound interest formula:\n\n\\[\nA = P \\left(1 + \\frac{r}{n}\\right)^{nt}\n\\]\n\nWhere:  \n- \\(P = 500\\)  \n- \\(r = 0.08\\)  \n- \\(n = 4\\) (quarterly)  \n- \\(t = 5\\)\n\n\\[\nA = 500 \\left(1 + \\frac{0.08}{4}\\right)^{4 \\times 5}\n= 500 \\left(1 + 0.02\\right)^{20}\n= 500 \\times (1.02)^{20}\n\\]\n\nNow compute \\((1.02)^{20}\\):\n\n\\[\n1.02^{20} \\approx 1.485947\n\\]\n\n\\[\nA \\approx 500 \\times 1.485947 = 742.9735\n\\]\n\nSo the amount is approximately **$742.97**.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 191,
+      "total_tokens": 328,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 841.7,
+      "prefill_tokens": 137,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 163.0,
+      "decode_tok_s": 39.2,
+      "spec_accept_rate": 0.93,
+      "tok_per_step": 4.47
+    }
+  }
+}

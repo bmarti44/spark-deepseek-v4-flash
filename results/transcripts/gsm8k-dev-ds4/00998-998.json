@@ -1,0 +1,55 @@
+{
+  "index": 998,
+  "task_id": 998,
+  "rendered_prompt_sha256": "fe56466c995ccc3b490db97b545ed176fa68578c1f61ac6eb094826284e48041",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Total number of guests: 100  \n2. Each guest brought 15 cookies, so total cookies = \\( 100 \\times 15 = 1500 \\) cookies.  \n3. The bride gave half of the cookies to the church: \\( 1500 \\times \\frac{1}{2} = 750 \\) cookies.  \n4. Each person in the church received 15 cookies.  \n5. Number of people in the church = \\( 750 \\div 15 = 50 \\).\n\nAnswer: 50",
+  "finish_reason": "stop",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.9660071930047707
+  },
+  "response": {
+    "id": "cmpl-74",
+    "object": "text_completion",
+    "created": 1784238872,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Total number of guests: 100  \n2. Each guest brought 15 cookies, so total cookies = \\( 100 \\times 15 = 1500 \\) cookies.  \n3. The bride gave half of the cookies to the church: \\( 1500 \\times \\frac{1}{2} = 750 \\) cookies.  \n4. Each person in the church received 15 cookies.  \n5. Number of people in the church = \\( 750 \\div 15 = 50 \\).\n\nAnswer: 50",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 114,
+      "completion_tokens": 118,
+      "total_tokens": 232,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 910.8,
+      "prefill_tokens": 114,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.6,
+      "decode_tok_s": 38.8,
+      "spec_accept_rate": 0.918,
+      "tok_per_step": 4.41
+    }
+  },
+  "used_fallback": false
+}

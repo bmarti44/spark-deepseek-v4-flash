@@ -1,0 +1,54 @@
+{
+  "index": 3721,
+  "task_id": 3844,
+  "rendered_prompt_sha256": "5dd4582e17391843fb9c7cce6a1f5d35d2f07eda761837f072266a26bb0ab0ec",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the reaction:\n\n\\[\n2 \\text{NaCN} + \\text{H}_2\\text{SO}_4 \\rightarrow \\text{Na}_2\\text{SO}_4 + 2 \\text{HCN}\n\\]\n\nMolar mass of NaCN = 49 g/mol.  \nGiven 196 g NaCN → moles = \\( \\frac{196}{49} = 4 \\) moles.\n\nFrom the reaction, 2 moles NaCN produce 2 moles HCN, so 4 moles NaCN produce 4 moles HCN.\n\nAt STP, 1 mole of gas = 22.4 L.  \nThus, 4 moles HCN = \\( 4 \\times 22.4 = 89.6 \\) liters.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.851659703999758
+  },
+  "response": {
+    "id": "cmpl-668",
+    "object": "text_completion",
+    "created": 1784241282,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We start with the reaction:\n\n\\[\n2 \\text{NaCN} + \\text{H}_2\\text{SO}_4 \\rightarrow \\text{Na}_2\\text{SO}_4 + 2 \\text{HCN}\n\\]\n\nMolar mass of NaCN = 49 g/mol.  \nGiven 196 g NaCN → moles = \\( \\frac{196}{49} = 4 \\) moles.\n\nFrom the reaction, 2 moles NaCN produce 2 moles HCN, so 4 moles NaCN produce 4 moles HCN.\n\nAt STP, 1 mole of gas = 22.4 L.  \nThus, 4 moles HCN = \\( 4 \\times 22.4 = 89.6 \\) liters.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 159,
+      "completion_tokens": 158,
+      "total_tokens": 317,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 914.2,
+      "prefill_tokens": 159,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 174.2,
+      "decode_tok_s": 40.1,
+      "spec_accept_rate": 0.91,
+      "tok_per_step": 4.42
+    }
+  }
+}

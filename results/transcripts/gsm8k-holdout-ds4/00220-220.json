@@ -1,0 +1,55 @@
+{
+  "index": 220,
+  "task_id": 220,
+  "rendered_prompt_sha256": "b5ade0a25142548f572baa64abe12e08624b81e307fb66bd44a94f0d66488d7c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, calculate the time spent on crossword puzzles:  \n3 puzzles × 10 minutes = 30 minutes.\n\nThen, calculate the time spent on sudoku puzzles:  \n8 puzzles × 5 minutes = 40 minutes.\n\nAdd them together:  \n30 + 40 = 70 minutes.\n\nAnswer: 70",
+  "finish_reason": "stop",
+  "expected": "70",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.6656188199995086
+  },
+  "response": {
+    "id": "cmpl-537",
+    "object": "text_completion",
+    "created": 1784240704,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "First, calculate the time spent on crossword puzzles:  \n3 puzzles × 10 minutes = 30 minutes.\n\nThen, calculate the time spent on sudoku puzzles:  \n8 puzzles × 5 minutes = 40 minutes.\n\nAdd them together:  \n30 + 40 = 70 minutes.\n\nAnswer: 70",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 88,
+      "completion_tokens": 63,
+      "total_tokens": 151,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 786.6,
+      "prefill_tokens": 88,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 112.1,
+      "decode_tok_s": 33.5,
+      "spec_accept_rate": 0.885,
+      "tok_per_step": 4.0
+    }
+  },
+  "used_fallback": false
+}

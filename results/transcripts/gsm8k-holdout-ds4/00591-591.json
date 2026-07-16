@@ -1,0 +1,55 @@
+{
+  "index": 591,
+  "task_id": 591,
+  "rendered_prompt_sha256": "9097ba8f239abe33b232a4b1a49e1bb7f42950294cfde21220df7851ac445301",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Affenpinscher: 10 pounds.  \n2. Dachshund: twice the Affenpinscher → 2 × 10 = 20 pounds.  \n3. Papillon: one-fourth the Dachshund → 20 ÷ 4 = 5 pounds.  \n4. Mastiff: 44 times the Papillon → 44 × 5 = 220 pounds.\n\nAnswer: 220",
+  "finish_reason": "stop",
+  "expected": "220",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.351387340997462
+  },
+  "response": {
+    "id": "cmpl-567",
+    "object": "text_completion",
+    "created": 1784240825,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Affenpinscher: 10 pounds.  \n2. Dachshund: twice the Affenpinscher → 2 × 10 = 20 pounds.  \n3. Papillon: one-fourth the Dachshund → 20 ÷ 4 = 5 pounds.  \n4. Mastiff: 44 times the Papillon → 44 × 5 = 220 pounds.\n\nAnswer: 220",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 97,
+      "total_tokens": 251,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 898.2,
+      "prefill_tokens": 154,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 171.7,
+      "decode_tok_s": 39.6,
+      "spec_accept_rate": 0.925,
+      "tok_per_step": 4.45
+    }
+  },
+  "used_fallback": false
+}

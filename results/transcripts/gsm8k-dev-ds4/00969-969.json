@@ -1,0 +1,55 @@
+{
+  "index": 969,
+  "task_id": 969,
+  "rendered_prompt_sha256": "aab8b37f49ddc0be1865cba1a208a3a85ce921ead20b5eb8e5b38cc72cbb8f2e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "John buys phones for himself, his 2 kids, and his wife — that's 4 phones total.  \nThe first 2 phones are full price ($600 each), and the remaining 2 phones are half price ($300 each).  \n\nTotal cost = 2 × $600 + 2 × $300 = $1200 + $600 = $1800.  \n\nAnswer: 1800",
+  "finish_reason": "stop",
+  "expected": "1800",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.3150658220038167
+  },
+  "response": {
+    "id": "cmpl-66",
+    "object": "text_completion",
+    "created": 1784238840,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "John buys phones for himself, his 2 kids, and his wife — that's 4 phones total.  \nThe first 2 phones are full price ($600 each), and the remaining 2 phones are half price ($300 each).  \n\nTotal cost = 2 × $600 + 2 × $300 = $1200 + $600 = $1800.  \n\nAnswer: 1800",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 85,
+      "completion_tokens": 81,
+      "total_tokens": 166,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 917.5,
+      "prefill_tokens": 85,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 92.8,
+      "decode_tok_s": 33.9,
+      "spec_accept_rate": 0.87,
+      "tok_per_step": 4.1
+    }
+  },
+  "used_fallback": false
+}

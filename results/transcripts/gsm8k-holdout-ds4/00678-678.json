@@ -1,0 +1,56 @@
+{
+  "index": 678,
+  "task_id": 678,
+  "rendered_prompt_sha256": "2737186f5f60f6e5604368ab301562be533ab516265130996f1f4fe9900b31fa",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Lorie earns $10 per hour. Karen earns twice that, so $20 per hour.  \nShe works 3 hours per day for 2 days, so total hours = 6.  \nKaren's total earnings = 6 × $20 = $120.  \n\nAnswer: 120",
+  "finish_reason": "stop",
+  "expected": "120",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.624188855996181
+  },
+  "response": {
+    "id": "cmpl-557",
+    "object": "text_completion",
+    "created": 1784240777,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Lorie earns $10 per hour. Karen earns twice that, so $20 per hour.  \nShe works 3 hours per day for 2 days, so total hours = 6.  \nKaren's total earnings = 6 × $20 = $120.  \n\nAnswer: 120",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 71,
+      "completion_tokens": 59,
+      "total_tokens": 130,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 667.6,
+      "prefill_tokens": 71,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.6,
+      "decode_tok_s": 30.2,
+      "spec_accept_rate": 0.82,
+      "tok_per_step": 3.53
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Lorie earns $10 per hour. Karen earns twice what Lorie earns. How much does Karen earn in two days if she works 3 hours per day?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

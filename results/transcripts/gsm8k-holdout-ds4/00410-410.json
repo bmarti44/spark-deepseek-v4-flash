@@ -1,0 +1,55 @@
+{
+  "index": 410,
+  "task_id": 410,
+  "rendered_prompt_sha256": "46b20a2c5500d76437083bffa2a1449e81b37678813c6a3a12c796ebef901e27",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Sally starts with $10.  \n2. Taffy deal: \"Buy 1 pound at $3, get 1 pound 1/2 off.\"  \n   - First pound: $3  \n   - Second pound: half of $3 = $1.50  \n   - Total for 2 pounds of taffy: $3 + $1.50 = $4.50  \n3. Seashells: $1.50  \n4. Magnets: 4 × $0.25 = $1.00  \n5. Total spent: $4.50 + $1.50 + $1.00 = $7.00  \n6. Money left: $10.00 - $7.00 = $3.00  \n\nAnswer: 3",
+  "finish_reason": "stop",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.5263712070009205
+  },
+  "response": {
+    "id": "cmpl-534",
+    "object": "text_completion",
+    "created": 1784240693,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Sally starts with $10.  \n2. Taffy deal: \"Buy 1 pound at $3, get 1 pound 1/2 off.\"  \n   - First pound: $3  \n   - Second pound: half of $3 = $1.50  \n   - Total for 2 pounds of taffy: $3 + $1.50 = $4.50  \n3. Seashells: $1.50  \n4. Magnets: 4 × $0.25 = $1.00  \n5. Total spent: $4.50 + $1.50 + $1.00 = $7.00  \n6. Money left: $10.00 - $7.00 = $3.00  \n\nAnswer: 3",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "completion_tokens": 172,
+      "total_tokens": 314,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 909.5,
+      "prefill_tokens": 142,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 156.4,
+      "decode_tok_s": 37.3,
+      "spec_accept_rate": 0.923,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

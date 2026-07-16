@@ -1,0 +1,56 @@
+{
+  "index": 463,
+  "task_id": 463,
+  "rendered_prompt_sha256": "5ea61832ae479f9272b48e46ffd9a3766a20c09c2aa956be8e3882e2fa485c37",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The pizza delivery cost is $15. A tip equal to 1/5 of that amount is:\n\n\\[\n\\frac{1}{5} \\times 15 = 3\n\\]\n\nSo the total amount Ashley should give is:\n\n\\[\n15 + 3 = 18\n\\]\n\nAnswer: 18",
+  "finish_reason": "stop",
+  "expected": "18",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.4979656519972195
+  },
+  "response": {
+    "id": "cmpl-26",
+    "object": "text_completion",
+    "created": 1784238678,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The pizza delivery cost is $15. A tip equal to 1/5 of that amount is:\n\n\\[\n\\frac{1}{5} \\times 15 = 3\n\\]\n\nSo the total amount Ashley should give is:\n\n\\[\n15 + 3 = 18\n\\]\n\nAnswer: 18",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 80,
+      "completion_tokens": 62,
+      "total_tokens": 142,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 767.1,
+      "prefill_tokens": 80,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 104.6,
+      "decode_tok_s": 36.1,
+      "spec_accept_rate": 0.922,
+      "tok_per_step": 4.5
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Ashley's pizza delivery costs $15. What is the total amount that Ashley should give the delivery man if she wants to give a tip that is equal to 1/5 of the amount she ordered?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

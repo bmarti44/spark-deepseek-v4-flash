@@ -1,0 +1,55 @@
+{
+  "index": 15,
+  "task_id": 15,
+  "rendered_prompt_sha256": "99b96547e2620e87c05b9dfe4cb2365d89b8908e05fccd46ac7f6c311bdc00c9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The profit from jewelry would be 2.5% of $5,000 = $125.  \nThe profit from electronic gadgets would be 1.2% of $8,000 = $96.  \n\nSince $125 > $96, the merchant should choose jewelry for a profit of $125.\n\nAnswer: 125",
+  "finish_reason": "stop",
+  "expected": "125",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.357848929997999
+  },
+  "response": {
+    "id": "cmpl-34",
+    "object": "text_completion",
+    "created": 1784238707,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The profit from jewelry would be 2.5% of $5,000 = $125.  \nThe profit from electronic gadgets would be 1.2% of $8,000 = $96.  \n\nSince $125 > $96, the merchant should choose jewelry for a profit of $125.\n\nAnswer: 125",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "completion_tokens": 66,
+      "total_tokens": 194,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 858.8,
+      "prefill_tokens": 128,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 149.6,
+      "decode_tok_s": 18.9,
+      "spec_accept_rate": 0.333,
+      "tok_per_step": 1.06
+    }
+  },
+  "used_fallback": false
+}

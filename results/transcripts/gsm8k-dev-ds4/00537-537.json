@@ -1,0 +1,55 @@
+{
+  "index": 537,
+  "task_id": 537,
+  "rendered_prompt_sha256": "e52fa768d202c7ef3886f263e902707df12d289feb75338e5a4e6a2e63e19143",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's go step by step.\n\n- First book: 31 mm  \n- Second book: 50 mm  \n- Third book: 5 mm less than the second → 50 - 5 = 45 mm  \n- Fourth book: twice as thick as the first → 2 × 31 = 62 mm  \n\nNow add them:  \n31 + 50 + 45 + 62 = 188 mm  \n\nAnswer: 188",
+  "finish_reason": "stop",
+  "expected": "188",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.1682292650002637
+  },
+  "response": {
+    "id": "cmpl-51",
+    "object": "text_completion",
+    "created": 1784238781,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's go step by step.\n\n- First book: 31 mm  \n- Second book: 50 mm  \n- Third book: 5 mm less than the second → 50 - 5 = 45 mm  \n- Fourth book: twice as thick as the first → 2 × 31 = 62 mm  \n\nNow add them:  \n31 + 50 + 45 + 62 = 188 mm  \n\nAnswer: 188",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 90,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 822.7,
+      "prefill_tokens": 101,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 123.0,
+      "decode_tok_s": 38.4,
+      "spec_accept_rate": 0.932,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

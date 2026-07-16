@@ -1,0 +1,55 @@
+{
+  "index": 845,
+  "task_id": 845,
+  "rendered_prompt_sha256": "87e79654c428cd486775b438fe5a65a089892fe63122310581ca3e96ae45a044",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nTotal students = 20  \nGood at math only = 5  \nGood at English only = 8  \nGood at both math and English = rest.\n\nSo, students good at both = 20 - (5 + 8) = 20 - 13 = 7.\n\nNow, students good at math = those good at math only + those good at both = 5 + 7 = 12.\n\nAnswer: 12",
+  "finish_reason": "stop",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6188685610031825
+  },
+  "response": {
+    "id": "cmpl-608",
+    "object": "text_completion",
+    "created": 1784240973,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nTotal students = 20  \nGood at math only = 5  \nGood at English only = 8  \nGood at both math and English = rest.\n\nSo, students good at both = 20 - (5 + 8) = 20 - 13 = 7.\n\nNow, students good at math = those good at math only + those good at both = 5 + 7 = 12.\n\nAnswer: 12",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 87,
+      "completion_tokens": 97,
+      "total_tokens": 184,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 732.9,
+      "prefill_tokens": 87,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 118.9,
+      "decode_tok_s": 33.6,
+      "spec_accept_rate": 0.843,
+      "tok_per_step": 3.77
+    }
+  },
+  "used_fallback": false
+}

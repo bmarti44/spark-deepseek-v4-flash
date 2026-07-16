@@ -1,0 +1,55 @@
+{
+  "index": 479,
+  "task_id": 479,
+  "rendered_prompt_sha256": "38c7e831d0ab8e33eacd00e71ea0f3911a8d458a813fb958022796a848fa4b54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Plane tickets: $5000 each, for 2 people → 2 × 5000 = $10,000  \n- Normal hotel price: $1500 per day  \n- Busy weekend surcharge: 20% more → 20% of 1500 = $300 extra per day  \n- Hotel cost per day: $1500 + $300 = $1800  \n- They stay 3 days → 3 × 1800 = $5,400  \n- Total trip cost: $10,000 + $5,400 = $15,400  \n\nAnswer: 15400",
+  "finish_reason": "stop",
+  "expected": "15400",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.0780344380000315
+  },
+  "response": {
+    "id": "cmpl-36",
+    "object": "text_completion",
+    "created": 1784238716,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Plane tickets: $5000 each, for 2 people → 2 × 5000 = $10,000  \n- Normal hotel price: $1500 per day  \n- Busy weekend surcharge: 20% more → 20% of 1500 = $300 extra per day  \n- Hotel cost per day: $1500 + $300 = $1800  \n- They stay 3 days → 3 × 1800 = $5,400  \n- Total trip cost: $10,000 + $5,400 = $15,400  \n\nAnswer: 15400",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 133,
+      "total_tokens": 236,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 881.8,
+      "prefill_tokens": 103,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 117.1,
+      "decode_tok_s": 31.8,
+      "spec_accept_rate": 0.828,
+      "tok_per_step": 3.72
+    }
+  },
+  "used_fallback": false
+}

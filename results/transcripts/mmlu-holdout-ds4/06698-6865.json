@@ -1,0 +1,55 @@
+{
+  "index": 6698,
+  "task_id": 6865,
+  "rendered_prompt_sha256": "2bd6f4aab4f3aaf649f2536800d7a0f5b31affc2e18b12cc160c88294f7290db",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.0654822770011378
+  },
+  "response": {
+    "id": "cmpl-691",
+    "object": "text_completion",
+    "created": 1784241465,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 120,
+      "completion_tokens": 3,
+      "total_tokens": 123,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 898.2,
+      "prefill_tokens": 120,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 133.8,
+      "decode_tok_s": 18.1,
+      "spec_accept_rate": 1.0,
+      "tok_per_step": 4.0
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>What is the chief reason why farm policy was notconceived assimply part of an overall income distribution policy?\n\nA. Geographic diversity of farming regions\nB. Environmental concerns\nC. Consumer preference for organic produce\nD. Lack of funding\nE. Technological advancements in agriculture\nF. Public demand for food security\nG. International trade agreements\nH. Historical context\nI. Influences from the agricultural industry\nJ. Political decisions\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

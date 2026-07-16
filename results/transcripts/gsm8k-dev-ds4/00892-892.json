@@ -1,0 +1,55 @@
+{
+  "index": 892,
+  "task_id": 892,
+  "rendered_prompt_sha256": "77146498b5f2b626a0fc6321f8fc5ea238d62482dfdcb6214bc0c0038d730202",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down.\n\nEllen pays $11 total each day.  \nThe salad costs $6.  \nThe yogurt costs half the price of the salad, so yogurt = $6 ÷ 2 = $3.  \nSo salad + yogurt = $6 + $3 = $9.  \nThe remaining amount is for two carrots: $11 - $9 = $2.  \nThus, one carrot costs $2 ÷ 2 = $1.\n\nAnswer: 1",
+  "finish_reason": "stop",
+  "expected": "1",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8477613529976225
+  },
+  "response": {
+    "id": "cmpl-102",
+    "object": "text_completion",
+    "created": 1784238983,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down.\n\nEllen pays $11 total each day.  \nThe salad costs $6.  \nThe yogurt costs half the price of the salad, so yogurt = $6 ÷ 2 = $3.  \nSo salad + yogurt = $6 + $3 = $9.  \nThe remaining amount is for two carrots: $11 - $9 = $2.  \nThus, one carrot costs $2 ÷ 2 = $1.\n\nAnswer: 1",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 95,
+      "completion_tokens": 98,
+      "total_tokens": 193,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 820.0,
+      "prefill_tokens": 95,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.2,
+      "decode_tok_s": 32.4,
+      "spec_accept_rate": 0.843,
+      "tok_per_step": 3.67
+    }
+  },
+  "used_fallback": false
+}

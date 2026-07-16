@@ -1,0 +1,55 @@
+{
+  "index": 509,
+  "task_id": 584,
+  "rendered_prompt_sha256": "b36fc7935c5993ca5f0f8bd4ad60874dc711dbfb5f1b9aa1fc3e22db513964c5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To calculate the premium for each policy, multiply the face value by the premium rate per $100.\n\n**Policy 1:**  \nFace value = $9,000, Rate = $0.28 per $100  \nPremium = (9,000 / 100) × 0.28 = 90 × 0.28 = $25.20\n\n**Policy 2:**  \nFace value = $52,000, Rate = $0.35 per $100  \nPremium = (52,000 / 100) × 0.35 = 520 × 0.35 = $182.00\n\n**Policy 3:**  \nFace value = $28,000, Rate = $0.42 per $100  \nPremium = (28,000 / 100) × 0.42 = 280 × 0.42 = $117.60\n\nThe matching option is:  \nPolicy 1: $25.20, Policy 2: $182.00, Policy 3: $117.60 → Option I.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.1904597409957205
+  },
+  "response": {
+    "id": "cmpl-655",
+    "object": "text_completion",
+    "created": 1784241170,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "To calculate the premium for each policy, multiply the face value by the premium rate per $100.\n\n**Policy 1:**  \nFace value = $9,000, Rate = $0.28 per $100  \nPremium = (9,000 / 100) × 0.28 = 90 × 0.28 = $25.20\n\n**Policy 2:**  \nFace value = $52,000, Rate = $0.35 per $100  \nPremium = (52,000 / 100) × 0.35 = 520 × 0.35 = $182.00\n\n**Policy 3:**  \nFace value = $28,000, Rate = $0.42 per $100  \nPremium = (28,000 / 100) × 0.42 = 280 × 0.42 = $117.60\n\nThe matching option is:  \nPolicy 1: $25.20, Policy 2: $182.00, Policy 3: $117.60 → Option I.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 376,
+      "completion_tokens": 218,
+      "total_tokens": 594,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 681.2,
+      "prefill_tokens": 376,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 553.3,
+      "decode_tok_s": 39.6,
+      "spec_accept_rate": 0.944,
+      "tok_per_step": 4.47
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Policy Face Value of Policy Premium Rate Term of Policy Premium 1 $ 9,000 $.28 per$100 1 year 2 $52,000 $.35 per$100 3 years 3 $28,000 $.42 per$100 1 year\n\nA. Policy 1: $52.00, Policy 2: $182.00, Policy 3: $28.00\nB. Policy 1: $28.00, Policy 2: $546.00, Policy 3: $117.60\nC. Policy 1: $28.00, Policy 2: $491.00, Policy 3: $117.00\nD. Policy 1: $25.20, Policy 2: $491.40, Policy 3: $117.60\nE. Policy 1: $52.00, Policy 2: $182.00, Policy 3: $117.60\nF. Policy 1: $28.00, Policy 2: $182.00, Policy 3: $117.60\nG. Policy 1: $25.20, Policy 2: $182.00, Policy 3: $176.40\nH. Policy 1: $52.00, Policy 2: $491.40, Policy 3: $28.00\nI. Policy 1: $25.20, Policy 2: $182.00, Policy 3: $117.60\nJ. Policy 1: $25.20, Policy 2: $546.00, Policy 3: $117.60\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

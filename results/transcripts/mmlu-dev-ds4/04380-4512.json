@@ -1,0 +1,54 @@
+{
+  "index": 4380,
+  "task_id": 4512,
+  "rendered_prompt_sha256": "be88521975ff0b4063ce32b10fefa3ed64bc63e5318ae76c10c6bdff129c4339",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "An n-type semiconductor is created by doping a semiconductor with an element that has more valence electrons than the semiconductor itself, providing extra electrons. Silicon has 4 valence electrons. Arsenic has 5 valence electrons, so doping silicon with arsenic creates an n-type semiconductor.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8252429450003547
+  },
+  "response": {
+    "id": "cmpl-164",
+    "object": "text_completion",
+    "created": 1784239351,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "An n-type semiconductor is created by doping a semiconductor with an element that has more valence electrons than the semiconductor itself, providing extra electrons. Silicon has 4 valence electrons. Arsenic has 5 valence electrons, so doping silicon with arsenic creates an n-type semiconductor.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 99,
+      "completion_tokens": 56,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 786.2,
+      "prefill_tokens": 99,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 126.2,
+      "decode_tok_s": 27.6,
+      "spec_accept_rate": 0.712,
+      "tok_per_step": 3.17
+    }
+  }
+}

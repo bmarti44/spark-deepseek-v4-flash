@@ -1,0 +1,55 @@
+{
+  "index": 1068,
+  "task_id": 1068,
+  "rendered_prompt_sha256": "63058fb6621ae3f88ac96a5c1c371fd06fc1350991c0eb1e2e439461f8b6b89d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Sidney ordered \"3 less than ten\" meatball sub sandwiches.  \n   That means: \\(10 - 3 = 7\\) sandwiches.\n\n2. Each sandwich has 4 meatballs.  \n   So initially, Sidney had \\(7 \\times 4 = 28\\) meatballs.\n\n3. Mark ate 4 of Sidney's sandwiches.  \n   That removes \\(4 \\times 4 = 16\\) meatballs.  \n   Remaining: \\(28 - 16 = 12\\) meatballs.\n\n4. Then Sidney ordered another 3 sandwiches.  \n   That adds \\(3 \\times 4 = 12\\) meatballs.  \n   New total: \\(12 + 12 = 24\\) meatballs.\n\nSo the remaining sub sandwiches contain 24 meatballs.\n\nAnswer: 24",
+  "finish_reason": "stop",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.271673392002413
+  },
+  "response": {
+    "id": "cmpl-109",
+    "object": "text_completion",
+    "created": 1784239016,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Sidney ordered \"3 less than ten\" meatball sub sandwiches.  \n   That means: \\(10 - 3 = 7\\) sandwiches.\n\n2. Each sandwich has 4 meatballs.  \n   So initially, Sidney had \\(7 \\times 4 = 28\\) meatballs.\n\n3. Mark ate 4 of Sidney's sandwiches.  \n   That removes \\(4 \\times 4 = 16\\) meatballs.  \n   Remaining: \\(28 - 16 = 12\\) meatballs.\n\n4. Then Sidney ordered another 3 sandwiches.  \n   That adds \\(3 \\times 4 = 12\\) meatballs.  \n   New total: \\(12 + 12 = 24\\) meatballs.\n\nSo the remaining sub sandwiches contain 24 meatballs.\n\nAnswer: 24",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 174,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 808.3,
+      "prefill_tokens": 96,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 119.1,
+      "decode_tok_s": 39.0,
+      "spec_accept_rate": 0.917,
+      "tok_per_step": 4.38
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,54 @@
+{
+  "index": 9526,
+  "task_id": 9716,
+  "rendered_prompt_sha256": "33e85802664ea490be4ff6d061da0bcbf18f727b13c2a57d4ab3dce37b951092",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We use the capacitor formula:\n\n\\[\nQ = C \\times V\n\\]\n\nGiven:  \n\\( C = 2 \\, \\text{mF} = 2 \\times 10^{-3} \\, \\text{F} \\)  \n\\( V = 5 \\, \\text{V} \\)\n\nSo:\n\n\\[\nQ = (2 \\times 10^{-3}) \\times 5 = 10 \\times 10^{-3} = 0.01 \\, \\text{C}\n\\]\n\nThe charge on the positive plate is \\( 0.01 \\, \\text{C} \\).\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.033775422998588
+  },
+  "response": {
+    "id": "cmpl-336",
+    "object": "text_completion",
+    "created": 1784240219,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We use the capacitor formula:\n\n\\[\nQ = C \\times V\n\\]\n\nGiven:  \n\\( C = 2 \\, \\text{mF} = 2 \\times 10^{-3} \\, \\text{F} \\)  \n\\( V = 5 \\, \\text{V} \\)\n\nSo:\n\n\\[\nQ = (2 \\times 10^{-3}) \\times 5 = 10 \\times 10^{-3} = 0.01 \\, \\text{C}\n\\]\n\nThe charge on the positive plate is \\( 0.01 \\, \\text{C} \\).\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 121,
+      "total_tokens": 267,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 834.8,
+      "prefill_tokens": 146,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 175.2,
+      "decode_tok_s": 37.8,
+      "spec_accept_rate": 0.901,
+      "tok_per_step": 4.21
+    }
+  }
+}

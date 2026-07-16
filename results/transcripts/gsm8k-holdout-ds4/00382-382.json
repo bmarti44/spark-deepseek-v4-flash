@@ -1,0 +1,55 @@
+{
+  "index": 382,
+  "task_id": 382,
+  "rendered_prompt_sha256": "14be2b0be36bcfc689458ad08fdda5f4459ea90af076be6df1267d8f2770092e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nAxel has:\n- Silver pesos: 50\n- Gold pesos: 80\n\nAnna has:\n- Silver pesos: twice as many as Axel → 2 × 50 = 100\n- Gold pesos: 40 more than Axel → 80 + 40 = 120\n\nTotal pesos:\n- Axel: 50 + 80 = 130\n- Anna: 100 + 120 = 220\n- Together: 130 + 220 = 350\n\nAnswer: 350",
+  "finish_reason": "stop",
+  "expected": "350",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8883885859977454
+  },
+  "response": {
+    "id": "cmpl-558",
+    "object": "text_completion",
+    "created": 1784240781,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nAxel has:\n- Silver pesos: 50\n- Gold pesos: 80\n\nAnna has:\n- Silver pesos: twice as many as Axel → 2 × 50 = 100\n- Gold pesos: 40 more than Axel → 80 + 40 = 120\n\nTotal pesos:\n- Axel: 50 + 80 = 130\n- Anna: 100 + 120 = 220\n- Together: 130 + 220 = 350\n\nAnswer: 350",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 84,
+      "completion_tokens": 111,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 804.3,
+      "prefill_tokens": 84,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 104.6,
+      "decode_tok_s": 36.1,
+      "spec_accept_rate": 0.913,
+      "tok_per_step": 4.31
+    }
+  },
+  "used_fallback": false
+}

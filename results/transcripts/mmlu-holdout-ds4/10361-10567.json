@@ -1,0 +1,54 @@
+{
+  "index": 10361,
+  "task_id": 10567,
+  "rendered_prompt_sha256": "50845feba9770c615785c15777140f081ddd680d7e65153288e2ae5338a4ddd3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: J",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 0.7588971490040421
+  },
+  "response": {
+    "id": "cmpl-687",
+    "object": "text_completion",
+    "created": 1784241452,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 263,
+      "completion_tokens": 3,
+      "total_tokens": 266,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 591.9,
+      "prefill_tokens": 263,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 445.3,
+      "decode_tok_s": 18.1,
+      "spec_accept_rate": 1.0,
+      "tok_per_step": 4.0
+    }
+  }
+}

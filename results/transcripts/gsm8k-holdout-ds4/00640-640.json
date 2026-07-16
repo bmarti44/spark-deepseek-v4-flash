@@ -1,0 +1,55 @@
+{
+  "index": 640,
+  "task_id": 640,
+  "rendered_prompt_sha256": "7423f920b46556514a136e792f6dd89bbcef4371a49468e03a530c1d89ba7c5b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. **Base price**: $30,000  \n2. **King cab upgrade**: $7,500  \n3. **Leather seats**: one-third the cost of the king cab → $7,500 ÷ 3 = $2,500  \n4. **Running boards**: $500 less than leather seats → $2,500 − $500 = $2,000  \n5. **Upgraded exterior light package**: $1,500  \n\nNow sum everything:\n\nBase: $30,000  \nKing cab: +$7,500 → $37,500  \nLeather seats: +$2,500 → $40,000  \nRunning boards: +$2,000 → $42,000  \nLight package: +$1,500 → $43,500  \n\n**Total cost**: $43,500  \n\nAnswer: 43500",
+  "finish_reason": "stop",
+  "expected": "43,500",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.660097923006106
+  },
+  "response": {
+    "id": "cmpl-613",
+    "object": "text_completion",
+    "created": 1784240994,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. **Base price**: $30,000  \n2. **King cab upgrade**: $7,500  \n3. **Leather seats**: one-third the cost of the king cab → $7,500 ÷ 3 = $2,500  \n4. **Running boards**: $500 less than leather seats → $2,500 − $500 = $2,000  \n5. **Upgraded exterior light package**: $1,500  \n\nNow sum everything:\n\nBase: $30,000  \nKing cab: +$7,500 → $37,500  \nLeather seats: +$2,500 → $40,000  \nRunning boards: +$2,000 → $42,000  \nLight package: +$1,500 → $43,500  \n\n**Total cost**: $43,500  \n\nAnswer: 43500",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 184,
+      "total_tokens": 349,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 911.8,
+      "prefill_tokens": 165,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 181.2,
+      "decode_tok_s": 38.8,
+      "spec_accept_rate": 0.933,
+      "tok_per_step": 4.3
+    }
+  },
+  "used_fallback": false
+}

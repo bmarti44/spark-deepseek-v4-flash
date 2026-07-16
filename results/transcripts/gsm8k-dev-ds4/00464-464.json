@@ -1,0 +1,55 @@
+{
+  "index": 464,
+  "task_id": 464,
+  "rendered_prompt_sha256": "3f88aed557b67b15dc93194773331a9dab1a04679fdbb18872afb4f3a110968b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. She started in **1st** place.  \n2. Fell back 5 spots → 1 + 5 = **6th** place.  \n3. Moved ahead 2 spots → 6 − 2 = **4th** place.  \n4. Fell behind 3 spots → 4 + 3 = **7th** place.  \n5. Jumped ahead 1 spot → 7 − 1 = **6th** place.  \n\nSo she finished in **6th** place.\n\nAnswer: 6",
+  "finish_reason": "stop",
+  "expected": "6",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.148162286001025
+  },
+  "response": {
+    "id": "cmpl-70",
+    "object": "text_completion",
+    "created": 1784238858,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. She started in **1st** place.  \n2. Fell back 5 spots → 1 + 5 = **6th** place.  \n3. Moved ahead 2 spots → 6 − 2 = **4th** place.  \n4. Fell behind 3 spots → 4 + 3 = **7th** place.  \n5. Jumped ahead 1 spot → 7 − 1 = **6th** place.  \n\nSo she finished in **6th** place.\n\nAnswer: 6",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 122,
+      "total_tokens": 223,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 837.4,
+      "prefill_tokens": 101,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.9,
+      "decode_tok_s": 36.9,
+      "spec_accept_rate": 0.893,
+      "tok_per_step": 4.24
+    }
+  },
+  "used_fallback": false
+}

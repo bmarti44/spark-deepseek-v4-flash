@@ -1,0 +1,55 @@
+{
+  "index": 1252,
+  "task_id": 1252,
+  "rendered_prompt_sha256": "84909c9a385c34ba1642faf8744ba531e29f5183d81aa49ff9b2ae1d7ed8e1f0",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- There are 20 helmets.  \n- Half as many robots as helmets: robots = 20 / 2 = 10.  \n- Half as many helmets as footballs: helmets = footballs / 2 → footballs = 20 × 2 = 40.  \n\nTotal items = helmets + robots + footballs = 20 + 10 + 40 = 70.\n\nAnswer: 70",
+  "finish_reason": "stop",
+  "expected": "70",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.481132066997816
+  },
+  "response": {
+    "id": "cmpl-16",
+    "object": "text_completion",
+    "created": 1784238638,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- There are 20 helmets.  \n- Half as many robots as helmets: robots = 20 / 2 = 10.  \n- Half as many helmets as footballs: helmets = footballs / 2 → footballs = 20 × 2 = 40.  \n\nTotal items = helmets + robots + footballs = 20 + 10 + 40 = 70.\n\nAnswer: 70",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 83,
+      "completion_tokens": 94,
+      "total_tokens": 177,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 798.3,
+      "prefill_tokens": 83,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 104.8,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.922,
+      "tok_per_step": 4.32
+    }
+  },
+  "used_fallback": false
+}

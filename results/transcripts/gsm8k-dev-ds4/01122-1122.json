@@ -1,0 +1,55 @@
+{
+  "index": 1122,
+  "task_id": 1122,
+  "rendered_prompt_sha256": "48f9723e0f9c2a46f6137f7913fe2a7819f7aa6ceae1d639a064dc3f5071a6b3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break this down step by step.\n\n- Total toys needed: 400  \n- Workers:  \n  - 2 workers produce 6 toys/hour → each = 6 toys/hour, so together = 12 toys/hour  \n  - 2 workers produce 4 toys/hour → each = 4 toys/hour, so together = 8 toys/hour  \n  - 1 worker (fifth) produces unknown rate: let’s call it \\( x \\) toys/hour  \n\nTotal production rate from all 5 workers:  \n\\[\n12 + 8 + x = 20 + x \\text{ toys/hour}\n\\]\n\nThey work a 10-hour shift, so total toys produced:  \n\\[\n10 \\times (20 + x) = 200 + 10x\n\\]\n\nAfter the shift, they still need 20 more toys, so:  \n\\[\n200 + 10x = 400 - 20\n\\]  \n\\[\n200 + 10x = 380\n\\]  \n\\[\n10x = 180\n\\]  \n\\[\nx = 18\n\\]\n\nSo the fifth worker produces **18 toys per hour**.\n\nAnswer: 18",
+  "finish_reason": "stop",
+  "expected": "18",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.307347676000063
+  },
+  "response": {
+    "id": "cmpl-38",
+    "object": "text_completion",
+    "created": 1784238727,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break this down step by step.\n\n- Total toys needed: 400  \n- Workers:  \n  - 2 workers produce 6 toys/hour → each = 6 toys/hour, so together = 12 toys/hour  \n  - 2 workers produce 4 toys/hour → each = 4 toys/hour, so together = 8 toys/hour  \n  - 1 worker (fifth) produces unknown rate: let’s call it \\( x \\) toys/hour  \n\nTotal production rate from all 5 workers:  \n\\[\n12 + 8 + x = 20 + x \\text{ toys/hour}\n\\]\n\nThey work a 10-hour shift, so total toys produced:  \n\\[\n10 \\times (20 + x) = 200 + 10x\n\\]\n\nAfter the shift, they still need 20 more toys, so:  \n\\[\n200 + 10x = 400 - 20\n\\]  \n\\[\n200 + 10x = 380\n\\]  \n\\[\n10x = 180\n\\]  \n\\[\nx = 18\n\\]\n\nSo the fifth worker produces **18 toys per hour**.\n\nAnswer: 18",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "completion_tokens": 238,
+      "total_tokens": 369,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 889.9,
+      "prefill_tokens": 131,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 148.6,
+      "decode_tok_s": 32.1,
+      "spec_accept_rate": 0.84,
+      "tok_per_step": 3.73
+    }
+  },
+  "used_fallback": false
+}

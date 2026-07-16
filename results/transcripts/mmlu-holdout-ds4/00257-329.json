@@ -1,0 +1,54 @@
+{
+  "index": 257,
+  "task_id": 329,
+  "rendered_prompt_sha256": "aaecc7ede56c31061eaa52eeed1dc21d137d90ea3f6510f70a571dd575a76ec4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The loss is $45,000, and the total insurance coverage is $50,000 + $30,000 = $80,000.  \nEach company pays in proportion to its policy amount.\n\nAcme's share:  \n\\( \\frac{50,000}{80,000} \\times 45,000 = 0.625 \\times 45,000 = 28,125 \\)  \n\nSafe Way's share:  \n\\( \\frac{30,000}{80,000} \\times 45,000 = 0.375 \\times 45,000 = 16,875 \\)  \n\nThat matches option D.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.076121992999106
+  },
+  "response": {
+    "id": "cmpl-647",
+    "object": "text_completion",
+    "created": 1784241131,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The loss is $45,000, and the total insurance coverage is $50,000 + $30,000 = $80,000.  \nEach company pays in proportion to its policy amount.\n\nAcme's share:  \n\\( \\frac{50,000}{80,000} \\times 45,000 = 0.625 \\times 45,000 = 28,125 \\)  \n\nSafe Way's share:  \n\\( \\frac{30,000}{80,000} \\times 45,000 = 0.375 \\times 45,000 = 16,875 \\)  \n\nThat matches option D.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 290,
+      "completion_tokens": 132,
+      "total_tokens": 422,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 615.2,
+      "prefill_tokens": 290,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 472.6,
+      "decode_tok_s": 38.1,
+      "spec_accept_rate": 0.909,
+      "tok_per_step": 4.29
+    }
+  }
+}

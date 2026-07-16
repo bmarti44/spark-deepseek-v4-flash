@@ -1,0 +1,54 @@
+{
+  "index": 7431,
+  "task_id": 7614,
+  "rendered_prompt_sha256": "8a3cf20f4c730b3745d867ece0bc5a702fcd1948bfd2177def071077b3d52731",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the equation of exchange:  \nMoney Supply (M) × Velocity (V) = Nominal GNP (or GDP).  \n\nGiven:  \nGNP = $2,000 billion  \nVelocity = 4  \n\nSo:  \nM × 4 = $2,000 billion  \nM = $2,000 billion / 4 = $500 billion  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.2315144680032972
+  },
+  "response": {
+    "id": "cmpl-193",
+    "object": "text_completion",
+    "created": 1784239456,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can use the equation of exchange:  \nMoney Supply (M) × Velocity (V) = Nominal GNP (or GDP).  \n\nGiven:  \nGNP = $2,000 billion  \nVelocity = 4  \n\nSo:  \nM × 4 = $2,000 billion  \nM = $2,000 billion / 4 = $500 billion  \n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 78,
+      "total_tokens": 194,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 876.2,
+      "prefill_tokens": 116,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 132.6,
+      "decode_tok_s": 33.1,
+      "spec_accept_rate": 0.824,
+      "tok_per_step": 3.76
+    }
+  }
+}

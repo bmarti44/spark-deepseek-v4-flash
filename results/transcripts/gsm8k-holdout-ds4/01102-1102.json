@@ -1,0 +1,55 @@
+{
+  "index": 1102,
+  "task_id": 1102,
+  "rendered_prompt_sha256": "05426450a0fb6c71742c9104f65b358346f0ac45d95efe53301ba94b890f24f6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step:\n\n1. Sheila initially charged $85.00.  \n2. She returned an item worth $15.00, so her balance decreased by $15.00:  \n   \\( 85.00 - 15.00 = 70.00 \\)  \n3. She bought a frying pan: original $20.00, 20% off → discount = $4.00, price = \\( 20.00 - 4.00 = 16.00 \\)  \n4. She bought a set of towels: original $30.00, 10% off → discount = $3.00, price = \\( 30.00 - 3.00 = 27.00 \\)  \n5. Total new purchases: \\( 16.00 + 27.00 = 43.00 \\)  \n6. New balance: \\( 70.00 + 43.00 = 113.00 \\)  \n\nAnswer: 113.00",
+  "finish_reason": "stop",
+  "expected": "113",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.334350397002709
+  },
+  "response": {
+    "id": "cmpl-612",
+    "object": "text_completion",
+    "created": 1784240988,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step:\n\n1. Sheila initially charged $85.00.  \n2. She returned an item worth $15.00, so her balance decreased by $15.00:  \n   \\( 85.00 - 15.00 = 70.00 \\)  \n3. She bought a frying pan: original $20.00, 20% off → discount = $4.00, price = \\( 20.00 - 4.00 = 16.00 \\)  \n4. She bought a set of towels: original $30.00, 10% off → discount = $3.00, price = \\( 30.00 - 3.00 = 27.00 \\)  \n5. Total new purchases: \\( 16.00 + 27.00 = 43.00 \\)  \n6. New balance: \\( 70.00 + 43.00 = 113.00 \\)  \n\nAnswer: 113.00",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "completion_tokens": 203,
+      "total_tokens": 334,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 824.0,
+      "prefill_tokens": 131,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 159.2,
+      "decode_tok_s": 36.8,
+      "spec_accept_rate": 0.894,
+      "tok_per_step": 4.08
+    }
+  },
+  "used_fallback": false
+}

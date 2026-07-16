@@ -1,0 +1,55 @@
+{
+  "index": 672,
+  "task_id": 672,
+  "rendered_prompt_sha256": "1d8c9709d7c332f7c5bea81b434139d256bb6e84fc299e370528c5fc2b9a32c2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nChristina recorded moods over 30 days.  \n- First 8 days: good  \n- Next 8 days: bad  \n- Next 8 days: neutral  \n\nThat accounts for 24 days. The remaining 6 days (days 25–30) are not yet described in the first part.  \n\nWe know overall totals:  \n- 12 good days total  \n- 8 bad days total  \n- The rest are neutral (30 - 12 - 8 = 10 neutral days)  \n\nFrom the first 24 days:  \n- Good: 8  \n- Bad: 8  \n- Neutral: 8  \n\nSo after 24 days, we have:  \n- Good used: 8, need 4 more to reach 12  \n- Bad used: 8, need 0 more  \n- Neutral used: 8, need 2 more to reach 10  \n\nNow the next three days (days 25, 26, 27) are: good, neutral, good.  \nThat adds 2 good and 1 neutral.  \nNow good count = 10, neutral count = 9.  \n\nRemaining days in the month: days 28, 29, 30 (3 days).  \nWe need:  \n- Good: 2 more to reach 12  \n- Neutral: 1 more to reach 10  \n\nSo the remaining good days left to record = 2.  \n\nAnswer: 2",
+  "finish_reason": "stop",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.585275804001867
+  },
+  "response": {
+    "id": "cmpl-24",
+    "object": "text_completion",
+    "created": 1784238672,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nChristina recorded moods over 30 days.  \n- First 8 days: good  \n- Next 8 days: bad  \n- Next 8 days: neutral  \n\nThat accounts for 24 days. The remaining 6 days (days 25–30) are not yet described in the first part.  \n\nWe know overall totals:  \n- 12 good days total  \n- 8 bad days total  \n- The rest are neutral (30 - 12 - 8 = 10 neutral days)  \n\nFrom the first 24 days:  \n- Good: 8  \n- Bad: 8  \n- Neutral: 8  \n\nSo after 24 days, we have:  \n- Good used: 8, need 4 more to reach 12  \n- Bad used: 8, need 0 more  \n- Neutral used: 8, need 2 more to reach 10  \n\nNow the next three days (days 25, 26, 27) are: good, neutral, good.  \nThat adds 2 good and 1 neutral.  \nNow good count = 10, neutral count = 9.  \n\nRemaining days in the month: days 28, 29, 30 (3 days).  \nWe need:  \n- Good: 2 more to reach 12  \n- Neutral: 1 more to reach 10  \n\nSo the remaining good days left to record = 2.  \n\nAnswer: 2",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "completion_tokens": 306,
+      "total_tokens": 423,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 935.6,
+      "prefill_tokens": 117,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.9,
+      "decode_tok_s": 28.8,
+      "spec_accept_rate": 0.793,
+      "tok_per_step": 3.41
+    }
+  },
+  "used_fallback": false
+}

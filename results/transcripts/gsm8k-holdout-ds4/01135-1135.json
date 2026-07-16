@@ -1,0 +1,55 @@
+{
+  "index": 1135,
+  "task_id": 1135,
+  "rendered_prompt_sha256": "8c7eba763c7ca7264f5c802769a523f19610d1324032f96617d0e494b6b45892",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step:\n\n- 3 trees × 7 blue birds = 21 blue birds  \n- 2 trees × 4 blue birds = 8 blue birds  \n- 1 tree × 3 blue birds = 3 blue birds  \n\nNow add them:  \n21 + 8 + 3 = 32  \n\nAnswer: 32",
+  "finish_reason": "stop",
+  "expected": "32",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.5147654109969153
+  },
+  "response": {
+    "id": "cmpl-593",
+    "object": "text_completion",
+    "created": 1784240917,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step:\n\n- 3 trees × 7 blue birds = 21 blue birds  \n- 2 trees × 4 blue birds = 8 blue birds  \n- 1 tree × 3 blue birds = 3 blue birds  \n\nNow add them:  \n21 + 8 + 3 = 32  \n\nAnswer: 32",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 81,
+      "completion_tokens": 74,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 714.8,
+      "prefill_tokens": 81,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 113.5,
+      "decode_tok_s": 41.1,
+      "spec_accept_rate": 0.919,
+      "tok_per_step": 4.69
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,55 @@
+{
+  "index": 1054,
+  "task_id": 1054,
+  "rendered_prompt_sha256": "7b92ff952c0d3361bcbf07e1f7b37bfa1ab650f3e1738ee0822bd59935c2729b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The area is 200 sq ft, and each tile is 1 ft x 1 ft, so each tile covers 1 sq ft. You need 200 tiles. Each tile costs $12, so the total cost is 200 × $12 = $2400.\n\nAnswer: 2400",
+  "finish_reason": "stop",
+  "expected": "2400",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.460747656004969
+  },
+  "response": {
+    "id": "cmpl-551",
+    "object": "text_completion",
+    "created": 1784240756,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The area is 200 sq ft, and each tile is 1 ft x 1 ft, so each tile covers 1 sq ft. You need 200 tiles. Each tile costs $12, so the total cost is 200 × $12 = $2400.\n\nAnswer: 2400",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 61,
+      "total_tokens": 150,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 780.8,
+      "prefill_tokens": 89,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 114.2,
+      "decode_tok_s": 36.4,
+      "spec_accept_rate": 0.92,
+      "tok_per_step": 4.43
+    }
+  },
+  "used_fallback": false
+}

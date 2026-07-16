@@ -1,0 +1,54 @@
+{
+  "index": 8736,
+  "task_id": 8925,
+  "rendered_prompt_sha256": "8362545f82f701a3cf7fe51007f210ad26c292bd0cebec4cb8150e8ad6776771",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "\nThe retailer bought 20,000 pounds each year.\n\n**2014 cost:**  \n20,000 × $0.24 = $4,800\n\n**2015 cost:**  \n20,000 × $0.16 = $3,200\n\n**Change in cost:**  \n$3,200 - $4,800 = -$1,600\n\n**Percent change:**  \n(-$1,600 / $4,800) × 100% = -33.33...%\n\nThat is approximately –33%.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.006293124999502
+  },
+  "response": {
+    "id": "cmpl-799",
+    "object": "text_completion",
+    "created": 1784242210,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "\nThe retailer bought 20,000 pounds each year.\n\n**2014 cost:**  \n20,000 × $0.24 = $4,800\n\n**2015 cost:**  \n20,000 × $0.16 = $3,200\n\n**Change in cost:**  \n$3,200 - $4,800 = -$1,600\n\n**Percent change:**  \n(-$1,600 / $4,800) × 100% = -33.33...%\n\nThat is approximately –33%.\n\nAnswer: C",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 110,
+      "total_tokens": 275,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 902.8,
+      "prefill_tokens": 165,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 183.0,
+      "decode_tok_s": 35.5,
+      "spec_accept_rate": 0.871,
+      "tok_per_step": 3.96
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "index": 1308,
+  "task_id": 1308,
+  "rendered_prompt_sha256": "4eab96133ffe712d621e28355677fea688f259b1861672565f03cdb5ed27bb99",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The first basket has 10 eggs. The second basket has twice as many, so 10 × 2 = 20 eggs. Together, they have 10 + 20 = 30 eggs.\n\nAnswer: 30",
+  "finish_reason": "stop",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.7698314480003319
+  },
+  "response": {
+    "id": "cmpl-53",
+    "object": "text_completion",
+    "created": 1784238785,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The first basket has 10 eggs. The second basket has twice as many, so 10 × 2 = 20 eggs. Together, they have 10 + 20 = 30 eggs.\n\nAnswer: 30",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 45,
+      "total_tokens": 115,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 637.2,
+      "prefill_tokens": 70,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 110.1,
+      "decode_tok_s": 39.8,
+      "spec_accept_rate": 0.944,
+      "tok_per_step": 4.6
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,54 @@
+{
+  "index": 794,
+  "task_id": 871,
+  "rendered_prompt_sha256": "932cb7050e2ca873fe85a957b36dacaf15bd506410a19b76980b24decc1bd346",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The scenario describes a situation where the cab driver made sexual advances, but the passenger (an undercover officer) responded by kissing him and holding his hand, indicating that the advances were initially welcome. The driver was about to kiss her again when she got up to answer the phone. There is no indication of force, threats, or continued advances after she clearly withdrew consent. For attempted rape, there must be an intent to commit rape and an act that goes beyond mere preparation, typically involving force or threat. Here, the driver stopped when she moved away, and there was no use of force or threats.\n\nThe correct answer is J: not guilty, if he did not use force or threats.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.064109008002561
+  },
+  "response": {
+    "id": "cmpl-240",
+    "object": "text_completion",
+    "created": 1784239765,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The scenario describes a situation where the cab driver made sexual advances, but the passenger (an undercover officer) responded by kissing him and holding his hand, indicating that the advances were initially welcome. The driver was about to kiss her again when she got up to answer the phone. There is no indication of force, threats, or continued advances after she clearly withdrew consent. For attempted rape, there must be an intent to commit rape and an act that goes beyond mere preparation, typically involving force or threat. Here, the driver stopped when she moved away, and there was no use of force or threats.\n\nThe correct answer is J: not guilty, if he did not use force or threats.\n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 301,
+      "completion_tokens": 142,
+      "total_tokens": 443,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 643.4,
+      "prefill_tokens": 301,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 470.2,
+      "decode_tok_s": 26.3,
+      "spec_accept_rate": 0.697,
+      "tok_per_step": 2.92
+    }
+  }
+}

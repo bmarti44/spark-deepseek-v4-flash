@@ -1,0 +1,55 @@
+{
+  "index": 107,
+  "task_id": 107,
+  "rendered_prompt_sha256": "54da603140ba26ab0fe863958e8829757b3e2670a837f472e65552343207cf4b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n**Monday:** 1 hour  \n**Tuesday:** 1 hour  \n**Wednesday:** Let \\( x \\) = number of 30-minute episodes. Each is 0.5 hours, so total = \\( 0.5x \\) hours.  \n**Thursday:** 1 hour + 0.5 hour = 1.5 hours  \n**Friday:** 2 × 1 hour = 2 hours  \n\nTotal hours:  \n\\[\n1 + 1 + 0.5x + 1.5 + 2 = 7\n\\]  \n\\[\n5.5 + 0.5x = 7\n\\]  \n\\[\n0.5x = 1.5\n\\]  \n\\[\nx = 3\n\\]\n\nSo he watched **3** half-hour episodes on Wednesday.\n\nAnswer: 3",
+  "finish_reason": "stop",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.68673762200342
+  },
+  "response": {
+    "id": "cmpl-89",
+    "object": "text_completion",
+    "created": 1784238930,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n**Monday:** 1 hour  \n**Tuesday:** 1 hour  \n**Wednesday:** Let \\( x \\) = number of 30-minute episodes. Each is 0.5 hours, so total = \\( 0.5x \\) hours.  \n**Thursday:** 1 hour + 0.5 hour = 1.5 hours  \n**Friday:** 2 × 1 hour = 2 hours  \n\nTotal hours:  \n\\[\n1 + 1 + 0.5x + 1.5 + 2 = 7\n\\]  \n\\[\n5.5 + 0.5x = 7\n\\]  \n\\[\n0.5x = 1.5\n\\]  \n\\[\nx = 3\n\\]\n\nSo he watched **3** half-hour episodes on Wednesday.\n\nAnswer: 3",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 177,
+      "total_tokens": 327,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 881.0,
+      "prefill_tokens": 150,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 170.9,
+      "decode_tok_s": 36.9,
+      "spec_accept_rate": 0.911,
+      "tok_per_step": 4.14
+    }
+  },
+  "used_fallback": false
+}

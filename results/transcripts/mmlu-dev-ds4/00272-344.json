@@ -1,0 +1,54 @@
+{
+  "index": 272,
+  "task_id": 344,
+  "rendered_prompt_sha256": "3cb76c0a9a3320fc085edb4a2c96e6f10c35ab0b66ee7e0fa47b39f6f1e1e964",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate each loan's interest.\n\n**Ms. Atlas**  \nPrincipal: $1,800  \nRate: 6% per year  \nTime: 60 days  \nUsing simple interest:  \nInterest = 1800 × 0.06 × (60/360) = 1800 × 0.06 × 1/6 = 1800 × 0.01 = $18  \n\n**Mr. Johnson**  \nPrincipal: $2,400  \nRate: 5% per year  \nTime: 3 years  \nInterest = 2400 × 0.05 × 3 = 2400 × 0.15 = $360  \n\n**Mr. Breakman**  \nPrincipal: $7,000  \nRate: 6.5% per year  \nTime: 4 years  \nInterest = 7000 × 0.065 × 4 = 7000 × 0.26 = $1,820  \n\nSo the amounts are:  \nMs. Atlas: $18  \nMr. Johnson: $360  \nMr. Breakman: $1,820  \n\nThat matches option **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.886313192000671
+  },
+  "response": {
+    "id": "cmpl-132",
+    "object": "text_completion",
+    "created": 1784239096,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's calculate each loan's interest.\n\n**Ms. Atlas**  \nPrincipal: $1,800  \nRate: 6% per year  \nTime: 60 days  \nUsing simple interest:  \nInterest = 1800 × 0.06 × (60/360) = 1800 × 0.06 × 1/6 = 1800 × 0.01 = $18  \n\n**Mr. Johnson**  \nPrincipal: $2,400  \nRate: 5% per year  \nTime: 3 years  \nInterest = 2400 × 0.05 × 3 = 2400 × 0.15 = $360  \n\n**Mr. Breakman**  \nPrincipal: $7,000  \nRate: 6.5% per year  \nTime: 4 years  \nInterest = 7000 × 0.065 × 4 = 7000 × 0.26 = $1,820  \n\nSo the amounts are:  \nMs. Atlas: $18  \nMr. Johnson: $360  \nMr. Breakman: $1,820  \n\nThat matches option **I**.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 397,
+      "completion_tokens": 233,
+      "total_tokens": 630,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 757.3,
+      "prefill_tokens": 397,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 526.2,
+      "decode_tok_s": 38.0,
+      "spec_accept_rate": 0.932,
+      "tok_per_step": 4.33
+    }
+  }
+}

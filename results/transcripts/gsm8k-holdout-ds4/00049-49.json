@@ -1,0 +1,56 @@
+{
+  "index": 49,
+  "task_id": 49,
+  "rendered_prompt_sha256": "085c547dfca2ecf36f3225854f208449e70403ebc40b3847bd19ba1cf0d499f1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Total number of units in the building:  \n   \\( 15 \\text{ floors} \\times 8 \\text{ units per floor} = 120 \\text{ units} \\)\n\n2. Fraction occupied: \\( \\frac{3}{4} \\)  \n   Occupied units: \\( 120 \\times \\frac{3}{4} = 90 \\)\n\n3. Unoccupied units:  \n   \\( 120 - 90 = 30 \\)\n\nAnswer: 30",
+  "finish_reason": "stop",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.029395395002211
+  },
+  "response": {
+    "id": "cmpl-532",
+    "object": "text_completion",
+    "created": 1784240685,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Total number of units in the building:  \n   \\( 15 \\text{ floors} \\times 8 \\text{ units per floor} = 120 \\text{ units} \\)\n\n2. Fraction occupied: \\( \\frac{3}{4} \\)  \n   Occupied units: \\( 120 \\times \\frac{3}{4} = 90 \\)\n\n3. Unoccupied units:  \n   \\( 120 - 90 = 30 \\)\n\nAnswer: 30",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 80,
+      "completion_tokens": 110,
+      "total_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 780.1,
+      "prefill_tokens": 80,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 102.7,
+      "decode_tok_s": 33.9,
+      "spec_accept_rate": 0.871,
+      "tok_per_step": 3.96
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Richard lives in an apartment building with 15 floors. Each floor contains 8 units, and 3/4 of the building is occupied. What's the total number of unoccupied units In the building?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

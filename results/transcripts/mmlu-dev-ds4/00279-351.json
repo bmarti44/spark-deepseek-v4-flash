@@ -1,0 +1,54 @@
+{
+  "index": 279,
+  "task_id": 351,
+  "rendered_prompt_sha256": "5defcddd57181e327a77f0b762a41ee588fa4a3676e0defdba7b37b4522e5a3a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Salary: $300 per month  \n- Commission: 10% on sales above $2,500  \n- Total sales: $5,070.20  \n\nSales above $2,500 = $5,070.20 - $2,500 = $2,570.20  \nCommission = 10% of $2,570.20 = $257.02  \n\nTotal income = $300 + $257.02 = $557.02  \n\nThe correct answer is **H**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.732824299004278
+  },
+  "response": {
+    "id": "cmpl-133",
+    "object": "text_completion",
+    "created": 1784239100,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Salary: $300 per month  \n- Commission: 10% on sales above $2,500  \n- Total sales: $5,070.20  \n\nSales above $2,500 = $5,070.20 - $2,500 = $2,570.20  \nCommission = 10% of $2,570.20 = $257.02  \n\nTotal income = $300 + $257.02 = $557.02  \n\nThe correct answer is **H**.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "completion_tokens": 112,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 913.0,
+      "prefill_tokens": 158,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 173.6,
+      "decode_tok_s": 39.7,
+      "spec_accept_rate": 0.925,
+      "tok_per_step": 4.52
+    }
+  }
+}

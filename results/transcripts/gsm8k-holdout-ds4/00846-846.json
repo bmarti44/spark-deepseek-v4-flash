@@ -1,0 +1,55 @@
+{
+  "index": 846,
+  "task_id": 846,
+  "rendered_prompt_sha256": "b9da9b3696c90b4ed2c33f3eb5b487aa93c39df5c741b7814da013dc6c14f1d9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Total show time: 2 hours = 120 minutes  \n- Intermission: 10 minutes  \n- Time available for performances: 120 - 10 = 110 minutes  \n- Each group needs: 2 (setup) + 6 (perform) + 2 (exit) = 10 minutes per group  \n- Number of groups: 110 ÷ 10 = 11  \n\nAnswer: 11",
+  "finish_reason": "stop",
+  "expected": "11",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.3378865319973556
+  },
+  "response": {
+    "id": "cmpl-627",
+    "object": "text_completion",
+    "created": 1784241050,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Total show time: 2 hours = 120 minutes  \n- Intermission: 10 minutes  \n- Time available for performances: 120 - 10 = 110 minutes  \n- Each group needs: 2 (setup) + 6 (perform) + 2 (exit) = 10 minutes per group  \n- Number of groups: 110 ÷ 10 = 11  \n\nAnswer: 11",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 106,
+      "completion_tokens": 91,
+      "total_tokens": 197,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 848.8,
+      "prefill_tokens": 106,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.1,
+      "decode_tok_s": 36.6,
+      "spec_accept_rate": 0.861,
+      "tok_per_step": 4.18
+    }
+  },
+  "used_fallback": false
+}

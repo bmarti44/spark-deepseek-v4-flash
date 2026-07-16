@@ -1,0 +1,54 @@
+{
+  "index": 8399,
+  "task_id": 8586,
+  "rendered_prompt_sha256": "6bb85f6a7e9a56fc0015e6b55b6afa94b6d8749925fcf15bc0c58a35613904c9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The smallest positive integer that has factors of 16, 15, and 12 is the least common multiple (LCM) of these numbers.\n\nFirst, factor each:\n- 16 = 2⁴\n- 15 = 3 × 5\n- 12 = 2² × 3\n\nThe LCM must include the highest powers of each prime:\n- 2⁴ (from 16)\n- 3¹ (from 15 or 12)\n- 5¹ (from 15)\n\nSo LCM = 2⁴ × 3 × 5 = 16 × 3 × 5 = 240.\n\nThus, the smallest positive integer is 240.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.534652909002034
+  },
+  "response": {
+    "id": "cmpl-791",
+    "object": "text_completion",
+    "created": 1784242155,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The smallest positive integer that has factors of 16, 15, and 12 is the least common multiple (LCM) of these numbers.\n\nFirst, factor each:\n- 16 = 2⁴\n- 15 = 3 × 5\n- 12 = 2² × 3\n\nThe LCM must include the highest powers of each prime:\n- 2⁴ (from 16)\n- 3¹ (from 15 or 12)\n- 5¹ (from 15)\n\nSo LCM = 2⁴ × 3 × 5 = 16 × 3 × 5 = 240.\n\nThus, the smallest positive integer is 240.\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 145,
+      "total_tokens": 245,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 778.5,
+      "prefill_tokens": 100,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 128.7,
+      "decode_tok_s": 38.6,
+      "spec_accept_rate": 0.909,
+      "tok_per_step": 4.29
+    }
+  }
+}

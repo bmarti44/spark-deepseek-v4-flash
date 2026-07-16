@@ -1,0 +1,54 @@
+{
+  "index": 262,
+  "task_id": 334,
+  "rendered_prompt_sha256": "fba1056a72f58f4f196a36b32f94cc53ce2da5d35e301c58b04c254942d366fe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to calculate the interest on a $150 loan at 6% annual interest for 90 days.\n\nFirst, note that 6% is the annual interest rate. For a 90-day period, the time fraction is \\( \\frac{90}{360} \\) (assuming a 360-day year for simple interest calculations).\n\nInterest = Principal × Rate × Time  \n= \\( 150 \\times 0.06 \\times \\frac{90}{360} \\)  \n= \\( 150 \\times 0.06 \\times 0.25 \\)  \n= \\( 150 \\times 0.015 \\)  \n= \\( 2.25 \\)\n\nAmount due = Principal + Interest = \\( 150 + 2.25 = 152.25 \\)\n\nThat corresponds to option F.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.625851169002999
+  },
+  "response": {
+    "id": "cmpl-131",
+    "object": "text_completion",
+    "created": 1784239089,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to calculate the interest on a $150 loan at 6% annual interest for 90 days.\n\nFirst, note that 6% is the annual interest rate. For a 90-day period, the time fraction is \\( \\frac{90}{360} \\) (assuming a 360-day year for simple interest calculations).\n\nInterest = Principal × Rate × Time  \n= \\( 150 \\times 0.06 \\times \\frac{90}{360} \\)  \n= \\( 150 \\times 0.06 \\times 0.25 \\)  \n= \\( 150 \\times 0.015 \\)  \n= \\( 2.25 \\)\n\nAmount due = Principal + Interest = \\( 150 + 2.25 = 152.25 \\)\n\nThat corresponds to option F.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 165,
+      "total_tokens": 302,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 847.9,
+      "prefill_tokens": 137,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 162.0,
+      "decode_tok_s": 34.6,
+      "spec_accept_rate": 0.852,
+      "tok_per_step": 3.86
+    }
+  }
+}

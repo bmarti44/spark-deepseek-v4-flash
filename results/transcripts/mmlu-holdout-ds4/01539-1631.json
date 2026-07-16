@@ -1,0 +1,54 @@
+{
+  "index": 1539,
+  "task_id": 1631,
+  "rendered_prompt_sha256": "bc04457dd85241cd152f7147a4fc79aad58f8f63b7c8b79ecdafc4882e1925f2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: E\n\nThe correct answer is E because grand jury proceedings are not open to the public; they are conducted in secret. The other options describe characteristics that are generally true or false about grand jury proceedings as per U.S. federal law and many state jurisdictions. Specifically:\n\n- A: True — grand jury proceedings are secret.\n- B: True — a judge is present to oversee legal matters.\n- C: False — the defendant generally does not have a right to present evidence.\n- D: False — Miranda warnings are not required in grand jury proceedings.\n- E: False — proceedings are not open to the public.\n- F: True — there is no right to exclude illegally obtained evidence.\n- G: True — in federal grand juries, the decision must be unanimous.\n- H: True — there is no right to counsel in the grand jury room.\n- I: True — federal grand juries typically have 16-23 members, but many states use 12; the statement is generally true for state grand juries.\n\nThus, the statement that is not true is E.</think>Answer: E",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.12702717600041
+  },
+  "response": {
+    "id": "cmpl-768",
+    "object": "text_completion",
+    "created": 1784242000,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: E\n\nThe correct answer is E because grand jury proceedings are not open to the public; they are conducted in secret. The other options describe characteristics that are generally true or false about grand jury proceedings as per U.S. federal law and many state jurisdictions. Specifically:\n\n- A: True — grand jury proceedings are secret.\n- B: True — a judge is present to oversee legal matters.\n- C: False — the defendant generally does not have a right to present evidence.\n- D: False — Miranda warnings are not required in grand jury proceedings.\n- E: False — proceedings are not open to the public.\n- F: True — there is no right to exclude illegally obtained evidence.\n- G: True — in federal grand juries, the decision must be unanimous.\n- H: True — there is no right to counsel in the grand jury room.\n- I: True — federal grand juries typically have 16-23 members, but many states use 12; the statement is generally true for state grand juries.\n\nThus, the statement that is not true is E.</think>Answer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "completion_tokens": 224,
+      "total_tokens": 368,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 859.5,
+      "prefill_tokens": 144,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 167.8,
+      "decode_tok_s": 27.1,
+      "spec_accept_rate": 0.722,
+      "tok_per_step": 3.0
+    }
+  }
+}

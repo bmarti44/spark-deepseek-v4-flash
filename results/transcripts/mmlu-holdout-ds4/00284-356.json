@@ -1,0 +1,54 @@
+{
+  "index": 284,
+  "task_id": 356,
+  "rendered_prompt_sha256": "e13ec469826cd3db459fb288dbaebb5c1ed8dac4c8030708ee7674488dcba406",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n**Fixed costs per week:**  \nWages and electricity: $500  \nUpkeep and miscellaneous: $100  \nTotal fixed costs = $600  \n\n**Variable cost per customer:**  \nGift cost = $2.00  \n\n**Revenue per customer:**  \nAdmission = $6.00  \n\n**Profit per customer (before fixed costs):**  \n$6.00 - $2.00 = $4.00  \n\n**Target profit:** $1,000 per week  \n\n**Total needed contribution to cover fixed costs + profit:**  \n$600 (fixed) + $1,000 (profit) = $1,600  \n\n**Number of customers needed:**  \n$1,600 ÷ $4.00 = 400 customers  \n\nSo the answer is **J**.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.521062235995487
+  },
+  "response": {
+    "id": "cmpl-650",
+    "object": "text_completion",
+    "created": 1784241146,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n**Fixed costs per week:**  \nWages and electricity: $500  \nUpkeep and miscellaneous: $100  \nTotal fixed costs = $600  \n\n**Variable cost per customer:**  \nGift cost = $2.00  \n\n**Revenue per customer:**  \nAdmission = $6.00  \n\n**Profit per customer (before fixed costs):**  \n$6.00 - $2.00 = $4.00  \n\n**Target profit:** $1,000 per week  \n\n**Total needed contribution to cover fixed costs + profit:**  \n$600 (fixed) + $1,000 (profit) = $1,600  \n\n**Number of customers needed:**  \n$1,600 ÷ $4.00 = 400 customers  \n\nSo the answer is **J**.\n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 207,
+      "completion_tokens": 168,
+      "total_tokens": 375,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 558.0,
+      "prefill_tokens": 207,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 371.9,
+      "decode_tok_s": 33.9,
+      "spec_accept_rate": 0.836,
+      "tok_per_step": 3.76
+    }
+  }
+}

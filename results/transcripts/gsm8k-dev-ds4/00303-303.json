@@ -1,0 +1,55 @@
+{
+  "index": 303,
+  "task_id": 303,
+  "rendered_prompt_sha256": "9ff6c82767051e65c02c13379c22d2d89cc175bcadb5f3f7b04278e89a355ceb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n1. Total books: 250  \n2. Unsold books now: 50  \n   So, total sold books = 250 - 50 = 200.\n\n3. This year's sales = 45.  \n   Let first year sales = \\( F \\), second year sales = \\( S \\), current year sales = 45.  \n   She sold twice as many in the first year as in the current year:  \n   \\( F = 2 \\times 45 = 90 \\).\n\n4. Total sold = \\( F + S + 45 = 200 \\)  \n   So, \\( 90 + S + 45 = 200 \\)  \n   \\( S = 200 - 135 = 65 \\).\n\n5. Money earned in second year = \\( 65 \\times 20 = 1300 \\).\n\nAnswer: 1300",
+  "finish_reason": "stop",
+  "expected": "1300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.042385430999275
+  },
+  "response": {
+    "id": "cmpl-92",
+    "object": "text_completion",
+    "created": 1784238943,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n1. Total books: 250  \n2. Unsold books now: 50  \n   So, total sold books = 250 - 50 = 200.\n\n3. This year's sales = 45.  \n   Let first year sales = \\( F \\), second year sales = \\( S \\), current year sales = 45.  \n   She sold twice as many in the first year as in the current year:  \n   \\( F = 2 \\times 45 = 90 \\).\n\n4. Total sold = \\( F + S + 45 = 200 \\)  \n   So, \\( 90 + S + 45 = 200 \\)  \n   \\( S = 200 - 135 = 65 \\).\n\n5. Money earned in second year = \\( 65 \\times 20 = 1300 \\).\n\nAnswer: 1300",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 115,
+      "completion_tokens": 185,
+      "total_tokens": 300,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 924.0,
+      "prefill_tokens": 115,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 124.8,
+      "decode_tok_s": 36.2,
+      "spec_accept_rate": 0.879,
+      "tok_per_step": 4.04
+    }
+  },
+  "used_fallback": false
+}

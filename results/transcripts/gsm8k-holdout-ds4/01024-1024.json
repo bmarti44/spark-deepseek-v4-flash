@@ -1,0 +1,55 @@
+{
+  "index": 1024,
+  "task_id": 1024,
+  "rendered_prompt_sha256": "f7ed70d270583d1741e0f4a17a19e705a8549fff0a0999ee179531134b0405f1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Suzanne's total earnings from cookies: 80 × $1 = $80.  \nEarnings from cupcakes: 60 × $4 = $240.  \nTotal earnings: $80 + $240 = $320.  \nShe gave her two sisters $10 each, so total given: 2 × $10 = $20.  \nMoney left: $320 - $20 = $300.  \n\nAnswer: 300",
+  "finish_reason": "stop",
+  "expected": "300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.3030742400005693
+  },
+  "response": {
+    "id": "cmpl-569",
+    "object": "text_completion",
+    "created": 1784240831,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Suzanne's total earnings from cookies: 80 × $1 = $80.  \nEarnings from cupcakes: 60 × $4 = $240.  \nTotal earnings: $80 + $240 = $320.  \nShe gave her two sisters $10 each, so total given: 2 × $10 = $20.  \nMoney left: $320 - $20 = $300.  \n\nAnswer: 300",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 81,
+      "completion_tokens": 87,
+      "total_tokens": 168,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 745.2,
+      "prefill_tokens": 81,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 108.9,
+      "decode_tok_s": 34.0,
+      "spec_accept_rate": 0.863,
+      "tok_per_step": 3.83
+    }
+  },
+  "used_fallback": false
+}

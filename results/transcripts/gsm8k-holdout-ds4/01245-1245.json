@@ -1,0 +1,55 @@
+{
+  "index": 1245,
+  "task_id": 1245,
+  "rendered_prompt_sha256": "f515365f0cc53469c9f4e029ffe8bfa875d687fb813de949bd074b2aa04a4a64",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let \\( s \\) be the number of strawberry cubes and \\( b \\) be the number of blueberry cubes.\n\nWe know:\n\\[\nb = 5s - 4\n\\]\nand\n\\[\ns + b = 116\n\\]\n\nSubstitute the first equation into the second:\n\\[\ns + (5s - 4) = 116\n\\]\n\\[\n6s - 4 = 116\n\\]\n\\[\n6s = 120\n\\]\n\\[\ns = 20\n\\]\n\nThen:\n\\[\nb = 5(20) - 4 = 100 - 4 = 96\n\\]\n\nAnswer: 96",
+  "finish_reason": "stop",
+  "expected": "96",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.146539923996897
+  },
+  "response": {
+    "id": "cmpl-583",
+    "object": "text_completion",
+    "created": 1784240886,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let \\( s \\) be the number of strawberry cubes and \\( b \\) be the number of blueberry cubes.\n\nWe know:\n\\[\nb = 5s - 4\n\\]\nand\n\\[\ns + b = 116\n\\]\n\nSubstitute the first equation into the second:\n\\[\ns + (5s - 4) = 116\n\\]\n\\[\n6s - 4 = 116\n\\]\n\\[\n6s = 120\n\\]\n\\[\ns = 20\n\\]\n\nThen:\n\\[\nb = 5(20) - 4 = 100 - 4 = 96\n\\]\n\nAnswer: 96",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 98,
+      "completion_tokens": 136,
+      "total_tokens": 234,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 830.1,
+      "prefill_tokens": 98,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 118.2,
+      "decode_tok_s": 41.0,
+      "spec_accept_rate": 0.963,
+      "tok_per_step": 4.57
+    }
+  },
+  "used_fallback": false
+}

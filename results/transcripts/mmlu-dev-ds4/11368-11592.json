@@ -1,0 +1,54 @@
+{
+  "index": 11368,
+  "task_id": 11592,
+  "rendered_prompt_sha256": "635db7a074da68d5280a2d2c7b64baf1440b854678d7748aa22714c9168c5650",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need the saturation pressure of water vapor at -60°C. At such a low temperature, the saturation pressure is extremely small. From standard data, the saturation pressure of ice at -60°C is about 0.00109 kPa (or about 0.00108 kPa depending on source). Among the options, that corresponds to:\n\nF. 0.00109kPa\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.887313166997046
+  },
+  "response": {
+    "id": "cmpl-201",
+    "object": "text_completion",
+    "created": 1784239576,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need the saturation pressure of water vapor at -60°C. At such a low temperature, the saturation pressure is extremely small. From standard data, the saturation pressure of ice at -60°C is about 0.00109 kPa (or about 0.00108 kPa depending on source). Among the options, that corresponds to:\n\nF. 0.00109kPa\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 149,
+      "completion_tokens": 82,
+      "total_tokens": 231,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 869.3,
+      "prefill_tokens": 149,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 171.7,
+      "decode_tok_s": 27.3,
+      "spec_accept_rate": 0.761,
+      "tok_per_step": 3.07
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index": 3565,
+  "task_id": 3686,
+  "rendered_prompt_sha256": "0bbd4d62d5dc5ba70558777f71fae80785b4206041f836ac3f059e801e694895",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the decomposition reaction:\n\n\\[\n2 \\text{NaNO}_3 \\rightarrow 2 \\text{NaNO}_2 + \\text{O}_2\n\\]\n\nFrom the balanced equation, 2 moles of NaNO₃ produce 1 mole of O₂.\n\nMolar masses:\n- NaNO₃: 85.00 g/mol  \n- O₂: 32.00 g/mol\n\nFor 1.50 g of O₂:\n\n\\[\n\\text{moles of O}_2 = \\frac{1.50}{32.00} = 0.046875 \\text{ mol}\n\\]\n\nMoles of NaNO₃ needed = \\( 2 \\times 0.046875 = 0.09375 \\) mol\n\nMass of NaNO₃ = \\( 0.09375 \\times 85.00 = 7.96875 \\) g ≈ 7.97 g\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.0047205640003085
+  },
+  "response": {
+    "id": "cmpl-148",
+    "object": "text_completion",
+    "created": 1784239191,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We start with the decomposition reaction:\n\n\\[\n2 \\text{NaNO}_3 \\rightarrow 2 \\text{NaNO}_2 + \\text{O}_2\n\\]\n\nFrom the balanced equation, 2 moles of NaNO₃ produce 1 mole of O₂.\n\nMolar masses:\n- NaNO₃: 85.00 g/mol  \n- O₂: 32.00 g/mol\n\nFor 1.50 g of O₂:\n\n\\[\n\\text{moles of O}_2 = \\frac{1.50}{32.00} = 0.046875 \\text{ mol}\n\\]\n\nMoles of NaNO₃ needed = \\( 2 \\times 0.046875 = 0.09375 \\) mol\n\nMass of NaNO₃ = \\( 0.09375 \\times 85.00 = 7.96875 \\) g ≈ 7.97 g\n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 153,
+      "completion_tokens": 193,
+      "total_tokens": 346,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 866.8,
+      "prefill_tokens": 153,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 176.8,
+      "decode_tok_s": 37.6,
+      "spec_accept_rate": 0.912,
+      "tok_per_step": 4.22
+    }
+  }
+}

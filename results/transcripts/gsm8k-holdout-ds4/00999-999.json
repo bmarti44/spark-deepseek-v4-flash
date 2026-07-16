@@ -1,0 +1,55 @@
+{
+  "index": 999,
+  "task_id": 999,
+  "rendered_prompt_sha256": "686105db1d794efe606a03834502878fcc735158b183f7b97021cc0840636f3c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the size of a kid's slice be \\(x\\). Then each adult gets \\(2x\\).  \nThere are 2 adults and 4 kids, so total watermelon:  \n\\[\n2(2x) + 4x = 4x + 4x = 8x\n\\]  \nEach adult gets \\(2x\\) out of \\(8x\\), which is \\(\\frac{2x}{8x} = \\frac{1}{4} = 25\\%\\).\n\nAnswer: 25",
+  "finish_reason": "stop",
+  "expected": "25",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.7177872669999488
+  },
+  "response": {
+    "id": "cmpl-584",
+    "object": "text_completion",
+    "created": 1784240889,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let the size of a kid's slice be \\(x\\). Then each adult gets \\(2x\\).  \nThere are 2 adults and 4 kids, so total watermelon:  \n\\[\n2(2x) + 4x = 4x + 4x = 8x\n\\]  \nEach adult gets \\(2x\\) out of \\(8x\\), which is \\(\\frac{2x}{8x} = \\frac{1}{4} = 25\\%\\).\n\nAnswer: 25",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 84,
+      "completion_tokens": 103,
+      "total_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 759.3,
+      "prefill_tokens": 84,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 110.9,
+      "decode_tok_s": 34.8,
+      "spec_accept_rate": 0.862,
+      "tok_per_step": 3.85
+    }
+  },
+  "used_fallback": false
+}

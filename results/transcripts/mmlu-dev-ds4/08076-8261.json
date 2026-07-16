@@ -1,0 +1,54 @@
+{
+  "index": 8076,
+  "task_id": 8261,
+  "rendered_prompt_sha256": "21b26e05c283b397005fc80a2ad0c928c9b28d795305abe6adce3933b2f814ab",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The tip is 15% of $25, which is \\( 25 \\times 0.15 = 3.75 \\).  \nAdding the tip to the haircut cost: \\( 25 + 3.75 = 28.75 \\).  \n\nThe correct answer is **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.5837216319996514
+  },
+  "response": {
+    "id": "cmpl-272",
+    "object": "text_completion",
+    "created": 1784239838,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The tip is 15% of $25, which is \\( 25 \\times 0.15 = 3.75 \\).  \nAdding the tip to the haircut cost: \\( 25 + 3.75 = 28.75 \\).  \n\nThe correct answer is **E**.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "completion_tokens": 64,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 905.3,
+      "prefill_tokens": 127,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 140.5,
+      "decode_tok_s": 38.2,
+      "spec_accept_rate": 0.906,
+      "tok_per_step": 4.33
+    }
+  }
+}

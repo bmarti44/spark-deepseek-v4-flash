@@ -1,0 +1,55 @@
+{
+  "index": 1143,
+  "task_id": 1143,
+  "rendered_prompt_sha256": "66649603b62546d09c0fd3e132feb0e0274101fa86ded2b0cba6a8702df06b0d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Tim grows 5 trees. Each year he collects 6 lemons from each tree. So per year, he gets 5 × 6 = 30 lemons.  \nA decade is 10 years, so total lemons = 30 × 10 = 300.\n\nAnswer: 300",
+  "finish_reason": "stop",
+  "expected": "300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.3202977500041015
+  },
+  "response": {
+    "id": "cmpl-554",
+    "object": "text_completion",
+    "created": 1784240766,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Tim grows 5 trees. Each year he collects 6 lemons from each tree. So per year, he gets 5 × 6 = 30 lemons.  \nA decade is 10 years, so total lemons = 30 × 10 = 300.\n\nAnswer: 300",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 69,
+      "completion_tokens": 61,
+      "total_tokens": 130,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 692.0,
+      "prefill_tokens": 69,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 99.9,
+      "decode_tok_s": 37.5,
+      "spec_accept_rate": 0.939,
+      "tok_per_step": 4.43
+    }
+  },
+  "used_fallback": false
+}

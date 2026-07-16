@@ -1,0 +1,55 @@
+{
+  "index": 528,
+  "task_id": 528,
+  "rendered_prompt_sha256": "a540112618ad971ddd8e5c5b0eafc2bfecb23d3004b993c44c3ede8aafbead76",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Ophelia has 20 sofas.  \n2. Each has 2 fewer sofas than chairs. So for Ophelia:  \n   chairs = sofas + 2 = 20 + 2 = 22 chairs.  \n3. Jenna has 3 times as many chairs as Ophelia:  \n   Jenna’s chairs = 3 × 22 = 66 chairs.  \n4. Jenna also has 2 fewer sofas than chairs:  \n   Jenna’s sofas = 66 − 2 = 64 sofas.  \n5. Total sofas: 20 + 64 = 84.  \n6. Total chairs: 22 + 66 = 88.  \n7. Grand total: 84 + 88 = 172.\n\nAnswer: 172",
+  "finish_reason": "stop",
+  "expected": "172",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.262034320003295
+  },
+  "response": {
+    "id": "cmpl-536",
+    "object": "text_completion",
+    "created": 1784240701,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Ophelia has 20 sofas.  \n2. Each has 2 fewer sofas than chairs. So for Ophelia:  \n   chairs = sofas + 2 = 20 + 2 = 22 chairs.  \n3. Jenna has 3 times as many chairs as Ophelia:  \n   Jenna’s chairs = 3 × 22 = 66 chairs.  \n4. Jenna also has 2 fewer sofas than chairs:  \n   Jenna’s sofas = 66 − 2 = 64 sofas.  \n5. Total sofas: 20 + 64 = 84.  \n6. Total chairs: 22 + 66 = 88.  \n7. Grand total: 84 + 88 = 172.\n\nAnswer: 172",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 97,
+      "completion_tokens": 177,
+      "total_tokens": 274,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 862.1,
+      "prefill_tokens": 97,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 112.7,
+      "decode_tok_s": 40.2,
+      "spec_accept_rate": 0.965,
+      "tok_per_step": 4.68
+    }
+  },
+  "used_fallback": false
+}

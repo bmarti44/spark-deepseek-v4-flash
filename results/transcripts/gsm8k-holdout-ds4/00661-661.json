@@ -1,0 +1,55 @@
+{
+  "index": 661,
+  "task_id": 661,
+  "rendered_prompt_sha256": "200753248dcca8e142c1f7934ab9209b54676449d30049c2dee83541c27709b1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Roger normally buys coffee at $5 per pound. The more expensive brand costs 20% more, so it costs $5 * 1.20 = $6 per pound.\n\nHe uses 1 pound per day for a week, so he needs 7 pounds.\n\nThe coffee cost is 7 * $6 = $42.\n\nHe also buys a donut for $2.\n\nTotal cost = $42 + $2 = $44.\n\nAnswer: 44",
+  "finish_reason": "stop",
+  "expected": "44",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.4589221909991466
+  },
+  "response": {
+    "id": "cmpl-611",
+    "object": "text_completion",
+    "created": 1784240982,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Roger normally buys coffee at $5 per pound. The more expensive brand costs 20% more, so it costs $5 * 1.20 = $6 per pound.\n\nHe uses 1 pound per day for a week, so he needs 7 pounds.\n\nThe coffee cost is 7 * $6 = $42.\n\nHe also buys a donut for $2.\n\nTotal cost = $42 + $2 = $44.\n\nAnswer: 44",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "completion_tokens": 93,
+      "total_tokens": 221,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 813.3,
+      "prefill_tokens": 128,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 157.7,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.85,
+      "tok_per_step": 3.92
+    }
+  },
+  "used_fallback": false
+}

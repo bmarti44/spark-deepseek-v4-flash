@@ -1,0 +1,54 @@
+{
+  "index": 301,
+  "task_id": 374,
+  "rendered_prompt_sha256": "dd94045eabb5d27e6a16bef1d1124d6e5616c2991655c22f90c74bcb712e54bd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate step by step.\n\nStarting amount: $4,500.00  \nFirst discount: 20%  \nRemaining: 80% of $4,500 = $3,600.00  \n\nSecond discount: 15%  \nRemaining: 85% of $3,600 = $3,060.00  \n\nThird discount: 2(1/2)% = 2.5%  \nRemaining: 97.5% of $3,060 = $2,983.50  \n\nSo the net amount is $2,983.50.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.179418569998234
+  },
+  "response": {
+    "id": "cmpl-134",
+    "object": "text_completion",
+    "created": 1784239104,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's calculate step by step.\n\nStarting amount: $4,500.00  \nFirst discount: 20%  \nRemaining: 80% of $4,500 = $3,600.00  \n\nSecond discount: 15%  \nRemaining: 85% of $3,600 = $3,060.00  \n\nThird discount: 2(1/2)% = 2.5%  \nRemaining: 97.5% of $3,060 = $2,983.50  \n\nSo the net amount is $2,983.50.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "completion_tokens": 122,
+      "total_tokens": 266,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 826.7,
+      "prefill_tokens": 144,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 174.5,
+      "decode_tok_s": 36.4,
+      "spec_accept_rate": 0.892,
+      "tok_per_step": 4.1
+    }
+  }
+}

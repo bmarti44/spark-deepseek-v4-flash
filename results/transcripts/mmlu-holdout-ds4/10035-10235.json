@@ -1,0 +1,54 @@
+{
+  "index": 10035,
+  "task_id": 10235,
+  "rendered_prompt_sha256": "6c14944b72ec957bf30fa9d98fc98cbad6e2939e91d58230b705fc362e7591ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The escape velocity from Earth is approximately 11.2 km/s, which is \\( 1.12 \\times 10^4 \\) m/s.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.531901699003356
+  },
+  "response": {
+    "id": "cmpl-856",
+    "object": "text_completion",
+    "created": 1784242447,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The escape velocity from Earth is approximately 11.2 km/s, which is \\( 1.12 \\times 10^4 \\) m/s.\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 189,
+      "completion_tokens": 34,
+      "total_tokens": 223,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 495.1,
+      "prefill_tokens": 189,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 382.7,
+      "decode_tok_s": 32.8,
+      "spec_accept_rate": 0.857,
+      "tok_per_step": 3.89
+    }
+  }
+}

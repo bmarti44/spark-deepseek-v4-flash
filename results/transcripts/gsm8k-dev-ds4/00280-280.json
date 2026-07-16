@@ -1,0 +1,55 @@
+{
+  "index": 280,
+  "task_id": 280,
+  "rendered_prompt_sha256": "2541ad917e81713b7ae8ba9bbb7f672c041f59d54a0bd9a01ecb6f5c9f5c7f36",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Peter bought 20 popsicles at $0.25 each:  \n20 × 0.25 = $5.00  \n\nHe bought 4 ice cream bars at $0.50 each:  \n4 × 0.50 = $2.00  \n\nTotal: $5.00 + $2.00 = $7.00  \n\nAnswer: 7",
+  "finish_reason": "stop",
+  "expected": "7",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.4166981630005466
+  },
+  "response": {
+    "id": "cmpl-55",
+    "object": "text_completion",
+    "created": 1784238790,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Peter bought 20 popsicles at $0.25 each:  \n20 × 0.25 = $5.00  \n\nHe bought 4 ice cream bars at $0.50 each:  \n4 × 0.50 = $2.00  \n\nTotal: $5.00 + $2.00 = $7.00  \n\nAnswer: 7",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 74,
+      "total_tokens": 150,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 715.4,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.5,
+      "decode_tok_s": 43.5,
+      "spec_accept_rate": 0.983,
+      "tok_per_step": 5.0
+    }
+  },
+  "used_fallback": false
+}

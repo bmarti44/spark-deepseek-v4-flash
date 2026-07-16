@@ -1,0 +1,55 @@
+{
+  "index": 1234,
+  "task_id": 1234,
+  "rendered_prompt_sha256": "afd1fc9a3141d7151713dc90931fc54a673660a50aab08f84cb2bf4342671916",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the number of novels written this year be \\( x \\).\n\nRegina wrote 9 novels last year, which is \\(\\frac{3}{4}\\) of this year's total.\n\nSo:\n\\[\n\\frac{3}{4}x = 9\n\\]\n\nMultiply both sides by 4:\n\\[\n3x = 36\n\\]\n\nDivide by 3:\n\\[\nx = 12\n\\]\n\nAnswer: 12",
+  "finish_reason": "stop",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.1190376660015318
+  },
+  "response": {
+    "id": "cmpl-545",
+    "object": "text_completion",
+    "created": 1784240735,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let the number of novels written this year be \\( x \\).\n\nRegina wrote 9 novels last year, which is \\(\\frac{3}{4}\\) of this year's total.\n\nSo:\n\\[\n\\frac{3}{4}x = 9\n\\]\n\nMultiply both sides by 4:\n\\[\n3x = 36\n\\]\n\nDivide by 3:\n\\[\nx = 12\n\\]\n\nAnswer: 12",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73,
+      "completion_tokens": 85,
+      "total_tokens": 158,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 678.8,
+      "prefill_tokens": 73,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 107.8,
+      "decode_tok_s": 34.9,
+      "spec_accept_rate": 0.875,
+      "tok_per_step": 4.1
+    }
+  },
+  "used_fallback": false
+}

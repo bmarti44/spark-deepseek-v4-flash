@@ -1,0 +1,55 @@
+{
+  "index": 1154,
+  "task_id": 1154,
+  "rendered_prompt_sha256": "abbafbc85785474c123950786c6e05cd3421f5c1638aa205f8f89a96e6bb7c6f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Weekdays: Monday to Friday = 5 days.  \n5 days × 4 carrots = 20 carrots.  \nWeekend: Saturday and Sunday = 2 days.  \n2 days × 5 carrots = 10 carrots.  \nTotal per week: 20 + 10 = 30 carrots.  \n\nAnswer: 30",
+  "finish_reason": "stop",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.470800426999631
+  },
+  "response": {
+    "id": "cmpl-52",
+    "object": "text_completion",
+    "created": 1784238784,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Weekdays: Monday to Friday = 5 days.  \n5 days × 4 carrots = 20 carrots.  \nWeekend: Saturday and Sunday = 2 days.  \n2 days × 5 carrots = 10 carrots.  \nTotal per week: 20 + 10 = 30 carrots.  \n\nAnswer: 30",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73,
+      "completion_tokens": 67,
+      "total_tokens": 140,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 670.9,
+      "prefill_tokens": 73,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.2,
+      "decode_tok_s": 37.5,
+      "spec_accept_rate": 0.926,
+      "tok_per_step": 4.25
+    }
+  },
+  "used_fallback": false
+}

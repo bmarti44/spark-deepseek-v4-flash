@@ -1,0 +1,54 @@
+{
+  "index": 397,
+  "task_id": 471,
+  "rendered_prompt_sha256": "aeb07724ec7241d395771ba09a559b26fe8dff97a8ba107cee05eb716e1c416f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find the tax rate per $1,000 of assessed valuation.\n\nFirst, determine the amount needed from property taxes:\n\nTotal capital budget: $125,626.79  \nRevenue from fines/licenses: $4,256.30  \nAmount needed from taxes = $125,626.79 - $4,256.30 = $121,370.49\n\nTotal assessed valuation: $2,697,112\n\nTax rate per $1,000 = (Amount needed / Total assessed valuation) × 1000  \n= ($121,370.49 / $2,697,112) × 1000  \n≈ 0.0450 × 1000 = $45.00\n\nSo the tax rate is $45 per $1,000 of assessed valuation.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.50469649599836
+  },
+  "response": {
+    "id": "cmpl-136",
+    "object": "text_completion",
+    "created": 1784239111,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to find the tax rate per $1,000 of assessed valuation.\n\nFirst, determine the amount needed from property taxes:\n\nTotal capital budget: $125,626.79  \nRevenue from fines/licenses: $4,256.30  \nAmount needed from taxes = $125,626.79 - $4,256.30 = $121,370.49\n\nTotal assessed valuation: $2,697,112\n\nTax rate per $1,000 = (Amount needed / Total assessed valuation) × 1000  \n= ($121,370.49 / $2,697,112) × 1000  \n≈ 0.0450 × 1000 = $45.00\n\nSo the tax rate is $45 per $1,000 of assessed valuation.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 235,
+      "completion_tokens": 162,
+      "total_tokens": 397,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 579.5,
+      "prefill_tokens": 235,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 406.9,
+      "decode_tok_s": 33.0,
+      "spec_accept_rate": 0.83,
+      "tok_per_step": 3.7
+    }
+  }
+}

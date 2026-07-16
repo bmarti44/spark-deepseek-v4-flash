@@ -1,0 +1,54 @@
+{
+  "index": 11580,
+  "task_id": 11804,
+  "rendered_prompt_sha256": "9df19b80010bd29625158e14b823a0c58299a2ff216ff957a97f912824325d2d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The maximum effective aperture \\(A_e\\) of an antenna is related to its directivity \\(D\\) and wavelength \\(\\lambda\\) by:\n\n\\[\nA_e = \\frac{D \\lambda^2}{4\\pi}\n\\]\n\nGiven:\n- Directivity \\(D = 50\\)\n- Wavelength \\(\\lambda = 4\\) meters\n\n\\[\nA_e = \\frac{50 \\times (4)^2}{4\\pi} = \\frac{50 \\times 16}{4\\pi} = \\frac{800}{4\\pi} = \\frac{200}{\\pi}\n\\]\n\n\\[\n\\frac{200}{\\pi} \\approx 63.66 \\text{ m}^2\n\\]\n\nThe closest match is **63.6 meter²**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.071069776000513
+  },
+  "response": {
+    "id": "cmpl-205",
+    "object": "text_completion",
+    "created": 1784239622,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The maximum effective aperture \\(A_e\\) of an antenna is related to its directivity \\(D\\) and wavelength \\(\\lambda\\) by:\n\n\\[\nA_e = \\frac{D \\lambda^2}{4\\pi}\n\\]\n\nGiven:\n- Directivity \\(D = 50\\)\n- Wavelength \\(\\lambda = 4\\) meters\n\n\\[\nA_e = \\frac{50 \\times (4)^2}{4\\pi} = \\frac{50 \\times 16}{4\\pi} = \\frac{800}{4\\pi} = \\frac{200}{\\pi}\n\\]\n\n\\[\n\\frac{200}{\\pi} \\approx 63.66 \\text{ m}^2\n\\]\n\nThe closest match is **63.6 meter²**.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 153,
+      "total_tokens": 299,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 853.8,
+      "prefill_tokens": 146,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 171.3,
+      "decode_tok_s": 36.3,
+      "spec_accept_rate": 0.891,
+      "tok_per_step": 4.05
+    }
+  }
+}

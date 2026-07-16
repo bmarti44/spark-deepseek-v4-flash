@@ -1,0 +1,54 @@
+{
+  "index": 10824,
+  "task_id": 11041,
+  "rendered_prompt_sha256": "2fbb2d1e9f4e35f3237404c7036c64ece44af6c9e6cbf273723600f2318f2aeb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In Rachels's thought experiment, Smith actively holds a child underwater to drown him, which is an act of directly causing death. This is contrasted with Jones, who simply lets the child drown without intervening. Smith's action is therefore an example of **killing**, as opposed to letting die.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.038409729997511
+  },
+  "response": {
+    "id": "cmpl-828",
+    "object": "text_completion",
+    "created": 1784242280,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "In Rachels's thought experiment, Smith actively holds a child underwater to drown him, which is an act of directly causing death. This is contrasted with Jones, who simply lets the child drown without intervening. Smith's action is therefore an example of **killing**, as opposed to letting die.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "completion_tokens": 62,
+      "total_tokens": 179,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 916.5,
+      "prefill_tokens": 117,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 127.8,
+      "decode_tok_s": 29.2,
+      "spec_accept_rate": 0.75,
+      "tok_per_step": 3.32
+    }
+  }
+}

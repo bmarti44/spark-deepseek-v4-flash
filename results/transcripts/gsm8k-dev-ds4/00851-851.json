@@ -1,0 +1,55 @@
+{
+  "index": 851,
+  "task_id": 851,
+  "rendered_prompt_sha256": "17c5a56bfc0fbc433e4174e7fe0dfcd60544fd58292b7bef99f590acc7f8ae05",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "James buys 2 pairs of shoes per month, so in a year (12 months), he buys \\(2 \\times 12 = 24\\) pairs of shoes.\n\nHe spends $2640 per year on shoes.\n\nThe average cost per pair is \\(2640 \\div 24 = 110\\).\n\nAnswer: 110",
+  "finish_reason": "stop",
+  "expected": "110",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.919494253001176
+  },
+  "response": {
+    "id": "cmpl-91",
+    "object": "text_completion",
+    "created": 1784238937,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "James buys 2 pairs of shoes per month, so in a year (12 months), he buys \\(2 \\times 12 = 24\\) pairs of shoes.\n\nHe spends $2640 per year on shoes.\n\nThe average cost per pair is \\(2640 \\div 24 = 110\\).\n\nAnswer: 110",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73,
+      "completion_tokens": 65,
+      "total_tokens": 138,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 659.7,
+      "prefill_tokens": 73,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 110.9,
+      "decode_tok_s": 28.9,
+      "spec_accept_rate": 0.8,
+      "tok_per_step": 3.3
+    }
+  },
+  "used_fallback": false
+}

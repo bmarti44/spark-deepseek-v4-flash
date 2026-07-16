@@ -1,0 +1,54 @@
+{
+  "index": 9874,
+  "task_id": 10069,
+  "rendered_prompt_sha256": "97596ebf45c96abc77580d37ec8c0ced1e27c9e2121ecd64790c7b3d74a3e166",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are told that initially, the number of atoms of A is twice that of B:\n\n\\[\nN_{A0} = 2 N_{B0}\n\\]\n\nThe decay equations:\n\n\\[\nN_A(t) = N_{A0} \\cdot 2^{-t/3}\n\\]\n\\[\nN_B(t) = N_{B0} \\cdot 2^{-t/6}\n\\]\n\nWe want the ratio to reverse, meaning:\n\n\\[\n\\frac{N_A(t)}{N_B(t)} = \\frac{1}{2}\n\\]\n\nSo:\n\n\\[\n\\frac{N_{A0} \\cdot 2^{-t/3}}{N_{B0} \\cdot 2^{-t/6}} = \\frac{1}{2}\n\\]\n\nSubstitute \\(N_{A0} = 2 N_{B0}\\):\n\n\\[\n\\frac{2 N_{B0} \\cdot 2^{-t/3}}{N_{B0} \\cdot 2^{-t/6}} = \\frac{1}{2}\n\\]\n\nSimplify:\n\n\\[\n2 \\cdot 2^{-t/3 + t/6} = \\frac{1}{2}\n\\]\n\n\\[\n2 \\cdot 2^{-t/6} = \\frac{1}{2}\n\\]\n\n\\[\n2^{-t/6} = \\frac{1}{4}\n\\]\n\n\\[\n2^{-t/6} = 2^{-2}\n\\]\n\nThus:\n\n\\[\n\\frac{t}{6} = 2 \\quad \\Rightarrow \\quad t = 12\n\\]\n\nSo the answer is **12 days**.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.24161393099348
+  },
+  "response": {
+    "id": "cmpl-342",
+    "object": "text_completion",
+    "created": 1784240270,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We are told that initially, the number of atoms of A is twice that of B:\n\n\\[\nN_{A0} = 2 N_{B0}\n\\]\n\nThe decay equations:\n\n\\[\nN_A(t) = N_{A0} \\cdot 2^{-t/3}\n\\]\n\\[\nN_B(t) = N_{B0} \\cdot 2^{-t/6}\n\\]\n\nWe want the ratio to reverse, meaning:\n\n\\[\n\\frac{N_A(t)}{N_B(t)} = \\frac{1}{2}\n\\]\n\nSo:\n\n\\[\n\\frac{N_{A0} \\cdot 2^{-t/3}}{N_{B0} \\cdot 2^{-t/6}} = \\frac{1}{2}\n\\]\n\nSubstitute \\(N_{A0} = 2 N_{B0}\\):\n\n\\[\n\\frac{2 N_{B0} \\cdot 2^{-t/3}}{N_{B0} \\cdot 2^{-t/6}} = \\frac{1}{2}\n\\]\n\nSimplify:\n\n\\[\n2 \\cdot 2^{-t/3 + t/6} = \\frac{1}{2}\n\\]\n\n\\[\n2 \\cdot 2^{-t/6} = \\frac{1}{2}\n\\]\n\n\\[\n2^{-t/6} = \\frac{1}{4}\n\\]\n\n\\[\n2^{-t/6} = 2^{-2}\n\\]\n\nThus:\n\n\\[\n\\frac{t}{6} = 2 \\quad \\Rightarrow \\quad t = 12\n\\]\n\nSo the answer is **12 days**.\n\nAnswer: C",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 169,
+      "completion_tokens": 328,
+      "total_tokens": 497,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 915.1,
+      "prefill_tokens": 169,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 185.0,
+      "decode_tok_s": 39.4,
+      "spec_accept_rate": 0.926,
+      "tok_per_step": 4.33
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "index": 342,
+  "task_id": 342,
+  "rendered_prompt_sha256": "caf7e0bd4785b2aabb17837d9fe60c129e3cc5b91d2ae7fede2464e900251c6c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step:\n\n1. Laurel's friend gave her 24 outfits.\n2. At her baby shower, she received twice the amount of the friend's gift: \\( 2 \\times 24 = 48 \\) outfits.\n3. Then her mom gave her another 15 outfits.\n\nNow add them all together:  \n\\( 24 + 48 + 15 = 87 \\)\n\nAnswer: 87",
+  "finish_reason": "stop",
+  "expected": "87",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.4928778860048624
+  },
+  "response": {
+    "id": "cmpl-568",
+    "object": "text_completion",
+    "created": 1784240828,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step:\n\n1. Laurel's friend gave her 24 outfits.\n2. At her baby shower, she received twice the amount of the friend's gift: \\( 2 \\times 24 = 48 \\) outfits.\n3. Then her mom gave her another 15 outfits.\n\nNow add them all together:  \n\\( 24 + 48 + 15 = 87 \\)\n\nAnswer: 87",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 98,
+      "completion_tokens": 88,
+      "total_tokens": 186,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 821.7,
+      "prefill_tokens": 98,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 119.5,
+      "decode_tok_s": 33.0,
+      "spec_accept_rate": 0.84,
+      "tok_per_step": 3.71
+    }
+  },
+  "used_fallback": false
+}

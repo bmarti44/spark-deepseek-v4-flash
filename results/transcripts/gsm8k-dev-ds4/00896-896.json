@@ -1,0 +1,55 @@
+{
+  "index": 896,
+  "task_id": 896,
+  "rendered_prompt_sha256": "96be0d246db5166594c775600948011cc3c891725a3e3d3056e0d0e1d41fbfb7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "John rents his car 10 times a month, each time for 3 hours.  \nTotal hours rented = 10 × 3 = 30 hours.  \nHe gets paid $25 per hour, so total income = 30 × 25 = $750.  \nHis car payment is $500, so profit = $750 - $500 = $250.  \n\nAnswer: 250",
+  "finish_reason": "stop",
+  "expected": "250",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.023106075001124
+  },
+  "response": {
+    "id": "cmpl-37",
+    "object": "text_completion",
+    "created": 1784238719,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "John rents his car 10 times a month, each time for 3 hours.  \nTotal hours rented = 10 × 3 = 30 hours.  \nHe gets paid $25 per hour, so total income = 30 × 25 = $750.  \nHis car payment is $500, so profit = $750 - $500 = $250.  \n\nAnswer: 250",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 83,
+      "completion_tokens": 79,
+      "total_tokens": 162,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 779.6,
+      "prefill_tokens": 83,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.7,
+      "decode_tok_s": 35.4,
+      "spec_accept_rate": 0.894,
+      "tok_per_step": 4.21
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,54 @@
+{
+  "index": 6627,
+  "task_id": 6793,
+  "rendered_prompt_sha256": "05b7b359ec10697a9b8e5216839bbc69f36598f918859004dcb4abcdebaa6059",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The patient's presentation—nausea, vomiting, hematemesis, stress, and heavy coffee consumption—raises concern for possible Mallory-Weiss syndrome (a tear at the gastroesophageal junction from retching) or peptic ulcer disease. However, in a young woman of childbearing age, the most critical initial step is to rule out pregnancy before any diagnostic or therapeutic interventions that could affect a fetus. A urine pregnancy test is quick, noninvasive, and essential for safe management.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.317584740005259
+  },
+  "response": {
+    "id": "cmpl-231",
+    "object": "text_completion",
+    "created": 1784239751,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The patient's presentation—nausea, vomiting, hematemesis, stress, and heavy coffee consumption—raises concern for possible Mallory-Weiss syndrome (a tear at the gastroesophageal junction from retching) or peptic ulcer disease. However, in a young woman of childbearing age, the most critical initial step is to rule out pregnancy before any diagnostic or therapeutic interventions that could affect a fetus. A urine pregnancy test is quick, noninvasive, and essential for safe management.\n\nAnswer: B",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 101,
+      "total_tokens": 289,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 550.5,
+      "prefill_tokens": 188,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 342.8,
+      "decode_tok_s": 26.9,
+      "spec_accept_rate": 0.736,
+      "tok_per_step": 3.09
+    }
+  }
+}

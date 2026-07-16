@@ -1,0 +1,55 @@
+{
+  "index": 926,
+  "task_id": 926,
+  "rendered_prompt_sha256": "eeaddb91fdb974d6dde6766c914d81c2ba9485f0b2b41aad8eb4794b660f2e9a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n**Monthly budget:** $150  \n**Already spent:**  \n- 5 movies on Friday/Saturday: 5 × $10 = $50  \n- 8 movies on other days: 8 × $7 = $56  \n- 2 tubs of popcorn: 2 × $8 = $16  \n- 4 boxes of candy: 4 × $2 = $8  \n\n**Total spent so far:**  \n$50 + $56 + $16 + $8 = $130  \n\n**Remaining money:**  \n$150 - $130 = $20  \n\n**Tonight (Friday):**  \nHe wants popcorn ($8) and candy ($2) = $10  \nSo after buying those, he has $20 - $10 = $10 left for tickets.  \nA Friday ticket costs $10, so he can see exactly **1** movie.\n\n**Answer:** 1",
+  "finish_reason": "stop",
+  "expected": "1",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.7533241549972445
+  },
+  "response": {
+    "id": "cmpl-541",
+    "object": "text_completion",
+    "created": 1784240724,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n**Monthly budget:** $150  \n**Already spent:**  \n- 5 movies on Friday/Saturday: 5 × $10 = $50  \n- 8 movies on other days: 8 × $7 = $56  \n- 2 tubs of popcorn: 2 × $8 = $16  \n- 4 boxes of candy: 4 × $2 = $8  \n\n**Total spent so far:**  \n$50 + $56 + $16 + $8 = $130  \n\n**Remaining money:**  \n$150 - $130 = $20  \n\n**Tonight (Friday):**  \nHe wants popcorn ($8) and candy ($2) = $10  \nSo after buying those, he has $20 - $10 = $10 left for tickets.  \nA Friday ticket costs $10, so he can see exactly **1** movie.\n\n**Answer:** 1",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 163,
+      "completion_tokens": 190,
+      "total_tokens": 353,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 960.0,
+      "prefill_tokens": 163,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 170.0,
+      "decode_tok_s": 32.9,
+      "spec_accept_rate": 0.853,
+      "tok_per_step": 3.82
+    }
+  },
+  "used_fallback": true
+}

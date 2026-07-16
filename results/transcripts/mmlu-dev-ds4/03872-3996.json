@@ -1,0 +1,54 @@
+{
+  "index": 3872,
+  "task_id": 3996,
+  "rendered_prompt_sha256": "41767a3312dfa63ab2730b1aa870c6d2a162eb6d9dd1e6c8eda5f348fdf44d36",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- SCF/DZP energy: \\( E_{\\text{SCF}} = -76.040542 \\) hartrees  \n- CI-SD/DZP energy: \\( E_{\\text{CI-SD}} = -76.243772 \\) hartrees  \n- Davidson-corrected energy: \\( E_{\\text{Davidson}} = -76.254549 \\) hartrees  \n\nThe Davidson correction estimates the effect of unlinked quadruple excitations from a CI-SD wavefunction. The formula for the Davidson correction is:\n\n\\[\n\\Delta E_{\\text{Davidson}} = (1 - c_0^2) (E_{\\text{CI-SD}} - E_{\\text{SCF}})\n\\]\n\nwhere \\( c_0 \\) is the coefficient of the reference (SCF) determinant \\(\\Phi_0\\) in the normalized CI-SD wavefunction.\n\nWe have:\n\n\\[\nE_{\\text{Davidson}} = E_{\\text{CI-SD}} + \\Delta E_{\\text{Davidson}}\n\\]\n\nSo:\n\n\\[\n-76.254549 = -76.243772 + (1 - c_0^2)(-76.243772 + 76.040542)\n\\]\n\nCompute the difference:\n\n\\[\nE_{\\text{CI-SD}} - E_{\\text{SCF}} = -76.243772 + 76.040542 = -0.203230\n\\]\n\nThen:\n\n\\[\n-76.254549 + 76.243772 = -0.010777\n\\]\n\nSo:\n\n\\[\n-0.010777 = (1 - c_0^2)(-0.203230)\n\\]\n\nThus:\n\n\\[\n1 - c_0^2 = \\frac{-0.010777}{-0.203230} = 0.05303\n\\]\n\nSo:\n\n\\[\nc_0^2 = 1 - 0.05303 = 0.94697\n\\]\n\n\\[\nc_0 = \\sqrt{0.94697} \\approx 0.9731\n\\]\n\nThat matches option H.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.848039778000384
+  },
+  "response": {
+    "id": "cmpl-156",
+    "object": "text_completion",
+    "created": 1784239283,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We are given:\n\n- SCF/DZP energy: \\( E_{\\text{SCF}} = -76.040542 \\) hartrees  \n- CI-SD/DZP energy: \\( E_{\\text{CI-SD}} = -76.243772 \\) hartrees  \n- Davidson-corrected energy: \\( E_{\\text{Davidson}} = -76.254549 \\) hartrees  \n\nThe Davidson correction estimates the effect of unlinked quadruple excitations from a CI-SD wavefunction. The formula for the Davidson correction is:\n\n\\[\n\\Delta E_{\\text{Davidson}} = (1 - c_0^2) (E_{\\text{CI-SD}} - E_{\\text{SCF}})\n\\]\n\nwhere \\( c_0 \\) is the coefficient of the reference (SCF) determinant \\(\\Phi_0\\) in the normalized CI-SD wavefunction.\n\nWe have:\n\n\\[\nE_{\\text{Davidson}} = E_{\\text{CI-SD}} + \\Delta E_{\\text{Davidson}}\n\\]\n\nSo:\n\n\\[\n-76.254549 = -76.243772 + (1 - c_0^2)(-76.243772 + 76.040542)\n\\]\n\nCompute the difference:\n\n\\[\nE_{\\text{CI-SD}} - E_{\\text{SCF}} = -76.243772 + 76.040542 = -0.203230\n\\]\n\nThen:\n\n\\[\n-76.254549 + 76.243772 = -0.010777\n\\]\n\nSo:\n\n\\[\n-0.010777 = (1 - c_0^2)(-0.203230)\n\\]\n\nThus:\n\n\\[\n1 - c_0^2 = \\frac{-0.010777}{-0.203230} = 0.05303\n\\]\n\nSo:\n\n\\[\nc_0^2 = 1 - 0.05303 = 0.94697\n\\]\n\n\\[\nc_0 = \\sqrt{0.94697} \\approx 0.9731\n\\]\n\nThat matches option H.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 201,
+      "completion_tokens": 434,
+      "total_tokens": 635,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 547.5,
+      "prefill_tokens": 201,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 368.1,
+      "decode_tok_s": 38.4,
+      "spec_accept_rate": 0.907,
+      "tok_per_step": 4.31
+    }
+  }
+}

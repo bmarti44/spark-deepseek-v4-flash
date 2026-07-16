@@ -1,0 +1,54 @@
+{
+  "index": 11104,
+  "task_id": 11326,
+  "rendered_prompt_sha256": "215ec0a9470418c875d6d0f3b2cf1215f0126d405fd822ad31a58e1273fdc546",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The radiation resistance of a small loop antenna is given by:\n\n\\[\nR_r = 31171 \\left( \\frac{A}{\\lambda^2} \\right)^2\n\\]\n\nFor a circular loop, area \\( A = \\pi r^2 \\).  \nCircumference \\( C = 2\\pi r = \\frac{\\lambda}{4} \\), so \\( r = \\frac{\\lambda}{8\\pi} \\).  \nThen:\n\n\\[\nA = \\pi \\left( \\frac{\\lambda}{8\\pi} \\right)^2 = \\frac{\\lambda^2}{64\\pi}\n\\]\n\n\\[\n\\frac{A}{\\lambda^2} = \\frac{1}{64\\pi}\n\\]\n\n\\[\nR_r = 31171 \\left( \\frac{1}{64\\pi} \\right)^2 = 31171 \\times \\frac{1}{4096 \\pi^2}\n\\]\n\nNumerically:\n\n\\[\n\\pi^2 \\approx 9.8696\n\\]\n\\[\n4096 \\times 9.8696 \\approx 40428\n\\]\n\\[\nR_r \\approx \\frac{31171}{40428} \\approx 0.771 \\, \\Omega\n\\]\n\nClosest to **0.77 ohm**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.866074455996568
+  },
+  "response": {
+    "id": "cmpl-708",
+    "object": "text_completion",
+    "created": 1784241538,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The radiation resistance of a small loop antenna is given by:\n\n\\[\nR_r = 31171 \\left( \\frac{A}{\\lambda^2} \\right)^2\n\\]\n\nFor a circular loop, area \\( A = \\pi r^2 \\).  \nCircumference \\( C = 2\\pi r = \\frac{\\lambda}{4} \\), so \\( r = \\frac{\\lambda}{8\\pi} \\).  \nThen:\n\n\\[\nA = \\pi \\left( \\frac{\\lambda}{8\\pi} \\right)^2 = \\frac{\\lambda^2}{64\\pi}\n\\]\n\n\\[\n\\frac{A}{\\lambda^2} = \\frac{1}{64\\pi}\n\\]\n\n\\[\nR_r = 31171 \\left( \\frac{1}{64\\pi} \\right)^2 = 31171 \\times \\frac{1}{4096 \\pi^2}\n\\]\n\nNumerically:\n\n\\[\n\\pi^2 \\approx 9.8696\n\\]\n\\[\n4096 \\times 9.8696 \\approx 40428\n\\]\n\\[\nR_r \\approx \\frac{31171}{40428} \\approx 0.771 \\, \\Omega\n\\]\n\nClosest to **0.77 ohm**.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "completion_tokens": 259,
+      "total_tokens": 401,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 812.6,
+      "prefill_tokens": 142,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 175.0,
+      "decode_tok_s": 36.7,
+      "spec_accept_rate": 0.885,
+      "tok_per_step": 4.0
+    }
+  }
+}

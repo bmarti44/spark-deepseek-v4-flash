@@ -1,0 +1,55 @@
+{
+  "index": 628,
+  "task_id": 628,
+  "rendered_prompt_sha256": "d25551ebb66279eca8ea54703391c6362abba584c9a775a84f830381b7711ed2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Adam needs to be 4 feet tall, which is 48 inches. He is currently 40 inches and grows 2 inches per year.  \nThe difference is 48 - 40 = 8 inches.  \nAt 2 inches per year, it will take 8 / 2 = 4 years.\n\nAnswer: 4",
+  "finish_reason": "stop",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.4326879549989826
+  },
+  "response": {
+    "id": "cmpl-589",
+    "object": "text_completion",
+    "created": 1784240906,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Adam needs to be 4 feet tall, which is 48 inches. He is currently 40 inches and grows 2 inches per year.  \nThe difference is 48 - 40 = 8 inches.  \nAt 2 inches per year, it will take 8 / 2 = 4 years.\n\nAnswer: 4",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 92,
+      "completion_tokens": 68,
+      "total_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 751.5,
+      "prefill_tokens": 92,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 122.6,
+      "decode_tok_s": 40.5,
+      "spec_accept_rate": 0.963,
+      "tok_per_step": 4.6
+    }
+  },
+  "used_fallback": false
+}

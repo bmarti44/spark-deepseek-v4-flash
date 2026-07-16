@@ -1,0 +1,55 @@
+{
+  "index": 844,
+  "task_id": 844,
+  "rendered_prompt_sha256": "ac689a7192aa6b25590f1a876667d3cdd136c4d8b409680236bca3d8b0e55bf9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Jack collected 60 dishes.  \n2. Jack collected twice as many dishes as socks, so Jack's socks = 60 / 2 = 30.  \n3. Peter has half as many dishes as Jack, so Peter's dishes = 60 / 2 = 30.  \n4. Peter has twice as many socks as Jack, so Peter's socks = 30 × 2 = 60.  \n\nNow total socks = Jack's socks + Peter's socks = 30 + 60 = 90.  \nTotal dishes = Jack's dishes + Peter's dishes = 60 + 30 = 90.  \n\nTotal socks and dishes together = 90 + 90 = 180.\n\nAnswer: 180",
+  "finish_reason": "stop",
+  "expected": "180",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.931427449999319
+  },
+  "response": {
+    "id": "cmpl-585",
+    "object": "text_completion",
+    "created": 1784240894,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Jack collected 60 dishes.  \n2. Jack collected twice as many dishes as socks, so Jack's socks = 60 / 2 = 30.  \n3. Peter has half as many dishes as Jack, so Peter's dishes = 60 / 2 = 30.  \n4. Peter has twice as many socks as Jack, so Peter's socks = 30 × 2 = 60.  \n\nNow total socks = Jack's socks + Peter's socks = 30 + 60 = 90.  \nTotal dishes = Jack's dishes + Peter's dishes = 60 + 30 = 90.  \n\nTotal socks and dishes together = 90 + 90 = 180.\n\nAnswer: 180",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 86,
+      "completion_tokens": 158,
+      "total_tokens": 244,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 728.7,
+      "prefill_tokens": 86,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 118.3,
+      "decode_tok_s": 37.6,
+      "spec_accept_rate": 0.908,
+      "tok_per_step": 4.18
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,54 @@
+{
+  "index": 1268,
+  "task_id": 1353,
+  "rendered_prompt_sha256": "ea44ef4f06455d41478d57495d3bc1868a693a1036566e4d69bce12cfd721594",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The scenario describes a written agreement granting a right-of-way over a specific strip of land. This is a formal, voluntarily created easement, not one arising by implication, prescription, or estoppel. The wedding planner obtained an **express easement** through the written grant from the neighbor.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.152935540994804
+  },
+  "response": {
+    "id": "cmpl-251",
+    "object": "text_completion",
+    "created": 1784239780,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The scenario describes a written agreement granting a right-of-way over a specific strip of land. This is a formal, voluntarily created easement, not one arising by implication, prescription, or estoppel. The wedding planner obtained an **express easement** through the written grant from the neighbor.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 342,
+      "completion_tokens": 62,
+      "total_tokens": 404,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 687.3,
+      "prefill_tokens": 342,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 499.5,
+      "decode_tok_s": 25.2,
+      "spec_accept_rate": 0.696,
+      "tok_per_step": 2.86
+    }
+  }
+}

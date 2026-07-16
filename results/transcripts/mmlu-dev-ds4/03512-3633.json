@@ -1,0 +1,54 @@
+{
+  "index": 3512,
+  "task_id": 3633,
+  "rendered_prompt_sha256": "bb39cd1a0d0a859eacbe8cdcf9bbdf26ab9794ea86c8176c96eaea86c886c8ab",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Sulfurous acid (H₂SO₃) is a diprotic weak acid. Its two dissociation steps are:\n\n1. H₂SO₃ ⇌ H⁺ + HSO₃⁻  (Ka₁ ≈ 1.4 × 10⁻²)\n2. HSO₃⁻ ⇌ H⁺ + SO₃²⁻  (Ka₂ ≈ 6.3 × 10⁻⁸)\n\nSince Ka₁ is much larger than Ka₂, the first dissociation is significantly stronger. In a solution of H₂SO₃, the concentration of the undissociated acid (H₂SO₃) is the highest, followed by the first dissociation product (HSO₃⁻), and the second dissociation product (SO₃²⁻) is the lowest.\n\nThus the correct order is:  \n[H₂SO₃] > [HSO₃⁻] > [SO₃²⁻]\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.830921947999741
+  },
+  "response": {
+    "id": "cmpl-146",
+    "object": "text_completion",
+    "created": 1784239177,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Sulfurous acid (H₂SO₃) is a diprotic weak acid. Its two dissociation steps are:\n\n1. H₂SO₃ ⇌ H⁺ + HSO₃⁻  (Ka₁ ≈ 1.4 × 10⁻²)\n2. HSO₃⁻ ⇌ H⁺ + SO₃²⁻  (Ka₂ ≈ 6.3 × 10⁻⁸)\n\nSince Ka₁ is much larger than Ka₂, the first dissociation is significantly stronger. In a solution of H₂SO₃, the concentration of the undissociated acid (H₂SO₃) is the highest, followed by the first dissociation product (HSO₃⁻), and the second dissociation product (SO₃²⁻) is the lowest.\n\nThus the correct order is:  \n[H₂SO₃] > [HSO₃⁻] > [SO₃²⁻]\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 274,
+      "completion_tokens": 198,
+      "total_tokens": 472,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 586.7,
+      "prefill_tokens": 274,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 468.3,
+      "decode_tok_s": 37.8,
+      "spec_accept_rate": 0.915,
+      "tok_per_step": 4.23
+    }
+  }
+}

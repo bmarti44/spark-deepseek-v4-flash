@@ -1,0 +1,54 @@
+{
+  "index": 9822,
+  "task_id": 10016,
+  "rendered_prompt_sha256": "0f5df4126874d9b5f10b1772b0970267220785faca59360822c67ed1a51727b2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use Ohm's law:  \n\\[\nR = \\frac{V_1}{I_1} = \\frac{120}{8.00} = 15.0 \\, \\Omega\n\\]  \nThen for \\(V_2 = 180\\) volts:  \n\\[\nI_2 = \\frac{V_2}{R} = \\frac{180}{15.0} = 12.0 \\, \\text{amp}\n\\]  \n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.349523065997346
+  },
+  "response": {
+    "id": "cmpl-341",
+    "object": "text_completion",
+    "created": 1784240261,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can use Ohm's law:  \n\\[\nR = \\frac{V_1}{I_1} = \\frac{120}{8.00} = 15.0 \\, \\Omega\n\\]  \nThen for \\(V_2 = 180\\) volts:  \n\\[\nI_2 = \\frac{V_2}{R} = \\frac{180}{15.0} = 12.0 \\, \\text{amp}\n\\]  \n\nAnswer: C",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 168,
+      "completion_tokens": 96,
+      "total_tokens": 264,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 910.4,
+      "prefill_tokens": 168,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 184.8,
+      "decode_tok_s": 39.4,
+      "spec_accept_rate": 0.936,
+      "tok_per_step": 4.41
+    }
+  }
+}

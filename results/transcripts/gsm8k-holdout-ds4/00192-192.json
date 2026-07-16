@@ -1,0 +1,55 @@
+{
+  "index": 192,
+  "task_id": 192,
+  "rendered_prompt_sha256": "b5f322e920b8216c1461f2c24c9290312c20754d7563c9c05b9115a3da25934e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\nTom starts with 50 trees.  \nEach year, he plants 10 trees and chops down 2 trees.  \nSo the net gain per year from planting and chopping is:  \n10 - 2 = 8 trees per year.\n\nOver 10 years, that net gain is:  \n8 × 10 = 80 trees.\n\nTotal trees before the die-off:  \n50 + 80 = 130 trees.\n\nThen 30% of the trees die:  \n30% of 130 = 0.3 × 130 = 39 trees die.\n\nTrees left:  \n130 - 39 = 91 trees.\n\nAnswer: 91",
+  "finish_reason": "stop",
+  "expected": "91",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.100194202001148
+  },
+  "response": {
+    "id": "cmpl-555",
+    "object": "text_completion",
+    "created": 1784240772,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\nTom starts with 50 trees.  \nEach year, he plants 10 trees and chops down 2 trees.  \nSo the net gain per year from planting and chopping is:  \n10 - 2 = 8 trees per year.\n\nOver 10 years, that net gain is:  \n8 × 10 = 80 trees.\n\nTotal trees before the die-off:  \n50 + 80 = 130 trees.\n\nThen 30% of the trees die:  \n30% of 130 = 0.3 × 130 = 39 trees die.\n\nTrees left:  \n130 - 39 = 91 trees.\n\nAnswer: 91",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 142,
+      "total_tokens": 231,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 766.7,
+      "prefill_tokens": 89,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.3,
+      "decode_tok_s": 32.9,
+      "spec_accept_rate": 0.837,
+      "tok_per_step": 3.76
+    }
+  },
+  "used_fallback": false
+}

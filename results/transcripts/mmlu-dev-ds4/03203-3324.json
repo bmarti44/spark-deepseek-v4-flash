@@ -1,0 +1,54 @@
+{
+  "index": 3203,
+  "task_id": 3324,
+  "rendered_prompt_sha256": "713198922c752b74a8e25c80bb0265eab89634a12507cce28f306a27c9a55773",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is **C**. Mules are hybrids (horse + donkey) and are typically sterile because their chromosomes don't pair properly during meiosis. Since they cannot produce viable offspring, their evolutionary fitness—measured by the ability to pass genes to the next generation—is effectively zero.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6839667940002983
+  },
+  "response": {
+    "id": "cmpl-121",
+    "object": "text_completion",
+    "created": 1784239043,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The correct answer is **C**. Mules are hybrids (horse + donkey) and are typically sterile because their chromosomes don't pair properly during meiosis. Since they cannot produce viable offspring, their evolutionary fitness—measured by the ability to pass genes to the next generation—is effectively zero.\n\nAnswer: C",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 183,
+      "completion_tokens": 60,
+      "total_tokens": 243,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 533.0,
+      "prefill_tokens": 183,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 348.2,
+      "decode_tok_s": 19.1,
+      "spec_accept_rate": 0.417,
+      "tok_per_step": 1.13
+    }
+  }
+}

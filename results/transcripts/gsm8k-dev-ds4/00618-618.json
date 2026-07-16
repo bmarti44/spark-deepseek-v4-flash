@@ -1,0 +1,55 @@
+{
+  "index": 618,
+  "task_id": 618,
+  "rendered_prompt_sha256": "ca480da1638799c94affeef5574b39b0ddfbaee660a7bbec17811a2f3b817409",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nTotal seats = 4 rows × 18 seats per row = 72 seats.\n\nAdministrators occupied one-fourth of the total seats:  \n72 × 1/4 = 18 seats.  \nRemaining seats = 72 - 18 = 54 seats.\n\nParents occupied one-third of the remaining seats:  \n54 × 1/3 = 18 seats.  \nRemaining seats after parents = 54 - 18 = 36 seats.\n\nThese 36 seats were occupied by students.\n\nAnswer: 36",
+  "finish_reason": "stop",
+  "expected": "36",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.091419586999109
+  },
+  "response": {
+    "id": "cmpl-17",
+    "object": "text_completion",
+    "created": 1784238642,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nTotal seats = 4 rows × 18 seats per row = 72 seats.\n\nAdministrators occupied one-fourth of the total seats:  \n72 × 1/4 = 18 seats.  \nRemaining seats = 72 - 18 = 54 seats.\n\nParents occupied one-third of the remaining seats:  \n54 × 1/3 = 18 seats.  \nRemaining seats after parents = 54 - 18 = 36 seats.\n\nThese 36 seats were occupied by students.\n\nAnswer: 36",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 114,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 843.3,
+      "prefill_tokens": 100,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 119.4,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.887,
+      "tok_per_step": 4.26
+    }
+  },
+  "used_fallback": false
+}

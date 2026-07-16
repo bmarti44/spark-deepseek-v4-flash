@@ -1,0 +1,55 @@
+{
+  "index": 44,
+  "task_id": 44,
+  "rendered_prompt_sha256": "baea7efa3fa3c5a193046f5509c624db1042f3f7b1d25f1299618e543ae18356",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, determine how many pounds of beeswax are needed for 20 candles.  \nSince 1 pound makes 10 candles, 20 candles require 2 pounds of beeswax.  \n\nThe cost for supplies (beeswax and wicks) is $10.00 per pound, so for 2 pounds it's $20.00.  \n\nRevenue from selling 20 candles at $2.00 each is $40.00.  \n\nNet profit = Revenue - Cost = $40.00 - $20.00 = $20.00.  \n\nAnswer: 20",
+  "finish_reason": "stop",
+  "expected": "20",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.227546324997093
+  },
+  "response": {
+    "id": "cmpl-565",
+    "object": "text_completion",
+    "created": 1784240817,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "First, determine how many pounds of beeswax are needed for 20 candles.  \nSince 1 pound makes 10 candles, 20 candles require 2 pounds of beeswax.  \n\nThe cost for supplies (beeswax and wicks) is $10.00 per pound, so for 2 pounds it's $20.00.  \n\nRevenue from selling 20 candles at $2.00 each is $40.00.  \n\nNet profit = Revenue - Cost = $40.00 - $20.00 = $20.00.  \n\nAnswer: 20",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 120,
+      "total_tokens": 230,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 824.7,
+      "prefill_tokens": 110,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 133.6,
+      "decode_tok_s": 35.3,
+      "spec_accept_rate": 0.871,
+      "tok_per_step": 3.9
+    }
+  },
+  "used_fallback": false
+}

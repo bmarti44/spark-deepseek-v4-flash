@@ -1,0 +1,55 @@
+{
+  "index": 655,
+  "task_id": 655,
+  "rendered_prompt_sha256": "53aa557414c6f7ec6d4ae687ae5ffa3edb3d59ea82537e4cbdb60e7a67799bf9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Shiela has completed 1/3 of the 15-page paper.  \nThe number of pages left is \\( 15 - (15 \\times \\frac{1}{3}) = 15 - 5 = 10 \\).  \n\nAnswer: 10",
+  "finish_reason": "stop",
+  "expected": "10",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.2215244570033974
+  },
+  "response": {
+    "id": "cmpl-577",
+    "object": "text_completion",
+    "created": 1784240866,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Shiela has completed 1/3 of the 15-page paper.  \nThe number of pages left is \\( 15 - (15 \\times \\frac{1}{3}) = 15 - 5 = 10 \\).  \n\nAnswer: 10",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 54,
+      "total_tokens": 128,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 663.7,
+      "prefill_tokens": 74,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 111.7,
+      "decode_tok_s": 34.7,
+      "spec_accept_rate": 0.867,
+      "tok_per_step": 3.93
+    }
+  },
+  "used_fallback": false
+}

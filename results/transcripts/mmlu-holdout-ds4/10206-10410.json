@@ -1,0 +1,54 @@
+{
+  "index": 10206,
+  "task_id": 10410,
+  "rendered_prompt_sha256": "85b1e772efb7a95c89019fdad07df4f4a569bd352cabd35bc17b7871cfc0cfd8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: G\n\nThe procedure repeatedly subtracts 2 from `number` until it becomes ≤ 0. If it ends exactly at 0, the number was even; otherwise (ending at -1), it was odd. Thus, it returns true for even numbers and false for odd numbers.</think>Answer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.9368623170012143
+  },
+  "response": {
+    "id": "cmpl-684",
+    "object": "text_completion",
+    "created": 1784241447,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: G\n\nThe procedure repeatedly subtracts 2 from `number` until it becomes ≤ 0. If it ends exactly at 0, the number was even; otherwise (ending at -1), it was odd. Thus, it returns true for even numbers and false for odd numbers.</think>Answer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 352,
+      "completion_tokens": 64,
+      "total_tokens": 416,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 670.8,
+      "prefill_tokens": 352,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 525.7,
+      "decode_tok_s": 28.3,
+      "spec_accept_rate": 0.768,
+      "tok_per_step": 3.25
+    }
+  }
+}

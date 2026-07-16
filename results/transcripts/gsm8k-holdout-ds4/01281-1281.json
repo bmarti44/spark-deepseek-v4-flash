@@ -1,0 +1,55 @@
+{
+  "index": 1281,
+  "task_id": 1281,
+  "rendered_prompt_sha256": "7043eb2c3b5b489066428cf984ebefe8df9dd40d606036a3b524af6e9439986b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, calculate the daily feed consumption per pig:  \nEach pig eats 4 pounds per feeding, twice a day, so 4 × 2 = 8 pounds per pig per day.  \n\nFor five pigs: 5 × 8 = 40 pounds per day.  \n\nOver a week (7 days): 40 × 7 = 280 pounds consumed.  \n\nDexter ordered 300 pounds, so remaining: 300 - 280 = 20 pounds.  \n\nAnswer: 20",
+  "finish_reason": "stop",
+  "expected": "20",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6071218340002815
+  },
+  "response": {
+    "id": "cmpl-599",
+    "object": "text_completion",
+    "created": 1784240940,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "First, calculate the daily feed consumption per pig:  \nEach pig eats 4 pounds per feeding, twice a day, so 4 × 2 = 8 pounds per pig per day.  \n\nFor five pigs: 5 × 8 = 40 pounds per day.  \n\nOver a week (7 days): 40 × 7 = 280 pounds consumed.  \n\nDexter ordered 300 pounds, so remaining: 300 - 280 = 20 pounds.  \n\nAnswer: 20",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 78,
+      "completion_tokens": 102,
+      "total_tokens": 180,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 732.3,
+      "prefill_tokens": 78,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.7,
+      "decode_tok_s": 35.5,
+      "spec_accept_rate": 0.872,
+      "tok_per_step": 3.96
+    }
+  },
+  "used_fallback": false
+}

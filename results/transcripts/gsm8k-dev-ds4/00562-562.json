@@ -1,0 +1,55 @@
+{
+  "index": 562,
+  "task_id": 562,
+  "rendered_prompt_sha256": "f3dec4d863bfcf4a4f14791af132fbe4c30c2cd0b837598a1d493d4005b826ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the pyramid's tip at 32 degrees from the ground. The sun moves upward at 5 degrees per hour relative to Sahir's house. After 10 hours, the sun has moved 5 * 10 = 50 degrees upward from its starting point.\n\nSo the new angle from the ground is 32 + 50 = 82 degrees.\n\nAnswer: 82",
+  "finish_reason": "stop",
+  "expected": "82",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.0724518339993665
+  },
+  "response": {
+    "id": "cmpl-45",
+    "object": "text_completion",
+    "created": 1784238758,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We start with the pyramid's tip at 32 degrees from the ground. The sun moves upward at 5 degrees per hour relative to Sahir's house. After 10 hours, the sun has moved 5 * 10 = 50 degrees upward from its starting point.\n\nSo the new angle from the ground is 32 + 50 = 82 degrees.\n\nAnswer: 82",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 78,
+      "total_tokens": 194,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 1061.7,
+      "prefill_tokens": 116,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.6,
+      "decode_tok_s": 19.5,
+      "spec_accept_rate": 0.2,
+      "tok_per_step": 1.04
+    }
+  },
+  "used_fallback": false
+}

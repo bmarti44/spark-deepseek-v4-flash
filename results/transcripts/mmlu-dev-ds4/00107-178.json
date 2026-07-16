@@ -1,0 +1,54 @@
+{
+  "index": 107,
+  "task_id": 178,
+  "rendered_prompt_sha256": "6069f80af200eb205aa189e21fcd63ec92bf0e59bcac3cb9cc67a229dfbcf2a4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step-by-step.\n\n**Step 1: Find the assessed value**  \nHouse worth = $16,500  \nAssessed at 22% → Assessed value = 16,500 × 0.22 = $3,630\n\n**Step 2: Calculate tax for each fund**  \nTax rates are per $100 of assessed value.  \nSo we divide assessed value by 100: 3,630 ÷ 100 = 36.3\n\n- Local college fund: 36.3 × 0.41 = 14.883  \n- Special education: 36.3 × 0.02 = 0.726  \n- Health and welfare: 36.3 × 0.001 = 0.0363  \n- Community construction: 36.3 × 0.089 = 3.2307\n\n**Step 3: Sum the taxes**  \n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876\n\nRounded to two decimals: $18.88\n\nThat matches option **C**.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.523616696998943
+  },
+  "response": {
+    "id": "cmpl-128",
+    "object": "text_completion",
+    "created": 1784239060,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step-by-step.\n\n**Step 1: Find the assessed value**  \nHouse worth = $16,500  \nAssessed at 22% → Assessed value = 16,500 × 0.22 = $3,630\n\n**Step 2: Calculate tax for each fund**  \nTax rates are per $100 of assessed value.  \nSo we divide assessed value by 100: 3,630 ÷ 100 = 36.3\n\n- Local college fund: 36.3 × 0.41 = 14.883  \n- Special education: 36.3 × 0.02 = 0.726  \n- Health and welfare: 36.3 × 0.001 = 0.0363  \n- Community construction: 36.3 × 0.089 = 3.2307\n\n**Step 3: Sum the taxes**  \n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876\n\nRounded to two decimals: $18.88\n\nThat matches option **C**.\n\nAnswer: C",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "completion_tokens": 235,
+      "total_tokens": 419,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 509.0,
+      "prefill_tokens": 184,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 363.0,
+      "decode_tok_s": 33.6,
+      "spec_accept_rate": 0.847,
+      "tok_per_step": 3.81
+    }
+  }
+}

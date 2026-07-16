@@ -1,0 +1,54 @@
+{
+  "index": 474,
+  "task_id": 549,
+  "rendered_prompt_sha256": "136efa3ec221cd83075605eb6c07295b66b97ad425dd923571d6d49ee65c79bb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this step-by-step.\n\n**Step 1: Determine sales volume at 80% capacity**  \nCapacity = 200,000 units  \n80% of capacity = 0.80 × 200,000 = **160,000 units**\n\n**Step 2: Calculate required profit**  \nInvestment = $1,400,000  \nRequired return = 20%  \nRequired profit = 0.20 × $1,400,000 = **$280,000**\n\n**Step 3: Calculate total variable cost**  \nVariable cost per unit = $9  \nTotal variable cost = 160,000 × $9 = **$1,440,000**\n\n**Step 4: Calculate total cost**  \nFixed costs = $200,000  \nTotal cost = Fixed + Variable = $200,000 + $1,440,000 = **$1,640,000**\n\n**Step 5: Calculate required total revenue**  \nRequired revenue = Total cost + Required profit  \n= $1,640,000 + $280,000 = **$1,920,000**\n\n**Step 6: Calculate selling price per unit**  \nSelling price = Total revenue ÷ Units sold  \n= $1,920,000 ÷ 160,000 = **$12**\n\n**Answer: G**  \n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.18990331999521
+  },
+  "response": {
+    "id": "cmpl-137",
+    "object": "text_completion",
+    "created": 1784239119,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this step-by-step.\n\n**Step 1: Determine sales volume at 80% capacity**  \nCapacity = 200,000 units  \n80% of capacity = 0.80 × 200,000 = **160,000 units**\n\n**Step 2: Calculate required profit**  \nInvestment = $1,400,000  \nRequired return = 20%  \nRequired profit = 0.20 × $1,400,000 = **$280,000**\n\n**Step 3: Calculate total variable cost**  \nVariable cost per unit = $9  \nTotal variable cost = 160,000 × $9 = **$1,440,000**\n\n**Step 4: Calculate total cost**  \nFixed costs = $200,000  \nTotal cost = Fixed + Variable = $200,000 + $1,440,000 = **$1,640,000**\n\n**Step 5: Calculate required total revenue**  \nRequired revenue = Total cost + Required profit  \n= $1,640,000 + $280,000 = **$1,920,000**\n\n**Step 6: Calculate selling price per unit**  \nSelling price = Total revenue ÷ Units sold  \n= $1,920,000 ÷ 160,000 = **$12**\n\n**Answer: G**  \n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 165,
+      "completion_tokens": 272,
+      "total_tokens": 437,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 922.1,
+      "prefill_tokens": 165,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 179.2,
+      "decode_tok_s": 37.5,
+      "spec_accept_rate": 0.896,
+      "tok_per_step": 4.2
+    }
+  }
+}

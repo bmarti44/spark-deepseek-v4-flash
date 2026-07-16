@@ -1,0 +1,54 @@
+{
+  "index": 8573,
+  "task_id": 8761,
+  "rendered_prompt_sha256": "9016b40df20d85f076e2e48a2a49d42e9f8b45f76aa1c45a1aed5c0948fc1161",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: F\n\nExplanation: Work done is force times distance, regardless of time. The force is the gorilla's weight (360 lb), and the distance is 20 ft. So work = 360 × 20 = 7200 ft-lb. The time (5 seconds) is irrelevant for calculating work.  \n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.057875179998518
+  },
+  "response": {
+    "id": "cmpl-283",
+    "object": "text_completion",
+    "created": 1784239905,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: F\n\nExplanation: Work done is force times distance, regardless of time. The force is the gorilla's weight (360 lb), and the distance is 20 ft. So work = 360 × 20 = 7200 ft-lb. The time (5 seconds) is irrelevant for calculating work.  \n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 191,
+      "completion_tokens": 69,
+      "total_tokens": 260,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 504.4,
+      "prefill_tokens": 191,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 379.9,
+      "decode_tok_s": 19.4,
+      "spec_accept_rate": 0.417,
+      "tok_per_step": 1.11
+    }
+  }
+}

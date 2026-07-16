@@ -1,0 +1,54 @@
+{
+  "index": 1456,
+  "task_id": 1547,
+  "rendered_prompt_sha256": "a6323c66c111b05f338fa7978d033ea5d5dc777944e257c40189c4b708ee43e7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The defendant's attorney would be trying to suppress the gun as evidence, arguing that the search was illegal. The key issue is whether the neighbor had authority to consent to the search. The attorney would want to show that the neighbor lacked authority, that the consent was coerced, or that the search exceeded the scope of consent. \n\nOption I — the defendant had an alibi for the time of the murder — is unrelated to the legality of the search or the consent. It goes to guilt, not suppression. Therefore, the attorney would be least likely to attempt to prove that fact.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.344411530000798
+  },
+  "response": {
+    "id": "cmpl-254",
+    "object": "text_completion",
+    "created": 1784239788,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The defendant's attorney would be trying to suppress the gun as evidence, arguing that the search was illegal. The key issue is whether the neighbor had authority to consent to the search. The attorney would want to show that the neighbor lacked authority, that the consent was coerced, or that the search exceeded the scope of consent. \n\nOption I — the defendant had an alibi for the time of the murder — is unrelated to the legality of the search or the consent. It goes to guilt, not suppression. Therefore, the attorney would be least likely to attempt to prove that fact.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 395,
+      "completion_tokens": 120,
+      "total_tokens": 515,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 755.5,
+      "prefill_tokens": 395,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 524.1,
+      "decode_tok_s": 26.2,
+      "spec_accept_rate": 0.703,
+      "tok_per_step": 2.95
+    }
+  }
+}

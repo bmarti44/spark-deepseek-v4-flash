@@ -1,0 +1,54 @@
+{
+  "index": 6979,
+  "task_id": 7150,
+  "rendered_prompt_sha256": "81e6579111754898a65c4bf39067f00aabcb41395d340484793130aff5ea2582",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Monetarists, following the quantity theory of money (MV = PQ), typically assume that velocity (V) and real output (Q) are relatively stable or constant in the short run, meaning changes in money supply (M) primarily affect prices (P). Therefore, the correct answer is that V and Q are considered **stable** or **constant**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8741479980017175
+  },
+  "response": {
+    "id": "cmpl-184",
+    "object": "text_completion",
+    "created": 1784239440,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Monetarists, following the quantity theory of money (MV = PQ), typically assume that velocity (V) and real output (Q) are relatively stable or constant in the short run, meaning changes in money supply (M) primarily affect prices (P). Therefore, the correct answer is that V and Q are considered **stable** or **constant**.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 95,
+      "completion_tokens": 75,
+      "total_tokens": 170,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 822.2,
+      "prefill_tokens": 95,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 115.9,
+      "decode_tok_s": 24.6,
+      "spec_accept_rate": 0.712,
+      "tok_per_step": 2.81
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "index": 612,
+  "task_id": 612,
+  "rendered_prompt_sha256": "0ba28519ea14b3f50ff4e5829db640fdc7eb1580a8201977be389308c4d1f993",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The first player ate a 6-ounce steak.  \nThe second player ate 8 beef tips, each 1 ounce, so 8 ounces.  \nThe third player ate a one-pound steak. One pound is 16 ounces.  \nThe fourth and fifth players ate vegetarian, so 0 ounces.  \n\nTotal meat: 6 + 8 + 16 = 30 ounces.  \n\nAnswer: 30",
+  "finish_reason": "stop",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.1229214249979123
+  },
+  "response": {
+    "id": "cmpl-618",
+    "object": "text_completion",
+    "created": 1784241012,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The first player ate a 6-ounce steak.  \nThe second player ate 8 beef tips, each 1 ounce, so 8 ounces.  \nThe third player ate a one-pound steak. One pound is 16 ounces.  \nThe fourth and fifth players ate vegetarian, so 0 ounces.  \n\nTotal meat: 6 + 8 + 16 = 30 ounces.  \n\nAnswer: 30",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 118,
+      "completion_tokens": 84,
+      "total_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 901.7,
+      "prefill_tokens": 118,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 131.1,
+      "decode_tok_s": 37.9,
+      "spec_accept_rate": 0.9,
+      "tok_per_step": 4.25
+    }
+  },
+  "used_fallback": false
+}

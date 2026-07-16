@@ -1,0 +1,55 @@
+{
+  "index": 176,
+  "task_id": 176,
+  "rendered_prompt_sha256": "ba6ec7a88e8fbf86cdd7bceff396f9877596f6d3a3dfdc50d39c8c514b4ae933",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We know there are 240 Asians total.  \n80 are Japanese, so the rest are Chinese:  \n240 - 80 = 160 Chinese.  \n\nThe Chinese team has 60 boys, so the number of girls on the Chinese team is:  \n160 - 60 = 100.  \n\nAnswer: 100",
+  "finish_reason": "stop",
+  "expected": "100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.762381574000756
+  },
+  "response": {
+    "id": "cmpl-33",
+    "object": "text_completion",
+    "created": 1784238702,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We know there are 240 Asians total.  \n80 are Japanese, so the rest are Chinese:  \n240 - 80 = 160 Chinese.  \n\nThe Chinese team has 60 boys, so the number of girls on the Chinese team is:  \n160 - 60 = 100.  \n\nAnswer: 100",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 79,
+      "completion_tokens": 64,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 968.3,
+      "prefill_tokens": 79,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 81.7,
+      "decode_tok_s": 35.7,
+      "spec_accept_rate": 0.889,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

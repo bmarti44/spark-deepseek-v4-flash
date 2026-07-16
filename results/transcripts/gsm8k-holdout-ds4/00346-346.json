@@ -1,0 +1,55 @@
+{
+  "index": 346,
+  "task_id": 346,
+  "rendered_prompt_sha256": "7987f565a7f0da7a8058604060db39c7388c57cd764a6591a197198a49b469b6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Jenny buys 1 bag of cookies per week.  \n- Each bag has 36 cookies.  \n- She puts 4 cookies in her son's lunch box each day, 5 days a week.  \n  So cookies for son: \\(4 \\times 5 = 20\\) cookies per week.  \n- Her husband eats 1 cookie a day for 7 days.  \n  So cookies for husband: \\(1 \\times 7 = 7\\) cookies per week.  \n- Total cookies eaten by son and husband: \\(20 + 7 = 27\\) cookies.  \n- The rest are eaten by Jenny: \\(36 - 27 = 9\\) cookies.\n\nAnswer: 9",
+  "finish_reason": "stop",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.70324616599828
+  },
+  "response": {
+    "id": "cmpl-576",
+    "object": "text_completion",
+    "created": 1784240863,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Jenny buys 1 bag of cookies per week.  \n- Each bag has 36 cookies.  \n- She puts 4 cookies in her son's lunch box each day, 5 days a week.  \n  So cookies for son: \\(4 \\times 5 = 20\\) cookies per week.  \n- Her husband eats 1 cookie a day for 7 days.  \n  So cookies for husband: \\(1 \\times 7 = 7\\) cookies per week.  \n- Total cookies eaten by son and husband: \\(20 + 7 = 27\\) cookies.  \n- The rest are eaten by Jenny: \\(36 - 27 = 9\\) cookies.\n\nAnswer: 9",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 153,
+      "total_tokens": 258,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 836.3,
+      "prefill_tokens": 105,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.7,
+      "decode_tok_s": 39.6,
+      "spec_accept_rate": 0.936,
+      "tok_per_step": 4.4
+    }
+  },
+  "used_fallback": false
+}

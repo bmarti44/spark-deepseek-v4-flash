@@ -1,0 +1,55 @@
+{
+  "index": 524,
+  "task_id": 524,
+  "rendered_prompt_sha256": "13121b42ac5b8d5bf8463e8263bbf1094eebc842d2f6f845d293c7aa57502c0b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jackson can plant 6 red tulips per row, so with 36 red tulips, he needs \\( 36 \\div 6 = 6 \\) rows for red tulips.\n\nHe can plant 8 blue tulips per row, so with 24 blue tulips, he needs \\( 24 \\div 8 = 3 \\) rows for blue tulips.\n\nIn total, he will plant \\( 6 + 3 = 9 \\) rows.\n\nAnswer: 9",
+  "finish_reason": "stop",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.195052613998996
+  },
+  "response": {
+    "id": "cmpl-602",
+    "object": "text_completion",
+    "created": 1784240952,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Jackson can plant 6 red tulips per row, so with 36 red tulips, he needs \\( 36 \\div 6 = 6 \\) rows for red tulips.\n\nHe can plant 8 blue tulips per row, so with 24 blue tulips, he needs \\( 24 \\div 8 = 3 \\) rows for blue tulips.\n\nIn total, he will plant \\( 6 + 3 = 9 \\) rows.\n\nAnswer: 9",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 98,
+      "total_tokens": 187,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 740.1,
+      "prefill_tokens": 89,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.5,
+      "decode_tok_s": 39.9,
+      "spec_accept_rate": 0.926,
+      "tok_per_step": 4.5
+    }
+  },
+  "used_fallback": false
+}

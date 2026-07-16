@@ -1,0 +1,54 @@
+{
+  "index": 8800,
+  "task_id": 8989,
+  "rendered_prompt_sha256": "53b09e4e4cbdacc1c5b3770643a9f67cdcbd1e7d81c4b1175e63750e832c28df",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We solve the equation:\n\n5x - 5 = -10  \nAdd 5 to both sides:  \n5x = -5  \nDivide by 5:  \nx = -1  \n\nThe correct option is H.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.13785411400022
+  },
+  "response": {
+    "id": "cmpl-801",
+    "object": "text_completion",
+    "created": 1784242222,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We solve the equation:\n\n5x - 5 = -10  \nAdd 5 to both sides:  \n5x = -5  \nDivide by 5:  \nx = -1  \n\nThe correct option is H.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 101,
+      "completion_tokens": 48,
+      "total_tokens": 149,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 775.5,
+      "prefill_tokens": 101,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 130.5,
+      "decode_tok_s": 35.3,
+      "spec_accept_rate": 0.854,
+      "tok_per_step": 4.08
+    }
+  }
+}

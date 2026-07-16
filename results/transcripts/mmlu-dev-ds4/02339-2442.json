@@ -1,0 +1,54 @@
+{
+  "index": 2339,
+  "task_id": 2442,
+  "rendered_prompt_sha256": "fb7a92a96595b99ca34e9b383325ad3049ae9c129155a381a225a6d5d7486ffd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The catharsis theory suggests that engaging in aggressive acts can release pent-up frustration, thereby reducing the likelihood of further aggression. However, research has generally not supported this idea; instead, it often shows that aggression tends to increase rather than decrease after an aggressive act.\n\nThe option that directly states this unsupported claim is:\n\nG. aggressive act reduces inclination to engages in other aggressive acts\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.7419526200028486
+  },
+  "response": {
+    "id": "cmpl-357",
+    "object": "text_completion",
+    "created": 1784240357,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The catharsis theory suggests that engaging in aggressive acts can release pent-up frustration, thereby reducing the likelihood of further aggression. However, research has generally not supported this idea; instead, it often shows that aggression tends to increase rather than decrease after an aggressive act.\n\nThe option that directly states this unsupported claim is:\n\nG. aggressive act reduces inclination to engages in other aggressive acts\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 186,
+      "completion_tokens": 80,
+      "total_tokens": 266,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 512.3,
+      "prefill_tokens": 186,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 364.2,
+      "decode_tok_s": 24.9,
+      "spec_accept_rate": 0.685,
+      "tok_per_step": 2.79
+    }
+  }
+}

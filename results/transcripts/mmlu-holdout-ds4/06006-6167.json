@@ -1,0 +1,54 @@
+{
+  "index": 6006,
+  "task_id": 6167,
+  "rendered_prompt_sha256": "5d5412f1114c9ad63cae2a48bc0d28a5bfbec254fe4b2a51ca6db412cfe5b9ba",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The third cranial nerve (oculomotor nerve) innervates most of the extraocular muscles (except lateral rectus and superior oblique) and also carries parasympathetic fibers for pupillary constriction. Damage to this nerve typically results in:\n\n- **Pupillary dilatation** (loss of parasympathetic innervation to the sphincter pupillae)\n- **Downward and outward strabismus** (unopposed action of the superior oblique and lateral rectus muscles)\n\nThis matches option A: Pupillary dilatation and a downward strabismus.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.2568065430023125
+  },
+  "response": {
+    "id": "cmpl-730",
+    "object": "text_completion",
+    "created": 1784241914,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The third cranial nerve (oculomotor nerve) innervates most of the extraocular muscles (except lateral rectus and superior oblique) and also carries parasympathetic fibers for pupillary constriction. Damage to this nerve typically results in:\n\n- **Pupillary dilatation** (loss of parasympathetic innervation to the sphincter pupillae)\n- **Downward and outward strabismus** (unopposed action of the superior oblique and lateral rectus muscles)\n\nThis matches option A: Pupillary dilatation and a downward strabismus.\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 195,
+      "completion_tokens": 116,
+      "total_tokens": 311,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 526.4,
+      "prefill_tokens": 195,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 371.5,
+      "decode_tok_s": 31.1,
+      "spec_accept_rate": 0.786,
+      "tok_per_step": 3.44
+    }
+  }
+}

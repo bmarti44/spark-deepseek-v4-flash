@@ -1,0 +1,54 @@
+{
+  "index": 5210,
+  "task_id": 5352,
+  "rendered_prompt_sha256": "a4e82c63cfd752f7131a3e5d8149a74faabaedbef525d3cf81c7b6820baf38cb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the Gordon Growth Model (growing perpetuity formula):\n\n\\[\nP_0 = \\frac{D_0 (1 + g)}{r - g}\n\\]\n\nWhere:  \n- \\(P_0 = 75\\)  \n- \\(D_0 = 3\\)  \n- \\(r = 0.12\\)  \n- \\(g\\) = dividend growth rate\n\nPlugging in:\n\n\\[\n75 = \\frac{3(1 + g)}{0.12 - g}\n\\]\n\nMultiply both sides:\n\n\\[\n75(0.12 - g) = 3(1 + g)\n\\]\n\n\\[\n9 - 75g = 3 + 3g\n\\]\n\n\\[\n9 - 3 = 75g + 3g\n\\]\n\n\\[\n6 = 78g\n\\]\n\n\\[\ng = \\frac{6}{78} \\approx 0.0769 \\approx 7.69\\%\n\\]\n\nThe closest option is **8%**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.915513943997212
+  },
+  "response": {
+    "id": "cmpl-296",
+    "object": "text_completion",
+    "created": 1784240014,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can use the Gordon Growth Model (growing perpetuity formula):\n\n\\[\nP_0 = \\frac{D_0 (1 + g)}{r - g}\n\\]\n\nWhere:  \n- \\(P_0 = 75\\)  \n- \\(D_0 = 3\\)  \n- \\(r = 0.12\\)  \n- \\(g\\) = dividend growth rate\n\nPlugging in:\n\n\\[\n75 = \\frac{3(1 + g)}{0.12 - g}\n\\]\n\nMultiply both sides:\n\n\\[\n75(0.12 - g) = 3(1 + g)\n\\]\n\n\\[\n9 - 75g = 3 + 3g\n\\]\n\n\\[\n9 - 3 = 75g + 3g\n\\]\n\n\\[\n6 = 78g\n\\]\n\n\\[\ng = \\frac{6}{78} \\approx 0.0769 \\approx 7.69\\%\n\\]\n\nThe closest option is **8%**.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "completion_tokens": 203,
+      "total_tokens": 344,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 862.2,
+      "prefill_tokens": 141,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 164.1,
+      "decode_tok_s": 40.2,
+      "spec_accept_rate": 0.918,
+      "tok_per_step": 4.43
+    }
+  }
+}

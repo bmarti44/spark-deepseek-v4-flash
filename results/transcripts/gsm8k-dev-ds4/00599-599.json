@@ -1,0 +1,55 @@
+{
+  "index": 599,
+  "task_id": 599,
+  "rendered_prompt_sha256": "cf609130f5a13bbf0d1361dd099de66283a5e2201406741bfed1b64f466998db",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Dogs: 5 dogs, each has 4 legs → 5 × 4 = 20 legs  \n- Cats: 2 cats, each has 4 legs → 2 × 4 = 8 legs  \n- Birds: 10 birds, each has 2 legs → 10 × 2 = 20 legs  \n\nTotal legs = 20 + 8 + 20 = 48  \n\nAnswer: 48",
+  "finish_reason": "stop",
+  "expected": "48",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.3579292930007796
+  },
+  "response": {
+    "id": "cmpl-18",
+    "object": "text_completion",
+    "created": 1784238645,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Dogs: 5 dogs, each has 4 legs → 5 × 4 = 20 legs  \n- Cats: 2 cats, each has 4 legs → 2 × 4 = 8 legs  \n- Birds: 10 birds, each has 2 legs → 10 × 2 = 20 legs  \n\nTotal legs = 20 + 8 + 20 = 48  \n\nAnswer: 48",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 69,
+      "completion_tokens": 94,
+      "total_tokens": 163,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 669.6,
+      "prefill_tokens": 69,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 103.9,
+      "decode_tok_s": 35.1,
+      "spec_accept_rate": 0.91,
+      "tok_per_step": 4.32
+    }
+  },
+  "used_fallback": false
+}

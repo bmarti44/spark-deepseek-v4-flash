@@ -1,0 +1,55 @@
+{
+  "index": 35,
+  "task_id": 35,
+  "rendered_prompt_sha256": "33e0babec68717e9631649ccffd6bea01e940edbe0ca678af69d0d091f20db78",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In the first 20 minutes, Mike scores 4 points.  \nIn the second 20 minutes, he scores 25% more than the first 20 minutes.  \n25% more than 4 is \\(4 \\times 1.25 = 5\\) points.  \nTotal points = \\(4 + 5 = 9\\).\n\nAnswer: 9",
+  "finish_reason": "stop",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.775199931995303
+  },
+  "response": {
+    "id": "cmpl-101",
+    "object": "text_completion",
+    "created": 1784238979,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "In the first 20 minutes, Mike scores 4 points.  \nIn the second 20 minutes, he scores 25% more than the first 20 minutes.  \n25% more than 4 is \\(4 \\times 1.25 = 5\\) points.  \nTotal points = \\(4 + 5 = 9\\).\n\nAnswer: 9",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 87,
+      "completion_tokens": 73,
+      "total_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 741.4,
+      "prefill_tokens": 87,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 117.7,
+      "decode_tok_s": 35.9,
+      "spec_accept_rate": 0.9,
+      "tok_per_step": 4.11
+    }
+  },
+  "used_fallback": false
+}

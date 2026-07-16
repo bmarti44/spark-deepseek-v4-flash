@@ -1,0 +1,55 @@
+{
+  "index": 1163,
+  "task_id": 1163,
+  "rendered_prompt_sha256": "9eedbf8807f9d9bff87e44502d33073f79b7a0d35a13395e53a8016a37fa4d7b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Tyrion changes his face mask two times each time he goes out.  \nIf he goes out three times a day, that means he uses \\(2 \\times 3 = 6\\) masks per day.  \nOver 2 days, he would use \\(6 \\times 2 = 12\\) masks.\n\nAnswer: 12",
+  "finish_reason": "stop",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.47683158700238
+  },
+  "response": {
+    "id": "cmpl-626",
+    "object": "text_completion",
+    "created": 1784241047,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Tyrion changes his face mask two times each time he goes out.  \nIf he goes out three times a day, that means he uses \\(2 \\times 3 = 6\\) masks per day.  \nOver 2 days, he would use \\(6 \\times 2 = 12\\) masks.\n\nAnswer: 12",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 68,
+      "total_tokens": 142,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 676.3,
+      "prefill_tokens": 74,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.6,
+      "decode_tok_s": 37.8,
+      "spec_accept_rate": 0.927,
+      "tok_per_step": 4.31
+    }
+  },
+  "used_fallback": false
+}

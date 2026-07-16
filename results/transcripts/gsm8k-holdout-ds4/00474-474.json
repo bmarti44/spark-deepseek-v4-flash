@@ -1,0 +1,55 @@
+{
+  "index": 474,
+  "task_id": 474,
+  "rendered_prompt_sha256": "72fe01dd360b1f6094285dbf2ef4f3b324fcc802b52b87c1caf076c3971079aa",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the total number of students be \\( x \\).  \nIf three-fourths have a desktop computer, then one-fourth do not have one.  \nThat one-fourth equals 20 students.  \n\nSo:  \n\\[\n\\frac{1}{4}x = 20\n\\]  \n\\[\nx = 20 \\times 4 = 80\n\\]  \n\nAnswer: 80",
+  "finish_reason": "stop",
+  "expected": "80",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.9566096349954023
+  },
+  "response": {
+    "id": "cmpl-533",
+    "object": "text_completion",
+    "created": 1784240687,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let the total number of students be \\( x \\).  \nIf three-fourths have a desktop computer, then one-fourth do not have one.  \nThat one-fourth equals 20 students.  \n\nSo:  \n\\[\n\\frac{1}{4}x = 20\n\\]  \n\\[\nx = 20 \\times 4 = 80\n\\]  \n\nAnswer: 80",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 76,
+      "total_tokens": 152,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 749.6,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 101.6,
+      "decode_tok_s": 34.5,
+      "spec_accept_rate": 0.862,
+      "tok_per_step": 4.05
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,55 @@
+{
+  "index": 3570,
+  "task_id": 3692,
+  "rendered_prompt_sha256": "30d82006107fdcb41910d0e4765ef5bf0dfe42a08605e772429325314edfa3c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to calculate the total heat required to raise the temperature of 60 g of Pb from 20°C to 360°C, considering phase change.\n\n**Step 1: Heat to raise solid from 20°C to melting point (327°C)**  \nMass = 60 g  \nSpecific heat (solid) = 0.0306 cal/g·°C  \nΔT = 327 - 20 = 307°C  \nQ₁ = 60 × 0.0306 × 307 = 60 × 9.3942 ≈ 563.65 cal\n\n**Step 2: Heat to melt at 327°C**  \nHeat of fusion = 5.86 cal/g  \nQ₂ = 60 × 5.86 = 351.6 cal\n\n**Step 3: Heat to raise liquid from 327°C to 360°C**  \nSpecific heat (liquid) = 0.0375 cal/g·°C  \nΔT = 360 - 327 = 33°C  \nQ₃ = 60 × 0.0375 × 33 = 60 × 1.2375 = 74.25 cal\n\n**Total heat:**  \nQ_total = 563.65 + 351.6 + 74.25 ≈ 989.5 cal → **990 cal**\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.15107999099564
+  },
+  "response": {
+    "id": "cmpl-664",
+    "object": "text_completion",
+    "created": 1784241248,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to calculate the total heat required to raise the temperature of 60 g of Pb from 20°C to 360°C, considering phase change.\n\n**Step 1: Heat to raise solid from 20°C to melting point (327°C)**  \nMass = 60 g  \nSpecific heat (solid) = 0.0306 cal/g·°C  \nΔT = 327 - 20 = 307°C  \nQ₁ = 60 × 0.0306 × 307 = 60 × 9.3942 ≈ 563.65 cal\n\n**Step 2: Heat to melt at 327°C**  \nHeat of fusion = 5.86 cal/g  \nQ₂ = 60 × 5.86 = 351.6 cal\n\n**Step 3: Heat to raise liquid from 327°C to 360°C**  \nSpecific heat (liquid) = 0.0375 cal/g·°C  \nΔT = 360 - 327 = 33°C  \nQ₃ = 60 × 0.0375 × 33 = 60 × 1.2375 = 74.25 cal\n\n**Total heat:**  \nQ_total = 563.65 + 351.6 + 74.25 ≈ 989.5 cal → **990 cal**\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "completion_tokens": 285,
+      "total_tokens": 443,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 875.2,
+      "prefill_tokens": 158,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 180.8,
+      "decode_tok_s": 39.2,
+      "spec_accept_rate": 0.92,
+      "tok_per_step": 4.33
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Determine the heat needed to raise 60 g ofPbfrom 20°C to 360°C, given its specific heats are 0.0306 (solid) and 0.0375 (liquid). Its heat of fusion is 5.86 cal/g; its melting point is 327°C.\n\nA. 990 cal\nB. 74 cal\nC. 352 cal\nD. 680 cal\nE. 564 cal\nF. 1250 cal\nG. 850 cal\nH. 420 cal\nI. 750 cal\nJ. 1100 cal\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

@@ -1,0 +1,54 @@
+{
+  "index": 6143,
+  "task_id": 6306,
+  "rendered_prompt_sha256": "0d9984e653e155f2e15f327f90a67a4eae698dfa0a517a5e3bea73145d553c8d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The patient's history of a blow below the right knee, negative standing flexion test, intact ligaments, and foot drop points toward a peroneal nerve injury. The peroneal nerve wraps around the fibular head, and a posterior deviation of the fibular head can compress this nerve, causing foot drop.\n\n**Answer: G**",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.26290134699957
+  },
+  "response": {
+    "id": "cmpl-732",
+    "object": "text_completion",
+    "created": 1784241918,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The patient's history of a blow below the right knee, negative standing flexion test, intact ligaments, and foot drop points toward a peroneal nerve injury. The peroneal nerve wraps around the fibular head, and a posterior deviation of the fibular head can compress this nerve, causing foot drop.\n\n**Answer: G**",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 177,
+      "completion_tokens": 67,
+      "total_tokens": 244,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 508.8,
+      "prefill_tokens": 177,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 348.9,
+      "decode_tok_s": 24.3,
+      "spec_accept_rate": 0.672,
+      "tok_per_step": 2.72
+    }
+  }
+}

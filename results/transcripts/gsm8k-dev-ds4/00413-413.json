@@ -1,0 +1,55 @@
+{
+  "index": 413,
+  "task_id": 413,
+  "rendered_prompt_sha256": "2f3785255b1bcd2a6db938ac0d096e29c220bc422c1d7aaeb9c164511e472fac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We know that 99% of candles are guaranteed not to explode, meaning 1% are more dangerous and might explode.  \nSo, 1% of 50,000 = 500 candles are in the \"more dangerous\" category.  \n\nOf these 500, 5% also have the wet dog smell defect.  \n5% of 500 = 25 candles.  \n\nThus, 25 candles will both smell like wet dog and explode.  \n\nAnswer: 25",
+  "finish_reason": "stop",
+  "expected": "25",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.2255371370010835
+  },
+  "response": {
+    "id": "cmpl-50",
+    "object": "text_completion",
+    "created": 1784238778,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We know that 99% of candles are guaranteed not to explode, meaning 1% are more dangerous and might explode.  \nSo, 1% of 50,000 = 500 candles are in the \"more dangerous\" category.  \n\nOf these 500, 5% also have the wet dog smell defect.  \n5% of 500 = 25 candles.  \n\nThus, 25 candles will both smell like wet dog and explode.  \n\nAnswer: 25",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 97,
+      "total_tokens": 193,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 843.9,
+      "prefill_tokens": 96,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 114.2,
+      "decode_tok_s": 28.8,
+      "spec_accept_rate": 0.776,
+      "tok_per_step": 3.27
+    }
+  },
+  "used_fallback": false
+}

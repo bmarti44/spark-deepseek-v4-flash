@@ -1,0 +1,56 @@
+{
+  "index": 535,
+  "task_id": 535,
+  "rendered_prompt_sha256": "e82852065ee19c12427f8eb10c436cb9fd9fe357f1a3106d5283f4f86de9737f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Let the number of candies George had originally be \\( g \\).  \n2. Nick had twice as many, so Nick had \\( 2g \\).  \n3. George ate 5 candies, so now George has \\( g - 5 \\).  \n4. After eating, George has 3 candies left:  \n   \\( g - 5 = 3 \\)  \n   So \\( g = 8 \\).  \n5. Nick originally had \\( 2 \\times 8 = 16 \\) candies.  \n   Since George only ate his own candies, Nick's amount didn't change.\n\nAnswer: 16",
+  "finish_reason": "stop",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.99797143899923
+  },
+  "response": {
+    "id": "cmpl-93",
+    "object": "text_completion",
+    "created": 1784238948,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Let the number of candies George had originally be \\( g \\).  \n2. Nick had twice as many, so Nick had \\( 2g \\).  \n3. George ate 5 candies, so now George has \\( g - 5 \\).  \n4. After eating, George has 3 candies left:  \n   \\( g - 5 = 3 \\)  \n   So \\( g = 8 \\).  \n5. Nick originally had \\( 2 \\times 8 = 16 \\) candies.  \n   Since George only ate his own candies, Nick's amount didn't change.\n\nAnswer: 16",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73,
+      "completion_tokens": 141,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 671.2,
+      "prefill_tokens": 73,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.0,
+      "decode_tok_s": 32.6,
+      "spec_accept_rate": 0.842,
+      "tok_per_step": 3.64
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Nick had twice as many candies as George. Then George ate 5 candies. Now George has 3 candies left. How many candies does Nick have?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

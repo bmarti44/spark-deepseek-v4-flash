@@ -1,0 +1,54 @@
+{
+  "index": 10116,
+  "task_id": 10318,
+  "rendered_prompt_sha256": "d5a0ebc35fa3c5e0845d6a3f2e6d4c743de45a6f9bb2e2f9b9ba83c2d50e0848",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the classical orbital mechanics for a Coulomb attraction. For an electron in a Coulomb potential around a proton, the total energy is:\n\n\\[\nH_0 = -\\frac{k e^2}{2a}\n\\]\n\nwhere \\(a\\) is the semi-major axis. The angular momentum is:\n\n\\[\nL = m_e v r\n\\]\n\nFor an elliptical orbit, the angular momentum relates to the semi-major axis \\(a\\) and semi-minor axis \\(b\\) via:\n\n\\[\nL = m_e \\sqrt{\\frac{k e^2 a (1 - e^2)}{m_e}} = \\sqrt{m_e k e^2 a (1 - e^2)}\n\\]\n\nBut more directly, the distance of closest approach (perihelion) \\(r_{\\min}\\) and farthest distance (aphelion) \\(r_{\\max}\\) are:\n\n\\[\nr_{\\min} = a(1 - e), \\quad r_{\\max} = a(1 + e)\n\\]\n\nWe can find \\(a\\) from energy:\n\n\\[\na = -\\frac{k e^2}{2 H_0}\n\\]\n\nGiven \\(k e^2 = 2.307 \\times 10^{-28} \\, \\text{J·m}\\) and \\(H_0 = -4 \\times 10^{-18} \\, \\text{J}\\):\n\n\\[\na = \\frac{2.307 \\times 10^{-28}}{2 \\times 4 \\times 10^{-18}} = \\frac{2.307 \\times 10^{-28}}{8 \\times 10^{-18}} = 2.884 \\times 10^{-11} \\, \\text{m}\n\\]\n\nNow, angular momentum:\n\n\\[\nL = \\sqrt{m_e k e^2 a (1 - e^2)}\n\\]\n\nGiven \\(m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\), \\(L = 6 \\times 10^{-35} \\, \\text{N·s}\\):\n\n\\[\nL^2 = m_e k e^2 a (1 - e^2)\n\\]\n\n\\[\n(6 \\times 10^{-35})^2 = 9.11 \\times 10^{-31} \\times 2.307 \\times 10^{-28} \\times 2.884 \\times 10^{-11} (1 - e^2)\n\\]\n\n\\[\n36 \\times 10^{-70} = 9.11 \\times 2.307 \\times 2.884 \\times 10^{-70} (1 - e^2)\n\\]\n\n\\[\n36 = (9.11 \\times 2.307 \\times 2.884) (1 - e^2)\n\\]\n\nCompute product:  \n\\(9.11 \\times 2.307 = 21.02\\)  \n\\(21.02 \\times 2.884 \\approx 60.62\\)\n\nSo:\n\n\\[\n36 = 60.62 (1 - e^2) \\implies 1 - e^2 = \\frac{36}{60.62} \\approx 0.594\n\\]\n\nThus \\(e^2 = 0.406\\), \\(e \\approx 0.637\\).\n\nNow:\n\n\\[\nr_{\\min} = a(1 - e) = 2.884 \\times 10^{-11} \\times (1 - 0.637) = 2.884 \\times 10^{-11} \\times 0.363 \\approx 1.047 \\times 10^{-11} \\, \\text{m}\n\\]\n\n\\[\nr_{\\max} = a(1 + e) = 2.884 \\times 10^{-11} \\times ",
+  "finish_reason": "length",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 21.511626794999756
+  },
+  "response": {
+    "id": "cmpl-347",
+    "object": "text_completion",
+    "created": 1784240346,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this using the classical orbital mechanics for a Coulomb attraction. For an electron in a Coulomb potential around a proton, the total energy is:\n\n\\[\nH_0 = -\\frac{k e^2}{2a}\n\\]\n\nwhere \\(a\\) is the semi-major axis. The angular momentum is:\n\n\\[\nL = m_e v r\n\\]\n\nFor an elliptical orbit, the angular momentum relates to the semi-major axis \\(a\\) and semi-minor axis \\(b\\) via:\n\n\\[\nL = m_e \\sqrt{\\frac{k e^2 a (1 - e^2)}{m_e}} = \\sqrt{m_e k e^2 a (1 - e^2)}\n\\]\n\nBut more directly, the distance of closest approach (perihelion) \\(r_{\\min}\\) and farthest distance (aphelion) \\(r_{\\max}\\) are:\n\n\\[\nr_{\\min} = a(1 - e), \\quad r_{\\max} = a(1 + e)\n\\]\n\nWe can find \\(a\\) from energy:\n\n\\[\na = -\\frac{k e^2}{2 H_0}\n\\]\n\nGiven \\(k e^2 = 2.307 \\times 10^{-28} \\, \\text{J·m}\\) and \\(H_0 = -4 \\times 10^{-18} \\, \\text{J}\\):\n\n\\[\na = \\frac{2.307 \\times 10^{-28}}{2 \\times 4 \\times 10^{-18}} = \\frac{2.307 \\times 10^{-28}}{8 \\times 10^{-18}} = 2.884 \\times 10^{-11} \\, \\text{m}\n\\]\n\nNow, angular momentum:\n\n\\[\nL = \\sqrt{m_e k e^2 a (1 - e^2)}\n\\]\n\nGiven \\(m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\), \\(L = 6 \\times 10^{-35} \\, \\text{N·s}\\):\n\n\\[\nL^2 = m_e k e^2 a (1 - e^2)\n\\]\n\n\\[\n(6 \\times 10^{-35})^2 = 9.11 \\times 10^{-31} \\times 2.307 \\times 10^{-28} \\times 2.884 \\times 10^{-11} (1 - e^2)\n\\]\n\n\\[\n36 \\times 10^{-70} = 9.11 \\times 2.307 \\times 2.884 \\times 10^{-70} (1 - e^2)\n\\]\n\n\\[\n36 = (9.11 \\times 2.307 \\times 2.884) (1 - e^2)\n\\]\n\nCompute product:  \n\\(9.11 \\times 2.307 = 21.02\\)  \n\\(21.02 \\times 2.884 \\approx 60.62\\)\n\nSo:\n\n\\[\n36 = 60.62 (1 - e^2) \\implies 1 - e^2 = \\frac{36}{60.62} \\approx 0.594\n\\]\n\nThus \\(e^2 = 0.406\\), \\(e \\approx 0.637\\).\n\nNow:\n\n\\[\nr_{\\min} = a(1 - e) = 2.884 \\times 10^{-11} \\times (1 - 0.637) = 2.884 \\times 10^{-11} \\times 0.363 \\approx 1.047 \\times 10^{-11} \\, \\text{m}\n\\]\n\n\\[\nr_{\\max} = a(1 + e) = 2.884 \\times 10^{-11} \\times ",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 321,
+      "completion_tokens": 768,
+      "total_tokens": 1089,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 641.3,
+      "prefill_tokens": 321,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 501.8,
+      "decode_tok_s": 36.8,
+      "spec_accept_rate": 0.892,
+      "tok_per_step": 4.09
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "index": 623,
+  "task_id": 623,
+  "rendered_prompt_sha256": "3621cd82269a24366f5c7c33acff4306aff46862724673dcb2bd7a854dde5789",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\nIf Charmaine will be 16 years old in 12 years, that means her current age is:\n\n\\[\n16 - 12 = 4 \\text{ years old}\n\\]\n\nIn 4 years from now, she will be:\n\n\\[\n4 + 4 = 8 \\text{ years old}\n\\]\n\nAnswer: 8",
+  "finish_reason": "stop",
+  "expected": "8",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.642904226006067
+  },
+  "response": {
+    "id": "cmpl-556",
+    "object": "text_completion",
+    "created": 1784240774,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\nIf Charmaine will be 16 years old in 12 years, that means her current age is:\n\n\\[\n16 - 12 = 4 \\text{ years old}\n\\]\n\nIn 4 years from now, she will be:\n\n\\[\n4 + 4 = 8 \\text{ years old}\n\\]\n\nAnswer: 8",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 63,
+      "completion_tokens": 77,
+      "total_tokens": 140,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 647.9,
+      "prefill_tokens": 63,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 97.4,
+      "decode_tok_s": 38.6,
+      "spec_accept_rate": 0.892,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

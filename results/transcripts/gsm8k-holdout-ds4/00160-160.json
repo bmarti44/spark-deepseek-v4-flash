@@ -1,0 +1,55 @@
+{
+  "index": 160,
+  "task_id": 160,
+  "rendered_prompt_sha256": "dd113034b26213319f88a9dcfbeffee8b4a5add7e902141dcafb252d587e1fd7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "On Monday: 17 feet  \nTuesday: 17 + 7 = 24 feet  \nWednesday: (2/3) × 24 = 16 feet  \n\nAnswer: 16",
+  "finish_reason": "stop",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.7836718580001616
+  },
+  "response": {
+    "id": "cmpl-595",
+    "object": "text_completion",
+    "created": 1784240922,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "On Monday: 17 feet  \nTuesday: 17 + 7 = 24 feet  \nWednesday: (2/3) × 24 = 16 feet  \n\nAnswer: 16",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 93,
+      "completion_tokens": 38,
+      "total_tokens": 131,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 749.2,
+      "prefill_tokens": 93,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 124.3,
+      "decode_tok_s": 36.8,
+      "spec_accept_rate": 0.933,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

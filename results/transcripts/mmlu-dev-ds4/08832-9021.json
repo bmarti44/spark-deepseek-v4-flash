@@ -1,0 +1,54 @@
+{
+  "index": 8832,
+  "task_id": 9021,
+  "rendered_prompt_sha256": "b865f3a88df78bb015fa9e740484c914ed42ac8391b5fefff3f1ef6f2a12cbe7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are asked to find \\( P(W(1) + W(2) > 2) \\) where \\( W(t) \\) is standard Brownian motion.\n\nFirst, note that \\( W(1) \\) and \\( W(2) \\) are jointly normal with:\n- \\( W(1) \\sim N(0, 1) \\)\n- \\( W(2) \\sim N(0, 2) \\)\n- Covariance: \\( \\text{Cov}(W(1), W(2)) = \\min(1,2) = 1 \\)\n\nLet \\( X = W(1) + W(2) \\). Then:\n- Mean \\( E[X] = 0 \\)\n- Variance:  \n  \\( \\text{Var}(X) = \\text{Var}(W(1)) + \\text{Var}(W(2)) + 2 \\cdot \\text{Cov}(W(1), W(2)) \\)  \n  \\( = 1 + 2 + 2 \\cdot 1 = 5 \\)\n\nSo \\( X \\sim N(0, 5) \\).  \nWe want \\( P(X > 2) = P\\left( Z > \\frac{2}{\\sqrt{5}} \\right) \\) where \\( Z \\sim N(0,1) \\).\n\nCompute \\( \\frac{2}{\\sqrt{5}} \\approx 0.8944 \\).  \nFrom standard normal table: \\( P(Z > 0.8944) \\approx 0.1855 \\).\n\nClosest option: 0.186.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.819059606001247
+  },
+  "response": {
+    "id": "cmpl-290",
+    "object": "text_completion",
+    "created": 1784239998,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We are asked to find \\( P(W(1) + W(2) > 2) \\) where \\( W(t) \\) is standard Brownian motion.\n\nFirst, note that \\( W(1) \\) and \\( W(2) \\) are jointly normal with:\n- \\( W(1) \\sim N(0, 1) \\)\n- \\( W(2) \\sim N(0, 2) \\)\n- Covariance: \\( \\text{Cov}(W(1), W(2)) = \\min(1,2) = 1 \\)\n\nLet \\( X = W(1) + W(2) \\). Then:\n- Mean \\( E[X] = 0 \\)\n- Variance:  \n  \\( \\text{Var}(X) = \\text{Var}(W(1)) + \\text{Var}(W(2)) + 2 \\cdot \\text{Cov}(W(1), W(2)) \\)  \n  \\( = 1 + 2 + 2 \\cdot 1 = 5 \\)\n\nSo \\( X \\sim N(0, 5) \\).  \nWe want \\( P(X > 2) = P\\left( Z > \\frac{2}{\\sqrt{5}} \\right) \\) where \\( Z \\sim N(0,1) \\).\n\nCompute \\( \\frac{2}{\\sqrt{5}} \\approx 0.8944 \\).  \nFrom standard normal table: \\( P(Z > 0.8944) \\approx 0.1855 \\).\n\nClosest option: 0.186.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "completion_tokens": 334,
+      "total_tokens": 461,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 900.1,
+      "prefill_tokens": 127,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 141.4,
+      "decode_tok_s": 37.5,
+      "spec_accept_rate": 0.9,
+      "tok_per_step": 4.09
+    }
+  }
+}

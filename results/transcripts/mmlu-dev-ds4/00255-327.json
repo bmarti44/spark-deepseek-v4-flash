@@ -1,0 +1,54 @@
+{
+  "index": 255,
+  "task_id": 327,
+  "rendered_prompt_sha256": "4fe182ffec1d3fae90993b3165121d9b27c25e05fb6e9ccd7ab8bc29d1c1a36c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The list price is $900, and the discount is 25%.  \nDiscount amount = 25% of $900 = 0.25 × 900 = $225.  \nNet price = $900 - $225 = $675.  \n\nThe correct option is I.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.487451389999478
+  },
+  "response": {
+    "id": "cmpl-130",
+    "object": "text_completion",
+    "created": 1784239084,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The list price is $900, and the discount is 25%.  \nDiscount amount = 25% of $900 = 0.25 × 900 = $225.  \nNet price = $900 - $225 = $675.  \n\nThe correct option is I.\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 119,
+      "completion_tokens": 59,
+      "total_tokens": 178,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 888.8,
+      "prefill_tokens": 119,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 134.2,
+      "decode_tok_s": 36.9,
+      "spec_accept_rate": 0.917,
+      "tok_per_step": 4.29
+    }
+  }
+}

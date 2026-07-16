@@ -1,0 +1,54 @@
+{
+  "index": 8815,
+  "task_id": 9004,
+  "rendered_prompt_sha256": "bd65f69ddddb1e409821a9696672a5174f32383bc8017f1ffab09363af663c1e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate the difference:\n\nMorning: \\( \\frac{7}{9} \\) miles  \nAfternoon: \\( \\frac{5}{12} \\) miles  \n\nFind a common denominator (36):  \n\\( \\frac{7}{9} = \\frac{28}{36} \\)  \n\\( \\frac{5}{12} = \\frac{15}{36} \\)  \n\nDifference:  \n\\( \\frac{28}{36} - \\frac{15}{36} = \\frac{13}{36} \\)  \n\nThat matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8360430199973052
+  },
+  "response": {
+    "id": "cmpl-802",
+    "object": "text_completion",
+    "created": 1784242226,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's calculate the difference:\n\nMorning: \\( \\frac{7}{9} \\) miles  \nAfternoon: \\( \\frac{5}{12} \\) miles  \n\nFind a common denominator (36):  \n\\( \\frac{7}{9} = \\frac{28}{36} \\)  \n\\( \\frac{5}{12} = \\frac{15}{36} \\)  \n\nDifference:  \n\\( \\frac{28}{36} - \\frac{15}{36} = \\frac{13}{36} \\)  \n\nThat matches option **G**.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 151,
+      "completion_tokens": 115,
+      "total_tokens": 266,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 844.2,
+      "prefill_tokens": 151,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 179.1,
+      "decode_tok_s": 38.5,
+      "spec_accept_rate": 0.916,
+      "tok_per_step": 4.3
+    }
+  }
+}

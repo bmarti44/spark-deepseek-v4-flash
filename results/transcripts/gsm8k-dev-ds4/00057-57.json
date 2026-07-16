@@ -1,0 +1,55 @@
+{
+  "index": 57,
+  "task_id": 57,
+  "rendered_prompt_sha256": "1a4f782252f1178fc39ee149a6b0c1d790624fe72ebcf9ac3c6941e6e6aa6c4f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the number of boxes be \\( n \\).  \nEach box weighs 15 pounds, so the total weight of the boxes is \\( 15n \\).  \nThe truck with driver weighs 3755 pounds.  \nThe total weight is:  \n\\[\n3755 + 15n\n\\]  \nThis must be ≤ 5000:  \n\\[\n3755 + 15n \\le 5000\n\\]  \n\\[\n15n \\le 5000 - 3755\n\\]  \n\\[\n15n \\le 1245\n\\]  \n\\[\nn \\le \\frac{1245}{15} = 83\n\\]  \nSo the maximum number of boxes is 83.\n\nAnswer: 83",
+  "finish_reason": "stop",
+  "expected": "83",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.420786989001499
+  },
+  "response": {
+    "id": "cmpl-14",
+    "object": "text_completion",
+    "created": 1784238629,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let the number of boxes be \\( n \\).  \nEach box weighs 15 pounds, so the total weight of the boxes is \\( 15n \\).  \nThe truck with driver weighs 3755 pounds.  \nThe total weight is:  \n\\[\n3755 + 15n\n\\]  \nThis must be ≤ 5000:  \n\\[\n3755 + 15n \\le 5000\n\\]  \n\\[\n15n \\le 5000 - 3755\n\\]  \n\\[\n15n \\le 1245\n\\]  \n\\[\nn \\le \\frac{1245}{15} = 83\n\\]  \nSo the maximum number of boxes is 83.\n\nAnswer: 83",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 110,
+      "completion_tokens": 147,
+      "total_tokens": 257,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 880.6,
+      "prefill_tokens": 110,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 125.9,
+      "decode_tok_s": 32.5,
+      "spec_accept_rate": 0.902,
+      "tok_per_step": 4.11
+    }
+  },
+  "used_fallback": false
+}

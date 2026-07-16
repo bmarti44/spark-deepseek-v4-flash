@@ -1,0 +1,55 @@
+{
+  "index": 1214,
+  "task_id": 1214,
+  "rendered_prompt_sha256": "cade79e17ff896d9b185736dfac9e864b7d110ec6f91be863292fde02a66382e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jordan has 2 children, each needing 5 diaper changes per day, so total diaper changes per day = 2 × 5 = 10.  \nJordan's wife changes half of the diapers, so she changes 10 ÷ 2 = 5 diapers.  \nTherefore, Jordan changes the other half: 10 - 5 = 5 diapers per day.\n\nAnswer: 5",
+  "finish_reason": "stop",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.0968494990011095
+  },
+  "response": {
+    "id": "cmpl-13",
+    "object": "text_completion",
+    "created": 1784238623,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Jordan has 2 children, each needing 5 diaper changes per day, so total diaper changes per day = 2 × 5 = 10.  \nJordan's wife changes half of the diapers, so she changes 10 ÷ 2 = 5 diapers.  \nTherefore, Jordan changes the other half: 10 - 5 = 5 diapers per day.\n\nAnswer: 5",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 81,
+      "completion_tokens": 82,
+      "total_tokens": 163,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 1375.3,
+      "prefill_tokens": 81,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 59.1,
+      "decode_tok_s": 30.3,
+      "spec_accept_rate": 0.926,
+      "tok_per_step": 4.61
+    }
+  },
+  "used_fallback": false
+}

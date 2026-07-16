@@ -1,0 +1,54 @@
+{
+  "index": 2881,
+  "task_id": 2999,
+  "rendered_prompt_sha256": "318b6ce9b205af7ab8c2c23dec5e710529c65b786f56ae1a1ecd2cf6fd3100d0",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In cyclic electron flow through photosystem I, electrons are recycled back to the reaction center instead of being used to reduce NADP⁺. This process generates a proton gradient that drives ATP synthesis, but does not produce NADPH, oxygen, or carbon fixation.\n\nThe correct answer is:\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.9831622670026263
+  },
+  "response": {
+    "id": "cmpl-117",
+    "object": "text_completion",
+    "created": 1784239031,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "In cyclic electron flow through photosystem I, electrons are recycled back to the reaction center instead of being used to reduce NADP⁺. This process generates a proton gradient that drives ATP synthesis, but does not produce NADPH, oxygen, or carbon fixation.\n\nThe correct answer is:\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "completion_tokens": 60,
+      "total_tokens": 196,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 854.5,
+      "prefill_tokens": 136,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 159.8,
+      "decode_tok_s": 28.2,
+      "spec_accept_rate": 0.759,
+      "tok_per_step": 3.39
+    }
+  }
+}

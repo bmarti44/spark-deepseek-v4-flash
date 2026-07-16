@@ -1,0 +1,54 @@
+{
+  "index": 9100,
+  "task_id": 9289,
+  "rendered_prompt_sha256": "085355e09b2e07a338c8fef55635bba67407c206835a8a6747e90830b43ff2f2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: B\n\nExplanation:  \nInductive reactance is given by \\( X_L = 2\\pi f L \\).  \nHere, \\( f = 60 \\) Hz, \\( L = 20 \\) mH = \\( 0.020 \\) H.  \nSo, \\( X_L = 2\\pi \\times 60 \\times 0.020 = 2\\pi \\times 1.2 \\approx 7.54 \\) ohms, which rounds to 7.5 ohms.  \n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6877473299973644
+  },
+  "response": {
+    "id": "cmpl-324",
+    "object": "text_completion",
+    "created": 1784240064,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: B\n\nExplanation:  \nInductive reactance is given by \\( X_L = 2\\pi f L \\).  \nHere, \\( f = 60 \\) Hz, \\( L = 20 \\) mH = \\( 0.020 \\) H.  \nSo, \\( X_L = 2\\pi \\times 60 \\times 0.020 = 2\\pi \\times 1.2 \\approx 7.54 \\) ohms, which rounds to 7.5 ohms.  \n\nAnswer: B",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "completion_tokens": 107,
+      "total_tokens": 246,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 845.7,
+      "prefill_tokens": 139,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 164.6,
+      "decode_tok_s": 37.7,
+      "spec_accept_rate": 0.9,
+      "tok_per_step": 4.32
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index": 6973,
+  "task_id": 7144,
+  "rendered_prompt_sha256": "c71b7fd10e4258d3d2e5c7b5bc47b4d70c571930c80f54aac42220f0200d07bc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the price you are willing to pay for a security with a maturity value of $100,000, a coupon rate of 5%, and a yield of 9% when it is due next year, you need to discount the future cash flows.\n\nThe security pays:\n- Coupon: 5% of $100,000 = $5,000 (paid at maturity, since it's due next year)\n- Principal: $100,000 at maturity\n\nTotal cash flow at maturity = $100,000 + $5,000 = $105,000\n\nDiscount this at the yield of 9% for one year:\n\n\\[\n\\text{Price} = \\frac{105,000}{1.09} = 96,330.275...\n\\]\n\nSo the price is approximately $96,330.28.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.697371855996607
+  },
+  "response": {
+    "id": "cmpl-697",
+    "object": "text_completion",
+    "created": 1784241479,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "To find the price you are willing to pay for a security with a maturity value of $100,000, a coupon rate of 5%, and a yield of 9% when it is due next year, you need to discount the future cash flows.\n\nThe security pays:\n- Coupon: 5% of $100,000 = $5,000 (paid at maturity, since it's due next year)\n- Principal: $100,000 at maturity\n\nTotal cash flow at maturity = $100,000 + $5,000 = $105,000\n\nDiscount this at the yield of 9% for one year:\n\n\\[\n\\text{Price} = \\frac{105,000}{1.09} = 96,330.275...\n\\]\n\nSo the price is approximately $96,330.28.\n\nAnswer: B",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 158,
+      "completion_tokens": 171,
+      "total_tokens": 329,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 873.2,
+      "prefill_tokens": 158,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 181.2,
+      "decode_tok_s": 35.5,
+      "spec_accept_rate": 0.851,
+      "tok_per_step": 3.91
+    }
+  }
+}

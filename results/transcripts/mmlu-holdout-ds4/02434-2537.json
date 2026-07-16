@@ -1,0 +1,54 @@
+{
+  "index": 2434,
+  "task_id": 2537,
+  "rendered_prompt_sha256": "9db6ec8055fd961afa83143a140771281b59aeda732a653e1ddc9fc07167b01e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The independent variable is the factor that the researcher manipulates or changes to see its effect on the dependent variable. In Jared's experiment, he is comparing two conditions: attending lecture classes versus not attending them, while using the review book and \"Discovering Psychology\" in both conditions. The key difference is whether or not he attends lectures.\n\nThe correct answer is:  \nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.672462082002312
+  },
+  "response": {
+    "id": "cmpl-871",
+    "object": "text_completion",
+    "created": 1784242493,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The independent variable is the factor that the researcher manipulates or changes to see its effect on the dependent variable. In Jared's experiment, he is comparing two conditions: attending lecture classes versus not attending them, while using the review book and \"Discovering Psychology\" in both conditions. The key difference is whether or not he attends lectures.\n\nThe correct answer is:  \nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 203,
+      "completion_tokens": 76,
+      "total_tokens": 279,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 547.2,
+      "prefill_tokens": 203,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 371.9,
+      "decode_tok_s": 24.3,
+      "spec_accept_rate": 0.681,
+      "tok_per_step": 2.75
+    }
+  }
+}

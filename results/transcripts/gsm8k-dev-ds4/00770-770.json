@@ -1,0 +1,55 @@
+{
+  "index": 770,
+  "task_id": 770,
+  "rendered_prompt_sha256": "d43e9115cdedfdbeb8abc14e02c00b3761bd8c6e009e672d9b650ca1ab453209",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- They have 4 vanilla scents, and each sells 5 units.  \n  Total vanilla sales = \\( 4 \\times 5 = 20 \\).\n\n- They have 8 fruity scents, and each sells 2 units.  \n  Total fruity sales = \\( 8 \\times 2 = 16 \\).\n\n- Difference: \\( 20 - 16 = 4 \\).\n\nAnswer: 4",
+  "finish_reason": "stop",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.458637935000297
+  },
+  "response": {
+    "id": "cmpl-48",
+    "object": "text_completion",
+    "created": 1784238771,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- They have 4 vanilla scents, and each sells 5 units.  \n  Total vanilla sales = \\( 4 \\times 5 = 20 \\).\n\n- They have 8 fruity scents, and each sells 2 units.  \n  Total fruity sales = \\( 8 \\times 2 = 16 \\).\n\n- Difference: \\( 20 - 16 = 4 \\).\n\nAnswer: 4",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 94,
+      "total_tokens": 240,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 879.9,
+      "prefill_tokens": 146,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 166.7,
+      "decode_tok_s": 36.6,
+      "spec_accept_rate": 0.875,
+      "tok_per_step": 4.13
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,54 @@
+{
+  "index": 158,
+  "task_id": 229,
+  "rendered_prompt_sha256": "3357507412a3a49ac498a264265aee2278cc3063ad6942b33bd5a2ed435c2a88",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s calculate the cost per ride for the family:\n\n- Adults: 2 × 75¢ = $1.50  \n- Children: 2 × 50¢ = $1.00  \n- Total per ride: $1.50 + $1.00 = $2.50  \n\nMr. Stadlow has $10.  \nNumber of rides = $10 ÷ $2.50 = 4 rides.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.437933510998846
+  },
+  "response": {
+    "id": "cmpl-645",
+    "object": "text_completion",
+    "created": 1784241120,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s calculate the cost per ride for the family:\n\n- Adults: 2 × 75¢ = $1.50  \n- Children: 2 × 50¢ = $1.00  \n- Total per ride: $1.50 + $1.00 = $2.50  \n\nMr. Stadlow has $10.  \nNumber of rides = $10 ÷ $2.50 = 4 rides.\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "completion_tokens": 90,
+      "total_tokens": 235,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 871.4,
+      "prefill_tokens": 145,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 166.7,
+      "decode_tok_s": 35.1,
+      "spec_accept_rate": 0.846,
+      "tok_per_step": 3.96
+    }
+  }
+}

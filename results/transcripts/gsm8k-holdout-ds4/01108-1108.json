@@ -1,0 +1,55 @@
+{
+  "index": 1108,
+  "task_id": 1108,
+  "rendered_prompt_sha256": "1a7e5bc7a4462287791482f1d48063ab8119f6fc977e22cd6afb24e8f2b31720",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The pots cost $19 and the soil cost $26, so the total before the coupon is $19 + $26 = $45.  \nThen she used a $7 coupon, so the amount spent is $45 - $7 = $38.  \n\nAnswer: 38",
+  "finish_reason": "stop",
+  "expected": "38",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.419936240003153
+  },
+  "response": {
+    "id": "cmpl-592",
+    "object": "text_completion",
+    "created": 1784240914,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The pots cost $19 and the soil cost $26, so the total before the coupon is $19 + $26 = $45.  \nThen she used a $7 coupon, so the amount spent is $45 - $7 = $38.  \n\nAnswer: 38",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 56,
+      "total_tokens": 145,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 740.8,
+      "prefill_tokens": 89,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.4,
+      "decode_tok_s": 33.4,
+      "spec_accept_rate": 0.833,
+      "tok_per_step": 3.8
+    }
+  },
+  "used_fallback": false
+}

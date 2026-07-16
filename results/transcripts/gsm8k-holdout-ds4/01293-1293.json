@@ -1,0 +1,55 @@
+{
+  "index": 1293,
+  "task_id": 1293,
+  "rendered_prompt_sha256": "7dd33b3ac6bd869a864036bbd9be051db5003702d5a64fa3e5b7d1f45e9a1d53",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The company produces 5000 bars per day. Over two weeks, there are 14 days.  \nTotal bars produced = 5000 × 14 = 70,000 bars.  \nEach bar sells for $2, so total revenue = 70,000 × 2 = $140,000.  \n\nAnswer: 140000",
+  "finish_reason": "stop",
+  "expected": "140000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.6507280570003786
+  },
+  "response": {
+    "id": "cmpl-549",
+    "object": "text_completion",
+    "created": 1784240747,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The company produces 5000 bars per day. Over two weeks, there are 14 days.  \nTotal bars produced = 5000 × 14 = 70,000 bars.  \nEach bar sells for $2, so total revenue = 70,000 × 2 = $140,000.  \n\nAnswer: 140000",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 86,
+      "completion_tokens": 69,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 759.6,
+      "prefill_tokens": 86,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 113.4,
+      "decode_tok_s": 36.5,
+      "spec_accept_rate": 0.929,
+      "tok_per_step": 4.38
+    }
+  },
+  "used_fallback": false
+}

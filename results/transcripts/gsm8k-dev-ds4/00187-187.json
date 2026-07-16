@@ -1,0 +1,55 @@
+{
+  "index": 187,
+  "task_id": 187,
+  "rendered_prompt_sha256": "452260d2ba0850b9517a67cb81b9c950c9e5ddd58192228d5ae2ecff5d5706c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The interest is 2% per month, compounded monthly. After 3 months, the amount owed is:\n\n\\[\n100 \\times (1 + 0.02)^3 = 100 \\times 1.02^3\n\\]\n\nCalculating step by step:\n\n1.02^2 = 1.0404  \n1.0404 × 1.02 = 1.061208\n\nSo:\n\n100 × 1.061208 = 106.1208\n\nRounding to the nearest cent, Mandy should give Benedict $106.12.\n\nAnswer: 106.12",
+  "finish_reason": "stop",
+  "expected": "106",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='106.12' expected='106'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.712340226000379
+  },
+  "response": {
+    "id": "cmpl-41",
+    "object": "text_completion",
+    "created": 1784238740,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The interest is 2% per month, compounded monthly. After 3 months, the amount owed is:\n\n\\[\n100 \\times (1 + 0.02)^3 = 100 \\times 1.02^3\n\\]\n\nCalculating step by step:\n\n1.02^2 = 1.0404  \n1.0404 × 1.02 = 1.061208\n\nSo:\n\n100 × 1.061208 = 106.1208\n\nRounding to the nearest cent, Mandy should give Benedict $106.12.\n\nAnswer: 106.12",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 121,
+      "total_tokens": 197,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 770.8,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 99.0,
+      "decode_tok_s": 30.8,
+      "spec_accept_rate": 0.819,
+      "tok_per_step": 3.59
+    }
+  },
+  "used_fallback": false
+}

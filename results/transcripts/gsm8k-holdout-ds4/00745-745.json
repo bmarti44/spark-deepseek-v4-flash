@@ -1,0 +1,55 @@
+{
+  "index": 745,
+  "task_id": 745,
+  "rendered_prompt_sha256": "28c68781baeb27cde3b9f0838519fa022515bb08838bf2071d9db0065f905aa6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Mark buys 3 packs at $1800 each:  \n  Cost = 3 × 1800 = $5400  \n\n- He gets 1 card worth $4000 and 1 card worth $1000:  \n  Value from these = 4000 + 1000 = $5000  \n\n- There are 30 more cards worth an average of $50 each:  \n  Value from these = 30 × 50 = $1500  \n\n- Total value of all cards = 5000 + 1500 = $6500  \n\n- Profit = Total value - Cost = 6500 - 5400 = $1100  \n\nAnswer: 1100",
+  "finish_reason": "stop",
+  "expected": "1100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.016373722995922
+  },
+  "response": {
+    "id": "cmpl-598",
+    "object": "text_completion",
+    "created": 1784240937,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Mark buys 3 packs at $1800 each:  \n  Cost = 3 × 1800 = $5400  \n\n- He gets 1 card worth $4000 and 1 card worth $1000:  \n  Value from these = 4000 + 1000 = $5000  \n\n- There are 30 more cards worth an average of $50 each:  \n  Value from these = 30 × 50 = $1500  \n\n- Total value of all cards = 5000 + 1500 = $6500  \n\n- Profit = Total value - Cost = 6500 - 5400 = $1100  \n\nAnswer: 1100",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 109,
+      "completion_tokens": 145,
+      "total_tokens": 254,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 814.3,
+      "prefill_tokens": 109,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 134.1,
+      "decode_tok_s": 20.1,
+      "spec_accept_rate": 0.333,
+      "tok_per_step": 1.03
+    }
+  },
+  "used_fallback": false
+}

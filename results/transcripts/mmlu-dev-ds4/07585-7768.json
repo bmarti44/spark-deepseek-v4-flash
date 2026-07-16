@@ -1,0 +1,54 @@
+{
+  "index": 7585,
+  "task_id": 7768,
+  "rendered_prompt_sha256": "f6f37b3e1f17faf481b1a87a8e4832dfb0d6959750bbadaf1e400d6205f090ba",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need the number of lattice paths from (0,0) to (10,10) that never go above the diagonal \\(y = x\\). This is the classic **Catalan number** scenario.\n\nThe total number of paths from (0,0) to (10,10) moving only up or right is \\(\\binom{20}{10}\\).  \nThe number that never cross above the diagonal is the **Catalan number**  \n\\[\nC_{10} = \\frac{1}{11} \\binom{20}{10}\n\\]  \n\\[\n\\binom{20}{10} = 184756\n\\]  \n\\[\nC_{10} = \\frac{184756}{11} = 16796\n\\]\n\nThus the answer is **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.3373713760011015
+  },
+  "response": {
+    "id": "cmpl-265",
+    "object": "text_completion",
+    "created": 1784239821,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need the number of lattice paths from (0,0) to (10,10) that never go above the diagonal \\(y = x\\). This is the classic **Catalan number** scenario.\n\nThe total number of paths from (0,0) to (10,10) moving only up or right is \\(\\binom{20}{10}\\).  \nThe number that never cross above the diagonal is the **Catalan number**  \n\\[\nC_{10} = \\frac{1}{11} \\binom{20}{10}\n\\]  \n\\[\n\\binom{20}{10} = 184756\n\\]  \n\\[\nC_{10} = \\frac{184756}{11} = 16796\n\\]\n\nThus the answer is **E**.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 135,
+      "completion_tokens": 156,
+      "total_tokens": 291,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 827.6,
+      "prefill_tokens": 135,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 163.4,
+      "decode_tok_s": 34.6,
+      "spec_accept_rate": 0.832,
+      "tok_per_step": 3.83
+    }
+  }
+}

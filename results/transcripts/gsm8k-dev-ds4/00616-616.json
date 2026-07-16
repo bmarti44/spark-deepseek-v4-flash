@@ -1,0 +1,55 @@
+{
+  "index": 616,
+  "task_id": 616,
+  "rendered_prompt_sha256": "db2be5f42a9653e5ee91596039a1d89f37eb9c3ad6a1d47f372d1d1dab6c117c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "After the first week: 3 inches  \nAfter the second week: 3 × 2 = 6 inches  \nAfter the third week: 6 + 4 = 10 inches  \n\nAnswer: 10",
+  "finish_reason": "stop",
+  "expected": "10",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.9792666210014431
+  },
+  "response": {
+    "id": "cmpl-23",
+    "object": "text_completion",
+    "created": 1784238660,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "After the first week: 3 inches  \nAfter the second week: 3 × 2 = 6 inches  \nAfter the third week: 6 + 4 = 10 inches  \n\nAnswer: 10",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 43,
+      "total_tokens": 132,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 757.9,
+      "prefill_tokens": 89,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 117.9,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.914,
+      "tok_per_step": 4.4
+    }
+  },
+  "used_fallback": false
+}

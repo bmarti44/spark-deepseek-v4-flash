@@ -1,0 +1,54 @@
+{
+  "index": 10546,
+  "task_id": 10756,
+  "rendered_prompt_sha256": "157717331e8ed2938eac4ae16c033f912adbc38fe5ae5018d288a55d79759d8f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To determine overflow in two's-complement addition, overflow occurs when the sum of two numbers with the same sign yields a result with the opposite sign, or when adding a positive and negative number, overflow can occur if the result is outside the representable range.\n\nLet's check each pair:\n\n- **A**: 11110000 (-16) + 00001111 (15) = -1 → No overflow  \n- **B**: 01111111 (127) + 10000000 (-128) = -1 → No overflow  \n- **C**: 00000001 (1) + 10000000 (-128) = -127 → No overflow  \n- **D**: 10000001 (-127) + 10101010 (-86) = -213 → Overflow (sum < -128)  \n- **E**: 11111111 (-1) + 00000001 (1) = 0 → No overflow  \n- **F**: 11111111 (-1) + 10000001 (-127) = -128 → No overflow  \n- **G**: 00000000 (0) + 10000000 (-128) = -128 → No overflow  \n- **H**: 10000001 (-127) + 00000001 (1) = -126 → No overflow  \n- **I**: 10101010 (-86) + 11111111 (-1) = -87 → No overflow  \n\nOnly **D** results in overflow.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.390472625003895
+  },
+  "response": {
+    "id": "cmpl-176",
+    "object": "text_completion",
+    "created": 1784239427,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "To determine overflow in two's-complement addition, overflow occurs when the sum of two numbers with the same sign yields a result with the opposite sign, or when adding a positive and negative number, overflow can occur if the result is outside the representable range.\n\nLet's check each pair:\n\n- **A**: 11110000 (-16) + 00001111 (15) = -1 → No overflow  \n- **B**: 01111111 (127) + 10000000 (-128) = -1 → No overflow  \n- **C**: 00000001 (1) + 10000000 (-128) = -127 → No overflow  \n- **D**: 10000001 (-127) + 10101010 (-86) = -213 → Overflow (sum < -128)  \n- **E**: 11111111 (-1) + 00000001 (1) = 0 → No overflow  \n- **F**: 11111111 (-1) + 10000001 (-127) = -128 → No overflow  \n- **G**: 00000000 (0) + 10000000 (-128) = -128 → No overflow  \n- **H**: 10000001 (-127) + 00000001 (1) = -126 → No overflow  \n- **I**: 10101010 (-86) + 11111111 (-1) = -87 → No overflow  \n\nOnly **D** results in overflow.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 167,
+      "completion_tokens": 308,
+      "total_tokens": 475,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 884.3,
+      "prefill_tokens": 167,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 189.2,
+      "decode_tok_s": 36.2,
+      "spec_accept_rate": 0.878,
+      "tok_per_step": 4.07
+    }
+  }
+}

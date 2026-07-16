@@ -1,0 +1,56 @@
+{
+  "index": 875,
+  "task_id": 875,
+  "rendered_prompt_sha256": "b5719f3a613adefcb9957229fdf77a50c5cf530cacedbbe3dfc563e5bb3dda2f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Paul starts with 52 marbles.  \nHe receives 28 more, so he has 52 + 28 = 80 marbles.  \nThen he loses 1/4 of his marbles: 80 ÷ 4 = 20 lost.  \nSo he has 80 - 20 = 60 marbles left.  \n\nAnswer: 60",
+  "finish_reason": "stop",
+  "expected": "60",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.545580220001284
+  },
+  "response": {
+    "id": "cmpl-610",
+    "object": "text_completion",
+    "created": 1784240978,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Paul starts with 52 marbles.  \nHe receives 28 more, so he has 52 + 28 = 80 marbles.  \nThen he loses 1/4 of his marbles: 80 ÷ 4 = 20 lost.  \nSo he has 80 - 20 = 60 marbles left.  \n\nAnswer: 60",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 72,
+      "completion_tokens": 69,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 660.4,
+      "prefill_tokens": 72,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.3,
+      "decode_tok_s": 36.6,
+      "spec_accept_rate": 0.911,
+      "tok_per_step": 4.12
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Paul has 52 marbles. His friend gave him 28 marbles. Then, he lost 1/4 of his marbles. How many marbles does Paul have left?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

@@ -1,0 +1,54 @@
+{
+  "index": 1495,
+  "task_id": 1587,
+  "rendered_prompt_sha256": "22afa3bff158695814d9dc3dd59cd1d2b95dac9a9252f66046bc1be1ffadd636",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The prisoner's claim is based on his religious beliefs about diet, which are protected by the First Amendment's Free Exercise Clause. The other options do not directly relate to religious dietary practices.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.541262948005169
+  },
+  "response": {
+    "id": "cmpl-255",
+    "object": "text_completion",
+    "created": 1784239791,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The prisoner's claim is based on his religious beliefs about diet, which are protected by the First Amendment's Free Exercise Clause. The other options do not directly relate to religious dietary practices.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 385,
+      "completion_tokens": 40,
+      "total_tokens": 425,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 747.6,
+      "prefill_tokens": 385,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 516.7,
+      "decode_tok_s": 22.3,
+      "spec_accept_rate": 0.639,
+      "tok_per_step": 2.56
+    }
+  }
+}

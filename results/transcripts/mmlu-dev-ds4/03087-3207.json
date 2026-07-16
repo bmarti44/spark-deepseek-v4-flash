@@ -1,0 +1,54 @@
+{
+  "index": 3087,
+  "task_id": 3207,
+  "rendered_prompt_sha256": "2e7e889d46127e90dc3c89ae9b492aa13ed5e42018d1e3f3e9dbbd7a39313a5a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: G\n\nExplanation: In eukaryotic RNA processing, introns are removed, and both a 5′ cap and a poly-A tail are added to the pre-mRNA while it is still in the nucleus, before it is exported to the cytoplasm. This matches option G.</think>Answer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8783454849981354
+  },
+  "response": {
+    "id": "cmpl-120",
+    "object": "text_completion",
+    "created": 1784239040,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Answer: G\n\nExplanation: In eukaryotic RNA processing, introns are removed, and both a 5′ cap and a poly-A tail are added to the pre-mRNA while it is still in the nucleus, before it is exported to the cytoplasm. This matches option G.</think>Answer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 373,
+      "completion_tokens": 60,
+      "total_tokens": 433,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 703.7,
+      "prefill_tokens": 373,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 533.5,
+      "decode_tok_s": 27.8,
+      "spec_accept_rate": 0.755,
+      "tok_per_step": 3.21
+    }
+  }
+}

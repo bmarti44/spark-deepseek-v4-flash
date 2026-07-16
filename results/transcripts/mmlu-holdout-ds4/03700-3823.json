@@ -1,0 +1,54 @@
+{
+  "index": 3700,
+  "task_id": 3823,
+  "rendered_prompt_sha256": "c5508b4b997363a6ca0a6dba7939ebff740c52e4888357a39ad4f96ef03e8b44",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The series limit of the Lyman series corresponds to the transition from \\( n = \\infty \\) to \\( n = 1 \\).  \nThe wavelength is given by the Rydberg formula:\n\n\\[\n\\frac{1}{\\lambda} = R_\\infty \\left( \\frac{1}{1^2} - \\frac{1}{\\infty^2} \\right) = R_\\infty\n\\]\n\nWith \\( R_\\infty \\approx 1.097373 \\times 10^7 \\, \\text{m}^{-1} \\):\n\n\\[\n\\lambda = \\frac{1}{R_\\infty} \\approx 91.17 \\, \\text{nm}\n\\]\n\nThus, the correct option is **A**.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.415496763002011
+  },
+  "response": {
+    "id": "cmpl-666",
+    "object": "text_completion",
+    "created": 1784241267,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The series limit of the Lyman series corresponds to the transition from \\( n = \\infty \\) to \\( n = 1 \\).  \nThe wavelength is given by the Rydberg formula:\n\n\\[\n\\frac{1}{\\lambda} = R_\\infty \\left( \\frac{1}{1^2} - \\frac{1}{\\infty^2} \\right) = R_\\infty\n\\]\n\nWith \\( R_\\infty \\approx 1.097373 \\times 10^7 \\, \\text{m}^{-1} \\):\n\n\\[\n\\lambda = \\frac{1}{R_\\infty} \\approx 91.17 \\, \\text{nm}\n\\]\n\nThus, the correct option is **A**.\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "completion_tokens": 147,
+      "total_tokens": 278,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 792.6,
+      "prefill_tokens": 131,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 165.5,
+      "decode_tok_s": 40.6,
+      "spec_accept_rate": 0.942,
+      "tok_per_step": 4.48
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "index": 56,
+  "task_id": 56,
+  "rendered_prompt_sha256": "cea9cae891cae3eb8ea04833eb54355dd118bcd33ce223072a1ae3620fe486b5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Peter spends $7 on a ticket and $7 on popcorn, so each trip costs $7 + $7 = $14.\n\nHe has $42 total.\n\nNumber of times = $42 ÷ $14 = 3.\n\nAnswer: 3",
+  "finish_reason": "stop",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.311830288999772
+  },
+  "response": {
+    "id": "cmpl-543",
+    "object": "text_completion",
+    "created": 1784240730,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Peter spends $7 on a ticket and $7 on popcorn, so each trip costs $7 + $7 = $14.\n\nHe has $42 total.\n\nNumber of times = $42 ÷ $14 = 3.\n\nAnswer: 3",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 49,
+      "total_tokens": 131,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 775.7,
+      "prefill_tokens": 82,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 105.9,
+      "decode_tok_s": 31.9,
+      "spec_accept_rate": 0.814,
+      "tok_per_step": 3.85
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Peter plans to go to the movies this week. He always gets a ticket for $7 and popcorn for $7. If he has 42 dollars for the week, how many times can he go to the movies?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

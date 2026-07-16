@@ -1,0 +1,55 @@
+{
+  "index": 297,
+  "task_id": 297,
+  "rendered_prompt_sha256": "3069e1eaef85633d58af8b3acaafa8e35419204844c8074d6f063365dbc52886",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\nSam's target: 120 crates.\n\nHe was closed Monday and Friday, so he only sold on Tuesday, Wednesday, Thursday, and the weekend.\n\n- Weekend: 20 crates  \n- Tuesday: 15 crates  \n- Wednesday: 12 crates  \n- Thursday: 18 crates  \n\nTotal sold = 20 + 15 + 12 + 18 = 65 crates.\n\nTarget - sold = 120 - 65 = 55 crates.\n\nSo Sam was 55 crates short.\n\nAnswer: 55",
+  "finish_reason": "stop",
+  "expected": "55",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.29684657100006
+  },
+  "response": {
+    "id": "cmpl-108",
+    "object": "text_completion",
+    "created": 1784239011,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\nSam's target: 120 crates.\n\nHe was closed Monday and Friday, so he only sold on Tuesday, Wednesday, Thursday, and the weekend.\n\n- Weekend: 20 crates  \n- Tuesday: 15 crates  \n- Wednesday: 12 crates  \n- Thursday: 18 crates  \n\nTotal sold = 20 + 15 + 12 + 18 = 65 crates.\n\nTarget - sold = 120 - 65 = 55 crates.\n\nSo Sam was 55 crates short.\n\nAnswer: 55",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 120,
+      "total_tokens": 236,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 921.8,
+      "prefill_tokens": 116,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 126.1,
+      "decode_tok_s": 35.6,
+      "spec_accept_rate": 0.873,
+      "tok_per_step": 4.03
+    }
+  },
+  "used_fallback": false
+}

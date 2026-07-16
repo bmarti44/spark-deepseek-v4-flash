@@ -1,0 +1,54 @@
+{
+  "index": 9395,
+  "task_id": 9584,
+  "rendered_prompt_sha256": "599d6e2a1f079b23251bfa432295569055b2a2be37a306f5a43f880353100095",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Balmer series corresponds to transitions from higher energy levels to \\( n=2 \\). The first two lines are \\( H_\\alpha \\) (from \\( n=3 \\to 2 \\)) and \\( H_\\beta \\) (from \\( n=4 \\to 2 \\)).  \n\nThe wavenumber for a hydrogen-like atom is:  \n\\[\n\\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right)\n\\]  \nwhere \\( R_\\infty \\) is the Rydberg constant for infinite mass. For an isotope with mass \\( M \\), the Rydberg constant is:  \n\\[\nR_M = R_\\infty \\frac{M}{m_e + M}\n\\]  \nThe difference in wavenumber between deuterium and hydrogen is:  \n\\[\n\\Delta \\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right) \\left( \\frac{M_D}{m_e + M_D} - \\frac{M_H}{m_e + M_H} \\right)\n\\]  \nUsing \\( R_\\infty = 109737.31 \\, \\text{cm}^{-1} \\), \\( m_e = 0.00054858 \\, \\text{u} \\), \\( M_H = 1.0082 \\, \\text{u} \\), \\( M_D = 2.01445 \\, \\text{u} \\):  \n\nFor \\( H_\\alpha \\) (\\( n=3 \\)):  \n\\[\n\\frac{1}{2^2} - \\frac{1}{3^2} = \\frac{1}{4} - \\frac{1}{9} = \\frac{5}{36}\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha = 109737.31 \\times \\frac{5}{36} \\times \\left( \\frac{2.01445}{0.00054858 + 2.01445} - \\frac{1.0082}{0.00054858 + 1.0082} \\right)\n\\]  \nCompute the fractions:  \n\\[\n\\frac{2.01445}{2.01499858} \\approx 0.999727, \\quad \\frac{1.0082}{1.00874858} \\approx 0.999456\n\\]  \nDifference ≈ 0.000271.  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha \\approx 109737.31 \\times 0.1388889 \\times 0.000271 \\approx 4.14 \\, \\text{cm}^{-1}\n\\]  \n\nFor \\( H_\\beta \\) (\\( n=4 \\)):  \n\\[\n\\frac{1}{4} - \\frac{1}{16} = \\frac{3}{16}\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\beta = 109737.31 \\times \\frac{3}{16} \\times 0.000271 \\approx 5.59 \\, \\text{cm}^{-1}\n\\]  \n\nWavelength shift:  \n\\[\n\\Delta \\lambda = \\frac{\\Delta \\tilde{\\nu}}{\\tilde{\\nu}^2}\n\\]  \nFor \\( H_\\alpha \\), \\( \\lambda \\approx 6563 \\, \\text{Å} \\), \\( \\tilde{\\nu} \\approx 15233 \\, \\text{cm}^{-1} \\):  \n\\[\n\\Delta \\lambda_\\alpha \\approx \\frac{4.14}{(15233)^2} \\times 10^8 \\, \\text{Å} \\approx 1.79 \\, \\text{Å}\n\\]",
+  "finish_reason": "length",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 21.00993782399746
+  },
+  "response": {
+    "id": "cmpl-843",
+    "object": "text_completion",
+    "created": 1784242372,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The Balmer series corresponds to transitions from higher energy levels to \\( n=2 \\). The first two lines are \\( H_\\alpha \\) (from \\( n=3 \\to 2 \\)) and \\( H_\\beta \\) (from \\( n=4 \\to 2 \\)).  \n\nThe wavenumber for a hydrogen-like atom is:  \n\\[\n\\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right)\n\\]  \nwhere \\( R_\\infty \\) is the Rydberg constant for infinite mass. For an isotope with mass \\( M \\), the Rydberg constant is:  \n\\[\nR_M = R_\\infty \\frac{M}{m_e + M}\n\\]  \nThe difference in wavenumber between deuterium and hydrogen is:  \n\\[\n\\Delta \\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right) \\left( \\frac{M_D}{m_e + M_D} - \\frac{M_H}{m_e + M_H} \\right)\n\\]  \nUsing \\( R_\\infty = 109737.31 \\, \\text{cm}^{-1} \\), \\( m_e = 0.00054858 \\, \\text{u} \\), \\( M_H = 1.0082 \\, \\text{u} \\), \\( M_D = 2.01445 \\, \\text{u} \\):  \n\nFor \\( H_\\alpha \\) (\\( n=3 \\)):  \n\\[\n\\frac{1}{2^2} - \\frac{1}{3^2} = \\frac{1}{4} - \\frac{1}{9} = \\frac{5}{36}\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha = 109737.31 \\times \\frac{5}{36} \\times \\left( \\frac{2.01445}{0.00054858 + 2.01445} - \\frac{1.0082}{0.00054858 + 1.0082} \\right)\n\\]  \nCompute the fractions:  \n\\[\n\\frac{2.01445}{2.01499858} \\approx 0.999727, \\quad \\frac{1.0082}{1.00874858} \\approx 0.999456\n\\]  \nDifference ≈ 0.000271.  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha \\approx 109737.31 \\times 0.1388889 \\times 0.000271 \\approx 4.14 \\, \\text{cm}^{-1}\n\\]  \n\nFor \\( H_\\beta \\) (\\( n=4 \\)):  \n\\[\n\\frac{1}{4} - \\frac{1}{16} = \\frac{3}{16}\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\beta = 109737.31 \\times \\frac{3}{16} \\times 0.000271 \\approx 5.59 \\, \\text{cm}^{-1}\n\\]  \n\nWavelength shift:  \n\\[\n\\Delta \\lambda = \\frac{\\Delta \\tilde{\\nu}}{\\tilde{\\nu}^2}\n\\]  \nFor \\( H_\\alpha \\), \\( \\lambda \\approx 6563 \\, \\text{Å} \\), \\( \\tilde{\\nu} \\approx 15233 \\, \\text{cm}^{-1} \\):  \n\\[\n\\Delta \\lambda_\\alpha \\approx \\frac{4.14}{(15233)^2} \\times 10^8 \\, \\text{Å} \\approx 1.79 \\, \\text{Å}\n\\]",
+        "index": 0,
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 639,
+      "completion_tokens": 768,
+      "total_tokens": 1407,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 928.4,
+      "prefill_tokens": 639,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 689.5,
+      "decode_tok_s": 38.2,
+      "spec_accept_rate": 0.912,
+      "tok_per_step": 4.31
+    }
+  }
+}

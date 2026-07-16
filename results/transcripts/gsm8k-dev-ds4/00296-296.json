@@ -1,0 +1,55 @@
+{
+  "index": 296,
+  "task_id": 296,
+  "rendered_prompt_sha256": "8eedfbaad92b1037ddf9c1d714f4e8d5a48b9b00100a762df58fbf6181835386",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The household has 5 members, each consuming 0.2 kg of rice per meal. They eat rice at lunch and dinner, so 2 meals per day.\n\nDaily consumption = 5 members × 0.2 kg × 2 meals = 2 kg per day.\n\nA 42 kg bag lasts 42 / 2 = 21 days.\n\n21 days is 3 weeks (since 21 / 7 = 3).\n\nAnswer: 3",
+  "finish_reason": "stop",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.999348335994
+  },
+  "response": {
+    "id": "cmpl-80",
+    "object": "text_completion",
+    "created": 1784238894,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The household has 5 members, each consuming 0.2 kg of rice per meal. They eat rice at lunch and dinner, so 2 meals per day.\n\nDaily consumption = 5 members × 0.2 kg × 2 meals = 2 kg per day.\n\nA 42 kg bag lasts 42 / 2 = 21 days.\n\n21 days is 3 weeks (since 21 / 7 = 3).\n\nAnswer: 3",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 83,
+      "completion_tokens": 94,
+      "total_tokens": 177,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 751.8,
+      "prefill_tokens": 83,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 110.7,
+      "decode_tok_s": 29.0,
+      "spec_accept_rate": 0.79,
+      "tok_per_step": 3.28
+    }
+  },
+  "used_fallback": false
+}

@@ -1,0 +1,55 @@
+{
+  "index": 586,
+  "task_id": 586,
+  "rendered_prompt_sha256": "a0ceb70fc796a469e6816ef4eb6df0aaa5decac1d6fe022be3aa48a2a62378c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Hannah burns calories from aerobics:  \n2 hours × 500 calories/hour = 1000 calories.  \nFrom running:  \n1 hour × 600 calories/hour = 600 calories.  \nTotal calories burned = 1000 + 600 = 1600 calories.  \n\nShe needs 100 ml water per 200 calories, so:  \n(1600 / 200) × 100 = 8 × 100 = 800 ml.  \n\nAnswer: 800",
+  "finish_reason": "stop",
+  "expected": "800",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.4215507049957523
+  },
+  "response": {
+    "id": "cmpl-77",
+    "object": "text_completion",
+    "created": 1784238883,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Hannah burns calories from aerobics:  \n2 hours × 500 calories/hour = 1000 calories.  \nFrom running:  \n1 hour × 600 calories/hour = 600 calories.  \nTotal calories burned = 1000 + 600 = 1600 calories.  \n\nShe needs 100 ml water per 200 calories, so:  \n(1600 / 200) × 100 = 8 × 100 = 800 ml.  \n\nAnswer: 800",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 97,
+      "completion_tokens": 98,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 832.9,
+      "prefill_tokens": 97,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.9,
+      "decode_tok_s": 38.0,
+      "spec_accept_rate": 0.902,
+      "tok_per_step": 4.3
+    }
+  },
+  "used_fallback": false
+}

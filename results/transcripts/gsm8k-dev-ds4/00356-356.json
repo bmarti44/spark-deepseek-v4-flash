@@ -1,0 +1,55 @@
+{
+  "index": 356,
+  "task_id": 356,
+  "rendered_prompt_sha256": "bd01e82f794597dbd653c3014d8c19f313cc05658b4baa85172c323d3956133a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Dean starts with $28.  \nHe buys 6 toy cars at $2 each: 6 × 2 = $12.  \nHe buys 5 teddy bears at $1 each: 5 × 1 = $5.  \nTotal spent: 12 + 5 = $17.  \nAfter spending, he has: 28 - 17 = $11.  \nHis mother gives him an extra $10: 11 + 10 = $21.  \n\nAnswer: 21",
+  "finish_reason": "stop",
+  "expected": "21",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.462306952998915
+  },
+  "response": {
+    "id": "cmpl-62",
+    "object": "text_completion",
+    "created": 1784238824,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Dean starts with $28.  \nHe buys 6 toy cars at $2 each: 6 × 2 = $12.  \nHe buys 5 teddy bears at $1 each: 5 × 1 = $5.  \nTotal spent: 12 + 5 = $17.  \nAfter spending, he has: 28 - 17 = $11.  \nHis mother gives him an extra $10: 11 + 10 = $21.  \n\nAnswer: 21",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 102,
+      "total_tokens": 205,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 842.2,
+      "prefill_tokens": 103,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 122.6,
+      "decode_tok_s": 39.1,
+      "spec_accept_rate": 0.94,
+      "tok_per_step": 4.48
+    }
+  },
+  "used_fallback": false
+}

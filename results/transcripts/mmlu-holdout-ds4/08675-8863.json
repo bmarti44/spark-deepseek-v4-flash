@@ -1,0 +1,54 @@
+{
+  "index": 8675,
+  "task_id": 8863,
+  "rendered_prompt_sha256": "08317a0307d8359d00cd3e4ead273d8899b35d36e0f3effb41436584231972ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the future value formula for an annuity with an initial lump sum and monthly contributions.\n\n**Given:**\n- Initial deposit: \\( P = 1000 \\)\n- Monthly deposit: \\( D = 25 \\)\n- Annual interest rate: \\( 8\\% \\) compounded monthly → monthly rate \\( r = \\frac{0.08}{12} \\)\n- Number of months: \\( n = 3 \\times 12 = 36 \\)\n\n**Future value of initial deposit:**\n\\[\nFV_{\\text{lump}} = P \\times (1 + r)^n = 1000 \\times \\left(1 + \\frac{0.08}{12}\\right)^{36}\n\\]\n\n**Future value of monthly deposits (annuity due):**\nSince deposits are made at the **end** of each month (ordinary annuity):\n\\[\nFV_{\\text{annuity}} = D \\times \\frac{(1 + r)^n - 1}{r}\n\\]\n\n**Total:**\n\\[\nFV = 1000 \\times (1.0066667)^{36} + 25 \\times \\frac{(1.0066667)^{36} - 1}{0.0066667}\n\\]\n\nCompute step by step:\n- \\( (1.0066667)^{36} \\approx 1.27024 \\)\n- Lump sum: \\( 1000 \\times 1.27024 = 1270.24 \\)\n- Annuity factor: \\( \\frac{1.27024 - 1}{0.0066667} = \\frac{0.27024}{0.0066667} \\approx 40.536 \\)\n- Annuity value: \\( 25 \\times 40.536 \\approx 1013.40 \\)\n- Total: \\( 1270.24 + 1013.40 = 2283.64 \\)\n\nThat matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.444154450000497
+  },
+  "response": {
+    "id": "cmpl-798",
+    "object": "text_completion",
+    "created": 1784242206,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can solve this using the future value formula for an annuity with an initial lump sum and monthly contributions.\n\n**Given:**\n- Initial deposit: \\( P = 1000 \\)\n- Monthly deposit: \\( D = 25 \\)\n- Annual interest rate: \\( 8\\% \\) compounded monthly → monthly rate \\( r = \\frac{0.08}{12} \\)\n- Number of months: \\( n = 3 \\times 12 = 36 \\)\n\n**Future value of initial deposit:**\n\\[\nFV_{\\text{lump}} = P \\times (1 + r)^n = 1000 \\times \\left(1 + \\frac{0.08}{12}\\right)^{36}\n\\]\n\n**Future value of monthly deposits (annuity due):**\nSince deposits are made at the **end** of each month (ordinary annuity):\n\\[\nFV_{\\text{annuity}} = D \\times \\frac{(1 + r)^n - 1}{r}\n\\]\n\n**Total:**\n\\[\nFV = 1000 \\times (1.0066667)^{36} + 25 \\times \\frac{(1.0066667)^{36} - 1}{0.0066667}\n\\]\n\nCompute step by step:\n- \\( (1.0066667)^{36} \\approx 1.27024 \\)\n- Lump sum: \\( 1000 \\times 1.27024 = 1270.24 \\)\n- Annuity factor: \\( \\frac{1.27024 - 1}{0.0066667} = \\frac{0.27024}{0.0066667} \\approx 40.536 \\)\n- Annuity value: \\( 25 \\times 40.536 \\approx 1013.40 \\)\n- Total: \\( 1270.24 + 1013.40 = 2283.64 \\)\n\nThat matches option **G**.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 401,
+      "total_tokens": 555,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 873.2,
+      "prefill_tokens": 154,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 176.6,
+      "decode_tok_s": 37.9,
+      "spec_accept_rate": 0.891,
+      "tok_per_step": 4.14
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "index": 1191,
+  "task_id": 1191,
+  "rendered_prompt_sha256": "15f83fe6174404ab78532b23a905af3bc295d017fb7e8eb0af97a991562bb782",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "May had 10 inches of hair and ended with 8 inches, so the haircut length is 2 inches.  \nThe cost for the color is $40.  \nThe cost for the haircut is 2 × $30 = $60.  \nTotal cost = $40 + $60 = $100.  \n\nAnswer: 100",
+  "finish_reason": "stop",
+  "expected": "100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8987251490034396
+  },
+  "response": {
+    "id": "cmpl-49",
+    "object": "text_completion",
+    "created": 1784238774,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "May had 10 inches of hair and ended with 8 inches, so the haircut length is 2 inches.  \nThe cost for the color is $40.  \nThe cost for the haircut is 2 × $30 = $60.  \nTotal cost = $40 + $60 = $100.  \n\nAnswer: 100",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 86,
+      "completion_tokens": 69,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 743.1,
+      "prefill_tokens": 86,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.2,
+      "decode_tok_s": 32.0,
+      "spec_accept_rate": 0.831,
+      "tok_per_step": 3.68
+    }
+  },
+  "used_fallback": false
+}

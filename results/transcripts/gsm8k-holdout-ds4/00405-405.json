@@ -1,0 +1,55 @@
+{
+  "index": 405,
+  "task_id": 405,
+  "rendered_prompt_sha256": "bdb0413ec8f04edbbb3364456809f17235e4390050140eca0254b87d5549dadc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, determine how many sandwiches are needed. Since each sandwich serves 4 people and there are 20 people, the number of sandwiches is 20 ÷ 4 = 5 sandwiches.\n\nEach sandwich requires 1 pound of meat and 1 pound of cheese. So for 5 sandwiches, he needs 5 pounds of meat and 5 pounds of cheese.\n\nMeat cost: 5 × $7.00 = $35.00  \nCheese cost: 5 × $3.00 = $15.00  \nTotal cost: $35.00 + $15.00 = $50.00\n\nAnswer: 50",
+  "finish_reason": "stop",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.249785619002068
+  },
+  "response": {
+    "id": "cmpl-529",
+    "object": "text_completion",
+    "created": 1784240672,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "First, determine how many sandwiches are needed. Since each sandwich serves 4 people and there are 20 people, the number of sandwiches is 20 ÷ 4 = 5 sandwiches.\n\nEach sandwich requires 1 pound of meat and 1 pound of cheese. So for 5 sandwiches, he needs 5 pounds of meat and 5 pounds of cheese.\n\nMeat cost: 5 × $7.00 = $35.00  \nCheese cost: 5 × $3.00 = $15.00  \nTotal cost: $35.00 + $15.00 = $50.00\n\nAnswer: 50",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "completion_tokens": 129,
+      "total_tokens": 256,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 987.4,
+      "prefill_tokens": 127,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 128.8,
+      "decode_tok_s": 39.6,
+      "spec_accept_rate": 0.943,
+      "tok_per_step": 4.64
+    }
+  },
+  "used_fallback": false
+}

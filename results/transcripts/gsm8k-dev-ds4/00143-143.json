@@ -1,0 +1,55 @@
+{
+  "index": 143,
+  "task_id": 143,
+  "rendered_prompt_sha256": "ab99898b3edfb9707a48b4e23198b2e380f9b11bb4eb3202c4427e19061c004b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Milk: $2 (food, no tax)  \n- Eggs: $3 (food, no tax)  \n- Light bulbs: $3 (nonfood, taxed)  \n- Cups: $3 (nonfood, taxed)  \n- Roach traps: $4 (nonfood, taxed)  \n\nTotal for nonfood items: 3 + 3 + 4 = $10  \nTax on nonfood: 10% of $10 = $1  \n\nTotal cost: (2 + 3) + (10 + 1) = 5 + 11 = $16  \n\nAnswer: 16",
+  "finish_reason": "stop",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.7217998419946525
+  },
+  "response": {
+    "id": "cmpl-68",
+    "object": "text_completion",
+    "created": 1784238849,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Milk: $2 (food, no tax)  \n- Eggs: $3 (food, no tax)  \n- Light bulbs: $3 (nonfood, taxed)  \n- Cups: $3 (nonfood, taxed)  \n- Roach traps: $4 (nonfood, taxed)  \n\nTotal for nonfood items: 3 + 3 + 4 = $10  \nTax on nonfood: 10% of $10 = $1  \n\nTotal cost: (2 + 3) + (10 + 1) = 5 + 11 = $16  \n\nAnswer: 16",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 94,
+      "completion_tokens": 132,
+      "total_tokens": 226,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 855.8,
+      "prefill_tokens": 94,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 110.0,
+      "decode_tok_s": 34.2,
+      "spec_accept_rate": 0.875,
+      "tok_per_step": 4.03
+    }
+  },
+  "used_fallback": false
+}

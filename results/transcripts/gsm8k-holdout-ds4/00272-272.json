@@ -1,0 +1,55 @@
+{
+  "index": 272,
+  "task_id": 272,
+  "rendered_prompt_sha256": "0df9d6d6c9ce92e71c78ee92cc38ab30e17304ff02d8356f36f5d2de8ee6bfa4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate the total cost first:\n\n- Cocoa: $4.20  \n- Laundry: $9.45  \n- Pasta: $1.35  \n\nTotal = 4.20 + 9.45 + 1.35 = 15.00  \n\nShe pays $20.00, so the change is:  \n20.00 - 15.00 = 5.00  \n\nAnswer: 5.00",
+  "finish_reason": "stop",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.0963041340000927
+  },
+  "response": {
+    "id": "cmpl-579",
+    "object": "text_completion",
+    "created": 1784240873,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's calculate the total cost first:\n\n- Cocoa: $4.20  \n- Laundry: $9.45  \n- Pasta: $1.35  \n\nTotal = 4.20 + 9.45 + 1.35 = 15.00  \n\nShe pays $20.00, so the change is:  \n20.00 - 15.00 = 5.00  \n\nAnswer: 5.00",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 84,
+      "completion_tokens": 90,
+      "total_tokens": 174,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 756.5,
+      "prefill_tokens": 84,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 111.2,
+      "decode_tok_s": 38.5,
+      "spec_accept_rate": 0.919,
+      "tok_per_step": 4.33
+    }
+  },
+  "used_fallback": false
+}

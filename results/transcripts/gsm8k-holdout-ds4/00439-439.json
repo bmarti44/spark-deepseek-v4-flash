@@ -1,0 +1,55 @@
+{
+  "index": 439,
+  "task_id": 439,
+  "rendered_prompt_sha256": "310484161978944aa919acbe6dfb785ffb1f7defb4ec54362fc961ef20cc3549",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down.\n\n- Wayne’s travel time: 4 minutes.  \n- Bernadette’s travel time is 4 times Wayne’s: \\( 4 \\times 4 = 16 \\) minutes.  \n- Bernadette wants to arrive 5 minutes before Wayne.  \n\nIf Wayne leaves at time 0, he arrives at time 4.  \nBernadette wants to arrive at time \\( 4 - 5 = -1 \\) (i.e., 1 minute before Wayne even leaves? That doesn’t make sense unless we shift reference).  \n\nBetter approach:  \nLet Wayne leave at time \\( t_W \\) and arrive at \\( t_W + 4 \\).  \nBernadette leaves at \\( t_B \\) and arrives at \\( t_B + 16 \\).  \nWe want \\( t_B + 16 = t_W + 4 - 5 \\) → \\( t_B + 16 = t_W - 1 \\) → \\( t_B = t_W - 17 \\).  \n\nSo Bernadette must leave 17 minutes earlier than Wayne.\n\nAnswer: 17",
+  "finish_reason": "stop",
+  "expected": "17",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.582579658002942
+  },
+  "response": {
+    "id": "cmpl-571",
+    "object": "text_completion",
+    "created": 1784240845,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down.\n\n- Wayne’s travel time: 4 minutes.  \n- Bernadette’s travel time is 4 times Wayne’s: \\( 4 \\times 4 = 16 \\) minutes.  \n- Bernadette wants to arrive 5 minutes before Wayne.  \n\nIf Wayne leaves at time 0, he arrives at time 4.  \nBernadette wants to arrive at time \\( 4 - 5 = -1 \\) (i.e., 1 minute before Wayne even leaves? That doesn’t make sense unless we shift reference).  \n\nBetter approach:  \nLet Wayne leave at time \\( t_W \\) and arrive at \\( t_W + 4 \\).  \nBernadette leaves at \\( t_B \\) and arrives at \\( t_B + 16 \\).  \nWe want \\( t_B + 16 = t_W + 4 - 5 \\) → \\( t_B + 16 = t_W - 1 \\) → \\( t_B = t_W - 17 \\).  \n\nSo Bernadette must leave 17 minutes earlier than Wayne.\n\nAnswer: 17",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 150,
+      "completion_tokens": 229,
+      "total_tokens": 379,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 882.5,
+      "prefill_tokens": 150,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 170.2,
+      "decode_tok_s": 34.2,
+      "spec_accept_rate": 0.848,
+      "tok_per_step": 3.77
+    }
+  },
+  "used_fallback": false
+}

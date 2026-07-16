@@ -1,0 +1,55 @@
+{
+  "index": 231,
+  "task_id": 231,
+  "rendered_prompt_sha256": "7adeb90821bd0886655a118821bfbc1e48369051a37a5ef540c9c4f6214bb83c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "On Monday, Robert collects 20 shells. Kylie collects 5 more than Robert, so Kylie collects 20 + 5 = 25 shells on Monday.\n\nOn Tuesday, Kylie collects 2 times more than she did on Monday. That means 2 × 25 = 50 shells.\n\nAnswer: 50",
+  "finish_reason": "stop",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.4142558070016094
+  },
+  "response": {
+    "id": "cmpl-580",
+    "object": "text_completion",
+    "created": 1784240875,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "On Monday, Robert collects 20 shells. Kylie collects 5 more than Robert, so Kylie collects 20 + 5 = 25 shells on Monday.\n\nOn Tuesday, Kylie collects 2 times more than she did on Monday. That means 2 × 25 = 50 shells.\n\nAnswer: 50",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 97,
+      "completion_tokens": 66,
+      "total_tokens": 163,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 824.7,
+      "prefill_tokens": 97,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 117.8,
+      "decode_tok_s": 41.6,
+      "spec_accept_rate": 0.981,
+      "tok_per_step": 4.79
+    }
+  },
+  "used_fallback": false
+}

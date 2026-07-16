@@ -1,0 +1,54 @@
+{
+  "index": 8583,
+  "task_id": 8771,
+  "rendered_prompt_sha256": "8de47cc288ed8d710e1a347fd42baaf54eed327614fc234f18a5455318018222",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need a 95% confidence interval for \\( p \\) with margin of error \\( \\pm 0.10 \\).  \nThe formula for sample size for a proportion is:\n\n\\[\nn = \\frac{z^2 \\cdot p(1-p)}{E^2}\n\\]\n\nFor 95% confidence, \\( z \\approx 1.96 \\).  \nWe don’t know \\( p \\), but we can use the prior estimate \\( p = 0.89 \\) from the untreated case.\n\n\\[\nn = \\frac{(1.96)^2 \\cdot 0.89 \\cdot 0.11}{(0.10)^2}\n\\]\n\nCalculate:\n\n\\[\n0.89 \\cdot 0.11 = 0.0979\n\\]\n\\[\n(1.96)^2 = 3.8416\n\\]\n\\[\n3.8416 \\cdot 0.0979 \\approx 0.376\n\\]\n\\[\n0.376 / 0.01 = 37.6\n\\]\n\nSo \\( n \\approx 38 \\).\n\nThus the correct answer is **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.323130136006512
+  },
+  "response": {
+    "id": "cmpl-796",
+    "object": "text_completion",
+    "created": 1784242186,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need a 95% confidence interval for \\( p \\) with margin of error \\( \\pm 0.10 \\).  \nThe formula for sample size for a proportion is:\n\n\\[\nn = \\frac{z^2 \\cdot p(1-p)}{E^2}\n\\]\n\nFor 95% confidence, \\( z \\approx 1.96 \\).  \nWe don’t know \\( p \\), but we can use the prior estimate \\( p = 0.89 \\) from the untreated case.\n\n\\[\nn = \\frac{(1.96)^2 \\cdot 0.89 \\cdot 0.11}{(0.10)^2}\n\\]\n\nCalculate:\n\n\\[\n0.89 \\cdot 0.11 = 0.0979\n\\]\n\\[\n(1.96)^2 = 3.8416\n\\]\n\\[\n3.8416 \\cdot 0.0979 \\approx 0.376\n\\]\n\\[\n0.376 / 0.01 = 37.6\n\\]\n\nSo \\( n \\approx 38 \\).\n\nThus the correct answer is **G**.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 183,
+      "completion_tokens": 233,
+      "total_tokens": 416,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 526.3,
+      "prefill_tokens": 183,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 348.6,
+      "decode_tok_s": 34.3,
+      "spec_accept_rate": 0.859,
+      "tok_per_step": 3.77
+    }
+  }
+}

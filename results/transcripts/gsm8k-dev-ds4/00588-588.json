@@ -1,0 +1,55 @@
+{
+  "index": 588,
+  "task_id": 588,
+  "rendered_prompt_sha256": "d194dd3b3039eea2c5bcf4c80129ec8816cb249471bb0bd4e165c63743549d3b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The first measurement is 47 WPM.  \nThe second measurement is 52 WPM.  \nThe third measurement will be 52 + 5 = 57 WPM.  \n\nThe average of the three is (47 + 52 + 57) / 3 = 156 / 3 = 52.\n\nAnswer: 52",
+  "finish_reason": "stop",
+  "expected": "52",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.57270442999652
+  },
+  "response": {
+    "id": "cmpl-12",
+    "object": "text_completion",
+    "created": 1784238619,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The first measurement is 47 WPM.  \nThe second measurement is 52 WPM.  \nThe third measurement will be 52 + 5 = 57 WPM.  \n\nThe average of the three is (47 + 52 + 57) / 3 = 156 / 3 = 52.\n\nAnswer: 52",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 105,
+      "completion_tokens": 69,
+      "total_tokens": 174,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 899.4,
+      "prefill_tokens": 105,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 118.5,
+      "decode_tok_s": 25.9,
+      "spec_accept_rate": 0.912,
+      "tok_per_step": 4.38
+    }
+  },
+  "used_fallback": false
+}

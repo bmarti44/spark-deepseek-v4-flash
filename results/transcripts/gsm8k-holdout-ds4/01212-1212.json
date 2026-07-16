@@ -1,0 +1,55 @@
+{
+  "index": 1212,
+  "task_id": 1212,
+  "rendered_prompt_sha256": "6bd48d701a6cf90ef1f002bd19354febaec08afca79bc14f2212a453352e5671",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Ali’s class capacity = 120 students.  \n- Since Ali is a dean of a private school where he teaches one class, that school has only that one class. So the capacity of Ali’s school = 120 students.\n\n- John’s school has two classes.  \n- Each class has 1/8 the capacity of Ali’s class.  \n- Capacity of one class in John’s school = 120 / 8 = 15 students.  \n- So John’s school capacity = 2 × 15 = 30 students.\n\nCombined capacity = 120 + 30 = 150 students.\n\nAnswer: 150",
+  "finish_reason": "stop",
+  "expected": "150",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.169036446000973
+  },
+  "response": {
+    "id": "cmpl-539",
+    "object": "text_completion",
+    "created": 1784240713,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Ali’s class capacity = 120 students.  \n- Since Ali is a dean of a private school where he teaches one class, that school has only that one class. So the capacity of Ali’s school = 120 students.\n\n- John’s school has two classes.  \n- Each class has 1/8 the capacity of Ali’s class.  \n- Capacity of one class in John’s school = 120 / 8 = 15 students.  \n- So John’s school capacity = 2 × 15 = 30 students.\n\nCombined capacity = 120 + 30 = 150 students.\n\nAnswer: 150",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 102,
+      "completion_tokens": 143,
+      "total_tokens": 245,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 877.3,
+      "prefill_tokens": 102,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.5,
+      "decode_tok_s": 33.3,
+      "spec_accept_rate": 0.847,
+      "tok_per_step": 3.89
+    }
+  },
+  "used_fallback": false
+}

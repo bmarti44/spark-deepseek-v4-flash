@@ -1,0 +1,55 @@
+{
+  "index": 731,
+  "task_id": 731,
+  "rendered_prompt_sha256": "dae9713bf17de8fdd4a7eb811837787fb639deb64b4e426c5a52cb5655545e73",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. **Total smores needed**:  \n   - 9 kids × 2 smores each = 18 smores  \n   - 6 adults × 1 smore each = 6 smores  \n   - Total = 18 + 6 = 24 smores\n\n2. **Graham crackers needed**:  \n   - 1 sleeve makes base for 8 smores  \n   - Number of sleeves needed = 24 ÷ 8 = 3 sleeves\n\n3. **Boxes needed**:  \n   - 1 box has 3 sleeves  \n   - 3 sleeves ÷ 3 sleeves per box = 1 box\n\nAnswer: 1",
+  "finish_reason": "stop",
+  "expected": "1",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.991789939995215
+  },
+  "response": {
+    "id": "cmpl-86",
+    "object": "text_completion",
+    "created": 1784238917,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. **Total smores needed**:  \n   - 9 kids × 2 smores each = 18 smores  \n   - 6 adults × 1 smore each = 6 smores  \n   - Total = 18 + 6 = 24 smores\n\n2. **Graham crackers needed**:  \n   - 1 sleeve makes base for 8 smores  \n   - Number of sleeves needed = 24 ÷ 8 = 3 sleeves\n\n3. **Boxes needed**:  \n   - 1 box has 3 sleeves  \n   - 3 sleeves ÷ 3 sleeves per box = 1 box\n\nAnswer: 1",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 144,
+      "total_tokens": 244,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 837.2,
+      "prefill_tokens": 100,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.1,
+      "decode_tok_s": 34.8,
+      "spec_accept_rate": 0.862,
+      "tok_per_step": 3.92
+    }
+  },
+  "used_fallback": false
+}

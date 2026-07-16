@@ -1,0 +1,54 @@
+{
+  "index": 3028,
+  "task_id": 3148,
+  "rendered_prompt_sha256": "8b0fde445fd35ba58418e0be87ed4186725392e417387c04af0aae764ee24560",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "E. Severing the dorsal root causes loss of sensation and reflex action, severing the ventral root causes inability to move the affected part.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.4218493589942227
+  },
+  "response": {
+    "id": "cmpl-636",
+    "object": "text_completion",
+    "created": 1784241100,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "E. Severing the dorsal root causes loss of sensation and reflex action, severing the ventral root causes inability to move the affected part.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 277,
+      "completion_tokens": 31,
+      "total_tokens": 308,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 592.1,
+      "prefill_tokens": 277,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 469.2,
+      "decode_tok_s": 37.4,
+      "spec_accept_rate": 0.958,
+      "tok_per_step": 4.57
+    }
+  }
+}

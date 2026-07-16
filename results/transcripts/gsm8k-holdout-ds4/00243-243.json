@@ -1,0 +1,56 @@
+{
+  "index": 243,
+  "task_id": 243,
+  "rendered_prompt_sha256": "eb8421537ce6751d45d839bfcbb5de8224e5b4563f2f7bacf4e432c1ce96b107",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jason uses 15 minutes per day for calls with his boss. Over 30 days, that's 15 * 30 = 450 minutes.  \nHe also has 300 extra minutes to other people.  \nTotal used minutes = 450 + 300 = 750 minutes.  \nHe has 1000 minutes per month, so remaining = 1000 - 750 = 250 minutes.  \n\nAnswer: 250",
+  "finish_reason": "stop",
+  "expected": "250",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.1519762620009715
+  },
+  "response": {
+    "id": "cmpl-542",
+    "object": "text_completion",
+    "created": 1784240727,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Jason uses 15 minutes per day for calls with his boss. Over 30 days, that's 15 * 30 = 450 minutes.  \nHe also has 300 extra minutes to other people.  \nTotal used minutes = 450 + 300 = 750 minutes.  \nHe has 1000 minutes per month, so remaining = 1000 - 750 = 250 minutes.  \n\nAnswer: 250",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 95,
+      "completion_tokens": 86,
+      "total_tokens": 181,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 835.0,
+      "prefill_tokens": 95,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 113.9,
+      "decode_tok_s": 37.1,
+      "spec_accept_rate": 0.929,
+      "tok_per_step": 4.35
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Jason has a phone plan of 1000 minutes per month. Every day he has a 15-minute call with his boss, and he's had 300 extra minutes of call this month to other people. How many minutes does Jason have left if this month has 30 days?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

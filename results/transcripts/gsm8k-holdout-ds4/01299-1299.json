@@ -1,0 +1,55 @@
+{
+  "index": 1299,
+  "task_id": 1299,
+  "rendered_prompt_sha256": "d3d73aac1367a56072cbb0e023bece5b98e1c8350f12cf692a1f01b54f11be82",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step:\n\n1. Ice cream: $3.50  \n2. Movie tickets: 2 tickets × $7.50 = $15.00  \n3. Bracelet: $8.50  \n\nTotal spent = $3.50 + $15.00 + $8.50 = $27.00  \n\nShe started with $40.00, so money left = $40.00 - $27.00 = $13.00  \n\nAnswer: 13",
+  "finish_reason": "stop",
+  "expected": "13",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6638751170030446
+  },
+  "response": {
+    "id": "cmpl-538",
+    "object": "text_completion",
+    "created": 1784240708,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step:\n\n1. Ice cream: $3.50  \n2. Movie tickets: 2 tickets × $7.50 = $15.00  \n3. Bracelet: $8.50  \n\nTotal spent = $3.50 + $15.00 + $8.50 = $27.00  \n\nShe started with $40.00, so money left = $40.00 - $27.00 = $13.00  \n\nAnswer: 13",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 94,
+      "completion_tokens": 102,
+      "total_tokens": 196,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 844.3,
+      "prefill_tokens": 94,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 111.5,
+      "decode_tok_s": 36.2,
+      "spec_accept_rate": 0.917,
+      "tok_per_step": 4.29
+    }
+  },
+  "used_fallback": false
+}

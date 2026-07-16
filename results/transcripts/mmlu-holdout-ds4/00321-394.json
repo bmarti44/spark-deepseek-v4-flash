@@ -1,0 +1,54 @@
+{
+  "index": 321,
+  "task_id": 394,
+  "rendered_prompt_sha256": "0e55db5cfaedfe539eb6865992a16f1316d6af7cc113019d7eca69156db7fb92",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- Interest = $11.25  \n- Annual rate = 3% = 0.03  \n- Time = 3 months = 3/12 = 0.25 years  \n\nUsing the formula:  \n\\[\nI = P \\times r \\times t\n\\]  \n\\[\n11.25 = P \\times 0.03 \\times 0.25\n\\]  \n\\[\n11.25 = P \\times 0.0075\n\\]  \n\\[\nP = \\frac{11.25}{0.0075} = 1500\n\\]\n\nSo the principal must be $1500.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.139684933994431
+  },
+  "response": {
+    "id": "cmpl-651",
+    "object": "text_completion",
+    "created": 1784241150,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We are given:\n\n- Interest = $11.25  \n- Annual rate = 3% = 0.03  \n- Time = 3 months = 3/12 = 0.25 years  \n\nUsing the formula:  \n\\[\nI = P \\times r \\times t\n\\]  \n\\[\n11.25 = P \\times 0.03 \\times 0.25\n\\]  \n\\[\n11.25 = P \\times 0.0075\n\\]  \n\\[\nP = \\frac{11.25}{0.0075} = 1500\n\\]\n\nSo the principal must be $1500.\n\nAnswer: D",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 135,
+      "total_tokens": 281,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 850.5,
+      "prefill_tokens": 146,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 172.0,
+      "decode_tok_s": 41.1,
+      "spec_accept_rate": 0.945,
+      "tok_per_step": 4.53
+    }
+  }
+}

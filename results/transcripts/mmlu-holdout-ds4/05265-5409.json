@@ -1,0 +1,54 @@
+{
+  "index": 5265,
+  "task_id": 5409,
+  "rendered_prompt_sha256": "dd754f1d9156d86bc3a23ef9ef5f5f1a89fc2fa7474552aa46be8ad85cb37485",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\nVale is a 50% partner in Ball Partnership.  \nVale's tax basis in Ball on January 2, Year 1 was $60,000.  \nBall made a $10,000 nonliquidating cash distribution to each partner on December 31, Year 1.  \nBall's income tax return for Year 1 includes:  \n- Tax-exempt interest income: $80,000  \n- Dividend income: $12,000  \n\n**Step 1: Determine Vale's share of partnership income**  \nVale's share = 50% of each item:  \n- Tax-exempt interest: 50% × $80,000 = $40,000 (not taxable, so not included in gross income)  \n- Dividend income: 50% × $12,000 = $6,000 (taxable, included in gross income)\n\n**Step 2: Effect of the cash distribution**  \nA nonliquidating cash distribution reduces the partner's basis but does **not** create income unless the distribution exceeds basis.  \nHere, Vale's basis before distribution = $60,000 + $40,000 (tax-exempt income) + $6,000 (dividend income) = $106,000.  \nDistribution of $10,000 is less than basis, so no gain.  \n\n**Step 3: Total gross income from Ball**  \nOnly the taxable dividend income: $6,000.\n\n**Answer:** J\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.383667180001794
+  },
+  "response": {
+    "id": "cmpl-810",
+    "object": "text_completion",
+    "created": 1784242259,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\nVale is a 50% partner in Ball Partnership.  \nVale's tax basis in Ball on January 2, Year 1 was $60,000.  \nBall made a $10,000 nonliquidating cash distribution to each partner on December 31, Year 1.  \nBall's income tax return for Year 1 includes:  \n- Tax-exempt interest income: $80,000  \n- Dividend income: $12,000  \n\n**Step 1: Determine Vale's share of partnership income**  \nVale's share = 50% of each item:  \n- Tax-exempt interest: 50% × $80,000 = $40,000 (not taxable, so not included in gross income)  \n- Dividend income: 50% × $12,000 = $6,000 (taxable, included in gross income)\n\n**Step 2: Effect of the cash distribution**  \nA nonliquidating cash distribution reduces the partner's basis but does **not** create income unless the distribution exceeds basis.  \nHere, Vale's basis before distribution = $60,000 + $40,000 (tax-exempt income) + $6,000 (dividend income) = $106,000.  \nDistribution of $10,000 is less than basis, so no gain.  \n\n**Step 3: Total gross income from Ball**  \nOnly the taxable dividend income: $6,000.\n\n**Answer:** J\n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 221,
+      "completion_tokens": 310,
+      "total_tokens": 531,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 567.9,
+      "prefill_tokens": 221,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 390.1,
+      "decode_tok_s": 31.6,
+      "spec_accept_rate": 0.818,
+      "tok_per_step": 3.49
+    }
+  }
+}

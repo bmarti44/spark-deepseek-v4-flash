@@ -1,0 +1,54 @@
+{
+  "index": 7903,
+  "task_id": 8087,
+  "rendered_prompt_sha256": "0eeb1ed6aced923eb407de1c918dc3516e556fe1949a824cdcdc401b476e9fa3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The additive cyclic group \\(\\mathbb{Z}\\) is infinite cyclic, and its generators are \\(1\\) and \\(-1\\), since every integer can be obtained by adding or subtracting these repeatedly.\n\nThus the correct set of generators is \\([1, -1]\\).\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.7693839660059894
+  },
+  "response": {
+    "id": "cmpl-781",
+    "object": "text_completion",
+    "created": 1784242083,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The additive cyclic group \\(\\mathbb{Z}\\) is infinite cyclic, and its generators are \\(1\\) and \\(-1\\), since every integer can be obtained by adding or subtracting these repeatedly.\n\nThus the correct set of generators is \\([1, -1]\\).\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "completion_tokens": 53,
+      "total_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 869.8,
+      "prefill_tokens": 122,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 140.5,
+      "decode_tok_s": 27.9,
+      "spec_accept_rate": 0.745,
+      "tok_per_step": 3.18
+    }
+  }
+}

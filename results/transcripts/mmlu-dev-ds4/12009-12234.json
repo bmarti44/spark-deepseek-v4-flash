@@ -1,0 +1,54 @@
+{
+  "index": 12009,
+  "task_id": 12234,
+  "rendered_prompt_sha256": "730bb8374463217b9377dc4144e31de86c2af4c04f54659317ac64a7fb68ec0c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to determine the bandwidth of the TV video signal.\n\n**Step 1: Information per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nEntropy per pixel:  \n\\[\nH = \\log_2(10) \\approx 3.3219 \\ \\text{bits}\n\\]\n\n**Step 2: Information per frame**  \nNumber of pixels per frame = 300,000  \nTotal bits per frame:  \n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\ \\text{bits}\n\\]\n\n**Step 3: Information per second**  \nFrame rate = 30 frames/second  \nTotal bit rate:  \n\\[\n996,570 \\times 30 \\approx 29,897,100 \\ \\text{bits/second}\n\\]\n\n**Step 4: Required bandwidth from Shannon-Hartley theorem**  \nChannel capacity:  \n\\[\nC = B \\log_2(1 + \\frac{S}{N})\n\\]  \nGiven S/N = 1000 (30 dB).  \n\\[\n\\log_2(1001) \\approx \\log_2(2^{10}) \\approx 10\n\\]  \nMore precisely:  \n\\[\n\\log_2(1001) \\approx 9.97\n\\]  \nSo:  \n\\[\nC \\approx B \\times 9.97\n\\]  \nWe need \\( C \\geq 29,897,100 \\).  \nThus:  \n\\[\nB \\geq \\frac{29,897,100}{9.97} \\approx 2,999,000 \\ \\text{Hz} \\approx 3 \\ \\text{MHz}\n\\]\n\n**Step 5: Choose closest option**  \n3 MHz matches option G.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.292443626000022
+  },
+  "response": {
+    "id": "cmpl-214",
+    "object": "text_completion",
+    "created": 1784239713,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We need to determine the bandwidth of the TV video signal.\n\n**Step 1: Information per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nEntropy per pixel:  \n\\[\nH = \\log_2(10) \\approx 3.3219 \\ \\text{bits}\n\\]\n\n**Step 2: Information per frame**  \nNumber of pixels per frame = 300,000  \nTotal bits per frame:  \n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\ \\text{bits}\n\\]\n\n**Step 3: Information per second**  \nFrame rate = 30 frames/second  \nTotal bit rate:  \n\\[\n996,570 \\times 30 \\approx 29,897,100 \\ \\text{bits/second}\n\\]\n\n**Step 4: Required bandwidth from Shannon-Hartley theorem**  \nChannel capacity:  \n\\[\nC = B \\log_2(1 + \\frac{S}{N})\n\\]  \nGiven S/N = 1000 (30 dB).  \n\\[\n\\log_2(1001) \\approx \\log_2(2^{10}) \\approx 10\n\\]  \nMore precisely:  \n\\[\n\\log_2(1001) \\approx 9.97\n\\]  \nSo:  \n\\[\nC \\approx B \\times 9.97\n\\]  \nWe need \\( C \\geq 29,897,100 \\).  \nThus:  \n\\[\nB \\geq \\frac{29,897,100}{9.97} \\approx 2,999,000 \\ \\text{Hz} \\approx 3 \\ \\text{MHz}\n\\]\n\n**Step 5: Choose closest option**  \n3 MHz matches option G.\n\nAnswer: G",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 368,
+      "total_tokens": 567,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 557.5,
+      "prefill_tokens": 199,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 358.3,
+      "decode_tok_s": 34.3,
+      "spec_accept_rate": 0.862,
+      "tok_per_step": 3.97
+    }
+  }
+}

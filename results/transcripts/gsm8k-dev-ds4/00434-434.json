@@ -1,0 +1,55 @@
+{
+  "index": 434,
+  "task_id": 434,
+  "rendered_prompt_sha256": "cf6b4f40d4f04c3389aa83ae5763e78b1bfb19f204b287bdbf0924dbbd75c1c1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\nGeorge spent $5.00 total.  \nHe had 1% of his money left, meaning he spent 99% of his money.  \n\nLet his total money be \\( M \\).  \nHe spent \\( 0.99M = 5.00 \\).  \nSo \\( M = \\frac{5.00}{0.99} \\approx 5.0505 \\) dollars.\n\nHe bought 3 bags of chips at $0.40 each:  \nChips cost = \\( 3 \\times 0.40 = 1.20 \\).\n\nLet \\( c \\) be the number of candy bars at $0.75 each.  \nTotal spent: \\( 1.20 + 0.75c = 5.00 \\).  \nSo \\( 0.75c = 3.80 \\).  \n\\( c = \\frac{3.80}{0.75} \\approx 5.0667 \\).\n\nSince \\( c \\) must be an integer, this suggests the leftover money calculation might need checking.\n\nIf he had exactly $5.00 and spent it all except 1%:  \n1% of $5.00 is $0.05, so he spent $4.95.  \nThen: \\( 1.20 + 0.75c = 4.95 \\)  \n\\( 0.75c = 3.75 \\)  \n\\( c = 5 \\).\n\nThat works perfectly.\n\nSo he bought 5 candy bars.\n\nAnswer: 5",
+  "finish_reason": "stop",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.82048376500461
+  },
+  "response": {
+    "id": "cmpl-97",
+    "object": "text_completion",
+    "created": 1784238966,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\nGeorge spent $5.00 total.  \nHe had 1% of his money left, meaning he spent 99% of his money.  \n\nLet his total money be \\( M \\).  \nHe spent \\( 0.99M = 5.00 \\).  \nSo \\( M = \\frac{5.00}{0.99} \\approx 5.0505 \\) dollars.\n\nHe bought 3 bags of chips at $0.40 each:  \nChips cost = \\( 3 \\times 0.40 = 1.20 \\).\n\nLet \\( c \\) be the number of candy bars at $0.75 each.  \nTotal spent: \\( 1.20 + 0.75c = 5.00 \\).  \nSo \\( 0.75c = 3.80 \\).  \n\\( c = \\frac{3.80}{0.75} \\approx 5.0667 \\).\n\nSince \\( c \\) must be an integer, this suggests the leftover money calculation might need checking.\n\nIf he had exactly $5.00 and spent it all except 1%:  \n1% of $5.00 is $0.05, so he spent $4.95.  \nThen: \\( 1.20 + 0.75c = 4.95 \\)  \n\\( 0.75c = 3.75 \\)  \n\\( c = 5 \\).\n\nThat works perfectly.\n\nSo he bought 5 candy bars.\n\nAnswer: 5",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 85,
+      "completion_tokens": 318,
+      "total_tokens": 403,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 777.6,
+      "prefill_tokens": 85,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 109.5,
+      "decode_tok_s": 31.7,
+      "spec_accept_rate": 0.822,
+      "tok_per_step": 3.54
+    }
+  },
+  "used_fallback": false
+}

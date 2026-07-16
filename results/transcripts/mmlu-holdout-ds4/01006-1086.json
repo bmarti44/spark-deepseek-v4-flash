@@ -1,0 +1,54 @@
+{
+  "index": 1006,
+  "task_id": 1086,
+  "rendered_prompt_sha256": "f4d162949ec6fb03d099dc8de107528425780ef6e4d95a704f5a392a81153f1a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break this down step by step.\n\n1. **Solicitation**: The brothers asked the housekeeper to poison the uncle. That’s solicitation of murder.  \n2. **Conspiracy**: They agreed with the housekeeper to commit murder (of the uncle) and took steps toward it. That’s conspiracy to commit murder.  \n3. **Murder of the uncle**: The uncle didn’t die, so no murder of the uncle.  \n4. **Murder of the physician**: The physician died from the poison meant for the uncle. Under the doctrine of **transferred intent**, the intent to kill the uncle transfers to the actual killing of the physician. That makes them guilty of murder of the physician (even though it was a mistake).  \n5. **Attempted murder of the uncle**: Since the uncle didn’t die, but the act was done with intent, that would be attempted murder. However, when the physician actually dies, the law typically treats the completed crime (murder of the physician) as the charge, not an additional attempt charge for the uncle.\n\nSo the correct combination is:  \n- Solicitation  \n- Conspiracy to commit murder of the uncle  \n- Murder of the physician  \n\nThat matches option **H**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='H' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.76349068399577
+  },
+  "response": {
+    "id": "cmpl-757",
+    "object": "text_completion",
+    "created": 1784241962,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break this down step by step.\n\n1. **Solicitation**: The brothers asked the housekeeper to poison the uncle. That’s solicitation of murder.  \n2. **Conspiracy**: They agreed with the housekeeper to commit murder (of the uncle) and took steps toward it. That’s conspiracy to commit murder.  \n3. **Murder of the uncle**: The uncle didn’t die, so no murder of the uncle.  \n4. **Murder of the physician**: The physician died from the poison meant for the uncle. Under the doctrine of **transferred intent**, the intent to kill the uncle transfers to the actual killing of the physician. That makes them guilty of murder of the physician (even though it was a mistake).  \n5. **Attempted murder of the uncle**: Since the uncle didn’t die, but the act was done with intent, that would be attempted murder. However, when the physician actually dies, the law typically treats the completed crime (murder of the physician) as the charge, not an additional attempt charge for the uncle.\n\nSo the correct combination is:  \n- Solicitation  \n- Conspiracy to commit murder of the uncle  \n- Murder of the physician  \n\nThat matches option **H**.\n\nAnswer: H",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 401,
+      "completion_tokens": 263,
+      "total_tokens": 664,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 762.8,
+      "prefill_tokens": 401,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 526.8,
+      "decode_tok_s": 29.2,
+      "spec_accept_rate": 0.764,
+      "tok_per_step": 3.26
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index": 3466,
+  "task_id": 3587,
+  "rendered_prompt_sha256": "d3af17eb43830d83e0f53d615d83fcc93125a66d9b3e31f2d35e660fde816430",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with 2 moles of NH₃ in a 1.0 L vessel.  \nAt equilibrium, 1.0 mole of NH₃ remains, so 1.0 mole has decomposed.\n\nFrom the reaction:  \n2 NH₃ ⇌ N₂ + 3 H₂  \nThe stoichiometry means:  \n- For every 2 moles NH₃ decomposed, 1 mole N₂ and 3 moles H₂ are produced.  \n- So, 1.0 mole NH₃ decomposed → 0.5 mole N₂ and 1.5 moles H₂ produced.\n\nEquilibrium concentrations (volume = 1.0 L, so moles = concentration):  \n[NH₃] = 1.0 M  \n[N₂] = 0.5 M  \n[H₂] = 1.5 M  \n\nThe equilibrium constant expression:  \n\\[\nK_c = \\frac{[N_2][H_2]^3}{[NH_3]^2}\n\\]  \nSubstitute:  \n\\[\nK_c = \\frac{(0.5)(1.5)^3}{(1.0)^2} = 0.5 \\times 3.375 = 1.6875\n\\]\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.197580277002999
+  },
+  "response": {
+    "id": "cmpl-660",
+    "object": "text_completion",
+    "created": 1784241217,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We start with 2 moles of NH₃ in a 1.0 L vessel.  \nAt equilibrium, 1.0 mole of NH₃ remains, so 1.0 mole has decomposed.\n\nFrom the reaction:  \n2 NH₃ ⇌ N₂ + 3 H₂  \nThe stoichiometry means:  \n- For every 2 moles NH₃ decomposed, 1 mole N₂ and 3 moles H₂ are produced.  \n- So, 1.0 mole NH₃ decomposed → 0.5 mole N₂ and 1.5 moles H₂ produced.\n\nEquilibrium concentrations (volume = 1.0 L, so moles = concentration):  \n[NH₃] = 1.0 M  \n[N₂] = 0.5 M  \n[H₂] = 1.5 M  \n\nThe equilibrium constant expression:  \n\\[\nK_c = \\frac{[N_2][H_2]^3}{[NH_3]^2}\n\\]  \nSubstitute:  \n\\[\nK_c = \\frac{(0.5)(1.5)^3}{(1.0)^2} = 0.5 \\times 3.375 = 1.6875\n\\]\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 188,
+      "completion_tokens": 259,
+      "total_tokens": 447,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 513.1,
+      "prefill_tokens": 188,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 367.3,
+      "decode_tok_s": 38.8,
+      "spec_accept_rate": 0.908,
+      "tok_per_step": 4.26
+    }
+  }
+}

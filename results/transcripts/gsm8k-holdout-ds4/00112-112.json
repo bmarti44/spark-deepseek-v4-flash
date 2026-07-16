@@ -1,0 +1,55 @@
+{
+  "index": 112,
+  "task_id": 112,
+  "rendered_prompt_sha256": "381707f85b4d50ffd9d8afddcb6fd26e58bd4e20ae4c01deaf338393c65b1b57",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- There are 4 teachers.\n- Each teacher has 2 lessons per day.\n- So total lessons per day = \\( 4 \\times 2 = 8 \\) lessons.\n- The whiteboard is cleaned 3 times per lesson.\n- So total cleanings per day = \\( 8 \\times 3 = 24 \\).\n\nAnswer: 24",
+  "finish_reason": "stop",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.1797189329954563
+  },
+  "response": {
+    "id": "cmpl-616",
+    "object": "text_completion",
+    "created": 1784241004,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- There are 4 teachers.\n- Each teacher has 2 lessons per day.\n- So total lessons per day = \\( 4 \\times 2 = 8 \\) lessons.\n- The whiteboard is cleaned 3 times per lesson.\n- So total cleanings per day = \\( 8 \\times 3 = 24 \\).\n\nAnswer: 24",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 79,
+      "total_tokens": 179,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 824.4,
+      "prefill_tokens": 100,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 121.5,
+      "decode_tok_s": 33.6,
+      "spec_accept_rate": 0.851,
+      "tok_per_step": 3.81
+    }
+  },
+  "used_fallback": false
+}

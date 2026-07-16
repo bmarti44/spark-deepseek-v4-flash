@@ -1,0 +1,54 @@
+{
+  "index": 6016,
+  "task_id": 6177,
+  "rendered_prompt_sha256": "8263070842ca0f18fc57424b0ae368d722873d203c436e2b43ba27a2ca22a47b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The patient's history of chronic respiratory infections, purulent sputum, decreased exercise tolerance, infertility due to low sperm count, and findings of hyperinflation with a decreased FEV1:FVC ratio point toward cystic fibrosis. The most specific diagnostic test for cystic fibrosis is the sweat chloride test.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.0513608299952466
+  },
+  "response": {
+    "id": "cmpl-218",
+    "object": "text_completion",
+    "created": 1784239719,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The patient's history of chronic respiratory infections, purulent sputum, decreased exercise tolerance, infertility due to low sperm count, and findings of hyperinflation with a decreased FEV1:FVC ratio point toward cystic fibrosis. The most specific diagnostic test for cystic fibrosis is the sweat chloride test.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 216,
+      "completion_tokens": 62,
+      "total_tokens": 278,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 599.7,
+      "prefill_tokens": 216,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 361.7,
+      "decode_tok_s": 25.3,
+      "spec_accept_rate": 0.702,
+      "tok_per_step": 3.0
+    }
+  }
+}

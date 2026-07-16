@@ -1,0 +1,55 @@
+{
+  "index": 21,
+  "task_id": 21,
+  "rendered_prompt_sha256": "d36aba92b19314e139b46a0e40594cc265ed7b4a169015835f36374d8d19b2c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Samantha is currently 31 years old.  \n2. Raymond is 6 years older than Samantha, so Raymond is currently \\( 31 + 6 = 37 \\) years old.  \n3. Raymond had a son when he was 23 years old.  \n4. That was \\( 37 - 23 = 14 \\) years ago.\n\nSo, Raymond's son was born 14 years ago.\n\nAnswer: 14",
+  "finish_reason": "stop",
+  "expected": "14",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.2889706540008774
+  },
+  "response": {
+    "id": "cmpl-60",
+    "object": "text_completion",
+    "created": 1784238818,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Samantha is currently 31 years old.  \n2. Raymond is 6 years older than Samantha, so Raymond is currently \\( 31 + 6 = 37 \\) years old.  \n3. Raymond had a son when he was 23 years old.  \n4. That was \\( 37 - 23 = 14 \\) years ago.\n\nSo, Raymond's son was born 14 years ago.\n\nAnswer: 14",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 97,
+      "total_tokens": 179,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 734.3,
+      "prefill_tokens": 82,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 112.0,
+      "decode_tok_s": 38.1,
+      "spec_accept_rate": 0.912,
+      "tok_per_step": 4.26
+    }
+  },
+  "used_fallback": false
+}

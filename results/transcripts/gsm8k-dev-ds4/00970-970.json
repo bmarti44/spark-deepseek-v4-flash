@@ -1,0 +1,55 @@
+{
+  "index": 970,
+  "task_id": 970,
+  "rendered_prompt_sha256": "94c1a5a947846d7c2c71c80ff38a8c0443f5cd4abb55c0e8c033af508c85fc84",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Carlton's team has 13 players.  \nZeke's team has 7 more players than Carlton's, so Zeke's team has \\(13 + 7 = 20\\) players.  \nTogether, both teams have \\(13 + 20 = 33\\) players.\n\nAnswer: 33",
+  "finish_reason": "stop",
+  "expected": "33",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.144984739003121
+  },
+  "response": {
+    "id": "cmpl-61",
+    "object": "text_completion",
+    "created": 1784238821,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Carlton's team has 13 players.  \nZeke's team has 7 more players than Carlton's, so Zeke's team has \\(13 + 7 = 20\\) players.  \nTogether, both teams have \\(13 + 20 = 33\\) players.\n\nAnswer: 33",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 71,
+      "completion_tokens": 61,
+      "total_tokens": 132,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 659.6,
+      "prefill_tokens": 71,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 107.9,
+      "decode_tok_s": 41.4,
+      "spec_accept_rate": 0.959,
+      "tok_per_step": 4.77
+    }
+  },
+  "used_fallback": false
+}

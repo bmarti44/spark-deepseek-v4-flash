@@ -1,0 +1,54 @@
+{
+  "index": 4407,
+  "task_id": 4539,
+  "rendered_prompt_sha256": "e27d9f8e1c325cd3c2196ffa7aed8da2bd592dee79a6140f313874e994673713",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can find the de Broglie wavelength using:\n\n\\[\n\\lambda = \\frac{h}{p}\n\\]\n\nFor a non-relativistic particle, kinetic energy \\(E\\) and momentum \\(p\\) are related by:\n\n\\[\np = \\sqrt{2mE}\n\\]\n\nSo:\n\n\\[\n\\lambda = \\frac{h}{\\sqrt{2mE}}\n\\]\n\nGiven:\n- Energy \\(E = 4.8 \\, \\text{MeV} = 4.8 \\times 10^6 \\, \\text{eV}\\)\n- Convert to joules: \\(1 \\, \\text{eV} = 1.602 \\times 10^{-19} \\, \\text{J}\\), so \\(E = 4.8 \\times 10^6 \\times 1.602 \\times 10^{-19} = 7.6896 \\times 10^{-13} \\, \\text{J}\\)\n- Mass of alpha particle (He nucleus): \\(m = 4.0026 \\, \\text{u}\\), with \\(1 \\, \\text{u} = 1.66054 \\times 10^{-27} \\, \\text{kg}\\), so \\(m = 4.0026 \\times 1.66054 \\times 10^{-27} = 6.644 \\times 10^{-27} \\, \\text{kg}\\)\n- Planck constant \\(h = 6.626 \\times 10^{-34} \\, \\text{J·s}\\)\n\nCompute:\n\n\\[\np = \\sqrt{2 \\times 6.644 \\times 10^{-27} \\times 7.6896 \\times 10^{-13}}\n\\]\n\\[\n= \\sqrt{2 \\times 6.644 \\times 7.6896 \\times 10^{-40}}\n\\]\n\\[\n= \\sqrt{102.18 \\times 10^{-40}} = \\sqrt{1.0218 \\times 10^{-38}} = 1.0109 \\times 10^{-19} \\, \\text{kg·m/s}\n\\]\n\nThen:\n\n\\[\n\\lambda = \\frac{6.626 \\times 10^{-34}}{1.0109 \\times 10^{-19}} = 6.555 \\times 10^{-15} \\, \\text{m}\n\\]\n\nConvert to cm: \\(1 \\, \\text{m} = 100 \\, \\text{cm}\\), so:\n\n\\[\n\\lambda = 6.555 \\times 10^{-15} \\times 100 = 6.555 \\times 10^{-13} \\, \\text{cm}\n\\]\n\nThis matches **6.6 × 10^{-13} cm**.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.980355106999923
+  },
+  "response": {
+    "id": "cmpl-165",
+    "object": "text_completion",
+    "created": 1784239366,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can find the de Broglie wavelength using:\n\n\\[\n\\lambda = \\frac{h}{p}\n\\]\n\nFor a non-relativistic particle, kinetic energy \\(E\\) and momentum \\(p\\) are related by:\n\n\\[\np = \\sqrt{2mE}\n\\]\n\nSo:\n\n\\[\n\\lambda = \\frac{h}{\\sqrt{2mE}}\n\\]\n\nGiven:\n- Energy \\(E = 4.8 \\, \\text{MeV} = 4.8 \\times 10^6 \\, \\text{eV}\\)\n- Convert to joules: \\(1 \\, \\text{eV} = 1.602 \\times 10^{-19} \\, \\text{J}\\), so \\(E = 4.8 \\times 10^6 \\times 1.602 \\times 10^{-19} = 7.6896 \\times 10^{-13} \\, \\text{J}\\)\n- Mass of alpha particle (He nucleus): \\(m = 4.0026 \\, \\text{u}\\), with \\(1 \\, \\text{u} = 1.66054 \\times 10^{-27} \\, \\text{kg}\\), so \\(m = 4.0026 \\times 1.66054 \\times 10^{-27} = 6.644 \\times 10^{-27} \\, \\text{kg}\\)\n- Planck constant \\(h = 6.626 \\times 10^{-34} \\, \\text{J·s}\\)\n\nCompute:\n\n\\[\np = \\sqrt{2 \\times 6.644 \\times 10^{-27} \\times 7.6896 \\times 10^{-13}}\n\\]\n\\[\n= \\sqrt{2 \\times 6.644 \\times 7.6896 \\times 10^{-40}}\n\\]\n\\[\n= \\sqrt{102.18 \\times 10^{-40}} = \\sqrt{1.0218 \\times 10^{-38}} = 1.0109 \\times 10^{-19} \\, \\text{kg·m/s}\n\\]\n\nThen:\n\n\\[\n\\lambda = \\frac{6.626 \\times 10^{-34}}{1.0109 \\times 10^{-19}} = 6.555 \\times 10^{-15} \\, \\text{m}\n\\]\n\nConvert to cm: \\(1 \\, \\text{m} = 100 \\, \\text{cm}\\), so:\n\n\\[\n\\lambda = 6.555 \\times 10^{-15} \\times 100 = 6.555 \\times 10^{-13} \\, \\text{cm}\n\\]\n\nThis matches **6.6 × 10^{-13} cm**.\n\nAnswer: J",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 199,
+      "completion_tokens": 547,
+      "total_tokens": 746,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 517.2,
+      "prefill_tokens": 199,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 385.8,
+      "decode_tok_s": 37.9,
+      "spec_accept_rate": 0.91,
+      "tok_per_step": 4.22
+    }
+  }
+}

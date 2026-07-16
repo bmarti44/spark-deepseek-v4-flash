@@ -1,0 +1,55 @@
+{
+  "index": 796,
+  "task_id": 796,
+  "rendered_prompt_sha256": "1470b9af510d9b319c589ccd9f28c18b5b9e1619f8db594c7b7ba4052669186b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Month 1:**  \n- Initial employees: 200  \n- New hires: 20  \n- Total employees: 200 + 20 = 220  \n- Salary cost: 220 × $4,000 = $880,000  \n\n**Month 2:**  \n- Employees at start: 220  \n- New hires: 20  \n- Total employees: 220 + 20 = 240  \n- Salary cost: 240 × $4,000 = $960,000  \n\n**Month 3:**  \n- Employees at start: 240  \n- New hires: 20  \n- Total employees: 240 + 20 = 260  \n- Salary cost: 260 × $4,000 = $1,040,000  \n\n**Total over 3 months:**  \n$880,000 + $960,000 + $1,040,000 = $2,880,000  \n\nAnswer: 2880000",
+  "finish_reason": "stop",
+  "expected": "2880000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.014085567003349
+  },
+  "response": {
+    "id": "cmpl-601",
+    "object": "text_completion",
+    "created": 1784240949,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Month 1:**  \n- Initial employees: 200  \n- New hires: 20  \n- Total employees: 200 + 20 = 220  \n- Salary cost: 220 × $4,000 = $880,000  \n\n**Month 2:**  \n- Employees at start: 220  \n- New hires: 20  \n- Total employees: 220 + 20 = 240  \n- Salary cost: 240 × $4,000 = $960,000  \n\n**Month 3:**  \n- Employees at start: 240  \n- New hires: 20  \n- Total employees: 240 + 20 = 260  \n- Salary cost: 260 × $4,000 = $1,040,000  \n\n**Total over 3 months:**  \n$880,000 + $960,000 + $1,040,000 = $2,880,000  \n\nAnswer: 2880000",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 202,
+      "total_tokens": 298,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 813.2,
+      "prefill_tokens": 96,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 118.2,
+      "decode_tok_s": 38.8,
+      "spec_accept_rate": 0.933,
+      "tok_per_step": 4.32
+    }
+  },
+  "used_fallback": false
+}

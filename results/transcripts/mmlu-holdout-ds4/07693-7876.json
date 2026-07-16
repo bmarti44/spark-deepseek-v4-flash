@@ -1,0 +1,54 @@
+{
+  "index": 7693,
+  "task_id": 7876,
+  "rendered_prompt_sha256": "245f3e1fed5f204d99313038572664d7f2a82fab0102c1298af4db384a9ce978",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can model the work as the sum of lifting the coal and the cable.\n\nThe coal weight is constant: \\(800 \\, \\text{lb}\\), lifted \\(500 \\, \\text{ft}\\).  \nWork for coal:  \n\\[\nW_{\\text{coal}} = 800 \\times 500 = 400{,}000 \\, \\text{ft-lb}.\n\\]\n\nThe cable weighs \\(2 \\, \\text{lb/ft}\\) and is \\(500 \\, \\text{ft}\\) long.  \nWhen lifting a segment of cable from depth \\(x\\) to the top, the cable segment's weight is \\(2 \\, dx\\) and it is lifted \\(x\\) feet.  \nThe work for the cable is:\n\\[\nW_{\\text{cable}} = \\int_{0}^{500} 2x \\, dx = 2 \\left[ \\frac{x^2}{2} \\right]_{0}^{500} = (500)^2 = 250{,}000 \\, \\text{ft-lb}.\n\\]\n\nTotal work:\n\\[\nW = 400{,}000 + 250{,}000 = 650{,}000 \\, \\text{ft-lb}.\n\\]\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.566322325001238
+  },
+  "response": {
+    "id": "cmpl-780",
+    "object": "text_completion",
+    "created": 1784242080,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "We can model the work as the sum of lifting the coal and the cable.\n\nThe coal weight is constant: \\(800 \\, \\text{lb}\\), lifted \\(500 \\, \\text{ft}\\).  \nWork for coal:  \n\\[\nW_{\\text{coal}} = 800 \\times 500 = 400{,}000 \\, \\text{ft-lb}.\n\\]\n\nThe cable weighs \\(2 \\, \\text{lb/ft}\\) and is \\(500 \\, \\text{ft}\\) long.  \nWhen lifting a segment of cable from depth \\(x\\) to the top, the cable segment's weight is \\(2 \\, dx\\) and it is lifted \\(x\\) feet.  \nThe work for the cable is:\n\\[\nW_{\\text{cable}} = \\int_{0}^{500} 2x \\, dx = 2 \\left[ \\frac{x^2}{2} \\right]_{0}^{500} = (500)^2 = 250{,}000 \\, \\text{ft-lb}.\n\\]\n\nTotal work:\n\\[\nW = 400{,}000 + 250{,}000 = 650{,}000 \\, \\text{ft-lb}.\n\\]\n\nAnswer: F",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 223,
+      "completion_tokens": 242,
+      "total_tokens": 465,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 554.2,
+      "prefill_tokens": 223,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 403.3,
+      "decode_tok_s": 34.5,
+      "spec_accept_rate": 0.855,
+      "tok_per_step": 3.8
+    }
+  }
+}

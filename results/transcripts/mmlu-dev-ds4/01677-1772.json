@@ -1,0 +1,54 @@
+{
+  "index": 1677,
+  "task_id": 1772,
+  "rendered_prompt_sha256": "accb58c4985e77eec23526d8f09df7f87a473af7f4a70b05ec94fb54e8d62640",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s reason through this step-by-step.\n\n- Adverse possession requires the owner to have a cause of action for ejectment, which accrues when the tenant’s possession becomes adverse to the owner’s interest.\n- The tenant had permission to possess the cottage under the lease until the lease ended or until the tenant’s possession became adverse.\n- The tenant stopped paying rent after the widow died, but the lease was still in effect (it had a seven-year term starting in 1985, so it would expire in 1992).\n- Adverse possession cannot begin while the tenant has permission (the lease). The tenant’s possession became adverse only when the lease expired and the tenant continued to hold over without permission.\n- Therefore, the statutory period began when the lease expired, not at the widow’s death, not when the tenant stopped paying rent, and not when the Boy Scouts discovered the gift.\n\nThe correct answer is: **B**.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='J'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.380130861994985
+  },
+  "response": {
+    "id": "cmpl-258",
+    "object": "text_completion",
+    "created": 1784239801,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s reason through this step-by-step.\n\n- Adverse possession requires the owner to have a cause of action for ejectment, which accrues when the tenant’s possession becomes adverse to the owner’s interest.\n- The tenant had permission to possess the cottage under the lease until the lease ended or until the tenant’s possession became adverse.\n- The tenant stopped paying rent after the widow died, but the lease was still in effect (it had a seven-year term starting in 1985, so it would expire in 1992).\n- Adverse possession cannot begin while the tenant has permission (the lease). The tenant’s possession became adverse only when the lease expired and the tenant continued to hold over without permission.\n- Therefore, the statutory period began when the lease expired, not at the widow’s death, not when the tenant stopped paying rent, and not when the Boy Scouts discovered the gift.\n\nThe correct answer is: **B**.\n\nAnswer: B",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 332,
+      "completion_tokens": 195,
+      "total_tokens": 527,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 679.9,
+      "prefill_tokens": 332,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 490.0,
+      "decode_tok_s": 25.4,
+      "spec_accept_rate": 0.718,
+      "tok_per_step": 2.84
+    }
+  }
+}

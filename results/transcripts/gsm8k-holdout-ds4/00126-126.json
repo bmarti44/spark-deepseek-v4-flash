@@ -1,0 +1,56 @@
+{
+  "index": 126,
+  "task_id": 126,
+  "rendered_prompt_sha256": "5d1d17ed59f2c78f38c1feb4277f186c0e4e0238af547234a38f9fe1fea7fa9b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Dylan bought 38 chicken sausages.  \nHe bought 6 more fish sausages than chicken sausages, so fish sausages = 38 + 6 = 44.  \nTotal sausages = 38 + 44 = 82.\n\nAnswer: 82",
+  "finish_reason": "stop",
+  "expected": "82",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.9788180269970326
+  },
+  "response": {
+    "id": "cmpl-623",
+    "object": "text_completion",
+    "created": 1784241034,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Dylan bought 38 chicken sausages.  \nHe bought 6 more fish sausages than chicken sausages, so fish sausages = 38 + 6 = 44.  \nTotal sausages = 38 + 44 = 82.\n\nAnswer: 82",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 86,
+      "completion_tokens": 55,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 733.7,
+      "prefill_tokens": 86,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 117.4,
+      "decode_tok_s": 44.2,
+      "spec_accept_rate": 0.977,
+      "tok_per_step": 5.09
+    }
+  },
+  "used_fallback": false,
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Dylan needed chicken sausages and fish sausages to make sausage buns at a party. He bought 38 chicken sausages and 6 more fish sausages than chicken sausages. How many sausages did Dylan buy in all?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

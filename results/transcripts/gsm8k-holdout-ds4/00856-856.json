@@ -1,0 +1,55 @@
+{
+  "index": 856,
+  "task_id": 856,
+  "rendered_prompt_sha256": "b6faf4a85191f5a0c61e239afedcd0e18bb2eb355f8e19e0a3c6da56a6d66566",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Mr. Jackson has 27 students, and each student needs 2 glue sticks, so the total number of glue sticks needed is \\(27 \\times 2 = 54\\).  \nGlue sticks come in packs of 8. To find the number of packs needed: \\(54 \\div 8 = 6.75\\), so he needs at least 7 packs because he can only buy whole packs.  \n7 packs contain \\(7 \\times 8 = 56\\) glue sticks, which is enough for 54, leaving 2 extra.\n\nAnswer: 7",
+  "finish_reason": "stop",
+  "expected": "7",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.246867123998527
+  },
+  "response": {
+    "id": "cmpl-573",
+    "object": "text_completion",
+    "created": 1784240851,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Mr. Jackson has 27 students, and each student needs 2 glue sticks, so the total number of glue sticks needed is \\(27 \\times 2 = 54\\).  \nGlue sticks come in packs of 8. To find the number of packs needed: \\(54 \\div 8 = 6.75\\), so he needs at least 7 packs because he can only buy whole packs.  \n7 packs contain \\(7 \\times 8 = 56\\) glue sticks, which is enough for 54, leaving 2 extra.\n\nAnswer: 7",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 111,
+      "completion_tokens": 116,
+      "total_tokens": 227,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 829.9,
+      "prefill_tokens": 111,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 134.0,
+      "decode_tok_s": 34.0,
+      "spec_accept_rate": 0.857,
+      "tok_per_step": 3.77
+    }
+  },
+  "used_fallback": false
+}

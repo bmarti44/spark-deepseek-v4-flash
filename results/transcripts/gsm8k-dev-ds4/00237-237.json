@@ -1,0 +1,55 @@
+{
+  "index": 237,
+  "task_id": 237,
+  "rendered_prompt_sha256": "8fbee03d903789660d62e5ef3feca845538d34b016ab4004d8c3914c8f4de064",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Johnny started with $20, added $10, so he had $30. This amount tripled, so after a year he had $30 × 3 = $90.\n\nAnswer: 90",
+  "finish_reason": "stop",
+  "expected": "90",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.1791412550010136
+  },
+  "response": {
+    "id": "cmpl-22",
+    "object": "text_completion",
+    "created": 1784238658,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Johnny started with $20, added $10, so he had $30. This amount tripled, so after a year he had $30 × 3 = $90.\n\nAnswer: 90",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 41,
+      "total_tokens": 123,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 769.0,
+      "prefill_tokens": 82,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 106.9,
+      "decode_tok_s": 29.1,
+      "spec_accept_rate": 0.853,
+      "tok_per_step": 3.82
+    }
+  },
+  "used_fallback": false
+}

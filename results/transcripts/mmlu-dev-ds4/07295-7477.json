@@ -1,0 +1,54 @@
+{
+  "index": 7295,
+  "task_id": 7477,
+  "rendered_prompt_sha256": "64cf84a7e63537043fde43ae07e92ff14cb9656abd6f713bae339facf5f7ddfe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "I. Consumers buy goods and services for satisfaction, employers hire workers for profit\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.1610761289994116
+  },
+  "response": {
+    "id": "cmpl-189",
+    "object": "text_completion",
+    "created": 1784239447,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "I. Consumers buy goods and services for satisfaction, employers hire workers for profit\n\nAnswer: I",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 219,
+      "completion_tokens": 19,
+      "total_tokens": 238,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 545.0,
+      "prefill_tokens": 219,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 403.2,
+      "decode_tok_s": 30.9,
+      "spec_accept_rate": 0.867,
+      "tok_per_step": 4.0
+    }
+  }
+}

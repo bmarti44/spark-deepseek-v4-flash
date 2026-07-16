@@ -1,0 +1,55 @@
+{
+  "index": 347,
+  "task_id": 347,
+  "rendered_prompt_sha256": "8551c829e63f42ac7fd150fc66544f38e72b7e25bbeea39c4ecdf989e683cfbd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The original cost for 2 shirts is \\( 2 \\times 30 = 60 \\) dollars.  \nA 40% discount means he pays 60% of the original price.  \n\\( 60\\% \\text{ of } 60 = 0.6 \\times 60 = 36 \\) dollars.\n\nAnswer: 36",
+  "finish_reason": "stop",
+  "expected": "36",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.7162853369954973
+  },
+  "response": {
+    "id": "cmpl-99",
+    "object": "text_completion",
+    "created": 1784238973,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The original cost for 2 shirts is \\( 2 \\times 30 = 60 \\) dollars.  \nA 40% discount means he pays 60% of the original price.  \n\\( 60\\% \\text{ of } 60 = 0.6 \\times 60 = 36 \\) dollars.\n\nAnswer: 36",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 69,
+      "total_tokens": 145,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 730.8,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 104.3,
+      "decode_tok_s": 35.0,
+      "spec_accept_rate": 0.879,
+      "tok_per_step": 4.12
+    }
+  },
+  "used_fallback": false
+}

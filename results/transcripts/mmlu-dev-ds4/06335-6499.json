@@ -1,0 +1,54 @@
+{
+  "index": 6335,
+  "task_id": 6499,
+  "rendered_prompt_sha256": "cf07e38693272f1bf6dfe697904ff6f99c172bf22ba12d5858dcd9431e4e55d6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The relative risk ratio is 1.2, with a 95% confidence interval of 1.1 to 1.8. Since the confidence interval does not include 1, the result is statistically significant. A relative risk greater than 1 indicates an increased risk. Therefore, the most appropriate conclusion is a statistically significant overall increase in risk.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8170968080012244
+  },
+  "response": {
+    "id": "cmpl-221",
+    "object": "text_completion",
+    "created": 1784239723,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The relative risk ratio is 1.2, with a 95% confidence interval of 1.1 to 1.8. Since the confidence interval does not include 1, the result is statistically significant. A relative risk greater than 1 indicates an increased risk. Therefore, the most appropriate conclusion is a statistically significant overall increase in risk.\n\nAnswer: A",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 216,
+      "completion_tokens": 74,
+      "total_tokens": 290,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 583.2,
+      "prefill_tokens": 216,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 371.5,
+      "decode_tok_s": 33.1,
+      "spec_accept_rate": 0.844,
+      "tok_per_step": 3.95
+    }
+  }
+}

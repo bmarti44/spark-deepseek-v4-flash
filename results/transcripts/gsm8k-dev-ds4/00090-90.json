@@ -1,0 +1,55 @@
+{
+  "index": 90,
+  "task_id": 90,
+  "rendered_prompt_sha256": "9101940f75249a624b8806a335864c789010531f245c246cf8b14d466c238ef5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "An adult eats 10 lbs. A child eats half of that, so 5 lbs.  \nThere are 20 adults and 5 children.  \nTotal needed:  \n20 × 10 = 200 lbs for adults  \n5 × 5 = 25 lbs for children  \nTotal = 200 + 25 = 225 lbs  \n\nAnswer: 225",
+  "finish_reason": "stop",
+  "expected": "225",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.965467287998763
+  },
+  "response": {
+    "id": "cmpl-73",
+    "object": "text_completion",
+    "created": 1784238868,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "An adult eats 10 lbs. A child eats half of that, so 5 lbs.  \nThere are 20 adults and 5 children.  \nTotal needed:  \n20 × 10 = 200 lbs for adults  \n5 × 5 = 25 lbs for children  \nTotal = 200 + 25 = 225 lbs  \n\nAnswer: 225",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "completion_tokens": 73,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 940.9,
+      "prefill_tokens": 122,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 130.0,
+      "decode_tok_s": 36.1,
+      "spec_accept_rate": 0.885,
+      "tok_per_step": 4.11
+    }
+  },
+  "used_fallback": false
+}

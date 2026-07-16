@@ -1,0 +1,55 @@
+{
+  "index": 269,
+  "task_id": 269,
+  "rendered_prompt_sha256": "6b113ff8da599ab55c6cbc07f14eef1a546f37c0592805047f9faae5ffbe3d54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The juggler has 16 balls total. Half of them are golf balls, so that's 8 golf balls. Half of those golf balls are blue, so half of 8 is 4 blue golf balls.\n\nAnswer: 4",
+  "finish_reason": "stop",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.199251732999983
+  },
+  "response": {
+    "id": "cmpl-552",
+    "object": "text_completion",
+    "created": 1784240758,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "The juggler has 16 balls total. Half of them are golf balls, so that's 8 golf balls. Half of those golf balls are blue, so half of 8 is 4 blue golf balls.\n\nAnswer: 4",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 49,
+      "total_tokens": 125,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 759.2,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 100.3,
+      "decode_tok_s": 34.1,
+      "spec_accept_rate": 0.878,
+      "tok_per_step": 4.17
+    }
+  },
+  "used_fallback": false
+}

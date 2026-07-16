@@ -1,0 +1,54 @@
+{
+  "index": 3574,
+  "task_id": 3696,
+  "rendered_prompt_sha256": "d4098e5d6795ae4d3045c8d3cc10cbc25dea17694fab2d902d8bb9eef36ae5ea",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "For an adiabatic process, \\( q = 0 \\).  \nFor a reversible adiabatic compression of an ideal gas:  \n\\[\nTV^{\\gamma-1} = \\text{constant}\n\\]  \nFor a monoatomic ideal gas, \\(\\gamma = \\5/3\\), so \\(\\gamma - 1 = 2/3\\).  \n\nInitial: \\( T_1 = 45^\\circ\\text{C} = 318.15\\,\\text{K} \\), \\( V_1 = 75\\,\\text{L} \\), \\( V_2 = 20\\,\\text{L} \\).  \n\n\\[\nT_2 = T_1 \\left( \\frac{V_1}{V_2} \\right)^{\\gamma-1} = 318.15 \\times \\left( \\frac{75}{20} \\right)^{2/3}\n\\]  \n\\[\n\\frac{75}{20} = 3.75, \\quad 3.75^{2/3} = (3.75^{1/3})^2\n\\]  \nCube root of 3.75 ≈ 1.554, square ≈ 2.415.  \nSo \\( T_2 \\approx 318.15 \\times 2.415 \\approx 768.3\\,\\text{K} \\).  \n\nChange in internal energy:  \n\\[\n\\Delta E = n C_v \\Delta T = 2 \\times \\frac{3}{2}R \\times (768.3 - 318.15)\n\\]  \n\\[\n= 2 \\times 1.5 \\times 8.314 \\times 450.15 \\approx 2 \\times 1.5 \\times 8.314 \\times 450.15\n\\]  \n\\[\n= 3 \\times 8.314 \\times 450.15 \\approx 3 \\times 3742.5 \\approx 11227.5\\,\\text{J} \\approx 11.23\\,\\text{kJ}\n\\]  \n\nChange in enthalpy:  \n\\[\n\\Delta H = n C_p \\Delta T = 2 \\times \\frac{5}{2}R \\times 450.15\n\\]  \n\\[\n= 5 \\times 8.314 \\times 450.15 \\approx 5 \\times 3742.5 \\approx 18712.5\\,\\text{J} \\approx 18.71\\,\\text{kJ}\n\\]  \n\nSo \\( q = 0 \\), \\(\\Delta E \\approx 11.21\\,\\text{kJ}\\), \\(\\Delta H \\approx 18.68\\,\\text{kJ}\\).  \n\nThat matches option **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.517860243999166
+  },
+  "response": {
+    "id": "cmpl-665",
+    "object": "text_completion",
+    "created": 1784241263,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "For an adiabatic process, \\( q = 0 \\).  \nFor a reversible adiabatic compression of an ideal gas:  \n\\[\nTV^{\\gamma-1} = \\text{constant}\n\\]  \nFor a monoatomic ideal gas, \\(\\gamma = \\5/3\\), so \\(\\gamma - 1 = 2/3\\).  \n\nInitial: \\( T_1 = 45^\\circ\\text{C} = 318.15\\,\\text{K} \\), \\( V_1 = 75\\,\\text{L} \\), \\( V_2 = 20\\,\\text{L} \\).  \n\n\\[\nT_2 = T_1 \\left( \\frac{V_1}{V_2} \\right)^{\\gamma-1} = 318.15 \\times \\left( \\frac{75}{20} \\right)^{2/3}\n\\]  \n\\[\n\\frac{75}{20} = 3.75, \\quad 3.75^{2/3} = (3.75^{1/3})^2\n\\]  \nCube root of 3.75 ≈ 1.554, square ≈ 2.415.  \nSo \\( T_2 \\approx 318.15 \\times 2.415 \\approx 768.3\\,\\text{K} \\).  \n\nChange in internal energy:  \n\\[\n\\Delta E = n C_v \\Delta T = 2 \\times \\frac{3}{2}R \\times (768.3 - 318.15)\n\\]  \n\\[\n= 2 \\times 1.5 \\times 8.314 \\times 450.15 \\approx 2 \\times 1.5 \\times 8.314 \\times 450.15\n\\]  \n\\[\n= 3 \\times 8.314 \\times 450.15 \\approx 3 \\times 3742.5 \\approx 11227.5\\,\\text{J} \\approx 11.23\\,\\text{kJ}\n\\]  \n\nChange in enthalpy:  \n\\[\n\\Delta H = n C_p \\Delta T = 2 \\times \\frac{5}{2}R \\times 450.15\n\\]  \n\\[\n= 5 \\times 8.314 \\times 450.15 \\approx 5 \\times 3742.5 \\approx 18712.5\\,\\text{J} \\approx 18.71\\,\\text{kJ}\n\\]  \n\nSo \\( q = 0 \\), \\(\\Delta E \\approx 11.21\\,\\text{kJ}\\), \\(\\Delta H \\approx 18.68\\,\\text{kJ}\\).  \n\nThat matches option **E**.\n\nAnswer: E",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 307,
+      "completion_tokens": 547,
+      "total_tokens": 854,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 614.4,
+      "prefill_tokens": 307,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 500.9,
+      "decode_tok_s": 39.3,
+      "spec_accept_rate": 0.919,
+      "tok_per_step": 4.35
+    }
+  }
+}

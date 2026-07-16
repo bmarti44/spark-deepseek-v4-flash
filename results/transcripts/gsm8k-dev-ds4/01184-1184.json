@@ -1,0 +1,55 @@
+{
+  "index": 1184,
+  "task_id": 1184,
+  "rendered_prompt_sha256": "ce759974009b4a2066dd6332e3d09c7105be49a6a8fa2e3f482ab11c3d2468c9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Ali ordered 850 kg of coal, and each bag is 50 kg.  \nNumber of bags = 850 / 50 = 17 bags.  \nCost per bag = $18.  \nTotal cost = 17 × 18 = $306.  \n\nAnswer: 306",
+  "finish_reason": "stop",
+  "expected": "306",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.442298263995326
+  },
+  "response": {
+    "id": "cmpl-107",
+    "object": "text_completion",
+    "created": 1784239007,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Ali ordered 850 kg of coal, and each bag is 50 kg.  \nNumber of bags = 850 / 50 = 17 bags.  \nCost per bag = $18.  \nTotal cost = 17 × 18 = $306.  \n\nAnswer: 306",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 57,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 744.7,
+      "prefill_tokens": 76,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 102.2,
+      "decode_tok_s": 33.6,
+      "spec_accept_rate": 0.854,
+      "tok_per_step": 3.87
+    }
+  },
+  "used_fallback": false
+}

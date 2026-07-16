@@ -1,0 +1,55 @@
+{
+  "index": 179,
+  "task_id": 179,
+  "rendered_prompt_sha256": "c728439e00a5bb751597c7d7807a2b341b10a8c5dfeafd309596c7d3ba8874cb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Lloyd earned $10 per hour.  \nFirst week: 5 hours × $10 = $50  \nSecond week: 8 hours × $10 = $80  \nTotal for two weeks: $50 + $80 = $130  \n\nAnswer: 130",
+  "finish_reason": "stop",
+  "expected": "130",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.0179994059944875
+  },
+  "response": {
+    "id": "cmpl-85",
+    "object": "text_completion",
+    "created": 1784238912,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Lloyd earned $10 per hour.  \nFirst week: 5 hours × $10 = $50  \nSecond week: 8 hours × $10 = $80  \nTotal for two weeks: $50 + $80 = $130  \n\nAnswer: 130",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 80,
+      "completion_tokens": 53,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 741.6,
+      "prefill_tokens": 80,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 108.2,
+      "decode_tok_s": 41.9,
+      "spec_accept_rate": 0.976,
+      "tok_per_step": 4.91
+    }
+  },
+  "used_fallback": false
+}

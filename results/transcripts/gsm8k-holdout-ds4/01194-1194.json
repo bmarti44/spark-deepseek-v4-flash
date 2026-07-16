@@ -1,0 +1,55 @@
+{
+  "index": 1194,
+  "task_id": 1194,
+  "rendered_prompt_sha256": "8f24cac1d5703bf84f7839c368ba7d112eec83e4413a349a3e3a98c9c14ce5bf",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. A whale has 40 gallons of blood.  \n2. A shark has three times as much blood as a whale:  \n   \\( 3 \\times 40 = 120 \\) gallons per shark.  \n3. For ten sharks:  \n   \\( 10 \\times 120 = 1200 \\) gallons.\n\nAnswer: 1200",
+  "finish_reason": "stop",
+  "expected": "1200",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.747054947001743
+  },
+  "response": {
+    "id": "cmpl-587",
+    "object": "text_completion",
+    "created": 1784240899,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. A whale has 40 gallons of blood.  \n2. A shark has three times as much blood as a whale:  \n   \\( 3 \\times 40 = 120 \\) gallons per shark.  \n3. For ten sharks:  \n   \\( 10 \\times 120 = 1200 \\) gallons.\n\nAnswer: 1200",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 91,
+      "completion_tokens": 81,
+      "total_tokens": 172,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 749.3,
+      "prefill_tokens": 91,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 121.7,
+      "decode_tok_s": 40.6,
+      "spec_accept_rate": 0.939,
+      "tok_per_step": 4.56
+    }
+  },
+  "used_fallback": false
+}
