@@ -1,0 +1,13 @@
+{
+  "host": {
+    "hostname": "spark-aba1",
+    "gpu": "GB10 sm_121",
+    "os": "Ubuntu 24.04.4",
+    "kernel": "6.17.0-1026-nvidia",
+    "driver": "580.159.03",
+    "cuda": "13.0",
+    "dgx_os_updated": "2026-07-16"
+  },
+  "pins": {},
+  "artifacts": {}
+}
