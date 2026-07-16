@@ -31,6 +31,12 @@ accuracy/speed/golden/parity results remain valid** and are not rerun.
 | watchdog starts before engine; memwatch fails closed; systemd preflight blocking; guard timer; auth-helper rate/concurrency limits; installer end-to-end verification | ops/security | Not part of any measurement. |
 | threat model documented (docs/threat-model.md): operator-adversary is OUT of scope; public GitHub history is the witness | documentation | Scores the controls against the real setting. |
 
+## v3 → v4 changes and why (A's HumanEval run, 2026-07-16 ~18:25 ET)
+
+| Change | Trigger | Fairness handling |
+|---|---|---|
+| HumanEval generation: stop list `["\ndef ", "\nclass ", "\nif __name__", "\nprint("]` → none (generation bounded by max_tokens 512; extractor handles all styles) | A scored 0/164 with `finish_reason=stop` on EVERY item: A's quant answers each task with prose + a fenced full function re-declaration, and the `"\ndef "` stop truncated at the fence header before any body was generated. The stop list assumed base-model continuation style. | Harness defect, not a model result. HumanEval is VOID for BOTH candidates (A's 0/164 and B's v2 133/164) and reruns under v4 for both. B's rerun requires a residency swap back to B after A's remaining evidence. GSM8K and MMLU-Pro are untouched — the stop list applied only to HumanEval (`HUMANEVAL_STOPS`, used nowhere else). |
+
 ## Standing rule
 
 Any future gate/harness change after a candidate has produced results under the

@@ -64,7 +64,14 @@ PIN_EXPECTATIONS = {
     },
 }
 MAX_TOKENS = {"gsm8k": 512, "mmlu-pro": 768, "humaneval": 512}
-HUMANEVAL_STOPS = ["\ndef ", "\nclass ", "\nif __name__", "\nprint("]
+# PROTOCOL v4: no stop sequences for HumanEval. The v2/v3 stop list
+# ("\ndef ", "\nclass ", "\nif __name__", "\nprint(") assumed base-model
+# continuation-style completions; instruct-style completions that open with
+# prose plus a fenced full re-declaration were truncated at the fence header
+# (finish_reason=stop), scoring 0 regardless of true capability. Generation is
+# bounded by MAX_TOKENS; extract_humaneval_code handles fenced and
+# continuation styles.
+HUMANEVAL_STOPS = None
 GSM_ANSWER_RE = re.compile(r"Answer:\s*(-?[\d,\.]+)", re.IGNORECASE)
 NUMBER_RE = re.compile(r"-?(?:\d[\d,]*)(?:\.\d+)?")
 MMLU_ANSWER_RE = re.compile(r"Answer:\s*([A-J])", re.IGNORECASE)
