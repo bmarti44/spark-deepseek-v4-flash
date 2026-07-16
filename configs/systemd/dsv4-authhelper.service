@@ -1,0 +1,34 @@
+[Unit]
+Description=DeepSeek V4 Flash bearer-token authentication helper
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=dsv4
+Group=dsv4
+EnvironmentFile=/etc/deepseek-v4-flash/env
+Environment=HOME=/run/dsv4
+Environment=PYTHONDONTWRITEBYTECODE=1
+RuntimeDirectory=dsv4
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+ExecStart=/usr/bin/python3 /usr/local/lib/deepseek-v4-flash/40_auth_helper.py
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=30
+
+# The helper reads its root-owned key from /etc and otherwise needs only the
+# shared volatile runtime directory. It accepts connections on loopback only.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/run/dsv4
+PrivateTmp=yes
+ProtectHome=no
+IPAddressAllow=127.0.0.0/8 ::1
+IPAddressDeny=any
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,41 @@
+[Unit]
+Description=DeepSeek V4 Flash (ds4 engine)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+# The serve script deliberately daemonizes the engine and its OOM watchdog.
+# A oneshot unit tracks that managed state without relying on a forking PID guess.
+Type=oneshot
+RemainAfterExit=yes
+User=dsv4
+Group=dsv4
+Environment=HOME=/home/dsv4
+WorkingDirectory=/home/bmarti44/spark-deepseek-v4-flash
+RuntimeDirectory=dsv4
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+# This report is advisory: the serve script enforces the authoritative memory
+# budget, model-integrity, residency-lock, and watchdog checks on every start.
+ExecStartPre=/bin/sh -c '/home/bmarti44/spark-deepseek-v4-flash/scripts/00_preflight.sh --out /tmp/preflight-service.json || true'
+ExecStart=/home/bmarti44/spark-deepseek-v4-flash/scripts/20_serve_ds4.sh start
+ExecStop=/home/bmarti44/spark-deepseek-v4-flash/scripts/20_serve_ds4.sh stop
+TimeoutStartSec=700
+TimeoutStopSec=240
+# Supervised restarts are manual per the runbook; the OOM watchdog handles kills.
+Restart=no
+
+# /home/dsv4 contains the engine build, model artifacts, and logs, so it cannot
+# be hidden. It is the only persistent home directory writable by this service.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/run/dsv4 /home/dsv4
+PrivateTmp=yes
+ProtectHome=no
+# Defense in depth: this single-host engine needs only loopback and Unix sockets.
+IPAddressAllow=127.0.0.0/8 ::1
+IPAddressDeny=any
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

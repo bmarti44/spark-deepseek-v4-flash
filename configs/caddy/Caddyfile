@@ -1,0 +1,21 @@
+{
+	# TailScale Serve terminates tailnet HTTPS; this local proxy uses plain HTTP.
+	# The apt binary and installed config paths are /usr/bin/caddy and
+	# /etc/caddy/Caddyfile (see dsv4-caddy.service).
+	admin off
+	auto_https off
+}
+
+http://127.0.0.1:8010 {
+	# No matcher means authentication covers every path, including metadata.
+	# The helper authorizes on any path; `uri /` satisfies forward_auth's
+	# required subdirective. Installer runs `caddy validate` before enabling.
+	forward_auth 127.0.0.1:8014 {
+		uri /
+	}
+
+	reverse_proxy 127.0.0.1:8012 {
+		# The unauthenticated ds4 engine must never receive client credentials.
+		header_up -Authorization
+	}
+}
