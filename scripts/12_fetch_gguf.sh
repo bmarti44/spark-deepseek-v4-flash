@@ -56,7 +56,7 @@ while IFS=$'\t' read -r p b s; do
 done < <(python3 -c '
 import json, sys
 for f in json.load(open(sys.argv[1]))["files"]:
-    print(f"{f[\"path\"]}\t{f[\"bytes\"]}\t{f[\"sha256\"]}")' "$pin_file")
+    print(f["path"], f["bytes"], f["sha256"], sep="\t")' "$pin_file")
 ((${#FILE_PATHS[@]} > 0)) || { printf '12_fetch_gguf.sh: pin file lists no files\n' >&2; exit 2; }
 
 files_present=0
