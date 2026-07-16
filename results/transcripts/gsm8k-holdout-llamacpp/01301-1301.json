@@ -1,0 +1,58 @@
+{
+  "index": 1301,
+  "task_id": 1301,
+  "rendered_prompt_sha256": "dce8ea2bd0e4cd2c1cace732490795a72869864c50136ce483ae1aafca295d3b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step by step.\n\n1. **Starting amounts**:  \n   Oatmeal: 9  \n   Chocolate chip: 4  \n   Sugar: 5  \n\n2. **Early snack**: He ate 1 of each flavor.  \n   Oatmeal: 9 − 1 = 8  \n   Chocolate chip: 4 − 1 = 3  \n   Sugar: 5 − 1 = 4  \n\n3. **Lunch**: He ate 2 oatmeal cookies.  \n   Oatmeal: 8 − 2 = 6  \n   Chocolate chip: 3  \n   Sugar: 4  \n\n4. **Gives away**: He gives 2 sugar cookies to friends.  \n   Sugar: 4 − 2 = 2  \n\n5. **Bakes**: He bakes 4 of each flavor for dinner.  \n   Oatmeal: 6 + 4 = 10  \n   Chocolate chip: 3 + 4 = 7  \n   Sugar: 2 + 4 = 6  \n\n6. **Total now**:  \n   10 + 7 + 6 = 23  \n\nAnswer: 23",
+  "expected": "23",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.792944886998157
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step by step.\n\n1. **Starting amounts**:  \n   Oatmeal: 9  \n   Chocolate chip: 4  \n   Sugar: 5  \n\n2. **Early snack**: He ate 1 of each flavor.  \n   Oatmeal: 9 − 1 = 8  \n   Chocolate chip: 4 − 1 = 3  \n   Sugar: 5 − 1 = 4  \n\n3. **Lunch**: He ate 2 oatmeal cookies.  \n   Oatmeal: 8 − 2 = 6  \n   Chocolate chip: 3  \n   Sugar: 4  \n\n4. **Gives away**: He gives 2 sugar cookies to friends.  \n   Sugar: 4 − 2 = 2  \n\n5. **Bakes**: He bakes 4 of each flavor for dinner.  \n   Oatmeal: 6 + 4 = 10  \n   Chocolate chip: 3 + 4 = 7  \n   Sugar: 2 + 4 = 6  \n\n6. **Total now**:  \n   10 + 7 + 6 = 23  \n\nAnswer: 23",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223294,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 241,
+      "prompt_tokens": 105,
+      "total_tokens": 346,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rSggmWh0O3EqQDaiE6saUKeLNS50Z8GI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 104,
+      "prompt_ms": 765.302,
+      "prompt_per_token_ms": 7.358673076923077,
+      "prompt_per_second": 135.89406534936535,
+      "predicted_n": 241,
+      "predicted_ms": 17025.944,
+      "predicted_per_token_ms": 70.64707053941909,
+      "predicted_per_second": 14.15486859348298
+    }
+  }
+}

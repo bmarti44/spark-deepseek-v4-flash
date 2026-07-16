@@ -1,0 +1,58 @@
+{
+  "index": 1102,
+  "task_id": 1102,
+  "rendered_prompt_sha256": "05426450a0fb6c71742c9104f65b358346f0ac45d95efe53301ba94b890f24f6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step by step.\n\n1. Sheila initially charged **$85.00**.  \n2. She returned an item costing **$15.00**, so that amount is subtracted:  \n   \\( 85.00 - 15.00 = 70.00 \\)  \n3. She buys a frying pan: 20% off $20.00  \n   Discount: \\( 20\\% \\times 20 = 4 \\)  \n   Sale price: \\( 20 - 4 = 16.00 \\)  \n4. She buys a set of towels: 10% off $30.00  \n   Discount: \\( 10\\% \\times 30 = 3 \\)  \n   Sale price: \\( 30 - 3 = 27.00 \\)  \n5. Total new purchases: \\( 16.00 + 27.00 = 43.00 \\)  \n6. New balance: \\( 70.00 + 43.00 = 113.00 \\)\n\nAnswer: 113.00",
+  "expected": "113",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.390159090999077
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step by step.\n\n1. Sheila initially charged **$85.00**.  \n2. She returned an item costing **$15.00**, so that amount is subtracted:  \n   \\( 85.00 - 15.00 = 70.00 \\)  \n3. She buys a frying pan: 20% off $20.00  \n   Discount: \\( 20\\% \\times 20 = 4 \\)  \n   Sale price: \\( 20 - 4 = 16.00 \\)  \n4. She buys a set of towels: 10% off $30.00  \n   Discount: \\( 10\\% \\times 30 = 3 \\)  \n   Sale price: \\( 30 - 3 = 27.00 \\)  \n5. Total new purchases: \\( 16.00 + 27.00 = 43.00 \\)  \n6. New balance: \\( 70.00 + 43.00 = 113.00 \\)\n\nAnswer: 113.00",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223227,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 122,
+      "total_tokens": 333,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-p5HZBWS4ISLJtedLO71am1oxr0nOikaE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 881.216,
+      "prompt_per_token_ms": 7.282776859504132,
+      "prompt_per_second": 137.3102621831651,
+      "predicted_n": 211,
+      "predicted_ms": 15506.032,
+      "predicted_per_token_ms": 73.48830331753554,
+      "predicted_per_second": 13.607607671646749
+    }
+  }
+}

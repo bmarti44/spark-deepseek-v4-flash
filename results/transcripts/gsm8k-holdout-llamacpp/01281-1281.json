@@ -1,0 +1,58 @@
+{
+  "index": 1281,
+  "task_id": 1281,
+  "rendered_prompt_sha256": "7043eb2c3b5b489066428cf984ebefe8df9dd40d606036a3b524af6e9439986b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find out how much one pig eats per day.  \nEach pig eats 4 pounds twice a day, so that's 4 × 2 = 8 pounds per pig per day.\n\nWith five pigs:  \n5 × 8 = 40 pounds per day for all pigs.\n\nOver one week (7 days):  \n40 × 7 = 280 pounds eaten.\n\nDexter started with 300 pounds:  \n300 − 280 = 20 pounds left.\n\nAnswer: 20",
+  "expected": "20",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.802162741001666
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find out how much one pig eats per day.  \nEach pig eats 4 pounds twice a day, so that's 4 × 2 = 8 pounds per pig per day.\n\nWith five pigs:  \n5 × 8 = 40 pounds per day for all pigs.\n\nOver one week (7 days):  \n40 × 7 = 280 pounds eaten.\n\nDexter started with 300 pounds:  \n300 − 280 = 20 pounds left.\n\nAnswer: 20",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223106,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 102,
+      "prompt_tokens": 69,
+      "total_tokens": 171,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Ci6Uo7cgbHZt7wZSqYUr8QFYIpfId2Ud",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 570.916,
+      "prompt_per_token_ms": 8.395823529411766,
+      "prompt_per_second": 119.10683883443448,
+      "predicted_n": 102,
+      "predicted_ms": 7219.264,
+      "predicted_per_token_ms": 70.77709803921569,
+      "predicted_per_second": 14.128864105814664
+    }
+  }
+}

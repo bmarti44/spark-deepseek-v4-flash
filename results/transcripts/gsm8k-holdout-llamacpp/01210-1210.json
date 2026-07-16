@@ -1,0 +1,58 @@
+{
+  "index": 1210,
+  "task_id": 1210,
+  "rendered_prompt_sha256": "dfc790db5fbe626742a61b427e3c93bee595d80dcc0b2d9d35188402c38b7bae",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "They started with 10 packs × 30 balloons per pack = 300 balloons.  \nIf 12 balloons are left, then they threw 300 − 12 = 288 balloons.\n\nAnswer: 288",
+  "expected": "288",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.7369361439996283
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "They started with 10 packs × 30 balloons per pack = 300 balloons.  \nIf 12 balloons are left, then they threw 300 − 12 = 288 balloons.\n\nAnswer: 288",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223089,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 85,
+      "total_tokens": 128,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-XqP0hyTTBS6pjQofejZ7IyddJZGucf4H",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 84,
+      "prompt_ms": 665.546,
+      "prompt_per_token_ms": 7.923166666666667,
+      "prompt_per_second": 126.21216264540692,
+      "predicted_n": 43,
+      "predicted_ms": 3068.383,
+      "predicted_per_token_ms": 71.3577441860465,
+      "predicted_per_second": 14.013895918469109
+    }
+  }
+}

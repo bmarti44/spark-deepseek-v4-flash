@@ -1,0 +1,58 @@
+{
+  "index": 578,
+  "task_id": 578,
+  "rendered_prompt_sha256": "ed1613fe958287c6bd5b97068b34f4c181f84ba50477368d047d8b25e0d808c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\nStarting value: 20.\n\n\"Half the number\" means half of 20, which is 10.  \nSo starting value plus half the number:  \n20 + 10 = 30.\n\nThis is divided by 5:  \n30 ÷ 5 = 6.\n\nThen this result is multiplied by (starting value minus 12):  \n20 − 12 = 8.\n\nSo final value:  \n6 × 8 = 48.\n\nAnswer: 48",
+  "expected": "48",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.469621440999617
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\nStarting value: 20.\n\n\"Half the number\" means half of 20, which is 10.  \nSo starting value plus half the number:  \n20 + 10 = 30.\n\nThis is divided by 5:  \n30 ÷ 5 = 6.\n\nThen this result is multiplied by (starting value minus 12):  \n20 − 12 = 8.\n\nSo final value:  \n6 × 8 = 48.\n\nAnswer: 48",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222974,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 106,
+      "prompt_tokens": 78,
+      "total_tokens": 184,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CZ3P3JVJFVBX7A9toUJSJy6oBVjJduFX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 667.029,
+      "prompt_per_token_ms": 8.662714285714285,
+      "prompt_per_second": 115.43725984927192,
+      "predicted_n": 106,
+      "predicted_ms": 7799.462,
+      "predicted_per_token_ms": 73.57983018867925,
+      "predicted_per_second": 13.59068099825347
+    }
+  }
+}

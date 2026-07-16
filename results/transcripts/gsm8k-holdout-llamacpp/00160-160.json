@@ -1,0 +1,58 @@
+{
+  "index": 160,
+  "task_id": 160,
+  "rendered_prompt_sha256": "dd113034b26213319f88a9dcfbeffee8b4a5add7e902141dcafb252d587e1fd7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step by step.\n\n- Monday: 17 feet  \n- Tuesday: 17 + 7 = 24 feet  \n- Wednesday: two thirds of Tuesday’s depth = (2/3) × 24 = 16 feet  \n\nAnswer: 16",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.7299925749975955
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step by step.\n\n- Monday: 17 feet  \n- Tuesday: 17 + 7 = 24 feet  \n- Wednesday: two thirds of Tuesday’s depth = (2/3) × 24 = 16 feet  \n\nAnswer: 16",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223074,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 57,
+      "prompt_tokens": 84,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-kgySgnpgmNabAINQFUxYIt5tkKNiQZJW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 83,
+      "prompt_ms": 640.682,
+      "prompt_per_token_ms": 7.719060240963856,
+      "prompt_per_second": 129.54944886854943,
+      "predicted_n": 57,
+      "predicted_ms": 4086.619,
+      "predicted_per_token_ms": 71.6950701754386,
+      "predicted_per_second": 13.947960404432123
+    }
+  }
+}

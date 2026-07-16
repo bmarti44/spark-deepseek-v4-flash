@@ -1,0 +1,58 @@
+{
+  "index": 220,
+  "task_id": 220,
+  "rendered_prompt_sha256": "b5ade0a25142548f572baa64abe12e08624b81e307fb66bd44a94f0d66488d7c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Carmen spent 10 minutes per crossword × 3 crosswords = 30 minutes on crosswords.  \nShe spent 5 minutes per sudoku × 8 sudokus = 40 minutes on sudokus.  \nTotal time = 30 + 40 = 70 minutes.\n\nAnswer: 70",
+  "expected": "70",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.125964281000051
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Carmen spent 10 minutes per crossword × 3 crosswords = 30 minutes on crosswords.  \nShe spent 5 minutes per sudoku × 8 sudokus = 40 minutes on sudokus.  \nTotal time = 30 + 40 = 70 minutes.\n\nAnswer: 70",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222612,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 79,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ot3JpUX0kx3COjQT4Y4aAP9YyZw4sZDe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 78,
+      "prompt_ms": 649.776,
+      "prompt_per_token_ms": 8.330461538461538,
+      "prompt_per_second": 120.04136810223832,
+      "predicted_n": 62,
+      "predicted_ms": 4473.722,
+      "predicted_per_token_ms": 72.1568064516129,
+      "predicted_per_second": 13.858706464103046
+    }
+  }
+}

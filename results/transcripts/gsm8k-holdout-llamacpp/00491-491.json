@@ -1,0 +1,58 @@
+{
+  "index": 491,
+  "task_id": 491,
+  "rendered_prompt_sha256": "18492d28807ddbea8a014a9ee7697a9b6880fb40a3004be10b95c9068e2feb2b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jaime has 2 trays, each holding 24 eggs, so total capacity is \\(2 \\times 24 = 48\\) eggs.  \nHe has 64 eggs, so the number of eggs that won't fit is \\(64 - 48 = 16\\).\n\nAnswer: 16",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.830772073000844
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Jaime has 2 trays, each holding 24 eggs, so total capacity is \\(2 \\times 24 = 48\\) eggs.  \nHe has 64 eggs, so the number of eggs that won't fit is \\(64 - 48 = 16\\).\n\nAnswer: 16",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222905,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 60,
+      "prompt_tokens": 70,
+      "total_tokens": 130,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WVWfqvx6KZOYe2R7wbAS76vNZ93LqhWx",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 69,
+      "prompt_ms": 602.423,
+      "prompt_per_token_ms": 8.730768115942029,
+      "prompt_per_second": 114.53745955914698,
+      "predicted_n": 60,
+      "predicted_ms": 4225.545,
+      "predicted_per_token_ms": 70.42575000000001,
+      "predicted_per_second": 14.19935179959035
+    }
+  }
+}

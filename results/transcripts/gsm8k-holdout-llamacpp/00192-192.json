@@ -1,0 +1,58 @@
+{
+  "index": 192,
+  "task_id": 192,
+  "rendered_prompt_sha256": "b5f322e920b8216c1461f2c24c9290312c20754d7563c9c05b9115a3da25934e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Starting trees: 50  \n- Each year: plants 10, chops down 2 → net increase of 8 trees per year  \n- After 10 years, before considering deaths:  \n  50 + (8 × 10) = 50 + 80 = 130 trees  \n\n- Then 30% of the trees die:  \n  30% of 130 = 0.3 × 130 = 39 trees die  \n\n- Remaining trees:  \n  130 − 39 = 91  \n\nAnswer: 91",
+  "expected": "91",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.215465517001576
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Starting trees: 50  \n- Each year: plants 10, chops down 2 → net increase of 8 trees per year  \n- After 10 years, before considering deaths:  \n  50 + (8 × 10) = 50 + 80 = 130 trees  \n\n- Then 30% of the trees die:  \n  30% of 130 = 0.3 × 130 = 39 trees die  \n\n- Remaining trees:  \n  130 − 39 = 91  \n\nAnswer: 91",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222757,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 121,
+      "prompt_tokens": 80,
+      "total_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-TpuXkePlV3PXKLk27BD4rNKMSZMjBHCh",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 79,
+      "prompt_ms": 631.8,
+      "prompt_per_token_ms": 7.997468354430379,
+      "prompt_per_second": 125.03956948401394,
+      "predicted_n": 121,
+      "predicted_ms": 8582.106,
+      "predicted_per_token_ms": 70.9264958677686,
+      "predicted_per_second": 14.099103413544414
+    }
+  }
+}

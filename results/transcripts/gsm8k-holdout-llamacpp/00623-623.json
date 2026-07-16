@@ -1,0 +1,58 @@
+{
+  "index": 623,
+  "task_id": 623,
+  "rendered_prompt_sha256": "3621cd82269a24366f5c7c33acff4306aff46862724673dcb2bd7a854dde5789",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\nCharmaine will be 16 in 12 years.  \nThat means her current age is \\( 16 - 12 = 4 \\) years old.  \nIn 4 years from now, she will be \\( 4 + 4 = 8 \\) years old.\n\nAnswer: 8",
+  "expected": "8",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.2272062949996325
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\nCharmaine will be 16 in 12 years.  \nThat means her current age is \\( 16 - 12 = 4 \\) years old.  \nIn 4 years from now, she will be \\( 4 + 4 = 8 \\) years old.\n\nAnswer: 8",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222762,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 68,
+      "prompt_tokens": 54,
+      "total_tokens": 122,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7uZWe4FWt9xoKBtmzyNOMvlfd5qDNX44",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 53,
+      "prompt_ms": 515.263,
+      "prompt_per_token_ms": 9.721943396226417,
+      "prompt_per_second": 102.8600928069743,
+      "predicted_n": 68,
+      "predicted_ms": 4709.336,
+      "predicted_per_token_ms": 69.2549411764706,
+      "predicted_per_second": 14.4394029221954
+    }
+  }
+}

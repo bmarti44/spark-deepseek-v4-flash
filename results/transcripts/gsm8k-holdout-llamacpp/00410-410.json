@@ -1,0 +1,58 @@
+{
+  "index": 410,
+  "task_id": 410,
+  "rendered_prompt_sha256": "46b20a2c5500d76437083bffa2a1449e81b37678813c6a3a12c796ebef901e27",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. **Taffy deal**:  \n   - Buy 1 pound at $3, get the second pound at half off.  \n   - Half of $3 is $1.50.  \n   - So 2 pounds cost: $3 + $1.50 = $4.50.\n\n2. **Seashells**: $1.50.\n\n3. **Magnets**: 4 magnets × $0.25 each = $1.00.\n\n4. **Total spent**:  \n   $4.50 + $1.50 + $1.00 = $7.00.\n\n5. **Money left**:  \n   $10.00 − $7.00 = $3.00.\n\nAnswer: 3",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.409949682001752
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. **Taffy deal**:  \n   - Buy 1 pound at $3, get the second pound at half off.  \n   - Half of $3 is $1.50.  \n   - So 2 pounds cost: $3 + $1.50 = $4.50.\n\n2. **Seashells**: $1.50.\n\n3. **Magnets**: 4 magnets × $0.25 each = $1.00.\n\n4. **Total spent**:  \n   $4.50 + $1.50 + $1.00 = $7.00.\n\n5. **Money left**:  \n   $10.00 − $7.00 = $3.00.\n\nAnswer: 3",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222585,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 162,
+      "prompt_tokens": 133,
+      "total_tokens": 295,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-25LOYRHnmW5Kc365l1jLWixpORInS8FH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 132,
+      "prompt_ms": 906.878,
+      "prompt_per_token_ms": 6.870287878787879,
+      "prompt_per_second": 145.55430829725717,
+      "predicted_n": 162,
+      "predicted_ms": 11499.989,
+      "predicted_per_token_ms": 70.98758641975309,
+      "predicted_per_second": 14.086969996232172
+    }
+  }
+}

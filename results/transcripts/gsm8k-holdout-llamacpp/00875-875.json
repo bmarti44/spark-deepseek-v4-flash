@@ -1,0 +1,59 @@
+{
+  "index": 875,
+  "task_id": 875,
+  "rendered_prompt_sha256": "b5719f3a613adefcb9957229fdf77a50c5cf530cacedbbe3dfc563e5bb3dda2f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Paul starts with 52 marbles.  \nHe gets 28 more, so now he has 52 + 28 = 80 marbles.  \nHe loses 1/4 of them, so he loses 80 ÷ 4 = 20 marbles.  \nHe has 80 - 20 = 60 marbles left.\n\nAnswer: 60",
+  "expected": "60",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.708690638999542
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Paul starts with 52 marbles.  \nHe gets 28 more, so now he has 52 + 28 = 80 marbles.  \nHe loses 1/4 of them, so he loses 80 ÷ 4 = 20 marbles.  \nHe has 80 - 20 = 60 marbles left.\n\nAnswer: 60",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223201,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 70,
+      "prompt_tokens": 63,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Gam8kRmR2Ew5zMX5LopCBaTrUPEj8PSP",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 62,
+      "prompt_ms": 574.848,
+      "prompt_per_token_ms": 9.27174193548387,
+      "prompt_per_second": 107.85459808505902,
+      "predicted_n": 70,
+      "predicted_ms": 5131.381,
+      "predicted_per_token_ms": 73.30544285714286,
+      "predicted_per_second": 13.641551855143868
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Paul has 52 marbles. His friend gave him 28 marbles. Then, he lost 1/4 of his marbles. How many marbles does Paul have left?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

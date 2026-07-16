@@ -1,0 +1,58 @@
+{
+  "index": 1194,
+  "task_id": 1194,
+  "rendered_prompt_sha256": "8f24cac1d5703bf84f7839c368ba7d112eec83e4413a349a3e3a98c9c14ce5bf",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, a whale has 40 gallons of blood.  \nA shark has three times that, so:  \n40 × 3 = 120 gallons per shark.\n\nFor ten sharks:  \n120 × 10 = 1200 gallons.\n\nAnswer: 1200",
+  "expected": "1200",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.581227440001385
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, a whale has 40 gallons of blood.  \nA shark has three times that, so:  \n40 × 3 = 120 gallons per shark.\n\nFor ten sharks:  \n120 × 10 = 1200 gallons.\n\nAnswer: 1200",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223021,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 82,
+      "total_tokens": 136,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-EB5eZYWzduOev4WSln5JzFiIICAHX6zZ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 81,
+      "prompt_ms": 666.295,
+      "prompt_per_token_ms": 8.225864197530864,
+      "prompt_per_second": 121.56777403402398,
+      "predicted_n": 54,
+      "predicted_ms": 3912.796,
+      "predicted_per_token_ms": 72.45918518518518,
+      "predicted_per_second": 13.80087282853489
+    }
+  }
+}

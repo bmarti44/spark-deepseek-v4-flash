@@ -1,0 +1,59 @@
+{
+  "index": 243,
+  "task_id": 243,
+  "rendered_prompt_sha256": "eb8421537ce6751d45d839bfcbb5de8224e5b4563f2f7bacf4e432c1ce96b107",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jason has a 1000-minute plan.  \nEach day he has a 15-minute call with his boss. Over 30 days, that's \\( 30 \\times 15 = 450 \\) minutes.  \nHe also has 300 extra minutes to other people.  \nTotal used: \\( 450 + 300 = 750 \\) minutes.  \nMinutes left: \\( 1000 - 750 = 250 \\).\n\nAnswer: 250",
+  "expected": "250",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.262559621998662
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Jason has a 1000-minute plan.  \nEach day he has a 15-minute call with his boss. Over 30 days, that's \\( 30 \\times 15 = 450 \\) minutes.  \nHe also has 300 extra minutes to other people.  \nTotal used: \\( 450 + 300 = 750 \\) minutes.  \nMinutes left: \\( 1000 - 750 = 250 \\).\n\nAnswer: 250",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222657,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 92,
+      "prompt_tokens": 86,
+      "total_tokens": 178,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-yvrt8A9BcakhcxNTnzOxxcOOog4uUPZB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 85,
+      "prompt_ms": 700.802,
+      "prompt_per_token_ms": 8.244729411764705,
+      "prompt_per_second": 121.28960819175745,
+      "predicted_n": 92,
+      "predicted_ms": 6560.12,
+      "predicted_per_token_ms": 71.30565217391305,
+      "predicted_per_second": 14.024133704871254
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Jason has a phone plan of 1000 minutes per month. Every day he has a 15-minute call with his boss, and he's had 300 extra minutes of call this month to other people. How many minutes does Jason have left if this month has 30 days?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

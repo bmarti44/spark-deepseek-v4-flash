@@ -1,0 +1,58 @@
+{
+  "index": 1193,
+  "task_id": 1193,
+  "rendered_prompt_sha256": "274f99175e638d3b2ee574e5765d98e308b983530aa165e0e589df1d69193a07",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate the earnings step by step:\n\n- Emptying the dishwasher: 6 times × $0.50 = $3.00  \n- Doing laundry: 1 time × $3.00 = $3.00  \n- Taking out trash: 2 times × $0.75 = $1.50  \n- Cleaning room: 1 time × $1.50 = $1.50  \n\nNow add them up:  \n$3.00 + $3.00 + $1.50 + $1.50 = $9.00  \n\nAnswer: 9.00",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.32717448600306
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's calculate the earnings step by step:\n\n- Emptying the dishwasher: 6 times × $0.50 = $3.00  \n- Doing laundry: 1 time × $3.00 = $3.00  \n- Taking out trash: 2 times × $0.75 = $1.50  \n- Cleaning room: 1 time × $1.50 = $1.50  \n\nNow add them up:  \n$3.00 + $3.00 + $1.50 + $1.50 = $9.00  \n\nAnswer: 9.00",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222698,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 122,
+      "prompt_tokens": 116,
+      "total_tokens": 238,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-puTEkrTuBECH5eDOxE4Jbf1eys0pC1S9",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 115,
+      "prompt_ms": 799.117,
+      "prompt_per_token_ms": 6.948843478260869,
+      "prompt_per_second": 143.90883938146732,
+      "predicted_n": 122,
+      "predicted_ms": 8525.758,
+      "predicted_per_token_ms": 69.88326229508196,
+      "predicted_per_second": 14.309578104375001
+    }
+  }
+}

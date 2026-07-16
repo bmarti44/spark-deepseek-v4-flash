@@ -1,0 +1,58 @@
+{
+  "index": 1157,
+  "task_id": 1157,
+  "rendered_prompt_sha256": "62fc5d5b2fe7e7189d14153e8035944e5f86427bb85efe422c593aad835fb708",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Isabel is 7 feet tall.  \n- Ned is 2 feet shorter than Isabel, so Ned is \\( 7 - 2 = 5 \\) feet tall.  \n- Carl is 1 foot taller than Ned, so Carl is \\( 5 + 1 = 6 \\) feet tall.  \n- Carl's cane is half as long as Carl is tall, so the cane is \\( 6 \\div 2 = 3 \\) feet long.\n\nAnswer: 3",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.211885337997956
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Isabel is 7 feet tall.  \n- Ned is 2 feet shorter than Isabel, so Ned is \\( 7 - 2 = 5 \\) feet tall.  \n- Carl is 1 foot taller than Ned, so Carl is \\( 5 + 1 = 6 \\) feet tall.  \n- Carl's cane is half as long as Carl is tall, so the cane is \\( 6 \\div 2 = 3 \\) feet long.\n\nAnswer: 3",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222689,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 108,
+      "prompt_tokens": 87,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-kCFS0TvzQAQ6kuGWVaoTrt7FBqFJOrQp",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 672.745,
+      "prompt_per_token_ms": 7.822616279069767,
+      "prompt_per_second": 127.83446922682442,
+      "predicted_n": 108,
+      "predicted_ms": 7536.784,
+      "predicted_per_token_ms": 69.78503703703703,
+      "predicted_per_second": 14.329719413479278
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 856,
+  "task_id": 856,
+  "rendered_prompt_sha256": "b6faf4a85191f5a0c61e239afedcd0e18bb2eb355f8e19e0a3c6da56a6d66566",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total number of glue sticks needed:  \n27 students × 2 glue sticks each = 54 glue sticks.\n\nEach pack has 8 glue sticks.  \nDivide the total needed by the pack size:  \n54 ÷ 8 = 6.75 packs.\n\nSince he can only buy whole packs, he needs to buy 7 packs.  \nThat gives 7 × 8 = 56 glue sticks, which is enough with 2 extra left over.\n\nAnswer: 7",
+  "expected": "7",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.916269703997386
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total number of glue sticks needed:  \n27 students × 2 glue sticks each = 54 glue sticks.\n\nEach pack has 8 glue sticks.  \nDivide the total needed by the pack size:  \n54 ÷ 8 = 6.75 packs.\n\nSince he can only buy whole packs, he needs to buy 7 packs.  \nThat gives 7 × 8 = 56 glue sticks, which is enough with 2 extra left over.\n\nAnswer: 7",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222913,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 101,
+      "prompt_tokens": 102,
+      "total_tokens": 203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Aj6Bo3eB6xXKo8Y4mV2zOhylqPGl2KZL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 101,
+      "prompt_ms": 763.767,
+      "prompt_per_token_ms": 7.562049504950496,
+      "prompt_per_second": 132.2392823989515,
+      "predicted_n": 101,
+      "predicted_ms": 7149.583,
+      "predicted_per_token_ms": 70.7879504950495,
+      "predicted_per_second": 14.126698018611716
+    }
+  }
+}

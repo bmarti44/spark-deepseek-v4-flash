@@ -1,0 +1,58 @@
+{
+  "index": 1135,
+  "task_id": 1135,
+  "rendered_prompt_sha256": "8c7eba763c7ca7264f5c802769a523f19610d1324032f96617d0e494b6b45892",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- 3 trees × 7 birds each = 21 birds  \n- 2 trees × 4 birds each = 8 birds  \n- 1 tree × 3 birds = 3 birds  \n\nNow add them:  \n21 + 8 + 3 = 32  \n\nAnswer: 32",
+  "expected": "32",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.645893636999972
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- 3 trees × 7 birds each = 21 birds  \n- 2 trees × 4 birds each = 8 birds  \n- 1 tree × 3 birds = 3 birds  \n\nNow add them:  \n21 + 8 + 3 = 32  \n\nAnswer: 32",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223060,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 69,
+      "prompt_tokens": 72,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7bDDqc9ZcJY2EyPwoFSaf1gU22vANmqe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 71,
+      "prompt_ms": 613.057,
+      "prompt_per_token_ms": 8.634605633802817,
+      "prompt_per_second": 115.81304837886199,
+      "predicted_n": 69,
+      "predicted_ms": 5030.91,
+      "predicted_per_token_ms": 72.91173913043478,
+      "predicted_per_second": 13.715212555978939
+    }
+  }
+}

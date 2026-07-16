@@ -1,0 +1,58 @@
+{
+  "index": 1071,
+  "task_id": 1071,
+  "rendered_prompt_sha256": "111542c17cc6d48a88c12fb68548d60110c68ad26e300241546ed5fd55befa64",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, let's find the total number of guests Kayla invited.  \n- Classmates: 25  \n- Dance class: 7  \n- Family members: 13  \n\nTotal invited = 25 + 7 + 13 = 45  \n\n4 people said they could not come, so the number attending = 45 - 4 = 41  \n\nThe base fee covers a party of 20, so additional guests = 41 - 20 = 21  \n\nCost for additional guests = 21 × $6 = $126  \n\nTotal cost = $125 (base) + $126 = $251  \n\nAnswer: 251",
+  "expected": "251",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.03904440399856
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, let's find the total number of guests Kayla invited.  \n- Classmates: 25  \n- Dance class: 7  \n- Family members: 13  \n\nTotal invited = 25 + 7 + 13 = 45  \n\n4 people said they could not come, so the number attending = 45 - 4 = 41  \n\nThe base fee covers a party of 20, so additional guests = 41 - 20 = 21  \n\nCost for additional guests = 21 × $6 = $126  \n\nTotal cost = $125 (base) + $126 = $251  \n\nAnswer: 251",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223304,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 130,
+      "prompt_tokens": 107,
+      "total_tokens": 237,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Ip7sk5EGORS23rZ78AArxgWT47oyIe00",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 106,
+      "prompt_ms": 801.862,
+      "prompt_per_token_ms": 7.5647358490566035,
+      "prompt_per_second": 132.19232236968458,
+      "predicted_n": 130,
+      "predicted_ms": 9234.262,
+      "predicted_per_token_ms": 71.03278461538461,
+      "predicted_per_second": 14.07800645032597
+    }
+  }
+}

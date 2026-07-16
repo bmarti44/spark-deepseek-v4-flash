@@ -1,0 +1,58 @@
+{
+  "index": 812,
+  "task_id": 812,
+  "rendered_prompt_sha256": "d65b0398f565c35a5450af2dac037e089dd921af84011c75ed4cea4072e40df2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. First batch: 3 flowers × 5 petals = 15 petals  \n2. Second batch: 4 flowers × 6 petals = 24 petals  \n3. Third batch: 5 flowers × 4 petals = 20 petals  \n4. Fourth batch: 6 flowers × 7 petals = 42 petals  \n\nTotal petals before dropping:  \n15 + 24 + 20 + 42 = 101 petals\n\nNow, she drops 1 flower from each type:  \n- 1 flower from first batch: 5 petals lost  \n- 1 flower from second batch: 6 petals lost  \n- 1 flower from third batch: 4 petals lost  \n- 1 flower from fourth batch: 7 petals lost  \n\nTotal petals lost: 5 + 6 + 4 + 7 = 22 petals\n\nRemaining petals in the vase:  \n101 − 22 = 79\n\nAnswer: 79",
+  "expected": "79",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.229120153002441
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. First batch: 3 flowers × 5 petals = 15 petals  \n2. Second batch: 4 flowers × 6 petals = 24 petals  \n3. Third batch: 5 flowers × 4 petals = 20 petals  \n4. Fourth batch: 6 flowers × 7 petals = 42 petals  \n\nTotal petals before dropping:  \n15 + 24 + 20 + 42 = 101 petals\n\nNow, she drops 1 flower from each type:  \n- 1 flower from first batch: 5 petals lost  \n- 1 flower from second batch: 6 petals lost  \n- 1 flower from third batch: 4 petals lost  \n- 1 flower from fourth batch: 7 petals lost  \n\nTotal petals lost: 5 + 6 + 4 + 7 = 22 petals\n\nRemaining petals in the vase:  \n101 − 22 = 79\n\nAnswer: 79",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222742,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 147,
+      "total_tokens": 350,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bWkg1JBTZdR70yZs0X9HTi6HxAYgdxo2",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 146,
+      "prompt_ms": 815.305,
+      "prompt_per_token_ms": 5.584280821917808,
+      "prompt_per_second": 179.07408883791956,
+      "predicted_n": 203,
+      "predicted_ms": 14411.095,
+      "predicted_per_token_ms": 70.9906157635468,
+      "predicted_per_second": 14.086368870651398
+    }
+  }
+}

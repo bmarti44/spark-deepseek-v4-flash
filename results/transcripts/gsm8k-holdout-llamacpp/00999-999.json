@@ -1,0 +1,58 @@
+{
+  "index": 999,
+  "task_id": 999,
+  "rendered_prompt_sha256": "686105db1d794efe606a03834502878fcc735158b183f7b97021cc0840636f3c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the size of each kid’s slice be \\( x \\).  \nThen each adult’s slice is \\( 2x \\).  \n\nThere are 2 adults and 4 kids, so total watermelon:  \n\\[\n2(2x) + 4(x) = 4x + 4x = 8x\n\\]\n\nEach adult gets \\( 2x \\), so the fraction for one adult is:  \n\\[\n\\frac{2x}{8x} = \\frac{1}{4} = 0.25\n\\]\n\nAs a percentage:  \n\\[\n0.25 \\times 100\\% = 25\\%\n\\]\n\nAnswer: 25",
+  "expected": "25",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.714586336001958
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the size of each kid’s slice be \\( x \\).  \nThen each adult’s slice is \\( 2x \\).  \n\nThere are 2 adults and 4 kids, so total watermelon:  \n\\[\n2(2x) + 4(x) = 4x + 4x = 8x\n\\]\n\nEach adult gets \\( 2x \\), so the fraction for one adult is:  \n\\[\n\\frac{2x}{8x} = \\frac{1}{4} = 0.25\n\\]\n\nAs a percentage:  \n\\[\n0.25 \\times 100\\% = 25\\%\n\\]\n\nAnswer: 25",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222999,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 139,
+      "prompt_tokens": 75,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aq72yVtO4Nim5qOyMf5XKJ0dxw377Tvp",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 74,
+      "prompt_ms": 637.703,
+      "prompt_per_token_ms": 8.617608108108108,
+      "prompt_per_second": 116.04148012476028,
+      "predicted_n": 139,
+      "predicted_ms": 10074.091,
+      "predicted_per_token_ms": 72.47547482014389,
+      "predicted_per_second": 13.797770935362804
+    }
+  }
+}

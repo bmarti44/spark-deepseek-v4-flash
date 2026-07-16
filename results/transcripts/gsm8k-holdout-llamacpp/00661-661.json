@@ -1,0 +1,58 @@
+{
+  "index": 661,
+  "task_id": 661,
+  "rendered_prompt_sha256": "200753248dcca8e142c1f7934ab9209b54676449d30049c2dee83541c27709b1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the cost of the more expensive coffee.  \nThe normal brand is $5 per pound, and the expensive one costs 20% more.  \n20% of $5 is $1, so the expensive coffee costs $6 per pound.\n\nHe buys a week's worth of coffee, using 1 pound per day.  \nA week is 7 days, so he buys 7 pounds.  \nCost for coffee: 7 × $6 = $42.\n\nHe also buys a donut for $2.\n\nTotal cost: $42 + $2 = $44.\n\nAnswer: 44",
+  "expected": "44",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.829739608001546
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the cost of the more expensive coffee.  \nThe normal brand is $5 per pound, and the expensive one costs 20% more.  \n20% of $5 is $1, so the expensive coffee costs $6 per pound.\n\nHe buys a week's worth of coffee, using 1 pound per day.  \nA week is 7 days, so he buys 7 pounds.  \nCost for coffee: 7 × $6 = $42.\n\nHe also buys a donut for $2.\n\nTotal cost: $42 + $2 = $44.\n\nAnswer: 44",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223210,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 123,
+      "prompt_tokens": 119,
+      "total_tokens": 242,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-HjPXFuezb4BWfsRmx8SwetNMDLZX16lT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 118,
+      "prompt_ms": 876.722,
+      "prompt_per_token_ms": 7.429847457627118,
+      "prompt_per_second": 134.59226527907364,
+      "predicted_n": 123,
+      "predicted_ms": 8950.156,
+      "predicted_per_token_ms": 72.76549593495936,
+      "predicted_per_second": 13.742777220866316
+    }
+  }
+}

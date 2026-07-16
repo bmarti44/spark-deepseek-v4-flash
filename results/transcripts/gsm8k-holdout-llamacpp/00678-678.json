@@ -1,0 +1,59 @@
+{
+  "index": 678,
+  "task_id": 678,
+  "rendered_prompt_sha256": "2737186f5f60f6e5604368ab301562be533ab516265130996f1f4fe9900b31fa",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Lorie earns $10 per hour.  \n- Karen earns twice that: $10 × 2 = $20 per hour.  \n- Karen works 3 hours per day for 2 days: 3 × 2 = 6 hours total.  \n- Karen’s total earnings: 6 × $20 = $120.\n\nAnswer: 120",
+  "expected": "120",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.204077603000769
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Lorie earns $10 per hour.  \n- Karen earns twice that: $10 × 2 = $20 per hour.  \n- Karen works 3 hours per day for 2 days: 3 × 2 = 6 hours total.  \n- Karen’s total earnings: 6 × $20 = $120.\n\nAnswer: 120",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222768,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 62,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-VK56Y0Y3he0DNvX6UZVdZDCvn7SGrdGe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 61,
+      "prompt_ms": 545.602,
+      "prompt_per_token_ms": 8.944295081967212,
+      "prompt_per_second": 111.8031092261392,
+      "predicted_n": 81,
+      "predicted_ms": 5655.589,
+      "predicted_per_token_ms": 69.82208641975309,
+      "predicted_per_second": 14.322115698294201
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Lorie earns $10 per hour. Karen earns twice what Lorie earns. How much does Karen earn in two days if she works 3 hours per day?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "stack_label": "llamacpp-udq2kxl",
+    "suite": "gsm8k",
+    "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+    "completed_at": "2026-07-16T17:36:10.549295+00:00",
+    "result": "/home/bmarti44/spark-deepseek-v4-flash/results/acc-gsm8k-holdout-llamacpp.json",
+    "n": 100,
+    "correct": 97
+  },
+  {
+    "stack_label": "llamacpp-udq2kxl",
+    "suite": "mmlu-pro",
+    "config_digest": "95d4dc00131d2753d05c552893b8e90436b1dac4205b0ca9bcc1c58685711607",
+    "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+    "phase": "started",
+    "started_at": "2026-07-16T20:09:20.060622+00:00"
+  }
+]

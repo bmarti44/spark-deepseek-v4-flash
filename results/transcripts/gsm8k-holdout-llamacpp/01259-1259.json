@@ -1,0 +1,58 @@
+{
+  "index": 1259,
+  "task_id": 1259,
+  "rendered_prompt_sha256": "4fac5614f94ba6fc654b03f539312b214c7dc00c601a33bf99e37aa1e2065c75",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, 10 dozen doughnuts means 10 × 12 = 120 doughnuts per day.  \nEach doughnut sells for $2, so daily revenue is 120 × 2 = $240.  \n\nJune has 30 days.  \nTotal revenue for June is 30 × 240 = $7,200.  \n\nAnswer: 7200",
+  "expected": "7200",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.043869188000826
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, 10 dozen doughnuts means 10 × 12 = 120 doughnuts per day.  \nEach doughnut sells for $2, so daily revenue is 120 × 2 = $240.  \n\nJune has 30 days.  \nTotal revenue for June is 30 × 240 = $7,200.  \n\nAnswer: 7200",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223195,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 69,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DhUEzO5GgYSHklVbs9IkxCYDPbJg9qYV",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 604.487,
+      "prompt_per_token_ms": 8.889514705882352,
+      "prompt_per_second": 112.4920800612751,
+      "predicted_n": 74,
+      "predicted_ms": 5437.19,
+      "predicted_per_token_ms": 73.47554054054054,
+      "predicted_per_second": 13.609971327100947
+    }
+  }
+}

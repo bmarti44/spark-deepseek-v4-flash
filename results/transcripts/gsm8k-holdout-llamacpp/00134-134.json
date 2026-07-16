@@ -1,0 +1,58 @@
+{
+  "index": 134,
+  "task_id": 134,
+  "rendered_prompt_sha256": "e5b5abb177d93f53b588b63cc2a7929dead54b92390c36cf724d48cd696f1d15",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Tom gets 4 car washes per month at $15 each, so monthly cost is 4 × 15 = $60.  \nIn a year (12 months), he pays 60 × 12 = $720.  \n\nAnswer: 720",
+  "expected": "720",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.095395160999033
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Tom gets 4 car washes per month at $15 each, so monthly cost is 4 × 15 = $60.  \nIn a year (12 months), he pays 60 × 12 = $720.  \n\nAnswer: 720",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223243,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 55,
+      "total_tokens": 106,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zD6632IpIGRksaZMK9r1t7XCBVxHMh7J",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 54,
+      "prompt_ms": 524.033,
+      "prompt_per_token_ms": 9.704314814814815,
+      "prompt_per_second": 103.04694551678998,
+      "predicted_n": 51,
+      "predicted_ms": 3568.983,
+      "predicted_per_token_ms": 69.98005882352942,
+      "predicted_per_second": 14.289785073226742
+    }
+  }
+}

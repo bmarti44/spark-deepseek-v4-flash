@@ -1,0 +1,58 @@
+{
+  "index": 328,
+  "task_id": 328,
+  "rendered_prompt_sha256": "05237affa935292989ad44efb3012e738799473ad6a585d385dc414f9160a3f5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The phone needs to go from 60% to 100%, which is a 40% increase.  \nIt charges at 1% per 3 minutes, so 40% takes \\(40 \\times 3 = 120\\) minutes.  \n120 minutes is 2 hours.\n\nAnswer: 2",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.161686748000648
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The phone needs to go from 60% to 100%, which is a 40% increase.  \nIt charges at 1% per 3 minutes, so 40% takes \\(40 \\times 3 = 120\\) minutes.  \n120 minutes is 2 hours.\n\nAnswer: 2",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223111,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 74,
+      "total_tokens": 137,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-W1JUDL7rRdw8rFS6mfSjrvDnGvAbqE5h",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 73,
+      "prompt_ms": 622.119,
+      "prompt_per_token_ms": 8.52217808219178,
+      "prompt_per_second": 117.34089458769141,
+      "predicted_n": 63,
+      "predicted_ms": 4537.49,
+      "predicted_per_token_ms": 72.02365079365079,
+      "predicted_per_second": 13.884328119731395
+    }
+  }
+}

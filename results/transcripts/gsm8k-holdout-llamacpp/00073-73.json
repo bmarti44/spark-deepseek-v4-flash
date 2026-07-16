@@ -1,0 +1,58 @@
+{
+  "index": 73,
+  "task_id": 73,
+  "rendered_prompt_sha256": "8977d7008270fc4628c4d361ff120fd3073a70b02949280cd9e98541d840076e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. **Cost per phone**: $150  \n2. **Number of phones**: 5  \n   Total cost before interest = \\( 5 \\times 150 = 750 \\) dollars.\n\n3. **Interest**: 2% per unit.  \n   Interest per phone = \\( 150 \\times 0.02 = 3 \\) dollars.  \n   Total interest for 5 phones = \\( 5 \\times 3 = 15 \\) dollars.\n\n4. **Total amount to pay**: \\( 750 + 15 = 765 \\) dollars.\n\n5. **Payment over 3 months**:  \n   Monthly payment = \\( 765 \\div 3 = 255 \\) dollars.\n\nAnswer: 255",
+  "expected": "255",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.932423965001362
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. **Cost per phone**: $150  \n2. **Number of phones**: 5  \n   Total cost before interest = \\( 5 \\times 150 = 750 \\) dollars.\n\n3. **Interest**: 2% per unit.  \n   Interest per phone = \\( 150 \\times 0.02 = 3 \\) dollars.  \n   Total interest for 5 phones = \\( 5 \\times 3 = 15 \\) dollars.\n\n4. **Total amount to pay**: \\( 750 + 15 = 765 \\) dollars.\n\n5. **Payment over 3 months**:  \n   Monthly payment = \\( 765 \\div 3 = 255 \\) dollars.\n\nAnswer: 255",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223033,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 155,
+      "prompt_tokens": 73,
+      "total_tokens": 228,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bP7gk7EzBNM1eJRreOUdXl4WYv1Gk3QX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 72,
+      "prompt_ms": 629.951,
+      "prompt_per_token_ms": 8.749319444444446,
+      "prompt_per_second": 114.29460386601497,
+      "predicted_n": 155,
+      "predicted_ms": 11300.045,
+      "predicted_per_token_ms": 72.90351612903225,
+      "predicted_per_second": 13.7167595350284
+    }
+  }
+}

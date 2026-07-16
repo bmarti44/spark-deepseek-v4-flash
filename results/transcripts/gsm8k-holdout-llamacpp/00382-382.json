@@ -1,0 +1,58 @@
+{
+  "index": 382,
+  "task_id": 382,
+  "rendered_prompt_sha256": "14be2b0be36bcfc689458ad08fdda5f4459ea90af076be6df1267d8f2770092e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\nAxel has:\n- Silver: 50\n- Gold: 80\n\nAnna has:\n- Silver: twice as many as Axel → 2 × 50 = 100\n- Gold: 40 more than Axel → 80 + 40 = 120\n\nNow total pesos:\n- Axel’s total: 50 + 80 = 130\n- Anna’s total: 100 + 120 = 220\n\nTogether: 130 + 220 = 350\n\nAnswer: 350",
+  "expected": "350",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.730550899999798
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\nAxel has:\n- Silver: 50\n- Gold: 80\n\nAnna has:\n- Silver: twice as many as Axel → 2 × 50 = 100\n- Gold: 40 more than Axel → 80 + 40 = 120\n\nNow total pesos:\n- Axel’s total: 50 + 80 = 130\n- Anna’s total: 100 + 120 = 220\n\nTogether: 130 + 220 = 350\n\nAnswer: 350",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222777,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 115,
+      "prompt_tokens": 75,
+      "total_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zHCjNbZaAhvJwjeprZ7yjmnL0eNZdANJ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 74,
+      "prompt_ms": 631.311,
+      "prompt_per_token_ms": 8.53122972972973,
+      "prompt_per_second": 117.21639572255195,
+      "predicted_n": 115,
+      "predicted_ms": 8096.212,
+      "predicted_per_token_ms": 70.40184347826087,
+      "predicted_per_second": 14.204173507314284
+    }
+  }
+}

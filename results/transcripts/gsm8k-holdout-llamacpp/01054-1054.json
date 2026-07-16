@@ -1,0 +1,58 @@
+{
+  "index": 1054,
+  "task_id": 1054,
+  "rendered_prompt_sha256": "7b92ff952c0d3361bcbf07e1f7b37bfa1ab650f3e1738ee0822bd59935c2729b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The floor area is 200 square feet, and each tile is 1 foot by 1 foot, so each tile covers 1 square foot. That means you need 200 tiles. Each tile costs $12, so the total cost is 200 × 12 = 2400 dollars.\n\nAnswer: 2400",
+  "expected": "2400",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.240346734000923
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The floor area is 200 square feet, and each tile is 1 foot by 1 foot, so each tile covers 1 square foot. That means you need 200 tiles. Each tile costs $12, so the total cost is 200 × 12 = 2400 dollars.\n\nAnswer: 2400",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222723,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 66,
+      "prompt_tokens": 80,
+      "total_tokens": 146,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-OwAnz03epZlNqgBm5dMUgnK1rHVuboUG",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 79,
+      "prompt_ms": 632.599,
+      "prompt_per_token_ms": 8.007582278481014,
+      "prompt_per_second": 124.88163907941681,
+      "predicted_n": 66,
+      "predicted_ms": 4604.458,
+      "predicted_per_token_ms": 69.76451515151514,
+      "predicted_per_second": 14.333934634651897
+    }
+  }
+}

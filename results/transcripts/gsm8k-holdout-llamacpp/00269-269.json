@@ -1,0 +1,58 @@
+{
+  "index": 269,
+  "task_id": 269,
+  "rendered_prompt_sha256": "6b113ff8da599ab55c6cbc07f14eef1a546f37c0592805047f9faae5ffbe3d54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The juggler has 16 balls total. Half of them are golf balls, so:\n\n16 ÷ 2 = 8 golf balls.\n\nHalf of the golf balls are blue, so:\n\n8 ÷ 2 = 4 blue golf balls.\n\nAnswer: 4",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.3664302569995925
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The juggler has 16 balls total. Half of them are golf balls, so:\n\n16 ÷ 2 = 8 golf balls.\n\nHalf of the golf balls are blue, so:\n\n8 ÷ 2 = 4 blue golf balls.\n\nAnswer: 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222727,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 67,
+      "total_tokens": 122,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-tbxr0BVXv7j9wt7luTCgFK2VAuJLw4Rp",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 558.684,
+      "prompt_per_token_ms": 8.46490909090909,
+      "prompt_per_second": 118.13475954206673,
+      "predicted_n": 55,
+      "predicted_ms": 3805.079,
+      "predicted_per_token_ms": 69.18325454545455,
+      "predicted_per_second": 14.454364810822588
+    }
+  }
+}

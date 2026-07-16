@@ -1,0 +1,59 @@
+{
+  "index": 49,
+  "task_id": 49,
+  "rendered_prompt_sha256": "085c547dfca2ecf36f3225854f208449e70403ebc40b3847bd19ba1cf0d499f1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total number of units in the building:  \n15 floors × 8 units per floor = 120 units.\n\nThen, find the number of occupied units:  \n3/4 of 120 = 90 units.\n\nFinally, subtract to find unoccupied units:  \n120 − 90 = 30.\n\nAnswer: 30",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.640946540999721
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total number of units in the building:  \n15 floors × 8 units per floor = 120 units.\n\nThen, find the number of occupied units:  \n3/4 of 120 = 90 units.\n\nFinally, subtract to find unoccupied units:  \n120 − 90 = 30.\n\nAnswer: 30",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222567,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 70,
+      "prompt_tokens": 71,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-HePsPgHv8fAnQ01XaVdNA1t5UJza3WHS",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 70,
+      "prompt_ms": 619.593,
+      "prompt_per_token_ms": 8.85132857142857,
+      "prompt_per_second": 112.97738999633631,
+      "predicted_n": 70,
+      "predicted_ms": 5018.204,
+      "predicted_per_token_ms": 71.68862857142857,
+      "predicted_per_second": 13.949213702751024
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Richard lives in an apartment building with 15 floors. Each floor contains 8 units, and 3/4 of the building is occupied. What's the total number of unoccupied units In the building?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

@@ -1,0 +1,58 @@
+{
+  "index": 751,
+  "task_id": 751,
+  "rendered_prompt_sha256": "5eb19855605aeda2bd786b6b8b8d9061ee21a038f9202438615bad8523076f67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's go step by step:\n\n1. Gunther starts with 48 bananas.  \n2. Arnold steals half: \\( 48 \\div 2 = 24 \\) stolen, so \\( 48 - 24 = 24 \\) left.  \n3. Gunther adds 25: \\( 24 + 25 = 49 \\).  \n4. Arnold steals 12: \\( 49 - 12 = 37 \\).  \n5. Gunther adds 6: \\( 37 + 6 = 43 \\).\n\nAnswer: 43",
+  "expected": "43",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.8366193619986
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's go step by step:\n\n1. Gunther starts with 48 bananas.  \n2. Arnold steals half: \\( 48 \\div 2 = 24 \\) stolen, so \\( 48 - 24 = 24 \\) left.  \n3. Gunther adds 25: \\( 24 + 25 = 49 \\).  \n4. Arnold steals 12: \\( 49 - 12 = 37 \\).  \n5. Gunther adds 6: \\( 37 + 6 = 43 \\).\n\nAnswer: 43",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223269,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 114,
+      "prompt_tokens": 134,
+      "total_tokens": 248,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-arObsdtT1WvfC8u83a4vhAPgzcxcDjNm",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 133,
+      "prompt_ms": 797.316,
+      "prompt_per_token_ms": 5.994857142857143,
+      "prompt_per_second": 166.8096463635497,
+      "predicted_n": 114,
+      "predicted_ms": 8036.566,
+      "predicted_per_token_ms": 70.49619298245614,
+      "predicted_per_second": 14.185163165461468
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 943,
+  "task_id": 943,
+  "rendered_prompt_sha256": "2b94d253a8aa1796978b3d49bb60cd0fbca40f492508758b30265849369a6687",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. **Cost of CDs before discount**:  \n   10 CDs × $15 each = $150.\n\n2. **Discount**: 40% off means he pays 60% of the price.  \n   60% of $150 = 0.6 × 150 = $90.  \n   So he spends **$90**.\n\n3. **Selling 5 CDs**: He sells them for $40 total (not each, based on the wording).  \n   So he gets back $40.\n\n4. **Net money out**:  \n   Money spent: $90  \n   Money recovered: $40  \n   Net loss: $90 − $40 = $50.\n\nAnswer: 50",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.188035899998795
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. **Cost of CDs before discount**:  \n   10 CDs × $15 each = $150.\n\n2. **Discount**: 40% off means he pays 60% of the price.  \n   60% of $150 = 0.6 × 150 = $90.  \n   So he spends **$90**.\n\n3. **Selling 5 CDs**: He sells them for $40 total (not each, based on the wording).  \n   So he gets back $40.\n\n4. **Net money out**:  \n   Money spent: $90  \n   Money recovered: $40  \n   Net loss: $90 − $40 = $50.\n\nAnswer: 50",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223320,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 151,
+      "prompt_tokens": 78,
+      "total_tokens": 229,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-XgTMeEwFBRGpdWj9TowutRMOusi9RnPu",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 617.221,
+      "prompt_per_token_ms": 8.015857142857143,
+      "prompt_per_second": 124.7527222826184,
+      "predicted_n": 151,
+      "predicted_ms": 10568.206,
+      "predicted_per_token_ms": 69.98811920529802,
+      "predicted_per_second": 14.288139349289747
+    }
+  }
+}

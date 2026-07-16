@@ -1,0 +1,58 @@
+{
+  "index": 231,
+  "task_id": 231,
+  "rendered_prompt_sha256": "7adeb90821bd0886655a118821bfbc1e48369051a37a5ef540c9c4f6214bb83c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- On Monday, Robert collects 20 shells.  \n- Kylie collects 5 more than Robert, so Kylie collects \\(20 + 5 = 25\\) shells on Monday.  \n- On Tuesday, Kylie collects 2 times more shells than she did on Monday.  \n  \"2 times more\" means she collects twice as many, so \\(25 \\times 2 = 50\\) shells.\n\nAnswer: 50",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.9590908019999915
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- On Monday, Robert collects 20 shells.  \n- Kylie collects 5 more than Robert, so Kylie collects \\(20 + 5 = 25\\) shells on Monday.  \n- On Tuesday, Kylie collects 2 times more shells than she did on Monday.  \n  \"2 times more\" means she collects twice as many, so \\(25 \\times 2 = 50\\) shells.\n\nAnswer: 50",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222966,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 98,
+      "prompt_tokens": 88,
+      "total_tokens": 186,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-jimurCf5ypbs92rBariuEvGohZDrOeO5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 742.916,
+      "prompt_per_token_ms": 8.539264367816093,
+      "prompt_per_second": 117.10610620850808,
+      "predicted_n": 98,
+      "predicted_ms": 7214.06,
+      "predicted_per_token_ms": 73.61285714285715,
+      "predicted_per_second": 13.584583438452132
+    }
+  }
+}

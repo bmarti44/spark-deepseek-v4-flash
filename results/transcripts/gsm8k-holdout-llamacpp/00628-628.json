@@ -1,0 +1,58 @@
+{
+  "index": 628,
+  "task_id": 628,
+  "rendered_prompt_sha256": "d25551ebb66279eca8ea54703391c6362abba584c9a775a84f830381b7711ed2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to convert 4 feet to inches:  \n4 feet = 48 inches.  \nAdam is 40 inches tall and grows 2 inches per year.  \nHe needs 48 − 40 = 8 more inches.  \nAt 2 inches per year, that takes 8 ÷ 2 = 4 years.\n\nAnswer: 4",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.899618616000225
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to convert 4 feet to inches:  \n4 feet = 48 inches.  \nAdam is 40 inches tall and grows 2 inches per year.  \nHe needs 48 − 40 = 8 more inches.  \nAt 2 inches per year, that takes 8 ÷ 2 = 4 years.\n\nAnswer: 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223039,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 83,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-BCJxapcLN9LJiakY0Om8gvNKDREKdMPh",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 82,
+      "prompt_ms": 673.394,
+      "prompt_per_token_ms": 8.212121951219512,
+      "prompt_per_second": 121.77120675265893,
+      "predicted_n": 72,
+      "predicted_ms": 5222.822,
+      "predicted_per_token_ms": 72.53919444444445,
+      "predicted_per_second": 13.785650745899439
+    }
+  }
+}

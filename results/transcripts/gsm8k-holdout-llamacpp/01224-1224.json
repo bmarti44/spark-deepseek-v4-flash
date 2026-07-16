@@ -1,0 +1,58 @@
+{
+  "index": 1224,
+  "task_id": 1224,
+  "rendered_prompt_sha256": "4f53596fdcf80a47e65bc8d8f707f0118d723ed40b96226d99e44245b06ef757",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Monday’s rain: 2 inches  \n- Tuesday’s rain: 1 inch more than twice Monday’s total  \n- Twice Monday’s total: 2 × 2 = 4 inches  \n- One more inch than that: 4 + 1 = 5 inches  \n\nAnswer: 5",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.707144010000775
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Monday’s rain: 2 inches  \n- Tuesday’s rain: 1 inch more than twice Monday’s total  \n- Twice Monday’s total: 2 × 2 = 4 inches  \n- One more inch than that: 4 + 1 = 5 inches  \n\nAnswer: 5",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222929,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 67,
+      "total_tokens": 141,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aQydauaGRMVWkBzT5htnlW50IXYSUmqR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 546.037,
+      "prompt_per_token_ms": 8.27328787878788,
+      "prompt_per_second": 120.87092999192362,
+      "predicted_n": 74,
+      "predicted_ms": 5158.703,
+      "predicted_per_token_ms": 69.71220270270271,
+      "predicted_per_second": 14.344690903895804
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1188,
+  "task_id": 1188,
+  "rendered_prompt_sha256": "157aacfe058777bea7f462ab2961826b2a9aa3524f6ef896def1e577545b45a4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- The 20th anniversary means Digimon came out 20 years ago.\n- When it came out, John was twice as old as Jim.\n- John is 28 now, so 20 years ago John was \\( 28 - 20 = 8 \\) years old.\n- At that time, John was twice Jim’s age, so Jim was \\( 8 \\div 2 = 4 \\) years old.\n- Now, 20 years later, Jim is \\( 4 + 20 = 24 \\) years old.\n\nAnswer: 24",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.40176528899974
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- The 20th anniversary means Digimon came out 20 years ago.\n- When it came out, John was twice as old as Jim.\n- John is 28 now, so 20 years ago John was \\( 28 - 20 = 8 \\) years old.\n- At that time, John was twice Jim’s age, so Jim was \\( 8 \\div 2 = 4 \\) years old.\n- Now, 20 years later, Jim is \\( 4 + 20 = 24 \\) years old.\n\nAnswer: 24",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222950,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 63,
+      "total_tokens": 188,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-x3dXFAMjleodPSbzEqlwDECZVgEMYE7y",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 62,
+      "prompt_ms": 559.678,
+      "prompt_per_token_ms": 9.027064516129032,
+      "prompt_per_second": 110.77798305454208,
+      "predicted_n": 125,
+      "predicted_ms": 8839.294,
+      "predicted_per_token_ms": 70.714352,
+      "predicted_per_second": 14.141400885636342
+    }
+  }
+}

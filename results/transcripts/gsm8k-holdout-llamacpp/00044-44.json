@@ -1,0 +1,58 @@
+{
+  "index": 44,
+  "task_id": 44,
+  "rendered_prompt_sha256": "baea7efa3fa3c5a193046f5509c624db1042f3f7b1d25f1299618e543ae18356",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Charlie makes 10 candles per pound of beeswax.  \n- For 20 candles, he needs 2 pounds of beeswax.  \n- Supplies cost $10 per pound, so 2 pounds cost $20.  \n- He sells 20 candles at $2 each, so revenue = 20 × 2 = $40.  \n- Net profit = revenue − supplies cost = $40 − $20 = $20.\n\nAnswer: 20",
+  "expected": "20",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.807993594000436
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Charlie makes 10 candles per pound of beeswax.  \n- For 20 candles, he needs 2 pounds of beeswax.  \n- Supplies cost $10 per pound, so 2 pounds cost $20.  \n- He sells 20 candles at $2 each, so revenue = 20 × 2 = $40.  \n- Net profit = revenue − supplies cost = $40 − $20 = $20.\n\nAnswer: 20",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222849,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 101,
+      "prompt_tokens": 101,
+      "total_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uGXdamcXE19a9HQ90D5mFrPzfTeryQZG",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 100,
+      "prompt_ms": 727.609,
+      "prompt_per_token_ms": 7.27609,
+      "prompt_per_second": 137.43645282012727,
+      "predicted_n": 101,
+      "predicted_ms": 7068.342,
+      "predicted_per_token_ms": 69.98358415841584,
+      "predicted_per_second": 14.289065243305997
+    }
+  }
+}

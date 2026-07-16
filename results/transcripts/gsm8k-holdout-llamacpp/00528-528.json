@@ -1,0 +1,58 @@
+{
+  "index": 528,
+  "task_id": 528,
+  "rendered_prompt_sha256": "a540112618ad971ddd8e5c5b0eafc2bfecb23d3004b993c44c3ede8aafbead76",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Ophelia has 20 sofas.  \n2. Each has 2 fewer sofas than chairs.  \n   That means: Ophelia’s chairs = sofas + 2 = 20 + 2 = 22 chairs.\n\n3. Jenna has 3 times as many chairs as Ophelia.  \n   So Jenna’s chairs = 3 × 22 = 66 chairs.\n\n4. Jenna also has 2 fewer sofas than chairs.  \n   So Jenna’s sofas = 66 − 2 = 64 sofas.\n\n5. Now total sofas: Ophelia’s 20 + Jenna’s 64 = 84 sofas.  \n   Total chairs: Ophelia’s 22 + Jenna’s 66 = 88 chairs.\n\n6. Total furniture = 84 + 88 = 172.\n\nAnswer: 172",
+  "expected": "172",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.616769095999189
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Ophelia has 20 sofas.  \n2. Each has 2 fewer sofas than chairs.  \n   That means: Ophelia’s chairs = sofas + 2 = 20 + 2 = 22 chairs.\n\n3. Jenna has 3 times as many chairs as Ophelia.  \n   So Jenna’s chairs = 3 × 22 = 66 chairs.\n\n4. Jenna also has 2 fewer sofas than chairs.  \n   So Jenna’s sofas = 66 − 2 = 64 sofas.\n\n5. Now total sofas: Ophelia’s 20 + Jenna’s 64 = 84 sofas.  \n   Total chairs: Ophelia’s 22 + Jenna’s 66 = 88 chairs.\n\n6. Total furniture = 84 + 88 = 172.\n\nAnswer: 172",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222606,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 88,
+      "total_tokens": 285,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-hlPSXqqFI9YRrgwsnACFBHvb8UEXvcfq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 698.395,
+      "prompt_per_token_ms": 8.027528735632183,
+      "prompt_per_second": 124.57133856914783,
+      "predicted_n": 197,
+      "predicted_ms": 13916.396,
+      "predicted_per_token_ms": 70.6416040609137,
+      "predicted_per_second": 14.155963943538254
+    }
+  }
+}

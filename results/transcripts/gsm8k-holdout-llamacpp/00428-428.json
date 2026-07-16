@@ -1,0 +1,58 @@
+{
+  "index": 428,
+  "task_id": 428,
+  "rendered_prompt_sha256": "af63aa763f41e376eaf6a409c538e2f6ee32e3a9c448aef4f367ace1941100e2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- The caterer prepared for 36 guests.  \n- He planned for half of them to have two hot dogs, meaning:  \n  - 18 guests get 1 hot dog each  \n  - 18 guests get 2 hot dogs each  \n- Total hot dogs prepared:  \n  \\( 18 \\times 1 + 18 \\times 2 = 18 + 36 = 54 \\) hot dogs.\n\nNow, 40 guests show up, and everyone wants a second hot dog.  \nThat means each guest wants 2 hot dogs, so total demand would be:  \n\\( 40 \\times 2 = 80 \\) hot dogs.\n\nBut only 54 are available.  \nThe first hot dog for each guest uses 40 hot dogs.  \nThat leaves \\( 54 - 40 = 14 \\) hot dogs for seconds.\n\nSo only 14 guests can get a second hot dog.  \nThe number of guests who do **not** get a second hot dog is:  \n\\( 40 - 14 = 26 \\).\n\nAnswer: 26",
+  "expected": "26",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.902868351000507
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- The caterer prepared for 36 guests.  \n- He planned for half of them to have two hot dogs, meaning:  \n  - 18 guests get 1 hot dog each  \n  - 18 guests get 2 hot dogs each  \n- Total hot dogs prepared:  \n  \\( 18 \\times 1 + 18 \\times 2 = 18 + 36 = 54 \\) hot dogs.\n\nNow, 40 guests show up, and everyone wants a second hot dog.  \nThat means each guest wants 2 hot dogs, so total demand would be:  \n\\( 40 \\times 2 = 80 \\) hot dogs.\n\nBut only 54 are available.  \nThe first hot dog for each guest uses 40 hot dogs.  \nThat leaves \\( 54 - 40 = 14 \\) hot dogs for seconds.\n\nSo only 14 guests can get a second hot dog.  \nThe number of guests who do **not** get a second hot dog is:  \n\\( 40 - 14 = 26 \\).\n\nAnswer: 26",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222812,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 229,
+      "prompt_tokens": 100,
+      "total_tokens": 329,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-lG6nG1TkMAWxsQOaUhur9jIJQqwhuxDS",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 733.803,
+      "prompt_per_token_ms": 7.412151515151515,
+      "prompt_per_second": 134.9135939754948,
+      "predicted_n": 229,
+      "predicted_ms": 16166.021,
+      "predicted_per_token_ms": 70.59397816593886,
+      "predicted_per_second": 14.165514197958792
+    }
+  }
+}

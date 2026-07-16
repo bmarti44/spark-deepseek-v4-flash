@@ -1,0 +1,59 @@
+{
+  "index": 847,
+  "task_id": 847,
+  "rendered_prompt_sha256": "0252cf175e8cfbacc9d825905bdb687f518a63dcd4757bb9a7a5d995c41d9b7d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Original amount: $300  \n- Interest per year: three-quarters of the original amount = \\( \\frac{3}{4} \\times 300 = 225 \\)  \n- So each year, she earns $225 in interest.  \n- After 3 years: total interest = \\( 225 \\times 3 = 675 \\)  \n- Total amount after 3 years = principal + interest = \\( 300 + 675 = 975 \\)\n\nAnswer: 975",
+  "expected": "975",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.905914537997887
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Original amount: $300  \n- Interest per year: three-quarters of the original amount = \\( \\frac{3}{4} \\times 300 = 225 \\)  \n- So each year, she earns $225 in interest.  \n- After 3 years: total interest = \\( 225 \\times 3 = 675 \\)  \n- Total amount after 3 years = principal + interest = \\( 300 + 675 = 975 \\)\n\nAnswer: 975",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222841,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 67,
+      "total_tokens": 172,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-P3oubMYvk3a6RzLfQ9ylWtvMH5684LFH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 569.2,
+      "prompt_per_token_ms": 8.624242424242425,
+      "prompt_per_second": 115.95221363316935,
+      "predicted_n": 105,
+      "predicted_ms": 7324.355,
+      "predicted_per_token_ms": 69.7557619047619,
+      "predicted_per_second": 14.33573331713168
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Brenda invested $300 into a scheme that accumulates simple interest at the rate of three-quarters of the original amount per year. How much in total will she have after 3 years?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

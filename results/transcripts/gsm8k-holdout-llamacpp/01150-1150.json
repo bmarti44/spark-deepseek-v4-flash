@@ -1,0 +1,58 @@
+{
+  "index": 1150,
+  "task_id": 1150,
+  "rendered_prompt_sha256": "058379c874559bdae130bfc166d4bd0b90b3ff908a3e7f7009c418a5a3d6d5fe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Patricia started with 30 roses. She gave 24 away, so she had 30 - 24 = 6 roses left. Then she bought 15 more, so she had 6 + 15 = 21 roses.\n\nAnswer: 21",
+  "expected": "21",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.392532075999043
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Patricia started with 30 roses. She gave 24 away, so she had 30 - 24 = 6 roses left. Then she bought 15 more, so she had 6 + 15 = 21 roses.\n\nAnswer: 21",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223016,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 53,
+      "prompt_tokens": 61,
+      "total_tokens": 114,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-epkZdaNU894diRU1zz6NZijbEGEfVflA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 60,
+      "prompt_ms": 560.667,
+      "prompt_per_token_ms": 9.34445,
+      "prompt_per_second": 107.01539416445056,
+      "predicted_n": 53,
+      "predicted_ms": 3829.692,
+      "predicted_per_token_ms": 72.25833962264151,
+      "predicted_per_second": 13.83923302448343
+    }
+  }
+}

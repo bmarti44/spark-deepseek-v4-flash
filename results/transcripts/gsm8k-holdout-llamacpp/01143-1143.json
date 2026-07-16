@@ -1,0 +1,58 @@
+{
+  "index": 1143,
+  "task_id": 1143,
+  "rendered_prompt_sha256": "66649603b62546d09c0fd3e132feb0e0274101fa86ded2b0cba6a8702df06b0d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Tim grows 5 trees. Each year he collects 6 lemons from each tree, so per year he gets 5 × 6 = 30 lemons.  \nA decade is 10 years, so total lemons = 30 × 10 = 300.\n\nAnswer: 300",
+  "expected": "300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.811845642998378
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Tim grows 5 trees. Each year he collects 6 lemons from each tree, so per year he gets 5 × 6 = 30 lemons.  \nA decade is 10 years, so total lemons = 30 × 10 = 300.\n\nAnswer: 300",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222747,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 61,
+      "prompt_tokens": 60,
+      "total_tokens": 121,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WwMJBBiFL7ukTLHifMhaoQ51tbpH8LmM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 59,
+      "prompt_ms": 548.906,
+      "prompt_per_token_ms": 9.303491525423729,
+      "prompt_per_second": 107.48652774792042,
+      "predicted_n": 61,
+      "predicted_ms": 4260.466,
+      "predicted_per_token_ms": 69.8437049180328,
+      "predicted_per_second": 14.317682619694653
+    }
+  }
+}

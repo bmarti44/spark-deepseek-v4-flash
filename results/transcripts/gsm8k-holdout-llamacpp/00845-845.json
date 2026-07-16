@@ -1,0 +1,58 @@
+{
+  "index": 845,
+  "task_id": 845,
+  "rendered_prompt_sha256": "87e79654c428cd486775b438fe5a65a089892fe63122310581ca3e96ae45a044",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have 20 students total.  \n- 5 are good at math only.  \n- 8 are good at English only.  \n- The rest are good at both.\n\nNumber good at both = 20 - (5 + 8) = 20 - 13 = 7.\n\nStudents good at math = math only + both = 5 + 7 = 12.\n\nAnswer: 12",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.8446013719985785
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have 20 students total.  \n- 5 are good at math only.  \n- 8 are good at English only.  \n- The rest are good at both.\n\nNumber good at both = 20 - (5 + 8) = 20 - 13 = 7.\n\nStudents good at math = math only + both = 5 + 7 = 12.\n\nAnswer: 12",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223189,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 84,
+      "prompt_tokens": 78,
+      "total_tokens": 162,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-pdAaYdnjlNksP42LDQ2dK6g4xGrYB8dm",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 672.698,
+      "prompt_per_token_ms": 8.736337662337663,
+      "prompt_per_second": 114.46444020942533,
+      "predicted_n": 84,
+      "predicted_ms": 6168.769,
+      "predicted_per_token_ms": 73.4377261904762,
+      "predicted_per_second": 13.616979335747537
+    }
+  }
+}

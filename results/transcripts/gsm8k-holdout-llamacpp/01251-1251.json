@@ -1,0 +1,58 @@
+{
+  "index": 1251,
+  "task_id": 1251,
+  "rendered_prompt_sha256": "a182eb0718bbed0adac48991d23bb829146e073b4fed1baf2ec3fc9b59c2bcb5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- First side: 5 minutes  \n- Second side: twice as long as the first → 2 × 5 = 10 minutes  \n- Third side: also twice as long as the first → 10 minutes  \n- Fourth side: half as long as the first → 5 ÷ 2 = 2.5 minutes  \n- Fifth side: also half as long as the first → 2.5 minutes  \n\nOnce you get the 5th side, you have all 6 sides, so the sixth side is not extra time.\n\nTotal time = 5 + 10 + 10 + 2.5 + 2.5 = 30 minutes.\n\nAnswer: 30",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.406949714000802
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- First side: 5 minutes  \n- Second side: twice as long as the first → 2 × 5 = 10 minutes  \n- Third side: also twice as long as the first → 10 minutes  \n- Fourth side: half as long as the first → 5 ÷ 2 = 2.5 minutes  \n- Fifth side: also half as long as the first → 2.5 minutes  \n\nOnce you get the 5th side, you have all 6 sides, so the sixth side is not extra time.\n\nTotal time = 5 + 10 + 10 + 2.5 + 2.5 = 30 minutes.\n\nAnswer: 30",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222890,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 152,
+      "prompt_tokens": 102,
+      "total_tokens": 254,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-q2tyH1Fn5ZDpl6Pw8NPPercCtbl2Ps86",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 101,
+      "prompt_ms": 782.39,
+      "prompt_per_token_ms": 7.746435643564356,
+      "prompt_per_second": 129.091629494242,
+      "predicted_n": 152,
+      "predicted_ms": 10621.969,
+      "predicted_per_token_ms": 69.88137499999999,
+      "predicted_per_second": 14.309964564950247
+    }
+  }
+}

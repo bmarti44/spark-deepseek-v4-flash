@@ -1,0 +1,58 @@
+{
+  "index": 1163,
+  "task_id": 1163,
+  "rendered_prompt_sha256": "9eedbf8807f9d9bff87e44502d33073f79b7a0d35a13395e53a8016a37fa4d7b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Tyrion changes his face mask **2 times** each time he goes out.  \n- He goes out **3 times a day**.  \n- So per day: \\( 2 \\times 3 = 6 \\) masks.  \n- Over **2 days**: \\( 6 \\times 2 = 12 \\) masks.\n\nAnswer: 12",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.106227331001719
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Tyrion changes his face mask **2 times** each time he goes out.  \n- He goes out **3 times a day**.  \n- So per day: \\( 2 \\times 3 = 6 \\) masks.  \n- Over **2 days**: \\( 6 \\times 2 = 12 \\) masks.\n\nAnswer: 12",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223353,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 78,
+      "prompt_tokens": 65,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cBjGtpujnSYTlOcAiZIwaV3bZbZLn53A",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 64,
+      "prompt_ms": 561.703,
+      "prompt_per_token_ms": 8.776609375,
+      "prompt_per_second": 113.93921698833726,
+      "predicted_n": 78,
+      "predicted_ms": 5542.672,
+      "predicted_per_token_ms": 71.05989743589743,
+      "predicted_per_second": 14.072635003478467
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 97,
+  "task_id": 97,
+  "rendered_prompt_sha256": "66a9f9305ee75ba2f31cb79d1a1a91b22b5cc5524a25f211509f26cfdd7b6257",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Freda’s sauce loses half its volume when cooking, so the original volume of tomatoes before cooking was double the sauce volume.  \n- She made 32 ounces of sauce, so the original tomato volume was \\( 32 \\times 2 = 64 \\) ounces.  \n- Each can is 16 ounces and contains 3 tomatoes.  \n- Number of cans: \\( 64 \\div 16 = 4 \\) cans.  \n- Number of tomatoes: \\( 4 \\times 3 = 12 \\).\n\nAnswer: 12",
+  "expected": "12",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.944840481999563
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Freda’s sauce loses half its volume when cooking, so the original volume of tomatoes before cooking was double the sauce volume.  \n- She made 32 ounces of sauce, so the original tomato volume was \\( 32 \\times 2 = 64 \\) ounces.  \n- Each can is 16 ounces and contains 3 tomatoes.  \n- Number of cans: \\( 64 \\div 16 = 4 \\) cans.  \n- Number of tomatoes: \\( 4 \\times 3 = 12 \\).\n\nAnswer: 12",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223370,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 119,
+      "prompt_tokens": 82,
+      "total_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1zInGS22waOMXVFYjSe3ykD5EqLR45xu",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 81,
+      "prompt_ms": 631.12,
+      "prompt_per_token_ms": 7.791604938271605,
+      "prompt_per_second": 128.3432627709469,
+      "predicted_n": 119,
+      "predicted_ms": 8311.638,
+      "predicted_per_token_ms": 69.84569747899161,
+      "predicted_per_second": 14.317274164250174
+    }
+  }
+}

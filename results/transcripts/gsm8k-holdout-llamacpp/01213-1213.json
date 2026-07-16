@@ -1,0 +1,58 @@
+{
+  "index": 1213,
+  "task_id": 1213,
+  "rendered_prompt_sha256": "4c61a6ecf63ed7ce1eaadc91202336707283e78617401bca8a9fa35fde178528",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Stephen borrowed $300.  \nThe additional 2% interest is on the amount he owed, so interest = 2% of $300 = $6.  \nTotal to repay = $300 + $6 = $306.  \n\nHe pays $25 per month for 11 months:  \n11 × $25 = $275.  \n\nRemaining amount for the twelfth month:  \n$306 − $275 = $31.  \n\nAnswer: 31",
+  "expected": "31",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.269119111999316
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Stephen borrowed $300.  \nThe additional 2% interest is on the amount he owed, so interest = 2% of $300 = $6.  \nTotal to repay = $300 + $6 = $306.  \n\nHe pays $25 per month for 11 months:  \n11 × $25 = $275.  \n\nRemaining amount for the twelfth month:  \n$306 − $275 = $31.  \n\nAnswer: 31",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222833,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 92,
+      "prompt_tokens": 93,
+      "total_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uQg6CtTteostB0jwZOskyNjdIlgVklpd",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 92,
+      "prompt_ms": 705.41,
+      "prompt_per_token_ms": 7.6674999999999995,
+      "prompt_per_second": 130.42060645582,
+      "predicted_n": 92,
+      "predicted_ms": 6562.007,
+      "predicted_per_token_ms": 71.32616304347826,
+      "predicted_per_second": 14.020100862434315
+    }
+  }
+}

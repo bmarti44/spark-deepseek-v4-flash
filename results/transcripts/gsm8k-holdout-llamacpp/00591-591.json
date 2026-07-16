@@ -1,0 +1,58 @@
+{
+  "index": 591,
+  "task_id": 591,
+  "rendered_prompt_sha256": "9097ba8f239abe33b232a4b1a49e1bb7f42950294cfde21220df7851ac445301",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's go step by step.\n\n- Affenpinscher: 10 pounds  \n- Dachshund: twice that = 2 × 10 = 20 pounds  \n- Papillon: one-fourth of the Dachshund = 20 ÷ 4 = 5 pounds  \n- Mastiff: 44 times the Papillon = 44 × 5 = 220 pounds  \n\nAnswer: 220",
+  "expected": "220",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.776371318999736
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's go step by step.\n\n- Affenpinscher: 10 pounds  \n- Dachshund: twice that = 2 × 10 = 20 pounds  \n- Papillon: one-fourth of the Dachshund = 20 ÷ 4 = 5 pounds  \n- Mastiff: 44 times the Papillon = 44 × 5 = 220 pounds  \n\nAnswer: 220",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222865,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 84,
+      "prompt_tokens": 145,
+      "total_tokens": 229,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-N0oA59BvXaW7TCul9QiWPU1Ty0Mz8Shb",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 144,
+      "prompt_ms": 837.949,
+      "prompt_per_token_ms": 5.819090277777778,
+      "prompt_per_second": 171.8481673705679,
+      "predicted_n": 84,
+      "predicted_ms": 5936.223,
+      "predicted_per_token_ms": 70.66932142857142,
+      "predicted_per_second": 14.150411802252039
+    }
+  }
+}

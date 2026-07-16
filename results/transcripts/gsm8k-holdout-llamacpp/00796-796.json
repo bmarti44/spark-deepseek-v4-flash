@@ -1,0 +1,58 @@
+{
+  "index": 796,
+  "task_id": 796,
+  "rendered_prompt_sha256": "1470b9af510d9b319c589ccd9f28c18b5b9e1619f8db594c7b7ba4052669186b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Initial employees:** 200  \n**New hires per month:** 20  \n**Salary per employee per month:** $4,000  \n\n**Month 1:**  \n- Employees at start: 200  \n- New hires: 20  \n- Total employees paid in month 1: 200 + 20 = 220  \n- Salary cost: 220 × 4,000 = $880,000  \n\n**Month 2:**  \n- Employees at start of month 2: 220  \n- New hires: 20  \n- Total paid in month 2: 220 + 20 = 240  \n- Salary cost: 240 × 4,000 = $960,000  \n\n**Month 3:**  \n- Employees at start of month 3: 240  \n- New hires: 20  \n- Total paid in month 3: 240 + 20 = 260  \n- Salary cost: 260 × 4,000 = $1,040,000  \n\n**Total for 3 months:**  \n880,000 + 960,000 + 1,040,000 = $2,880,000  \n\nAnswer: 2880000",
+  "expected": "2880000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.03075881100085
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Initial employees:** 200  \n**New hires per month:** 20  \n**Salary per employee per month:** $4,000  \n\n**Month 1:**  \n- Employees at start: 200  \n- New hires: 20  \n- Total employees paid in month 1: 200 + 20 = 220  \n- Salary cost: 220 × 4,000 = $880,000  \n\n**Month 2:**  \n- Employees at start of month 2: 220  \n- New hires: 20  \n- Total paid in month 2: 220 + 20 = 240  \n- Salary cost: 240 × 4,000 = $960,000  \n\n**Month 3:**  \n- Employees at start of month 3: 240  \n- New hires: 20  \n- Total paid in month 3: 240 + 20 = 260  \n- Salary cost: 260 × 4,000 = $1,040,000  \n\n**Total for 3 months:**  \n880,000 + 960,000 + 1,040,000 = $2,880,000  \n\nAnswer: 2880000",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223130,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 252,
+      "prompt_tokens": 87,
+      "total_tokens": 339,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-YucrOS5gxtltDMwz3DBXC9ikMu9AbnHD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 708.055,
+      "prompt_per_token_ms": 8.233197674418603,
+      "prompt_per_second": 121.4594911412249,
+      "predicted_n": 252,
+      "predicted_ms": 18320.09,
+      "predicted_per_token_ms": 72.69876984126984,
+      "predicted_per_second": 13.75539093967333
+    }
+  }
+}

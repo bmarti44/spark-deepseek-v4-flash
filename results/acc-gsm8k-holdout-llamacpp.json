@@ -1,0 +1,190 @@
+{
+  "stack_label": "llamacpp-udq2kxl",
+  "suite": "gsm8k",
+  "split": "holdout",
+  "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+  "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+  "n": 100,
+  "correct": 97,
+  "accuracy": 0.97,
+  "wilson95": [
+    0.9154806357094724,
+    0.9897454759759611
+  ],
+  "invalid_count": 0,
+  "started_at": "2026-07-16T17:22:12.868696+00:00",
+  "finished_at": "2026-07-16T17:36:10.549295+00:00",
+  "dataset_revisions": {
+    "openai/gsm8k": "740312add88f781978c0658806c59bc2815b9866",
+    "TIGER-Lab/MMLU-Pro": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+    "openai/openai_humaneval": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544"
+  },
+  "transcript_dir": "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp",
+  "transcript_files": [
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00405-405.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00863-863.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00953-953.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00049-49.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00474-474.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00410-410.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00705-705.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00528-528.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00220-220.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01299-1299.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01212-1212.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00368-368.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00926-926.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00243-243.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00056-56.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00889-889.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01234-1234.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00069-69.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01157-1157.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01193-1193.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01293-1293.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00749-749.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01054-1054.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00269-269.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00812-812.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01143-1143.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00192-192.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00623-623.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00678-678.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00382-382.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00207-207.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00848-848.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00428-428.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00622-622.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01213-1213.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00847-847.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00044-44.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00658-658.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00591-591.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00342-342.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01024-1024.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01251-1251.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00439-439.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00491-491.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00856-856.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00547-547.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01224-1224.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00346-346.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00655-655.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01188-1188.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00272-272.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00231-231.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00578-578.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00113-113.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01245-1245.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00999-999.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00844-844.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01150-1150.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01194-1194.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00073-73.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00628-628.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00773-773.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00910-910.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01108-1108.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01135-1135.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00967-967.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00160-160.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00585-585.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01210-1210.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00745-745.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01281-1281.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00328-328.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00796-796.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00524-524.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00874-874.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01172-1172.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00738-738.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01072-1072.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00615-615.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00845-845.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01259-1259.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00875-875.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00661-661.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01102-1102.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00640-640.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00134-134.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00188-188.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00112-112.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00751-751.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00612-612.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01301-1301.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01071-1071.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00032-32.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00943-943.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00126-126.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00651-651.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01014-1014.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/01163-1163.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00846-846.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-holdout-llamacpp/00097-97.json"
+  ],
+  "models_response": {
+    "models": [
+      {
+        "name": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "aliases": [
+          "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1784222532,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": 2,
+          "n_vocab": 129280,
+          "n_ctx": 32768,
+          "n_ctx_train": 1048576,
+          "n_embd": 4096,
+          "n_params": 284334567511,
+          "size": 96827162972,
+          "ftype": "Q2_K - Medium"
+        }
+      }
+    ]
+  },
+  "generation": {
+    "endpoint": "/v1/completions",
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 512,
+    "stop": null,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  }
+}

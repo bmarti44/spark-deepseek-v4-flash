@@ -1,0 +1,58 @@
+{
+  "index": 346,
+  "task_id": 346,
+  "rendered_prompt_sha256": "7987f565a7f0da7a8058604060db39c7388c57cd764a6591a197198a49b469b6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jenny buys 1 bag per week with 36 cookies.  \n\nHer son gets 4 cookies per day for 5 days:  \n4 × 5 = 20 cookies  \n\nHer husband eats 1 cookie per day for 7 days:  \n1 × 7 = 7 cookies  \n\nTotal eaten by son and husband:  \n20 + 7 = 27 cookies  \n\nJenny eats the rest:  \n36 − 27 = 9 cookies  \n\nAnswer: 9",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.554384564999054
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Jenny buys 1 bag per week with 36 cookies.  \n\nHer son gets 4 cookies per day for 5 days:  \n4 × 5 = 20 cookies  \n\nHer husband eats 1 cookie per day for 7 days:  \n1 × 7 = 7 cookies  \n\nTotal eaten by son and husband:  \n20 + 7 = 27 cookies  \n\nJenny eats the rest:  \n36 − 27 = 9 cookies  \n\nAnswer: 9",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222936,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 98,
+      "prompt_tokens": 96,
+      "total_tokens": 194,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-XcZhBVVgMFWXYrdPK1lOyWVRDlC8RV0R",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 95,
+      "prompt_ms": 706.712,
+      "prompt_per_token_ms": 7.439073684210526,
+      "prompt_per_second": 134.42533875185367,
+      "predicted_n": 98,
+      "predicted_ms": 6844.945,
+      "predicted_per_token_ms": 69.84637755102041,
+      "predicted_per_second": 14.317134761491877
+    }
+  }
+}

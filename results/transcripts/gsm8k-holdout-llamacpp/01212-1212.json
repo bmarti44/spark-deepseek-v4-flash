@@ -1,0 +1,58 @@
+{
+  "index": 1212,
+  "task_id": 1212,
+  "rendered_prompt_sha256": "6bd48d701a6cf90ef1f002bd19354febaec08afca79bc14f2212a453352e5671",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Ali’s class capacity = 120 students.  \n- John’s school has two classes, each with 1/8 the capacity of Ali’s class.  \n  Capacity of one of John’s classes = 120 × (1/8) = 15 students.  \n- John’s total capacity = 2 × 15 = 30 students.  \n- Ali’s school has only one class, so its capacity = 120 students.  \n\nCombined capacity = 120 + 30 = 150.\n\nAnswer: 150",
+  "expected": "150",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.449053301999811
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Ali’s class capacity = 120 students.  \n- John’s school has two classes, each with 1/8 the capacity of Ali’s class.  \n  Capacity of one of John’s classes = 120 × (1/8) = 15 students.  \n- John’s total capacity = 2 × 15 = 30 students.  \n- Ali’s school has only one class, so its capacity = 120 students.  \n\nCombined capacity = 120 + 30 = 150.\n\nAnswer: 150",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222629,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 93,
+      "total_tokens": 218,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-NF9mK51nrYFcmtRO5KibwpaDmO7GwIAd",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 92,
+      "prompt_ms": 711.669,
+      "prompt_per_token_ms": 7.735532608695652,
+      "prompt_per_second": 129.27358083603474,
+      "predicted_n": 125,
+      "predicted_ms": 8734.403,
+      "predicted_per_token_ms": 69.875224,
+      "predicted_per_second": 14.311224247381304
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1245,
+  "task_id": 1245,
+  "rendered_prompt_sha256": "f515365f0cc53469c9f4e029ffe8bfa875d687fb813de949bd074b2aa04a4a64",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let \\( s \\) be the number of strawberry cubes.  \nThen the number of blueberry cubes is \\( 5s - 4 \\).  \nTotal cubes:  \n\\[\ns + (5s - 4) = 116\n\\]  \n\\[\n6s - 4 = 116\n\\]  \n\\[\n6s = 120\n\\]  \n\\[\ns = 20\n\\]  \nBlueberry cubes:  \n\\[\n5(20) - 4 = 100 - 4 = 96\n\\]  \n\nAnswer: 96",
+  "expected": "96",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.08195327899739
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let \\( s \\) be the number of strawberry cubes.  \nThen the number of blueberry cubes is \\( 5s - 4 \\).  \nTotal cubes:  \n\\[\ns + (5s - 4) = 116\n\\]  \n\\[\n6s - 4 = 116\n\\]  \n\\[\n6s = 120\n\\]  \n\\[\ns = 20\n\\]  \nBlueberry cubes:  \n\\[\n5(20) - 4 = 100 - 4 = 96\n\\]  \n\nAnswer: 96",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222988,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 114,
+      "prompt_tokens": 89,
+      "total_tokens": 203,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CEcbVqMHCue2WZYOyW0hCQO8N4LAikgC",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 88,
+      "prompt_ms": 748.539,
+      "prompt_per_token_ms": 8.506124999999999,
+      "prompt_per_second": 117.56234478096665,
+      "predicted_n": 114,
+      "predicted_ms": 8330.499,
+      "predicted_per_token_ms": 73.07455263157894,
+      "predicted_per_second": 13.684654424662916
+    }
+  }
+}

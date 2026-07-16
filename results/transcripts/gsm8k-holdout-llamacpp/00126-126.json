@@ -1,0 +1,59 @@
+{
+  "index": 126,
+  "task_id": 126,
+  "rendered_prompt_sha256": "5d1d17ed59f2c78f38c1feb4277f186c0e4e0238af547234a38f9fe1fea7fa9b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Dylan bought 38 chicken sausages.  \nFish sausages = 38 + 6 = 44.  \nTotal sausages = 38 + 44 = 82.  \n\nAnswer: 82",
+  "expected": "82",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6016018929985876
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Dylan bought 38 chicken sausages.  \nFish sausages = 38 + 6 = 44.  \nTotal sausages = 38 + 44 = 82.  \n\nAnswer: 82",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223323,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 77,
+      "total_tokens": 120,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-gMWQN0gDJN1yHZRc2kxGBpaufVj0ITgF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 76,
+      "prompt_ms": 623.258,
+      "prompt_per_token_ms": 8.200763157894738,
+      "prompt_per_second": 121.93987080791581,
+      "predicted_n": 43,
+      "predicted_ms": 2976.123,
+      "predicted_per_token_ms": 69.21216279069768,
+      "predicted_per_second": 14.448327572482723
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Dylan needed chicken sausages and fish sausages to make sausage buns at a party. He bought 38 chicken sausages and 6 more fish sausages than chicken sausages. How many sausages did Dylan buy in all?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

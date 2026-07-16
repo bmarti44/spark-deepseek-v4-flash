@@ -1,0 +1,58 @@
+{
+  "index": 112,
+  "task_id": 112,
+  "rendered_prompt_sha256": "381707f85b4d50ffd9d8afddcb6fd26e58bd4e20ae4c01deaf338393c65b1b57",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- There are 4 teachers.\n- Each teacher has 2 lessons per day.\n- So total lessons per day = \\( 4 \\times 2 = 8 \\) lessons.\n- The whiteboard is cleaned 3 times per lesson.\n- Total cleanings per day = \\( 8 \\times 3 = 24 \\).\n\nAnswer: 24",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.4904336639992835
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- There are 4 teachers.\n- Each teacher has 2 lessons per day.\n- So total lessons per day = \\( 4 \\times 2 = 8 \\) lessons.\n- The whiteboard is cleaned 3 times per lesson.\n- Total cleanings per day = \\( 8 \\times 3 = 24 \\).\n\nAnswer: 24",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223260,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 83,
+      "prompt_tokens": 91,
+      "total_tokens": 174,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bPAmkqCxfQ5z000IsMfaxUlQmvDNHl2b",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 90,
+      "prompt_ms": 691.334,
+      "prompt_per_token_ms": 7.681488888888889,
+      "prompt_per_second": 130.18309529113282,
+      "predicted_n": 83,
+      "predicted_ms": 5797.107,
+      "predicted_per_token_ms": 69.84466265060242,
+      "predicted_per_second": 14.317486291006876
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1024,
+  "task_id": 1024,
+  "rendered_prompt_sha256": "f7ed70d270583d1741e0f4a17a19e705a8549fff0a0999ee179531134b0405f1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, calculate the total earnings from cookies:  \n80 cookies × $1 = $80  \n\nThen, calculate the earnings from cupcakes:  \n60 cupcakes × $4 = $240  \n\nTotal earnings:  \n$80 + $240 = $320  \n\nShe gave $10 to each of her two sisters:  \n2 × $10 = $20  \n\nMoney left:  \n$320 − $20 = $300  \n\nAnswer: 300",
+  "expected": "300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.753960252000979
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, calculate the total earnings from cookies:  \n80 cookies × $1 = $80  \n\nThen, calculate the earnings from cupcakes:  \n60 cupcakes × $4 = $240  \n\nTotal earnings:  \n$80 + $240 = $320  \n\nShe gave $10 to each of her two sisters:  \n2 × $10 = $20  \n\nMoney left:  \n$320 − $20 = $300  \n\nAnswer: 300",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222879,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 88,
+      "prompt_tokens": 72,
+      "total_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qsB2hAhiZfpu5VKHvypSGDdDJtdVBWal",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 71,
+      "prompt_ms": 611.574,
+      "prompt_per_token_ms": 8.613718309859154,
+      "prompt_per_second": 116.09388234293807,
+      "predicted_n": 88,
+      "predicted_ms": 6139.539,
+      "predicted_per_token_ms": 69.76748863636364,
+      "predicted_per_second": 14.333323723491294
+    }
+  }
+}

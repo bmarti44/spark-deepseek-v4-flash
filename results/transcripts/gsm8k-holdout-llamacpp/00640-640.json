@@ -1,0 +1,58 @@
+{
+  "index": 640,
+  "task_id": 640,
+  "rendered_prompt_sha256": "7423f920b46556514a136e792f6dd89bbcef4371a49468e03a530c1d89ba7c5b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Base price: $30,000  \n- King cab upgrade: $7,500  \n- Leather seats: one-third the cost of king cab → $7,500 ÷ 3 = $2,500  \n- Running boards: $500 less than leather seats → $2,500 − $500 = $2,000  \n- Upgraded exterior light package: $1,500  \n\nNow add them up:  \n$30,000 + $7,500 = $37,500  \n$37,500 + $2,500 = $40,000  \n$40,000 + $2,000 = $42,000  \n$42,000 + $1,500 = $43,500  \n\nAnswer: 43500",
+  "expected": "43,500",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.447790972997609
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Base price: $30,000  \n- King cab upgrade: $7,500  \n- Leather seats: one-third the cost of king cab → $7,500 ÷ 3 = $2,500  \n- Running boards: $500 less than leather seats → $2,500 − $500 = $2,000  \n- Upgraded exterior light package: $1,500  \n\nNow add them up:  \n$30,000 + $7,500 = $37,500  \n$37,500 + $2,500 = $40,000  \n$40,000 + $2,000 = $42,000  \n$42,000 + $1,500 = $43,500  \n\nAnswer: 43500",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223239,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 163,
+      "prompt_tokens": 156,
+      "total_tokens": 319,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-3FwK8I4zNlSKWJbbOmBz1cFltiWGKctR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 155,
+      "prompt_ms": 852.852,
+      "prompt_per_token_ms": 5.502270967741936,
+      "prompt_per_second": 181.7431394896184,
+      "predicted_n": 163,
+      "predicted_ms": 11592.76,
+      "predicted_per_token_ms": 71.12122699386504,
+      "predicted_per_second": 14.060499829203744
+    }
+  }
+}

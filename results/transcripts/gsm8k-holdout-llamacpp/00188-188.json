@@ -1,0 +1,59 @@
+{
+  "index": 188,
+  "task_id": 188,
+  "rendered_prompt_sha256": "7051a5dffe94a129eea301abb17ef15e6c1eae72dd431cf6afb11611d813410f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the number of bags be \\( n \\).\n\n**Cost per bag:**  \n- Purchase price: $20  \n- Transport: $2  \n- Total cost per bag: \\( 20 + 2 = 22 \\) dollars  \n\n**Total cost:**  \n\\( 22n \\) dollars  \n\n**Revenue:**  \nSelling price per bag: $30  \nTotal revenue: \\( 30n \\) dollars  \n\n**Profit:**  \nProfit = Revenue - Total cost  \n\\[\n30n - 22n = 8n\n\\]  \nGiven profit = $400:  \n\\[\n8n = 400\n\\]  \n\\[\nn = 50\n\\]\n\nAnswer: 50",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.449304089001089
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the number of bags be \\( n \\).\n\n**Cost per bag:**  \n- Purchase price: $20  \n- Transport: $2  \n- Total cost per bag: \\( 20 + 2 = 22 \\) dollars  \n\n**Total cost:**  \n\\( 22n \\) dollars  \n\n**Revenue:**  \nSelling price per bag: $30  \nTotal revenue: \\( 30n \\) dollars  \n\n**Profit:**  \nProfit = Revenue - Total cost  \n\\[\n30n - 22n = 8n\n\\]  \nGiven profit = $400:  \n\\[\n8n = 400\n\\]  \n\\[\nn = 50\n\\]\n\nAnswer: 50",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223254,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 94,
+      "total_tokens": 232,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9CmJF8YyggdZUcRp68U1Bx2vCNgecoZ7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 93,
+      "prompt_ms": 691.737,
+      "prompt_per_token_ms": 7.438032258064516,
+      "prompt_per_second": 134.44416013600545,
+      "predicted_n": 138,
+      "predicted_ms": 9754.818,
+      "predicted_per_token_ms": 70.68708695652174,
+      "predicted_per_second": 14.146855430824031
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>A trader buys some bags of wheat from a farmer at a rate of $20 per bag. If it costs $2 to transport each bag from the farm to the warehouse, and the trader made a total profit of $400 after selling all the bags at a rate of $30 each, how many bags did he sell?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

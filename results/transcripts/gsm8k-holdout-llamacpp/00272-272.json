@@ -1,0 +1,58 @@
+{
+  "index": 272,
+  "task_id": 272,
+  "rendered_prompt_sha256": "0df9d6d6c9ce92e71c78ee92cc38ab30e17304ff02d8356f36f5d2de8ee6bfa4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, add up the costs:\n\n- Cocoa: $4.20  \n- Laundry: $9.45  \n- Pasta: $1.35  \n\nTotal = 4.20 + 9.45 = 13.65  \n13.65 + 1.35 = 15.00  \n\nShe pays $20.  \nChange = 20.00 − 15.00 = 5.00  \n\nAnswer: 5.00",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.641433104003227
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, add up the costs:\n\n- Cocoa: $4.20  \n- Laundry: $9.45  \n- Pasta: $1.35  \n\nTotal = 4.20 + 9.45 = 13.65  \n13.65 + 1.35 = 15.00  \n\nShe pays $20.  \nChange = 20.00 − 15.00 = 5.00  \n\nAnswer: 5.00",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222958,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 95,
+      "prompt_tokens": 75,
+      "total_tokens": 170,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bPewEM0833gFoIvFktL4IMP6d7KRXN4O",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 74,
+      "prompt_ms": 628.033,
+      "prompt_per_token_ms": 8.486932432432432,
+      "prompt_per_second": 117.82820329504979,
+      "predicted_n": 95,
+      "predicted_ms": 7011.047,
+      "predicted_per_token_ms": 73.8004947368421,
+      "predicted_per_second": 13.55004466522618
+    }
+  }
+}

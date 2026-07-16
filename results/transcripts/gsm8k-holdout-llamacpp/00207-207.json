@@ -1,0 +1,58 @@
+{
+  "index": 207,
+  "task_id": 207,
+  "rendered_prompt_sha256": "8c71141e7f95ab144484ee884f1d054d8c32e3193f4011de20c59ed6219c961a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We know each chocolate bar weighs 40g, and each chocolate bar weighs twice as much as each candied apple.  \nSo each candied apple weighs \\( 40 \\div 2 = 20 \\) grams.\n\nJoe has:  \n- 25 chocolate bars → \\( 25 \\times 40 = 1000 \\) grams  \n- 80 candied apples → \\( 80 \\times 20 = 1600 \\) grams  \n\nTotal weight: \\( 1000 + 1600 = 2600 \\) grams.\n\nAnswer: 2600",
+  "expected": "2600",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.538502380000864
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We know each chocolate bar weighs 40g, and each chocolate bar weighs twice as much as each candied apple.  \nSo each candied apple weighs \\( 40 \\div 2 = 20 \\) grams.\n\nJoe has:  \n- 25 chocolate bars → \\( 25 \\times 40 = 1000 \\) grams  \n- 80 candied apples → \\( 80 \\times 20 = 1600 \\) grams  \n\nTotal weight: \\( 1000 + 1600 = 2600 \\) grams.\n\nAnswer: 2600",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222785,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 113,
+      "prompt_tokens": 82,
+      "total_tokens": 195,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KTfht3ouLCRz1Iv622uMzy3qau3K3Zhv",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 81,
+      "prompt_ms": 648.268,
+      "prompt_per_token_ms": 8.003308641975309,
+      "prompt_per_second": 124.94832384137423,
+      "predicted_n": 113,
+      "predicted_ms": 7887.135,
+      "predicted_per_token_ms": 69.79765486725664,
+      "predicted_per_second": 14.32712892577596
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1172,
+  "task_id": 1172,
+  "rendered_prompt_sha256": "bc2bf2bf8b75f4a91c9d0c21b3d3a1e40624632833ea0ecaaa6acaf370e26f44",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Monday: 3  \nTuesday: 3 × 2 = 6  \nWednesday: 6 × 2 = 12  \nThursday: 12 × 2 = 24  \nFriday: 24 × 2 = 48  \n\nTotal = 3 + 6 + 12 + 24 + 48 = 93  \n\nAnswer: 93",
+  "expected": "93",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.268569251998997
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Monday: 3  \nTuesday: 3 × 2 = 6  \nWednesday: 6 × 2 = 12  \nThursday: 12 × 2 = 24  \nFriday: 24 × 2 = 48  \n\nTotal = 3 + 6 + 12 + 24 + 48 = 93  \n\nAnswer: 93",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223147,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 110,
+      "total_tokens": 184,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uANKnvCov4JFqQhJl4qXkAa1ARi2wj0h",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 109,
+      "prompt_ms": 822.943,
+      "prompt_per_token_ms": 7.549935779816513,
+      "prompt_per_second": 132.45145775588344,
+      "predicted_n": 74,
+      "predicted_ms": 5443.522,
+      "predicted_per_token_ms": 73.5611081081081,
+      "predicted_per_second": 13.594139970408865
+    }
+  }
+}

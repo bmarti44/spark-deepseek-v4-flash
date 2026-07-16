@@ -1,0 +1,59 @@
+{
+  "index": 56,
+  "task_id": 56,
+  "rendered_prompt_sha256": "cea9cae891cae3eb8ea04833eb54355dd118bcd33ce223072a1ae3620fe486b5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Peter spends $7 on a ticket and $7 on popcorn each time, so that's $7 + $7 = $14 per trip.  \nHe has $42 total.  \n$42 ÷ $14 = 3 trips.  \n\nAnswer: 3",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.281135363999056
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Peter spends $7 on a ticket and $7 on popcorn each time, so that's $7 + $7 = $14 per trip.  \nHe has $42 total.  \n$42 ÷ $14 = 3 trips.  \n\nAnswer: 3",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222661,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 53,
+      "prompt_tokens": 73,
+      "total_tokens": 126,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-jCulP4iF4gZKX4shpyGabH7IAU7aL4w7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 72,
+      "prompt_ms": 608.703,
+      "prompt_per_token_ms": 8.454208333333334,
+      "prompt_per_second": 118.28428642539957,
+      "predicted_n": 53,
+      "predicted_ms": 3669.83,
+      "predicted_per_token_ms": 69.24207547169812,
+      "predicted_per_second": 14.442085873187587
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Peter plans to go to the movies this week. He always gets a ticket for $7 and popcorn for $7. If he has 42 dollars for the week, how many times can he go to the movies?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

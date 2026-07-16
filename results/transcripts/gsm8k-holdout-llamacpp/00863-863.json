@@ -1,0 +1,58 @@
+{
+  "index": 863,
+  "task_id": 863,
+  "rendered_prompt_sha256": "89a097bd0710ab805180473470e8e6dc0f93027f4f7037438323665eeaafca54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the number of silver coins be \\( s \\).  \nThen gold coins = \\( s + 30 \\).  \nWe are told gold coins = 70, so:\n\n\\[\ns + 30 = 70\n\\]\n\\[\ns = 40\n\\]\n\nTotal coins = gold + silver = \\( 70 + 40 = 110 \\).\n\nAnswer: 110",
+  "expected": "110",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.035428965999017
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the number of silver coins be \\( s \\).  \nThen gold coins = \\( s + 30 \\).  \nWe are told gold coins = 70, so:\n\n\\[\ns + 30 = 70\n\\]\n\\[\ns = 40\n\\]\n\nTotal coins = gold + silver = \\( 70 + 40 = 110 \\).\n\nAnswer: 110",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222548,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 78,
+      "prompt_tokens": 65,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-C1PzR78x5eZnBgfSP7rvYtTPC4QG01qP",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 64,
+      "prompt_ms": 559.144,
+      "prompt_per_token_ms": 8.736625,
+      "prompt_per_second": 114.46067560413775,
+      "predicted_n": 78,
+      "predicted_ms": 5474.044,
+      "predicted_per_token_ms": 70.18005128205128,
+      "predicted_per_second": 14.249063398102024
+    }
+  }
+}

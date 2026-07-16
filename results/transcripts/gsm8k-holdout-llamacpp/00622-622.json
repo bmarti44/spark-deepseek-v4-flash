@@ -1,0 +1,58 @@
+{
+  "index": 622,
+  "task_id": 622,
+  "rendered_prompt_sha256": "1ae80780ecf7b593bfdf9ba94eb900019c34c14b15a30820d7ea740a8a9e24b5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's go step by step.\n\n1. Jim starts with 20 pieces of gum.  \n2. At school: He chews 1 piece every 2 hours, and school is 8 hours.  \n   That's 8 ÷ 2 = 4 pieces during school.  \n   Remaining: 20 − 4 = 16 pieces.  \n3. On the way home: He chews 1 piece.  \n   Remaining: 16 − 1 = 15 pieces.  \n4. After dinner: He chews 1 piece.  \n   Remaining: 15 − 1 = 14 pieces.  \n5. Right before bed: He gives half of what he has left to his sister.  \n   Half of 14 is 7.  \n   Remaining: 14 − 7 = 7 pieces.\n\nAnswer: 7",
+  "expected": "7",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.762547272999655
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's go step by step.\n\n1. Jim starts with 20 pieces of gum.  \n2. At school: He chews 1 piece every 2 hours, and school is 8 hours.  \n   That's 8 ÷ 2 = 4 pieces during school.  \n   Remaining: 20 − 4 = 16 pieces.  \n3. On the way home: He chews 1 piece.  \n   Remaining: 16 − 1 = 15 pieces.  \n4. After dinner: He chews 1 piece.  \n   Remaining: 15 − 1 = 14 pieces.  \n5. Right before bed: He gives half of what he has left to his sister.  \n   Half of 14 is 7.  \n   Remaining: 14 − 7 = 7 pieces.\n\nAnswer: 7",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222826,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 180,
+      "prompt_tokens": 125,
+      "total_tokens": 305,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-u49YdZiCKuktmOalr4HRNot8TVuCjUlv",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 124,
+      "prompt_ms": 870.446,
+      "prompt_per_token_ms": 7.019725806451613,
+      "prompt_per_second": 142.4557066147699,
+      "predicted_n": 180,
+      "predicted_ms": 12889.04,
+      "predicted_per_token_ms": 71.60577777777779,
+      "predicted_per_second": 13.965353509648507
+    }
+  }
+}

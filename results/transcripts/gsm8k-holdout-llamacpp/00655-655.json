@@ -1,0 +1,58 @@
+{
+  "index": 655,
+  "task_id": 655,
+  "rendered_prompt_sha256": "53aa557414c6f7ec6d4ae687ae5ffa3edb3d59ea82537e4cbdb60e7a67799bf9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Shiela needs to write 15 pages total. She has finished 1/3 of that, which is:\n\n15 × 1/3 = 5 pages.\n\nPages left to write:\n\n15 − 5 = 10 pages.\n\nAnswer: 10",
+  "expected": "10",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.2937954970002465
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Shiela needs to write 15 pages total. She has finished 1/3 of that, which is:\n\n15 × 1/3 = 5 pages.\n\nPages left to write:\n\n15 − 5 = 10 pages.\n\nAnswer: 10",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222941,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 65,
+      "total_tokens": 119,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FZod4x8LclH17rbBNoManglTxbWWYCDB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 64,
+      "prompt_ms": 552.019,
+      "prompt_per_token_ms": 8.625296875,
+      "prompt_per_second": 115.9380383646215,
+      "predicted_n": 54,
+      "predicted_ms": 3738.397,
+      "predicted_per_token_ms": 69.22957407407408,
+      "predicted_per_second": 14.444693808602993
+    }
+  }
+}

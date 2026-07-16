@@ -1,0 +1,58 @@
+{
+  "index": 658,
+  "task_id": 658,
+  "rendered_prompt_sha256": "25574850ba3a1297ed8b4afa48e57358d69b0ad4e3a5f2bfd5dba3782465caae",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Rice cooking time: 30 minutes.  \n- Pork takes 20 minutes more than rice:  \n  Pork = 30 + 20 = 50 minutes.  \n- Beans take half the combined time of pork and rice:  \n  Combined = 30 + 50 = 80 minutes.  \n  Beans = 80 ÷ 2 = 40 minutes.  \n\nTotal cooking time = rice + pork + beans = 30 + 50 + 40 = 120 minutes.\n\nAnswer: 120",
+  "expected": "120",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.71647022599791
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Rice cooking time: 30 minutes.  \n- Pork takes 20 minutes more than rice:  \n  Pork = 30 + 20 = 50 minutes.  \n- Beans take half the combined time of pork and rice:  \n  Combined = 30 + 50 = 80 minutes.  \n  Beans = 80 ÷ 2 = 40 minutes.  \n\nTotal cooking time = rice + pork + beans = 30 + 50 + 40 = 120 minutes.\n\nAnswer: 120",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222858,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 114,
+      "prompt_tokens": 100,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-yMnaZH9Uk4YrJ69eNxxGKM372izBvVKn",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 734.822,
+      "prompt_per_token_ms": 7.422444444444444,
+      "prompt_per_second": 134.72650519445526,
+      "predicted_n": 114,
+      "predicted_ms": 7979.463,
+      "predicted_per_token_ms": 69.99528947368421,
+      "predicted_per_second": 14.286675682310953
+    }
+  }
+}

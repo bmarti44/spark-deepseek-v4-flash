@@ -1,0 +1,58 @@
+{
+  "index": 615,
+  "task_id": 615,
+  "rendered_prompt_sha256": "840a22f05a93398eaa42bfaadcc0236424485d8e0f0041513d72a3ceb180419f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s add up the costs step by step:\n\n- Aquarium: $10.00  \n- 2 bags of rocks: 2 × $2.50 = $5.00  \n- 3 pieces of coral: 3 × $2.00 = $6.00  \n- 20 fish: 20 × $0.50 = $10.00  \n- Fish food: $2.00  \n\nNow sum:  \n10 + 5 + 6 + 10 + 2 = $33.00  \n\nAnswer: 33",
+  "expected": "33",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.421050036999077
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s add up the costs step by step:\n\n- Aquarium: $10.00  \n- 2 bags of rocks: 2 × $2.50 = $5.00  \n- 3 pieces of coral: 3 × $2.00 = $6.00  \n- 20 fish: 20 × $0.50 = $10.00  \n- Fish food: $2.00  \n\nNow sum:  \n10 + 5 + 6 + 10 + 2 = $33.00  \n\nAnswer: 33",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223182,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 115,
+      "prompt_tokens": 109,
+      "total_tokens": 224,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ozxjudp5OPTSDvpuEa5b2xeCrNdtdPrG",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 108,
+      "prompt_ms": 820.759,
+      "prompt_per_token_ms": 7.599620370370371,
+      "prompt_per_second": 131.58552023188292,
+      "predicted_n": 115,
+      "predicted_ms": 8597.823,
+      "predicted_per_token_ms": 74.76367826086957,
+      "predicted_per_second": 13.3754788857598
+    }
+  }
+}

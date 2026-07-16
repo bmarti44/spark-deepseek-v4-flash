@@ -1,0 +1,58 @@
+{
+  "index": 474,
+  "task_id": 474,
+  "rendered_prompt_sha256": "72fe01dd360b1f6094285dbf2ef4f3b324fcc802b52b87c1caf076c3971079aa",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the total number of students be \\( x \\).  \nThree-fourths have a desktop, so one-fourth do not.  \nThat one-fourth equals 20 students:  \n\\[\n\\frac{1}{4}x = 20\n\\]  \nMultiply both sides by 4:  \n\\[\nx = 80\n\\]  \n\nAnswer: 80",
+  "expected": "80",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.511810312000307
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the total number of students be \\( x \\).  \nThree-fourths have a desktop, so one-fourth do not.  \nThat one-fourth equals 20 students:  \n\\[\n\\frac{1}{4}x = 20\n\\]  \nMultiply both sides by 4:  \n\\[\nx = 80\n\\]  \n\nAnswer: 80",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222573,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 71,
+      "prompt_tokens": 67,
+      "total_tokens": 138,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-BNl8j25PpibRbtNLtAvCcoJYG1tFi7cp",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 558.922,
+      "prompt_per_token_ms": 8.468515151515152,
+      "prompt_per_second": 118.08445543385302,
+      "predicted_n": 71,
+      "predicted_ms": 4949.935,
+      "predicted_per_token_ms": 69.71739436619718,
+      "predicted_per_second": 14.343622694035377
+    }
+  }
+}

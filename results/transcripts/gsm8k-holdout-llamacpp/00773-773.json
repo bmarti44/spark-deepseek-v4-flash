@@ -1,0 +1,58 @@
+{
+  "index": 773,
+  "task_id": 773,
+  "rendered_prompt_sha256": "dd60865ebff5c38b3ce71e60633678dd55910a68485155544383416bb9c08814",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Anthony starts with 50 pencils.  \nHe gives half to Brandon: 50 × 1/2 = 25 pencils given away.  \nRemaining: 50 - 25 = 25 pencils.  \nThen he gives 3/5 of the remaining to Charlie: 25 × 3/5 = 15 pencils given away.  \nRemaining for Anthony: 25 - 15 = 10 pencils.  \n\nAnswer: 10",
+  "expected": "10",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.289827980999689
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Anthony starts with 50 pencils.  \nHe gives half to Brandon: 50 × 1/2 = 25 pencils given away.  \nRemaining: 50 - 25 = 25 pencils.  \nThen he gives 3/5 of the remaining to Charlie: 25 × 3/5 = 15 pencils given away.  \nRemaining for Anthony: 25 - 15 = 10 pencils.  \n\nAnswer: 10",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223046,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 92,
+      "prompt_tokens": 74,
+      "total_tokens": 166,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CwQIbM4rC7OWHsiMRf1DXFDl4uYaTzDd",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 73,
+      "prompt_ms": 626.209,
+      "prompt_per_token_ms": 8.578205479452054,
+      "prompt_per_second": 116.57449829050685,
+      "predicted_n": 92,
+      "predicted_ms": 6662.045,
+      "predicted_per_token_ms": 72.41353260869565,
+      "predicted_per_second": 13.809573486819739
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 745,
+  "task_id": 745,
+  "rendered_prompt_sha256": "28c68781baeb27cde3b9f0838519fa022515bb08838bf2071d9db0065f905aa6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n**Cost:**  \n3 packs × $1800 = $5400\n\n**Revenue:**  \n- One card worth $4000  \n- One card worth $1000  \n- 30 more cards at $50 each = 30 × $50 = $1500  \n\nTotal revenue = $4000 + $1000 + $1500 = $6500\n\n**Profit:**  \nRevenue − Cost = $6500 − $5400 = $1100\n\nAnswer: 1100",
+  "expected": "1100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.617708452002262
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n**Cost:**  \n3 packs × $1800 = $5400\n\n**Revenue:**  \n- One card worth $4000  \n- One card worth $1000  \n- 30 more cards at $50 each = 30 × $50 = $1500  \n\nTotal revenue = $4000 + $1000 + $1500 = $6500\n\n**Profit:**  \nRevenue − Cost = $6500 − $5400 = $1100\n\nAnswer: 1100",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223098,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 109,
+      "prompt_tokens": 100,
+      "total_tokens": 209,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-6keT4EWh33qennw9iBZTLZKMas04HwDW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 732.373,
+      "prompt_per_token_ms": 7.397707070707071,
+      "prompt_per_second": 135.1770204526928,
+      "predicted_n": 109,
+      "predicted_ms": 7882.247,
+      "predicted_per_token_ms": 72.31419266055046,
+      "predicted_per_second": 13.828544068715429
+    }
+  }
+}

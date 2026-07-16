@@ -1,0 +1,58 @@
+{
+  "index": 953,
+  "task_id": 953,
+  "rendered_prompt_sha256": "ecb7184e08a1007e9cf06e2bcd09ceece1df5e7c41ab5edfe4880e0fe6dc5c78",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, let's find her usual sleep duration.  \nShe goes to sleep at 10 p.m. and wakes up at 6 a.m., which is 8 hours, or 480 minutes.\n\nOn this day, she woke up 5 minutes earlier than usual, so she woke up at 5:55 a.m. instead of 6:00 a.m.  \nThat means her total time in bed from 10 p.m. to 5:55 a.m. is 7 hours and 55 minutes, which is 475 minutes.\n\nHowever, she was sleepwalking from 2:15 a.m. to 2:38 a.m., which is 23 minutes. During that time, she was not sleeping in bed.\n\nSo, actual sleep time on the bed = 475 minutes − 23 minutes = 452 minutes.\n\nAnswer: 452",
+  "expected": "452",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.61594414299907
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, let's find her usual sleep duration.  \nShe goes to sleep at 10 p.m. and wakes up at 6 a.m., which is 8 hours, or 480 minutes.\n\nOn this day, she woke up 5 minutes earlier than usual, so she woke up at 5:55 a.m. instead of 6:00 a.m.  \nThat means her total time in bed from 10 p.m. to 5:55 a.m. is 7 hours and 55 minutes, which is 475 minutes.\n\nHowever, she was sleepwalking from 2:15 a.m. to 2:38 a.m., which is 23 minutes. During that time, she was not sleeping in bed.\n\nSo, actual sleep time on the bed = 475 minutes − 23 minutes = 452 minutes.\n\nAnswer: 452",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222562,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 179,
+      "prompt_tokens": 139,
+      "total_tokens": 318,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ejup9Y0TIhpsx4IYeu5sO9ySxucm33ky",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 138,
+      "prompt_ms": 826.489,
+      "prompt_per_token_ms": 5.989050724637681,
+      "prompt_per_second": 166.97136924992344,
+      "predicted_n": 179,
+      "predicted_ms": 12786.268,
+      "predicted_per_token_ms": 71.43166480446928,
+      "predicted_per_second": 13.999393724580152
+    }
+  }
+}

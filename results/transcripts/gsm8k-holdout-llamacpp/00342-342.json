@@ -1,0 +1,58 @@
+{
+  "index": 342,
+  "task_id": 342,
+  "rendered_prompt_sha256": "caf7e0bd4785b2aabb17837d9fe60c129e3cc5b91d2ae7fede2464e900251c6c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step:\n\n1. Laurel’s friend gave her 24 outfits.  \n2. At her baby shower, she received twice that amount:  \n   \\( 2 \\times 24 = 48 \\) outfits.  \n3. Then her mom gave her another 15 outfits.\n\nNow add them all up:  \n\\( 24 + 48 + 15 = 87 \\)\n\nAnswer: 87",
+  "expected": "87",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.133808385999146
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step:\n\n1. Laurel’s friend gave her 24 outfits.  \n2. At her baby shower, she received twice that amount:  \n   \\( 2 \\times 24 = 48 \\) outfits.  \n3. Then her mom gave her another 15 outfits.\n\nNow add them all up:  \n\\( 24 + 48 + 15 = 87 \\)\n\nAnswer: 87",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222872,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 90,
+      "prompt_tokens": 89,
+      "total_tokens": 179,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-c1KIjnrrLmsX8C40ootE24Bg9Iuh7Fav",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 88,
+      "prompt_ms": 709.181,
+      "prompt_per_token_ms": 8.058875,
+      "prompt_per_second": 124.08679871570163,
+      "predicted_n": 90,
+      "predicted_ms": 6421.706,
+      "predicted_per_token_ms": 71.35228888888889,
+      "predicted_per_second": 14.01496736225545
+    }
+  }
+}

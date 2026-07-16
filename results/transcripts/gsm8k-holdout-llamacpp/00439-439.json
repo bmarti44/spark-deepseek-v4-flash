@@ -1,0 +1,58 @@
+{
+  "index": 439,
+  "task_id": 439,
+  "rendered_prompt_sha256": "310484161978944aa919acbe6dfb785ffb1f7defb4ec54362fc961ef20cc3549",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Wayne’s drive time: 4 minutes.  \n- Bernadette’s drive time is four times that: \\( 4 \\times 4 = 16 \\) minutes.  \n- Bernadette wants to arrive 5 minutes before Wayne.\n\nIf Wayne leaves at time \\( t \\), he arrives at \\( t + 4 \\).  \nBernadette wants to arrive at \\( t + 4 - 5 = t - 1 \\).  \nShe needs to leave at \\( t - 1 - 16 = t - 17 \\).\n\nSo she must leave 17 minutes earlier than Wayne.\n\nAnswer: 17",
+  "expected": "17",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.662527070002398
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Wayne’s drive time: 4 minutes.  \n- Bernadette’s drive time is four times that: \\( 4 \\times 4 = 16 \\) minutes.  \n- Bernadette wants to arrive 5 minutes before Wayne.\n\nIf Wayne leaves at time \\( t \\), he arrives at \\( t + 4 \\).  \nBernadette wants to arrive at \\( t + 4 - 5 = t - 1 \\).  \nShe needs to leave at \\( t - 1 - 16 = t - 17 \\).\n\nSo she must leave 17 minutes earlier than Wayne.\n\nAnswer: 17",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222901,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 141,
+      "total_tokens": 279,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rmHZSQJVyjPwBeCRaGaDAVTVAzC7PBGr",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 140,
+      "prompt_ms": 814.804,
+      "prompt_per_token_ms": 5.820028571428571,
+      "prompt_per_second": 171.8204623443184,
+      "predicted_n": 138,
+      "predicted_ms": 9844.849,
+      "predicted_per_token_ms": 71.33948550724638,
+      "predicted_per_second": 14.017482644985211
+    }
+  }
+}

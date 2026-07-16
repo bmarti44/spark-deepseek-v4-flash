@@ -1,0 +1,58 @@
+{
+  "index": 926,
+  "task_id": 926,
+  "rendered_prompt_sha256": "eeaddb91fdb974d6dde6766c914d81c2ba9485f0b2b41aad8eb4794b660f2e9a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Monthly budget:** $150\n\n**Already used:**  \n- 5 movies on Friday/Saturday: 5 × $10 = $50  \n- 8 movies on other days: 8 × $7 = $56  \n- 2 tubs of popcorn: 2 × $8 = $16  \n- 4 boxes of candy: 4 × $2 = $8  \n\n**Total spent so far:**  \n$50 + $56 + $16 + $8 = $130\n\n**Remaining money:**  \n$150 − $130 = $20\n\n**Tonight (Friday):**  \nHe wants popcorn ($8) and a box of candy ($2), plus a ticket ($10).  \nCost for tonight: $10 + $8 + $2 = $20\n\nThat uses exactly the remaining $20, so he can see **1 more movie**.\n\nAnswer: 1",
+  "expected": "1",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.568250394997449
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Monthly budget:** $150\n\n**Already used:**  \n- 5 movies on Friday/Saturday: 5 × $10 = $50  \n- 8 movies on other days: 8 × $7 = $56  \n- 2 tubs of popcorn: 2 × $8 = $16  \n- 4 boxes of candy: 4 × $2 = $8  \n\n**Total spent so far:**  \n$50 + $56 + $16 + $8 = $130\n\n**Remaining money:**  \n$150 − $130 = $20\n\n**Tonight (Friday):**  \nHe wants popcorn ($8) and a box of candy ($2), plus a ticket ($10).  \nCost for tonight: $10 + $8 + $2 = $20\n\nThat uses exactly the remaining $20, so he can see **1 more movie**.\n\nAnswer: 1",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222650,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 193,
+      "prompt_tokens": 154,
+      "total_tokens": 347,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-TXNIbj6AEPqhjLhETKvo10dNRbmwuZO5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 153,
+      "prompt_ms": 837.443,
+      "prompt_per_token_ms": 5.473483660130719,
+      "prompt_per_second": 182.69900160369122,
+      "predicted_n": 193,
+      "predicted_ms": 13727.264,
+      "predicted_per_token_ms": 71.12572020725388,
+      "predicted_per_second": 14.059611587567634
+    }
+  }
+}

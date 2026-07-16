@@ -1,0 +1,58 @@
+{
+  "index": 651,
+  "task_id": 651,
+  "rendered_prompt_sha256": "5fa265c7ed432db2f32bb76ebeb8527a63bfadd1b8e4031a5e93106d8727ed48",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**First month:**  \n- Sales from red hats: $400  \n- This is half of the sales from green hats.  \nSo, green hat sales = 2 × 400 = $800  \nTotal sales in first month = 400 + 800 = $1200  \n\n**Second month:**  \n- Sales were 3/4 of the total sales of the first month.  \nSecond month sales = (3/4) × 1200 = $900  \n\n**Total over two months:**  \n1200 + 900 = $2100  \n\nAnswer: 2100",
+  "expected": "2100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.765331544000219
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**First month:**  \n- Sales from red hats: $400  \n- This is half of the sales from green hats.  \nSo, green hat sales = 2 × 400 = $800  \nTotal sales in first month = 400 + 800 = $1200  \n\n**Second month:**  \n- Sales were 3/4 of the total sales of the first month.  \nSecond month sales = (3/4) × 1200 = $900  \n\n**Total over two months:**  \n1200 + 900 = $2100  \n\nAnswer: 2100",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223333,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 129,
+      "prompt_tokens": 100,
+      "total_tokens": 229,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1hzm3rORGKirRR72RaswVSnjB5pKLkHO",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 736.99,
+      "prompt_per_token_ms": 7.444343434343434,
+      "prompt_per_second": 134.33018087083948,
+      "predicted_n": 129,
+      "predicted_ms": 9025.809,
+      "predicted_per_token_ms": 69.96751162790697,
+      "predicted_per_second": 14.292347644405062
+    }
+  }
+}

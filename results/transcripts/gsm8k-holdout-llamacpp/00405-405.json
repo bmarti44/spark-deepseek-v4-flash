@@ -1,0 +1,58 @@
+{
+  "index": 405,
+  "task_id": 405,
+  "rendered_prompt_sha256": "bdb0413ec8f04edbbb3364456809f17235e4390050140eca0254b87d5549dadc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find out how many sandwiches are needed.  \nEach sandwich serves 4 people, and there are 20 people.  \n20 ÷ 4 = 5 sandwiches.\n\nEach sandwich needs 1 pound of meat and 1 pound of cheese.  \nSo for 5 sandwiches:  \n- Meat: 5 pounds  \n- Cheese: 5 pounds  \n\nCost:  \nMeat: 5 × $7.00 = $35.00  \nCheese: 5 × $3.00 = $15.00  \nTotal: $35 + $15 = $50.00  \n\nAnswer: 50",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.618132542997046
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find out how many sandwiches are needed.  \nEach sandwich serves 4 people, and there are 20 people.  \n20 ÷ 4 = 5 sandwiches.\n\nEach sandwich needs 1 pound of meat and 1 pound of cheese.  \nSo for 5 sandwiches:  \n- Meat: 5 pounds  \n- Cheese: 5 pounds  \n\nCost:  \nMeat: 5 × $7.00 = $35.00  \nCheese: 5 × $3.00 = $15.00  \nTotal: $35 + $15 = $50.00  \n\nAnswer: 50",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784222542,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 118,
+      "total_tokens": 243,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-6F0AkqknmNruyLPEHRgjKbWneQEQXTQ3",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 118,
+      "prompt_ms": 878.581,
+      "prompt_per_token_ms": 7.445601694915254,
+      "prompt_per_second": 134.30747990225146,
+      "predicted_n": 125,
+      "predicted_ms": 8737.042,
+      "predicted_per_token_ms": 69.89633599999999,
+      "predicted_per_second": 14.306901580649377
+    }
+  }
+}

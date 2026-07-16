@@ -1,0 +1,58 @@
+{
+  "index": 738,
+  "task_id": 738,
+  "rendered_prompt_sha256": "0f9fa22996eb3c35436f1e6c72a4bd5d611b6b2668a311884eaf44b810275ad1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Clara has 20 books.\n- Clara has two times as many books as Steven, so Steven has \\( 20 \\div 2 = 10 \\) books.\n- Alice has 6 more books than Steven, so Alice has \\( 10 + 6 = 16 \\) books.\n- Clara has 20 books, Alice has 16 books, so Clara has \\( 20 - 16 = 4 \\) more books than Alice.\n\nAnswer: 4",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.191528507002658
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Clara has 20 books.\n- Clara has two times as many books as Steven, so Steven has \\( 20 \\div 2 = 10 \\) books.\n- Alice has 6 more books than Steven, so Alice has \\( 10 + 6 = 16 \\) books.\n- Clara has 20 books, Alice has 16 books, so Clara has \\( 20 - 16 = 4 \\) more books than Alice.\n\nAnswer: 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784223155,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 104,
+      "prompt_tokens": 65,
+      "total_tokens": 169,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-wM8uwuZv14E9XdGFrlDacIZB80QZ7mm4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 64,
+      "prompt_ms": 573.975,
+      "prompt_per_token_ms": 8.968359375,
+      "prompt_per_second": 111.5031142471362,
+      "predicted_n": 104,
+      "predicted_ms": 7614.74,
+      "predicted_per_token_ms": 73.21865384615384,
+      "predicted_per_second": 13.6577217344256
+    }
+  }
+}
