@@ -133,13 +133,15 @@ for binary in "${binaries[@]}"; do
         || die_build "required executable is missing: $BUILD_DIR/bin/$binary"
 done
 
+# CUDA fatbinaries live in the shared libggml-cuda.so, not the executable
+# (llama.cpp default builds ggml as shared libraries).
 set +o pipefail
-elf_head="$(cuobjdump --list-elf "$BUILD_DIR/bin/llama-server" 2>/dev/null | head)"
+elf_head="$(cuobjdump --list-elf "$BUILD_DIR/bin/libggml-cuda.so" 2>/dev/null | head)"
 elf_status=$?
 set -o pipefail
-(( elf_status == 0 )) || die_build 'cuobjdump inspection of llama-server failed'
+(( elf_status == 0 )) || die_build 'cuobjdump inspection of libggml-cuda.so failed'
 [[ "$elf_head" == *sm_121* ]] \
-    || die_build 'llama-server CUDA objects do not report sm_121'
+    || die_build 'libggml-cuda.so CUDA objects do not report sm_121'
 "$BUILD_DIR/bin/llama-server" --version >/dev/null 2>&1 \
     || die_build 'llama-server --version smoke test failed'
 
