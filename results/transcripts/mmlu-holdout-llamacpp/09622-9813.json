@@ -1,0 +1,59 @@
+{
+  "index": 9622,
+  "task_id": 9813,
+  "rendered_prompt_sha256": "d48443754b993a09af3bf3e6fd65b8274b98f35350e2d7a1b502d2207fdea40e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Moon’s orbit around Earth is maintained by Earth’s gravity. If that gravitational force stopped, the Moon would no longer be pulled toward Earth, so it would stop revolving around Earth and instead move in a straight line at its current tangential velocity. However, the Moon’s rotation on its axis is independent of Earth’s gravity (it’s due to its own angular momentum), so it would continue spinning.\n\nThe correct choice is:  \n**Answer: E**",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.125133137000375
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Moon’s orbit around Earth is maintained by Earth’s gravity. If that gravitational force stopped, the Moon would no longer be pulled toward Earth, so it would stop revolving around Earth and instead move in a straight line at its current tangential velocity. However, the Moon’s rotation on its axis is independent of Earth’s gravity (it’s due to its own angular momentum), so it would continue spinning.\n\nThe correct choice is:  \n**Answer: E**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236194,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 97,
+      "prompt_tokens": 241,
+      "total_tokens": 338,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-lHfJc9d0murUBkLLR6r9EQweN7ukl70r",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 240,
+      "prompt_ms": 1133.537,
+      "prompt_per_token_ms": 4.723070833333334,
+      "prompt_per_second": 211.72665735657503,
+      "predicted_n": 97,
+      "predicted_ms": 6988.37,
+      "predicted_per_token_ms": 72.04505154639175,
+      "predicted_per_second": 13.880203824353892
+    }
+  }
+}

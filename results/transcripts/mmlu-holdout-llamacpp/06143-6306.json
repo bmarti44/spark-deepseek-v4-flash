@@ -1,0 +1,59 @@
+{
+  "index": 6143,
+  "task_id": 6306,
+  "rendered_prompt_sha256": "0d9984e653e155f2e15f327f90a67a4eae698dfa0a517a5e3bea73145d553c8d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The presentation includes:\n\n- **Foot drop** → suggests common peroneal nerve injury (or its branches).\n- **Hit from behind below the right knee** → mechanism that can injure the common peroneal nerve as it wraps around the fibular head.\n- **Negative standing flexion test** and intact cruciate/collateral ligaments → rules out many spinal or major knee ligament injuries.\n- **Lack of fluid motion** in gait → consistent with foot drop causing a steppage gait.\n\nThe most likely structural injury causing this is a **posteriorly deviated fibular head**, which can stretch or compress the common peroneal nerve.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.150402491002751
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The presentation includes:\n\n- **Foot drop** → suggests common peroneal nerve injury (or its branches).\n- **Hit from behind below the right knee** → mechanism that can injure the common peroneal nerve as it wraps around the fibular head.\n- **Negative standing flexion test** and intact cruciate/collateral ligaments → rules out many spinal or major knee ligament injuries.\n- **Lack of fluid motion** in gait → consistent with foot drop causing a steppage gait.\n\nThe most likely structural injury causing this is a **posteriorly deviated fibular head**, which can stretch or compress the common peroneal nerve.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234805,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 137,
+      "prompt_tokens": 168,
+      "total_tokens": 305,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-lsrEmgT2BL95YP2PUbIww76ldLHSmlOI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 167,
+      "prompt_ms": 982.708,
+      "prompt_per_token_ms": 5.884479041916167,
+      "prompt_per_second": 169.9385778888541,
+      "predicted_n": 137,
+      "predicted_ms": 10164.881,
+      "predicted_per_token_ms": 74.19621167883211,
+      "predicted_per_second": 13.477777063991207
+    }
+  }
+}

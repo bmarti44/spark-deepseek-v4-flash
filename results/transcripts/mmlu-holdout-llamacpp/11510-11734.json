@@ -1,0 +1,59 @@
+{
+  "index": 11510,
+  "task_id": 11734,
+  "rendered_prompt_sha256": "78f519a052c1cef3d7fc4709b0c6619b5c0daaa62a0b17b1307f868b95f67cc7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have the system function:\n\n\\[\nH(j\\omega) = \\frac{j 2\\omega}{1 + 2j\\omega}\n\\]\n\nInput:\n\n\\[\nv(t) = \\cos t\n\\]\n\nFourier transform of input:\n\n\\[\nV(\\omega) = \\pi [\\delta(\\omega+1) + \\delta(\\omega-1)]\n\\]\n\nOutput in frequency domain:\n\n\\[\nY(\\omega) = H(j\\omega) V(\\omega)\n\\]\n\nSo:\n\n\\[\nY(\\omega) = \\pi \\left[ H(j(-1)) \\delta(\\omega+1) + H(j(1)) \\delta(\\omega-1) \\right]\n\\]\n\nCompute:\n\n\\[\nH(j(1)) = \\frac{j2(1)}{1 + 2j(1)} = \\frac{2j}{1 + 2j}\n\\]\n\nMultiply numerator and denominator by conjugate:\n\n\\[\n\\frac{2j}{1+2j} \\cdot \\frac{1-2j}{1-2j} = \\frac{2j - 4j^2}{1+4} = \\frac{2j + 4}{5} = \\frac{4 + 2j}{5}\n\\]\n\nSimilarly:\n\n\\[\nH(j(-1)) = \\frac{j2(-1)}{1 + 2j(-1)} = \\frac{-2j}{1 - 2j}\n\\]\n\nMultiply by conjugate:\n\n\\[\n\\frac{-2j}{1-2j} \\cdot \\frac{1+2j}{1+2j} = \\frac{-2j -4j^2}{1+4} = \\frac{-2j + 4}{5} = \\frac{4 - 2j}{5}\n\\]\n\nSo:\n\n\\[\nY(\\omega) = \\pi \\left[ \\frac{4 - 2j}{5} \\delta(\\omega+1) + \\frac{4 + 2j}{5} \\delta(\\omega-1) \\right]\n\\]\n\nInverse transform:\n\n\\[\ny(t) = \\frac{4 - 2j}{5} \\cdot \\frac{e^{-jt}}{2} + \\frac{4 + 2j}{5} \\cdot \\frac{e^{jt}}{2}\n\\]\n\n(Since \\(\\mathcal{F}^{-1}[\\pi \\delta(\\omega - a)] = \\frac{e^{jat}}{2}\\))\n\nCombine:\n\n\\[\ny(t) = \\frac{1}{10} \\left[ (4 - 2j) e^{-jt} + (4 + 2j) e^{jt} \\right]\n\\]\n\nWrite \\(e^{\\pm jt} = \\cos t \\pm j \\sin t\\):\n\nFirst term:  \n\\((4 - 2j)(\\cos t - j \\sin t) = 4\\cos t - 4j\\sin t - 2j\\cos t + 2j^2 \\sin t\\)  \n\\(= 4\\cos t - 4j\\sin t - 2j\\cos t - 2\\sin t\\)  \n\\(= (4\\cos t - 2\\sin t) - j(4\\sin t + 2\\cos t)\\)\n\nSecond term:  \n\\((4 + 2j)(\\cos t + j \\sin t) = 4\\cos t + 4j\\sin t + 2j\\cos t + 2j^2 \\sin t\\)  \n\\(= 4\\cos t + 4j\\sin t + 2j\\cos t - 2\\sin t\\)  \n\\(= (4\\cos t - 2\\sin t) + j(4\\sin t + 2\\cos t)\\)\n\nSum:\n\nReal part: \\( (",
+  "finish_reason": "length",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 55.7337320939987
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have the system function:\n\n\\[\nH(j\\omega) = \\frac{j 2\\omega}{1 + 2j\\omega}\n\\]\n\nInput:\n\n\\[\nv(t) = \\cos t\n\\]\n\nFourier transform of input:\n\n\\[\nV(\\omega) = \\pi [\\delta(\\omega+1) + \\delta(\\omega-1)]\n\\]\n\nOutput in frequency domain:\n\n\\[\nY(\\omega) = H(j\\omega) V(\\omega)\n\\]\n\nSo:\n\n\\[\nY(\\omega) = \\pi \\left[ H(j(-1)) \\delta(\\omega+1) + H(j(1)) \\delta(\\omega-1) \\right]\n\\]\n\nCompute:\n\n\\[\nH(j(1)) = \\frac{j2(1)}{1 + 2j(1)} = \\frac{2j}{1 + 2j}\n\\]\n\nMultiply numerator and denominator by conjugate:\n\n\\[\n\\frac{2j}{1+2j} \\cdot \\frac{1-2j}{1-2j} = \\frac{2j - 4j^2}{1+4} = \\frac{2j + 4}{5} = \\frac{4 + 2j}{5}\n\\]\n\nSimilarly:\n\n\\[\nH(j(-1)) = \\frac{j2(-1)}{1 + 2j(-1)} = \\frac{-2j}{1 - 2j}\n\\]\n\nMultiply by conjugate:\n\n\\[\n\\frac{-2j}{1-2j} \\cdot \\frac{1+2j}{1+2j} = \\frac{-2j -4j^2}{1+4} = \\frac{-2j + 4}{5} = \\frac{4 - 2j}{5}\n\\]\n\nSo:\n\n\\[\nY(\\omega) = \\pi \\left[ \\frac{4 - 2j}{5} \\delta(\\omega+1) + \\frac{4 + 2j}{5} \\delta(\\omega-1) \\right]\n\\]\n\nInverse transform:\n\n\\[\ny(t) = \\frac{4 - 2j}{5} \\cdot \\frac{e^{-jt}}{2} + \\frac{4 + 2j}{5} \\cdot \\frac{e^{jt}}{2}\n\\]\n\n(Since \\(\\mathcal{F}^{-1}[\\pi \\delta(\\omega - a)] = \\frac{e^{jat}}{2}\\))\n\nCombine:\n\n\\[\ny(t) = \\frac{1}{10} \\left[ (4 - 2j) e^{-jt} + (4 + 2j) e^{jt} \\right]\n\\]\n\nWrite \\(e^{\\pm jt} = \\cos t \\pm j \\sin t\\):\n\nFirst term:  \n\\((4 - 2j)(\\cos t - j \\sin t) = 4\\cos t - 4j\\sin t - 2j\\cos t + 2j^2 \\sin t\\)  \n\\(= 4\\cos t - 4j\\sin t - 2j\\cos t - 2\\sin t\\)  \n\\(= (4\\cos t - 2\\sin t) - j(4\\sin t + 2\\cos t)\\)\n\nSecond term:  \n\\((4 + 2j)(\\cos t + j \\sin t) = 4\\cos t + 4j\\sin t + 2j\\cos t + 2j^2 \\sin t\\)  \n\\(= 4\\cos t + 4j\\sin t + 2j\\cos t - 2\\sin t\\)  \n\\(= (4\\cos t - 2\\sin t) + j(4\\sin t + 2\\cos t)\\)\n\nSum:\n\nReal part: \\( (",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784234191,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 768,
+      "prompt_tokens": 252,
+      "total_tokens": 1020,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-iUrJb327iPJYXfv7XBizzG2KLGUHgXJR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 251,
+      "prompt_ms": 1177.489,
+      "prompt_per_token_ms": 4.691191235059761,
+      "prompt_per_second": 213.1654733080309,
+      "predicted_n": 768,
+      "predicted_ms": 54553.415,
+      "predicted_per_token_ms": 71.03309244791667,
+      "predicted_per_second": 14.077945441179072
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 8736,
+  "task_id": 8925,
+  "rendered_prompt_sha256": "8362545f82f701a3cf7fe51007f210ad26c292bd0cebec4cb8150e8ad6776771",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The cost in 2014 was:\n\n\\[\n20,000 \\times 0.24 = 4,800\n\\]\n\nThe cost in 2015 was:\n\n\\[\n20,000 \\times 0.16 = 3,200\n\\]\n\nThe change in cost is:\n\n\\[\n3,200 - 4,800 = -1,600\n\\]\n\nPercent change from 2014 to 2015:\n\n\\[\n\\frac{-1,600}{4,800} \\times 100\\% = -33.33\\% \\approx -33\\%\n\\]\n\nThe correct answer is:\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.75703011099904
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The cost in 2014 was:\n\n\\[\n20,000 \\times 0.24 = 4,800\n\\]\n\nThe cost in 2015 was:\n\n\\[\n20,000 \\times 0.16 = 3,200\n\\]\n\nThe change in cost is:\n\n\\[\n3,200 - 4,800 = -1,600\n\\]\n\nPercent change from 2014 to 2015:\n\n\\[\n\\frac{-1,600}{4,800} \\times 100\\% = -33.33\\% \\approx -33\\%\n\\]\n\nThe correct answer is:\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235519,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 156,
+      "total_tokens": 281,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-BMzA9QEZ6C6pr1nTvPHw50QDGBKqTSnD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 155,
+      "prompt_ms": 834.29,
+      "prompt_per_token_ms": 5.382516129032258,
+      "prompt_per_second": 185.78671684905729,
+      "predicted_n": 125,
+      "predicted_ms": 8920.842,
+      "predicted_per_token_ms": 71.366736,
+      "predicted_per_second": 14.012130245104665
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 10782,
+  "task_id": 10998,
+  "rendered_prompt_sha256": "2178c61e895a7594f41ae364639880da25cb429174df383055d5fc468121bbe1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Baxter’s “very general way” of framing environmental goals is based on the idea that we should aim to maximize human satisfaction, which requires being able to measure incremental changes in that satisfaction. That corresponds to option C.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.506454888996814
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Baxter’s “very general way” of framing environmental goals is based on the idea that we should aim to maximize human satisfaction, which requires being able to measure incremental changes in that satisfaction. That corresponds to option C.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235686,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 50,
+      "prompt_tokens": 152,
+      "total_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-NuSGW7zlxFvDTwbXkyq7SpOXTRF3Qpqa",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 151,
+      "prompt_ms": 875.147,
+      "prompt_per_token_ms": 5.795675496688742,
+      "prompt_per_second": 172.54244144126645,
+      "predicted_n": 50,
+      "predicted_ms": 3628.233,
+      "predicted_per_token_ms": 72.56466,
+      "predicted_per_second": 13.780812864002945
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 3310,
+  "task_id": 3431,
+  "rendered_prompt_sha256": "2dc54f68577095274b0b0b540abd60a8b134c6fc2b3e26ff6063a9e6418eee22",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The energy given up by electrons as they move through the electron transport chain is used to pump protons across the inner mitochondrial membrane, creating a proton gradient that drives ATP synthesis.  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.7248019270009536
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The energy given up by electrons as they move through the electron transport chain is used to pump protons across the inner mitochondrial membrane, creating a proton gradient that drives ATP synthesis.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232678,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 39,
+      "prompt_tokens": 97,
+      "total_tokens": 136,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-5cEIRUvnwjK0IDPkB5k86BQucy6gTyAF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 96,
+      "prompt_ms": 684.335,
+      "prompt_per_token_ms": 7.128489583333334,
+      "prompt_per_second": 140.2821717433713,
+      "predicted_n": 39,
+      "predicted_ms": 3037.977,
+      "predicted_per_token_ms": 77.89684615384616,
+      "predicted_per_second": 12.837490211413714
+    }
+  }
+}

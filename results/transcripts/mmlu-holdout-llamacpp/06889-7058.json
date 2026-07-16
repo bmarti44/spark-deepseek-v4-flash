@@ -1,0 +1,59 @@
+{
+  "index": 6889,
+  "task_id": 7058,
+  "rendered_prompt_sha256": "54e4aad422237ad9ef7f25690acf176a7a666b330de54bcd10e79430a948bc82",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The supply curve shifts to the left when production becomes more costly or less profitable at any given price.  \n\n- **A. An increase in printing costs** → raises production costs, reducing supply → shift left.  \n- B. Expectations of future surpluses → might increase supply now to avoid future losses → shift right.  \n- C. A decrease in demand for a substitute in production → could free up resources for textbooks → shift right.  \n- D. An increase in literacy rate → increases demand, not supply.  \n- E. A decrease in labor cost → lowers costs, increases supply → shift right.  \n- F. Expectations of future shortages → might decrease supply now to sell later at higher prices → shift left? Actually, that could cause suppliers to hold back, shifting supply left. But this is ambiguous; often expectations of future shortages lead to increased current supply to profit now.  \n- G. Increase in demand for a complement in production → might shift resources toward that complement, reducing textbook supply → shift left.  \n- H. Decrease in price of paper → lowers costs, increases supply → shift right.  \n\nThe clearest and most direct answer is **A**.  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.805569314001332
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The supply curve shifts to the left when production becomes more costly or less profitable at any given price.  \n\n- **A. An increase in printing costs** → raises production costs, reducing supply → shift left.  \n- B. Expectations of future surpluses → might increase supply now to avoid future losses → shift right.  \n- C. A decrease in demand for a substitute in production → could free up resources for textbooks → shift right.  \n- D. An increase in literacy rate → increases demand, not supply.  \n- E. A decrease in labor cost → lowers costs, increases supply → shift right.  \n- F. Expectations of future shortages → might decrease supply now to sell later at higher prices → shift left? Actually, that could cause suppliers to hold back, shifting supply left. But this is ambiguous; often expectations of future shortages lead to increased current supply to profit now.  \n- G. Increase in demand for a complement in production → might shift resources toward that complement, reducing textbook supply → shift left.  \n- H. Decrease in price of paper → lowers costs, increases supply → shift right.  \n\nThe clearest and most direct answer is **A**.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233715,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 244,
+      "prompt_tokens": 119,
+      "total_tokens": 363,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-LgUVTHRK8QMWyKbjrJiE2Kxc8nvQqEb4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 118,
+      "prompt_ms": 840.994,
+      "prompt_per_token_ms": 7.12706779661017,
+      "prompt_per_second": 140.31015679065484,
+      "predicted_n": 244,
+      "predicted_ms": 17962.212,
+      "predicted_per_token_ms": 73.61562295081967,
+      "predicted_per_second": 13.584073052917981
+    }
+  }
+}

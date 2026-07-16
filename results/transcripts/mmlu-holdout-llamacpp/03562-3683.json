@@ -1,0 +1,59 @@
+{
+  "index": 3562,
+  "task_id": 3683,
+  "rendered_prompt_sha256": "5787d68660ed225f91b1757744a90ff7f95c49a42e141f6d216886a59d320b72",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step-by-step.\n\n**Step 1: Write the balanced redox reaction.**  \nIn acidic solution:  \n\\[\n\\text{MnO}_4^- + 5\\text{Fe}^{2+} + 8\\text{H}^+ \\rightarrow \\text{Mn}^{2+} + 5\\text{Fe}^{3+} + 4\\text{H}_2\\text{O}\n\\]  \nSo 1 mole of \\(\\text{MnO}_4^-\\) reacts with 5 moles of \\(\\text{Fe}^{2+}\\).\n\n**Step 2: Calculate moles of Fe²⁺.**  \n\\[\n\\text{Moles Fe}^{2+} = 0.40 \\, \\text{M} \\times 0.0250 \\, \\text{L} = 0.0100 \\, \\text{mol}\n\\]\n\n**Step 3: Calculate moles of \\(\\text{MnO}_4^-\\) needed.**  \n\\[\n\\text{Moles MnO}_4^- = \\frac{0.0100}{5} = 0.00200 \\, \\text{mol}\n\\]\n\n**Step 4: Calculate volume of 0.20 M KMnO₄ required.**  \n\\[\nV = \\frac{0.00200 \\, \\text{mol}}{0.20 \\, \\text{M}} = 0.0100 \\, \\text{L} = 10.0 \\, \\text{mL}\n\\]\n\n**Step 5: Match with options.**  \n10 ml corresponds to option **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 23.06060149300174
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step-by-step.\n\n**Step 1: Write the balanced redox reaction.**  \nIn acidic solution:  \n\\[\n\\text{MnO}_4^- + 5\\text{Fe}^{2+} + 8\\text{H}^+ \\rightarrow \\text{Mn}^{2+} + 5\\text{Fe}^{3+} + 4\\text{H}_2\\text{O}\n\\]  \nSo 1 mole of \\(\\text{MnO}_4^-\\) reacts with 5 moles of \\(\\text{Fe}^{2+}\\).\n\n**Step 2: Calculate moles of Fe²⁺.**  \n\\[\n\\text{Moles Fe}^{2+} = 0.40 \\, \\text{M} \\times 0.0250 \\, \\text{L} = 0.0100 \\, \\text{mol}\n\\]\n\n**Step 3: Calculate moles of \\(\\text{MnO}_4^-\\) needed.**  \n\\[\n\\text{Moles MnO}_4^- = \\frac{0.0100}{5} = 0.00200 \\, \\text{mol}\n\\]\n\n**Step 4: Calculate volume of 0.20 M KMnO₄ required.**  \n\\[\nV = \\frac{0.00200 \\, \\text{mol}}{0.20 \\, \\text{M}} = 0.0100 \\, \\text{L} = 10.0 \\, \\text{mL}\n\\]\n\n**Step 5: Match with options.**  \n10 ml corresponds to option **I**.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233097,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 314,
+      "prompt_tokens": 150,
+      "total_tokens": 464,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-0C6rE5VEXqZGnyfYsVKdsFXdekip7IPP",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 149,
+      "prompt_ms": 814.992,
+      "prompt_per_token_ms": 5.469744966442953,
+      "prompt_per_second": 182.8238804798084,
+      "predicted_n": 314,
+      "predicted_ms": 22244.038,
+      "predicted_per_token_ms": 70.84088535031847,
+      "predicted_per_second": 14.116142042195754
+    }
+  }
+}

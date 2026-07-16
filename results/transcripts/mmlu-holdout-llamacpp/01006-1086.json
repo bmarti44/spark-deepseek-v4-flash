@@ -1,0 +1,59 @@
+{
+  "index": 1006,
+  "task_id": 1086,
+  "rendered_prompt_sha256": "f4d162949ec6fb03d099dc8de107528425780ef6e4d95a704f5a392a81153f1a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The brothers conspired with the housekeeper to murder their uncle, which is conspiracy to commit murder. They also solicited the housekeeper to commit that murder, which is solicitation. However, the physician died instead of the uncle. Under the doctrine of transferred intent, the intent to kill the uncle transfers to the actual killing of the physician, making them guilty of murder of the physician as well.  \n\nThus, the correct answer includes solicitation, conspiracy to commit murder of the uncle, and murder of the physician.  \n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='H' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.380846744999872
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The brothers conspired with the housekeeper to murder their uncle, which is conspiracy to commit murder. They also solicited the housekeeper to commit that murder, which is solicitation. However, the physician died instead of the uncle. Under the doctrine of transferred intent, the intent to kill the uncle transfers to the actual killing of the physician, making them guilty of murder of the physician as well.  \n\nThus, the correct answer includes solicitation, conspiracy to commit murder of the uncle, and murder of the physician.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234955,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 109,
+      "prompt_tokens": 392,
+      "total_tokens": 501,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Es1LMyPvnFHki2WDx3LxiyqFGz9ax1B4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 391,
+      "prompt_ms": 1607.124,
+      "prompt_per_token_ms": 4.110291560102302,
+      "prompt_per_second": 243.29174351201277,
+      "predicted_n": 109,
+      "predicted_ms": 7770.346,
+      "predicted_per_token_ms": 71.28757798165137,
+      "predicted_per_second": 14.027689371876106
+    }
+  }
+}

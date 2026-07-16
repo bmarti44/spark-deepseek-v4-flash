@@ -1,0 +1,59 @@
+{
+  "index": 1884,
+  "task_id": 1980,
+  "rendered_prompt_sha256": "88d083e1c20ae03b4178a83c30702ec5076022144b83fd811b086e714788769f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The key issue here is whether a state can criminally punish someone simply for being addicted to narcotics, without any requirement of actual drug use. The U.S. Supreme Court addressed this in *Robinson v. California* (1962), holding that making drug addiction a crime violates the Eighth and Fourteenth Amendments because it punishes a person for a status or condition (like an illness) rather than for an act.  \n\nThe facts here match *Robinson*: the statute criminalizes addiction itself, not use or possession, and the conviction was based on evidence of addiction alone.  \n\nThus, the correct answer is:  \n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.547843797001406
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The key issue here is whether a state can criminally punish someone simply for being addicted to narcotics, without any requirement of actual drug use. The U.S. Supreme Court addressed this in *Robinson v. California* (1962), holding that making drug addiction a crime violates the Eighth and Fourteenth Amendments because it punishes a person for a status or condition (like an illness) rather than for an act.  \n\nThe facts here match *Robinson*: the statute criminalizes addiction itself, not use or possession, and the conviction was based on evidence of addiction alone.  \n\nThus, the correct answer is:  \n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235097,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 131,
+      "prompt_tokens": 399,
+      "total_tokens": 530,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-nOpgR7pM6Lpbdc51UVHJkoGfIOPT7dK3",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 398,
+      "prompt_ms": 1707.277,
+      "prompt_per_token_ms": 4.289640703517588,
+      "prompt_per_second": 233.11975736801935,
+      "predicted_n": 131,
+      "predicted_ms": 9837.205,
+      "predicted_per_token_ms": 75.0931679389313,
+      "predicted_per_second": 13.316790694104679
+    }
+  }
+}

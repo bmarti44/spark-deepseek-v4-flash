@@ -1,0 +1,59 @@
+{
+  "index": 10598,
+  "task_id": 10810,
+  "rendered_prompt_sha256": "8b5bd9a9295a518903e2f269b6f6302a17799ee5f68fee39f14654deea170098",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Epicurus taught that the key to happiness was simple pleasures and that the natural desires necessary for a good life are easy to satisfy. He believed that basic needs like food, shelter, and friendship are readily available, making wealth \"easily procured\" for a good life.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.145644856998842
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Epicurus taught that the key to happiness was simple pleasures and that the natural desires necessary for a good life are easy to satisfy. He believed that basic needs like food, shelter, and friendship are readily available, making wealth \"easily procured\" for a good life.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235671,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 60,
+      "prompt_tokens": 125,
+      "total_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fTrFjKll47V6ijdciKjceTWItZXHmoUI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 124,
+      "prompt_ms": 842.782,
+      "prompt_per_token_ms": 6.796629032258065,
+      "prompt_per_second": 147.1317612383748,
+      "predicted_n": 60,
+      "predicted_ms": 4300.774,
+      "predicted_per_token_ms": 71.67956666666667,
+      "predicted_per_second": 13.950977196197705
+    }
+  }
+}

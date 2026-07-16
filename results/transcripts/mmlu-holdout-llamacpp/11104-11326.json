@@ -1,0 +1,59 @@
+{
+  "index": 11104,
+  "task_id": 11326,
+  "rendered_prompt_sha256": "215ec0a9470418c875d6d0f3b2cf1215f0126d405fd822ad31a58e1273fdc546",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "For a small loop antenna, the radiation resistance \\( R_r \\) can be approximated by:\n\n\\[\nR_r \\approx 31200 \\left( \\frac{A}{\\lambda^2} \\right)^2\n\\]\n\nwhere \\( A \\) is the area of the loop and \\( \\lambda \\) is the wavelength.\n\nFor a circular loop with circumference \\( C = \\frac{\\lambda}{4} \\):\n\n- Radius \\( a = \\frac{C}{2\\pi} = \\frac{\\lambda}{8\\pi} \\)\n- Area \\( A = \\pi a^2 = \\pi \\left( \\frac{\\lambda}{8\\pi} \\right)^2 = \\frac{\\lambda^2}{64\\pi} \\)\n\nThen:\n\n\\[\n\\frac{A}{\\lambda^2} = \\frac{1}{64\\pi}\n\\]\n\nSo:\n\n\\[\nR_r = 31200 \\left( \\frac{1}{64\\pi} \\right)^2\n= 31200 \\cdot \\frac{1}{4096 \\pi^2}\n\\]\n\nNow compute:\n\n\\[\n\\pi^2 \\approx 9.8696\n\\]\n\\[\n4096 \\times 9.8696 \\approx 40430\n\\]\n\\[\nR_r \\approx \\frac{31200}{40430} \\approx 0.7717 \\, \\Omega\n\\]\n\nThis matches closely with **0.77 ohm**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 22.286627251000027
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "For a small loop antenna, the radiation resistance \\( R_r \\) can be approximated by:\n\n\\[\nR_r \\approx 31200 \\left( \\frac{A}{\\lambda^2} \\right)^2\n\\]\n\nwhere \\( A \\) is the area of the loop and \\( \\lambda \\) is the wavelength.\n\nFor a circular loop with circumference \\( C = \\frac{\\lambda}{4} \\):\n\n- Radius \\( a = \\frac{C}{2\\pi} = \\frac{\\lambda}{8\\pi} \\)\n- Area \\( A = \\pi a^2 = \\pi \\left( \\frac{\\lambda}{8\\pi} \\right)^2 = \\frac{\\lambda^2}{64\\pi} \\)\n\nThen:\n\n\\[\n\\frac{A}{\\lambda^2} = \\frac{1}{64\\pi}\n\\]\n\nSo:\n\n\\[\nR_r = 31200 \\left( \\frac{1}{64\\pi} \\right)^2\n= 31200 \\cdot \\frac{1}{4096 \\pi^2}\n\\]\n\nNow compute:\n\n\\[\n\\pi^2 \\approx 9.8696\n\\]\n\\[\n4096 \\times 9.8696 \\approx 40430\n\\]\n\\[\nR_r \\approx \\frac{31200}{40430} \\approx 0.7717 \\, \\Omega\n\\]\n\nThis matches closely with **0.77 ohm**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233852,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 290,
+      "prompt_tokens": 133,
+      "total_tokens": 423,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CsqsvgwIX7sV2MnxSsEamBuWeD8VuDNH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 132,
+      "prompt_ms": 904.279,
+      "prompt_per_token_ms": 6.850598484848485,
+      "prompt_per_second": 145.9726478221876,
+      "predicted_n": 290,
+      "predicted_ms": 21379.881,
+      "predicted_per_token_ms": 73.7237275862069,
+      "predicted_per_second": 13.564154075506782
+    }
+  }
+}

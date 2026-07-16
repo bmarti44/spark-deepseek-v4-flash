@@ -1,0 +1,59 @@
+{
+  "index": 3716,
+  "task_id": 3839,
+  "rendered_prompt_sha256": "8bade66e6432f87c8db40ed93acc18264aa69c7536de58a82be11795e7b8d736",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the Heisenberg uncertainty principle:\n\n\\[\n\\Delta x \\cdot \\Delta p \\geq \\frac{h}{4\\pi}\n\\]\n\nHere,  \n- Mass \\( m = 100 \\, \\text{g} \\)  \n- Velocity uncertainty \\( \\Delta v = 10^{-4} \\, \\text{mm/s} \\)  \n- Convert to cm/s: \\( 1 \\, \\text{mm} = 0.1 \\, \\text{cm} \\), so  \n  \\( \\Delta v = 10^{-4} \\, \\text{mm/s} = 10^{-4} \\times 0.1 = 10^{-5} \\, \\text{cm/s} \\)  \n- Momentum uncertainty:  \n  \\[\n  \\Delta p = m \\cdot \\Delta v = 100 \\times 10^{-5} = 10^{-3} \\, \\text{g cm/s}\n  \\]\n- Planck’s constant: \\( h = 6.626 \\times 10^{-27} \\, \\text{erg·s} \\)  \n  (Note: 1 erg = 1 g cm²/s², so units are consistent)\n\nNow:\n\\[\n\\Delta x \\approx \\frac{h}{4\\pi \\Delta p}\n= \\frac{6.626 \\times 10^{-27}}{4\\pi \\times 10^{-3}}\n\\]\n\n\\[\n\\Delta x = \\frac{6.626 \\times 10^{-27}}{1.2566 \\times 10^{-2}}\n\\approx 5.27 \\times 10^{-25} \\, \\text{cm}\n\\]\n\nBut the answer choices are all exactly \\( 6.626 \\times 10^{-n} \\), so they likely omitted the \\( 4\\pi \\) factor (i.e., used \\(\\Delta x \\approx h / \\Delta p\\)):\n\n\\[\n\\Delta x \\approx \\frac{6.626 \\times 10^{-27}}{10^{-3}} = 6.626 \\times 10^{-24} \\, \\text{cm}\n\\]\n\nThat matches option **C**.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 31.73801642899707
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can use the Heisenberg uncertainty principle:\n\n\\[\n\\Delta x \\cdot \\Delta p \\geq \\frac{h}{4\\pi}\n\\]\n\nHere,  \n- Mass \\( m = 100 \\, \\text{g} \\)  \n- Velocity uncertainty \\( \\Delta v = 10^{-4} \\, \\text{mm/s} \\)  \n- Convert to cm/s: \\( 1 \\, \\text{mm} = 0.1 \\, \\text{cm} \\), so  \n  \\( \\Delta v = 10^{-4} \\, \\text{mm/s} = 10^{-4} \\times 0.1 = 10^{-5} \\, \\text{cm/s} \\)  \n- Momentum uncertainty:  \n  \\[\n  \\Delta p = m \\cdot \\Delta v = 100 \\times 10^{-5} = 10^{-3} \\, \\text{g cm/s}\n  \\]\n- Planck’s constant: \\( h = 6.626 \\times 10^{-27} \\, \\text{erg·s} \\)  \n  (Note: 1 erg = 1 g cm²/s², so units are consistent)\n\nNow:\n\\[\n\\Delta x \\approx \\frac{h}{4\\pi \\Delta p}\n= \\frac{6.626 \\times 10^{-27}}{4\\pi \\times 10^{-3}}\n\\]\n\n\\[\n\\Delta x = \\frac{6.626 \\times 10^{-27}}{1.2566 \\times 10^{-2}}\n\\approx 5.27 \\times 10^{-25} \\, \\text{cm}\n\\]\n\nBut the answer choices are all exactly \\( 6.626 \\times 10^{-n} \\), so they likely omitted the \\( 4\\pi \\) factor (i.e., used \\(\\Delta x \\approx h / \\Delta p\\)):\n\n\\[\n\\Delta x \\approx \\frac{6.626 \\times 10^{-27}}{10^{-3}} = 6.626 \\times 10^{-24} \\, \\text{cm}\n\\]\n\nThat matches option **C**.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233217,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 430,
+      "prompt_tokens": 213,
+      "total_tokens": 643,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-JaYKhdApnjP3xlFTp7bTsA2PiiVdvDaH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 212,
+      "prompt_ms": 1049.846,
+      "prompt_per_token_ms": 4.952103773584906,
+      "prompt_per_second": 201.93437894700745,
+      "predicted_n": 430,
+      "predicted_ms": 30686.43,
+      "predicted_per_token_ms": 71.36379069767442,
+      "predicted_per_second": 14.012708549023134
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 6593,
+  "task_id": 6759,
+  "rendered_prompt_sha256": "4b410902834d260bce80b5a2bf67086ea4c27498b1abbe6e024ebc79bec1cd1e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The presentation is a 17-year-old with primary amenorrhea, normal breast development (indicating estrogen is present), but absent axillary and pubic hair (indicating lack of androgen action). Normal external genitalia and female body habitus suggest no obvious anatomical defect.  \n\nThe combination of normal breast development (estrogen-sensitive) and absent pubic/axillary hair (androgen-sensitive) points toward **androgen insensitivity syndrome** (complete form). In this condition, individuals have testes (often undescended) that produce estrogen, leading to breast development, but the body cannot respond to androgens, so pubic and axillary hair does not develop.  \n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.950144721002289
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The presentation is a 17-year-old with primary amenorrhea, normal breast development (indicating estrogen is present), but absent axillary and pubic hair (indicating lack of androgen action). Normal external genitalia and female body habitus suggest no obvious anatomical defect.  \n\nThe combination of normal breast development (estrogen-sensitive) and absent pubic/axillary hair (androgen-sensitive) points toward **androgen insensitivity syndrome** (complete form). In this condition, individuals have testes (often undescended) that produce estrogen, leading to breast development, but the body cannot respond to androgens, so pubic and axillary hair does not develop.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234894,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 139,
+      "prompt_tokens": 154,
+      "total_tokens": 293,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ybDbn9aUGnf6HRZzfeuyTBuTrMtg7mBB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 153,
+      "prompt_ms": 911.336,
+      "prompt_per_token_ms": 5.956444444444444,
+      "prompt_per_second": 167.88539024026264,
+      "predicted_n": 139,
+      "predicted_ms": 10035.929,
+      "predicted_per_token_ms": 72.20092805755395,
+      "predicted_per_second": 13.850237481751813
+    }
+  }
+}

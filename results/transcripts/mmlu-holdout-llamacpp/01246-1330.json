@@ -1,0 +1,59 @@
+{
+  "index": 1246,
+  "task_id": 1330,
+  "rendered_prompt_sha256": "fdd7af29929e3c296c6a09c9d89a9c6b62a943aec74fc444024e323912bae84d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The statute of limitations expired on September 30 of last year.  \nOn June 1 of this year, the debtor’s letter promising to pay $5,000 on July 1 could be considered a new promise to pay, but only for the amount promised — not the full $12,000 — and only if it meets the requirements to revive the debt.  \n\nUnder the common law, a promise to pay a debt barred by the statute of limitations is enforceable only if it is in writing and signed, and it revives the debt only to the extent promised. Here, the debtor promised to pay $5,000, not the full $12,000. Since the statute had already run, the creditor can only recover the amount the debtor explicitly promised to pay — $5,000.  \n\nThus, the creditor is entitled to a judgment for $5,000.  \n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.75378959400041
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The statute of limitations expired on September 30 of last year.  \nOn June 1 of this year, the debtor’s letter promising to pay $5,000 on July 1 could be considered a new promise to pay, but only for the amount promised — not the full $12,000 — and only if it meets the requirements to revive the debt.  \n\nUnder the common law, a promise to pay a debt barred by the statute of limitations is enforceable only if it is in writing and signed, and it revives the debt only to the extent promised. Here, the debtor promised to pay $5,000, not the full $12,000. Since the statute had already run, the creditor can only recover the amount the debtor explicitly promised to pay — $5,000.  \n\nThus, the creditor is entitled to a judgment for $5,000.  \n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234997,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 182,
+      "prompt_tokens": 403,
+      "total_tokens": 585,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cy5Po0EyxOIdYr8vyoMFyx80mnnBmcrK",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 402,
+      "prompt_ms": 1623.964,
+      "prompt_per_token_ms": 4.03971144278607,
+      "prompt_per_second": 247.54243320664744,
+      "predicted_n": 182,
+      "predicted_ms": 13126.447,
+      "predicted_per_token_ms": 72.12333516483517,
+      "predicted_per_second": 13.86513806820688
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 7903,
+  "task_id": 8087,
+  "rendered_prompt_sha256": "0eeb1ed6aced923eb407de1c918dc3516e556fe1949a824cdcdc401b476e9fa3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The additive cyclic group \\(\\mathbb{Z}\\) consists of all integers under addition.  \nA generator of \\(\\mathbb{Z}\\) is an integer \\(g\\) such that every integer can be written as \\(g \\cdot n\\) for some integer \\(n\\).  \nThe only generators of \\(\\mathbb{Z}\\) are \\(1\\) and \\(-1\\).  \n\nLooking at the options:  \n- A: \\([1, -1]\\) — both are generators.  \n- D: \\([-1, 1]\\) — same as A, just reversed.  \n\nThe question likely expects the set containing both generators. Option A lists them explicitly.  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.939292346000002
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The additive cyclic group \\(\\mathbb{Z}\\) consists of all integers under addition.  \nA generator of \\(\\mathbb{Z}\\) is an integer \\(g\\) such that every integer can be written as \\(g \\cdot n\\) for some integer \\(n\\).  \nThe only generators of \\(\\mathbb{Z}\\) are \\(1\\) and \\(-1\\).  \n\nLooking at the options:  \n- A: \\([1, -1]\\) — both are generators.  \n- D: \\([-1, 1]\\) — same as A, just reversed.  \n\nThe question likely expects the set containing both generators. Option A lists them explicitly.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235178,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 128,
+      "prompt_tokens": 113,
+      "total_tokens": 241,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-QhO3vo6KrEN6XSWg3I2IBOGlXGowMwf7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 112,
+      "prompt_ms": 750.668,
+      "prompt_per_token_ms": 6.702392857142857,
+      "prompt_per_second": 149.20044546990147,
+      "predicted_n": 128,
+      "predicted_ms": 9185.569,
+      "predicted_per_token_ms": 71.7622578125,
+      "predicted_per_second": 13.934901583124574
+    }
+  }
+}

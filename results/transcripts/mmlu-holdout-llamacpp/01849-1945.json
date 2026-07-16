@@ -1,0 +1,59 @@
+{
+  "index": 1849,
+  "task_id": 1945,
+  "rendered_prompt_sha256": "a4a7b50c2652ee87978fb35f6c30d322ff8dd7e935e66b5f6e0983fefc152d61",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The friend took the necklace from the woman’s neck by force, using a toy pistol to instill fear. Even though she returned it and claimed it was a joke, the act of taking property by force or threat is robbery, which includes theft. The return afterward does not negate the completed crime.  \n\nThe correct answer is **A. Theft** (as robbery is a form of theft).  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.355838984000002
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The friend took the necklace from the woman’s neck by force, using a toy pistol to instill fear. Even though she returned it and claimed it was a joke, the act of taking property by force or threat is robbery, which includes theft. The return afterward does not negate the completed crime.  \n\nThe correct answer is **A. Theft** (as robbery is a form of theft).  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235084,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 86,
+      "prompt_tokens": 262,
+      "total_tokens": 348,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-kvs62b4JTTgtH9cyR0bQEePm4cikI76U",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 261,
+      "prompt_ms": 1172.128,
+      "prompt_per_token_ms": 4.490911877394636,
+      "prompt_per_second": 222.67192661552323,
+      "predicted_n": 86,
+      "predicted_ms": 6180.601,
+      "predicted_per_token_ms": 71.86745348837209,
+      "predicted_per_second": 13.91450443087978
+    }
+  }
+}

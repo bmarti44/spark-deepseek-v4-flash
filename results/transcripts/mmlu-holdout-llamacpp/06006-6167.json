@@ -1,0 +1,59 @@
+{
+  "index": 6006,
+  "task_id": 6167,
+  "rendered_prompt_sha256": "5d5412f1114c9ad63cae2a48bc0d28a5bfbec254fe4b2a51ca6db412cfe5b9ba",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The third cranial nerve (oculomotor nerve) innervates the levator palpebrae superioris, the superior rectus, medial rectus, inferior rectus, and inferior oblique muscles, as well as the parasympathetic fibers to the pupillary sphincter.  \nDamage to CN III causes:  \n- Ptosis (drooping eyelid)  \n- Lateral strabismus (due to unopposed action of the lateral rectus, CN VI)  \n- Pupillary dilatation (loss of parasympathetic input to the pupillary sphincter)  \n\nThus, the correct signs are **pupillary dilatation and lateral strabismus**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.073843651000061
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The third cranial nerve (oculomotor nerve) innervates the levator palpebrae superioris, the superior rectus, medial rectus, inferior rectus, and inferior oblique muscles, as well as the parasympathetic fibers to the pupillary sphincter.  \nDamage to CN III causes:  \n- Ptosis (drooping eyelid)  \n- Lateral strabismus (due to unopposed action of the lateral rectus, CN VI)  \n- Pupillary dilatation (loss of parasympathetic input to the pupillary sphincter)  \n\nThus, the correct signs are **pupillary dilatation and lateral strabismus**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234790,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 186,
+      "total_tokens": 324,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ydI5FbPJOtDbOkLs4chAdCZEItDrz84y",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 185,
+      "prompt_ms": 975.945,
+      "prompt_per_token_ms": 5.275378378378378,
+      "prompt_per_second": 189.55986249225109,
+      "predicted_n": 138,
+      "predicted_ms": 10095.19,
+      "predicted_per_token_ms": 73.15355072463768,
+      "predicted_per_second": 13.669876446109484
+    }
+  }
+}

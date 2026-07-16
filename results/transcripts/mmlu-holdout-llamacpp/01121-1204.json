@@ -1,0 +1,59 @@
+{
+  "index": 1121,
+  "task_id": 1204,
+  "rendered_prompt_sha256": "abd37d5e3b0e6667fbbf001af92f5427ae7daaf2cca4c4dc478125cbaa3902c2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The scenario describes a fixed-term lease that expired, after which the tenant continued paying and the landlord continued accepting rent. Under landlord-tenant law, this typically creates a **periodic tenancy** (often month-to-month if rent is paid monthly). To terminate a periodic tenancy, the landlord must give proper notice as required by law (usually 30 days for a month-to-month tenancy).  \n\nIf the widow tried to evict immediately at the end of the three-year term without giving notice, the student’s strongest argument would be that the widow failed to give the required notice to end the periodic tenancy that arose after the lease expired.  \n\nThat corresponds to option **F**.  \n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.765337324002758
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The scenario describes a fixed-term lease that expired, after which the tenant continued paying and the landlord continued accepting rent. Under landlord-tenant law, this typically creates a **periodic tenancy** (often month-to-month if rent is paid monthly). To terminate a periodic tenancy, the landlord must give proper notice as required by law (usually 30 days for a month-to-month tenancy).  \n\nIf the widow tried to evict immediately at the end of the three-year term without giving notice, the student’s strongest argument would be that the widow failed to give the required notice to end the periodic tenancy that arose after the lease expired.  \n\nThat corresponds to option **F**.  \n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234979,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 144,
+      "prompt_tokens": 318,
+      "total_tokens": 462,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vZyXxcJnouCMdpFepUXN8SkwABo8sbSF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 317,
+      "prompt_ms": 1372.512,
+      "prompt_per_token_ms": 4.329690851735015,
+      "prompt_per_second": 230.96337226924064,
+      "predicted_n": 144,
+      "predicted_ms": 10390.41,
+      "predicted_per_token_ms": 72.155625,
+      "predicted_per_second": 13.8589333818396
+    }
+  }
+}

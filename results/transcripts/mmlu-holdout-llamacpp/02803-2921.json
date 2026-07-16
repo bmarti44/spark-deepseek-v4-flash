@@ -1,0 +1,59 @@
+{
+  "index": 2803,
+  "task_id": 2921,
+  "rendered_prompt_sha256": "1279867f01c22f6582e9be98a1455a443d2b97c9b9bb5bda2ddede475e60147d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Before the work of Charles Lyell in geology and Charles Darwin in biology, the prevailing view in the Western world—especially influenced by biblical chronology—was that Earth was only a few thousand years old and that species were fixed and unchanging.  \n\nThe correct answer is: **D. Earth is a few thousand years old, and populations are unchanging.**  \n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.589309533999767
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Before the work of Charles Lyell in geology and Charles Darwin in biology, the prevailing view in the Western world—especially influenced by biblical chronology—was that Earth was only a few thousand years old and that species were fixed and unchanging.  \n\nThe correct answer is: **D. Earth is a few thousand years old, and populations are unchanging.**  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232568,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 186,
+      "total_tokens": 262,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-C6bKJLmvLAddkHSS2f5M4nf7QPcIjMjW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 185,
+      "prompt_ms": 965.645,
+      "prompt_per_token_ms": 5.219702702702703,
+      "prompt_per_second": 191.58179248067353,
+      "predicted_n": 76,
+      "predicted_ms": 5621.813,
+      "predicted_per_token_ms": 73.97122368421053,
+      "predicted_per_second": 13.518770546085399
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 2434,
+  "task_id": 2537,
+  "rendered_prompt_sha256": "9db6ec8055fd961afa83143a140771281b59aeda732a653e1ddc9fc07167b01e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The independent variable is the one that Jared is manipulating to see its effect. He wants to compare going to lecture classes versus not going, while using the review book and videos in both conditions. So the key difference is **going to lecture classes** versus not going.\n\nThe correct answer is:  \n**E. going to lecture classes**\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.062188868003432
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The independent variable is the one that Jared is manipulating to see its effect. He wants to compare going to lecture classes versus not going, while using the review book and videos in both conditions. So the key difference is **going to lecture classes** versus not going.\n\nThe correct answer is:  \n**E. going to lecture classes**\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236390,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 71,
+      "prompt_tokens": 194,
+      "total_tokens": 265,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-V6BQGmE8iNeTs2ilq1gizHJ2zUkBpGff",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 193,
+      "prompt_ms": 993.466,
+      "prompt_per_token_ms": 5.147492227979274,
+      "prompt_per_second": 194.26935597192053,
+      "predicted_n": 71,
+      "predicted_ms": 5065.408,
+      "predicted_per_token_ms": 71.34377464788733,
+      "predicted_per_second": 14.016639923180916
+    }
+  }
+}

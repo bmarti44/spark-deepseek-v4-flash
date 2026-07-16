@@ -1,0 +1,59 @@
+{
+  "index": 8488,
+  "task_id": 8675,
+  "rendered_prompt_sha256": "db761887dacaf33b7cdba96727e66b2ab88654970d6bd6655d142d874c1e76b1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "If all values in a data set are identical, then:\n\n- **Mean** equals that value, not zero (unless the value is zero).  \n- **Standard deviation** is zero (no spread).  \n- **Variance** is zero.  \n- **Interquartile range** is zero.  \n- **Quartile deviation** is zero.  \n- **Range** is zero.  \n- **Coefficient of variation** is zero (since standard deviation is zero).  \n- **Percentile** — percentiles are values at certain positions; if all values are the same, every percentile equals that same value, which is not necessarily zero.\n\nSo the only one that does **not** have to equal zero is the **mean** (unless the common value is zero).\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.130645894998452
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "If all values in a data set are identical, then:\n\n- **Mean** equals that value, not zero (unless the value is zero).  \n- **Standard deviation** is zero (no spread).  \n- **Variance** is zero.  \n- **Interquartile range** is zero.  \n- **Quartile deviation** is zero.  \n- **Range** is zero.  \n- **Coefficient of variation** is zero (since standard deviation is zero).  \n- **Percentile** — percentiles are values at certain positions; if all values are the same, every percentile equals that same value, which is not necessarily zero.\n\nSo the only one that does **not** have to equal zero is the **mean** (unless the common value is zero).\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235420,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 162,
+      "prompt_tokens": 87,
+      "total_tokens": 249,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-QR0kD7EakVXInWhexPAIjVno2UB48VfX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 671.139,
+      "prompt_per_token_ms": 7.803941860465116,
+      "prompt_per_second": 128.14037032567023,
+      "predicted_n": 162,
+      "predicted_ms": 11456.331,
+      "predicted_per_token_ms": 70.7180925925926,
+      "predicted_per_second": 14.140652884418232
+    }
+  }
+}

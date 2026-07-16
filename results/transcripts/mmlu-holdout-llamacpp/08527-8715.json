@@ -1,0 +1,59 @@
+{
+  "index": 8527,
+  "task_id": 8715,
+  "rendered_prompt_sha256": "bfbbf91280dda0279eef73e67630cf753c2419b51127b64b7d7b8e401622afe7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We want the remainder of \\(25^{1059}\\) modulo 23.\n\nFirst, reduce the base modulo 23:  \n\\(25 \\equiv 2 \\pmod{23}\\).\n\nSo we need \\(2^{1059} \\mod 23\\).\n\nBy Fermat’s little theorem, since 23 is prime and 2 is not divisible by 23:  \n\\(2^{22} \\equiv 1 \\pmod{23}\\).\n\nNow reduce the exponent modulo 22:  \n\\(1059 \\div 22\\):  \n\\(22 \\times 48 = 1056\\), remainder \\(1059 - 1056 = 3\\).\n\nThus:  \n\\(2^{1059} \\equiv 2^3 = 8 \\pmod{23}\\).\n\nThe remainder is 8.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.256551813999977
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We want the remainder of \\(25^{1059}\\) modulo 23.\n\nFirst, reduce the base modulo 23:  \n\\(25 \\equiv 2 \\pmod{23}\\).\n\nSo we need \\(2^{1059} \\mod 23\\).\n\nBy Fermat’s little theorem, since 23 is prime and 2 is not divisible by 23:  \n\\(2^{22} \\equiv 1 \\pmod{23}\\).\n\nNow reduce the exponent modulo 22:  \n\\(1059 \\div 22\\):  \n\\(22 \\times 48 = 1056\\), remainder \\(1059 - 1056 = 3\\).\n\nThus:  \n\\(2^{1059} \\equiv 2^3 = 8 \\pmod{23}\\).\n\nThe remainder is 8.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235433,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 87,
+      "total_tokens": 253,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bbOGcNGEcaz19Rg3SCqjnPToF2RuA09z",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 632.197,
+      "prompt_per_token_ms": 7.351127906976744,
+      "prompt_per_second": 136.03354650528237,
+      "predicted_n": 166,
+      "predicted_ms": 11621.9,
+      "predicted_per_token_ms": 70.01144578313253,
+      "predicted_per_second": 14.283378793484713
+    }
+  }
+}

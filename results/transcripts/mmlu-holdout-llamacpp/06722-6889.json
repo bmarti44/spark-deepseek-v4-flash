@@ -1,0 +1,59 @@
+{
+  "index": 6722,
+  "task_id": 6889,
+  "rendered_prompt_sha256": "060a1c2ed3bcd6dc7bac8d88b75361d966e9a7db8e0b81bc6f8aff79df043b62",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Expansionary monetary policy involves lowering interest rates to encourage borrowing and investment, which increases aggregate demand and raises domestic output (GDP).  \n\nThe correct option is:  \n**H. decrease the interest rate increase private investment increase aggregate demand and increase domestic output.**  \n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.28900837999754
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Expansionary monetary policy involves lowering interest rates to encourage borrowing and investment, which increases aggregate demand and raises domestic output (GDP).  \n\nThe correct option is:  \n**H. decrease the interest rate increase private investment increase aggregate demand and increase domestic output.**  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233688,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 56,
+      "prompt_tokens": 214,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-atJMKf6hfdFKf2WSGn6unUCvkbHGQ6FA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 213,
+      "prompt_ms": 1015.11,
+      "prompt_per_token_ms": 4.765774647887324,
+      "prompt_per_second": 209.82947660844638,
+      "predicted_n": 56,
+      "predicted_ms": 4270.591,
+      "predicted_per_token_ms": 76.26055357142857,
+      "predicted_per_second": 13.112939169309351
+    }
+  }
+}

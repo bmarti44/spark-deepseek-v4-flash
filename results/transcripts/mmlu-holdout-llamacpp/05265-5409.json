@@ -1,0 +1,59 @@
+{
+  "index": 5265,
+  "task_id": 5409,
+  "rendered_prompt_sha256": "dd754f1d9156d86bc3a23ef9ef5f5f1a89fc2fa7474552aa46be8ad85cb37485",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Vale is a 50% partner, so Vale’s share of each partnership item is 50%.\n\n- Tax-exempt interest income: $80,000 × 50% = $40,000  \n  This is not included in gross income (it’s tax-exempt).\n- Dividend income: $12,000 × 50% = $6,000  \n  This is included in gross income.\n\nThe cash distribution is not taxable because it doesn’t exceed Vale’s basis (it reduces basis instead).\n\nThus, the only item included in Vale’s adjusted gross income from Ball is the $6,000 dividend income.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.818331886999658
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Vale is a 50% partner, so Vale’s share of each partnership item is 50%.\n\n- Tax-exempt interest income: $80,000 × 50% = $40,000  \n  This is not included in gross income (it’s tax-exempt).\n- Dividend income: $12,000 × 50% = $6,000  \n  This is included in gross income.\n\nThe cash distribution is not taxable because it doesn’t exceed Vale’s basis (it reduces basis instead).\n\nThus, the only item included in Vale’s adjusted gross income from Ball is the $6,000 dividend income.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235635,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 135,
+      "prompt_tokens": 212,
+      "total_tokens": 347,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-49WaEjcQAdV88Ffqqq1dc1YcyaJDAUzE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 211,
+      "prompt_ms": 1088.342,
+      "prompt_per_token_ms": 5.158018957345972,
+      "prompt_per_second": 193.87288186985342,
+      "predicted_n": 135,
+      "predicted_ms": 9727.262,
+      "predicted_per_token_ms": 72.0537925925926,
+      "predicted_per_second": 13.87851997818091
+    }
+  }
+}

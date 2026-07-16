@@ -1,0 +1,60 @@
+{
+  "index": 509,
+  "task_id": 584,
+  "rendered_prompt_sha256": "b36fc7935c5993ca5f0f8bd4ad60874dc711dbfb5f1b9aa1fc3e22db513964c5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the premium for each policy, we use the formula:\n\n\\[\n\\text{Premium} = \\left( \\frac{\\text{Face Value}}{100} \\right) \\times \\text{Premium Rate}\n\\]\n\n**Policy 1:**  \nFace Value = $9,000, Rate = $0.28 per $100  \n\\[\n\\frac{9,000}{100} = 90, \\quad 90 \\times 0.28 = 25.20\n\\]\n\n**Policy 2:**  \nFace Value = $52,000, Rate = $0.35 per $100  \n\\[\n\\frac{52,000}{100} = 520, \\quad 520 \\times 0.35 = 182.00\n\\]\n\n**Policy 3:**  \nFace Value = $28,000, Rate = $0.42 per $100  \n\\[\n\\frac{28,000}{100} = 280, \\quad 280 \\times 0.42 = 117.60\n\\]\n\nSo the premiums are:  \nPolicy 1: $25.20  \nPolicy 2: $182.00  \nPolicy 3: $117.60  \n\nThat matches option **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.792450864002603
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To find the premium for each policy, we use the formula:\n\n\\[\n\\text{Premium} = \\left( \\frac{\\text{Face Value}}{100} \\right) \\times \\text{Premium Rate}\n\\]\n\n**Policy 1:**  \nFace Value = $9,000, Rate = $0.28 per $100  \n\\[\n\\frac{9,000}{100} = 90, \\quad 90 \\times 0.28 = 25.20\n\\]\n\n**Policy 2:**  \nFace Value = $52,000, Rate = $0.35 per $100  \n\\[\n\\frac{52,000}{100} = 520, \\quad 520 \\times 0.35 = 182.00\n\\]\n\n**Policy 3:**  \nFace Value = $28,000, Rate = $0.42 per $100  \n\\[\n\\frac{28,000}{100} = 280, \\quad 280 \\times 0.42 = 117.60\n\\]\n\nSo the premiums are:  \nPolicy 1: $25.20  \nPolicy 2: $182.00  \nPolicy 3: $117.60  \n\nThat matches option **I**.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232899,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 255,
+      "prompt_tokens": 367,
+      "total_tokens": 622,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-nMNGPsZHngZ9GhbNiX9NFm8OHNMjFVT1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 366,
+      "prompt_ms": 1413.209,
+      "prompt_per_token_ms": 3.8612267759562844,
+      "prompt_per_second": 258.98504750535835,
+      "predicted_n": 255,
+      "predicted_ms": 18376.376,
+      "predicted_per_token_ms": 72.06421960784314,
+      "predicted_per_second": 13.876511886783335
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Policy Face Value of Policy Premium Rate Term of Policy Premium 1 $ 9,000 $.28 per$100 1 year 2 $52,000 $.35 per$100 3 years 3 $28,000 $.42 per$100 1 year\n\nA. Policy 1: $52.00, Policy 2: $182.00, Policy 3: $28.00\nB. Policy 1: $28.00, Policy 2: $546.00, Policy 3: $117.60\nC. Policy 1: $28.00, Policy 2: $491.00, Policy 3: $117.00\nD. Policy 1: $25.20, Policy 2: $491.40, Policy 3: $117.60\nE. Policy 1: $52.00, Policy 2: $182.00, Policy 3: $117.60\nF. Policy 1: $28.00, Policy 2: $182.00, Policy 3: $117.60\nG. Policy 1: $25.20, Policy 2: $182.00, Policy 3: $176.40\nH. Policy 1: $52.00, Policy 2: $491.40, Policy 3: $28.00\nI. Policy 1: $25.20, Policy 2: $182.00, Policy 3: $117.60\nJ. Policy 1: $25.20, Policy 2: $546.00, Policy 3: $117.60\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

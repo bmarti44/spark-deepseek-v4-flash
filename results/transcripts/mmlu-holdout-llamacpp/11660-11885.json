@@ -1,0 +1,59 @@
+{
+  "index": 11660,
+  "task_id": 11885,
+  "rendered_prompt_sha256": "200ba2d0e1ed46afd0945f5a1323fe4fd8d83e22abd39e302fd9a7b942812177",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have a spherical carbon particle burning in air, with the reaction:\n\n\\[\n\\text{C} + \\frac{1}{2} \\text{O}_2 \\rightarrow \\text{CO}\n\\]\n\nThe rate is limited by diffusion of oxygen toward the particle and counter-diffusion of CO away.  \nGiven:\n\n- Initial diameter \\(d_i = 2.0 \\times 10^{-4} \\, \\text{m}\\)  \n- Final diameter \\(d_f = 8.0 \\times 10^{-5} \\, \\text{m}\\)  \n- Density \\(\\rho = 1350 \\, \\text{kg/m}^3\\)  \n- Diffusivity \\(D = 1.5 \\times 10^{-4} \\, \\text{m}^2/\\text{s}\\)  \n- Temperature \\(T = 1200 \\, \\text{K}\\)  \n- Assume steady state, spherical symmetry.\n\n---\n\n### Step 1: Shrinking core model for diffusion-controlled combustion\n\nFor a spherical particle shrinking due to reaction with gas, the time to shrink from initial radius \\(R_0\\) to radius \\(R\\) is given by:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 D C_b} \\left[ 1 - \\left( \\frac{R}{R_0} \\right)^2 \\right]\n\\]\n\nwhere \\(C_b\\) is the bulk concentration of oxygen in kmol/m³.\n\n---\n\n### Step 2: Find bulk oxygen concentration\n\nAt 1200 K, air has about 21% O₂ by volume. Using ideal gas law:\n\n\\[\nC_b = \\frac{P y_{O_2}}{RT}\n\\]\n\nAssume \\(P = 1 \\, \\text{atm} = 101325 \\, \\text{Pa}\\),  \n\\(R = 8314 \\, \\text{J/(kmol·K)}\\),  \n\\(y_{O_2} = 0.21\\).\n\n\\[\nC_b = \\frac{101325 \\times 0.21}{8314 \\times 1200}\n= \\frac{21278.25}{9976800} \\approx 2.133 \\times 10^{-3} \\, \\text{kmol/m}^3\n\\]\n\n---\n\n### Step 3: Convert density to kmol/m³\n\nCarbon molar mass \\(M_C = 12 \\, \\text{kg/kmol}\\):\n\n\\[\n\\rho_{\\text{molar}} = \\frac{1350}{12} = 112.5 \\, \\text{kmol/m}^3\n\\]\n\n---\n\n### Step 4: Apply formula\n\nInitial radius \\(R_0 = 1.0 \\times 10^{-4} \\, \\text{m}\\)  \nFinal radius \\(R = 0.4 \\times 10^{-4} \\, \\text{m}\\)  \nRatio \\(R/R_0 = 0.4\\).\n\n\\[\nt = \\frac{112.5 \\times (1.0 \\times 10^{-4})^2}{2 \\times (1.5 \\times 10^{-4}) \\times (2.133 \\times 10^{-3})} \\left[ 1 - (0.4)^2 \\right]\n\\]\n\nFirst compute denominator:\n\n\\[\n2 D C_b = 2 \\times 1.5 \\times 10^{-4} \\times 2.133 \\times 10^{-3}\n= 2 \\times 3.1995 \\times 10^{-7} = 6.399 \\times 10^{-7}\n\\]\n\nNumerator:\n\n\\[\n\\rho R_0^2 = 112.5 \\times 1.0 \\times 10^{-8} = 1.125 \\times 10^{-6}\n\\]\n\n",
+  "finish_reason": "length",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 55.77314992299944
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have a spherical carbon particle burning in air, with the reaction:\n\n\\[\n\\text{C} + \\frac{1}{2} \\text{O}_2 \\rightarrow \\text{CO}\n\\]\n\nThe rate is limited by diffusion of oxygen toward the particle and counter-diffusion of CO away.  \nGiven:\n\n- Initial diameter \\(d_i = 2.0 \\times 10^{-4} \\, \\text{m}\\)  \n- Final diameter \\(d_f = 8.0 \\times 10^{-5} \\, \\text{m}\\)  \n- Density \\(\\rho = 1350 \\, \\text{kg/m}^3\\)  \n- Diffusivity \\(D = 1.5 \\times 10^{-4} \\, \\text{m}^2/\\text{s}\\)  \n- Temperature \\(T = 1200 \\, \\text{K}\\)  \n- Assume steady state, spherical symmetry.\n\n---\n\n### Step 1: Shrinking core model for diffusion-controlled combustion\n\nFor a spherical particle shrinking due to reaction with gas, the time to shrink from initial radius \\(R_0\\) to radius \\(R\\) is given by:\n\n\\[\nt = \\frac{\\rho R_0^2}{2 D C_b} \\left[ 1 - \\left( \\frac{R}{R_0} \\right)^2 \\right]\n\\]\n\nwhere \\(C_b\\) is the bulk concentration of oxygen in kmol/m³.\n\n---\n\n### Step 2: Find bulk oxygen concentration\n\nAt 1200 K, air has about 21% O₂ by volume. Using ideal gas law:\n\n\\[\nC_b = \\frac{P y_{O_2}}{RT}\n\\]\n\nAssume \\(P = 1 \\, \\text{atm} = 101325 \\, \\text{Pa}\\),  \n\\(R = 8314 \\, \\text{J/(kmol·K)}\\),  \n\\(y_{O_2} = 0.21\\).\n\n\\[\nC_b = \\frac{101325 \\times 0.21}{8314 \\times 1200}\n= \\frac{21278.25}{9976800} \\approx 2.133 \\times 10^{-3} \\, \\text{kmol/m}^3\n\\]\n\n---\n\n### Step 3: Convert density to kmol/m³\n\nCarbon molar mass \\(M_C = 12 \\, \\text{kg/kmol}\\):\n\n\\[\n\\rho_{\\text{molar}} = \\frac{1350}{12} = 112.5 \\, \\text{kmol/m}^3\n\\]\n\n---\n\n### Step 4: Apply formula\n\nInitial radius \\(R_0 = 1.0 \\times 10^{-4} \\, \\text{m}\\)  \nFinal radius \\(R = 0.4 \\times 10^{-4} \\, \\text{m}\\)  \nRatio \\(R/R_0 = 0.4\\).\n\n\\[\nt = \\frac{112.5 \\times (1.0 \\times 10^{-4})^2}{2 \\times (1.5 \\times 10^{-4}) \\times (2.133 \\times 10^{-3})} \\left[ 1 - (0.4)^2 \\right]\n\\]\n\nFirst compute denominator:\n\n\\[\n2 D C_b = 2 \\times 1.5 \\times 10^{-4} \\times 2.133 \\times 10^{-3}\n= 2 \\times 3.1995 \\times 10^{-7} = 6.399 \\times 10^{-7}\n\\]\n\nNumerator:\n\n\\[\n\\rho R_0^2 = 112.5 \\times 1.0 \\times 10^{-8} = 1.125 \\times 10^{-6}\n\\]\n\n",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784234359,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 768,
+      "prompt_tokens": 227,
+      "total_tokens": 995,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-4qXZ6OBEcriXZOrCty3hCXt2wIqBbMBA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 226,
+      "prompt_ms": 1098.302,
+      "prompt_per_token_ms": 4.859743362831858,
+      "prompt_per_second": 205.7721828786618,
+      "predicted_n": 768,
+      "predicted_ms": 54672.192,
+      "predicted_per_token_ms": 71.18775000000001,
+      "predicted_per_second": 14.047360676520888
+    }
+  }
+}

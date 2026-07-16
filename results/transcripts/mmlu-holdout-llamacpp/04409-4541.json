@@ -1,0 +1,59 @@
+{
+  "index": 4409,
+  "task_id": 4541,
+  "rendered_prompt_sha256": "6f453df43aecac00d38f2310811871a7d32bb6801375bf97c71c19774cc0889c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have NaCN, which is the salt of a weak acid (HCN) and a strong base (NaOH).  \nThe CN⁻ ion will hydrolyze in water:\n\n\\[\n\\text{CN}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{HCN} + \\text{OH}^-\n\\]\n\nThe equilibrium constant for this hydrolysis is:\n\n\\[\nK_b = \\frac{K_w}{K_a} = \\frac{1.0 \\times 10^{-14}}{4.0 \\times 10^{-10}} = 2.5 \\times 10^{-5}\n\\]\n\nFor a 1.0 M solution:\n\n\\[\nK_b = \\frac{x^2}{1.0} \\quad \\Rightarrow \\quad x = \\sqrt{2.5 \\times 10^{-5}} \\approx 5.0 \\times 10^{-3}\n\\]\n\nSo:\n\n\\[\n[\\text{OH}^-] = 5.0 \\times 10^{-3} \\ \\text{M}\n\\]\n\n\\[\n\\text{pOH} = -\\log(5.0 \\times 10^{-3}) \\approx 2.30\n\\]\n\n\\[\n\\text{pH} = 14 - 2.30 = 11.70\n\\]\n\nThe correct answer is:\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.346973004001484
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have NaCN, which is the salt of a weak acid (HCN) and a strong base (NaOH).  \nThe CN⁻ ion will hydrolyze in water:\n\n\\[\n\\text{CN}^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{HCN} + \\text{OH}^-\n\\]\n\nThe equilibrium constant for this hydrolysis is:\n\n\\[\nK_b = \\frac{K_w}{K_a} = \\frac{1.0 \\times 10^{-14}}{4.0 \\times 10^{-10}} = 2.5 \\times 10^{-5}\n\\]\n\nFor a 1.0 M solution:\n\n\\[\nK_b = \\frac{x^2}{1.0} \\quad \\Rightarrow \\quad x = \\sqrt{2.5 \\times 10^{-5}} \\approx 5.0 \\times 10^{-3}\n\\]\n\nSo:\n\n\\[\n[\\text{OH}^-] = 5.0 \\times 10^{-3} \\ \\text{M}\n\\]\n\n\\[\n\\text{pOH} = -\\log(5.0 \\times 10^{-3}) \\approx 2.30\n\\]\n\n\\[\n\\text{pH} = 14 - 2.30 = 11.70\n\\]\n\nThe correct answer is:\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233612,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 133,
+      "total_tokens": 408,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Fokd9BWFoflIwEJS1eJzxBv4uNlsfX5P",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 132,
+      "prompt_ms": 856.009,
+      "prompt_per_token_ms": 6.484916666666667,
+      "prompt_per_second": 154.20398617304255,
+      "predicted_n": 275,
+      "predicted_ms": 19488.547,
+      "predicted_per_token_ms": 70.86744363636363,
+      "predicted_per_second": 14.110851876232744
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 3466,
+  "task_id": 3587,
+  "rendered_prompt_sha256": "d3af17eb43830d83e0f53d615d83fcc93125a66d9b3e31f2d35e660fde816430",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with 2 moles of NH₃ in a 1.0 L vessel.  \nAt equilibrium, 1.0 mole of NH₃ remains, so the amount decomposed is:\n\n\\[\n2.0 - 1.0 = 1.0 \\text{ mole of NH}_3\n\\]\n\nFrom the reaction:\n\n\\[\n2 \\text{NH}_3 \\rightleftharpoons \\text{N}_2 + 3\\text{H}_2\n\\]\n\nFor every 2 moles of NH₃ decomposed, we get 1 mole of N₂ and 3 moles of H₂.  \nSo, if 1.0 mole of NH₃ decomposes:\n\n- Moles of N₂ formed: \\( \\frac{1}{2} \\times 1.0 = 0.5 \\) moles  \n- Moles of H₂ formed: \\( \\frac{3}{2} \\times 1.0 = 1.5 \\) moles  \n\nEquilibrium moles in 1.0 L vessel (so concentrations are numerically equal to moles):\n\n\\[\n[\\text{NH}_3] = 1.0, \\quad [\\text{N}_2] = 0.5, \\quad [\\text{H}_2] = 1.5\n\\]\n\nEquilibrium constant expression:\n\n\\[\nK_c = \\frac{[\\text{N}_2][\\text{H}_2]^3}{[\\text{NH}_3]^2}\n\\]\n\nSubstitute:\n\n\\[\nK_c = \\frac{(0.5) \\times (1.5)^3}{(1.0)^2}\n= \\frac{0.5 \\times 3.375}{1}\n= 1.6875\n\\]\n\nThe correct answer is:\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 27.22274743300295
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We start with 2 moles of NH₃ in a 1.0 L vessel.  \nAt equilibrium, 1.0 mole of NH₃ remains, so the amount decomposed is:\n\n\\[\n2.0 - 1.0 = 1.0 \\text{ mole of NH}_3\n\\]\n\nFrom the reaction:\n\n\\[\n2 \\text{NH}_3 \\rightleftharpoons \\text{N}_2 + 3\\text{H}_2\n\\]\n\nFor every 2 moles of NH₃ decomposed, we get 1 mole of N₂ and 3 moles of H₂.  \nSo, if 1.0 mole of NH₃ decomposes:\n\n- Moles of N₂ formed: \\( \\frac{1}{2} \\times 1.0 = 0.5 \\) moles  \n- Moles of H₂ formed: \\( \\frac{3}{2} \\times 1.0 = 1.5 \\) moles  \n\nEquilibrium moles in 1.0 L vessel (so concentrations are numerically equal to moles):\n\n\\[\n[\\text{NH}_3] = 1.0, \\quad [\\text{N}_2] = 0.5, \\quad [\\text{H}_2] = 1.5\n\\]\n\nEquilibrium constant expression:\n\n\\[\nK_c = \\frac{[\\text{N}_2][\\text{H}_2]^3}{[\\text{NH}_3]^2}\n\\]\n\nSubstitute:\n\n\\[\nK_c = \\frac{(0.5) \\times (1.5)^3}{(1.0)^2}\n= \\frac{0.5 \\times 3.375}{1}\n= 1.6875\n\\]\n\nThe correct answer is:\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233032,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 369,
+      "prompt_tokens": 179,
+      "total_tokens": 548,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-hk8FeTwMAE9znU9FV6a5RJijUDHS2E7Y",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 178,
+      "prompt_ms": 940.628,
+      "prompt_per_token_ms": 5.284426966292135,
+      "prompt_per_second": 189.23527685758876,
+      "predicted_n": 369,
+      "predicted_ms": 26279.572,
+      "predicted_per_token_ms": 71.21835230352303,
+      "predicted_per_second": 14.041324569517341
+    }
+  }
+}

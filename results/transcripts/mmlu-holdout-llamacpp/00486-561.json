@@ -1,0 +1,59 @@
+{
+  "index": 486,
+  "task_id": 561,
+  "rendered_prompt_sha256": "ff05a3914cf9366c064790b97c4fe41452718be708ad00927f4dc00ea89c4585",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Bob has $15,000 available to pay $25,000 in debts.  \nThe fraction paid is:  \n\\[\n\\frac{15000}{25000} = 0.60\n\\]  \nThat means 60 cents on the dollar.  \n\nFor a $4,500 claim:  \n\\[\n0.60 \\times 4500 = 2700\n\\]  \n\nThe correct answer is **H**.  \n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.507824835000065
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Bob has $15,000 available to pay $25,000 in debts.  \nThe fraction paid is:  \n\\[\n\\frac{15000}{25000} = 0.60\n\\]  \nThat means 60 cents on the dollar.  \n\nFor a $4,500 claim:  \n\\[\n0.60 \\times 4500 = 2700\n\\]  \n\nThe correct answer is **H**.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232880,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 89,
+      "prompt_tokens": 226,
+      "total_tokens": 315,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-183mIkQyJzCKrk1PbS9ExkZ5SoxSLgZV",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 225,
+      "prompt_ms": 1076.136,
+      "prompt_per_token_ms": 4.782826666666667,
+      "prompt_per_second": 209.0813800486184,
+      "predicted_n": 89,
+      "predicted_ms": 6429.314,
+      "predicted_per_token_ms": 72.23948314606741,
+      "predicted_per_second": 13.842845441986501
+    }
+  }
+}

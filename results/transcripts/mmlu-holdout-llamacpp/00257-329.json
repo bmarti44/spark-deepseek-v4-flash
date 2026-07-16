@@ -1,0 +1,59 @@
+{
+  "index": 257,
+  "task_id": 329,
+  "rendered_prompt_sha256": "aaecc7ede56c31061eaa52eeed1dc21d137d90ea3f6510f70a571dd575a76ec4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The total insurance coverage is:\n\nAcme: $50,000  \nSafe Way: $30,000  \nTotal: $80,000  \n\nThe loss is $45,000.  \nUnder a proportional (pro rata) clause, each company pays its share of the loss based on the proportion of the total coverage it provides.\n\nAcme’s share:  \n\\[\n\\frac{50,000}{80,000} \\times 45,000 = \\frac{5}{8} \\times 45,000 = 28,125\n\\]\n\nSafe Way’s share:  \n\\[\n\\frac{30,000}{80,000} \\times 45,000 = \\frac{3}{8} \\times 45,000 = 16,875\n\\]\n\nThat matches option D.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.074287619001552
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The total insurance coverage is:\n\nAcme: $50,000  \nSafe Way: $30,000  \nTotal: $80,000  \n\nThe loss is $45,000.  \nUnder a proportional (pro rata) clause, each company pays its share of the loss based on the proportion of the total coverage it provides.\n\nAcme’s share:  \n\\[\n\\frac{50,000}{80,000} \\times 45,000 = \\frac{5}{8} \\times 45,000 = 28,125\n\\]\n\nSafe Way’s share:  \n\\[\n\\frac{30,000}{80,000} \\times 45,000 = \\frac{3}{8} \\times 45,000 = 16,875\n\\]\n\nThat matches option D.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232800,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 167,
+      "prompt_tokens": 281,
+      "total_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-SobrJNn4tIUsV4kabbctvfWyrmKoc9CR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 280,
+      "prompt_ms": 1158.777,
+      "prompt_per_token_ms": 4.138489285714286,
+      "prompt_per_second": 241.6340676420053,
+      "predicted_n": 167,
+      "predicted_ms": 11913.396,
+      "predicted_per_token_ms": 71.3377005988024,
+      "predicted_per_second": 14.017833370098668
+    }
+  }
+}

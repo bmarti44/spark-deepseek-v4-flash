@@ -1,0 +1,59 @@
+{
+  "index": 284,
+  "task_id": 356,
+  "rendered_prompt_sha256": "e13ec469826cd3db459fb288dbaebb5c1ed8dac4c8030708ee7674488dcba406",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Fixed costs per week:**  \n- Wages and electricity: $500  \n- Upkeep and miscellaneous: $100  \nTotal fixed costs = $600  \n\n**Variable cost per customer:**  \n- Gift cost: $2.00  \n\n**Revenue per customer:**  \n- Admission fee: $6.00  \n\n**Profit per customer (before fixed costs):**  \n$6.00 − $2.00 = $4.00  \n\n**Desired profit:** $1,000 per week  \n\nLet \\( x \\) be the number of customers.  \nTotal profit = Revenue − Costs  \n\\[\n4x - 600 = 1000\n\\]  \n\\[\n4x = 1600\n\\]  \n\\[\nx = 400\n\\]\n\nSo the answer is **J. Four hundred customers**.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.772650681999949
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Fixed costs per week:**  \n- Wages and electricity: $500  \n- Upkeep and miscellaneous: $100  \nTotal fixed costs = $600  \n\n**Variable cost per customer:**  \n- Gift cost: $2.00  \n\n**Revenue per customer:**  \n- Admission fee: $6.00  \n\n**Profit per customer (before fixed costs):**  \n$6.00 − $2.00 = $4.00  \n\n**Desired profit:** $1,000 per week  \n\nLet \\( x \\) be the number of customers.  \nTotal profit = Revenue − Costs  \n\\[\n4x - 600 = 1000\n\\]  \n\\[\n4x = 1600\n\\]  \n\\[\nx = 400\n\\]\n\nSo the answer is **J. Four hundred customers**.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232840,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 177,
+      "prompt_tokens": 198,
+      "total_tokens": 375,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fGWCMMshNWqinIQreeYXllNOQk7MpHkE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 197,
+      "prompt_ms": 1084.384,
+      "prompt_per_token_ms": 5.50448730964467,
+      "prompt_per_second": 181.66996193230443,
+      "predicted_n": 177,
+      "predicted_ms": 12684.97,
+      "predicted_per_token_ms": 71.66649717514125,
+      "predicted_per_second": 13.95352137214357
+    }
+  }
+}

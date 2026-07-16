@@ -1,0 +1,59 @@
+{
+  "index": 9419,
+  "task_id": 9608,
+  "rendered_prompt_sha256": "b3193bac9977c8df7049c7a4c73475780e3ef489f7e610e451f245cd543f29a6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the linear expansion formula:\n\n\\[\n\\Delta L = L_0 \\cdot \\alpha \\cdot \\Delta T\n\\]\n\nGiven:  \n- \\(L_0 = 200\\) ft  \n- \\(\\alpha = 10 \\times 10^{-6} \\, \\text{per} \\, °C\\)  \n- \\(\\Delta T = 100°C\\)\n\nSo:\n\n\\[\n\\Delta L = 200 \\times (10 \\times 10^{-6}) \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-5} \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-3}\n\\]\n\\[\n\\Delta L = 0.2 \\, \\text{ft}\n\\]\n\nThe correct answer is:\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.507798541002558
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can use the linear expansion formula:\n\n\\[\n\\Delta L = L_0 \\cdot \\alpha \\cdot \\Delta T\n\\]\n\nGiven:  \n- \\(L_0 = 200\\) ft  \n- \\(\\alpha = 10 \\times 10^{-6} \\, \\text{per} \\, °C\\)  \n- \\(\\Delta T = 100°C\\)\n\nSo:\n\n\\[\n\\Delta L = 200 \\times (10 \\times 10^{-6}) \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-5} \\times 100\n\\]\n\\[\n\\Delta L = 200 \\times 10^{-3}\n\\]\n\\[\n\\Delta L = 0.2 \\, \\text{ft}\n\\]\n\nThe correct answer is:\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236080,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 164,
+      "prompt_tokens": 153,
+      "total_tokens": 317,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7xd6Os5gutUXuY25tGY5AYj4EaW11E9l",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 152,
+      "prompt_ms": 834.307,
+      "prompt_per_token_ms": 5.488861842105263,
+      "prompt_per_second": 182.1871325543235,
+      "predicted_n": 164,
+      "predicted_ms": 11670.244,
+      "predicted_per_token_ms": 71.1600243902439,
+      "predicted_per_second": 14.05283385677283
+    }
+  }
+}

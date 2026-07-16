@@ -1,0 +1,59 @@
+{
+  "index": 321,
+  "task_id": 394,
+  "rendered_prompt_sha256": "0e55db5cfaedfe539eb6865992a16f1316d6af7cc113019d7eca69156db7fb92",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- Interest \\( I = 11.25 \\)  \n- Annual rate \\( r = 3\\% = 0.03 \\)  \n- Time \\( t = 3 \\) months = \\( \\frac{3}{12} = 0.25 \\) years  \n\nUsing the formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\n\\[\n11.25 = P \\times 0.03 \\times 0.25\n\\]\n\n\\[\n11.25 = P \\times 0.0075\n\\]\n\n\\[\nP = \\frac{11.25}{0.0075} = 1500\n\\]\n\nVerification:  \n\\( 1500 \\times 0.03 \\times 0.25 = 1500 \\times 0.0075 = 11.25 \\) ✓\n\nThe correct answer is **D**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.798265336998156
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are given:\n\n- Interest \\( I = 11.25 \\)  \n- Annual rate \\( r = 3\\% = 0.03 \\)  \n- Time \\( t = 3 \\) months = \\( \\frac{3}{12} = 0.25 \\) years  \n\nUsing the formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\n\\[\n11.25 = P \\times 0.03 \\times 0.25\n\\]\n\n\\[\n11.25 = P \\times 0.0075\n\\]\n\n\\[\nP = \\frac{11.25}{0.0075} = 1500\n\\]\n\nVerification:  \n\\( 1500 \\times 0.03 \\times 0.25 = 1500 \\times 0.0075 = 11.25 \\) ✓\n\nThe correct answer is **D**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232854,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 183,
+      "prompt_tokens": 137,
+      "total_tokens": 320,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-HEF96HwuJvT0rSRga0GiJ60fUIrFKWN3",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 136,
+      "prompt_ms": 798.684,
+      "prompt_per_token_ms": 5.872676470588235,
+      "prompt_per_second": 170.2801107822368,
+      "predicted_n": 183,
+      "predicted_ms": 12996.936,
+      "predicted_per_token_ms": 71.02150819672131,
+      "predicted_per_second": 14.080241681577874
+    }
+  }
+}

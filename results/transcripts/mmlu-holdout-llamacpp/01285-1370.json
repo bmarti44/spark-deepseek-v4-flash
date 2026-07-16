@@ -1,0 +1,59 @@
+{
+  "index": 1285,
+  "task_id": 1370,
+  "rendered_prompt_sha256": "175b4723f9b20fb2c15c9581d51f578bce9e7b9d40ab80fd417806da714ddf93",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The key issue is the express term in the written agreement: orders are binding on the distributor \"only when expressly accepted by the distributor.\" Despite a two-year course of dealing where the distributor always filled orders, the contract language explicitly reserves the right to accept or reject. Course of dealing cannot override an express, unambiguous term. Therefore, the distributor was not obligated to fill the order.\n\nThe correct answer is: **B**.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.877754732999165
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The key issue is the express term in the written agreement: orders are binding on the distributor \"only when expressly accepted by the distributor.\" Despite a two-year course of dealing where the distributor always filled orders, the contract language explicitly reserves the right to accept or reject. Course of dealing cannot override an express, unambiguous term. Therefore, the distributor was not obligated to fill the order.\n\nThe correct answer is: **B**.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235005,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 88,
+      "prompt_tokens": 390,
+      "total_tokens": 478,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-OeMeiCxz8cul9X1n83KoHHlgrLVzQUxI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 389,
+      "prompt_ms": 1584.809,
+      "prompt_per_token_ms": 4.07405912596401,
+      "prompt_per_second": 245.45544605059663,
+      "predicted_n": 88,
+      "predicted_ms": 6289.154,
+      "predicted_per_token_ms": 71.4676590909091,
+      "predicted_per_second": 13.992343008296505
+    }
+  }
+}

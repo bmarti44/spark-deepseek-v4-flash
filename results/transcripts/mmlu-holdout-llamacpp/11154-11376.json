@@ -1,0 +1,59 @@
+{
+  "index": 11154,
+  "task_id": 11376,
+  "rendered_prompt_sha256": "110e2e4ede8c63683cb77ef96fa35b0eec7bb8c202e5c95a14156001261288af",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can find the maximum pressure on the aircraft using the stagnation pressure formula for incompressible flow (since at 200 mph and sea level, Mach number is low enough to treat as incompressible):\n\n\\[\nP_{\\text{total}} = P_{\\text{static}} + \\frac{1}{2} \\rho V^2\n\\]\n\nGiven:  \n- \\( \\rho = 0.00238 \\, \\text{slug/ft}^3 \\)  \n- \\( V = 200 \\, \\text{mph} \\)  \n- \\( P_0 = 14.7 \\, \\text{psi} \\)  \n\nFirst, convert velocity to ft/s:  \n\\[\n200 \\, \\text{mph} \\times \\frac{5280 \\, \\text{ft}}{3600 \\, \\text{s}} = 293.33 \\, \\text{ft/s}\n\\]\n\nDynamic pressure:  \n\\[\nq = \\frac{1}{2} \\times 0.00238 \\times (293.33)^2\n\\]  \n\\[\n= 0.00119 \\times 86,044.44 \\approx 102.39 \\, \\text{lb/ft}^2\n\\]\n\nConvert to psi (1 psi = 144 lb/ft²):  \n\\[\nq = \\frac{102.39}{144} \\approx 0.711 \\, \\text{psi}\n\\]\n\nTotal pressure:  \n\\[\nP_{\\text{total}} = 14.7 + 0.711 \\approx 15.411 \\, \\text{psia}\n\\]\n\nClosest option is **15.42 psia**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 25.25848285399843
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can find the maximum pressure on the aircraft using the stagnation pressure formula for incompressible flow (since at 200 mph and sea level, Mach number is low enough to treat as incompressible):\n\n\\[\nP_{\\text{total}} = P_{\\text{static}} + \\frac{1}{2} \\rho V^2\n\\]\n\nGiven:  \n- \\( \\rho = 0.00238 \\, \\text{slug/ft}^3 \\)  \n- \\( V = 200 \\, \\text{mph} \\)  \n- \\( P_0 = 14.7 \\, \\text{psi} \\)  \n\nFirst, convert velocity to ft/s:  \n\\[\n200 \\, \\text{mph} \\times \\frac{5280 \\, \\text{ft}}{3600 \\, \\text{s}} = 293.33 \\, \\text{ft/s}\n\\]\n\nDynamic pressure:  \n\\[\nq = \\frac{1}{2} \\times 0.00238 \\times (293.33)^2\n\\]  \n\\[\n= 0.00119 \\times 86,044.44 \\approx 102.39 \\, \\text{lb/ft}^2\n\\]\n\nConvert to psi (1 psi = 144 lb/ft²):  \n\\[\nq = \\frac{102.39}{144} \\approx 0.711 \\, \\text{psi}\n\\]\n\nTotal pressure:  \n\\[\nP_{\\text{total}} = 14.7 + 0.711 \\approx 15.411 \\, \\text{psia}\n\\]\n\nClosest option is **15.42 psia**.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233885,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 333,
+      "prompt_tokens": 152,
+      "total_tokens": 485,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-PUE9eZ1yxntXgS8eeAesC3urORRKtREb",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 151,
+      "prompt_ms": 848.275,
+      "prompt_per_token_ms": 5.617715231788079,
+      "prompt_per_second": 178.0083109840559,
+      "predicted_n": 333,
+      "predicted_ms": 24407.301,
+      "predicted_per_token_ms": 73.2951981981982,
+      "predicted_per_second": 13.643458570040169
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 984,
+  "task_id": 1064,
+  "rendered_prompt_sha256": "d53a3283bc30e5fc87f86540b84ec4b411caadaa32cf328de78eda140756e454",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The judge's instruction told the jury that it *could* infer the defendant's intent to set the fire based on the fact that four matches were missing from the matchbook. This is a permissible inference from circumstantial evidence — the jury is not required to draw that inference, but may do so if they find it reasonable based on the facts. The instruction does not create a mandatory presumption or shift the burden of proof; it simply allows the jury to consider the logical implication of the missing matches. Therefore, the instruction was proper.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.535574520003138
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The judge's instruction told the jury that it *could* infer the defendant's intent to set the fire based on the fact that four matches were missing from the matchbook. This is a permissible inference from circumstantial evidence — the jury is not required to draw that inference, but may do so if they find it reasonable based on the facts. The instruction does not create a mandatory presumption or shift the burden of proof; it simply allows the jury to consider the logical implication of the missing matches. Therefore, the instruction was proper.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234945,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 111,
+      "prompt_tokens": 345,
+      "total_tokens": 456,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-AtZYAwrdjmdUrKnJecEBEJcTPgm9afqR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 344,
+      "prompt_ms": 1513.792,
+      "prompt_per_token_ms": 4.400558139534883,
+      "prompt_per_second": 227.24390140785525,
+      "predicted_n": 111,
+      "predicted_ms": 8019.37,
+      "predicted_per_token_ms": 72.24657657657657,
+      "predicted_per_second": 13.841486301292996
+    }
+  }
+}

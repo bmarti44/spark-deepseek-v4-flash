@@ -1,0 +1,59 @@
+{
+  "index": 1637,
+  "task_id": 1731,
+  "rendered_prompt_sha256": "bbe4d1db01067dfa550327cbd1bfe8272e47d649748c7dce2175411ad2d863eb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The lease says the term is for three years, with rent payable in monthly installments. However, the key legal issue is that the lease does not appear to satisfy the statute of frauds or other formalities for a leasehold estate for a term longer than one year in many jurisdictions. But the question is testing the concept that when a tenant takes possession and the landlord accepts rent, it can create a periodic tenancy—here, month-to-month, because rent is paid monthly.\n\nThe lease says \"three years\" but the rent is paid monthly, and without a signed written lease satisfying formalities for a term exceeding one year, the tenant’s possession and payment generally create a periodic tenancy measured by the rent period. Since rent is paid monthly, it becomes a month-to-month tenancy.\n\nThus, the correct answer is:\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.730788149001455
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The lease says the term is for three years, with rent payable in monthly installments. However, the key legal issue is that the lease does not appear to satisfy the statute of frauds or other formalities for a leasehold estate for a term longer than one year in many jurisdictions. But the question is testing the concept that when a tenant takes possession and the landlord accepts rent, it can create a periodic tenancy—here, month-to-month, because rent is paid monthly.\n\nThe lease says \"three years\" but the rent is paid monthly, and without a signed written lease satisfying formalities for a term exceeding one year, the tenant’s possession and payment generally create a periodic tenancy measured by the rent period. Since rent is paid monthly, it becomes a month-to-month tenancy.\n\nThus, the correct answer is:\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235071,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 172,
+      "prompt_tokens": 303,
+      "total_tokens": 475,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-6nATq6IiahTA6NrZPY4eLLWvIZo5vrHa",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 302,
+      "prompt_ms": 1341.721,
+      "prompt_per_token_ms": 4.44278476821192,
+      "prompt_per_second": 225.08405249675604,
+      "predicted_n": 172,
+      "predicted_ms": 12385.187,
+      "predicted_per_token_ms": 72.0069011627907,
+      "predicted_per_second": 13.887557773653318
+    }
+  }
+}

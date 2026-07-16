@@ -1,0 +1,59 @@
+{
+  "index": 5989,
+  "task_id": 6150,
+  "rendered_prompt_sha256": "79157e95f63b67badcabcb13ab668909165411eedb056dafc7fea975203daf5f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "McAdam's theory of personality includes three levels:  \n1. **Dispositional traits**  \n2. **Personal concerns** (or characteristic adaptations)  \n3. **Life narratives** (or identity)  \n\nAmong the options given, the one that matches one of these levels is **Identity**.  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.32679888200073
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "McAdam's theory of personality includes three levels:  \n1. **Dispositional traits**  \n2. **Personal concerns** (or characteristic adaptations)  \n3. **Life narratives** (or identity)  \n\nAmong the options given, the one that matches one of these levels is **Identity**.  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234779,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 65,
+      "prompt_tokens": 81,
+      "total_tokens": 146,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vcEYLnrW4vGWxw64uROvRUjNvMz8xSz0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 80,
+      "prompt_ms": 621.37,
+      "prompt_per_token_ms": 7.767125,
+      "prompt_per_second": 128.74776703091555,
+      "predicted_n": 65,
+      "predicted_ms": 4702.697,
+      "predicted_per_token_ms": 72.34918461538462,
+      "predicted_per_second": 13.821855841445876
+    }
+  }
+}

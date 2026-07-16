@@ -1,0 +1,59 @@
+{
+  "index": 6433,
+  "task_id": 6598,
+  "rendered_prompt_sha256": "20602014914115efd0f5a46c0c0a889fc20686b94cd57c027ba318ec40eff076",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The retirement phase that occurs least frequently is the **termination of retirement**, as it involves returning to work after having retired, which is relatively uncommon compared to other phases.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.50310767100018
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The retirement phase that occurs least frequently is the **termination of retirement**, as it involves returning to work after having retired, which is relatively uncommon compared to other phases.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234866,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 38,
+      "prompt_tokens": 91,
+      "total_tokens": 129,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Bl9WTpHmAh4ZwRQ4lXVpMMeA3Jl7vFv2",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 90,
+      "prompt_ms": 698.748,
+      "prompt_per_token_ms": 7.763866666666667,
+      "prompt_per_second": 128.8017997904824,
+      "predicted_n": 38,
+      "predicted_ms": 2801.66,
+      "predicted_per_token_ms": 73.7278947368421,
+      "predicted_per_second": 13.563387420315099
+    }
+  }
+}

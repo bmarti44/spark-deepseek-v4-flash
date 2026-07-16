@@ -1,0 +1,59 @@
+{
+  "index": 6325,
+  "task_id": 6489,
+  "rendered_prompt_sha256": "37a335d9e53a54a469e789f9af36bca530a93cff7fafcc51e0894c5ed5f6508f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The symptoms point to ulnar nerve involvement:  \n- Numbness and tingling in the ring and small fingers (ulnar distribution).  \n- Pain in those fingers with palpation at the elbow (suggesting ulnar nerve irritation at the cubital tunnel).  \n- Sensory loss over the medial half of the ring finger and entire small finger.  \n\nThis is classic for ulnar nerve entrapment at the elbow.  \n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.095379670001421
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The symptoms point to ulnar nerve involvement:  \n- Numbness and tingling in the ring and small fingers (ulnar distribution).  \n- Pain in those fingers with palpation at the elbow (suggesting ulnar nerve irritation at the cubital tunnel).  \n- Sensory loss over the medial half of the ring finger and entire small finger.  \n\nThis is classic for ulnar nerve entrapment at the elbow.  \n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234813,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 91,
+      "prompt_tokens": 287,
+      "total_tokens": 378,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Zq8qJ1QKtrHmTrcBCyQVZuNakClYtNph",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 286,
+      "prompt_ms": 1346.803,
+      "prompt_per_token_ms": 4.709101398601399,
+      "prompt_per_second": 212.35473933455745,
+      "predicted_n": 91,
+      "predicted_ms": 6745.602,
+      "predicted_per_token_ms": 74.12749450549451,
+      "predicted_per_second": 13.49027114259039
+    }
+  }
+}

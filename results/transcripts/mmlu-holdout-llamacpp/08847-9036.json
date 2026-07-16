@@ -1,0 +1,59 @@
+{
+  "index": 8847,
+  "task_id": 9036,
+  "rendered_prompt_sha256": "46bc6a142524ed844a7f24f0302f2fced000fb94fb9507e77e16b34a7d83be13",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to compute the monthly payment for a fixed-rate mortgage.  \nThe formula for the monthly payment \\( M \\) on a loan amount \\( P \\) with annual interest rate \\( r \\) (as a decimal) and number of months \\( n \\) is:\n\n\\[\nM = P \\cdot \\frac{\\frac{r}{12}(1+\\frac{r}{12})^n}{(1+\\frac{r}{12})^n - 1}\n\\]\n\nHere:  \n- \\( P = 100,000 \\)  \n- Annual rate \\( r = 0.09 \\)  \n- Monthly rate \\( = 0.09 / 12 = 0.0075 \\)  \n- Number of months \\( n = 30 \\times 12 = 360 \\)\n\nPlug in:\n\n\\[\nM = 100,000 \\cdot \\frac{0.0075(1.0075)^{360}}{(1.0075)^{360} - 1}\n\\]\n\nFirst compute \\( (1.0075)^{360} \\):\n\nUsing approximation:  \n\\( 1.0075^{360} = (1.0075^{12})^{30} \\)  \n\\( 1.0075^{12} \\approx 1.0938 \\)  \n\\( 1.0938^{30} \\approx e^{30 \\cdot \\ln(1.0938)} \\approx e^{30 \\cdot 0.0897} \\approx e^{2.691} \\approx 14.73 \\)\n\nMore precisely, known value: \\( 1.0075^{360} \\approx 14.730... \\)  \n\nThen:\n\nNumerator: \\( 0.0075 \\times 14.73 \\approx 0.110475 \\)  \nDenominator: \\( 14.73 - 1 = 13.73 \\)  \nRatio: \\( 0.110475 / 13.73 \\approx 0.008045 \\)  \n\nMultiply by 100,000:\n\n\\[\nM \\approx 804.50\n\\]\n\nClosest to the given options is **$804.62**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 31.433597870000085
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to compute the monthly payment for a fixed-rate mortgage.  \nThe formula for the monthly payment \\( M \\) on a loan amount \\( P \\) with annual interest rate \\( r \\) (as a decimal) and number of months \\( n \\) is:\n\n\\[\nM = P \\cdot \\frac{\\frac{r}{12}(1+\\frac{r}{12})^n}{(1+\\frac{r}{12})^n - 1}\n\\]\n\nHere:  \n- \\( P = 100,000 \\)  \n- Annual rate \\( r = 0.09 \\)  \n- Monthly rate \\( = 0.09 / 12 = 0.0075 \\)  \n- Number of months \\( n = 30 \\times 12 = 360 \\)\n\nPlug in:\n\n\\[\nM = 100,000 \\cdot \\frac{0.0075(1.0075)^{360}}{(1.0075)^{360} - 1}\n\\]\n\nFirst compute \\( (1.0075)^{360} \\):\n\nUsing approximation:  \n\\( 1.0075^{360} = (1.0075^{12})^{30} \\)  \n\\( 1.0075^{12} \\approx 1.0938 \\)  \n\\( 1.0938^{30} \\approx e^{30 \\cdot \\ln(1.0938)} \\approx e^{30 \\cdot 0.0897} \\approx e^{2.691} \\approx 14.73 \\)\n\nMore precisely, known value: \\( 1.0075^{360} \\approx 14.730... \\)  \n\nThen:\n\nNumerator: \\( 0.0075 \\times 14.73 \\approx 0.110475 \\)  \nDenominator: \\( 14.73 - 1 = 13.73 \\)  \nRatio: \\( 0.110475 / 13.73 \\approx 0.008045 \\)  \n\nMultiply by 100,000:\n\n\\[\nM \\approx 804.50\n\\]\n\nClosest to the given options is **$804.62**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235605,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 430,
+      "prompt_tokens": 129,
+      "total_tokens": 559,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-yBNzDLPOH0yyiwqnucZSXhUBJuDpc7kE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 128,
+      "prompt_ms": 852.591,
+      "prompt_per_token_ms": 6.6608671875,
+      "prompt_per_second": 150.1306018946951,
+      "predicted_n": 430,
+      "predicted_ms": 30578.215,
+      "predicted_per_token_ms": 71.11212790697674,
+      "predicted_per_second": 14.062298927520784
+    }
+  }
+}

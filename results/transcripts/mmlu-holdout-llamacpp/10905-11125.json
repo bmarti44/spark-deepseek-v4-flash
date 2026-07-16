@@ -1,0 +1,59 @@
+{
+  "index": 10905,
+  "task_id": 11125,
+  "rendered_prompt_sha256": "0d14ee467e4057a29d8186c7efd9e1a03096a387e4d4e583b980aff391599232",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to translate:  \n\"Leroy is bad only if DJ Khaled shouts his name.\"\n\nLet’s define:  \n- Let \\( Bx \\) mean \"x is bad\" (or we could use a specific constant for Leroy).  \n- Let \\( Sy \\) mean \"y shouts his name\" (or a specific constant for DJ Khaled).\n\nThe phrase \"only if\" indicates a necessary condition:  \nIf Leroy is bad, then DJ Khaled shouts his name.  \nSo: \\( \\text{Leroy is bad} \\supset \\text{DJ Khaled shouts his name} \\).\n\nIf we let:  \n- \\( Bl \\) = \"Leroy is bad\"  \n- \\( Sk \\) = \"DJ Khaled shouts his name\"  \n\nThen the translation is:  \n\\( Bl \\supset Sk \\)\n\nLooking at the options:  \nA. Sy ≡ Bl — not correct  \nB. Sy ⊃ Bl — reversed  \nC. Bx ⊃ Sy — not specific constants  \nD. Bl ⊃ Sk — matches  \nE. Bx ≡ Sy — not correct  \nF. Sk ⊃ By — reversed  \nG. Sk ⊃ Bx — reversed  \nH. Sk ≡ Bl — not correct  \nI. By ≡ Sk — not correct  \nJ. Bl ≡ Sk — not correct  \n\nCorrect answer: **D**  \n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 21.236766951999016
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to translate:  \n\"Leroy is bad only if DJ Khaled shouts his name.\"\n\nLet’s define:  \n- Let \\( Bx \\) mean \"x is bad\" (or we could use a specific constant for Leroy).  \n- Let \\( Sy \\) mean \"y shouts his name\" (or a specific constant for DJ Khaled).\n\nThe phrase \"only if\" indicates a necessary condition:  \nIf Leroy is bad, then DJ Khaled shouts his name.  \nSo: \\( \\text{Leroy is bad} \\supset \\text{DJ Khaled shouts his name} \\).\n\nIf we let:  \n- \\( Bl \\) = \"Leroy is bad\"  \n- \\( Sk \\) = \"DJ Khaled shouts his name\"  \n\nThen the translation is:  \n\\( Bl \\supset Sk \\)\n\nLooking at the options:  \nA. Sy ≡ Bl — not correct  \nB. Sy ⊃ Bl — reversed  \nC. Bx ⊃ Sy — not specific constants  \nD. Bl ⊃ Sk — matches  \nE. Bx ≡ Sy — not correct  \nF. Sk ⊃ By — reversed  \nG. Sk ⊃ Bx — reversed  \nH. Sk ≡ Bl — not correct  \nI. By ≡ Sk — not correct  \nJ. Bl ≡ Sk — not correct  \n\nCorrect answer: **D**  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235728,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 287,
+      "prompt_tokens": 111,
+      "total_tokens": 398,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-62a4twqEx9bbVWO9QESKGx9HJ9DCSful",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 110,
+      "prompt_ms": 751.766,
+      "prompt_per_token_ms": 6.834236363636363,
+      "prompt_per_second": 146.32212683201953,
+      "predicted_n": 287,
+      "predicted_ms": 20483.107,
+      "predicted_per_token_ms": 71.36971080139372,
+      "predicted_per_second": 14.011546197556846
+    }
+  }
+}

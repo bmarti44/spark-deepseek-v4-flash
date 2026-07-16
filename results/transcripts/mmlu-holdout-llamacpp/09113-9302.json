@@ -1,0 +1,59 @@
+{
+  "index": 9113,
+  "task_id": 9302,
+  "rendered_prompt_sha256": "0547e0103f7004b8a4b36240675e3ccacead7cf9abaf81efbaa6958cc0d3eb82",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The gravitational field at a planet’s surface is given by:\n\n\\[\ng = \\frac{GM}{R^2}\n\\]\n\nFor Earth, let \\( g_E = \\frac{GM_E}{R_E^2} \\approx 9.8 \\, \\text{N/kg} \\).\n\nFor Mars:\n- \\( M_M = \\frac{1}{10} M_E \\)\n- \\( R_M = \\frac{1}{2} R_E \\)\n\nSo:\n\n\\[\ng_M = \\frac{G \\cdot \\frac{1}{10} M_E}{\\left(\\frac{1}{2} R_E\\right)^2}\n= \\frac{\\frac{1}{10} GM_E}{\\frac{1}{4} R_E^2}\n= \\frac{1}{10} \\cdot 4 \\cdot \\frac{GM_E}{R_E^2}\n= \\frac{4}{10} g_E\n= 0.4 \\, g_E\n\\]\n\nSince \\( g_E \\approx 10 \\, \\text{N/kg} \\):\n\n\\[\ng_M \\approx 0.4 \\times 10 = 4 \\, \\text{N/kg}\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.732566352002323
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The gravitational field at a planet’s surface is given by:\n\n\\[\ng = \\frac{GM}{R^2}\n\\]\n\nFor Earth, let \\( g_E = \\frac{GM_E}{R_E^2} \\approx 9.8 \\, \\text{N/kg} \\).\n\nFor Mars:\n- \\( M_M = \\frac{1}{10} M_E \\)\n- \\( R_M = \\frac{1}{2} R_E \\)\n\nSo:\n\n\\[\ng_M = \\frac{G \\cdot \\frac{1}{10} M_E}{\\left(\\frac{1}{2} R_E\\right)^2}\n= \\frac{\\frac{1}{10} GM_E}{\\frac{1}{4} R_E^2}\n= \\frac{1}{10} \\cdot 4 \\cdot \\frac{GM_E}{R_E^2}\n= \\frac{4}{10} g_E\n= 0.4 \\, g_E\n\\]\n\nSince \\( g_E \\approx 10 \\, \\text{N/kg} \\):\n\n\\[\ng_M \\approx 0.4 \\times 10 = 4 \\, \\text{N/kg}\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235846,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 251,
+      "prompt_tokens": 138,
+      "total_tokens": 389,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rsVPQpzgvWsz0tpR0EfgHvnqptg664oS",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 137,
+      "prompt_ms": 786.339,
+      "prompt_per_token_ms": 5.739700729927008,
+      "prompt_per_second": 174.2251115612986,
+      "predicted_n": 251,
+      "predicted_ms": 17943.782,
+      "predicted_per_token_ms": 71.48917131474103,
+      "predicted_per_second": 13.988132490686747
+    }
+  }
+}

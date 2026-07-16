@@ -1,0 +1,59 @@
+{
+  "index": 9505,
+  "task_id": 9695,
+  "rendered_prompt_sha256": "7a0488f900d6e57686b4457a29d21bd4cf22ea15934390cf83595ea707ce1b00",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- Coal used: \\( 10^3 \\) kg per day  \n- Current: \\( I = 200 \\, \\text{A} \\)  \n- emf: \\( V = 240 \\, \\text{V} \\)  \n- Calorific value: \\( 6.6 \\times 10^3 \\, \\text{cal/g} \\)\n\n**Step 1: Convert coal mass to grams**  \n\\[\n10^3 \\, \\text{kg} = 10^6 \\, \\text{g}\n\\]\n\n**Step 2: Total energy input per day (in calories)**  \n\\[\n\\text{Input energy} = 10^6 \\times 6.6 \\times 10^3 = 6.6 \\times 10^9 \\, \\text{cal}\n\\]\n\nConvert to joules (1 cal = 4.186 J):  \n\\[\n\\text{Input energy (J)} = 6.6 \\times 10^9 \\times 4.186 \\approx 2.76276 \\times 10^{10} \\, \\text{J}\n\\]\n\n**Step 3: Electrical energy output per day**  \nPower output:  \n\\[\nP = V \\times I = 240 \\times 200 = 48,000 \\, \\text{W} = 48 \\, \\text{kW}\n\\]  \nEnergy per day (seconds in a day = 86400 s):  \n\\[\n\\text{Output energy} = 48,000 \\times 86,400 = 4.1472 \\times 10^9 \\, \\text{J}\n\\]\n\n**Step 4: Efficiency**  \n\\[\n\\eta = \\frac{4.1472 \\times 10^9}{2.76276 \\times 10^{10}} \\approx 0.15 = 15\\%\n\\]\n\nThe correct answer is **A**.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 28.50596610100183
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are given:\n\n- Coal used: \\( 10^3 \\) kg per day  \n- Current: \\( I = 200 \\, \\text{A} \\)  \n- emf: \\( V = 240 \\, \\text{V} \\)  \n- Calorific value: \\( 6.6 \\times 10^3 \\, \\text{cal/g} \\)\n\n**Step 1: Convert coal mass to grams**  \n\\[\n10^3 \\, \\text{kg} = 10^6 \\, \\text{g}\n\\]\n\n**Step 2: Total energy input per day (in calories)**  \n\\[\n\\text{Input energy} = 10^6 \\times 6.6 \\times 10^3 = 6.6 \\times 10^9 \\, \\text{cal}\n\\]\n\nConvert to joules (1 cal = 4.186 J):  \n\\[\n\\text{Input energy (J)} = 6.6 \\times 10^9 \\times 4.186 \\approx 2.76276 \\times 10^{10} \\, \\text{J}\n\\]\n\n**Step 3: Electrical energy output per day**  \nPower output:  \n\\[\nP = V \\times I = 240 \\times 200 = 48,000 \\, \\text{W} = 48 \\, \\text{kW}\n\\]  \nEnergy per day (seconds in a day = 86400 s):  \n\\[\n\\text{Output energy} = 48,000 \\times 86,400 = 4.1472 \\times 10^9 \\, \\text{J}\n\\]\n\n**Step 4: Efficiency**  \n\\[\n\\eta = \\frac{4.1472 \\times 10^9}{2.76276 \\times 10^{10}} \\approx 0.15 = 15\\%\n\\]\n\nThe correct answer is **A**.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236140,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 389,
+      "prompt_tokens": 139,
+      "total_tokens": 528,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-knKciJBe1HvRGR4UsaMduky8jJ5mgp9h",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 138,
+      "prompt_ms": 803.78,
+      "prompt_per_token_ms": 5.824492753623188,
+      "prompt_per_second": 171.6887705591082,
+      "predicted_n": 389,
+      "predicted_ms": 27699.67,
+      "predicted_per_token_ms": 71.20737789203085,
+      "predicted_per_second": 14.043488604737892
+    }
+  }
+}

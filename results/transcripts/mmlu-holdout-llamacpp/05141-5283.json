@@ -1,0 +1,59 @@
+{
+  "index": 5141,
+  "task_id": 5283,
+  "rendered_prompt_sha256": "80644021dbf86ebc67ab06414f82bf777928cf5654533511876de67b370db262",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In many legal systems, particularly in the United States, **government institutions** generally cannot sue for libel because doing so would violate the First Amendment’s protection of free speech and the press. The rationale is that allowing the government to sue for defamation would chill criticism of public officials and government actions.\n\nThus, the correct answer is:\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.880668181998772
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In many legal systems, particularly in the United States, **government institutions** generally cannot sue for libel because doing so would violate the First Amendment’s protection of free speech and the press. The rationale is that allowing the government to sue for defamation would chill criticism of public officials and government actions.\n\nThus, the correct answer is:\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235622,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 96,
+      "total_tokens": 168,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-JKmFgn9Z5xxhaTqBtkqbTG53HzIDubq3",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 95,
+      "prompt_ms": 693.336,
+      "prompt_per_token_ms": 7.2982736842105265,
+      "prompt_per_second": 137.01870377421625,
+      "predicted_n": 72,
+      "predicted_ms": 5184.104,
+      "predicted_per_token_ms": 72.00144444444445,
+      "predicted_per_second": 13.88861025936208
+    }
+  }
+}

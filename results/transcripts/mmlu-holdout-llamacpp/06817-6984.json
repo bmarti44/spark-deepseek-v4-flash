@@ -1,0 +1,59 @@
+{
+  "index": 6817,
+  "task_id": 6984,
+  "rendered_prompt_sha256": "27e5426457c71ff39721c466f01bde1417e24a8f8d6f283294e96ef7f5992d6c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Unlike a perfectly competitive firm, a monopoly faces a downward sloping demand curve because it is the sole seller in the market and can set the price, but faces a trade-off between price and quantity.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.970484059998853
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Unlike a perfectly competitive firm, a monopoly faces a downward sloping demand curve because it is the sole seller in the market and can set the price, but faces a trade-off between price and quantity.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233697,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 136,
+      "total_tokens": 179,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-jH17xc7KUSMKs8FGLnfZ6oe7HHaluxXs",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 135,
+      "prompt_ms": 804.782,
+      "prompt_per_token_ms": 5.961348148148148,
+      "prompt_per_second": 167.74729057061415,
+      "predicted_n": 43,
+      "predicted_ms": 3162.865,
+      "predicted_per_token_ms": 73.55499999999999,
+      "predicted_per_second": 13.595268846441439
+    }
+  }
+}

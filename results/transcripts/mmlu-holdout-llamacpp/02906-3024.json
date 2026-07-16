@@ -1,0 +1,59 @@
+{
+  "index": 2906,
+  "task_id": 3024,
+  "rendered_prompt_sha256": "64844a6dc4c6e1ae6714ce0f8caa45d9ca1f45fae5c00986910543ce3d47b211",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "This is a classic quantitative genetics problem where the trait is controlled by multiple additive alleles, and the phenotypic distribution follows a binomial pattern.\n\nLet’s break it down:\n\n- The parents are both **30\"** plants.  \n- The progeny range from **22\" to 38\"**, with a symmetric distribution.  \n- The total number of progeny is:  \n  1 + 8 + 28 + 56 + 70 + 56 + 28 + 8 + 1 = 256  \n- This is a **1:8:28:56:70:56:28:8:1** ratio, which is typical for **4 independently segregating additive loci** with two alleles each (AaBbCcDd × AaBbCcDd).\n\nThe number of classes (9) = \\(2n + 1\\) where \\(n\\) is the number of loci.  \nHere \\(2n + 1 = 9 \\implies n = 4\\).\n\nThus, the parents are both heterozygous at 4 loci: **AaBbCcDd × AaBbCcDd**.\n\nThe correct answer is:\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.635022554000898
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "This is a classic quantitative genetics problem where the trait is controlled by multiple additive alleles, and the phenotypic distribution follows a binomial pattern.\n\nLet’s break it down:\n\n- The parents are both **30\"** plants.  \n- The progeny range from **22\" to 38\"**, with a symmetric distribution.  \n- The total number of progeny is:  \n  1 + 8 + 28 + 56 + 70 + 56 + 28 + 8 + 1 = 256  \n- This is a **1:8:28:56:70:56:28:8:1** ratio, which is typical for **4 independently segregating additive loci** with two alleles each (AaBbCcDd × AaBbCcDd).\n\nThe number of classes (9) = \\(2n + 1\\) where \\(n\\) is the number of loci.  \nHere \\(2n + 1 = 9 \\implies n = 4\\).\n\nThus, the parents are both heterozygous at 4 loci: **AaBbCcDd × AaBbCcDd**.\n\nThe correct answer is:\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232597,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 232,
+      "total_tokens": 468,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-3ydcMsTeVd8jFNKnVRekbKjW7cvpmLnX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 231,
+      "prompt_ms": 1161.025,
+      "prompt_per_token_ms": 5.026082251082252,
+      "prompt_per_second": 198.96212398527163,
+      "predicted_n": 236,
+      "predicted_ms": 17471.125,
+      "predicted_per_token_ms": 74.0301906779661,
+      "predicted_per_second": 13.508002489822491
+    }
+  }
+}

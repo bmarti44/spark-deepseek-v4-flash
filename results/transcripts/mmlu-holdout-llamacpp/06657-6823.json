@@ -1,0 +1,59 @@
+{
+  "index": 6657,
+  "task_id": 6823,
+  "rendered_prompt_sha256": "53347578e54cff3f19fe3f377596c30b22cf64555fe437a02c9bcb865b06a361",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "For short-term intense activity like sprinting, the primary fuel source is stored muscle glycogen, because it can be rapidly broken down to glucose for glycolysis and ATP production without needing oxygen.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.6060280580022663
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "For short-term intense activity like sprinting, the primary fuel source is stored muscle glycogen, because it can be rapidly broken down to glucose for glycolysis and ATP production without needing oxygen.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234905,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 111,
+      "total_tokens": 151,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-SXkacGNyoi7GxAYKIlG176zbUsmkDoli",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 110,
+      "prompt_ms": 774.436,
+      "prompt_per_token_ms": 7.040327272727273,
+      "prompt_per_second": 142.038851499672,
+      "predicted_n": 40,
+      "predicted_ms": 2827.97,
+      "predicted_per_token_ms": 70.69924999999999,
+      "predicted_per_second": 14.144421616919558
+    }
+  }
+}

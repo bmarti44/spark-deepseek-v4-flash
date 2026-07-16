@@ -1,0 +1,59 @@
+{
+  "index": 9472,
+  "task_id": 9662,
+  "rendered_prompt_sha256": "82ad13d803fd332a1a81ef5d3635b2f08b1bc8809f9aaebb20ec6efa9c4b3dc0",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The lens has a power of \\(-10.00 \\, \\text{D}\\) at the eye, but when moved 12 mm (0.012 m) away, its effective power changes because the distance from the eye changes the vergence relationship.\n\nWe can use the formula for effective power:\n\n\\[\nP_{\\text{eff}} = \\frac{P}{1 - d \\cdot P}\n\\]\n\nWhere:\n- \\(P = -10.00 \\, \\text{D}\\)\n- \\(d = 0.012 \\, \\text{m}\\) (positive if lens is moved away from the eye)\n\nPlug in:\n\n\\[\nP_{\\text{eff}} = \\frac{-10.00}{1 - (0.012)(-10.00)} = \\frac{-10.00}{1 + 0.12} = \\frac{-10.00}{1.12}\n\\]\n\n\\[\nP_{\\text{eff}} \\approx -8.9286 \\, \\text{D}\n\\]\n\nThat rounds to \\(-8.93 \\, \\text{D}\\).\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.16486235800039
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The lens has a power of \\(-10.00 \\, \\text{D}\\) at the eye, but when moved 12 mm (0.012 m) away, its effective power changes because the distance from the eye changes the vergence relationship.\n\nWe can use the formula for effective power:\n\n\\[\nP_{\\text{eff}} = \\frac{P}{1 - d \\cdot P}\n\\]\n\nWhere:\n- \\(P = -10.00 \\, \\text{D}\\)\n- \\(d = 0.012 \\, \\text{m}\\) (positive if lens is moved away from the eye)\n\nPlug in:\n\n\\[\nP_{\\text{eff}} = \\frac{-10.00}{1 - (0.012)(-10.00)} = \\frac{-10.00}{1 + 0.12} = \\frac{-10.00}{1.12}\n\\]\n\n\\[\nP_{\\text{eff}} \\approx -8.9286 \\, \\text{D}\n\\]\n\nThat rounds to \\(-8.93 \\, \\text{D}\\).\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236096,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 215,
+      "prompt_tokens": 153,
+      "total_tokens": 368,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aPq91ZvM1GIveVllkR5WnRmTSe8wJjkV",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 152,
+      "prompt_ms": 825.738,
+      "prompt_per_token_ms": 5.432486842105264,
+      "prompt_per_second": 184.07775832043578,
+      "predicted_n": 215,
+      "predicted_ms": 15336.051,
+      "predicted_per_token_ms": 71.33046976744185,
+      "predicted_per_second": 14.019254369980905
+    }
+  }
+}

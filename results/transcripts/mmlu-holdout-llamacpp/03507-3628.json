@@ -1,0 +1,59 @@
+{
+  "index": 3507,
+  "task_id": 3628,
+  "rendered_prompt_sha256": "bd2fe27f379313ddbb4c3e778f63b352d516acc164fd96c14b8d385e9f47c23e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In the electrolysis of molten magnesium bromide (MgBr₂), there is no water present, so only the ions from the salt are involved:\n\n- Magnesium ions (Mg²⁺) are reduced at the **cathode** to form magnesium metal.\n- Bromide ions (Br⁻) are oxidized at the **anode** to form bromine gas.\n\nThus, the products are magnesium at the cathode and bromine at the anode.\n\nThe correct option is:\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.898934969001857
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In the electrolysis of molten magnesium bromide (MgBr₂), there is no water present, so only the ions from the salt are involved:\n\n- Magnesium ions (Mg²⁺) are reduced at the **cathode** to form magnesium metal.\n- Bromide ions (Br⁻) are oxidized at the **anode** to form bromine gas.\n\nThus, the products are magnesium at the cathode and bromine at the anode.\n\nThe correct option is:\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233040,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 99,
+      "prompt_tokens": 161,
+      "total_tokens": 260,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qvS3m9ATUT5vfpdt2micAPX1DtXpmYQ7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 160,
+      "prompt_ms": 782.358,
+      "prompt_per_token_ms": 4.8897375,
+      "prompt_per_second": 204.5099558002858,
+      "predicted_n": 99,
+      "predicted_ms": 7113.954,
+      "predicted_per_token_ms": 71.8581212121212,
+      "predicted_per_second": 13.91631151958531
+    }
+  }
+}

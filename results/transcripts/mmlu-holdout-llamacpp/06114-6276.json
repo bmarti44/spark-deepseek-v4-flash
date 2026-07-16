@@ -1,0 +1,59 @@
+{
+  "index": 6114,
+  "task_id": 6276,
+  "rendered_prompt_sha256": "3ef81cf32a5b89885f35333f7776b777e6c5d27483b2ccd349fac9cde18f4156",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Additional dietary protein is known to stimulate the production of insulin-like growth factor 1 (IGF-1), which is related to growth hormone effects.  \n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.447461371000827
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Additional dietary protein is known to stimulate the production of insulin-like growth factor 1 (IGF-1), which is related to growth hormone effects.  \n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234794,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 35,
+      "prompt_tokens": 112,
+      "total_tokens": 147,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KrpUlnvij96E4XsPAlc07ugYeA74Nd9O",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 111,
+      "prompt_ms": 777.307,
+      "prompt_per_token_ms": 7.002765765765766,
+      "prompt_per_second": 142.80072095066686,
+      "predicted_n": 35,
+      "predicted_ms": 2667.822,
+      "predicted_per_token_ms": 76.22348571428572,
+      "predicted_per_second": 13.119316056318599
+    }
+  }
+}

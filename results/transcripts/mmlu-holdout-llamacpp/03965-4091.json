@@ -1,0 +1,59 @@
+{
+  "index": 3965,
+  "task_id": 4091,
+  "rendered_prompt_sha256": "51426dca04fa4ba03a9d36e265da8887ca97d0cee50a5ff9ecd86067f2c4c58c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to compute the change in standard molar enthalpy from 298.15 K to 1500 K:\n\n\\[\n\\Delta H = \\int_{298.15}^{1500} C_{p,m}(T) \\, dT\n\\]\n\nSince the actual data for \\(C_{p,m}(T)\\) is not provided in the text, this is a typical problem where you would be given a polynomial expression for \\(C_p\\) like:\n\n\\[\nC_p = a + bT + cT^2 + \\dots\n\\]\n\nand then integrate.  \nGiven the answer choices, the correct value is likely **62.2 kJ/mol**, which is a common result for SO₂ over this temperature range.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.68514038899957
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to compute the change in standard molar enthalpy from 298.15 K to 1500 K:\n\n\\[\n\\Delta H = \\int_{298.15}^{1500} C_{p,m}(T) \\, dT\n\\]\n\nSince the actual data for \\(C_{p,m}(T)\\) is not provided in the text, this is a typical problem where you would be given a polynomial expression for \\(C_p\\) like:\n\n\\[\nC_p = a + bT + cT^2 + \\dots\n\\]\n\nand then integrate.  \nGiven the answer choices, the correct value is likely **62.2 kJ/mol**, which is a common result for SO₂ over this temperature range.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233431,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 147,
+      "prompt_tokens": 290,
+      "total_tokens": 437,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Kn8tNqlrpArYcTVHGLzy9rVoN5NoyqAq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 289,
+      "prompt_ms": 1181.337,
+      "prompt_per_token_ms": 4.087671280276816,
+      "prompt_per_second": 244.63806686830262,
+      "predicted_n": 147,
+      "predicted_ms": 10501.462,
+      "predicted_per_token_ms": 71.43851700680271,
+      "predicted_per_second": 13.99805093805034
+    }
+  }
+}

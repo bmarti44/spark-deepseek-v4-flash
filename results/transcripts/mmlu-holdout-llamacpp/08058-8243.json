@@ -1,0 +1,59 @@
+{
+  "index": 8058,
+  "task_id": 8243,
+  "rendered_prompt_sha256": "2b144e205ac591ad47992fddf54a279e28421bffbfacc2574cbdcbeada0a8229",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to convert 34 L 18 cL to liters.\n\nRecall:  \n1 cL = 0.01 L  \n\nSo 18 cL = 18 × 0.01 L = 0.18 L  \n\nNow add:  \n34 L + 0.18 L = 34.18 L  \n\nThe correct option is **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.335920401001204
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to convert 34 L 18 cL to liters.\n\nRecall:  \n1 cL = 0.01 L  \n\nSo 18 cL = 18 × 0.01 L = 0.18 L  \n\nNow add:  \n34 L + 0.18 L = 34.18 L  \n\nThe correct option is **I**.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235209,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 78,
+      "prompt_tokens": 100,
+      "total_tokens": 178,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-wGAM4n52BZPXRkGJ1YEcp8weCVQYvzMf",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 666.604,
+      "prompt_per_token_ms": 6.7333737373737375,
+      "prompt_per_second": 148.51396031226935,
+      "predicted_n": 78,
+      "predicted_ms": 5666.507,
+      "predicted_per_token_ms": 72.64752564102564,
+      "predicted_per_second": 13.765093734111687
+    }
+  }
+}

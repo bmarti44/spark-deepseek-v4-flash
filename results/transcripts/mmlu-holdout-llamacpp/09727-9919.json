@@ -1,0 +1,59 @@
+{
+  "index": 9727,
+  "task_id": 9919,
+  "rendered_prompt_sha256": "437a7ba34509a6f094105c0a3c49d400b8978a4fbc9de52b1d17f4c9dffd04e3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s solve step-by-step.\n\nWe have:\n\n- Initial separation: \\( d = 24.5 \\, \\text{ft} \\)  \n- Acceleration of rear motorcycle: \\( a_1 = 3 \\, \\text{ft/s}^2 \\)  \n- Acceleration of front motorcycle: \\( a_2 = 2 \\, \\text{ft/s}^2 \\)  \n- Both start from rest.\n\n**Step 1: Relative acceleration**  \nRelative acceleration of rear with respect to front:  \n\\[\na_{\\text{rel}} = a_1 - a_2 = 3 - 2 = 1 \\, \\text{ft/s}^2\n\\]\n\n**Step 2: Time to overtake**  \nUsing relative motion:  \n\\[\nd = \\frac{1}{2} a_{\\text{rel}} t^2\n\\]  \n\\[\n24.5 = \\frac{1}{2} (1) t^2\n\\]  \n\\[\nt^2 = 49\n\\]  \n\\[\nt = 7 \\, \\text{seconds}\n\\]\n\n**Step 3: Distance traveled by faster motorcycle**  \n\\[\ns_1 = \\frac{1}{2} a_1 t^2 = \\frac{1}{2} (3)(49) = \\frac{147}{2} = 73.5 \\, \\text{ft}\n\\]\n\n**Step 4: Speeds at that time**  \nFaster:  \n\\[\nv_1 = a_1 t = 3 \\times 7 = 21 \\, \\text{ft/s}\n\\]  \nSlower:  \n\\[\nv_2 = a_2 t = 2 \\times 7 = 14 \\, \\text{ft/s}\n\\]\n\nThis matches option E:  \n(a) 7 sec, (b) 73.5 ft, (c) 21 ft/sec and 14 ft/sec.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 30.041233801999624
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s solve step-by-step.\n\nWe have:\n\n- Initial separation: \\( d = 24.5 \\, \\text{ft} \\)  \n- Acceleration of rear motorcycle: \\( a_1 = 3 \\, \\text{ft/s}^2 \\)  \n- Acceleration of front motorcycle: \\( a_2 = 2 \\, \\text{ft/s}^2 \\)  \n- Both start from rest.\n\n**Step 1: Relative acceleration**  \nRelative acceleration of rear with respect to front:  \n\\[\na_{\\text{rel}} = a_1 - a_2 = 3 - 2 = 1 \\, \\text{ft/s}^2\n\\]\n\n**Step 2: Time to overtake**  \nUsing relative motion:  \n\\[\nd = \\frac{1}{2} a_{\\text{rel}} t^2\n\\]  \n\\[\n24.5 = \\frac{1}{2} (1) t^2\n\\]  \n\\[\nt^2 = 49\n\\]  \n\\[\nt = 7 \\, \\text{seconds}\n\\]\n\n**Step 3: Distance traveled by faster motorcycle**  \n\\[\ns_1 = \\frac{1}{2} a_1 t^2 = \\frac{1}{2} (3)(49) = \\frac{147}{2} = 73.5 \\, \\text{ft}\n\\]\n\n**Step 4: Speeds at that time**  \nFaster:  \n\\[\nv_1 = a_1 t = 3 \\times 7 = 21 \\, \\text{ft/s}\n\\]  \nSlower:  \n\\[\nv_2 = a_2 t = 2 \\times 7 = 14 \\, \\text{ft/s}\n\\]\n\nThis matches option E:  \n(a) 7 sec, (b) 73.5 ft, (c) 21 ft/sec and 14 ft/sec.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236224,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 400,
+      "prompt_tokens": 427,
+      "total_tokens": 827,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zdmAqyFnwBYU97Njx9sdAMxVovQHN9MC",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 426,
+      "prompt_ms": 1601.559,
+      "prompt_per_token_ms": 3.7595281690140845,
+      "prompt_per_second": 265.9908251897058,
+      "predicted_n": 400,
+      "predicted_ms": 28436.255,
+      "predicted_per_token_ms": 71.0906375,
+      "predicted_per_second": 14.06654990258035
+    }
+  }
+}

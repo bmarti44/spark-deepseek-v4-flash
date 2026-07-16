@@ -1,0 +1,59 @@
+{
+  "index": 276,
+  "task_id": 348,
+  "rendered_prompt_sha256": "4e1569bffaa7adee310bff153be1f7c7ba4d4239161ae5cf49fce460ddb69e67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total property tax Mr. Stevens pays:\n\nAssessed value: $17,400  \nTax rate: $24.90 per $1,000  \n\n\\[\n\\text{Tax} = \\frac{17,400}{1,000} \\times 24.90 = 17.4 \\times 24.90\n\\]\n\n\\[\n17.4 \\times 24.90 = 17.4 \\times (25 - 0.10) = 435 - 1.74 = 433.26\n\\]\n\nSo total tax = $433.26.\n\nNow, 28% goes to the county:\n\n\\[\n0.28 \\times 433.26 = 121.3128\n\\]\n\nRounded to the nearest cent: $121.31.\n\nThe correct answer is **F**.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.161838620999333
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total property tax Mr. Stevens pays:\n\nAssessed value: $17,400  \nTax rate: $24.90 per $1,000  \n\n\\[\n\\text{Tax} = \\frac{17,400}{1,000} \\times 24.90 = 17.4 \\times 24.90\n\\]\n\n\\[\n17.4 \\times 24.90 = 17.4 \\times (25 - 0.10) = 435 - 1.74 = 433.26\n\\]\n\nSo total tax = $433.26.\n\nNow, 28% goes to the county:\n\n\\[\n0.28 \\times 433.26 = 121.3128\n\\]\n\nRounded to the nearest cent: $121.31.\n\nThe correct answer is **F**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232826,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 173,
+      "prompt_tokens": 160,
+      "total_tokens": 333,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-N04QljjSa4qpFu6kbYU6jP5QdokUIWtr",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 159,
+      "prompt_ms": 852.137,
+      "prompt_per_token_ms": 5.359352201257861,
+      "prompt_per_second": 186.58971503408492,
+      "predicted_n": 173,
+      "predicted_ms": 12307.392,
+      "predicted_per_token_ms": 71.14099421965318,
+      "predicted_per_second": 14.056592980868732
+    }
+  }
+}

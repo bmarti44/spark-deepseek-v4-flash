@@ -1,0 +1,59 @@
+{
+  "index": 3700,
+  "task_id": 3823,
+  "rendered_prompt_sha256": "c5508b4b997363a6ca0a6dba7939ebff740c52e4888357a39ad4f96ef03e8b44",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Lyman series corresponds to transitions to the \\( n=1 \\) energy level in hydrogen.  \nThe series limit occurs when the electron comes from \\( n = \\infty \\) to \\( n = 1 \\).  \n\nThe wavelength for the Lyman limit is given by the Rydberg formula:  \n\n\\[\n\\frac{1}{\\lambda} = R_H \\left( \\frac{1}{1^2} - \\frac{1}{\\infty^2} \\right) = R_H\n\\]\n\nWhere \\( R_H \\approx 1.097 \\times 10^7 \\, \\text{m}^{-1} \\).  \n\nSo:  \n\n\\[\n\\lambda = \\frac{1}{R_H} = \\frac{1}{1.097 \\times 10^7} \\, \\text{m} \\approx 9.117 \\times 10^{-8} \\, \\text{m} = 91.17 \\, \\text{nm}\n\\]\n\nThus the correct answer is:  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.586634238999977
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Lyman series corresponds to transitions to the \\( n=1 \\) energy level in hydrogen.  \nThe series limit occurs when the electron comes from \\( n = \\infty \\) to \\( n = 1 \\).  \n\nThe wavelength for the Lyman limit is given by the Rydberg formula:  \n\n\\[\n\\frac{1}{\\lambda} = R_H \\left( \\frac{1}{1^2} - \\frac{1}{\\infty^2} \\right) = R_H\n\\]\n\nWhere \\( R_H \\approx 1.097 \\times 10^7 \\, \\text{m}^{-1} \\).  \n\nSo:  \n\n\\[\n\\lambda = \\frac{1}{R_H} = \\frac{1}{1.097 \\times 10^7} \\, \\text{m} \\approx 9.117 \\times 10^{-8} \\, \\text{m} = 91.17 \\, \\text{nm}\n\\]\n\nThus the correct answer is:  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233185,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 205,
+      "prompt_tokens": 122,
+      "total_tokens": 327,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-U0krVVoYT4BNjWHegcaKxOD0Kwb2e1Vl",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 811.383,
+      "prompt_per_token_ms": 6.705644628099174,
+      "prompt_per_second": 149.12809363765325,
+      "predicted_n": 205,
+      "predicted_ms": 14773.394,
+      "predicted_per_token_ms": 72.06533658536586,
+      "predicted_per_second": 13.876296807625925
+    }
+  }
+}

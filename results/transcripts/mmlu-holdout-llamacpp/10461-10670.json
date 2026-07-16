@@ -1,0 +1,59 @@
+{
+  "index": 10461,
+  "task_id": 10670,
+  "rendered_prompt_sha256": "408580d9196c894929609e12a59fe9f0c205e5f0d3966d4096793164a8170303",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The only kernel that leaves an image unchanged when convolving is the one that has a single 1 at the center and zeros everywhere else — this is the identity kernel for convolution.  \n\nLooking at the options, that is:\n\n\\[\n\\begin{bmatrix}0 & 0 & 0\\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}\n\\]\n\nwhich corresponds to option **H**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.688242301999708
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The only kernel that leaves an image unchanged when convolving is the one that has a single 1 at the center and zeros everywhere else — this is the identity kernel for convolution.  \n\nLooking at the options, that is:\n\n\\[\n\\begin{bmatrix}0 & 0 & 0\\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}\n\\]\n\nwhich corresponds to option **H**.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233668,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 91,
+      "prompt_tokens": 493,
+      "total_tokens": 584,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-urOZdBMUx4hSY843iGhIupHvWClNp4nn",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 492,
+      "prompt_ms": 1829.918,
+      "prompt_per_token_ms": 3.7193455284552845,
+      "prompt_per_second": 268.8645064970125,
+      "predicted_n": 91,
+      "predicted_ms": 6856.149,
+      "predicted_per_token_ms": 75.34229670329671,
+      "predicted_per_second": 13.272757053558783
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 8071,
+  "task_id": 8256,
+  "rendered_prompt_sha256": "c78e56102eb41f4b7675cfdd625e103dc8fda46fe3fff75e734f18b59499982a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The rainfall amounts are 8.1, 4.2, and 0.33 inches.  \nRounding each to the nearest whole number:  \n- 8.1 rounds to 8  \n- 4.2 rounds to 4  \n- 0.33 rounds to 0  \n\nAdding these: 8 + 4 + 0 = 12 inches.  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.578878756001359
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The rainfall amounts are 8.1, 4.2, and 0.33 inches.  \nRounding each to the nearest whole number:  \n- 8.1 rounds to 8  \n- 4.2 rounds to 4  \n- 0.33 rounds to 0  \n\nAdding these: 8 + 4 + 0 = 12 inches.  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235216,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 131,
+      "total_tokens": 213,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uDD1M4vM4zeOrCdjznYNL3CA521seItf",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 130,
+      "prompt_ms": 847.379,
+      "prompt_per_token_ms": 6.5183,
+      "prompt_per_second": 153.41423377260944,
+      "predicted_n": 82,
+      "predicted_ms": 5729.457,
+      "predicted_per_token_ms": 69.8714268292683,
+      "predicted_per_second": 14.312001992509936
+    }
+  }
+}

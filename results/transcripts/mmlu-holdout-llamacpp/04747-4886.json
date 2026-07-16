@@ -1,0 +1,59 @@
+{
+  "index": 4747,
+  "task_id": 4886,
+  "rendered_prompt_sha256": "d8633bc9dfacda7edbc7f47a38880b1466364497e1c841c585c908b037c4a9df",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The address presents Logan as a peaceful man who was driven to violence only after his family was murdered by whites. A sympathetic reader in the early United States would likely feel that the injustices suffered by Native Americans should be acknowledged and that their lands and autonomy should be respected.\n\nThe option that best aligns with that sentiment is:\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='G' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.408016495002812
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The address presents Logan as a peaceful man who was driven to violence only after his family was murdered by whites. A sympathetic reader in the early United States would likely feel that the injustices suffered by Native Americans should be acknowledged and that their lands and autonomy should be respected.\n\nThe option that best aligns with that sentiment is:\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234917,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 418,
+      "total_tokens": 485,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-QpBGZo2bkcPNww94F6QTgmZjoNJAx5WB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 417,
+      "prompt_ms": 1665.93,
+      "prompt_per_token_ms": 3.9950359712230217,
+      "prompt_per_second": 250.31063730168736,
+      "predicted_n": 67,
+      "predicted_ms": 4738.094,
+      "predicted_per_token_ms": 70.7178208955224,
+      "predicted_per_second": 14.14070721264711
+    }
+  }
+}

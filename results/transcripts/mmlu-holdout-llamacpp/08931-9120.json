@@ -1,0 +1,59 @@
+{
+  "index": 8931,
+  "task_id": 9120,
+  "rendered_prompt_sha256": "c4dac57e77c24d92434ae469449acecfecb57d82296d1c2dbe0d64672f332ec2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The red glow in a neon tube comes from neon atoms being excited by an electrical discharge and then releasing that energy as light when they return to a lower energy state. This process is called **de-excitation**.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8208644859987544
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The red glow in a neon tube comes from neon atoms being excited by an electrical discharge and then releasing that energy as light when they return to a lower energy state. This process is called **de-excitation**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235737,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 80,
+      "total_tokens": 126,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Dpicxuu0F9leTCJ9KKjHgvs6YMwo1fW6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 79,
+      "prompt_ms": 605.022,
+      "prompt_per_token_ms": 7.658506329113925,
+      "prompt_per_second": 130.57376425981204,
+      "predicted_n": 46,
+      "predicted_ms": 3212.803,
+      "predicted_per_token_ms": 69.84354347826087,
+      "predicted_per_second": 14.31771571428438
+    }
+  }
+}

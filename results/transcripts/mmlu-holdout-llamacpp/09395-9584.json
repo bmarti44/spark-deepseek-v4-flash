@@ -1,0 +1,59 @@
+{
+  "index": 9395,
+  "task_id": 9584,
+  "rendered_prompt_sha256": "599d6e2a1f079b23251bfa432295569055b2a2be37a306f5a43f880353100095",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Balmer series lines for hydrogen and deuterium come from transitions from \\(n=3\\) (Hα) and \\(n=4\\) (Hβ) down to \\(n=2\\).  \nThe difference in wavenumber between isotopes is given by:\n\n\\[\n\\Delta \\tilde{\\nu} = \\tilde{\\nu}_H - \\tilde{\\nu}_D = R_H - R_D\n\\]\n\nwhere the Rydberg constant depends on the reduced mass:\n\n\\[\nR = R_\\infty \\frac{\\mu}{m_e}\n\\]\n\nFor hydrogen:  \n\\[\n\\mu_H = \\frac{m_e m_p}{m_e + m_p}\n\\]  \nFor deuterium:  \n\\[\n\\mu_D = \\frac{m_e m_D}{m_e + m_D}\n\\]  \nGiven \\(m_p = 1.007276 \\, \\text{u}\\), \\(m_D = 2.014101 \\, \\text{u}\\), and \\(m_e = 0.00054858 \\, \\text{u}\\).\n\nThe shift in wavenumber for a given transition (n → 2) is:\n\n\\[\n\\Delta \\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right) \\left( \\frac{\\mu_H}{m_e} - \\frac{\\mu_D}{m_e} \\right)\n\\]\n\nWe can compute:\n\n\\[\n\\frac{\\mu_H}{m_e} = \\frac{m_p}{m_e + m_p} \\approx \\frac{1.007276}{1.00782458} \\approx 0.999455\n\\]  \n\\[\n\\frac{\\mu_D}{m_e} = \\frac{m_D}{m_e + m_D} \\approx \\frac{2.014101}{2.01464958} \\approx 0.999728\n\\]  \n\nDifference:  \n\\[\n\\frac{\\mu_H}{m_e} - \\frac{\\mu_D}{m_e} \\approx -0.000273\n\\]\n\nFor Hα (n=3 → 2):  \n\\[\n\\frac{1}{4} - \\frac{1}{9} = \\frac{5}{36} \\approx 0.1388889\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha = R_\\infty \\times 0.1388889 \\times (-0.000273)\n\\]  \nWith \\(R_\\infty \\approx 109737 \\, \\text{cm}^{-1}\\):  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha \\approx 109737 \\times 0.1388889 \\times 0.000273 \\approx 4.16 \\, \\text{cm}^{-1}\n\\]\n\nFor Hβ (n=4 → 2):  \n\\[\n\\frac{1}{4} - \\frac{1}{16} = \\frac{3}{16} = 0.1875\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\beta \\approx 109737 \\times 0.1875 \\times 0.000273 \\approx 5.62 \\, \\text{cm}^{-1}\n\\]\n\nThese match closest to option D:  \nΔν_alpha = 4.14 cm⁻¹, Δν_beta = 5.59 cm⁻¹,  \nΔλ_alpha = 1.79 Å, Δλ_beta = 1.32 Å.\n\n**Answer: D**",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 54.76836474100128
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Balmer series lines for hydrogen and deuterium come from transitions from \\(n=3\\) (Hα) and \\(n=4\\) (Hβ) down to \\(n=2\\).  \nThe difference in wavenumber between isotopes is given by:\n\n\\[\n\\Delta \\tilde{\\nu} = \\tilde{\\nu}_H - \\tilde{\\nu}_D = R_H - R_D\n\\]\n\nwhere the Rydberg constant depends on the reduced mass:\n\n\\[\nR = R_\\infty \\frac{\\mu}{m_e}\n\\]\n\nFor hydrogen:  \n\\[\n\\mu_H = \\frac{m_e m_p}{m_e + m_p}\n\\]  \nFor deuterium:  \n\\[\n\\mu_D = \\frac{m_e m_D}{m_e + m_D}\n\\]  \nGiven \\(m_p = 1.007276 \\, \\text{u}\\), \\(m_D = 2.014101 \\, \\text{u}\\), and \\(m_e = 0.00054858 \\, \\text{u}\\).\n\nThe shift in wavenumber for a given transition (n → 2) is:\n\n\\[\n\\Delta \\tilde{\\nu} = R_\\infty \\left( \\frac{1}{2^2} - \\frac{1}{n^2} \\right) \\left( \\frac{\\mu_H}{m_e} - \\frac{\\mu_D}{m_e} \\right)\n\\]\n\nWe can compute:\n\n\\[\n\\frac{\\mu_H}{m_e} = \\frac{m_p}{m_e + m_p} \\approx \\frac{1.007276}{1.00782458} \\approx 0.999455\n\\]  \n\\[\n\\frac{\\mu_D}{m_e} = \\frac{m_D}{m_e + m_D} \\approx \\frac{2.014101}{2.01464958} \\approx 0.999728\n\\]  \n\nDifference:  \n\\[\n\\frac{\\mu_H}{m_e} - \\frac{\\mu_D}{m_e} \\approx -0.000273\n\\]\n\nFor Hα (n=3 → 2):  \n\\[\n\\frac{1}{4} - \\frac{1}{9} = \\frac{5}{36} \\approx 0.1388889\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha = R_\\infty \\times 0.1388889 \\times (-0.000273)\n\\]  \nWith \\(R_\\infty \\approx 109737 \\, \\text{cm}^{-1}\\):  \n\\[\n\\Delta \\tilde{\\nu}_\\alpha \\approx 109737 \\times 0.1388889 \\times 0.000273 \\approx 4.16 \\, \\text{cm}^{-1}\n\\]\n\nFor Hβ (n=4 → 2):  \n\\[\n\\frac{1}{4} - \\frac{1}{16} = \\frac{3}{16} = 0.1875\n\\]  \n\\[\n\\Delta \\tilde{\\nu}_\\beta \\approx 109737 \\times 0.1875 \\times 0.000273 \\approx 5.62 \\, \\text{cm}^{-1}\n\\]\n\nThese match closest to option D:  \nΔν_alpha = 4.14 cm⁻¹, Δν_beta = 5.59 cm⁻¹,  \nΔλ_alpha = 1.79 Å, Δλ_beta = 1.32 Å.\n\n**Answer: D**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236067,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 714,
+      "prompt_tokens": 622,
+      "total_tokens": 1336,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-iTedZAjEsn3IBlTgK3AbjCVtKkuTJWck",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 621,
+      "prompt_ms": 2548.684,
+      "prompt_per_token_ms": 4.104161030595813,
+      "prompt_per_second": 243.65515693589316,
+      "predicted_n": 714,
+      "predicted_ms": 52217.216,
+      "predicted_per_token_ms": 73.13335574229691,
+      "predicted_per_second": 13.67365123410639
+    }
+  }
+}

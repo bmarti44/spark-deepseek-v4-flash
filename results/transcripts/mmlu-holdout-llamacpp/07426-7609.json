@@ -1,0 +1,59 @@
+{
+  "index": 7426,
+  "task_id": 7609,
+  "rendered_prompt_sha256": "d08cd418cc9e029184be97bbc05f3e1f2ebb0698812a64fef2be6dae508cf11f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In Adam Smith’s conception, the \"public interest\" in the context of the invisible hand refers to the overall benefit to society that emerges when individuals pursue their own self-interest in a competitive market. This generally means resources are allocated to their most valued uses, leading to greater overall wealth and efficiency.\n\nThe correct answer is:\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.1436099570019
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In Adam Smith’s conception, the \"public interest\" in the context of the invisible hand refers to the overall benefit to society that emerges when individuals pursue their own self-interest in a competitive market. This generally means resources are allocated to their most valued uses, leading to greater overall wealth and efficiency.\n\nThe correct answer is:\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233828,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 69,
+      "prompt_tokens": 186,
+      "total_tokens": 255,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-RR40hf6BB8vxpt3xTkkAsajRq8kgiD83",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 185,
+      "prompt_ms": 998.917,
+      "prompt_per_token_ms": 5.399551351351351,
+      "prompt_per_second": 185.20057221971396,
+      "predicted_n": 69,
+      "predicted_ms": 5141.849,
+      "predicted_per_token_ms": 74.51955072463768,
+      "predicted_per_second": 13.419297221680372
+    }
+  }
+}

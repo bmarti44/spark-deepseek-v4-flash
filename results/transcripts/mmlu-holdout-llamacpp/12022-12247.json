@@ -1,0 +1,59 @@
+{
+  "index": 12022,
+  "task_id": 12247,
+  "rendered_prompt_sha256": "90586ff46b87ed2d11e0d7fcc02101ad968105a226671e0c396f775b06479f3e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find the condensation rate per hour per foot of pipe.  \nGiven:\n\n- Pipe: 1½ inch schedule 40 steel pipe  \n- Surroundings: air at 50°F  \n- Steam inside: saturated at 100 psia  \n- Pipe surface: grey body (emissivity ~0.8–0.9 typical, but not given explicitly; we may assume 0.9 or use standard)  \n- Convection coefficient: \\( h_c = 2.0 \\, \\text{Btu/hr·ft}^2\\cdot{}^\\circ\\text{F} \\)  \n- Need condensation rate in lb/hr-ft  \n\n---\n\n### Step 1: Pipe dimensions\nFor 1½ inch schedule 40 pipe:  \n- Outside diameter (OD) = 1.900 in = 0.1583 ft  \n- Surface area per foot length:  \n\\[\nA = \\pi D L = \\pi (0.1583)(1) \\approx 0.4975 \\, \\text{ft}^2/\\text{ft}\n\\]\n\n---\n\n### Step 2: Steam temperature at 100 psia\nFrom steam tables:  \nAt 100 psia, saturation temperature ≈ 327.8°F (approx 328°F).  \nLatent heat \\( h_{fg} \\approx 888 \\, \\text{Btu/lb} \\) (at 100 psia).\n\n---\n\n### Step 3: Heat loss mechanisms\nHeat loss from pipe surface to surroundings is by:\n1. **Natural convection**:  \n\\[\nQ_{\\text{conv}} = h_c A (T_s - T_\\infty) = 2.0 \\times 0.4975 \\times (328 - 50)\n\\]\n\\[\n= 2.0 \\times 0.4975 \\times 278 \\approx 276.6 \\, \\text{Btu/hr-ft}\n\\]\n\n2. **Radiation** (grey body):  \nAssume emissivity \\(\\epsilon \\approx 0.9\\) (typical for oxidized steel).  \nRadiation to surroundings at 50°F (≈ 510°R):  \n\\[\nQ_{\\text{rad}} = \\epsilon \\sigma A (T_s^4 - T_\\infty^4)\n\\]\nwith \\(\\sigma = 0.1714 \\times 10^{-8} \\, \\text{Btu/hr·ft}^2\\cdot{}^\\circ\\text{R}^4\\).  \nTemperatures in Rankine:  \n\\( T_s = 328 + 460 = 788^\\circ\\text{R} \\)  \n\\( T_\\infty = 50 + 460 = 510^\\circ\\text{R} \\)  \n\n\\[\nT_s^4 = (788)^4 \\approx (788^2=620,944)^2 \\approx 3.855\\times 10^{11}\n\\]\nMore precisely:  \n\\( 788^2 = 620,944 \\)  \n\\( 620,944^2 \\approx 3.855\\times 10^{11} \\)  \n\\( 510^2 = 260,100 \\)  \n\\( 260,100^2 \\approx 6.765\\times 10^{10} \\)  \n\nDifference:  \n\\( 3.855\\times 10^{11} - 6.765\\times 10^{10} \\approx 3.1785\\times 10^{11} \\)  \n\nThen:  \n\\[\nQ_{\\text{rad}} = 0.9 \\times 0.1714\\times 10^{-8} \\times 0.4975 \\times 3.1785\\times 10^{11}\n\\]\n\\[\n= 0.9 \\times 0.1714 \\times 0.4975",
+  "finish_reason": "length",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 58.921596295997006
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to find the condensation rate per hour per foot of pipe.  \nGiven:\n\n- Pipe: 1½ inch schedule 40 steel pipe  \n- Surroundings: air at 50°F  \n- Steam inside: saturated at 100 psia  \n- Pipe surface: grey body (emissivity ~0.8–0.9 typical, but not given explicitly; we may assume 0.9 or use standard)  \n- Convection coefficient: \\( h_c = 2.0 \\, \\text{Btu/hr·ft}^2\\cdot{}^\\circ\\text{F} \\)  \n- Need condensation rate in lb/hr-ft  \n\n---\n\n### Step 1: Pipe dimensions\nFor 1½ inch schedule 40 pipe:  \n- Outside diameter (OD) = 1.900 in = 0.1583 ft  \n- Surface area per foot length:  \n\\[\nA = \\pi D L = \\pi (0.1583)(1) \\approx 0.4975 \\, \\text{ft}^2/\\text{ft}\n\\]\n\n---\n\n### Step 2: Steam temperature at 100 psia\nFrom steam tables:  \nAt 100 psia, saturation temperature ≈ 327.8°F (approx 328°F).  \nLatent heat \\( h_{fg} \\approx 888 \\, \\text{Btu/lb} \\) (at 100 psia).\n\n---\n\n### Step 3: Heat loss mechanisms\nHeat loss from pipe surface to surroundings is by:\n1. **Natural convection**:  \n\\[\nQ_{\\text{conv}} = h_c A (T_s - T_\\infty) = 2.0 \\times 0.4975 \\times (328 - 50)\n\\]\n\\[\n= 2.0 \\times 0.4975 \\times 278 \\approx 276.6 \\, \\text{Btu/hr-ft}\n\\]\n\n2. **Radiation** (grey body):  \nAssume emissivity \\(\\epsilon \\approx 0.9\\) (typical for oxidized steel).  \nRadiation to surroundings at 50°F (≈ 510°R):  \n\\[\nQ_{\\text{rad}} = \\epsilon \\sigma A (T_s^4 - T_\\infty^4)\n\\]\nwith \\(\\sigma = 0.1714 \\times 10^{-8} \\, \\text{Btu/hr·ft}^2\\cdot{}^\\circ\\text{R}^4\\).  \nTemperatures in Rankine:  \n\\( T_s = 328 + 460 = 788^\\circ\\text{R} \\)  \n\\( T_\\infty = 50 + 460 = 510^\\circ\\text{R} \\)  \n\n\\[\nT_s^4 = (788)^4 \\approx (788^2=620,944)^2 \\approx 3.855\\times 10^{11}\n\\]\nMore precisely:  \n\\( 788^2 = 620,944 \\)  \n\\( 620,944^2 \\approx 3.855\\times 10^{11} \\)  \n\\( 510^2 = 260,100 \\)  \n\\( 260,100^2 \\approx 6.765\\times 10^{10} \\)  \n\nDifference:  \n\\( 3.855\\times 10^{11} - 6.765\\times 10^{10} \\approx 3.1785\\times 10^{11} \\)  \n\nThen:  \n\\[\nQ_{\\text{rad}} = 0.9 \\times 0.1714\\times 10^{-8} \\times 0.4975 \\times 3.1785\\times 10^{11}\n\\]\n\\[\n= 0.9 \\times 0.1714 \\times 0.4975",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784234759,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 768,
+      "prompt_tokens": 265,
+      "total_tokens": 1033,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zGkL511hZZOwr61iAitA2gvyT1vZsxDX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 264,
+      "prompt_ms": 1194.193,
+      "prompt_per_token_ms": 4.523458333333333,
+      "prompt_per_second": 221.06979357608026,
+      "predicted_n": 768,
+      "predicted_ms": 57724.378,
+      "predicted_per_token_ms": 75.16195052083333,
+      "predicted_per_second": 13.304604165678494
+    }
+  }
+}

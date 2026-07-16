@@ -1,0 +1,59 @@
+{
+  "index": 2527,
+  "task_id": 2633,
+  "rendered_prompt_sha256": "dddc13a05e0f6c9d6ec5fa62c84b579a714a13e8277acb01fc5c6ef5328e73df",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The selection ratio in personnel selection typically refers to the proportion of applicants who are hired compared to the total number of applicants. That matches option D.\n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.9387316169995756
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The selection ratio in personnel selection typically refers to the proportion of applicants who are hired compared to the total number of applicants. That matches option D.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236395,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 93,
+      "total_tokens": 126,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-h3nWqV68QoFAaWUg0s8AnJ2FxeWG10Ac",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 92,
+      "prompt_ms": 661.484,
+      "prompt_per_token_ms": 7.19004347826087,
+      "prompt_per_second": 139.08121738394277,
+      "predicted_n": 33,
+      "predicted_ms": 2274.0,
+      "predicted_per_token_ms": 68.9090909090909,
+      "predicted_per_second": 14.511873350923482
+    }
+  }
+}

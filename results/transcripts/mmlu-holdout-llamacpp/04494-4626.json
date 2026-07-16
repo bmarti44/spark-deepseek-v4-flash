@@ -1,0 +1,59 @@
+{
+  "index": 4494,
+  "task_id": 4626,
+  "rendered_prompt_sha256": "df7922b81555a24978ae741cf3701a9701b5c2edfcd9128e525ca5576a70a4e3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find \\(\\log 0.0148\\).  \nAssuming base 10 logarithm:\n\n\\[\n\\log 0.0148 = \\log\\left(\\frac{148}{10000}\\right) = \\log 148 - \\log 10000\n\\]\n\n\\[\n\\log 148 \\approx 2.1703 \\quad (\\text{since } 10^{2.1703} \\approx 148)\n\\]\n\\[\n\\log 10000 = 4\n\\]\n\nSo:\n\\[\n\\log 0.0148 \\approx 2.1703 - 4 = -1.8297\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.660540310000215
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to find \\(\\log 0.0148\\).  \nAssuming base 10 logarithm:\n\n\\[\n\\log 0.0148 = \\log\\left(\\frac{148}{10000}\\right) = \\log 148 - \\log 10000\n\\]\n\n\\[\n\\log 148 \\approx 2.1703 \\quad (\\text{since } 10^{2.1703} \\approx 148)\n\\]\n\\[\n\\log 10000 = 4\n\\]\n\nSo:\n\\[\n\\log 0.0148 \\approx 2.1703 - 4 = -1.8297\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233622,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 138,
+      "prompt_tokens": 114,
+      "total_tokens": 252,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ddp4abYvdYe9S4sJc2wIs8mDQRNVBBA6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 113,
+      "prompt_ms": 735.532,
+      "prompt_per_token_ms": 6.509132743362832,
+      "prompt_per_second": 153.63029752614435,
+      "predicted_n": 138,
+      "predicted_ms": 9922.895,
+      "predicted_per_token_ms": 71.90503623188405,
+      "predicted_per_second": 13.90723171010073
+    }
+  }
+}

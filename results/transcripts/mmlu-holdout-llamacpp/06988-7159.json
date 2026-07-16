@@ -1,0 +1,59 @@
+{
+  "index": 6988,
+  "task_id": 7159,
+  "rendered_prompt_sha256": "907b57912bf67e926825c483c18785aef81ad696beb4aa0f557352b07f288447",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The reserve ratio is 10%, so the money multiplier is \\( \\frac{1}{0.10} = 10 \\).  \nA new deposit of $500 can lead to a maximum total money creation of:  \n\\[\n500 \\times 10 = 5,000\n\\]  \nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.5885470129978785
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The reserve ratio is 10%, so the money multiplier is \\( \\frac{1}{0.10} = 10 \\).  \nA new deposit of $500 can lead to a maximum total money creation of:  \n\\[\n500 \\times 10 = 5,000\n\\]  \nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233739,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 64,
+      "prompt_tokens": 112,
+      "total_tokens": 176,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-QuFpkYkSEGZDrVUc0Vq3VoYMH9U4aNmx",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 111,
+      "prompt_ms": 789.746,
+      "prompt_per_token_ms": 7.114828828828829,
+      "prompt_per_second": 140.55151909601315,
+      "predicted_n": 64,
+      "predicted_ms": 4796.612,
+      "predicted_per_token_ms": 74.9470625,
+      "predicted_per_second": 13.342751091812303
+    }
+  }
+}

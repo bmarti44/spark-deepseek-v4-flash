@@ -1,0 +1,59 @@
+{
+  "index": 8675,
+  "task_id": 8863,
+  "rendered_prompt_sha256": "08317a0307d8359d00cd3e4ead273d8899b35d36e0f3effb41436584231972ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have an initial deposit of $1000, an interest rate of 8% per year compounded monthly, and monthly deposits of $25 for 3 years (36 months).\n\n**Step 1: Monthly interest rate**  \n\\[\nr = \\frac{0.08}{12} \\approx 0.0066667\n\\]\n\n**Step 2: Future value of initial deposit**  \n\\[\nFV_{\\text{initial}} = 1000 \\times (1 + r)^{36}\n\\]  \n\\[\n(1.0066667)^{36} \\approx 1.27024\n\\]  \n\\[\nFV_{\\text{initial}} \\approx 1000 \\times 1.27024 = 1270.24\n\\]\n\n**Step 3: Future value of monthly deposits**  \nThis is an ordinary annuity:  \n\\[\nFV_{\\text{annuity}} = P \\times \\frac{(1+r)^n - 1}{r}\n\\]  \n\\[\n= 25 \\times \\frac{1.27024 - 1}{0.0066667}\n\\]  \n\\[\n= 25 \\times \\frac{0.27024}{0.0066667}\n\\]  \n\\[\n= 25 \\times 40.536 \\approx 1013.40\n\\]\n\n**Step 4: Total balance**  \n\\[\n1270.24 + 1013.40 = 2283.64\n\\]\n\nThat matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 22.574326982001367
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have an initial deposit of $1000, an interest rate of 8% per year compounded monthly, and monthly deposits of $25 for 3 years (36 months).\n\n**Step 1: Monthly interest rate**  \n\\[\nr = \\frac{0.08}{12} \\approx 0.0066667\n\\]\n\n**Step 2: Future value of initial deposit**  \n\\[\nFV_{\\text{initial}} = 1000 \\times (1 + r)^{36}\n\\]  \n\\[\n(1.0066667)^{36} \\approx 1.27024\n\\]  \n\\[\nFV_{\\text{initial}} \\approx 1000 \\times 1.27024 = 1270.24\n\\]\n\n**Step 3: Future value of monthly deposits**  \nThis is an ordinary annuity:  \n\\[\nFV_{\\text{annuity}} = P \\times \\frac{(1+r)^n - 1}{r}\n\\]  \n\\[\n= 25 \\times \\frac{1.27024 - 1}{0.0066667}\n\\]  \n\\[\n= 25 \\times \\frac{0.27024}{0.0066667}\n\\]  \n\\[\n= 25 \\times 40.536 \\approx 1013.40\n\\]\n\n**Step 4: Total balance**  \n\\[\n1270.24 + 1013.40 = 2283.64\n\\]\n\nThat matches option **G**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235509,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 308,
+      "prompt_tokens": 145,
+      "total_tokens": 453,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aFP7JsnfWUKjoM7yKzB8qYdXemQnIzAe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 144,
+      "prompt_ms": 801.969,
+      "prompt_per_token_ms": 5.569229166666667,
+      "prompt_per_second": 179.55806271813498,
+      "predicted_n": 308,
+      "predicted_ms": 21770.609,
+      "predicted_per_token_ms": 70.68379545454546,
+      "predicted_per_second": 14.147514201371216
+    }
+  }
+}

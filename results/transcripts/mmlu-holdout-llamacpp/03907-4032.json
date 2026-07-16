@@ -1,0 +1,59 @@
+{
+  "index": 3907,
+  "task_id": 4032,
+  "rendered_prompt_sha256": "5b2ed404dcf0798e54d9eb3e4d1578a7d0bebd6266e43fea9f3de2e9c3b614f9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are told that 40 mL of the solution neutralizes 0.56 g of KOH.\n\n**Step 1: Find equivalents of KOH**  \nMolar mass of KOH = 39 + 16 + 1 = 56 g/mol.  \nFor KOH, normality factor = 1 (since it provides one OH⁻).  \nEquivalents = mass / equivalent weight = 0.56 g / 56 g/eq = 0.01 eq.\n\n**Step 2: Relate to the acid solution**  \nEquivalents of acid = equivalents of base = 0.01 eq.  \nVolume of acid = 40 mL = 0.040 L.\n\n**Step 3: Calculate normality**  \nNormality (N) = equivalents / volume in L = 0.01 eq / 0.040 L = 0.25 N.\n\n**Answer: F**",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 14.43685592499969
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are told that 40 mL of the solution neutralizes 0.56 g of KOH.\n\n**Step 1: Find equivalents of KOH**  \nMolar mass of KOH = 39 + 16 + 1 = 56 g/mol.  \nFor KOH, normality factor = 1 (since it provides one OH⁻).  \nEquivalents = mass / equivalent weight = 0.56 g / 56 g/eq = 0.01 eq.\n\n**Step 2: Relate to the acid solution**  \nEquivalents of acid = equivalents of base = 0.01 eq.  \nVolume of acid = 40 mL = 0.040 L.\n\n**Step 3: Calculate normality**  \nNormality (N) = equivalents / volume in L = 0.01 eq / 0.040 L = 0.25 N.\n\n**Answer: F**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233379,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 189,
+      "prompt_tokens": 124,
+      "total_tokens": 313,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WQEbQ7zB3WHpgcDf7KEJNp9oNI4o8bUe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 123,
+      "prompt_ms": 814.632,
+      "prompt_per_token_ms": 6.623024390243902,
+      "prompt_per_second": 150.98842176590168,
+      "predicted_n": 189,
+      "predicted_ms": 13619.402,
+      "predicted_per_token_ms": 72.06032804232804,
+      "predicted_per_second": 13.877261277697803
+    }
+  }
+}

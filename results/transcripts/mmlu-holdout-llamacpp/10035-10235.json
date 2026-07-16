@@ -1,0 +1,59 @@
+{
+  "index": 10035,
+  "task_id": 10235,
+  "rendered_prompt_sha256": "6c14944b72ec957bf30fa9d98fc98cbad6e2939e91d58230b705fc362e7591ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The escape velocity from Earth is given by:\n\n\\[\nv_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}\n\\]\n\nWhere:  \n- \\( G = 6.674 \\times 10^{-11} \\, \\text{N·m}^2/\\text{kg}^2 \\)  \n- \\( M = 5.972 \\times 10^{24} \\, \\text{kg} \\)  \n- \\( R = 6.371 \\times 10^6 \\, \\text{m} \\)\n\nCalculating:\n\n\\[\nv_{\\text{esc}} = \\sqrt{\\frac{2 \\times 6.674 \\times 10^{-11} \\times 5.972 \\times 10^{24}}{6.371 \\times 10^6}}\n\\]\n\n\\[\nv_{\\text{esc}} \\approx \\sqrt{1.25 \\times 10^8} \\approx 1.12 \\times 10^4 \\, \\text{m/s}\n\\]\n\nThat matches option **A**.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.227174768999248
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The escape velocity from Earth is given by:\n\n\\[\nv_{\\text{esc}} = \\sqrt{\\frac{2GM}{R}}\n\\]\n\nWhere:  \n- \\( G = 6.674 \\times 10^{-11} \\, \\text{N·m}^2/\\text{kg}^2 \\)  \n- \\( M = 5.972 \\times 10^{24} \\, \\text{kg} \\)  \n- \\( R = 6.371 \\times 10^6 \\, \\text{m} \\)\n\nCalculating:\n\n\\[\nv_{\\text{esc}} = \\sqrt{\\frac{2 \\times 6.674 \\times 10^{-11} \\times 5.972 \\times 10^{24}}{6.371 \\times 10^6}}\n\\]\n\n\\[\nv_{\\text{esc}} \\approx \\sqrt{1.25 \\times 10^8} \\approx 1.12 \\times 10^4 \\, \\text{m/s}\n\\]\n\nThat matches option **A**.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236295,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 214,
+      "prompt_tokens": 180,
+      "total_tokens": 394,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-MZBnErG0HYCfvue95VMlHXxBANE0j2G0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 179,
+      "prompt_ms": 900.259,
+      "prompt_per_token_ms": 5.029379888268156,
+      "prompt_per_second": 198.8316695528731,
+      "predicted_n": 214,
+      "predicted_ms": 15323.858,
+      "predicted_per_token_ms": 71.60681308411215,
+      "predicted_per_second": 13.965151595636033
+    }
+  }
+}

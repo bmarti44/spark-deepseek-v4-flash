@@ -1,0 +1,59 @@
+{
+  "index": 3214,
+  "task_id": 3335,
+  "rendered_prompt_sha256": "7161ae53834adc3d2cdf5d11aafb269037a50b19abcefa248be0124408963c13",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The region described is one where sunlight penetrates (allowing photosynthesis) and nutrients are brought up from deeper waters. This matches the **euphotic zone**, which is the sunlit upper layer of the ocean where primary production occurs.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.68821895200017
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The region described is one where sunlight penetrates (allowing photosynthesis) and nutrients are brought up from deeper waters. This matches the **euphotic zone**, which is the sunlit upper layer of the ocean where primary production occurs.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232669,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 104,
+      "total_tokens": 155,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-J0n36NGwMCmcDDTiciaZ5nTkqIZubJ5u",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 103,
+      "prompt_ms": 799.11,
+      "prompt_per_token_ms": 7.758349514563107,
+      "prompt_per_second": 128.89339390071456,
+      "predicted_n": 51,
+      "predicted_ms": 3886.294,
+      "predicted_per_token_ms": 76.2018431372549,
+      "predicted_per_second": 13.12304215790159
+    }
+  }
+}

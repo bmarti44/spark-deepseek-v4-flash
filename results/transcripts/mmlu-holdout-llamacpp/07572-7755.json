@@ -1,0 +1,59 @@
+{
+  "index": 7572,
+  "task_id": 7755,
+  "rendered_prompt_sha256": "b9191acc282acb522961477e48077a678f52df492041b78ff55a038808d85855",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can compute the covariance using the formula:\n\n\\[\n\\text{Cov}(x, y) = \\frac{1}{n} \\sum (x_i - \\bar{x})(y_i - \\bar{y})\n\\]\n\nFirst, find the means:\n\n\\[\n\\bar{x} = \\frac{1+2+3+4}{4} = \\frac{10}{4} = 2.5\n\\]\n\\[\n\\bar{y} = \\frac{2+3+4+5}{4} = \\frac{14}{4} = 3.5\n\\]\n\nNow compute deviations and products:\n\n- For (1,2): \\((1-2.5)(2-3.5) = (-1.5)(-1.5) = 2.25\\)  \n- For (2,3): \\((2-2.5)(3-3.5) = (-0.5)(-0.5) = 0.25\\)  \n- For (3,4): \\((3-2.5)(4-3.5) = (0.5)(0.5) = 0.25\\)  \n- For (4,5): \\((4-2.5)(5-3.5) = (1.5)(1.5) = 2.25\\)\n\nSum = \\(2.25 + 0.25 + 0.25 + 2.25 = 5.0\\)\n\nNow divide by \\(n = 4\\):\n\n\\[\n\\text{Cov} = \\frac{5.0}{4} = 1.25\n\\]\n\nThe correct answer is **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='F'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 25.996879464000813
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can compute the covariance using the formula:\n\n\\[\n\\text{Cov}(x, y) = \\frac{1}{n} \\sum (x_i - \\bar{x})(y_i - \\bar{y})\n\\]\n\nFirst, find the means:\n\n\\[\n\\bar{x} = \\frac{1+2+3+4}{4} = \\frac{10}{4} = 2.5\n\\]\n\\[\n\\bar{y} = \\frac{2+3+4+5}{4} = \\frac{14}{4} = 3.5\n\\]\n\nNow compute deviations and products:\n\n- For (1,2): \\((1-2.5)(2-3.5) = (-1.5)(-1.5) = 2.25\\)  \n- For (2,3): \\((2-2.5)(3-3.5) = (-0.5)(-0.5) = 0.25\\)  \n- For (3,4): \\((3-2.5)(4-3.5) = (0.5)(0.5) = 0.25\\)  \n- For (4,5): \\((4-2.5)(5-3.5) = (1.5)(1.5) = 2.25\\)\n\nSum = \\(2.25 + 0.25 + 0.25 + 2.25 = 5.0\\)\n\nNow divide by \\(n = 4\\):\n\n\\[\n\\text{Cov} = \\frac{5.0}{4} = 1.25\n\\]\n\nThe correct answer is **E**.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235128,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 346,
+      "prompt_tokens": 115,
+      "total_tokens": 461,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-wvHbHxg2edFc94vQzQpvRDuQDbHDPPSc",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 114,
+      "prompt_ms": 785.225,
+      "prompt_per_token_ms": 6.887938596491228,
+      "prompt_per_second": 145.1813174567799,
+      "predicted_n": 346,
+      "predicted_ms": 25209.482,
+      "predicted_per_token_ms": 72.85977456647399,
+      "predicted_per_second": 13.724994428683619
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 10809,
+  "task_id": 11025,
+  "rendered_prompt_sha256": "1797ab91c2db97951d3fa9cd99636501a0573c128dee402daea3e3e58d12e9dd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To answer this, we need to recall Cicero’s ethical views, particularly as expressed in works like *De Officiis* (On Duties). Cicero argues that moral duty and justice are paramount, and that what is expedient must never conflict with what is honorable. He explicitly rejects the idea that it can be permissible to harm others for personal gain, break promises, lie, or commit injustice for advantage.\n\nGiven that, the correct answer is:\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.743530315001408
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To answer this, we need to recall Cicero’s ethical views, particularly as expressed in works like *De Officiis* (On Duties). Cicero argues that moral duty and justice are paramount, and that what is expedient must never conflict with what is honorable. He explicitly rejects the idea that it can be permissible to harm others for personal gain, break promises, lie, or commit injustice for advantage.\n\nGiven that, the correct answer is:\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235693,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 99,
+      "total_tokens": 193,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9s2J4Fjmw5OZSeIJXlvIlTGXt61PaJEa",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 98,
+      "prompt_ms": 740.376,
+      "prompt_per_token_ms": 7.554857142857142,
+      "prompt_per_second": 132.36517661296423,
+      "predicted_n": 94,
+      "predicted_ms": 7000.561,
+      "predicted_per_token_ms": 74.47405319148936,
+      "predicted_per_second": 13.427495310732954
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 10206,
+  "task_id": 10410,
+  "rendered_prompt_sha256": "85b1e772efb7a95c89019fdad07df4f4a569bd352cabd35bc17b7871cfc0cfd8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The procedure subtracts 2 repeatedly until the number becomes ≤ 0.  \nIf it ends exactly at 0, it returns true; otherwise, it returns false.  \n\nThis means:  \n- If the starting number is even, subtracting 2 repeatedly will eventually hit exactly 0 → returns true.  \n- If the starting number is odd, it will skip past 0 to a negative number → returns false.  \n\nSo the procedure returns true for even numbers and false for odd numbers.  \n\nThe correct choice is:  \n**Answer: G**",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.925262500000827
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The procedure subtracts 2 repeatedly until the number becomes ≤ 0.  \nIf it ends exactly at 0, it returns true; otherwise, it returns false.  \n\nThis means:  \n- If the starting number is even, subtracting 2 repeatedly will eventually hit exactly 0 → returns true.  \n- If the starting number is odd, it will skip past 0 to a negative number → returns false.  \n\nSo the procedure returns true for even numbers and false for odd numbers.  \n\nThe correct choice is:  \n**Answer: G**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233642,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 112,
+      "prompt_tokens": 343,
+      "total_tokens": 455,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fq5duor0MpZ03Uo2dfu760Tsg5tVNbQ0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 342,
+      "prompt_ms": 1488.423,
+      "prompt_per_token_ms": 4.35211403508772,
+      "prompt_per_second": 229.7733910319849,
+      "predicted_n": 112,
+      "predicted_ms": 8434.494,
+      "predicted_per_token_ms": 75.30798214285714,
+      "predicted_per_second": 13.278804869622292
+    }
+  }
+}

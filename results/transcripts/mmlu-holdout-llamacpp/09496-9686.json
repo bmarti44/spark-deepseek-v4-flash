@@ -1,0 +1,59 @@
+{
+  "index": 9496,
+  "task_id": 9686,
+  "rendered_prompt_sha256": "1474719d0f7f1be3ec86f724febe8ae10c50c17bd61c4b4398ba46d6b318706e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "When two capacitors are connected in series, the equivalent capacitance is:\n\n\\[\n\\frac{1}{C_{eq}} = \\frac{1}{3} + \\frac{1}{6} = \\frac{2}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}\n\\]\nSo  \n\\[\nC_{eq} = 2 \\, \\mu\\text{F}\n\\]\n\nThe total energy stored is:\n\n\\[\nU = \\frac{1}{2} C_{eq} V^2 = \\frac{1}{2} \\times (2 \\times 10^{-6}) \\times (300)^2\n\\]\n\\[\nU = \\frac{1}{2} \\times 2 \\times 10^{-6} \\times 90{,}000\n\\]\n\\[\nU = 10^{-6} \\times 90{,}000 = 0.09 \\, \\text{J}\n\\]\n\nThe correct answer is:\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.75373699299962
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "When two capacitors are connected in series, the equivalent capacitance is:\n\n\\[\n\\frac{1}{C_{eq}} = \\frac{1}{3} + \\frac{1}{6} = \\frac{2}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}\n\\]\nSo  \n\\[\nC_{eq} = 2 \\, \\mu\\text{F}\n\\]\n\nThe total energy stored is:\n\n\\[\nU = \\frac{1}{2} C_{eq} V^2 = \\frac{1}{2} \\times (2 \\times 10^{-6}) \\times (300)^2\n\\]\n\\[\nU = \\frac{1}{2} \\times 2 \\times 10^{-6} \\times 90{,}000\n\\]\n\\[\nU = 10^{-6} \\times 90{,}000 = 0.09 \\, \\text{J}\n\\]\n\nThe correct answer is:\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236112,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 211,
+      "prompt_tokens": 146,
+      "total_tokens": 357,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-MdSCA8P9yCEbspZ1FgDhim9w0IaQtF2G",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 145,
+      "prompt_ms": 797.575,
+      "prompt_per_token_ms": 5.500517241379311,
+      "prompt_per_second": 181.8010845375043,
+      "predicted_n": 211,
+      "predicted_ms": 14953.432,
+      "predicted_per_token_ms": 70.86934597156399,
+      "predicted_per_second": 14.11047310075707
+    }
+  }
+}

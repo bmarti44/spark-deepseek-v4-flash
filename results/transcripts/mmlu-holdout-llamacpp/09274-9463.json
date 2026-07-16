@@ -1,0 +1,59 @@
+{
+  "index": 9274,
+  "task_id": 9463,
+  "rendered_prompt_sha256": "1eb4298dcc52bbbeeb7b73833bb391fea80f62ffe689522ee0ec91eff8116344",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the formula for the speed of sound in an ideal gas:\n\n\\[\nv = \\sqrt{\\frac{\\gamma R T}{M}}\n\\]\n\nWhere:  \n- \\( v = 334 \\, \\text{m/s} \\)  \n- \\( R = 8.314 \\, \\text{J/(mol·K)} \\)  \n- \\( T = 273.15 \\, \\text{K} \\) (STP)  \n- \\( M = 28.8 \\, \\text{g/mol} = 0.0288 \\, \\text{kg/mol} \\)  \n\nWe solve for \\(\\gamma\\):\n\n\\[\n\\gamma = \\frac{v^2 M}{R T}\n\\]\n\nSubstitute:\n\n\\[\n\\gamma = \\frac{(334)^2 \\times 0.0288}{8.314 \\times 273.15}\n\\]\n\nFirst, \\(334^2 = 111556\\).\n\nNumerator:  \n\\(111556 \\times 0.0288 \\approx 3212.8128\\)\n\nDenominator:  \n\\(8.314 \\times 273.15 \\approx 2271.0\\)\n\nSo:\n\n\\[\n\\gamma \\approx \\frac{3212.8}{2271.0} \\approx 1.414\n\\]\n\nThis is very close to 1.415.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.908451188999607
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can use the formula for the speed of sound in an ideal gas:\n\n\\[\nv = \\sqrt{\\frac{\\gamma R T}{M}}\n\\]\n\nWhere:  \n- \\( v = 334 \\, \\text{m/s} \\)  \n- \\( R = 8.314 \\, \\text{J/(mol·K)} \\)  \n- \\( T = 273.15 \\, \\text{K} \\) (STP)  \n- \\( M = 28.8 \\, \\text{g/mol} = 0.0288 \\, \\text{kg/mol} \\)  \n\nWe solve for \\(\\gamma\\):\n\n\\[\n\\gamma = \\frac{v^2 M}{R T}\n\\]\n\nSubstitute:\n\n\\[\n\\gamma = \\frac{(334)^2 \\times 0.0288}{8.314 \\times 273.15}\n\\]\n\nFirst, \\(334^2 = 111556\\).\n\nNumerator:  \n\\(111556 \\times 0.0288 \\approx 3212.8128\\)\n\nDenominator:  \n\\(8.314 \\times 273.15 \\approx 2271.0\\)\n\nSo:\n\n\\[\n\\gamma \\approx \\frac{3212.8}{2271.0} \\approx 1.414\n\\]\n\nThis is very close to 1.415.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235921,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 268,
+      "prompt_tokens": 156,
+      "total_tokens": 424,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FjKHHelM2X2HUocPTEpENrSQ8UnOelSM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 155,
+      "prompt_ms": 890.97,
+      "prompt_per_token_ms": 5.748193548387097,
+      "prompt_per_second": 173.96769812676072,
+      "predicted_n": 268,
+      "predicted_ms": 19015.079,
+      "predicted_per_token_ms": 70.95178731343285,
+      "predicted_per_second": 14.094077652793343
+    }
+  }
+}

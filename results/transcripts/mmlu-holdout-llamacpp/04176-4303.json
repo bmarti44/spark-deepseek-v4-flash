@@ -1,0 +1,59 @@
+{
+  "index": 4176,
+  "task_id": 4303,
+  "rendered_prompt_sha256": "8260ced4f5522603a2af29ecabf0a59b30b3e35dd4ef65bd39246f9374bf798c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step-by-step.\n\nThe reaction is:  \n\\[\n\\text{CH}_4(g) + 2\\text{O}_2(g) \\rightarrow \\text{CO}_2(g) + 2\\text{H}_2\\text{O}(g)\n\\]\n\nFrom the balanced equation:  \n- 1 mole of CH₄ produces 1 mole of CO₂ and 2 moles of H₂O.  \n- So total moles of gaseous products = 1 (CO₂) + 2 (H₂O) = 3 moles.\n\nThe partial pressure of a gas is proportional to its mole fraction.  \nMole fraction of water vapor = \\(\\frac{2}{3}\\).\n\nTotal pressure = 6.25 torr.  \nPartial pressure of water vapor = \\(\\frac{2}{3} \\times 6.25 = \\frac{12.5}{3} \\approx 4.1667\\) torr.\n\nThat matches **4.16 torr**.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.4578821469986
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step-by-step.\n\nThe reaction is:  \n\\[\n\\text{CH}_4(g) + 2\\text{O}_2(g) \\rightarrow \\text{CO}_2(g) + 2\\text{H}_2\\text{O}(g)\n\\]\n\nFrom the balanced equation:  \n- 1 mole of CH₄ produces 1 mole of CO₂ and 2 moles of H₂O.  \n- So total moles of gaseous products = 1 (CO₂) + 2 (H₂O) = 3 moles.\n\nThe partial pressure of a gas is proportional to its mole fraction.  \nMole fraction of water vapor = \\(\\frac{2}{3}\\).\n\nTotal pressure = 6.25 torr.  \nPartial pressure of water vapor = \\(\\frac{2}{3} \\times 6.25 = \\frac{12.5}{3} \\approx 4.1667\\) torr.\n\nThat matches **4.16 torr**.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233479,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 204,
+      "prompt_tokens": 188,
+      "total_tokens": 392,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Yi3TNgG9H9A1lySC1En1nx0WVNmiQe3i",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 187,
+      "prompt_ms": 941.564,
+      "prompt_per_token_ms": 5.035101604278075,
+      "prompt_per_second": 198.60572409310464,
+      "predicted_n": 204,
+      "predicted_ms": 14512.933,
+      "predicted_per_token_ms": 71.14182843137256,
+      "predicted_per_second": 14.056428152737976
+    }
+  }
+}

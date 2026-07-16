@@ -1,0 +1,59 @@
+{
+  "index": 5896,
+  "task_id": 6056,
+  "rendered_prompt_sha256": "c2d335a73f126b90c51449d2ef0f07daed03b316e2037ce041e572bbd6d75f1e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The question asks which is **not** a non-coding RNA. Non-coding RNAs are RNA molecules that are not translated into proteins.\n\n- **lncRNA** (long non-coding RNA) — non-coding  \n- **piRNA** (Piwi-interacting RNA) — non-coding  \n- **rRNA** (ribosomal RNA) — non-coding (structural/functional)  \n- **snRNA** (small nuclear RNA) — non-coding  \n- **tRNA** (transfer RNA) — non-coding  \n- **miRNA** (microRNA) — non-coding  \n- **siRNA** (small interfering RNA) — non-coding  \n- **Ribozyme** — catalytic RNA, non-coding  \n- **mRNA** (messenger RNA) — **coding** (translated into protein)  \n- **gRNA** (guide RNA) — non-coding  \n\nThe only one that is **coding** RNA is **mRNA**.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.341117047999433
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The question asks which is **not** a non-coding RNA. Non-coding RNAs are RNA molecules that are not translated into proteins.\n\n- **lncRNA** (long non-coding RNA) — non-coding  \n- **piRNA** (Piwi-interacting RNA) — non-coding  \n- **rRNA** (ribosomal RNA) — non-coding (structural/functional)  \n- **snRNA** (small nuclear RNA) — non-coding  \n- **tRNA** (transfer RNA) — non-coding  \n- **miRNA** (microRNA) — non-coding  \n- **siRNA** (small interfering RNA) — non-coding  \n- **Ribozyme** — catalytic RNA, non-coding  \n- **mRNA** (messenger RNA) — **coding** (translated into protein)  \n- **gRNA** (guide RNA) — non-coding  \n\nThe only one that is **coding** RNA is **mRNA**.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234774,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 81,
+      "total_tokens": 278,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-55YPYKv5uezmfvcwMTpr5AV53h8kbCLx",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 80,
+      "prompt_ms": 647.449,
+      "prompt_per_token_ms": 8.0931125,
+      "prompt_per_second": 123.56185583729376,
+      "predicted_n": 197,
+      "predicted_ms": 14690.951,
+      "predicted_per_token_ms": 74.57335532994924,
+      "predicted_per_second": 13.409615211431854
+    }
+  }
+}

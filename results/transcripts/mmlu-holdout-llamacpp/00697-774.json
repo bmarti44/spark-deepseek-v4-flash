@@ -1,0 +1,59 @@
+{
+  "index": 697,
+  "task_id": 774,
+  "rendered_prompt_sha256": "cb7cbf4b19475724eeea2d65edae1f073bcb3dce42a7843085f05cf4b30f8208",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break this down step by step.\n\n**Step 1: Find the amount financed**  \nTotal cost = $8,650  \nDown payment = $1,000  \nAmount financed = $8,650 – $1,000 = $7,650  \n\n**Step 2: Total payments made**  \n20 monthly installments of $425  \nTotal paid = 20 × 425 = $8,500  \n\n**Step 3: Total interest paid**  \nInterest = $8,500 – $7,650 = $850  \n\n**Step 4: Approximate interest rate**  \nThis is an installment loan, so the average balance method can give a good approximation.  \nAverage balance ≈ (7,650 + 0) / 2 = $3,825 over 20 months.  \n\nInterest paid = $850 over 20 months.  \nMonthly interest rate ≈ (850 / 20) / 3,825 = 42.5 / 3,825 ≈ 0.011111 → 1.1111% per month  \nAnnual rate ≈ 1.1111% × 12 = 13.333%  \n\n**Step 5: More precise calculation**  \nWe can solve using the loan formula:  \n\\( P = \\frac{R \\left[1 - (1+i)^{-n}\\right]}{i} \\)  \nWhere:  \nP = 7,650  \nR = 425  \nn = 20  \nWe solve for monthly i, then multiply by 12.  \n\nTesting i = 0.011 (1.1% monthly):  \nPV factor = (1 - (1.011)^{-20}) / 0.011  \n(1.011)^{-20} ≈ 0.802  \n(1 - 0.802) / 0.011 = 0.198 / 0.011 ≈ 18.0  \nPV = 425 × 18.0 = 7,650 → matches exactly.  \n\nSo monthly i = 1.1% → annual = 13.2%  \n\nClosest to given options: 13.2% → **13.5%** is the nearest tenth.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 33.156383828998514
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break this down step by step.\n\n**Step 1: Find the amount financed**  \nTotal cost = $8,650  \nDown payment = $1,000  \nAmount financed = $8,650 – $1,000 = $7,650  \n\n**Step 2: Total payments made**  \n20 monthly installments of $425  \nTotal paid = 20 × 425 = $8,500  \n\n**Step 3: Total interest paid**  \nInterest = $8,500 – $7,650 = $850  \n\n**Step 4: Approximate interest rate**  \nThis is an installment loan, so the average balance method can give a good approximation.  \nAverage balance ≈ (7,650 + 0) / 2 = $3,825 over 20 months.  \n\nInterest paid = $850 over 20 months.  \nMonthly interest rate ≈ (850 / 20) / 3,825 = 42.5 / 3,825 ≈ 0.011111 → 1.1111% per month  \nAnnual rate ≈ 1.1111% × 12 = 13.333%  \n\n**Step 5: More precise calculation**  \nWe can solve using the loan formula:  \n\\( P = \\frac{R \\left[1 - (1+i)^{-n}\\right]}{i} \\)  \nWhere:  \nP = 7,650  \nR = 425  \nn = 20  \nWe solve for monthly i, then multiply by 12.  \n\nTesting i = 0.011 (1.1% monthly):  \nPV factor = (1 - (1.011)^{-20}) / 0.011  \n(1.011)^{-20} ≈ 0.802  \n(1 - 0.802) / 0.011 = 0.198 / 0.011 ≈ 18.0  \nPV = 425 × 18.0 = 7,650 → matches exactly.  \n\nSo monthly i = 1.1% → annual = 13.2%  \n\nClosest to given options: 13.2% → **13.5%** is the nearest tenth.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233004,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 453,
+      "prompt_tokens": 148,
+      "total_tokens": 601,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qJkU0EAVsgimGp5hLrzypjbK5FmVgn3H",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 147,
+      "prompt_ms": 832.196,
+      "prompt_per_token_ms": 5.6611972789115645,
+      "prompt_per_second": 176.64107974563686,
+      "predicted_n": 453,
+      "predicted_ms": 32320.766,
+      "predicted_per_token_ms": 71.34826931567329,
+      "predicted_per_second": 14.015756928533191
+    }
+  }
+}

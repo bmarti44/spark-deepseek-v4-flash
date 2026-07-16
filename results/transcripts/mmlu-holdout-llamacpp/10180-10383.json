@@ -1,0 +1,59 @@
+{
+  "index": 10180,
+  "task_id": 10383,
+  "rendered_prompt_sha256": "2b8172a132e1504d0e861d7b183cfae27857b576fbcdcc9cca0162a9c4291c31",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To share a single copy of a program among multiple users in a multiprogrammed system, the program must be **reentrant**. This means it does not modify itself and can have multiple users executing it concurrently without interfering with each other.  \n\n- **Macro** (I) is not required for sharing.  \n- **Recursive** (II) is not necessary; recursion is a property of the code, not a requirement for sharing.  \n- **Reentrant** (III) is required.  \n\nThus, only statement III must be true.  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.988747433999379
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To share a single copy of a program among multiple users in a multiprogrammed system, the program must be **reentrant**. This means it does not modify itself and can have multiple users executing it concurrently without interfering with each other.  \n\n- **Macro** (I) is not required for sharing.  \n- **Recursive** (II) is not necessary; recursion is a property of the code, not a requirement for sharing.  \n- **Reentrant** (III) is required.  \n\nThus, only statement III must be true.  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233632,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 185,
+      "total_tokens": 303,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-MOoD6LiEKs5NG1SEVc1vJBbgVR5OOCee",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 184,
+      "prompt_ms": 989.564,
+      "prompt_per_token_ms": 5.378065217391304,
+      "prompt_per_second": 185.9404747949602,
+      "predicted_n": 118,
+      "predicted_ms": 8996.377,
+      "predicted_per_token_ms": 76.24048305084746,
+      "predicted_per_second": 13.116391187252377
+    }
+  }
+}

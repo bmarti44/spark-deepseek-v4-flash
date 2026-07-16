@@ -1,0 +1,59 @@
+{
+  "index": 3028,
+  "task_id": 3148,
+  "rendered_prompt_sha256": "8b0fde445fd35ba58418e0be87ed4186725392e417387c04af0aae764ee24560",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The dorsal root carries sensory (afferent) information into the spinal cord, while the ventral root carries motor (efferent) signals from the spinal cord to muscles.  \n\n- Severing the **dorsal root** → loss of sensation and reflex action (since sensory input is lost).  \n- Severing the **ventral root** → loss of motor function (inability to move the affected part).  \n\nThis matches option **E**.  \n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.21925081199879
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The dorsal root carries sensory (afferent) information into the spinal cord, while the ventral root carries motor (efferent) signals from the spinal cord to muscles.  \n\n- Severing the **dorsal root** → loss of sensation and reflex action (since sensory input is lost).  \n- Severing the **ventral root** → loss of motor function (inability to move the affected part).  \n\nThis matches option **E**.  \n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232663,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 268,
+      "total_tokens": 362,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-H1Swsy1nVJsAajOoludSxvX4OYoatBgM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 267,
+      "prompt_ms": 1182.51,
+      "prompt_per_token_ms": 4.428876404494382,
+      "prompt_per_second": 225.79090240251668,
+      "predicted_n": 94,
+      "predicted_ms": 7034.017,
+      "predicted_per_token_ms": 74.82996808510639,
+      "predicted_per_second": 13.363629914457132
+    }
+  }
+}

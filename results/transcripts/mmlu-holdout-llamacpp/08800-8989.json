@@ -1,0 +1,59 @@
+{
+  "index": 8800,
+  "task_id": 8989,
+  "rendered_prompt_sha256": "53b09e4e4cbdacc1c5b3770643a9f67cdcbd1e7d81c4b1175e63750e832c28df",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to solve \\(5x - 5 = -10\\).\n\nAdd 5 to both sides:  \n\\(5x = -5\\)\n\nDivide by 5:  \n\\(x = -1\\)\n\nThe correct option is H.\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.379233093000948
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to solve \\(5x - 5 = -10\\).\n\nAdd 5 to both sides:  \n\\(5x = -5\\)\n\nDivide by 5:  \n\\(x = -1\\)\n\nThe correct option is H.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235565,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 92,
+      "total_tokens": 143,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vsdLfxUpLUhdODFzbu4kGoKWQxwvMcs4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 91,
+      "prompt_ms": 659.164,
+      "prompt_per_token_ms": 7.243560439560439,
+      "prompt_per_second": 138.0536558428555,
+      "predicted_n": 51,
+      "predicted_ms": 3717.292,
+      "predicted_per_token_ms": 72.88807843137255,
+      "predicted_per_second": 13.719664745196233
+    }
+  }
+}

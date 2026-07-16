@@ -1,0 +1,59 @@
+{
+  "index": 11832,
+  "task_id": 12057,
+  "rendered_prompt_sha256": "78b65b8c40e584144fab4617c6fd07a0c39b0d6e8e908caeeea702ec9d97ad67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have the reaction:\n\n\\[\n\\text{CO}_2 \\rightleftharpoons \\text{CO} + \\frac{1}{2}\\text{O}_2\n\\]\n\nGiven \\(K_p = 0.647\\) at 1 atm total pressure.\n\nLet initial moles: 1 mole CO₂, 0 CO, 0 O₂.  \nLet extent of reaction = \\(\\epsilon\\).  \nAt equilibrium:\n\n- CO₂: \\(1 - \\epsilon\\)  \n- CO: \\(\\epsilon\\)  \n- O₂: \\(\\frac{\\epsilon}{2}\\)  \n\nTotal moles = \\(1 - \\epsilon + \\epsilon + \\frac{\\epsilon}{2} = 1 + \\frac{\\epsilon}{2}\\).\n\nMole fractions:\n\n\\[\nx_{CO_2} = \\frac{1 - \\epsilon}{1 + \\epsilon/2}\n\\]\n\\[\nx_{CO} = \\frac{\\epsilon}{1 + \\epsilon/2}\n\\]\n\\[\nx_{O_2} = \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\nEquilibrium constant expression (since total pressure = 1 atm, partial pressures = mole fractions):\n\n\\[\nK_p = \\frac{x_{CO} \\cdot x_{O_2}^{1/2}}{x_{CO_2}}\n\\]\n\nSubstitute:\n\n\\[\n0.647 = \\frac{ \\frac{\\epsilon}{1 + \\epsilon/2} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2} }{ \\frac{1 - \\epsilon}{1 + \\epsilon/2} }\n\\]\n\nSimplify:\n\n\\[\n0.647 = \\frac{\\epsilon \\cdot (\\epsilon/2)^{1/2}}{(1 - \\epsilon)(1 + \\epsilon/2)^{1/2}}\n\\]\n\nLet’s square both sides to remove square root:\n\n\\[\n0.647^2 = \\frac{\\epsilon^2 \\cdot (\\epsilon/2)}{(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\n\\[\n0.418609 = \\frac{\\epsilon^3 / 2}{(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\nMultiply both sides:\n\n\\[\n0.418609 (1 - \\epsilon)^2 (1 + \\epsilon/2) = \\frac{\\epsilon^3}{2}\n\\]\n\nMultiply by 2:\n\n\\[\n0.837218 (1 - \\epsilon)^2 (1 + \\epsilon/2) = \\epsilon^3\n\\]\n\nNow test the given \\(\\epsilon\\) values from options.\n\n**Test \\(\\epsilon = 0.378\\)** (Option A):\n\nLHS:  \n\\((1 - 0.378)^2 = (0.622)^2 = 0.386884\\)  \n\\((1 + 0.378/2) = 1 + 0.189 = 1.189\\)  \nProduct: \\(0.386884 \\times 1.189 \\approx 0.4599\\)  \nMultiply by 0.837218: \\(0.837218 \\times 0.4599 \\approx 0.385\\)  \nRHS: \\(0.378^3 = 0.05399\\) — not equal.\n\n**Test \\(\\epsilon = 0.278\\)** (Option B):\n\n\\((1 - 0.278)^2 = (0.722)^2 = 0.521284\\)  \n\\((1 + 0.278/2) = 1.139\\)  \nProduct: \\(0.521284 \\times 1.139 \\approx 0.5937\\)  \nTimes 0.837218: \\(\\approx 0.",
+  "finish_reason": "length",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 59.58143057699999
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have the reaction:\n\n\\[\n\\text{CO}_2 \\rightleftharpoons \\text{CO} + \\frac{1}{2}\\text{O}_2\n\\]\n\nGiven \\(K_p = 0.647\\) at 1 atm total pressure.\n\nLet initial moles: 1 mole CO₂, 0 CO, 0 O₂.  \nLet extent of reaction = \\(\\epsilon\\).  \nAt equilibrium:\n\n- CO₂: \\(1 - \\epsilon\\)  \n- CO: \\(\\epsilon\\)  \n- O₂: \\(\\frac{\\epsilon}{2}\\)  \n\nTotal moles = \\(1 - \\epsilon + \\epsilon + \\frac{\\epsilon}{2} = 1 + \\frac{\\epsilon}{2}\\).\n\nMole fractions:\n\n\\[\nx_{CO_2} = \\frac{1 - \\epsilon}{1 + \\epsilon/2}\n\\]\n\\[\nx_{CO} = \\frac{\\epsilon}{1 + \\epsilon/2}\n\\]\n\\[\nx_{O_2} = \\frac{\\epsilon/2}{1 + \\epsilon/2}\n\\]\n\nEquilibrium constant expression (since total pressure = 1 atm, partial pressures = mole fractions):\n\n\\[\nK_p = \\frac{x_{CO} \\cdot x_{O_2}^{1/2}}{x_{CO_2}}\n\\]\n\nSubstitute:\n\n\\[\n0.647 = \\frac{ \\frac{\\epsilon}{1 + \\epsilon/2} \\cdot \\left( \\frac{\\epsilon/2}{1 + \\epsilon/2} \\right)^{1/2} }{ \\frac{1 - \\epsilon}{1 + \\epsilon/2} }\n\\]\n\nSimplify:\n\n\\[\n0.647 = \\frac{\\epsilon \\cdot (\\epsilon/2)^{1/2}}{(1 - \\epsilon)(1 + \\epsilon/2)^{1/2}}\n\\]\n\nLet’s square both sides to remove square root:\n\n\\[\n0.647^2 = \\frac{\\epsilon^2 \\cdot (\\epsilon/2)}{(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\n\\[\n0.418609 = \\frac{\\epsilon^3 / 2}{(1 - \\epsilon)^2 (1 + \\epsilon/2)}\n\\]\n\nMultiply both sides:\n\n\\[\n0.418609 (1 - \\epsilon)^2 (1 + \\epsilon/2) = \\frac{\\epsilon^3}{2}\n\\]\n\nMultiply by 2:\n\n\\[\n0.837218 (1 - \\epsilon)^2 (1 + \\epsilon/2) = \\epsilon^3\n\\]\n\nNow test the given \\(\\epsilon\\) values from options.\n\n**Test \\(\\epsilon = 0.378\\)** (Option A):\n\nLHS:  \n\\((1 - 0.378)^2 = (0.622)^2 = 0.386884\\)  \n\\((1 + 0.378/2) = 1 + 0.189 = 1.189\\)  \nProduct: \\(0.386884 \\times 1.189 \\approx 0.4599\\)  \nMultiply by 0.837218: \\(0.837218 \\times 0.4599 \\approx 0.385\\)  \nRHS: \\(0.378^3 = 0.05399\\) — not equal.\n\n**Test \\(\\epsilon = 0.278\\)** (Option B):\n\n\\((1 - 0.278)^2 = (0.722)^2 = 0.521284\\)  \n\\((1 + 0.278/2) = 1.139\\)  \nProduct: \\(0.521284 \\times 1.139 \\approx 0.5937\\)  \nTimes 0.837218: \\(\\approx 0.",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784234531,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 768,
+      "prompt_tokens": 527,
+      "total_tokens": 1295,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DKcMMVm5aHkDem0raHzK2Cv2cH19JC5w",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 526,
+      "prompt_ms": 2138.532,
+      "prompt_per_token_ms": 4.065650190114069,
+      "prompt_per_second": 245.96311862529996,
+      "predicted_n": 768,
+      "predicted_ms": 57440.085,
+      "predicted_per_token_ms": 74.79177734375,
+      "predicted_per_second": 13.370453751939955
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 10104,
+  "task_id": 10306,
+  "rendered_prompt_sha256": "e98d57927b0d2faab165dd238d5245e13110a6c53ee6e8b7e963c2ea2c966f9c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the mass of silver deposited, we use Faraday’s law of electrolysis:\n\n\\[\nm = \\frac{I \\cdot t \\cdot M}{n \\cdot F}\n\\]\n\nWhere:  \n- \\( I = 0.50 \\, \\text{A} \\)  \n- \\( t = 20 \\, \\text{minutes} = 20 \\times 60 = 1200 \\, \\text{s} \\)  \n- \\( M \\) (molar mass of silver) = \\( 107.87 \\, \\text{g/mol} \\) (approx. 107.9)  \n- \\( n \\) (valence electrons for Ag⁺ → Ag) = 1  \n- \\( F = 96485 \\, \\text{C/mol} \\)\n\n\\[\nm = \\frac{0.50 \\times 1200 \\times 107.87}{1 \\times 96485}\n\\]\n\nFirst, numerator:  \n\\( 0.50 \\times 1200 = 600 \\)  \n\\( 600 \\times 107.87 = 64722 \\)\n\nNow divide:  \n\\( 64722 / 96485 \\approx 0.6708 \\, \\text{g} \\)\n\nThat rounds to **0.671 g**.\n\nCorrect option: **J**.\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.62496507400283
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To find the mass of silver deposited, we use Faraday’s law of electrolysis:\n\n\\[\nm = \\frac{I \\cdot t \\cdot M}{n \\cdot F}\n\\]\n\nWhere:  \n- \\( I = 0.50 \\, \\text{A} \\)  \n- \\( t = 20 \\, \\text{minutes} = 20 \\times 60 = 1200 \\, \\text{s} \\)  \n- \\( M \\) (molar mass of silver) = \\( 107.87 \\, \\text{g/mol} \\) (approx. 107.9)  \n- \\( n \\) (valence electrons for Ag⁺ → Ag) = 1  \n- \\( F = 96485 \\, \\text{C/mol} \\)\n\n\\[\nm = \\frac{0.50 \\times 1200 \\times 107.87}{1 \\times 96485}\n\\]\n\nFirst, numerator:  \n\\( 0.50 \\times 1200 = 600 \\)  \n\\( 600 \\times 107.87 = 64722 \\)\n\nNow divide:  \n\\( 64722 / 96485 \\approx 0.6708 \\, \\text{g} \\)\n\nThat rounds to **0.671 g**.\n\nCorrect option: **J**.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236342,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 262,
+      "prompt_tokens": 125,
+      "total_tokens": 387,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-s5FcoX5hP0KMhy2k802Yhk1iAhZswqAY",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 124,
+      "prompt_ms": 823.253,
+      "prompt_per_token_ms": 6.639137096774194,
+      "prompt_per_second": 150.62198376440776,
+      "predicted_n": 262,
+      "predicted_ms": 18798.525,
+      "predicted_per_token_ms": 71.75009541984734,
+      "predicted_per_second": 13.937263694890953
+    }
+  }
+}

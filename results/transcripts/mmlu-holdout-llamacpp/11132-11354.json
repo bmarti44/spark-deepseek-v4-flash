@@ -1,0 +1,59 @@
+{
+  "index": 11132,
+  "task_id": 11354,
+  "rendered_prompt_sha256": "356771bf1312d4c644d2238230d8ab5a4048ef779aa5b0b5d1e66c7d9b16c9ed",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Q-factor is given by the formula:\n\n\\[\nQ = \\frac{f_0}{\\text{Bandwidth}}\n\\]\n\nWhere \\( f_0 \\) is the center (or cut-off) frequency and bandwidth is the range of frequencies.  \nHere, cut-off frequency = 44 MHz, bandwidth = 0.8 MHz.\n\n\\[\nQ = \\frac{44}{0.8} = 55\n\\]\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.413593016000959
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Q-factor is given by the formula:\n\n\\[\nQ = \\frac{f_0}{\\text{Bandwidth}}\n\\]\n\nWhere \\( f_0 \\) is the center (or cut-off) frequency and bandwidth is the range of frequencies.  \nHere, cut-off frequency = 44 MHz, bandwidth = 0.8 MHz.\n\n\\[\nQ = \\frac{44}{0.8} = 55\n\\]\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233859,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 89,
+      "prompt_tokens": 102,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-XpzdqGYUTnaXWHjs7sXAjm66pl3rDAC2",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 101,
+      "prompt_ms": 782.201,
+      "prompt_per_token_ms": 7.744564356435644,
+      "prompt_per_second": 129.1228213720003,
+      "predicted_n": 89,
+      "predicted_ms": 6629.068,
+      "predicted_per_token_ms": 74.48391011235955,
+      "predicted_per_second": 13.425718366443064
+    }
+  }
+}

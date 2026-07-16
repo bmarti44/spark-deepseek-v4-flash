@@ -1,0 +1,60 @@
+{
+  "index": 6698,
+  "task_id": 6865,
+  "rendered_prompt_sha256": "2bd6f4aab4f3aaf649f2536800d7a0f5b31affc2e18b12cc160c88294f7290db",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.1327796769983252
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Answer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233683,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 4,
+      "prompt_tokens": 111,
+      "total_tokens": 115,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9F3Kb7rJupln7gXvscdTmD84hXpVpglF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 110,
+      "prompt_ms": 821.495,
+      "prompt_per_token_ms": 7.468136363636364,
+      "prompt_per_second": 133.90221486436315,
+      "predicted_n": 4,
+      "predicted_ms": 308.802,
+      "predicted_per_token_ms": 77.2005,
+      "predicted_per_second": 12.953283981321364
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>What is the chief reason why farm policy was notconceived assimply part of an overall income distribution policy?\n\nA. Geographic diversity of farming regions\nB. Environmental concerns\nC. Consumer preference for organic produce\nD. Lack of funding\nE. Technological advancements in agriculture\nF. Public demand for food security\nG. International trade agreements\nH. Historical context\nI. Influences from the agricultural industry\nJ. Political decisions\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

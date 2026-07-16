@@ -1,0 +1,59 @@
+{
+  "index": 2603,
+  "task_id": 2714,
+  "rendered_prompt_sha256": "30e3068897a10f58374992e66e8845095b3b8201fda4f1bc83265313f4cbac92",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Research on heterogeneous versus homogeneous groups generally indicates that heterogeneous groups bring diverse perspectives, which can enhance creativity and innovation. However, they often face more coordination and communication challenges, which can hinder decision-making efficiency and productivity in some contexts. The most common finding is that heterogeneous groups tend to be more creative but may struggle with decision-making compared to homogeneous groups.\n\nThus, the correct option is:\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.376922817999002
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Research on heterogeneous versus homogeneous groups generally indicates that heterogeneous groups bring diverse perspectives, which can enhance creativity and innovation. However, they often face more coordination and communication challenges, which can hinder decision-making efficiency and productivity in some contexts. The most common finding is that heterogeneous groups tend to be more creative but may struggle with decision-making compared to homogeneous groups.\n\nThus, the correct option is:\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236401,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 80,
+      "prompt_tokens": 147,
+      "total_tokens": 227,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zOC8UUebLID9lBBIJZCrZbVUmmcFzS56",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 146,
+      "prompt_ms": 797.283,
+      "prompt_per_token_ms": 5.460842465753425,
+      "prompt_per_second": 183.1219278474519,
+      "predicted_n": 80,
+      "predicted_ms": 5576.143,
+      "predicted_per_token_ms": 69.7017875,
+      "predicted_per_second": 14.346834362031247
+    }
+  }
+}

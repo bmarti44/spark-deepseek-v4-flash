@@ -1,0 +1,60 @@
+{
+  "index": 7026,
+  "task_id": 7198,
+  "rendered_prompt_sha256": "a9fa050accdb0b05b1ba2b97693fa843679858ac6ff839dee769c6bf7eea9f9b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can use the relationship from the permanent income hypothesis or a simple capitalization formula:\n\n\\[\n\\text{Wealth} = \\frac{\\text{Annual Income}}{\\text{Interest Rate}}\n\\]\n\nHere:\n\n\\[\n\\text{Wealth} = \\frac{20,000}{0.098}\n\\]\n\n\\[\n\\frac{20,000}{0.098} = 204,081.63 \\approx 204,082\n\\]\n\nThat matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.899001672001759
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can use the relationship from the permanent income hypothesis or a simple capitalization formula:\n\n\\[\n\\text{Wealth} = \\frac{\\text{Annual Income}}{\\text{Interest Rate}}\n\\]\n\nHere:\n\n\\[\n\\text{Wealth} = \\frac{20,000}{0.098}\n\\]\n\n\\[\n\\frac{20,000}{0.098} = 204,081.63 \\approx 204,082\n\\]\n\nThat matches option **G**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233747,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 97,
+      "prompt_tokens": 119,
+      "total_tokens": 216,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bGplArqD4qwm3MsaGDdqFeFAGLeXqxWU",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 118,
+      "prompt_ms": 844.416,
+      "prompt_per_token_ms": 7.15606779661017,
+      "prompt_per_second": 139.7415491890253,
+      "predicted_n": 97,
+      "predicted_ms": 7052.358,
+      "predicted_per_token_ms": 72.70472164948454,
+      "predicted_per_second": 13.75426488558862
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>When my expected annual income is $20,000 and the rate of interestis 9.8% what is my total wealth?\n\nA. $210,000\nB. $190,000\nC. $220,082\nD. $235,000\nE. $225,000\nF. $198,000\nG. $204,082\nH. $180,000\nI. $250,000\nJ. $206,000\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

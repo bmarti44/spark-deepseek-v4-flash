@@ -1,0 +1,59 @@
+{
+  "index": 10250,
+  "task_id": 10455,
+  "rendered_prompt_sha256": "227438b4887855d74d05bd5c4bc0caf2e293bc23339e66987086891dff84a3ea",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The computational cost of K-fold cross-validation scales linearly with the number of folds \\( K \\), because you train \\( K \\) models (one for each fold).  \nThus, the correct answer is:\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.091503378000198
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The computational cost of K-fold cross-validation scales linearly with the number of folds \\( K \\), because you train \\( K \\) models (one for each fold).  \nThus, the correct answer is:\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233646,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 89,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-6zHhiY50oE4ja72NMKDV25nEYZmIMCSn",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 88,
+      "prompt_ms": 691.892,
+      "prompt_per_token_ms": 7.862409090909091,
+      "prompt_per_second": 127.18748012695623,
+      "predicted_n": 44,
+      "predicted_ms": 3397.683,
+      "predicted_per_token_ms": 77.22006818181818,
+      "predicted_per_second": 12.950001515738814
+    }
+  }
+}

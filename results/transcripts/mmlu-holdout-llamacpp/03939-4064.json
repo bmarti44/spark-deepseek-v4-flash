@@ -1,0 +1,59 @@
+{
+  "index": 3939,
+  "task_id": 4064,
+  "rendered_prompt_sha256": "be4a95088e81251b5fc2f2f48064b228e5f7df3db1558d19fadb4222c0efc7c6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The rule that a 10°C rise doubles the reaction rate gives us a way to estimate the activation energy using the Arrhenius equation.  \n\nThe relationship is:  \n\n\\[\n\\frac{k_2}{k_1} = 2\n\\]  \nfor \\( T_2 = T_1 + 10 \\) (in Kelvin).  \n\nFrom the Arrhenius equation:  \n\n\\[\n\\ln \\frac{k_2}{k_1} = \\frac{E_a}{R} \\left( \\frac{1}{T_1} - \\frac{1}{T_2} \\right)\n\\]  \n\nSo:  \n\n\\[\n\\ln 2 = \\frac{E_a}{R} \\left( \\frac{1}{T_1} - \\frac{1}{T_1 + 10} \\right)\n\\]  \n\nFor \\( T_1 = 27^\\circ C = 300 \\, K \\):  \n\n\\[\n\\frac{1}{300} - \\frac{1}{310} = \\frac{310 - 300}{300 \\times 310} = \\frac{10}{93000} \\approx 1.0753 \\times 10^{-4}\n\\]  \n\n\\[\nE_a = \\frac{R \\ln 2}{1.0753 \\times 10^{-4}}\n\\]  \n\nWith \\( R = 1.987 \\, \\text{cal/(mol·K)} \\) and \\(\\ln 2 \\approx 0.693147\\):  \n\n\\[\nE_a \\approx \\frac{1.987 \\times 0.693147}{1.0753 \\times 10^{-4}} \\approx \\frac{1.377}{1.0753 \\times 10^{-4}} \\approx 12800 \\, \\text{cal/mol} = 12.8 \\, \\text{kcal/mol}\n\\]  \n\nFor \\( T_1 = 1000^\\circ C = 1273 \\, K \\):  \n\n\\[\n\\frac{1}{1273} - \\frac{1}{1283} = \\frac{10}{1273 \\times 1283} \\approx \\frac{10}{1,633,259} \\approx 6.123 \\times 10^{-6}\n\\]  \n\n\\[\nE_a \\approx \\frac{1.377}{6.123 \\times 10^{-6}} \\approx 224,800 \\, \\text{cal/mol} \\approx 225 \\, \\text{kcal/mol}\n\\]  \n\nThe closest match in the options is **12.8 kcal/mol and 226 kcal/mol**, which corresponds to option D.  \n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 40.20170931500252
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The rule that a 10°C rise doubles the reaction rate gives us a way to estimate the activation energy using the Arrhenius equation.  \n\nThe relationship is:  \n\n\\[\n\\frac{k_2}{k_1} = 2\n\\]  \nfor \\( T_2 = T_1 + 10 \\) (in Kelvin).  \n\nFrom the Arrhenius equation:  \n\n\\[\n\\ln \\frac{k_2}{k_1} = \\frac{E_a}{R} \\left( \\frac{1}{T_1} - \\frac{1}{T_2} \\right)\n\\]  \n\nSo:  \n\n\\[\n\\ln 2 = \\frac{E_a}{R} \\left( \\frac{1}{T_1} - \\frac{1}{T_1 + 10} \\right)\n\\]  \n\nFor \\( T_1 = 27^\\circ C = 300 \\, K \\):  \n\n\\[\n\\frac{1}{300} - \\frac{1}{310} = \\frac{310 - 300}{300 \\times 310} = \\frac{10}{93000} \\approx 1.0753 \\times 10^{-4}\n\\]  \n\n\\[\nE_a = \\frac{R \\ln 2}{1.0753 \\times 10^{-4}}\n\\]  \n\nWith \\( R = 1.987 \\, \\text{cal/(mol·K)} \\) and \\(\\ln 2 \\approx 0.693147\\):  \n\n\\[\nE_a \\approx \\frac{1.987 \\times 0.693147}{1.0753 \\times 10^{-4}} \\approx \\frac{1.377}{1.0753 \\times 10^{-4}} \\approx 12800 \\, \\text{cal/mol} = 12.8 \\, \\text{kcal/mol}\n\\]  \n\nFor \\( T_1 = 1000^\\circ C = 1273 \\, K \\):  \n\n\\[\n\\frac{1}{1273} - \\frac{1}{1283} = \\frac{10}{1273 \\times 1283} \\approx \\frac{10}{1,633,259} \\approx 6.123 \\times 10^{-6}\n\\]  \n\n\\[\nE_a \\approx \\frac{1.377}{6.123 \\times 10^{-6}} \\approx 224,800 \\, \\text{cal/mol} \\approx 225 \\, \\text{kcal/mol}\n\\]  \n\nThe closest match in the options is **12.8 kcal/mol and 226 kcal/mol**, which corresponds to option D.  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233419,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 546,
+      "prompt_tokens": 247,
+      "total_tokens": 793,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KUCTCLjmxi7ogmw80r5vU9KvceEJifT1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 246,
+      "prompt_ms": 1180.488,
+      "prompt_per_token_ms": 4.798731707317073,
+      "prompt_per_second": 208.38839530770326,
+      "predicted_n": 546,
+      "predicted_ms": 39018.154,
+      "predicted_per_token_ms": 71.46182051282052,
+      "predicted_per_second": 13.993486211572183
+    }
+  }
+}

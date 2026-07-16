@@ -1,0 +1,59 @@
+{
+  "index": 10824,
+  "task_id": 11041,
+  "rendered_prompt_sha256": "2fbb2d1e9f4e35f3237404c7036c64ece44af6c9e6cbf273723600f2318f2aeb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The thought experiment by James Rachels involving Smith and Jones is designed to compare **killing** versus **letting die**. Smith actively holds the child underwater, which is an act of **killing**.  \n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.250019961000362
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The thought experiment by James Rachels involving Smith and Jones is designed to compare **killing** versus **letting die**. Smith actively holds the child underwater, which is an act of **killing**.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235698,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 108,
+      "total_tokens": 154,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-0jOFv6UiJ8FBePz35mI7Le2EXG4gonqy",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 107,
+      "prompt_ms": 826.118,
+      "prompt_per_token_ms": 7.720728971962617,
+      "prompt_per_second": 129.52144850977706,
+      "predicted_n": 46,
+      "predicted_ms": 3421.135,
+      "predicted_per_token_ms": 74.3725,
+      "predicted_per_second": 13.445830111936534
+    }
+  }
+}

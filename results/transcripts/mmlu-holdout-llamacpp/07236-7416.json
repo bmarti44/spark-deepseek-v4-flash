@@ -1,0 +1,59 @@
+{
+  "index": 7236,
+  "task_id": 7416,
+  "rendered_prompt_sha256": "7acb8b18d3acbc676b7af1718ea6b8ec01f720487d2fb0f3d7e424e24818b10c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The value of the dollar appreciates when demand for it increases or supply decreases.  \n\n- **Option A**: If American income falls relative to the rest of the world, Americans buy fewer imports, reducing demand for foreign currency and increasing demand for dollars — this tends to appreciate the dollar.  \n- **Option B**: Lower U.S. interest rates make U.S. assets less attractive, reducing demand for dollars — depreciation.  \n- **Option C**: Rising U.S. prices make U.S. goods less competitive, reducing demand for dollars — depreciation.  \n- **Option D**: A boycott reduces demand for U.S. goods, reducing demand for dollars — depreciation.  \n\nThe correct answer is **A**.  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.58065734200136
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The value of the dollar appreciates when demand for it increases or supply decreases.  \n\n- **Option A**: If American income falls relative to the rest of the world, Americans buy fewer imports, reducing demand for foreign currency and increasing demand for dollars — this tends to appreciate the dollar.  \n- **Option B**: Lower U.S. interest rates make U.S. assets less attractive, reducing demand for dollars — depreciation.  \n- **Option C**: Rising U.S. prices make U.S. goods less competitive, reducing demand for dollars — depreciation.  \n- **Option D**: A boycott reduces demand for U.S. goods, reducing demand for dollars — depreciation.  \n\nThe correct answer is **A**.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233776,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 146,
+      "prompt_tokens": 72,
+      "total_tokens": 218,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-732h3WXI3BuO0EK6Jw1viMr4IxOkXcvZ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 71,
+      "prompt_ms": 627.483,
+      "prompt_per_token_ms": 8.837788732394365,
+      "prompt_per_second": 113.15047578978236,
+      "predicted_n": 146,
+      "predicted_ms": 10951.104,
+      "predicted_per_token_ms": 75.00756164383561,
+      "predicted_per_second": 13.33198917661635
+    }
+  }
+}

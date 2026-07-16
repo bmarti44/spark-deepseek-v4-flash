@@ -21,6 +21,12 @@
       "summary_correct": 197,
       "match": true
     },
+    "mmlu-pro-holdout": {
+      "n": 247,
+      "correct_recount": 183,
+      "summary_correct": 183,
+      "match": true
+    },
     "humaneval": {
       "n": 164,
       "correct_recount": 133,
@@ -32,11 +38,10 @@
     "gsm8k-dev",
     "gsm8k-holdout",
     "mmlu-pro-dev",
+    "mmlu-pro-holdout",
     "humaneval"
   ],
-  "absent_suites": [
-    "mmlu-pro-holdout"
-  ],
+  "absent_suites": [],
   "humaneval_taxonomy": {
     "correct": 133,
     "assertion": 27,

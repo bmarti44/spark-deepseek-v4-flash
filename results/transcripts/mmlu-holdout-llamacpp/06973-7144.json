@@ -1,0 +1,59 @@
+{
+  "index": 6973,
+  "task_id": 7144,
+  "rendered_prompt_sha256": "c71b7fd10e4258d3d2e5c7b5bc47b4d70c571930c80f54aac42220f0200d07bc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the price you’re willing to pay for a security with a maturity value of $100,000, a coupon rate of 5%, due in one year, and a yield of 9%, follow these steps:\n\n1. **Calculate the coupon payment**:  \n   Coupon = 5% of $100,000 = $5,000.\n\n2. **Total cash flow at maturity**:  \n   In one year, you receive the coupon ($5,000) plus the maturity value ($100,000) = $105,000.\n\n3. **Discount this cash flow at the yield (9%)**:  \n   Present value = \\( \\frac{105,000}{1 + 0.09} = \\frac{105,000}{1.09} \\).\n\n4. **Compute**:  \n   \\( 105,000 \\div 1.09 = 96,330.275... \\)  \n   Rounded to two decimals: $96,330.28.\n\nThe correct answer is **B**.\n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.518663783001102
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To find the price you’re willing to pay for a security with a maturity value of $100,000, a coupon rate of 5%, due in one year, and a yield of 9%, follow these steps:\n\n1. **Calculate the coupon payment**:  \n   Coupon = 5% of $100,000 = $5,000.\n\n2. **Total cash flow at maturity**:  \n   In one year, you receive the coupon ($5,000) plus the maturity value ($100,000) = $105,000.\n\n3. **Discount this cash flow at the yield (9%)**:  \n   Present value = \\( \\frac{105,000}{1 + 0.09} = \\frac{105,000}{1.09} \\).\n\n4. **Compute**:  \n   \\( 105,000 \\div 1.09 = 96,330.275... \\)  \n   Rounded to two decimals: $96,330.28.\n\nThe correct answer is **B**.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233733,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 213,
+      "prompt_tokens": 149,
+      "total_tokens": 362,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-AZl70oRvIL2ez43HeakwX1lVCpPDNqDl",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 148,
+      "prompt_ms": 846.509,
+      "prompt_per_token_ms": 5.719655405405406,
+      "prompt_per_second": 174.835707594367,
+      "predicted_n": 213,
+      "predicted_ms": 15669.544,
+      "predicted_per_token_ms": 73.56593427230047,
+      "predicted_per_second": 13.59324815068007
+    }
+  }
+}

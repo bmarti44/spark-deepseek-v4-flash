@@ -1,0 +1,59 @@
+{
+  "index": 2255,
+  "task_id": 2356,
+  "rendered_prompt_sha256": "9b647fb603241723179424ccddab2e87f051d8ae2bc6ed298e04406da18c8cf1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The statement in the prompt contrasts our limited understanding of human attractiveness with our more detailed knowledge of what attracts fish. This suggests that human attractiveness is not fully understood and remains largely intuitive or based on incomplete knowledge.\n\nThe option that best matches this idea is:\n\n**J. Our knowledge about the specific characteristics that determine attractiveness remains on the level of intuition.**\n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.1305263270005526
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The statement in the prompt contrasts our limited understanding of human attractiveness with our more detailed knowledge of what attracts fish. This suggests that human attractiveness is not fully understood and remains largely intuitive or based on incomplete knowledge.\n\nThe option that best matches this idea is:\n\n**J. Our knowledge about the specific characteristics that determine attractiveness remains on the level of intuition.**\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236369,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 73,
+      "prompt_tokens": 186,
+      "total_tokens": 259,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-xoi3IjihQQibwc9p0FAUv4NZgu9IOv4O",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 185,
+      "prompt_ms": 927.097,
+      "prompt_per_token_ms": 5.011335135135135,
+      "prompt_per_second": 199.54762015193666,
+      "predicted_n": 73,
+      "predicted_ms": 5199.997,
+      "predicted_per_token_ms": 71.23283561643836,
+      "predicted_per_second": 14.038469637578636
+    }
+  }
+}

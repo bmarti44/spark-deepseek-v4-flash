@@ -1,0 +1,59 @@
+{
+  "index": 5335,
+  "task_id": 5481,
+  "rendered_prompt_sha256": "88d60311a2b8b0dc4d4df91bfeeffe5925b96eb5201290f60ffbf51fd841082a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is based on accounting standards for governments. Under U.S. GAAP for state and local governments (GASB standards), a statement of cash flows is required for proprietary funds, but not for governmental funds. It is also required for government-wide financial statements when prepared using the accrual basis, but the most specific and direct requirement among the options is for proprietary fund financial statements.\n\nAnswer: I",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.678412365999975
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is based on accounting standards for governments. Under U.S. GAAP for state and local governments (GASB standards), a statement of cash flows is required for proprietary funds, but not for governmental funds. It is also required for government-wide financial statements when prepared using the accrual basis, but the most specific and direct requirement among the options is for proprietary fund financial statements.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235642,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 83,
+      "prompt_tokens": 116,
+      "total_tokens": 199,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-j3fer8k32IMmRQ1CY2PTfCnyj4zMPr4r",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 115,
+      "prompt_ms": 766.339,
+      "prompt_per_token_ms": 6.663817391304348,
+      "prompt_per_second": 150.06413610686653,
+      "predicted_n": 83,
+      "predicted_ms": 5908.94,
+      "predicted_per_token_ms": 71.19204819277108,
+      "predicted_per_second": 14.04651257247493
+    }
+  }
+}

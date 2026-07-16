@@ -1,0 +1,59 @@
+{
+  "index": 214,
+  "task_id": 286,
+  "rendered_prompt_sha256": "643b02f25ec019fe28649971cdb29e442d6c6b9ecb1561220c32820d234b53b7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The maximum declining-balance rate allowed for a 6-year asset (with no salvage value) is typically **2 × straight-line rate** (double-declining balance).  \n\nStraight-line rate = \\( \\frac{1}{6} \\approx 16.667\\% \\)  \nDouble-declining rate = \\( 2 \\times 16.667\\% = 33.33\\% \\)  \n\n**Year 1:**  \nDepreciation = \\( 0.3333 \\times 15,000 = 5,000 \\)  \nBook value after Year 1 = \\( 15,000 - 5,000 = 10,000 \\)  \n\n**Year 2:**  \nDepreciation = \\( 0.3333 \\times 10,000 = 3,333.33 \\)  \nBook value after Year 2 = \\( 10,000 - 3,333.33 = 6,666.67 \\)  \n\n**Year 3:**  \nDepreciation = \\( 0.3333 \\times 6,666.67 \\approx 2,222.22 \\)  \nBook value after Year 3 = \\( 6,666.67 - 2,222.22 \\approx 4,444.45 \\)  \n\nThese match option **B**: Year 1: $5,000, Year 2: $3,333, Year 3: $2,222.  \n\nAnswer: B",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 22.666446079998423
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The maximum declining-balance rate allowed for a 6-year asset (with no salvage value) is typically **2 × straight-line rate** (double-declining balance).  \n\nStraight-line rate = \\( \\frac{1}{6} \\approx 16.667\\% \\)  \nDouble-declining rate = \\( 2 \\times 16.667\\% = 33.33\\% \\)  \n\n**Year 1:**  \nDepreciation = \\( 0.3333 \\times 15,000 = 5,000 \\)  \nBook value after Year 1 = \\( 15,000 - 5,000 = 10,000 \\)  \n\n**Year 2:**  \nDepreciation = \\( 0.3333 \\times 10,000 = 3,333.33 \\)  \nBook value after Year 2 = \\( 10,000 - 3,333.33 = 6,666.67 \\)  \n\n**Year 3:**  \nDepreciation = \\( 0.3333 \\times 6,666.67 \\approx 2,222.22 \\)  \nBook value after Year 3 = \\( 6,666.67 - 2,222.22 \\approx 4,444.45 \\)  \n\nThese match option **B**: Year 1: $5,000, Year 2: $3,333, Year 3: $2,222.  \n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232787,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 294,
+      "prompt_tokens": 380,
+      "total_tokens": 674,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-69u1XI2Hn9bDz6BicWRkDCELTgFZbjid",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 379,
+      "prompt_ms": 1533.479,
+      "prompt_per_token_ms": 4.046118733509235,
+      "prompt_per_second": 247.1504337522718,
+      "predicted_n": 294,
+      "predicted_ms": 21130.869,
+      "predicted_per_token_ms": 71.87370408163265,
+      "predicted_per_second": 13.913294337303403
+    }
+  }
+}

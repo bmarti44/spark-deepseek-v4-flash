@@ -1,0 +1,59 @@
+{
+  "index": 1305,
+  "task_id": 1392,
+  "rendered_prompt_sha256": "7948bd37c64c21da01db084c77ca2daa5de0f53d87be046d414e617b07df057b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is based on the felony murder rule. Under this rule, if a death occurs during the commission of an inherently dangerous felony (like robbery), all participants in that felony can be held liable for murder, even if the death was caused by a third party (like the clerk) and even if they did not intend for anyone to die.  \n\nHere, the defendant and his friend were committing a robbery. The friend was killed by the clerk during the robbery. The defendant is therefore liable for felony murder.  \n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.154370841002674
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is based on the felony murder rule. Under this rule, if a death occurs during the commission of an inherently dangerous felony (like robbery), all participants in that felony can be held liable for murder, even if the death was caused by a third party (like the clerk) and even if they did not intend for anyone to die.  \n\nHere, the defendant and his friend were committing a robbery. The friend was killed by the clerk during the robbery. The defendant is therefore liable for felony murder.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235014,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 108,
+      "prompt_tokens": 317,
+      "total_tokens": 425,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-VpiP2kXsULxu3BghI3fjU3PGon9FtykK",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 316,
+      "prompt_ms": 1365.005,
+      "prompt_per_token_ms": 4.319636075949368,
+      "prompt_per_second": 231.5009835128809,
+      "predicted_n": 108,
+      "predicted_ms": 7785.856,
+      "predicted_per_token_ms": 72.09125925925926,
+      "predicted_per_second": 13.871307149785459
+    }
+  }
+}

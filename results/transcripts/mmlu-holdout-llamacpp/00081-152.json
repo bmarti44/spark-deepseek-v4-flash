@@ -1,0 +1,59 @@
+{
+  "index": 81,
+  "task_id": 152,
+  "rendered_prompt_sha256": "127ca805966b401159dd4040f87a4b763b65c8d11d88b1f8434845d0e8f49eb7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break this down step by step.\n\n**Step 1: Apply trade discounts**  \nInvoice amount: $416.50  \nFirst discount: 15%  \n416.50 × (1 − 0.15) = 416.50 × 0.85 = 354.025  \n\nSecond discount: 2½% = 2.5%  \n354.025 × (1 − 0.025) = 354.025 × 0.975 = 345.174375  \n\nSo net after discounts ≈ $345.17.\n\n**Step 2: Determine payment terms**  \nTerms: 2% 10-EOM  \n- Invoice date: March 2  \n- \"10-EOM\" means a 2% discount if paid by the 10th of the month following the invoice month.  \n- For March invoice, discount period ends April 10.  \n- Payment was made on April 10 — that is exactly the last day for the discount.\n\n**Step 3: Apply the cash discount**  \n2% discount on $345.174375  \n345.174375 × (1 − 0.02) = 345.174375 × 0.98 = 338.2708875  \n\nRounded to nearest cent: **$338.27**\n\n**Step 4: Match with options**  \nThat corresponds to option **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 22.351868358997308
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break this down step by step.\n\n**Step 1: Apply trade discounts**  \nInvoice amount: $416.50  \nFirst discount: 15%  \n416.50 × (1 − 0.15) = 416.50 × 0.85 = 354.025  \n\nSecond discount: 2½% = 2.5%  \n354.025 × (1 − 0.025) = 354.025 × 0.975 = 345.174375  \n\nSo net after discounts ≈ $345.17.\n\n**Step 2: Determine payment terms**  \nTerms: 2% 10-EOM  \n- Invoice date: March 2  \n- \"10-EOM\" means a 2% discount if paid by the 10th of the month following the invoice month.  \n- For March invoice, discount period ends April 10.  \n- Payment was made on April 10 — that is exactly the last day for the discount.\n\n**Step 3: Apply the cash discount**  \n2% discount on $345.174375  \n345.174375 × (1 − 0.02) = 345.174375 × 0.98 = 338.2708875  \n\nRounded to nearest cent: **$338.27**\n\n**Step 4: Match with options**  \nThat corresponds to option **E**.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232708,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 289,
+      "prompt_tokens": 147,
+      "total_tokens": 436,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-iSDo4TBhFJ74UeEL8a5a1q1E3TYbCXnG",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 146,
+      "prompt_ms": 823.822,
+      "prompt_per_token_ms": 5.642616438356164,
+      "prompt_per_second": 177.222749574544,
+      "predicted_n": 289,
+      "predicted_ms": 21526.138,
+      "predicted_per_token_ms": 74.48490657439446,
+      "predicted_per_second": 13.425538756650171
+    }
+  }
+}

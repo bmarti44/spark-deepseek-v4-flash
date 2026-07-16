@@ -1,0 +1,59 @@
+{
+  "index": 1065,
+  "task_id": 1146,
+  "rendered_prompt_sha256": "5db2667320ab89c82da2678234a48d7d4a501fbc637ff321d60100b112855ef3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The tax treats nonresident photographers differently from resident photographers, imposing a tax on nonresidents’ in-state income above $12,000 while exempting residents from tax on their in-state income. This kind of discrimination against out-of-state residents in economic activities is most directly challenged under the **Privileges and Immunities Clause** of Article IV, which prevents a state from discriminating against citizens of other states with respect to fundamental rights or important economic interests.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.269448619001196
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The tax treats nonresident photographers differently from resident photographers, imposing a tax on nonresidents’ in-state income above $12,000 while exempting residents from tax on their in-state income. This kind of discrimination against out-of-state residents in economic activities is most directly challenged under the **Privileges and Immunities Clause** of Article IV, which prevents a state from discriminating against citizens of other states with respect to fundamental rights or important economic interests.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234963,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 96,
+      "prompt_tokens": 247,
+      "total_tokens": 343,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-C3Sksuq8L9HVEZhKhFbzNJaFOr6LpubK",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 246,
+      "prompt_ms": 1271.113,
+      "prompt_per_token_ms": 5.167126016260163,
+      "prompt_per_second": 193.53118094142692,
+      "predicted_n": 96,
+      "predicted_ms": 6995.45,
+      "predicted_per_token_ms": 72.86927083333333,
+      "predicted_per_second": 13.72320579805445
+    }
+  }
+}

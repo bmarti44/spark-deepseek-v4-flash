@@ -1,0 +1,59 @@
+{
+  "index": 7638,
+  "task_id": 7821,
+  "rendered_prompt_sha256": "a76d24acd150fb2507ee5fd4dd35558bddae44073973ee5d30d9f263372645a4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the minimum typing speed needed, divide the number of words by the number of minutes:\n\n\\[\n\\frac{550 \\text{ words}}{25 \\text{ minutes}} = 22 \\text{ words per minute}\n\\]\n\nSo Marshall must type at least 22 words per minute.\n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.254183888002444
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To find the minimum typing speed needed, divide the number of words by the number of minutes:\n\n\\[\n\\frac{550 \\text{ words}}{25 \\text{ minutes}} = 22 \\text{ words per minute}\n\\]\n\nSo Marshall must type at least 22 words per minute.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235139,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 147,
+      "total_tokens": 209,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-IUpgppWt3Epp8o53l2uUcKlcGtmPp7zY",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 146,
+      "prompt_ms": 826.236,
+      "prompt_per_token_ms": 5.6591506849315065,
+      "prompt_per_second": 176.70496081022856,
+      "predicted_n": 62,
+      "predicted_ms": 4425.097,
+      "predicted_per_token_ms": 71.37253225806451,
+      "predicted_per_second": 14.010992301411697
+    }
+  }
+}

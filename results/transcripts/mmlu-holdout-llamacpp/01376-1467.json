@@ -1,0 +1,59 @@
+{
+  "index": 1376,
+  "task_id": 1467,
+  "rendered_prompt_sha256": "045d8d0215ec548d2c0dd4676b5223ebd389fea6a9f43637c160e69639a8f110",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The key issue here is a misunderstanding in contract formation due to ambiguous terms. Both parties had different, reasonable interpretations of \"oldest motorcycle,\" and neither knew of the other’s understanding. Under contract law, if both parties are equally mistaken about a material term and neither is at fault, there is no meeting of the minds, and thus no contract. The correct answer reflects that neither party had reason to know of the other’s interpretation.\n\nAnswer: E",
+  "finish_reason": "stop",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.448683775000973
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The key issue here is a misunderstanding in contract formation due to ambiguous terms. Both parties had different, reasonable interpretations of \"oldest motorcycle,\" and neither knew of the other’s understanding. Under contract law, if both parties are equally mistaken about a material term and neither is at fault, there is no meeting of the minds, and thus no contract. The correct answer reflects that neither party had reason to know of the other’s interpretation.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235023,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 93,
+      "prompt_tokens": 426,
+      "total_tokens": 519,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-id5L5dJFrkSALBpGFS0fvhMNhb5GPzgD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 425,
+      "prompt_ms": 1665.458,
+      "prompt_per_token_ms": 3.918724705882353,
+      "prompt_per_second": 255.18506020566113,
+      "predicted_n": 93,
+      "predicted_ms": 6780.202,
+      "predicted_per_token_ms": 72.90539784946237,
+      "predicted_per_second": 13.716405499423173
+    }
+  }
+}

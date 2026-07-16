@@ -1,0 +1,59 @@
+{
+  "index": 4863,
+  "task_id": 5002,
+  "rendered_prompt_sha256": "54d4ce405ce8377f8865b8ae052e938521ea0774b7290fd5d84a52c331f0ff2d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In Holocene Africa, the **Iberomaurusian culture** was replaced by the **Capsian culture**.  \n\nAnswer: C",
+  "finish_reason": "stop",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8934906359972956
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In Holocene Africa, the **Iberomaurusian culture** was replaced by the **Capsian culture**.  \n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234922,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 147,
+      "total_tokens": 176,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-mJs7xd1rmJP4kji4o8DuAPIJL5UcbgRH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 146,
+      "prompt_ms": 799.585,
+      "prompt_per_token_ms": 5.476609589041096,
+      "prompt_per_second": 182.5947210115247,
+      "predicted_n": 29,
+      "predicted_ms": 2091.955,
+      "predicted_per_token_ms": 72.13637931034482,
+      "predicted_per_second": 13.862630888331728
+    }
+  }
+}

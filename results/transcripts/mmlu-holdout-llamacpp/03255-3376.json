@@ -1,0 +1,59 @@
+{
+  "index": 3255,
+  "task_id": 3376,
+  "rendered_prompt_sha256": "e24f40b45c010d6a765a418e2a13989aabe8431832f5f31a3105f780757f7f7d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The macronucleus in a paramecium controls routine cellular functions, including metabolism, growth, and movement. Without it, the cell cannot carry out these essential processes and will eventually die.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.124706080998294
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The macronucleus in a paramecium controls routine cellular functions, including metabolism, growth, and movement. Without it, the cell cannot carry out these essential processes and will eventually die.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232673,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 132,
+      "total_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qgY6sPMFLRkYrjWL3eH0xjQPt1gBZZgo",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 131,
+      "prompt_ms": 923.034,
+      "prompt_per_token_ms": 7.04606106870229,
+      "prompt_per_second": 141.92326609854024,
+      "predicted_n": 43,
+      "predicted_ms": 3198.153,
+      "predicted_per_token_ms": 74.37565116279069,
+      "predicted_per_second": 13.445260436258053
+    }
+  }
+}

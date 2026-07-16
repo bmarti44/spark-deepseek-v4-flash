@@ -1,0 +1,59 @@
+{
+  "index": 6607,
+  "task_id": 6773,
+  "rendered_prompt_sha256": "491d81f4ef3084206f2f27f5024971603cdc10d779d9fc1441ae7e57e2609be8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "A quasi-species virus, like influenza or HIV, is characterized by having a high mutation rate that leads to a population of closely related but genetically diverse variants. This means they do not have a stable, unchanging genome; instead, they exist as a cloud of different genetic variants.\n\nThe correct answer is:\n\nAnswer: H",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.629663638999773
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "A quasi-species virus, like influenza or HIV, is characterized by having a high mutation rate that leads to a population of closely related but genetically diverse variants. This means they do not have a stable, unchanging genome; instead, they exist as a cloud of different genetic variants.\n\nThe correct answer is:\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234899,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 66,
+      "prompt_tokens": 122,
+      "total_tokens": 188,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-oBCkWo7xWBNky6eRuWQmQx0VJisUCXKo",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 858.122,
+      "prompt_per_token_ms": 7.0919173553719,
+      "prompt_per_second": 141.00559127956166,
+      "predicted_n": 66,
+      "predicted_ms": 4768.654,
+      "predicted_per_token_ms": 72.25233333333334,
+      "predicted_per_second": 13.840383470891364
+    }
+  }
+}

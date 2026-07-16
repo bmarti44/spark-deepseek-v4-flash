@@ -1,0 +1,59 @@
+{
+  "index": 11866,
+  "task_id": 12091,
+  "rendered_prompt_sha256": "d21aa5682a0dda7156a7776c15c17faff190fa6102613011f5d9fd240e024bce",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have a vertical plate with constant heat flux \\( q'' = 800 \\, \\text{W/m}^2 \\), ambient temperature \\( T_\\infty = 30^\\circ\\text{C} \\), and all heat lost by free convection. The plate height is 3.5 m, width 2 m.  \n\nWe need the average surface temperature \\( T_s \\).  \n\nFor free convection on a vertical plate with constant heat flux, the average Nusselt number can be expressed in terms of Rayleigh number. But here we have a table of air properties at various temperatures.  \n\nWe can solve iteratively:  \n\n1. Guess \\( T_s \\), find film temperature \\( T_f = (T_s + T_\\infty)/2 \\).  \n2. Look up properties from the table at closest \\( T_f \\).  \n3. Compute Rayleigh number:  \n\\[\nRa = \\frac{g \\beta \\rho^2}{\\mu^2} \\, Pr \\, L^3 \\, \\Delta T\n\\]  \nwhere \\( \\Delta T = T_s - T_\\infty \\), \\( L = 3.5 \\, \\text{m} \\).  \nThe table gives \\( g\\beta\\rho^2/\\mu^2 \\) in \\( 1/(\\text{K} \\cdot \\text{m}^3) \\), so:  \n\\[\nRa = \\left( \\frac{g\\beta\\rho^2}{\\mu^2} \\right) \\cdot Pr \\cdot L^3 \\cdot \\Delta T\n\\]  \n\n4. For constant heat flux, the average Nusselt number correlation (Churchill and Chu for uniform heat flux) is:  \n\\[\nNu_L = 0.60 \\, Ra^{1/4} \\quad \\text{for } 10^5 < Ra < 10^{11}\n\\]  \n(Or similar; check typical form: for constant heat flux, \\( Nu = 0.60 \\, Ra^{1/4} \\) is common for laminar).  \n\n5. Then \\( h = Nu_L \\, k / L \\).  \n6. Heat flux: \\( q'' = h \\, (T_s - T_\\infty) \\).  \n7. Compare computed \\( T_s \\) with guess; iterate.  \n\nLet’s try a guess:  \nGuess \\( T_s = 104^\\circ\\text{C} \\) (option C).  \n\\( T_f = (104+30)/2 = 67^\\circ\\text{C} \\). Closest in table: 65.6°C row.  \nAt 65.6°C:  \n- \\( g\\beta\\rho^2/\\mu^2 = 0.775 \\times 10^8 \\)  \n- \\( Pr = 0.702 \\)  \n- \\( k = 0.02925 \\)  \n\n\\( L = 3.5 \\, \\text{m} \\), \\( \\Delta T = 104-30 = 74^\\circ\\text{C} \\).  \n\n\\[\nRa = 0.775\\times10^8 \\times 0.702 \\times (3.5)^3 \\times 74\n\\]  \n\\( (3.5)^3 = 42.875 \\)  \nMultiply: \\( 0.775\\times10^8 \\times 0.702 = 0.54405\\times10^8 \\)  \nThen \\( 0.54405\\times10^8 \\times 42.875 = 23.33\\times10^8 \\)  \nThen \\( 23.33\\times10^8 \\times 74 = 1726.42\\times10^8 = 1.726\\times10^{11} \\)  \n\n\\( Ra \\approx 1.73\\times10^{11} \\) — slightly above \\(10^{11}\\),",
+  "finish_reason": "length",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "truncated without answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 60.703591075001896
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have a vertical plate with constant heat flux \\( q'' = 800 \\, \\text{W/m}^2 \\), ambient temperature \\( T_\\infty = 30^\\circ\\text{C} \\), and all heat lost by free convection. The plate height is 3.5 m, width 2 m.  \n\nWe need the average surface temperature \\( T_s \\).  \n\nFor free convection on a vertical plate with constant heat flux, the average Nusselt number can be expressed in terms of Rayleigh number. But here we have a table of air properties at various temperatures.  \n\nWe can solve iteratively:  \n\n1. Guess \\( T_s \\), find film temperature \\( T_f = (T_s + T_\\infty)/2 \\).  \n2. Look up properties from the table at closest \\( T_f \\).  \n3. Compute Rayleigh number:  \n\\[\nRa = \\frac{g \\beta \\rho^2}{\\mu^2} \\, Pr \\, L^3 \\, \\Delta T\n\\]  \nwhere \\( \\Delta T = T_s - T_\\infty \\), \\( L = 3.5 \\, \\text{m} \\).  \nThe table gives \\( g\\beta\\rho^2/\\mu^2 \\) in \\( 1/(\\text{K} \\cdot \\text{m}^3) \\), so:  \n\\[\nRa = \\left( \\frac{g\\beta\\rho^2}{\\mu^2} \\right) \\cdot Pr \\cdot L^3 \\cdot \\Delta T\n\\]  \n\n4. For constant heat flux, the average Nusselt number correlation (Churchill and Chu for uniform heat flux) is:  \n\\[\nNu_L = 0.60 \\, Ra^{1/4} \\quad \\text{for } 10^5 < Ra < 10^{11}\n\\]  \n(Or similar; check typical form: for constant heat flux, \\( Nu = 0.60 \\, Ra^{1/4} \\) is common for laminar).  \n\n5. Then \\( h = Nu_L \\, k / L \\).  \n6. Heat flux: \\( q'' = h \\, (T_s - T_\\infty) \\).  \n7. Compare computed \\( T_s \\) with guess; iterate.  \n\nLet’s try a guess:  \nGuess \\( T_s = 104^\\circ\\text{C} \\) (option C).  \n\\( T_f = (104+30)/2 = 67^\\circ\\text{C} \\). Closest in table: 65.6°C row.  \nAt 65.6°C:  \n- \\( g\\beta\\rho^2/\\mu^2 = 0.775 \\times 10^8 \\)  \n- \\( Pr = 0.702 \\)  \n- \\( k = 0.02925 \\)  \n\n\\( L = 3.5 \\, \\text{m} \\), \\( \\Delta T = 104-30 = 74^\\circ\\text{C} \\).  \n\n\\[\nRa = 0.775\\times10^8 \\times 0.702 \\times (3.5)^3 \\times 74\n\\]  \n\\( (3.5)^3 = 42.875 \\)  \nMultiply: \\( 0.775\\times10^8 \\times 0.702 = 0.54405\\times10^8 \\)  \nThen \\( 0.54405\\times10^8 \\times 42.875 = 23.33\\times10^8 \\)  \nThen \\( 23.33\\times10^8 \\times 74 = 1726.42\\times10^8 = 1.726\\times10^{11} \\)  \n\n\\( Ra \\approx 1.73\\times10^{11} \\) — slightly above \\(10^{11}\\),",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784234592,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 768,
+      "prompt_tokens": 728,
+      "total_tokens": 1496,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-p7bv8EY1fG1zdj5WYnBSFKuhc90iMUtR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 727,
+      "prompt_ms": 2918.924,
+      "prompt_per_token_ms": 4.01502613480055,
+      "prompt_per_second": 249.0643812582993,
+      "predicted_n": 768,
+      "predicted_ms": 57781.615,
+      "predicted_per_token_ms": 75.23647786458334,
+      "predicted_per_second": 13.291424962767136
+    }
+  }
+}

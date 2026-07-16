@@ -1,0 +1,59 @@
+{
+  "index": 389,
+  "task_id": 463,
+  "rendered_prompt_sha256": "9327340fdbf27c781695078278504d9b04a56243cd45b28ef39734961a5b9b77",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The LIFO (Last-In, First-Out) method assumes the most recently purchased items are sold first, so the ending inventory consists of the oldest purchases.\n\nWe have 30 widgets on hand. Let’s list purchases from earliest to latest:\n\n- Dec 2: 6 units @ $2.30  \n- Jan 15: 352 units @ $2.50  \n- Feb 4: 101 units @ $2.20  \n- Feb 14: 645 units @ $2.00  \n\nUnder LIFO, we take the oldest costs first for the remaining inventory:\n\n1. First, take the 6 units from Dec 2 @ $2.30 → 6 × 2.30 = $13.80  \n   Remaining needed: 30 − 6 = 24 units.\n\n2. Next, take from Jan 15 (next oldest) @ $2.50 → 24 × 2.50 = $60.00  \n\nTotal inventory value = $13.80 + $60.00 = **$73.80**.\n\nAnswer: **I**",
+  "finish_reason": "stop",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "no anchored answer",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.166669295998872
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The LIFO (Last-In, First-Out) method assumes the most recently purchased items are sold first, so the ending inventory consists of the oldest purchases.\n\nWe have 30 widgets on hand. Let’s list purchases from earliest to latest:\n\n- Dec 2: 6 units @ $2.30  \n- Jan 15: 352 units @ $2.50  \n- Feb 4: 101 units @ $2.20  \n- Feb 14: 645 units @ $2.00  \n\nUnder LIFO, we take the oldest costs first for the remaining inventory:\n\n1. First, take the 6 units from Dec 2 @ $2.30 → 6 × 2.30 = $13.80  \n   Remaining needed: 30 − 6 = 24 units.\n\n2. Next, take from Jan 15 (next oldest) @ $2.50 → 24 × 2.50 = $60.00  \n\nTotal inventory value = $13.80 + $60.00 = **$73.80**.\n\nAnswer: **I**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232871,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 228,
+      "prompt_tokens": 186,
+      "total_tokens": 414,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uhwCWlWbBloUITXbD4lYn36MHDasfT9d",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 185,
+      "prompt_ms": 967.96,
+      "prompt_per_token_ms": 5.232216216216217,
+      "prompt_per_second": 191.12360014876649,
+      "predicted_n": 228,
+      "predicted_ms": 16196.514,
+      "predicted_per_token_ms": 71.03734210526315,
+      "predicted_per_second": 14.077103258145549
+    }
+  }
+}

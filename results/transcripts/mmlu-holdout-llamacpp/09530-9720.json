@@ -1,0 +1,59 @@
+{
+  "index": 9530,
+  "task_id": 9720,
+  "rendered_prompt_sha256": "d457cf0a043d82b2fc2e9a5407bf624fc95cf23569e1da3951b55253943d3ddd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To maximize current in a circuit, according to Ohm’s law \\( I = \\frac{V}{R} \\), you want the highest possible voltage and the lowest possible resistance.  \n\n- **No resistors** means the resistance is as low as possible (just the battery’s internal resistance and wire resistance).  \n- **High voltage** increases the numerator.  \n\nThe option that combines **high voltage** and **no resistors** is:  \n\n**J. A high voltage battery with no resistors**  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.232778967998456
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To maximize current in a circuit, according to Ohm’s law \\( I = \\frac{V}{R} \\), you want the highest possible voltage and the lowest possible resistance.  \n\n- **No resistors** means the resistance is as low as possible (just the battery’s internal resistance and wire resistance).  \n- **High voltage** increases the numerator.  \n\nThe option that combines **high voltage** and **no resistors** is:  \n\n**J. A high voltage battery with no resistors**  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784236149,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 153,
+      "total_tokens": 258,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qIE0pBvTIDgvO8Rt52icp5n4CczTKU2T",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 152,
+      "prompt_ms": 796.839,
+      "prompt_per_token_ms": 5.242361842105264,
+      "prompt_per_second": 190.75371561883892,
+      "predicted_n": 105,
+      "predicted_ms": 7432.949,
+      "predicted_per_token_ms": 70.78999047619047,
+      "predicted_per_second": 14.12629092436932
+    }
+  }
+}

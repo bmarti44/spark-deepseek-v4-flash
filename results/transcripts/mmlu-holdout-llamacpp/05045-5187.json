@@ -1,0 +1,59 @@
+{
+  "index": 5045,
+  "task_id": 5187,
+  "rendered_prompt_sha256": "9985d04e65f92203648c6865ef0645395a5d546752a56277bf419afb3c22f16b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The general rule for filing a claim for a refund of federal income taxes is that you must file it within **three years** from the date the return was filed **or** two years from the date the tax was paid, whichever is later. However, if no return was filed, the claim must be made within **two years** from the date the tax was paid.\n\nSince the individual did not file a return, the applicable period is **two years** after the taxes were paid.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.933319226998719
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The general rule for filing a claim for a refund of federal income taxes is that you must file it within **three years** from the date the return was filed **or** two years from the date the tax was paid, whichever is later. However, if no return was filed, the claim must be made within **two years** from the date the tax was paid.\n\nSince the individual did not file a return, the applicable period is **two years** after the taxes were paid.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235614,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 102,
+      "prompt_tokens": 142,
+      "total_tokens": 244,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-i9O091V3tVrdMWSteBPmUhB6vT2Jpk7T",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 141,
+      "prompt_ms": 812.588,
+      "prompt_per_token_ms": 5.763035460992907,
+      "prompt_per_second": 173.5196680236479,
+      "predicted_n": 102,
+      "predicted_ms": 7117.753,
+      "predicted_per_token_ms": 69.78189215686274,
+      "predicted_per_second": 14.330365214977256
+    }
+  }
+}

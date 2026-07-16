@@ -1,0 +1,59 @@
+{
+  "index": 4115,
+  "task_id": 4242,
+  "rendered_prompt_sha256": "83a8008ed11459b0dab9f00e8691934d8271208c0da9e7019bfb48588357c27b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The height of a liquid column in a barometer is inversely proportional to its density, because pressure is given by:\n\n\\[\nP = \\rho g h\n\\]\n\nFor mercury, density \\(\\rho_{\\text{Hg}} = 13.6 \\, \\text{g/cm}^3\\) and height at 1 atm is 760 mm Hg.\n\nFor gallium, density \\(\\rho_{\\text{Ga}} = 6.09 \\, \\text{g/cm}^3\\).\n\nAt the same pressure:\n\n\\[\nh_{\\text{Ga}} = h_{\\text{Hg}} \\times \\frac{\\rho_{\\text{Hg}}}{\\rho_{\\text{Ga}}}\n\\]\n\n\\[\nh_{\\text{Ga}} = 760 \\times \\frac{13.6}{6.09}\n\\]\n\nCalculate:\n\n\\[\n\\frac{13.6}{6.09} \\approx 2.233\n\\]\n\n\\[\n760 \\times 2.233 \\approx 1697 \\, \\text{mm}\n\\]\n\nThus the height is approximately 1697 mm Ga.\n\nAnswer: A",
+  "finish_reason": "stop",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.230296467998414
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The height of a liquid column in a barometer is inversely proportional to its density, because pressure is given by:\n\n\\[\nP = \\rho g h\n\\]\n\nFor mercury, density \\(\\rho_{\\text{Hg}} = 13.6 \\, \\text{g/cm}^3\\) and height at 1 atm is 760 mm Hg.\n\nFor gallium, density \\(\\rho_{\\text{Ga}} = 6.09 \\, \\text{g/cm}^3\\).\n\nAt the same pressure:\n\n\\[\nh_{\\text{Ga}} = h_{\\text{Hg}} \\times \\frac{\\rho_{\\text{Hg}}}{\\rho_{\\text{Ga}}}\n\\]\n\n\\[\nh_{\\text{Ga}} = 760 \\times \\frac{13.6}{6.09}\n\\]\n\nCalculate:\n\n\\[\n\\frac{13.6}{6.09} \\approx 2.233\n\\]\n\n\\[\n760 \\times 2.233 \\approx 1697 \\, \\text{mm}\n\\]\n\nThus the height is approximately 1697 mm Ga.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233464,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 217,
+      "prompt_tokens": 158,
+      "total_tokens": 375,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Te97P8k4TzgxPKX1NRBwiYEB2fRcY5p5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 157,
+      "prompt_ms": 842.947,
+      "prompt_per_token_ms": 5.369089171974522,
+      "prompt_per_second": 186.25133015480213,
+      "predicted_n": 217,
+      "predicted_ms": 15384.239,
+      "predicted_per_token_ms": 70.89511059907834,
+      "predicted_per_second": 14.105345087267562
+    }
+  }
+}

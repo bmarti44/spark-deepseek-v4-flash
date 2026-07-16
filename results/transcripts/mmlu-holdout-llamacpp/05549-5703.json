@@ -1,0 +1,59 @@
+{
+  "index": 5549,
+  "task_id": 5703,
+  "rendered_prompt_sha256": "a416655697cddc8812d3690718f04e88db37b5f59e03040c40ee602ff216b888",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "All living organisms must be able to detect and respond to changes in their environment in order to survive. This is a fundamental characteristic of life.  \n\nAnswer: D",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.255626800000755
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "All living organisms must be able to detect and respond to changes in their environment in order to survive. This is a fundamental characteristic of life.  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235649,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 121,
+      "total_tokens": 154,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ATSgMVL16uodTKzpsI6zVbSCdWm8gT4d",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 120,
+      "prompt_ms": 832.668,
+      "prompt_per_token_ms": 6.9389,
+      "prompt_per_second": 144.11506146507372,
+      "predicted_n": 33,
+      "predicted_ms": 2420.426,
+      "predicted_per_token_ms": 73.34624242424242,
+      "predicted_per_second": 13.633963608059078
+    }
+  }
+}

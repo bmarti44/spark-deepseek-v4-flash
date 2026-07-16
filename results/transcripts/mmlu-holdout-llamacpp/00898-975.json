@@ -1,0 +1,59 @@
+{
+  "index": 898,
+  "task_id": 975,
+  "rendered_prompt_sha256": "7f384bf5446bf4b77351c8abfc3e3004c8ac8dbfefbaffc1687658f6e8577231",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is based on the ICJ’s position in the *Nicaragua* case, where the Court did not accept that a series of lower-intensity actions could be aggregated to constitute an “armed attack” for the purposes of Article 51 of the UN Charter. The Court distinguished between the most grave forms of the use of force (amounting to an armed attack) and less grave forms, and it did not endorse the accumulation theory in that case.  \n\nThus, the best answer is:  \n\n**Answer: C**",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.99437553000098
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is based on the ICJ’s position in the *Nicaragua* case, where the Court did not accept that a series of lower-intensity actions could be aggregated to constitute an “armed attack” for the purposes of Article 51 of the UN Charter. The Court distinguished between the most grave forms of the use of force (amounting to an armed attack) and less grave forms, and it did not endorse the accumulation theory in that case.  \n\nThus, the best answer is:  \n\n**Answer: C**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784234934,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 109,
+      "prompt_tokens": 211,
+      "total_tokens": 320,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-dmkUdymOD2R90PKeenE39zXGm6laH5sh",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 210,
+      "prompt_ms": 1079.456,
+      "prompt_per_token_ms": 5.140266666666666,
+      "prompt_per_second": 194.54243619008093,
+      "predicted_n": 109,
+      "predicted_ms": 7912.419,
+      "predicted_per_token_ms": 72.591,
+      "predicted_per_second": 13.775812428537973
+    }
+  }
+}

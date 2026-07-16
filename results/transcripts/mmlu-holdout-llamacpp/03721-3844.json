@@ -1,0 +1,59 @@
+{
+  "index": 3721,
+  "task_id": 3844,
+  "rendered_prompt_sha256": "5dd4582e17391843fb9c7cce6a1f5d35d2f07eda761837f072266a26bb0ab0ec",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the reaction:\n\n\\[\n2 \\text{NaCN} + \\text{H}_2\\text{SO}_4 \\rightarrow \\text{Na}_2\\text{SO}_4 + 2 \\text{HCN}\n\\]\n\n**Step 1: Moles of NaCN**  \nMolar mass of NaCN = 23 + 12 + 14 = 49 g/mol  \nGiven mass = 196 g  \nMoles of NaCN = \\(\\frac{196}{49} = 4\\) moles  \n\n**Step 2: Moles of HCN produced**  \nFrom the balanced equation, 2 moles NaCN produce 2 moles HCN (1:1 ratio).  \nSo 4 moles NaCN produce 4 moles HCN.\n\n**Step 3: Volume at STP**  \nAt STP, 1 mole of gas = 22.4 L  \nVolume of HCN = \\(4 \\times 22.4 = 89.6\\) L  \n\n**Answer: F**",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.758825274999253
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We start with the reaction:\n\n\\[\n2 \\text{NaCN} + \\text{H}_2\\text{SO}_4 \\rightarrow \\text{Na}_2\\text{SO}_4 + 2 \\text{HCN}\n\\]\n\n**Step 1: Moles of NaCN**  \nMolar mass of NaCN = 23 + 12 + 14 = 49 g/mol  \nGiven mass = 196 g  \nMoles of NaCN = \\(\\frac{196}{49} = 4\\) moles  \n\n**Step 2: Moles of HCN produced**  \nFrom the balanced equation, 2 moles NaCN produce 2 moles HCN (1:1 ratio).  \nSo 4 moles NaCN produce 4 moles HCN.\n\n**Step 3: Volume at STP**  \nAt STP, 1 mole of gas = 22.4 L  \nVolume of HCN = \\(4 \\times 22.4 = 89.6\\) L  \n\n**Answer: F**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784233233,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 210,
+      "prompt_tokens": 150,
+      "total_tokens": 360,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-XBrQMCsEre6BYnXgjaYeNIE7vccgWKhF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 149,
+      "prompt_ms": 855.181,
+      "prompt_per_token_ms": 5.739469798657718,
+      "prompt_per_second": 174.23212162103692,
+      "predicted_n": 210,
+      "predicted_ms": 14901.622,
+      "predicted_per_token_ms": 70.96010476190476,
+      "predicted_per_second": 14.092425643329296
+    }
+  }
+}

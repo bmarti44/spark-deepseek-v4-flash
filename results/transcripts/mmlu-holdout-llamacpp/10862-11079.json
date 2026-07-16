@@ -1,0 +1,59 @@
+{
+  "index": 10862,
+  "task_id": 11079,
+  "rendered_prompt_sha256": "25313d3b3100d163c0ef22012e6537addb584e498f9629ed3922b5061649a350",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The statement \"Marco doesn't move from Spain to Italy\" can be broken down as:  \n- Marco (m)  \n- moves to Italy (i) from Spain (s)  \n- The predicate is \\( Mxyz \\) meaning \"x moves to y from z\".  \nSo \"Marco moves from Spain to Italy\" would be \\( M m i s \\).  \nThe negation of that is \\( \\sim M m i s \\).  \n\nLooking at the options, that matches **F. ~Mmsi**.\n\nAnswer: F",
+  "finish_reason": "stop",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.995168532001117
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The statement \"Marco doesn't move from Spain to Italy\" can be broken down as:  \n- Marco (m)  \n- moves to Italy (i) from Spain (s)  \n- The predicate is \\( Mxyz \\) meaning \"x moves to y from z\".  \nSo \"Marco moves from Spain to Italy\" would be \\( M m i s \\).  \nThe negation of that is \\( \\sim M m i s \\).  \n\nLooking at the options, that matches **F. ~Mmsi**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235707,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 111,
+      "prompt_tokens": 120,
+      "total_tokens": 231,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9uvLl8qxojWTpv3hk1MLFSKjHtBSnQF7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 119,
+      "prompt_ms": 859.396,
+      "prompt_per_token_ms": 7.22181512605042,
+      "prompt_per_second": 138.46934358549493,
+      "predicted_n": 111,
+      "predicted_ms": 8133.476,
+      "predicted_per_token_ms": 73.27455855855855,
+      "predicted_per_second": 13.64730159651298
+    }
+  }
+}

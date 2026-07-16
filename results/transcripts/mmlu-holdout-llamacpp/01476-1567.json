@@ -1,0 +1,59 @@
+{
+  "index": 1476,
+  "task_id": 1567,
+  "rendered_prompt_sha256": "3cd717f24e20f769f867e7903479d7509180a8bcb1a48b9f6c30f31405480dbd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The jurisdiction defines first-degree murder as \"knowingly or willfully causing the death of another human being.\" That means the defendant must have acted with intent or knowledge that death would result.  \n\nLet’s check each option against that standard:  \n\n- **A**: Warning shot but accidentally struck — no intent to kill, but possibly reckless; not \"knowingly or willfully\" causing death.  \n- **B**: Trick demonstration, no intent to fire — no intent to kill.  \n- **C**: Intended to kill another, but killed the wrong person — still *knowingly or willfully* causing death (transferred intent applies).  \n- **D**: Mercy killing — still knowingly and willfully causing death; not an acquittal.  \n- **E**: Lack of premeditation/deliberation — irrelevant if the definition only requires knowing or willful causing of death.  \n- **F**: Police officer in apprehension — could be justified, but not necessarily an acquittal of murder if it was knowing/willful; depends on justification, but not a guaranteed acquittal under the definition alone.  \n- **G**: Under influence, didn’t realize firing at a person — could negate \"knowingly\" if unaware of the target.  \n- **H**: Intended suicide, killed another — still knowingly fired a gun; likely still liable.  \n- **I**: Asleep, unknowingly fired — no conscious intent or knowledge.  \n- **J**: Thought gun unloaded — no intent to fire at anyone; no knowing or willful killing.  \n\nThe key is which scenario most clearly negates the *knowingly or willfully* element. Options A, B, G, I, and J all potentially negate intent or knowledge. But the *most likely* to result in acquittal is the one where the defendant had no conscious awareness that a person would be shot — **I** (asleep and unknowingly fired) or **J** (believed unloaded).  \n\nBetween those, **J** is a classic defense against specific intent crimes — if you genuinely believe the gun is unloaded, you cannot *knowingly* cause death.  \n\nAnswer: J",
+  "finish_reason": "stop",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 33.584666212998854
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The jurisdiction defines first-degree murder as \"knowingly or willfully causing the death of another human being.\" That means the defendant must have acted with intent or knowledge that death would result.  \n\nLet’s check each option against that standard:  \n\n- **A**: Warning shot but accidentally struck — no intent to kill, but possibly reckless; not \"knowingly or willfully\" causing death.  \n- **B**: Trick demonstration, no intent to fire — no intent to kill.  \n- **C**: Intended to kill another, but killed the wrong person — still *knowingly or willfully* causing death (transferred intent applies).  \n- **D**: Mercy killing — still knowingly and willfully causing death; not an acquittal.  \n- **E**: Lack of premeditation/deliberation — irrelevant if the definition only requires knowing or willful causing of death.  \n- **F**: Police officer in apprehension — could be justified, but not necessarily an acquittal of murder if it was knowing/willful; depends on justification, but not a guaranteed acquittal under the definition alone.  \n- **G**: Under influence, didn’t realize firing at a person — could negate \"knowingly\" if unaware of the target.  \n- **H**: Intended suicide, killed another — still knowingly fired a gun; likely still liable.  \n- **I**: Asleep, unknowingly fired — no conscious intent or knowledge.  \n- **J**: Thought gun unloaded — no intent to fire at anyone; no knowing or willful killing.  \n\nThe key is which scenario most clearly negates the *knowingly or willfully* element. Options A, B, G, I, and J all potentially negate intent or knowledge. But the *most likely* to result in acquittal is the one where the defendant had no conscious awareness that a person would be shot — **I** (asleep and unknowingly fired) or **J** (believed unloaded).  \n\nBetween those, **J** is a classic defense against specific intent crimes — if you genuinely believe the gun is unloaded, you cannot *knowingly* cause death.  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784235056,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 447,
+      "prompt_tokens": 324,
+      "total_tokens": 771,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-5tuoYtL7uo6OZPASuqKJM8BsVHI3mLiX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 323,
+      "prompt_ms": 1373.25,
+      "prompt_per_token_ms": 4.251547987616099,
+      "prompt_per_second": 235.20844711450937,
+      "predicted_n": 447,
+      "predicted_ms": 32208.55,
+      "predicted_per_token_ms": 72.05492170022372,
+      "predicted_per_second": 13.878302500423024
+    }
+  }
+}

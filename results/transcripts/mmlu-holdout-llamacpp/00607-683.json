@@ -1,0 +1,60 @@
+{
+  "index": 607,
+  "task_id": 683,
+  "rendered_prompt_sha256": "3f6ba5729dfad95dbea45d23d936535a4648415fd057b58e21ded8caa5ec9a68",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: F",
+  "finish_reason": "stop",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 768,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 0.9395293070010666
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Answer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784232956,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 4,
+      "prompt_tokens": 79,
+      "total_tokens": 83,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-29H5W3dQWRe87cU0YpGVFg19v0nz8pmq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 78,
+      "prompt_ms": 638.017,
+      "prompt_per_token_ms": 8.179705128205129,
+      "prompt_per_second": 122.25379574525442,
+      "predicted_n": 4,
+      "predicted_ms": 299.252,
+      "predicted_per_token_ms": 74.813,
+      "predicted_per_second": 13.366660874446953
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜> Which of the following occurs when competitors' pricing policies are almost exclusively focused on competitors rather than customers?\n\nA. Price bundling.\nB. Price differentiation.\nC. Price skimming.\nD. Price penetration.\nE. Price discrimination.\nF. Price wars.\nG. Price escalation.\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}
