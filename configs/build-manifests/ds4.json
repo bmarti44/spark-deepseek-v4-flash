@@ -1,0 +1,18 @@
+{
+  "binaries": {
+    "ds4": {
+      "sha256": "fc786483c456fa0fcc2540236b88a5c349989ab327d8e054740ad56c5994c991"
+    },
+    "ds4-bench": {
+      "sha256": "410ed7751789e3635b71ebd634ea61aa8f1d0c48c1d0fbe336362bdd22744ec4"
+    },
+    "ds4-server": {
+      "sha256": "2fb2250a6d46281ed6fbda8ab28d6d8f7ac9fec24276653aa8f1b747df2bb54e"
+    }
+  },
+  "build_command": "make -C $SRC_DIR -j$(nproc) cuda-spark",
+  "built_at": "2026-07-16T14:12:48Z",
+  "engine_commit": "baa889025b16a7060f5f854226cb0d14e260eb52",
+  "gcc_version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:57:39_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0"
+}

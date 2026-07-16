@@ -1,0 +1,20 @@
+{
+  "binaries": {
+    "llama-bench": {
+      "sha256": "c099d9741edabf4bc6994738e0c1c9957b03d5f8c30384ec7307911f86c68918"
+    },
+    "llama-cli": {
+      "sha256": "163924f826c36cb8426800b561228da6bc4a7fe852095057c2461dcecf313710"
+    },
+    "llama-server": {
+      "sha256": "8556ecf160a5884ff0133d66e199f98e7ee68895ab5ae9a15fe2af96365fe53d"
+    }
+  },
+  "built_at": "2026-07-16T13:59:23Z",
+  "cmake_build_command": "cmake --build /home/dsv4/llamacpp-project/src/llama.cpp/build --config Release -j20 --target llama-server llama-cli llama-bench",
+  "cmake_configure_command": "cmake -S /home/dsv4/llamacpp-project/src/llama.cpp -B /home/dsv4/llamacpp-project/src/llama.cpp/build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=121 -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF",
+  "cmake_version": "cmake version 3.28.3",
+  "commit": "32e789fdfd598e9a1872da55ac941e4d94f030bd",
+  "gcc_version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:57:39_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0"
+}

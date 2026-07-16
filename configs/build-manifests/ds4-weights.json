@@ -1,0 +1,35 @@
+{
+  "engine_commit": "baa889025b16a7060f5f854226cb0d14e260eb52",
+  "files": [
+    {
+      "bytes": 86720111488,
+      "path": "DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix.gguf",
+      "repo": "antirez/deepseek-v4-gguf",
+      "role": "base",
+      "sha256": "efc7ed607ff27076e3e501fc3fefefa33c0ed8cf1eff483a2b7fdc0c2e616668"
+    },
+    {
+      "bytes": 3807602400,
+      "path": "DeepSeek-V4-Flash-MTP-Q4K-Q8_0-F32.gguf",
+      "repo": "antirez/deepseek-v4-gguf",
+      "role": "mtp",
+      "sha256": "afd481ee689dce9037f70f39085fcdae5a5b096d521cdad43b19fa52bf8f4083"
+    },
+    {
+      "bytes": 6971241504,
+      "path": "DSpark-drafter-Q2K-Q8.gguf",
+      "repo": "bleysg/DeepSeek-V4-Flash-DSpark-drafter-GGUF",
+      "role": "dspark_drafter",
+      "sha256": "f98c894c7be92457e40a9f95c689d008ecfe020aec6b082b811860e103ae0504"
+    }
+  ],
+  "repos": {
+    "antirez/deepseek-v4-gguf": "9170bf42beb77f38006e016503ecace31f2bd9a0",
+    "bleysg/DeepSeek-V4-Flash-DSpark-drafter-GGUF": "c5a82d2a648fcc0718dd1c04b8340b6a148bf983"
+  },
+  "revisions": {
+    "antirez/deepseek-v4-gguf": "9170bf42beb77f38006e016503ecace31f2bd9a0",
+    "bleysg/DeepSeek-V4-Flash-DSpark-drafter-GGUF": "c5a82d2a648fcc0718dd1c04b8340b6a148bf983"
+  },
+  "verified_at": "2026-07-16T14:06:59Z"
+}
