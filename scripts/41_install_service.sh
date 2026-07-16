@@ -58,6 +58,7 @@ if [[ $stack == ds4 ]]; then
     install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-authhelper.service" /etc/systemd/system/
     install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-caddy.service" /etc/systemd/system/
     install -D -o root -g root -m 0644 "$REPO_ROOT/configs/caddy/Caddyfile" /etc/caddy/Caddyfile
+    /usr/bin/caddy validate --config /etc/caddy/Caddyfile || die 'Caddyfile failed validation'
     install -D -o root -g root -m 0755 "$REPO_ROOT/scripts/40_auth_helper.py" \
         /usr/local/lib/deepseek-v4-flash/40_auth_helper.py
 
