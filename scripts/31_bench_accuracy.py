@@ -31,6 +31,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 EVALSETS_DIR = REPO_ROOT / "evalsets"
 PINS_PATH = EVALSETS_DIR / "pins.json"
 LEDGER_PATH = REPO_ROOT / "results" / "holdout-ledger.json"
+LEDGER_LOCK_PATH = REPO_ROOT / "results" / "holdout-ledger.json.lock"
+HARNESS_MANIFEST_PATH = REPO_ROOT / "verification" / "MANIFEST.sha256"
 ENCODER_PATH = (
     REPO_ROOT / "vendor" / "official-encoding" / "encoding" / "encoding_dsv4.py"
 )
@@ -61,12 +63,12 @@ PIN_EXPECTATIONS = {
         "file": "humaneval.jsonl",
     },
 }
-MAX_TOKENS = {"gsm8k": 512, "mmlu-pro": 256, "humaneval": 512}
+MAX_TOKENS = {"gsm8k": 512, "mmlu-pro": 768, "humaneval": 512}
 HUMANEVAL_STOPS = ["\ndef ", "\nclass ", "\nif __name__", "\nprint("]
 GSM_ANSWER_RE = re.compile(r"Answer:\s*(-?[\d,\.]+)", re.IGNORECASE)
 NUMBER_RE = re.compile(r"-?(?:\d[\d,]*)(?:\.\d+)?")
 MMLU_ANSWER_RE = re.compile(r"Answer:\s*([A-J])", re.IGNORECASE)
-LETTER_RE = re.compile(r"(?<![A-Za-z])([A-J])(?![A-Za-z])")
+SHA256_RE = re.compile(r"[0-9a-f]{64}")
 
 
 def utc_now() -> str:
@@ -96,7 +98,13 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--config-hash",
-        help="serving-config identifier (required for holdout runs)",
+        help="optional serving-config identifier recorded as context (not a ledger key)",
+    )
+    parser.add_argument(
+        "--config-evidence",
+        type=Path,
+        nargs="+",
+        help="JSON build/weights manifest file(s); required for holdout runs",
     )
     args = parser.parse_args()
     if args.extra_body is not None:
@@ -115,8 +123,8 @@ def parse_args() -> argparse.Namespace:
         parser.error("HumanEval supports --split all only")
     if args.suite != "humaneval" and args.split == "all":
         parser.error("GSM8K and MMLU-Pro support --split dev or holdout only")
-    if args.split == "holdout" and not args.config_hash:
-        parser.error("--config-hash is required for holdout runs")
+    if args.split == "holdout" and not args.config_evidence:
+        parser.error("--config-evidence requires at least one FILE for holdout runs")
     if args.config_hash is not None and not args.config_hash.strip():
         parser.error("--config-hash must not be empty")
     return args
@@ -151,6 +159,92 @@ def sha256_file(path: Path) -> str:
         while chunk := stream.read(1024 * 1024):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def canonical_json(document: Any) -> bytes:
+    return json.dumps(
+        document, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+    ).encode("utf-8")
+
+
+def load_harness_manifest_line() -> str:
+    try:
+        lines = HARNESS_MANIFEST_PATH.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeDecodeError) as error:
+        raise RuntimeError(f"cannot read {HARNESS_MANIFEST_PATH}: {error}") from error
+    suffix = "  scripts/31_bench_accuracy.py"
+    matches = [line for line in lines if line.endswith(suffix)]
+    if len(matches) != 1 or not re.fullmatch(r"[0-9a-f]{64}  \S+", matches[0]):
+        raise RuntimeError(
+            f"expected exactly one valid manifest line for this harness in "
+            f"{HARNESS_MANIFEST_PATH}"
+        )
+    return matches[0]
+
+
+def load_config_evidence(
+    paths: list[Path],
+) -> tuple[str, list[str], list[dict[str, str]]]:
+    evidence_records: list[dict[str, str]] = []
+    model_manifest_hashes: list[str] = []
+    server_hashes: set[str] = set()
+    server_names = {"ds4-server", "llama-server"}
+    for path in paths:
+        try:
+            document = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise RuntimeError(f"cannot read config evidence {path}: {error}") from error
+        if not isinstance(document, dict):
+            raise RuntimeError(f"config evidence must be a JSON object: {path}")
+        canonical = canonical_json(document)
+        manifest_hash = hashlib.sha256(canonical).hexdigest()
+        evidence_records.append(
+            {"path": str(path.resolve()), "canonical_sha256": manifest_hash}
+        )
+        direct_server_hash = document.get("server_binary_sha256")
+        if isinstance(direct_server_hash, str) and SHA256_RE.fullmatch(direct_server_hash):
+            server_hashes.add(direct_server_hash)
+        binaries = document.get("binaries")
+        contains_server_manifest = False
+        if isinstance(binaries, dict):
+            for name in server_names:
+                entry = binaries.get(name)
+                value = entry.get("sha256") if isinstance(entry, dict) else None
+                if isinstance(value, str) and SHA256_RE.fullmatch(value):
+                    server_hashes.add(value)
+                    contains_server_manifest = True
+        if not contains_server_manifest or isinstance(document.get("files"), list):
+            model_manifest_hashes.append(manifest_hash)
+    if len(server_hashes) != 1:
+        raise RuntimeError(
+            "config evidence must identify exactly one ds4-server or llama-server "
+            f"SHA-256; found {len(server_hashes)}"
+        )
+    if not model_manifest_hashes:
+        raise RuntimeError("config evidence must include at least one weights manifest")
+    return next(iter(server_hashes)), model_manifest_hashes, evidence_records
+
+
+def derive_config_digest(
+    args: argparse.Namespace,
+) -> tuple[str | None, dict[str, Any] | None, list[dict[str, str]]]:
+    if not args.config_evidence:
+        return None, None, []
+    server_hash, model_manifest_hashes, evidence_records = load_config_evidence(
+        args.config_evidence
+    )
+    digest_payload = {
+        "stack_label": args.stack_label,
+        "server_binary_sha256": server_hash,
+        "model_manifest_sha256s": sorted(set(model_manifest_hashes)),
+        "suite": args.suite,
+        "split": args.split,
+        "extra_body": args.extra_body,
+        "max_tokens": MAX_TOKENS[args.suite],
+        "harness_manifest_line": load_harness_manifest_line(),
+    }
+    digest = hashlib.sha256(canonical_json(digest_payload)).hexdigest()
+    return digest, digest_payload, evidence_records
 
 
 def load_pins() -> tuple[dict[str, Any], dict[str, str]]:
@@ -401,7 +495,7 @@ class Client:
 
     def complete(
         self, model: str, prompt: str, max_tokens: int, stops: list[str] | None
-    ) -> tuple[str, Any, dict[str, Any]]:
+    ) -> tuple[str, Any, dict[str, Any], Any]:
         payload = dict(self.extra_body)
         payload.update(
             {
@@ -440,8 +534,17 @@ class Client:
             )
         try:
             document = json.loads(raw)
-            completion = document["choices"][0]["text"]
-        except (UnicodeDecodeError, json.JSONDecodeError, KeyError, IndexError, TypeError) as error:
+            choice = document["choices"][0]
+            completion = choice["text"]
+            finish_reason = choice.get("finish_reason")
+        except (
+            UnicodeDecodeError,
+            json.JSONDecodeError,
+            KeyError,
+            IndexError,
+            TypeError,
+            AttributeError,
+        ) as error:
             raise RuntimeError(
                 f"invalid completions response: {response_preview_without_prompt(raw, prompt)}"
             ) from error
@@ -455,7 +558,7 @@ class Client:
             "payload_without_prompt": recorded_payload,
             "elapsed_s": elapsed,
         }
-        return completion, document, request_record
+        return completion, document, request_record, finish_reason
 
 
 def parse_decimal(text: str) -> decimal.Decimal | None:
@@ -466,7 +569,7 @@ def parse_decimal(text: str) -> decimal.Decimal | None:
     return value if value.is_finite() else None
 
 
-def score_gsm8k(completion: str, answer: Any) -> tuple[bool, str, str]:
+def score_gsm8k(completion: str, answer: Any) -> tuple[bool, str, str, bool]:
     if not isinstance(answer, str) or "#### " not in answer:
         raise RuntimeError(f"invalid GSM8K reference answer: {answer!r}")
     expected_text = answer.rsplit("#### ", 1)[1].strip()
@@ -474,28 +577,38 @@ def score_gsm8k(completion: str, answer: Any) -> tuple[bool, str, str]:
     if expected is None:
         raise RuntimeError(f"invalid GSM8K reference number: {expected_text!r}")
     explicit = GSM_ANSWER_RE.findall(completion)
+    used_fallback = not explicit
     candidates = explicit if explicit else NUMBER_RE.findall(completion)
     if not candidates:
-        return False, expected_text, "unparseable: no numeric answer found"
+        return False, expected_text, "unparseable: no numeric answer found", used_fallback
     candidate_text = candidates[-1]
     candidate = parse_decimal(candidate_text)
     if candidate is None:
-        return False, expected_text, f"unparseable: invalid numeric answer {candidate_text!r}"
+        return (
+            False,
+            expected_text,
+            f"unparseable: invalid numeric answer {candidate_text!r}",
+            used_fallback,
+        )
     if candidate == expected:
-        return True, expected_text, "correct"
-    return False, expected_text, f"incorrect: parsed={candidate_text!r} expected={expected_text!r}"
+        return True, expected_text, "correct", used_fallback
+    return (
+        False,
+        expected_text,
+        f"incorrect: parsed={candidate_text!r} expected={expected_text!r}",
+        used_fallback,
+    )
 
 
-def score_mmlu(completion: str, answer: Any) -> tuple[bool, str, str]:
+def score_mmlu(completion: str, answer: Any, finish_reason: Any) -> tuple[bool, str, str]:
     if not isinstance(answer, str) or not re.fullmatch(r"[A-J]", answer.upper()):
         raise RuntimeError(f"invalid MMLU-Pro reference answer: {answer!r}")
     expected = answer.upper()
     explicit = MMLU_ANSWER_RE.findall(completion)
-    fallback = LETTER_RE.findall(completion.upper()) if not explicit else []
-    candidates = explicit or fallback
-    if not candidates:
-        return False, expected, "unparseable: no standalone answer letter A-J found"
-    candidate = candidates[-1].upper()
+    if not explicit:
+        reason = "truncated without answer" if finish_reason == "length" else "no anchored answer"
+        return False, expected, reason
+    candidate = explicit[-1].upper()
     if candidate == expected:
         return True, expected, "correct"
     return False, expected, f"incorrect: parsed={candidate!r} expected={expected!r}"
@@ -509,6 +622,41 @@ def expected_for_row(suite: str, row: dict[str, Any]) -> str:
     return row["canonical_solution"]
 
 
+def extract_humaneval_code(prompt: str, completion: str, entry_point: str) -> str:
+    """Turn an instruct-model completion into code that continues `prompt`.
+
+    Chat/instruct models wrap answers in Markdown fences and add prose even
+    when handed a raw-completion prompt, so a naive prompt+completion splice
+    is a SyntaxError. Canonical HumanEval-for-instruct handling: if the
+    completion contains a fenced block, take the first block's body; if that
+    body is a full solution (re-declares `def <entry_point>`), return it
+    standalone, otherwise treat it as a continuation of the prompt. With no
+    fence, cut the completion at the first line that dedents to a new
+    top-level statement (prose/markdown), keeping the indented function body.
+    """
+    # A fully fenced solution that re-declares the function → use it standalone.
+    for body in re.finditer(r"```(?:python)?\n(.*?)\n```", completion, re.DOTALL):
+        block = body.group(1)
+        if re.search(rf"^\s*def\s+{re.escape(entry_point)}\b", block, re.MULTILINE):
+            return block + "\n"
+    # Otherwise the completion continues the prompt's function body. Strip a
+    # leading opening fence, then cut at the first closing fence (`) or the
+    # first top-level PROSE line (dedented text that is not code).
+    text = re.sub(r"^\s*```(?:python)?\n", "", completion)
+    code_lead = re.compile(
+        r"(def |class |@|import |from |return\b|if |for |while |with |try|else|elif|except|finally|raise|yield|assert|pass|break|continue|[)\]}])"
+    )
+    kept: list[str] = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("```"):
+            break
+        if stripped and not line.startswith((" ", "\t")) and not code_lead.match(line):
+            break
+        kept.append(line)
+    return prompt + "\n".join(kept) + "\n"
+
+
 def run_humaneval(
     row: dict[str, Any], completion: str, cases_root: Path, case_name: str
 ) -> tuple[bool, str, str, dict[str, Any]]:
@@ -517,9 +665,9 @@ def run_humaneval(
         raise RuntimeError(f"HumanEval row has invalid fields: {row!r}")
     case_dir = cases_root / case_name
     case_dir.mkdir(mode=0o755)
+    program = extract_humaneval_code(row["prompt"], completion, row["entry_point"])
     source = (
-        row["prompt"]
-        + completion
+        program
         + "\n\n"
         + row["test"]
         + f"\n\ncheck({row['entry_point']})\n"
@@ -635,7 +783,7 @@ def redact_prompt(value: Any, prompt: str) -> Any:
     return value
 
 
-def write_json(path: Path, document: dict[str, Any]) -> None:
+def write_json(path: Path, document: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary_name = tempfile.mkstemp(prefix=path.name + ".", dir=path.parent)
     temporary = Path(temporary_name)
@@ -650,47 +798,54 @@ def write_json(path: Path, document: dict[str, Any]) -> None:
         temporary.unlink(missing_ok=True)
 
 
-def acquire_holdout_ledger(
-    stack_label: str, suite: str, config_hash: str
-) -> tuple[BinaryIO, list[dict[str, Any]]]:
+def load_holdout_entries() -> list[dict[str, Any]]:
+    if not LEDGER_PATH.exists():
+        return []
+    try:
+        raw = LEDGER_PATH.read_bytes()
+    except OSError as error:
+        raise RuntimeError(f"cannot read holdout ledger {LEDGER_PATH}: {error}") from error
+    if not raw:
+        return []
+    try:
+        entries = json.loads(raw)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise RuntimeError(f"invalid holdout ledger {LEDGER_PATH}: {error}") from error
+    if not isinstance(entries, list) or any(not isinstance(entry, dict) for entry in entries):
+        raise RuntimeError(f"holdout ledger is not a JSON array of objects: {LEDGER_PATH}")
+    return entries
+
+
+def acquire_holdout_ledger() -> BinaryIO:
     LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
-    stream = LEDGER_PATH.open("a+b")
+    stream = LEDGER_LOCK_PATH.open("a+b")
     fcntl.flock(stream.fileno(), fcntl.LOCK_EX)
-    stream.seek(0)
-    raw = stream.read()
-    if raw:
-        try:
-            entries = json.loads(raw)
-        except (UnicodeDecodeError, json.JSONDecodeError) as error:
-            stream.close()
-            raise RuntimeError(f"invalid holdout ledger {LEDGER_PATH}: {error}") from error
-        if not isinstance(entries, list) or any(not isinstance(entry, dict) for entry in entries):
-            stream.close()
-            raise RuntimeError(f"holdout ledger is not a JSON array of objects: {LEDGER_PATH}")
-    else:
-        entries = []
-    key = (stack_label, suite, config_hash)
-    for entry in entries:
-        if (entry.get("stack_label"), entry.get("suite"), entry.get("config_hash")) == key:
-            stream.close()
-            raise HoldoutAlreadyRun(
-                f"holdout already recorded for stack={stack_label!r}, suite={suite!r}, "
-                f"config_hash={config_hash!r}"
-            )
-    return stream, entries
+    return stream
 
 
 def append_holdout_ledger(
-    stream: BinaryIO, entries: list[dict[str, Any]], entry: dict[str, Any]
+    entry: dict[str, Any], *, refuse_existing: bool
 ) -> None:
-    entries.append(entry)
-    encoded = (json.dumps(entries, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-    stream.seek(0)
-    stream.truncate()
-    stream.write(encoded)
-    stream.flush()
-    os.fsync(stream.fileno())
-    stream.close()
+    stream = acquire_holdout_ledger()
+    try:
+        entries = load_holdout_entries()
+        key = (entry["stack_label"], entry["suite"], entry["config_digest"])
+        if refuse_existing:
+            for existing in entries:
+                existing_key = (
+                    existing.get("stack_label"),
+                    existing.get("suite"),
+                    existing.get("config_digest"),
+                )
+                if existing_key == key and existing.get("phase") in ("started", "completed"):
+                    raise HoldoutAlreadyRun(
+                        f"holdout already recorded for stack={key[0]!r}, "
+                        f"suite={key[1]!r}, config_digest={key[2]!r}"
+                    )
+        entries.append(entry)
+        write_json(LEDGER_PATH, entries)
+    finally:
+        stream.close()
 
 
 class HoldoutAlreadyRun(RuntimeError):
@@ -699,31 +854,40 @@ class HoldoutAlreadyRun(RuntimeError):
 
 def main() -> int:
     args = parse_args()
-    ledger_stream: BinaryIO | None = None
-    ledger_entries: list[dict[str, Any]] | None = None
+    started_at = utc_now()
+    config_digest, config_digest_payload, config_evidence = derive_config_digest(args)
+    pins, revisions = load_pins()
+    rows = load_jsonl(args.suite, pins)
+    indices = select_indices(args.suite, args.split, rows)
+    if not indices:
+        raise RuntimeError("deterministic split selected zero items")
+    encoder = None if args.suite == "humaneval" else load_encoder()
+    client = Client(
+        args.base_url,
+        load_api_key(args.api_key_file),
+        args.completions_endpoint,
+        args.extra_body,
+    )
     if args.split == "holdout":
+        if config_digest is None:
+            raise RuntimeError("internal error: holdout config digest was not derived")
         try:
-            ledger_stream, ledger_entries = acquire_holdout_ledger(
-                args.stack_label, args.suite, args.config_hash
+            append_holdout_ledger(
+                {
+                    "stack_label": args.stack_label,
+                    "suite": args.suite,
+                    "config_digest": config_digest,
+                    "config_hash": args.config_hash,
+                    "phase": "started",
+                    "started_at": started_at,
+                },
+                refuse_existing=True,
             )
         except HoldoutAlreadyRun as error:
             print(f"REFUSED: {error}", file=os.sys.stderr)
             return 3
 
-    started_at = utc_now()
     try:
-        pins, revisions = load_pins()
-        rows = load_jsonl(args.suite, pins)
-        indices = select_indices(args.suite, args.split, rows)
-        if not indices:
-            raise RuntimeError("deterministic split selected zero items")
-        encoder = None if args.suite == "humaneval" else load_encoder()
-        client = Client(
-            args.base_url,
-            load_api_key(args.api_key_file),
-            args.completions_endpoint,
-            args.extra_body,
-        )
         model, models_response = client.get_model()
         args.transcripts_dir.mkdir(parents=True, exist_ok=True)
         audit_count = min(10, len(indices))
@@ -742,21 +906,27 @@ def main() -> int:
                 completion = ""
                 response_document: Any = None
                 request_record: dict[str, Any] | None = None
+                finish_reason: Any = None
                 execution: dict[str, Any] | None = None
+                used_fallback = False
                 expected: Any = expected_for_row(args.suite, row)
                 scored_correct = False
                 reason = ""
                 try:
-                    completion, response_document, request_record = client.complete(
+                    completion, response_document, request_record, finish_reason = client.complete(
                         model,
                         rendered,
                         MAX_TOKENS[args.suite],
                         HUMANEVAL_STOPS if args.suite == "humaneval" else None,
                     )
                     if args.suite == "gsm8k":
-                        scored_correct, expected, reason = score_gsm8k(completion, row.get("answer"))
+                        scored_correct, expected, reason, used_fallback = score_gsm8k(
+                            completion, row.get("answer")
+                        )
                     elif args.suite == "mmlu-pro":
-                        scored_correct, expected, reason = score_mmlu(completion, row.get("answer"))
+                        scored_correct, expected, reason = score_mmlu(
+                            completion, row.get("answer"), finish_reason
+                        )
                     else:
                         scored_correct, expected, reason, execution = run_humaneval(
                             row, completion, cases_root, f"case-{run_position:05d}"
@@ -775,6 +945,8 @@ def main() -> int:
                         "sandbox timeout",
                         "sandbox host timeout",
                         "sandbox launch failed",
+                        "no anchored answer",
+                        "truncated without answer",
                     )
                 ):
                     invalid_count += 1
@@ -784,12 +956,15 @@ def main() -> int:
                     "rendered_prompt_sha256": prompt_sha,
                     "rendering": rendering,
                     "completion": completion,
+                    "finish_reason": finish_reason,
                     "expected": expected,
                     "scored_correct": scored_correct,
                     "reason": reason,
                     "request": request_record,
                     "response": redact_prompt(response_document, rendered),
                 }
+                if args.suite == "gsm8k":
+                    transcript["used_fallback"] = used_fallback
                 if execution is not None:
                     transcript["execution"] = execution
                 if run_position in audit_positions:
@@ -811,6 +986,9 @@ def main() -> int:
             "suite": args.suite,
             "split": args.split,
             "config_hash": args.config_hash,
+            "config_digest": config_digest,
+            "config_digest_payload": config_digest_payload,
+            "config_evidence": config_evidence,
             "model": model,
             "n": len(indices),
             "correct": correct_count,
@@ -833,25 +1011,29 @@ def main() -> int:
             },
         }
         write_json(args.out, result)
-        if ledger_stream is not None and ledger_entries is not None:
+        if args.split == "holdout":
+            if config_digest is None:
+                raise RuntimeError("internal error: holdout config digest is missing")
             append_holdout_ledger(
-                ledger_stream,
-                ledger_entries,
                 {
                     "stack_label": args.stack_label,
                     "suite": args.suite,
+                    "config_digest": config_digest,
                     "config_hash": args.config_hash,
+                    "phase": "completed",
+                    "started_at": started_at,
                     "completed_at": finished_at,
                     "result": str(args.out.resolve()),
                     "n": len(indices),
                     "correct": correct_count,
                 },
+                refuse_existing=False,
             )
-            ledger_stream = None
         return 0
     finally:
-        if ledger_stream is not None:
-            ledger_stream.close()
+        # A started holdout entry is intentionally permanent if any request or
+        # later local processing fails before the completed entry is written.
+        pass
 
 
 if __name__ == "__main__":

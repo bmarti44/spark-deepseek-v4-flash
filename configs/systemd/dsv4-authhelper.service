@@ -5,12 +5,12 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=dsv4
-Group=dsv4
+User=dsv4auth
+Group=dsv4auth
 EnvironmentFile=/etc/deepseek-v4-flash/env
-Environment=HOME=/run/dsv4
+Environment=HOME=/run/dsv4auth
 Environment=PYTHONDONTWRITEBYTECODE=1
-RuntimeDirectory=dsv4
+RuntimeDirectory=dsv4auth
 RuntimeDirectoryMode=0700
 RuntimeDirectoryPreserve=yes
 ExecStart=/usr/bin/python3 /usr/local/lib/deepseek-v4-flash/40_auth_helper.py
@@ -23,7 +23,7 @@ TimeoutStopSec=30
 # shared volatile runtime directory. It accepts connections on loopback only.
 NoNewPrivileges=yes
 ProtectSystem=strict
-ReadWritePaths=/run/dsv4
+ReadWritePaths=/run/dsv4auth
 PrivateTmp=yes
 ProtectHome=no
 IPAddressAllow=127.0.0.0/8 ::1

@@ -11,13 +11,12 @@ RemainAfterExit=yes
 User=dsv4
 Group=dsv4
 Environment=HOME=/home/dsv4
-Environment=API_KEY_FILE=/etc/deepseek-v4-flash/api-key
 WorkingDirectory=/home/bmarti44/spark-deepseek-v4-flash
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
 RuntimeDirectoryPreserve=yes
 # This report is advisory: the serve script enforces the authoritative memory
-# budget, shard, residency-lock, API-key, and watchdog checks on every start.
+# budget, binary, shard, residency-lock, and watchdog checks on every start.
 ExecStartPre=/bin/sh -c '/home/bmarti44/spark-deepseek-v4-flash/scripts/00_preflight.sh --out /tmp/preflight-service.json || true'
 ExecStart=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh start
 ExecStop=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh stop

@@ -20,7 +20,7 @@ Options:
 Environment:
   LLAMACPP_HOME  Build root (default: $HOME/llamacpp-project)
   MODEL_PATH     First GGUF split shard (default: repository UD-Q2_K_XL shard)
-  API_KEY_FILE   API key path (default: /etc/deepseek-v4-flash/api-key)
+  API_KEY_FILE   Optional API key path (unset/empty disables engine auth)
   CTX            Context length (default: 32768)
 EOF
 }
@@ -36,6 +36,18 @@ need_command() {
 
 pid_alive() {
     [[ $1 =~ ^[0-9]+$ ]] && (( $1 > 1 )) && kill -0 "$1" 2>/dev/null
+}
+
+proc_start_ticks() {
+    local stat_line
+    local -a stat_fields
+    [[ $1 =~ ^[0-9]+$ ]] && [[ -r /proc/$1/stat ]] || return 1
+    IFS= read -r stat_line <"/proc/$1/stat" || return 1
+    stat_line=${stat_line##*) }
+    read -r -a stat_fields <<<"$stat_line"
+    (( ${#stat_fields[@]} > 19 )) || return 1
+    [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
+    printf '%s\n' "${stat_fields[19]}"
 }
 
 mem_available_gib() {
@@ -59,11 +71,19 @@ try:
     baseline = state["mem_available_baseline_gib"]
     if not isinstance(baseline, (int, float)) or isinstance(baseline, bool) or baseline < 0:
         raise ValueError("invalid mem_available_baseline_gib")
+    start_ticks = state["server_start_ticks"]
+    if not isinstance(start_ticks, int) or isinstance(start_ticks, bool) or start_ticks <= 0:
+        raise ValueError("invalid server_start_ticks")
+    boot_id = state["boot_id"]
+    if not isinstance(boot_id, str) or not boot_id or any(char.isspace() for char in boot_id):
+        raise ValueError("invalid boot_id")
     print(state["server_pid"])
     print(state["flock_pid"])
     print(state["memwatch_pid"])
     print(state["port"])
     print(baseline)
+    print(start_ticks)
+    print(boot_id)
 except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
     print(f"invalid state file: {error}", file=sys.stderr)
     sys.exit(1)
@@ -75,17 +95,45 @@ PY
     memwatch_pid=${STATE_VALUES[2]}
     state_port=${STATE_VALUES[3]}
     baseline_gib=${STATE_VALUES[4]}
+    server_start_ticks=${STATE_VALUES[5]}
+    state_boot_id=${STATE_VALUES[6]}
+}
+
+verify_state_identity() {
+    local current_ticks current_boot_id reason
+    current_ticks=$(proc_start_ticks "$server_pid") || current_ticks=
+    current_boot_id=$(< /proc/sys/kernel/random/boot_id) || current_boot_id=
+    if [[ -n $current_ticks && $current_ticks == "$server_start_ticks" &&
+            -n $current_boot_id && $current_boot_id == "$state_boot_id" ]]; then
+        return 0
+    fi
+    if [[ -z $current_ticks ]]; then
+        reason='server_pid is dead'
+    elif [[ $current_boot_id != "$state_boot_id" ]]; then
+        reason='boot ID mismatch'
+    else
+        reason='server PID start time mismatch'
+    fi
+    printf 'ERROR: stale %s state (%s); removing %s without signaling.\n' \
+        "$STACK" "$reason" "$STATE_FILE" >&2
+    rm -f -- "$STATE_FILE"
+    return 1
 }
 
 write_state() {
     local temporary=$STATE_FILE.tmp.$$
+    server_start_ticks=$(proc_start_ticks "$server_pid") \
+        || die "cannot read start time for server pid $server_pid"
+    state_boot_id=$(< /proc/sys/kernel/random/boot_id) \
+        || die 'cannot read kernel boot ID'
     python3 - "$temporary" "$STATE_FILE" "$server_pid" "$flock_pid" \
-        "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" <<'PY'
+        "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" \
+        "$server_start_ticks" "$state_boot_id" <<'PY'
 import json
 import os
 import sys
 
-temporary, output, server, flock, watchdog, port, started, baseline = sys.argv[1:]
+temporary, output, server, flock, watchdog, port, started, baseline, start_ticks, boot_id = sys.argv[1:]
 state = {
     "server_pid": int(server),
     "flock_pid": int(flock),
@@ -93,6 +141,8 @@ state = {
     "port": int(port),
     "started_at": started,
     "mem_available_baseline_gib": float(baseline),
+    "server_start_ticks": int(start_ticks),
+    "boot_id": boot_id,
 }
 with open(temporary, "w", encoding="utf-8") as stream:
     json.dump(state, stream, separators=(",", ":"))
@@ -104,6 +154,7 @@ PY
 terminate_from_state() {
     local pgid seconds current target recovery_ok=true
     read_state
+    verify_state_identity || return 2
 
     pgid=$(ps -o pgid= -p "$server_pid" 2>/dev/null | tr -d '[:space:]' || true)
     if [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
@@ -147,13 +198,21 @@ terminate_from_state() {
 
 do_stop() {
     [[ -e $STATE_FILE ]] || die "$STACK is not running (state file absent)"
-    terminate_from_state
+    local rc
+    if terminate_from_state; then
+        rc=0
+    else
+        rc=$?
+    fi
+    (( rc != 2 )) || die "$STACK is not running (stale state removed)"
+    (( rc == 0 )) || return "$rc"
     printf '{"ok":true,"stack":"%s","stopped":true}\n' "$STACK"
 }
 
 do_status() {
     [[ -r $STATE_FILE ]] || { printf 'ERROR: %s is not running (state file absent)\n' "$STACK" >&2; return 1; }
     read_state
+    verify_state_identity || { printf 'ERROR: %s is not running (stale state removed)\n' "$STACK" >&2; return 1; }
     local server_alive=false flock_alive=false memwatch_alive=false healthy=false
     pid_alive "$server_pid" && server_alive=true
     pid_alive "$flock_pid" && flock_alive=true
@@ -162,6 +221,10 @@ do_status() {
             "http://127.0.0.1:$state_port/health" >/dev/null 2>&1; then
         healthy=true
     fi
+    "$server_alive" || printf 'ERROR: server_pid is dead\n' >&2
+    "$flock_alive" || printf 'ERROR: flock_pid is dead\n' >&2
+    "$memwatch_alive" || printf 'ERROR: memwatch_pid is dead\n' >&2
+    "$healthy" || printf 'ERROR: server health check failed\n' >&2
     python3 - "$STATE_FILE" "$server_alive" "$flock_alive" "$memwatch_alive" "$healthy" <<'PY'
 import json
 import sys
@@ -171,7 +234,7 @@ for key, value in zip(("server_alive", "flock_alive", "memwatch_alive", "healthy
     result[key] = value == "true"
 print(json.dumps(result, separators=(",", ":")))
 PY
-    "$server_alive" && "$healthy"
+    "$server_alive" && "$healthy" && "$flock_alive" && "$memwatch_alive"
 }
 
 shell_quote() {
@@ -221,36 +284,68 @@ verify_shards() {
     done
 }
 
+verify_binary() {
+    python3 - "$BUILD_MANIFEST" "$BINARY" <<'PY'
+import hashlib
+import json
+import os
+import sys
+
+manifest_path, binary_path = sys.argv[1:]
+try:
+    if os.path.islink(binary_path):
+        raise ValueError(f"server binary is a symlink: {binary_path}")
+    with open(manifest_path, encoding="utf-8") as stream:
+        manifest = json.load(stream)
+    expected = manifest["binaries"]["llama-server"]["sha256"]
+    if not isinstance(expected, str) or len(expected) != 64:
+        raise ValueError("invalid llama-server sha256 in build manifest")
+    digest = hashlib.sha256()
+    with open(binary_path, "rb") as binary:
+        for chunk in iter(lambda: binary.read(1024 * 1024), b""):
+            digest.update(chunk)
+    if digest.hexdigest() != expected:
+        raise ValueError(f"server binary sha256 mismatch: {binary_path}")
+except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
+    print(f"binary integrity check failed: {error}", file=sys.stderr)
+    sys.exit(1)
+PY
+}
+
 do_start() {
     [[ -n ${HOME:-} ]] || die 'HOME is not set'
     LLAMACPP_HOME=${LLAMACPP_HOME:-$HOME/llamacpp-project}
     CTX=${CTX:-32768}
     [[ $CTX =~ ^[1-9][0-9]*$ ]] || die 'CTX must be a positive integer'
     MODEL_PATH=${MODEL_PATH:-/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf}
-    API_KEY_FILE=${API_KEY_FILE:-/etc/deepseek-v4-flash/api-key}
+    API_KEY_FILE=${API_KEY_FILE:-}
 
     SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) || die 'cannot resolve script directory'
     REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." && pwd -P) || die 'cannot resolve repository root'
     MEMBUDGET=$REPO_ROOT/scripts/02_membudget.py
     MEMWATCH=$REPO_ROOT/scripts/01_memwatch.sh
     BINARY=$LLAMACPP_HOME/src/llama.cpp/build/bin/llama-server
+    BUILD_MANIFEST=$LLAMACPP_HOME/build-manifest.json
     LOG_DIR=$HOME/logs
     SERVER_LOG=$LOG_DIR/llamacpp-server.log
     MEMWATCH_LOG=$LOG_DIR/memwatch-llamacpp.log
 
     for command_name in python3 flock setsid curl awk ps tr date mkdir; do need_command "$command_name"; done
     [[ -x $BINARY ]] || die "llama-server is missing or not executable: $BINARY"
+    [[ -r $BUILD_MANIFEST ]] || die "build manifest is missing or unreadable: $BUILD_MANIFEST"
     [[ -r $MEMBUDGET && -r $MEMWATCH ]] || die 'memory safety scripts are missing or unreadable'
-    [[ -f $API_KEY_FILE && -r $API_KEY_FILE ]] \
-        || die "API key file is missing or unreadable: $API_KEY_FILE"
+    if [[ -n $API_KEY_FILE ]]; then
+        [[ -f $API_KEY_FILE && -r $API_KEY_FILE ]] \
+            || die "API key file is missing or unreadable: $API_KEY_FILE"
+    else
+        printf 'loopback-unauthenticated; must be fronted by the auth proxy\n' >&2
+    fi
     mkdir -p -- "$RUNTIME_DIR" "$LOG_DIR" || die 'cannot create runtime or log directory'
     chmod 700 -- "$RUNTIME_DIR" "$LOG_DIR" || die 'cannot secure runtime or log directory'
 
     if [[ -e $STATE_FILE ]]; then
         read_state
-        pid_alive "$server_pid" && die "$STACK is already running with pid $server_pid"
-        kill -TERM "$memwatch_pid" 2>/dev/null || true
-        rm -f -- "$STATE_FILE"
+        verify_state_identity && die "$STACK is already running with pid $server_pid"
     fi
 
     if [[ $MODEL_PATH =~ ^(.*)-00001-of-00003\.gguf$ ]]; then
@@ -264,6 +359,7 @@ do_start() {
         die 'MODEL_PATH must name the first shard with suffix -00001-of-00003.gguf'
     fi
     verify_shards
+    verify_binary
 
     local help_output
     help_output=$("$BINARY" --help 2>&1) || die 'llama-server --help failed'
@@ -287,9 +383,10 @@ do_start() {
         || die 'memory budget gate returned invalid JSON'
 
     local -a server_command
-    server_command=("$BINARY" --model "$MODEL_PATH" --api-key-file "$API_KEY_FILE"
-        --host 127.0.0.1 --port "$PORT" -c "$CTX" -np 1 -ngl 999 -b 2048 -ub 512
-        --no-warmup --cache-ram 0)
+    server_command=("$BINARY" --model "$MODEL_PATH")
+    [[ -z $API_KEY_FILE ]] || server_command+=(--api-key-file "$API_KEY_FILE")
+    server_command+=(--host 127.0.0.1 --port "$PORT" -c "$CTX" -np 1 -ngl 999
+        -b 2048 -ub 512 --no-warmup --cache-ram 0)
     # Keep the default fp16 K/V cache: upstream quantized-K bugs make -ctk/-ctv
     # inappropriate for this production baseline.
 

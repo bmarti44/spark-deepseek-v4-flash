@@ -39,6 +39,18 @@ pid_alive() {
     [[ $1 =~ ^[0-9]+$ ]] && (( $1 > 1 )) && kill -0 "$1" 2>/dev/null
 }
 
+proc_start_ticks() {
+    local stat_line
+    local -a stat_fields
+    [[ $1 =~ ^[0-9]+$ ]] && [[ -r /proc/$1/stat ]] || return 1
+    IFS= read -r stat_line <"/proc/$1/stat" || return 1
+    stat_line=${stat_line##*) }
+    read -r -a stat_fields <<<"$stat_line"
+    (( ${#stat_fields[@]} > 19 )) || return 1
+    [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
+    printf '%s\n' "${stat_fields[19]}"
+}
+
 mem_available_gib() {
     awk '$1 == "MemAvailable:" {printf "%.6f\n", $2 / 1048576; found=1; exit}
          END {if (!found) exit 1}' /proc/meminfo
@@ -60,11 +72,19 @@ try:
     baseline = state["mem_available_baseline_gib"]
     if not isinstance(baseline, (int, float)) or isinstance(baseline, bool) or baseline < 0:
         raise ValueError("invalid mem_available_baseline_gib")
+    start_ticks = state["server_start_ticks"]
+    if not isinstance(start_ticks, int) or isinstance(start_ticks, bool) or start_ticks <= 0:
+        raise ValueError("invalid server_start_ticks")
+    boot_id = state["boot_id"]
+    if not isinstance(boot_id, str) or not boot_id or any(char.isspace() for char in boot_id):
+        raise ValueError("invalid boot_id")
     print(state["server_pid"])
     print(state["flock_pid"])
     print(state["memwatch_pid"])
     print(state["port"])
     print(baseline)
+    print(start_ticks)
+    print(boot_id)
 except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
     print(f"invalid state file: {error}", file=sys.stderr)
     sys.exit(1)
@@ -76,17 +96,45 @@ PY
     memwatch_pid=${STATE_VALUES[2]}
     state_port=${STATE_VALUES[3]}
     baseline_gib=${STATE_VALUES[4]}
+    server_start_ticks=${STATE_VALUES[5]}
+    state_boot_id=${STATE_VALUES[6]}
+}
+
+verify_state_identity() {
+    local current_ticks current_boot_id reason
+    current_ticks=$(proc_start_ticks "$server_pid") || current_ticks=
+    current_boot_id=$(< /proc/sys/kernel/random/boot_id) || current_boot_id=
+    if [[ -n $current_ticks && $current_ticks == "$server_start_ticks" &&
+            -n $current_boot_id && $current_boot_id == "$state_boot_id" ]]; then
+        return 0
+    fi
+    if [[ -z $current_ticks ]]; then
+        reason='server_pid is dead'
+    elif [[ $current_boot_id != "$state_boot_id" ]]; then
+        reason='boot ID mismatch'
+    else
+        reason='server PID start time mismatch'
+    fi
+    printf 'ERROR: stale %s state (%s); removing %s without signaling.\n' \
+        "$STACK" "$reason" "$STATE_FILE" >&2
+    rm -f -- "$STATE_FILE"
+    return 1
 }
 
 write_state() {
     local temporary=$STATE_FILE.tmp.$$
+    server_start_ticks=$(proc_start_ticks "$server_pid") \
+        || die "cannot read start time for server pid $server_pid"
+    state_boot_id=$(< /proc/sys/kernel/random/boot_id) \
+        || die 'cannot read kernel boot ID'
     python3 - "$temporary" "$STATE_FILE" "$server_pid" "$flock_pid" \
-        "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" <<'PY'
+        "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" \
+        "$server_start_ticks" "$state_boot_id" <<'PY'
 import json
 import os
 import sys
 
-temporary, output, server, flock, watchdog, port, started, baseline = sys.argv[1:]
+temporary, output, server, flock, watchdog, port, started, baseline, start_ticks, boot_id = sys.argv[1:]
 state = {
     "server_pid": int(server),
     "flock_pid": int(flock),
@@ -94,6 +142,8 @@ state = {
     "port": int(port),
     "started_at": started,
     "mem_available_baseline_gib": float(baseline),
+    "server_start_ticks": int(start_ticks),
+    "boot_id": boot_id,
 }
 with open(temporary, "w", encoding="utf-8") as stream:
     json.dump(state, stream, separators=(",", ":"))
@@ -105,6 +155,7 @@ PY
 terminate_from_state() {
     local pgid seconds current target recovery_ok=true
     read_state
+    verify_state_identity || return 2
 
     pgid=$(ps -o pgid= -p "$server_pid" 2>/dev/null | tr -d '[:space:]' || true)
     if [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
@@ -148,13 +199,21 @@ terminate_from_state() {
 
 do_stop() {
     [[ -e $STATE_FILE ]] || die "$STACK is not running (state file absent)"
-    terminate_from_state
+    local rc
+    if terminate_from_state; then
+        rc=0
+    else
+        rc=$?
+    fi
+    (( rc != 2 )) || die "$STACK is not running (stale state removed)"
+    (( rc == 0 )) || return "$rc"
     printf '{"ok":true,"stack":"%s","stopped":true}\n' "$STACK"
 }
 
 do_status() {
     [[ -r $STATE_FILE ]] || { printf 'ERROR: %s is not running (state file absent)\n' "$STACK" >&2; return 1; }
     read_state
+    verify_state_identity || { printf 'ERROR: %s is not running (stale state removed)\n' "$STACK" >&2; return 1; }
     local server_alive=false flock_alive=false memwatch_alive=false healthy=false
     pid_alive "$server_pid" && server_alive=true
     pid_alive "$flock_pid" && flock_alive=true
@@ -166,6 +225,10 @@ do_status() {
             "http://127.0.0.1:$state_port/v1/stats" 2>/dev/null || true)
         grep -Eq 'artifact_source[^a-zA-Z]*(built|imported)' <<<"$stats" && healthy=true
     fi
+    "$server_alive" || printf 'ERROR: server_pid is dead\n' >&2
+    "$flock_alive" || printf 'ERROR: flock_pid is dead\n' >&2
+    "$memwatch_alive" || printf 'ERROR: memwatch_pid is dead\n' >&2
+    "$healthy" || printf 'ERROR: server health check failed\n' >&2
     python3 - "$STATE_FILE" "$server_alive" "$flock_alive" "$memwatch_alive" "$healthy" <<'PY'
 import json
 import sys
@@ -175,7 +238,7 @@ for key, value in zip(("server_alive", "flock_alive", "memwatch_alive", "healthy
     result[key] = value == "true"
 print(json.dumps(result, separators=(",", ":")))
 PY
-    "$server_alive" && "$healthy"
+    "$server_alive" && "$healthy" && "$flock_alive" && "$memwatch_alive"
 }
 
 shell_quote() {
@@ -304,9 +367,7 @@ do_start() {
 
     if [[ -e $STATE_FILE ]]; then
         read_state
-        pid_alive "$server_pid" && die "$STACK is already running with pid $server_pid"
-        kill -TERM "$memwatch_pid" 2>/dev/null || true
-        rm -f -- "$STATE_FILE"
+        verify_state_identity && die "$STACK is already running with pid $server_pid"
     fi
 
     case $profile in

@@ -1,15 +1,15 @@
 [Unit]
-Description=DeepSeek V4 Flash authenticated ds4 reverse proxy
+Description=DeepSeek V4 Flash authenticated engine reverse proxy
 Wants=network-online.target
 After=network-online.target dsv4-authhelper.service
 Requires=dsv4-authhelper.service
 
 [Service]
 Type=exec
-User=dsv4
-Group=dsv4
-Environment=HOME=/run/dsv4
-RuntimeDirectory=dsv4
+User=dsv4auth
+Group=dsv4auth
+Environment=HOME=/run/dsv4auth
+RuntimeDirectory=dsv4auth
 RuntimeDirectoryMode=0700
 RuntimeDirectoryPreserve=yes
 # /usr/bin/caddy is supplied by the orchestrator's apt installation.
@@ -21,7 +21,7 @@ TimeoutStopSec=30
 # Caddy has no admin API or TLS state here and writes only volatile runtime data.
 NoNewPrivileges=yes
 ProtectSystem=strict
-ReadWritePaths=/run/dsv4
+ReadWritePaths=/run/dsv4auth
 PrivateTmp=yes
 ProtectHome=no
 IPAddressAllow=127.0.0.0/8 ::1

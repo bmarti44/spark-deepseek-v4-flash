@@ -14,8 +14,12 @@ http://127.0.0.1:8010 {
 		uri /
 	}
 
-	reverse_proxy 127.0.0.1:8012 {
-		# The unauthenticated ds4 engine must never receive client credentials.
+	request_body {
+		max_size 10MB
+	}
+
+	reverse_proxy 127.0.0.1:{$DSV4_UPSTREAM_PORT} {
+		# The unauthenticated engine must never receive client credentials.
 		header_up -Authorization
 	}
 }

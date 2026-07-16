@@ -7,6 +7,7 @@ import argparse
 import json
 import math
 import os
+import statistics
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -44,27 +45,25 @@ class DecisionInputError(RuntimeError):
     """An input is absent or cannot safely be used by the frozen rule."""
 
 
-def parse_stability(value: str) -> dict[str, str]:
-    parsed: dict[str, str] = {}
+def parse_soak_evidence(value: str) -> dict[str, Path]:
+    parsed: dict[str, Path] = {}
     for item in value.split(","):
         if item.count("=") != 1:
             raise argparse.ArgumentTypeError(
-                "must be ds4=pass|fail,llamacpp=pass|fail"
+                "must be ds4=PATH,llamacpp=PATH"
             )
-        stack, status = item.split("=", 1)
+        stack, raw_path = item.split("=", 1)
         if stack not in STACKS:
-            raise argparse.ArgumentTypeError(f"unknown stability stack: {stack!r}")
+            raise argparse.ArgumentTypeError(f"unknown soak-evidence stack: {stack!r}")
         if stack in parsed:
-            raise argparse.ArgumentTypeError(f"duplicate stability stack: {stack!r}")
-        if status not in ("pass", "fail"):
-            raise argparse.ArgumentTypeError(
-                f"stability for {stack} must be 'pass' or 'fail'"
-            )
-        parsed[stack] = status
+            raise argparse.ArgumentTypeError(f"duplicate soak-evidence stack: {stack!r}")
+        if not raw_path:
+            raise argparse.ArgumentTypeError(f"soak-evidence path for {stack} is empty")
+        parsed[stack] = Path(raw_path)
     missing = [stack for stack in STACKS if stack not in parsed]
     if missing:
         raise argparse.ArgumentTypeError(
-            "missing stability stack(s): " + ", ".join(missing)
+            "missing soak-evidence stack(s): " + ", ".join(missing)
         )
     return parsed
 
@@ -72,17 +71,24 @@ def parse_stability(value: str) -> dict[str, str]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--stability",
+        "--soak-evidence",
         required=True,
-        type=parse_stability,
-        metavar="ds4=pass,llamacpp=pass",
-        help="orchestrator-asserted soak/stability status for both stacks",
+        type=parse_soak_evidence,
+        metavar="ds4=PATH,llamacpp=PATH",
+        help="JSON soak evidence for both stacks",
     )
     return parser.parse_args()
 
 
 def relative(path: Path) -> str:
     return path.relative_to(REPO_ROOT).as_posix()
+
+
+def path_label(path: Path) -> str:
+    try:
+        return relative(path.resolve())
+    except ValueError:
+        return str(path.resolve())
 
 
 def require_files() -> None:
@@ -129,22 +135,52 @@ def require_int(value: Any, label: str) -> int:
     return value
 
 
+def read_soak_evidence(path: Path) -> dict[str, Any]:
+    label = path_label(path)
+    if not path.is_file():
+        return {"path": label, "status": "fail", "reason": "file is missing"}
+    try:
+        document = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        return {"path": label, "status": "fail", "reason": f"invalid JSON: {error}"}
+    if not isinstance(document, dict):
+        return {
+            "path": label,
+            "status": "fail",
+            "reason": "top-level JSON value is not an object",
+        }
+    kind = document.get("kind")
+    passed = document.get("pass")
+    if kind != "soak" or passed is not True:
+        return {
+            "path": label,
+            "status": "fail",
+            "kind": kind,
+            "pass": passed,
+            "reason": "requires kind='soak' and pass=true",
+        }
+    return {"path": label, "status": "pass", "kind": kind, "pass": passed}
+
+
 def read_speed(path: Path) -> dict[str, Any]:
     document = load_object(path)
     cells = field(document, "cells", path)
     if not isinstance(cells, list):
         raise DecisionInputError(f"{relative(path)}.cells: expected an array")
-    matches = [
-        cell
-        for cell in cells
-        if isinstance(cell, dict) and cell.get("ctx_tokens") == 4096
-    ]
-    if len(matches) != 1:
-        raise DecisionInputError(
-            f"{relative(path)}.cells: expected exactly one cell with ctx_tokens==4096; "
-            f"found {len(matches)}"
-        )
-    cell = matches[0]
+    selected: dict[int, dict[str, Any]] = {}
+    for context in (4096, 16384):
+        matches = [
+            cell
+            for cell in cells
+            if isinstance(cell, dict) and cell.get("ctx_tokens") == context
+        ]
+        if len(matches) != 1:
+            raise DecisionInputError(
+                f"{relative(path)}.cells: expected exactly one cell with "
+                f"ctx_tokens=={context}; found {len(matches)}"
+            )
+        selected[context] = matches[0]
+    cell = selected[4096]
     median = field(cell, "median_decode", path)
     if median is None:
         raise DecisionInputError(
@@ -153,7 +189,63 @@ def read_speed(path: Path) -> dict[str, Any]:
     speed = require_number(median, f"{relative(path)} 4K median_decode")
     if speed < 0:
         raise DecisionInputError(f"{relative(path)} 4K median_decode: must be nonnegative")
-    return {"ctx_tokens": 4096, "median_decode": speed}
+    ttft_medians: dict[str, float] = {}
+    for context, context_cell in selected.items():
+        raw_ttft = field(context_cell, "median_ttft", path)
+        if raw_ttft is None:
+            raise DecisionInputError(
+                f"{relative(path)}: {context} cell required field 'median_ttft' is null"
+            )
+        ttft = require_number(raw_ttft, f"{relative(path)} {context} median_ttft")
+        if ttft < 0:
+            raise DecisionInputError(
+                f"{relative(path)} {context} median_ttft: must be nonnegative"
+            )
+        ttft_medians[str(context)] = ttft
+    reps = field(cell, "reps", path)
+    if not isinstance(reps, list):
+        raise DecisionInputError(f"{relative(path)} 4K reps: expected an array")
+    valid_reps = 0
+    all_decode_values: list[float] = []
+    for index, rep in enumerate(reps):
+        if not isinstance(rep, dict):
+            raise DecisionInputError(
+                f"{relative(path)} 4K reps[{index}]: expected an object"
+            )
+        valid = require_bool(
+            field(rep, "valid", path), f"{relative(path)} 4K reps[{index}].valid"
+        )
+        raw_decode = field(rep, "decode_tok_s", path)
+        if raw_decode is not None:
+            decode = require_number(
+                raw_decode, f"{relative(path)} 4K reps[{index}].decode_tok_s"
+            )
+            if decode < 0:
+                raise DecisionInputError(
+                    f"{relative(path)} 4K reps[{index}].decode_tok_s: must be nonnegative"
+                )
+            all_decode_values.append(decode)
+        elif valid:
+            raise DecisionInputError(
+                f"{relative(path)} 4K reps[{index}]: valid rep has null decode_tok_s"
+            )
+        if valid:
+            valid_reps += 1
+    if not all_decode_values:
+        raise DecisionInputError(
+            f"{relative(path)} 4K reps: no numeric decode_tok_s values"
+        )
+    return {
+        "ctx_tokens": 4096,
+        "median_decode": speed,
+        "median_decode_all_reps": statistics.median(all_decode_values),
+        "rep_count": len(reps),
+        "valid_rep_count": valid_reps,
+        "valid_reps_required": 4,
+        "expected_rep_count": 5,
+        "samples_pass": len(reps) == 5 and valid_reps >= 4,
+        "median_ttft_s": ttft_medians,
+    }
 
 
 def read_accuracy(path: Path, report_name: str) -> dict[str, Any]:
@@ -205,7 +297,7 @@ def read_accuracy(path: Path, report_name: str) -> dict[str, Any]:
     }
 
 
-def collect_candidate(stack: str, stability: str) -> dict[str, Any]:
+def collect_candidate(stack: str, soak_path: Path) -> dict[str, Any]:
     paths = INPUT_PATHS[stack]
     golden_document = load_object(paths["golden"])
     golden_pass = require_bool(
@@ -223,6 +315,8 @@ def collect_candidate(stack: str, stability: str) -> dict[str, Any]:
             f"{relative(paths['parity'])}.parity_level: expected a string"
         )
     speed = read_speed(paths["speed"])
+    soak = read_soak_evidence(soak_path)
+    stability_pass = soak["status"] == "pass"
     accuracy = {
         name: read_accuracy(paths[name], name) for name in ACCURACY_EXPECTATIONS
     }
@@ -231,13 +325,15 @@ def collect_candidate(stack: str, stability: str) -> dict[str, Any]:
         "golden_pass": golden_pass,
         "parity_pass": parity_pass,
         "parity_level": parity_level,
-        "stability": stability,
+        "stability": soak["status"],
+        "speed_4k_samples_pass": speed["samples_pass"],
     }
     eligible = (
         golden_pass
         and parity_pass
         and parity_level == "exact-ids"
-        and stability == "pass"
+        and stability_pass
+        and speed["samples_pass"]
     )
     failed_checks: list[str] = []
     if not golden_pass:
@@ -246,11 +342,17 @@ def collect_candidate(stack: str, stability: str) -> dict[str, Any]:
         failed_checks.append("parity pass")
     if parity_level != "exact-ids":
         failed_checks.append("parity exact-ids")
-    if stability != "pass":
+    if not stability_pass:
         failed_checks.append("stability pass")
+    if not speed["samples_pass"]:
+        failed_checks.append("4K speed has >=4 valid reps of 5")
     return {
-        "input_files": {name: relative(path) for name, path in paths.items()},
+        "input_files": {
+            **{name: relative(path) for name, path in paths.items()},
+            "soak": path_label(soak_path),
+        },
         "eligibility_inputs": checks,
+        "soak_evidence": soak,
         "eligible": eligible,
         "failed_eligibility_checks": failed_checks,
         "accuracy": accuracy,
@@ -271,21 +373,31 @@ def higher_by(
 
 
 def decide(candidates: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    composites = {
+        stack: candidates[stack]["composite_percent"] for stack in STACKS
+    }
+    delta = abs(composites["ds4"] - composites["llamacpp"])
+    details: dict[str, Any] = {
+        "absolute_composite_delta_points": delta,
+        "composite_delta_threshold_points": 3.0,
+        "composite_delta_at_most_threshold": delta <= 3.0,
+    }
     eligible = [stack for stack in STACKS if candidates[stack]["eligible"]]
     if not eligible:
-        return {"verdict": "NO_GO", "winner": None, "rule_branch": "zero_eligible"}
+        return {
+            "verdict": "NO_GO",
+            "winner": None,
+            "rule_branch": "zero_eligible",
+            **details,
+        }
     if len(eligible) == 1:
         return {
             "verdict": "SOLE_CANDIDATE",
             "winner": eligible[0],
             "rule_branch": "one_eligible",
+            **details,
         }
 
-    composites = {
-        stack: candidates[stack]["composite_percent"] for stack in STACKS
-    }
-    delta = abs(composites["ds4"] - composites["llamacpp"])
-    details: dict[str, Any] = {"absolute_composite_delta_points": delta}
     if composites["ds4"] == composites["llamacpp"]:
         gsm = {
             stack: candidates[stack]["accuracy"]["gsm8k-holdout"]["accuracy_percent"]
@@ -360,15 +472,27 @@ def render_markdown(candidates: dict[str, dict[str, Any]], decision: dict[str, A
         rows.append(
             f"| {stack} | {eligibility} | {format_suite(accuracy['gsm8k-holdout'])} | "
             f"{format_suite(accuracy['mmlu-pro-holdout'])} | {format_suite(accuracy['humaneval'])} | "
-            f"{candidate['composite_percent']:.2f}% | {candidate['speed']['median_decode']:.3f} |"
+            f"{candidate['composite_percent']:.2f}% | "
+            f"{candidate['speed']['valid_rep_count']}/{candidate['speed']['rep_count']} | "
+            f"{candidate['speed']['median_decode']:.3f} | "
+            f"{candidate['speed']['median_decode_all_reps']:.3f} |"
         )
     winner = decision.get("winner") or "—"
+    delta = decision["absolute_composite_delta_points"]
+    delta_relation = "at most" if delta <= 3.0 else "over"
+    operational_lines = []
+    for stack in STACKS:
+        ttft = candidates[stack]["speed"]["median_ttft_s"]
+        operational_lines.append(
+            f"- {stack} TTFT median: 4K {ttft['4096']:.3f}s; "
+            f"16K {ttft['16384']:.3f}s."
+        )
     return "\n".join(
         [
             "# Decision",
             "",
-            "| Candidate | Eligibility | GSM8K holdout | MMLU-Pro holdout | HumanEval | Composite | 4K decode tok/s |",
-            "|---|---|---:|---:|---:|---:|---:|",
+            "| Candidate | Eligibility | GSM8K holdout | MMLU-Pro holdout | HumanEval | Composite | 4K valid reps | 4K decode valid-only tok/s | 4K decode all numeric reps tok/s |",
+            "|---|---|---:|---:|---:|---:|---:|---:|---:|",
             *rows,
             "",
             f"**Verdict:** {decision['verdict']}",
@@ -376,6 +500,25 @@ def render_markdown(candidates: dict[str, dict[str, Any]], decision: dict[str, A
             f"**Candidate selected:** {winner}",
             "",
             f"**Rule branch:** `{decision['rule_branch']}`",
+            "",
+            f"**Composite delta:** {delta:.2f} percentage points, {delta_relation} "
+            "the 3.00-point threshold.",
+            "",
+            "## Operational data outside the rule",
+            "",
+            *operational_lines,
+            "",
+            "- ds4 context envelope: warm >28K fails — see "
+            "`results/speed-ds4-dspark.json`'s 28672 cell.",
+            "- llamacpp context envelope: 28K valid.",
+            "",
+            "## Caveats",
+            "",
+            "- Speed cells use N=5 samples.",
+            "- The decision rule uses the valid-only 4K decode median; the all-reps "
+            "median includes invalid reps with numeric `decode_tok_s` and ignores nulls.",
+            "- The composite ignores prefill and TTFT.",
+            "- Holdout accuracy values are single-run holdouts.",
             "",
         ]
     )
@@ -400,7 +543,7 @@ def main() -> int:
     try:
         require_files()
         candidates = {
-            stack: collect_candidate(stack, args.stability[stack]) for stack in STACKS
+            stack: collect_candidate(stack, args.soak_evidence[stack]) for stack in STACKS
         }
         decision = decide(candidates)
         machine_report = {
