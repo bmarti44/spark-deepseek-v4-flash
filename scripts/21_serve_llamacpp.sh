@@ -272,8 +272,11 @@ do_start() {
 
     local budget rc
     set +e
+    # overhead-gib 6: llama.cpp non-weight footprint for this config (compute
+    # buffers at b=2048/ub=512, CUDA context, KV pool) measures 3-5 GiB; 6 keeps
+    # slack without double-counting against the hard 16 GiB floor.
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
-        --kv-bytes-per-token 4096 --overhead-gib 10 --floor-gib 16 2>&1)
+        --kv-bytes-per-token 4096 --overhead-gib 6 --floor-gib 16 2>&1)
     rc=$?
     set -e
     if (( rc != 0 )); then
