@@ -1,0 +1,106 @@
+{
+  "stack_label": "ds4-dspark",
+  "base_url": "http://127.0.0.1:8012",
+  "started_at": "2026-07-16T14:35:57.380434+00:00",
+  "finished_at": "2026-07-16T14:37:03.146571+00:00",
+  "pass": true,
+  "checks": [
+    {
+      "name": "health",
+      "pass": true,
+      "detail": "GET /v1/models returned HTTP 200"
+    },
+    {
+      "name": "models_endpoint",
+      "pass": true,
+      "detail": "exactly one model: deepseek-v4-flash"
+    },
+    {
+      "name": "basic_fact",
+      "pass": true,
+      "detail": {
+        "expected": "Paris",
+        "completion": "Paris"
+      }
+    },
+    {
+      "name": "arithmetic",
+      "pass": true,
+      "detail": {
+        "expected": "391",
+        "completion": "391"
+      }
+    },
+    {
+      "name": "determinism",
+      "pass": true,
+      "detail": {
+        "first": "The first 5 prime numbers are:  \n2, 3, 5, 7, 11",
+        "second": "The first 5 prime numbers are:  \n2, 3, 5, 7, 11"
+      }
+    },
+    {
+      "name": "needle_16k",
+      "pass": true,
+      "detail": {
+        "haystack_tokens": 16000,
+        "completion": "BLUEBERRY-7421"
+      }
+    },
+    {
+      "name": "multiturn_cache_consistency",
+      "pass": true,
+      "detail": {
+        "full_history": "CACHE-ANCHOR",
+        "incremental": "CACHE-ANCHOR",
+        "incremental_first_reply": "CACHE-ANCHOR"
+      }
+    },
+    {
+      "name": "streaming_sse",
+      "pass": true,
+      "detail": {
+        "data_chunks": 15,
+        "done": true,
+        "content": "The blue river carved a quiet path through the sleeping forest.",
+        "usage": {
+          "prompt_tokens": 13,
+          "completion_tokens": 12,
+          "total_tokens": 25,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "error_schema",
+      "pass": true,
+      "detail": {
+        "invalid_json_status": 400,
+        "unknown_model_status": 200,
+        "unknown_model_behavior": "served_configured_model"
+      }
+    },
+    {
+      "name": "sustained_ctx",
+      "pass": true,
+      "detail": {
+        "fixture_context_tokens": 29491,
+        "prompt_tokens_client": 29509,
+        "ttft_s": 37.33393424000042,
+        "completion": "The records describe a system of observers, engines, archives, and landmarks interacting through structured actions like charting, measuring, and transforming. Patterns emphasize steady, gentle, or deliberate processes across changing seasons and boundaries.",
+        "usage": {
+          "prompt_tokens": 29513,
+          "completion_tokens": 42,
+          "total_tokens": 29555,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        }
+      }
+    }
+  ]
+}

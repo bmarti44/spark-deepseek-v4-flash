@@ -16,3 +16,4 @@ __pycache__/
 .venv/
 .cache/
 vendor/
+.venv-harness/

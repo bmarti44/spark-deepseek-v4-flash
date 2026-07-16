@@ -6,7 +6,11 @@
   "files": [
     {"path": "encoding/encoding_dsv4.py", "bytes": 27908, "git_oid_sha1": "cdb68f233a71b142732372b901fa140d7d2148a3"},
     {"path": "encoding/test_encoding_dsv4.py", "bytes": 3741, "git_oid_sha1": "1c896e797e3f0cc6a95f6dd51079df1e6ba1887e"},
-    {"path": "encoding/README.md", "bytes": 8118, "git_oid_sha1": "f9bf68d953bb81a1532b52c3663d390ac1409bc8"}
+    {"path": "encoding/README.md", "bytes": 8118, "git_oid_sha1": "f9bf68d953bb81a1532b52c3663d390ac1409bc8"},
+    {"path": "tokenizer.json", "bytes": 6367146, "git_oid_sha1": "628e3364caad11bdf9e67cea06eae7878122811d"},
+    {"path": "tokenizer_config.json", "bytes": 801, "git_oid_sha1": "f3dad388a2bbfd6a8605bd02754acd86d9ca5112"},
+    {"path": "config.json", "bytes": 1749, "git_oid_sha1": "284fd93ee753efde32e00960cdb1bc15410d5ab4"},
+    {"path": "generation_config.json", "bytes": 170, "git_oid_sha1": "c56a8c5bf06ff7740b6a33ee67b38b6237a230b1"}
   ],
-  "note": "tokenizer file entries to be added by the harness fetch step at the same pinned revision; non-LFS files carry git blob SHA1 oids rather than sha256 (verify via git hash-object)."
+  "note": "non-LFS files carry git blob SHA1 oids rather than sha256 (verify via `git hash-object <file>`)."
 }
