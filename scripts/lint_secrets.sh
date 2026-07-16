@@ -2,6 +2,31 @@
 set -euo pipefail
 
 readonly SECRET_PATTERN='[0-9a-f]{64}|Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? PRIVATE KEY|hf_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|tskey-[A-Za-z0-9-]{20,}'
+# Files whose purpose is recording SHA256 checksums are exempt from the
+# 64-hex rule ONLY (they still get every other pattern via SECRET_PATTERN_NOHEX).
+readonly SECRET_PATTERN_NOHEX='Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? PRIVATE KEY|hf_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|tskey-[A-Za-z0-9-]{20,}'
+
+is_checksum_file() {
+  case "$1" in
+    verification/MANIFEST.sha256|configs/versions.lock|*.sha256) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# Split a NUL-delimited file list (stdin) into the two scan tiers.
+split_files() {
+  # sets globals: files_full, files_nohex
+  files_full=()
+  files_nohex=()
+  local f
+  while IFS= read -r -d '' f; do
+    if is_checksum_file "$f"; then
+      files_nohex+=("$f")
+    else
+      files_full+=("$f")
+    fi
+  done
+}
 
 gitleaks_binary() {
   if command -v gitleaks >/dev/null 2>&1; then
@@ -42,36 +67,52 @@ scan_staged() {
   local diff_base
   diff_base="$(git rev-parse --verify --quiet HEAD || git hash-object -t tree /dev/null)"
 
-  local -a files=()
-  mapfile -d '' files < <(git diff --cached --name-only --diff-filter=ACMR -z "$diff_base")
-  if ((${#files[@]} == 0)); then
+  local -a files_full files_nohex
+  split_files < <(git diff --cached --name-only --diff-filter=ACMR -z "$diff_base")
+  if ((${#files_full[@]} == 0 && ${#files_nohex[@]} == 0)); then
     return 0
   fi
 
-  { git grep --cached -n -I -E "$SECRET_PATTERN" -- "${files[@]}" 2>/dev/null || true; } | scan_stream
+  local failed=0
+  if ((${#files_full[@]} > 0)); then
+    { git grep --cached -n -I -E "$SECRET_PATTERN" -- "${files_full[@]}" 2>/dev/null || true; } | scan_stream || failed=1
+  fi
+  if ((${#files_nohex[@]} > 0)); then
+    { git grep --cached -n -I -E "$SECRET_PATTERN_NOHEX" -- "${files_nohex[@]}" 2>/dev/null || true; } | scan_stream || failed=1
+  fi
+  return "$failed"
 }
 
 scan_pushed_ref() {
   local local_sha="$1"
   local remote_sha="$2"
   local zero_sha='0000000000000000000000000000000000000000'
-  local -a files=()
+  local -a files_full files_nohex
 
   if [[ "$local_sha" == "$zero_sha" ]]; then
     return 0
   elif [[ "$remote_sha" == "$zero_sha" ]]; then
-    mapfile -d '' files < <(git ls-tree -r --name-only -z "$local_sha")
+    split_files < <(git ls-tree -r --name-only -z "$local_sha")
   else
-    mapfile -d '' files < <(git diff --name-only --diff-filter=ACMR -z "$remote_sha" "$local_sha")
+    split_files < <(git diff --name-only --diff-filter=ACMR -z "$remote_sha" "$local_sha")
   fi
 
-  if ((${#files[@]} == 0)); then
+  if ((${#files_full[@]} == 0 && ${#files_nohex[@]} == 0)); then
     return 0
   fi
 
-  { git grep -n -I -E "$SECRET_PATTERN" "$local_sha" -- "${files[@]}" 2>/dev/null || true; } \
-    | sed -E "s/^${local_sha}://" \
-    | scan_stream
+  local failed=0
+  if ((${#files_full[@]} > 0)); then
+    { git grep -n -I -E "$SECRET_PATTERN" "$local_sha" -- "${files_full[@]}" 2>/dev/null || true; } \
+      | sed -E "s/^${local_sha}://" \
+      | scan_stream || failed=1
+  fi
+  if ((${#files_nohex[@]} > 0)); then
+    { git grep -n -I -E "$SECRET_PATTERN_NOHEX" "$local_sha" -- "${files_nohex[@]}" 2>/dev/null || true; } \
+      | sed -E "s/^${local_sha}://" \
+      | scan_stream || failed=1
+  fi
+  return "$failed"
 }
 
 scan_push() {
