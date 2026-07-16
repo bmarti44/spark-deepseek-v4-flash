@@ -1,0 +1,58 @@
+{
+  "index": 851,
+  "task_id": 851,
+  "rendered_prompt_sha256": "17c5a56bfc0fbc433e4174e7fe0dfcd60544fd58292b7bef99f590acc7f8ae05",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "James buys 2 pairs per month, so in a year (12 months) he buys \\(2 \\times 12 = 24\\) pairs.  \nHe spends $2640 per year, so the average cost per pair is \\(2640 \\div 24 = 110\\).  \n\nAnswer: 110",
+  "expected": "110",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.912280402000761
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "James buys 2 pairs per month, so in a year (12 months) he buys \\(2 \\times 12 = 24\\) pairs.  \nHe spends $2640 per year, so the average cost per pair is \\(2640 \\div 24 = 110\\).  \n\nAnswer: 110",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218442,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 64,
+      "total_tokens": 127,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-RfouuWwPGGczQNMmuK7lM8nE7vxdZ31E",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 63,
+      "prompt_ms": 545.603,
+      "prompt_per_token_ms": 8.660365079365079,
+      "prompt_per_second": 115.4685733032993,
+      "predicted_n": 63,
+      "predicted_ms": 4364.944,
+      "predicted_per_token_ms": 69.2848253968254,
+      "predicted_per_second": 14.433174858600704
+    }
+  }
+}

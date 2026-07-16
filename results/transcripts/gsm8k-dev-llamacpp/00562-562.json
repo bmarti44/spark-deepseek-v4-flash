@@ -1,0 +1,58 @@
+{
+  "index": 562,
+  "task_id": 562,
+  "rendered_prompt_sha256": "f3dec4d863bfcf4a4f14791af132fbe4c30c2cd0b837598a1d493d4005b826ac",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We start with the pyramid at 32° above the ground from Sahir's house.  \nThe sun starts at the tip of the pyramid, so initially it is also at 32° from the ground.  \nThe sun moves upward at 5° per hour relative to the house.  \nAfter 10 hours, the sun has moved \\( 5 \\times 10 = 50° \\) upward.  \n\nSo the new angle from the ground is:  \n\\( 32° + 50° = 82° \\).  \n\nAnswer: 82",
+  "expected": "82",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.686265718999493
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We start with the pyramid at 32° above the ground from Sahir's house.  \nThe sun starts at the tip of the pyramid, so initially it is also at 32° from the ground.  \nThe sun moves upward at 5° per hour relative to the house.  \nAfter 10 hours, the sun has moved \\( 5 \\times 10 = 50° \\) upward.  \n\nSo the new angle from the ground is:  \n\\( 32° + 50° = 82° \\).  \n\nAnswer: 82",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218046,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 113,
+      "prompt_tokens": 107,
+      "total_tokens": 220,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-8FmSnurGYfD4DMFVhWOVexFq7mxQHIRE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 106,
+      "prompt_ms": 771.047,
+      "prompt_per_token_ms": 7.274028301886792,
+      "prompt_per_second": 137.47540681696447,
+      "predicted_n": 113,
+      "predicted_ms": 7909.963,
+      "predicted_per_token_ms": 69.99967256637169,
+      "predicted_per_second": 14.285781109216313
+    }
+  }
+}

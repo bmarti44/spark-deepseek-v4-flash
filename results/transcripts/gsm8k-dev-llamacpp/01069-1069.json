@@ -1,0 +1,58 @@
+{
+  "index": 1069,
+  "task_id": 1069,
+  "rendered_prompt_sha256": "2bea535162249c2c779d5f3c1ed642b92f9f802167118a44e315d8704b1d1cfe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, there were 20 trucks, each carrying 20 tons of fertilizer.  \nTotal fertilizer initially:  \n20 × 20 = 400 tons.\n\nA quarter of the trucks had mechanical failures:  \n¼ × 20 = 5 trucks failed.\n\nSo the number of trucks that successfully delivered:  \n20 − 5 = 15 trucks.\n\nEach truck still carried 20 tons, so the total delivered:  \n15 × 20 = 300 tons.\n\nAnswer: 300",
+  "expected": "300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.83377138600008
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, there were 20 trucks, each carrying 20 tons of fertilizer.  \nTotal fertilizer initially:  \n20 × 20 = 400 tons.\n\nA quarter of the trucks had mechanical failures:  \n¼ × 20 = 5 trucks failed.\n\nSo the number of trucks that successfully delivered:  \n20 − 5 = 15 trucks.\n\nEach truck still carried 20 tons, so the total delivered:  \n15 × 20 = 300 tons.\n\nAnswer: 300",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218378,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 98,
+      "prompt_tokens": 133,
+      "total_tokens": 231,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-lIYsMVMFMMJrUmDe7vzJzh1Vx0z8YqPJ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 132,
+      "prompt_ms": 903.801,
+      "prompt_per_token_ms": 6.846977272727273,
+      "prompt_per_second": 146.0498494690756,
+      "predicted_n": 98,
+      "predicted_ms": 6911.403,
+      "predicted_per_token_ms": 70.52452040816327,
+      "predicted_per_second": 14.17946544283411
+    }
+  }
+}

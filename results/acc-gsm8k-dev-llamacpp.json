@@ -1,0 +1,190 @@
+{
+  "stack_label": "llamacpp-udq2kxl",
+  "suite": "gsm8k",
+  "split": "dev",
+  "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+  "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+  "n": 100,
+  "correct": 97,
+  "accuracy": 0.97,
+  "wilson95": [
+    0.9154806357094724,
+    0.9897454759759611
+  ],
+  "invalid_count": 0,
+  "started_at": "2026-07-16T16:02:52.161797+00:00",
+  "finished_at": "2026-07-16T16:17:03.299484+00:00",
+  "dataset_revisions": {
+    "openai/gsm8k": "740312add88f781978c0658806c59bc2815b9866",
+    "TIGER-Lab/MMLU-Pro": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+    "openai/openai_humaneval": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544"
+  },
+  "transcript_dir": "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp",
+  "transcript_files": [
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00588-588.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01214-1214.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00057-57.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00906-906.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01252-1252.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00618-618.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00599-599.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00289-289.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00608-608.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00400-400.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00237-237.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00616-616.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00672-672.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01132-1132.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00463-463.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00222-222.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00945-945.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00238-238.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00730-730.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00055-55.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00772-772.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00176-176.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00015-15.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00066-66.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00479-479.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00896-896.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01122-1122.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01005-1005.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00480-480.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00187-187.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00275-275.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00868-868.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00921-921.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00562-562.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01082-1082.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00172-172.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00770-770.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01191-1191.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00413-413.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00537-537.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01154-1154.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01308-1308.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00454-454.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00280-280.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00177-177.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00923-923.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00677-677.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01176-1176.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00021-21.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00970-970.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00356-356.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00100-100.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00132-132.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00364-364.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00969-969.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01273-1273.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00143-143.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00442-442.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00464-464.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01089-1089.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00259-259.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00090-90.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00998-998.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00989-989.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00022-22.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00586-586.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00756-756.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01261-1261.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00296-296.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00383-383.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00709-709.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01069-1069.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01141-1141.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00179-179.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00731-731.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01241-1241.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00371-371.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00107-107.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01115-1115.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00851-851.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00303-303.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00535-535.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00544-544.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00374-374.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00387-387.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00434-434.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00706-706.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00347-347.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00811-811.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00035-35.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00892-892.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00314-314.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00002-2.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00944-944.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00687-687.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01184-1184.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00297-297.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/01068-1068.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00792-792.json",
+    "/home/bmarti44/spark-deepseek-v4-flash/results/transcripts/gsm8k-dev-llamacpp/00932-932.json"
+  ],
+  "models_response": {
+    "models": [
+      {
+        "name": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+        "aliases": [
+          "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1784217772,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": 2,
+          "n_vocab": 129280,
+          "n_ctx": 32768,
+          "n_ctx_train": 1048576,
+          "n_embd": 4096,
+          "n_params": 284334567511,
+          "size": 96827162972,
+          "ftype": "Q2_K - Medium"
+        }
+      }
+    ]
+  },
+  "generation": {
+    "endpoint": "/v1/completions",
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 512,
+    "stop": null,
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 544,
+  "task_id": 544,
+  "rendered_prompt_sha256": "1e19bbbc6d200a4b7d499c4fcda15e29def0fccabf75c9c2c5e5eefa645ada67",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let Brad's share be \\( x \\) dollars.  \nThen Jeff gets \\( 4x \\) dollars.  \nTogether they have \\( x + 4x = 5x \\), which equals 100 dollars.  \nSo \\( 5x = 100 \\) → \\( x = 20 \\).  \nJeff gets \\( 4 \\times 20 = 80 \\) dollars.\n\nAnswer: 80",
+  "expected": "80",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.264790780000112
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let Brad's share be \\( x \\) dollars.  \nThen Jeff gets \\( 4x \\) dollars.  \nTogether they have \\( x + 4x = 5x \\), which equals 100 dollars.  \nSo \\( 5x = 100 \\) → \\( x = 20 \\).  \nJeff gets \\( 4 \\times 20 = 80 \\) dollars.\n\nAnswer: 80",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218465,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 60,
+      "total_tokens": 142,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rYpTLbAsh1MlC1Q1yo2iA12sS1G6XOj8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 59,
+      "prompt_ms": 543.927,
+      "prompt_per_token_ms": 9.219101694915254,
+      "prompt_per_second": 108.47043812864594,
+      "predicted_n": 82,
+      "predicted_ms": 5718.347,
+      "predicted_per_token_ms": 69.73593902439023,
+      "predicted_per_second": 14.339808339717754
+    }
+  }
+}

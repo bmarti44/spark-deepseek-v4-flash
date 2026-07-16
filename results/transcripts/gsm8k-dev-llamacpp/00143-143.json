@@ -1,0 +1,58 @@
+{
+  "index": 143,
+  "task_id": 143,
+  "rendered_prompt_sha256": "ab99898b3edfb9707a48b4e23198b2e380f9b11bb4eb3202c4427e19061c004b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, let’s separate food and nonfood items.  \n- Milk is food.  \n- Eggs are food.  \n- Light bulbs are nonfood.  \n- Cups are nonfood.  \n- Roach traps are nonfood.  \n\nFood items: milk ($2) + eggs ($3) = $5  \nNonfood items: light bulbs ($3) + cups ($3) + roach traps ($4) = $10  \n\nTax on nonfood items: 10% of $10 = $1  \n\nTotal cost: $5 (food) + $10 (nonfood) + $1 (tax) = $16  \n\nAnswer: 16",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.255034506000811
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, let’s separate food and nonfood items.  \n- Milk is food.  \n- Eggs are food.  \n- Light bulbs are nonfood.  \n- Cups are nonfood.  \n- Roach traps are nonfood.  \n\nFood items: milk ($2) + eggs ($3) = $5  \nNonfood items: light bulbs ($3) + cups ($3) + roach traps ($4) = $10  \n\nTax on nonfood items: 10% of $10 = $1  \n\nTotal cost: $5 (food) + $10 (nonfood) + $1 (tax) = $16  \n\nAnswer: 16",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218249,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 136,
+      "prompt_tokens": 85,
+      "total_tokens": 221,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-LfwISy1lsaIDZ7S2QcpSvmhcdsLxqO7O",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 84,
+      "prompt_ms": 654.249,
+      "prompt_per_token_ms": 7.788678571428572,
+      "prompt_per_second": 128.39148397628423,
+      "predicted_n": 136,
+      "predicted_ms": 9596.071,
+      "predicted_per_token_ms": 70.55934558823529,
+      "predicted_per_second": 14.17246704406418
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 2,
+  "task_id": 2,
+  "rendered_prompt_sha256": "d6d1c7afedea967ccfc6b1bfac15c6d5ea441048e388ca914da3e3d756b9a6c6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Josh bought the house for $80,000 and spent $50,000 on repairs, so his total cost is:  \n$80,000 + $50,000 = $130,000.\n\nThe repairs increased the house's value by 150%. That means the new value is the original value plus 150% of the original value:  \nNew value = $80,000 + (150% × $80,000) = $80,000 + $120,000 = $200,000.\n\nProfit = selling price - total cost = $200,000 - $130,000 = $70,000.\n\nAnswer: 70000",
+  "expected": "70000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.123655195000538
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Josh bought the house for $80,000 and spent $50,000 on repairs, so his total cost is:  \n$80,000 + $50,000 = $130,000.\n\nThe repairs increased the house's value by 150%. That means the new value is the original value plus 150% of the original value:  \nNew value = $80,000 + (150% × $80,000) = $80,000 + $120,000 = $200,000.\n\nProfit = selling price - total cost = $200,000 - $130,000 = $70,000.\n\nAnswer: 70000",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218561,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 132,
+      "prompt_tokens": 78,
+      "total_tokens": 210,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-2ZwSdDu7aU6az8nYf5GOSD336VspJrM6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 619.3,
+      "prompt_per_token_ms": 8.042857142857143,
+      "prompt_per_second": 124.33392539964477,
+      "predicted_n": 132,
+      "predicted_ms": 9500.788,
+      "predicted_per_token_ms": 71.97566666666667,
+      "predicted_per_second": 13.893584405840864
+    }
+  }
+}

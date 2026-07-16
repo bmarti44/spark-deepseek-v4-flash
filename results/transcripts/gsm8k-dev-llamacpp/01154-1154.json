@@ -1,0 +1,58 @@
+{
+  "index": 1154,
+  "task_id": 1154,
+  "rendered_prompt_sha256": "abbafbc85785474c123950786c6e05cd3421f5c1638aa205f8f89a96e6bb7c6f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "There are 5 weekdays (Monday to Friday) and 2 weekend days (Saturday and Sunday).\n\nWeekday carrots: 5 days × 4 carrots = 20  \nWeekend carrots: 2 days × 5 carrots = 10  \nTotal per week: 20 + 10 = 30\n\nAnswer: 30",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.385748639999292
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "There are 5 weekdays (Monday to Friday) and 2 weekend days (Saturday and Sunday).\n\nWeekday carrots: 5 days × 4 carrots = 20  \nWeekend carrots: 2 days × 5 carrots = 10  \nTotal per week: 20 + 10 = 30\n\nAnswer: 30",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218100,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 69,
+      "prompt_tokens": 64,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-IjZksAQ2UjIDKI41tqT15ow1D8HJgpvn",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 63,
+      "prompt_ms": 554.91,
+      "prompt_per_token_ms": 8.808095238095238,
+      "prompt_per_second": 113.53192409579933,
+      "predicted_n": 69,
+      "predicted_ms": 4826.217,
+      "predicted_per_token_ms": 69.94517391304348,
+      "predicted_per_second": 14.29691205347791
+    }
+  }
+}

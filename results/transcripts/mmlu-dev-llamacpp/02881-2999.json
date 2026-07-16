@@ -1,0 +1,58 @@
+{
+  "index": 2881,
+  "task_id": 2999,
+  "rendered_prompt_sha256": "318b6ce9b205af7ab8c2c23dec5e710529c65b786f56ae1a1ecd2cf6fd3100d0",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In cyclic electron flow around photosystem I, electrons are passed along an electron transport chain that generates a proton gradient used for ATP synthesis, but they do not reduce NADP⁺. No water is split, no oxygen is released, and no carbon fixation occurs.  \n\nThe correct outcome is **synthesis of ATP** (or conversion of ADP to ATP).  \n\nAnswer: I",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.466691001000072
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In cyclic electron flow around photosystem I, electrons are passed along an electron transport chain that generates a proton gradient used for ATP synthesis, but they do not reduce NADP⁺. No water is split, no oxygen is released, and no carbon fixation occurs.  \n\nThe correct outcome is **synthesis of ATP** (or conversion of ADP to ATP).  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218756,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 77,
+      "prompt_tokens": 127,
+      "total_tokens": 204,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FWzkPySBnnmAFQQLN4Z6LCG8oIezvgpw",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 126,
+      "prompt_ms": 862.794,
+      "prompt_per_token_ms": 6.847571428571428,
+      "prompt_per_second": 146.03717689274615,
+      "predicted_n": 77,
+      "predicted_ms": 5582.913,
+      "predicted_per_token_ms": 72.50536363636363,
+      "predicted_per_second": 13.792083093539164
+    }
+  }
+}

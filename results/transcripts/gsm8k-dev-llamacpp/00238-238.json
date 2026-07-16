@@ -1,0 +1,59 @@
+{
+  "index": 238,
+  "task_id": 238,
+  "rendered_prompt_sha256": "c0cef30eca515df2f0ce39f424da6844bc3ba5ba5ac0e089963f86d2d34a1789",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Jessa is 20 years old.  \n- Joan is 5 years older than Jessa:  \n  Joan = 20 + 5 = 25  \n- Mary is 2 years younger than Joan:  \n  Mary = 25 − 2 = 23  \n\nNow sum their ages:  \n20 + 25 + 23 = 68  \n\nAnswer: 68",
+  "expected": "68",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.896995254999638
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Jessa is 20 years old.  \n- Joan is 5 years older than Jessa:  \n  Joan = 20 + 5 = 25  \n- Mary is 2 years younger than Joan:  \n  Mary = 25 − 2 = 23  \n\nNow sum their ages:  \n20 + 25 + 23 = 68  \n\nAnswer: 68",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217911,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 89,
+      "prompt_tokens": 67,
+      "total_tokens": 156,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-iTuy1wcemgEo109ssJpEHWPvJy3zqWOl",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 551.875,
+      "prompt_per_token_ms": 8.361742424242424,
+      "prompt_per_second": 119.59229898074744,
+      "predicted_n": 89,
+      "predicted_ms": 6327.615,
+      "predicted_per_token_ms": 71.09679775280898,
+      "predicted_per_second": 14.065331092362605
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Mary is two years younger than Joan, who is five years older than Jessa. If Jessa is 20 years old, what is the sum of the ages of the three girls?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

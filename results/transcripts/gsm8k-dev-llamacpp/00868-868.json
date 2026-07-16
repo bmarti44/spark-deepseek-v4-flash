@@ -1,0 +1,59 @@
+{
+  "index": 868,
+  "task_id": 868,
+  "rendered_prompt_sha256": "4f87a4e4f7a78a0c3213cdc607cca2aef167a6387f511ec778c947c2385e5d87",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total number of jello cups needed:  \n30 kids × 4 cups each = 120 cups.\n\nEach box makes 10 cups, so the number of boxes needed:  \n120 ÷ 10 = 12 boxes.\n\nEach box costs $1.25, so total cost:  \n12 × 1.25 = $15.00.\n\nAnswer: 15",
+  "expected": "15",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.416393658999368
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total number of jello cups needed:  \n30 kids × 4 cups each = 120 cups.\n\nEach box makes 10 cups, so the number of boxes needed:  \n120 ÷ 10 = 12 boxes.\n\nEach box costs $1.25, so total cost:  \n12 × 1.25 = $15.00.\n\nAnswer: 15",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218030,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 79,
+      "prompt_tokens": 112,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-LDI9ZXg4LixdPi5JCQKkqFn8q0YFODvD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 111,
+      "prompt_ms": 800.339,
+      "prompt_per_token_ms": 7.2102612612612615,
+      "prompt_per_second": 138.6912295914606,
+      "predicted_n": 79,
+      "predicted_ms": 5612.527,
+      "predicted_per_token_ms": 71.04464556962026,
+      "predicted_per_second": 14.075656117110883
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>A three-ounce box of flavored jello makes 10 small jello cups.  Greg wants to make small jello cups for his son's outdoor birthday party.  There will be 30 kids and he wants to have enough so that each kid can have 4 jello cups.  Jello is currently on sale for $1.25.  How much will he spend on jello?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

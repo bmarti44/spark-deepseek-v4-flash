@@ -1,0 +1,59 @@
+{
+  "index": 687,
+  "task_id": 687,
+  "rendered_prompt_sha256": "eb4e60665b54c8850fd14d3430a2da58e6625b7df803f968b779a3a2cfe4037c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the age of one twin be \\( t \\) and one triplet be \\( r \\).  \nSince there are two twins and three triplets, the total ages are:\n\n\\[\n2t + 3r = 44\n\\]\n\nWe also know one twin is 7 years older than one triplet:\n\n\\[\nt = r + 7\n\\]\n\nSubstitute into the total equation:\n\n\\[\n2(r + 7) + 3r = 44\n\\]\n\\[\n2r + 14 + 3r = 44\n\\]\n\\[\n5r + 14 = 44\n\\]\n\\[\n5r = 30\n\\]\n\\[\nr = 6\n\\]\n\nThen:\n\n\\[\nt = 6 + 7 = 13\n\\]\n\nAnswer: 13",
+  "expected": "13",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.66704500800006
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the age of one twin be \\( t \\) and one triplet be \\( r \\).  \nSince there are two twins and three triplets, the total ages are:\n\n\\[\n2t + 3r = 44\n\\]\n\nWe also know one twin is 7 years older than one triplet:\n\n\\[\nt = r + 7\n\\]\n\nSubstitute into the total equation:\n\n\\[\n2(r + 7) + 3r = 44\n\\]\n\\[\n2r + 14 + 3r = 44\n\\]\n\\[\n5r + 14 = 44\n\\]\n\\[\n5r = 30\n\\]\n\\[\nr = 6\n\\]\n\nThen:\n\n\\[\nt = 6 + 7 = 13\n\\]\n\nAnswer: 13",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218581,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 69,
+      "total_tokens": 234,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ssrWa0LBKJjmNTG5nysbwfZijIUufrR8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 593.243,
+      "prompt_per_token_ms": 8.724161764705883,
+      "prompt_per_second": 114.62419278440706,
+      "predicted_n": 165,
+      "predicted_ms": 12072.006,
+      "predicted_per_token_ms": 73.16367272727273,
+      "predicted_per_second": 13.667985254480492
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>There is one set of twins and one set of triplets. One twin is 7 years older than one triplet. If their combined ages are 44, how old is one of the twins?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

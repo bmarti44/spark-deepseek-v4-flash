@@ -1,0 +1,58 @@
+{
+  "index": 2795,
+  "task_id": 2913,
+  "rendered_prompt_sha256": "3a6d8eb4ce13c641dd2a06bcedd18d56a4a5f2eedb9fa7fbbfb26d1328d684f5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Aquatic plants with hypertonic protoplasm relative to their surroundings would constantly tend to take in water by osmosis. To maintain a constant water level, they need a mechanism to counterbalance this osmotic influx.  \n\nThe key is that the rigid **cellulose wall** exerts pressure against the expanding protoplasm, creating **turgor pressure** that opposes further water entry. Once turgor pressure equals the osmotic pressure difference, net water influx stops, keeping water content constant.  \n\nThus, the correct answer is:  \n\nAnswer: J",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.026038771000458
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Aquatic plants with hypertonic protoplasm relative to their surroundings would constantly tend to take in water by osmosis. To maintain a constant water level, they need a mechanism to counterbalance this osmotic influx.  \n\nThe key is that the rigid **cellulose wall** exerts pressure against the expanding protoplasm, creating **turgor pressure** that opposes further water entry. Once turgor pressure equals the osmotic pressure difference, net water influx stops, keeping water content constant.  \n\nThus, the correct answer is:  \n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218738,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 108,
+      "prompt_tokens": 180,
+      "total_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aIkHnFxbsMkWDjpiUdxmUPfG41eNfKra",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 179,
+      "prompt_ms": 950.631,
+      "prompt_per_token_ms": 5.310787709497206,
+      "prompt_per_second": 188.29598445663984,
+      "predicted_n": 108,
+      "predicted_ms": 8060.235,
+      "predicted_per_token_ms": 74.63180555555556,
+      "predicted_per_second": 13.399113053155398
+    }
+  }
+}

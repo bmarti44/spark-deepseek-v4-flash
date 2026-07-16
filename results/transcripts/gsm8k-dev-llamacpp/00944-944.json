@@ -1,0 +1,58 @@
+{
+  "index": 944,
+  "task_id": 944,
+  "rendered_prompt_sha256": "7cb9057b822ef3650b4f8080354eaa77e83b75cbd5be5f52b973608e24fbc039",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Jen has 6 yams at $1.50 each: 6 × 1.5 = $9.00  \nShe has 10 sweet potatoes at $2 each: 10 × 2 = $20.00  \nShe has 4 carrots at $1.25 each: 4 × 1.25 = $5.00  \nTotal: 9 + 20 + 5 = $34.00  \n\nAnswer: 34",
+  "expected": "34",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.550418240998624
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Jen has 6 yams at $1.50 each: 6 × 1.5 = $9.00  \nShe has 10 sweet potatoes at $2 each: 10 × 2 = $20.00  \nShe has 4 carrots at $1.25 each: 4 × 1.25 = $5.00  \nTotal: 9 + 20 + 5 = $34.00  \n\nAnswer: 34",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218568,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 88,
+      "total_tokens": 182,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-D9xq0eOyP4oLra0kyRJ6Xs5qo7Zb0vYR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 706.422,
+      "prompt_per_token_ms": 8.119793103448275,
+      "prompt_per_second": 123.15584735469733,
+      "predicted_n": 94,
+      "predicted_ms": 6840.235,
+      "predicted_per_token_ms": 72.76845744680851,
+      "predicted_per_second": 13.742217920875525
+    }
+  }
+}

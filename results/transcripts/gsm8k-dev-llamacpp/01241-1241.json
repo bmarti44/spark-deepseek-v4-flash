@@ -1,0 +1,58 @@
+{
+  "index": 1241,
+  "task_id": 1241,
+  "rendered_prompt_sha256": "c2d4b084b659f81ea5e3ceaf2cfba9ffa08219cb2e5da8043573f4f8dee90c84",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Rose bought 5 dozen eggs at $2.40 per dozen.  \nCost = 5 × 2.40 = $12.00.  \n\n5 dozen = 5 × 12 = 60 eggs.  \nShe sells them at $1 for 3 eggs, so per egg = 1/3 dollars.  \nRevenue = 60 × (1/3) = $20.00.  \n\nProfit = Revenue − Cost = 20 − 12 = $8.00.  \n\nAnswer: 8",
+  "expected": "8",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.025702281998747
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Rose bought 5 dozen eggs at $2.40 per dozen.  \nCost = 5 × 2.40 = $12.00.  \n\n5 dozen = 5 × 12 = 60 eggs.  \nShe sells them at $1 for 3 eggs, so per egg = 1/3 dollars.  \nRevenue = 60 × (1/3) = $20.00.  \n\nProfit = Revenue − Cost = 20 − 12 = $8.00.  \n\nAnswer: 8",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218408,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 107,
+      "prompt_tokens": 63,
+      "total_tokens": 170,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KUp6heTFrc8Dy0RPg0ewocm5Fdz6K97Y",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 62,
+      "prompt_ms": 546.535,
+      "prompt_per_token_ms": 8.81508064516129,
+      "prompt_per_second": 113.44195705673015,
+      "predicted_n": 107,
+      "predicted_ms": 7475.891,
+      "predicted_per_token_ms": 69.86814018691588,
+      "predicted_per_second": 14.312675238309387
+    }
+  }
+}

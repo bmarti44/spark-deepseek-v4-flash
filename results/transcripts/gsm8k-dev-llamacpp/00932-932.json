@@ -1,0 +1,58 @@
+{
+  "index": 932,
+  "task_id": 932,
+  "rendered_prompt_sha256": "4ce5b2b673f0a57fc3744f0c9f8774e4abc7a58e08516ea0dc19dffb95963868",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Maria invited 4 friends, so including Maria, there are 5 girls total.\n- At the start, Maria gave each friend 2 balloons:  \n  4 friends × 2 balloons = 8 balloons.\n- Maria also had 1 balloon for herself.\n- So after the first round: 8 + 1 = 9 balloons.\n- Then her mom gave each person 3 more balloons. There are 5 people, so:  \n  5 × 3 = 15 additional balloons.\n- Total balloons: 9 + 15 = 24.\n\nAnswer: 24",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.273619077001058
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Maria invited 4 friends, so including Maria, there are 5 girls total.\n- At the start, Maria gave each friend 2 balloons:  \n  4 friends × 2 balloons = 8 balloons.\n- Maria also had 1 balloon for herself.\n- So after the first round: 8 + 1 = 9 balloons.\n- Then her mom gave each person 3 more balloons. There are 5 people, so:  \n  5 × 3 = 15 additional balloons.\n- Total balloons: 9 + 15 = 24.\n\nAnswer: 24",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218623,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 130,
+      "prompt_tokens": 97,
+      "total_tokens": 227,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FlVZEPBUcDTmBSi2sxAFJ8deTJRuybQ8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 96,
+      "prompt_ms": 736.476,
+      "prompt_per_token_ms": 7.671625,
+      "prompt_per_second": 130.35047985270396,
+      "predicted_n": 130,
+      "predicted_ms": 9533.859,
+      "predicted_per_token_ms": 73.33737692307693,
+      "predicted_per_second": 13.635611770637682
+    }
+  }
+}

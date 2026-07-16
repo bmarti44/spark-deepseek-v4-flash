@@ -1,0 +1,58 @@
+{
+  "index": 1068,
+  "task_id": 1068,
+  "rendered_prompt_sha256": "63058fb6621ae3f88ac96a5c1c371fd06fc1350991c0eb1e2e439461f8b6b89d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. **\"Sidney ordered 3 less than ten meatball sub sandwiches.\"**  \n   Ten sub sandwiches minus 3 = 7 sub sandwiches.  \n   So Sidney initially ordered **7 subs**.\n\n2. **\"Then Mark ate 4 of Sidney's meatball sub sandwiches.\"**  \n   That means 4 subs are gone.  \n   Remaining: \\( 7 - 4 = 3 \\) subs.\n\n3. **\"So Sidney ordered another three sub sandwiches.\"**  \n   Now Sidney adds 3 more subs.  \n   Total now: \\( 3 + 3 = 6 \\) subs.\n\n4. **Each sub has 4 meatballs.**  \n   So meatballs remaining: \\( 6 \\times 4 = 24 \\).\n\n**Answer: 24**",
+  "expected": "24",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.750439546000052
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. **\"Sidney ordered 3 less than ten meatball sub sandwiches.\"**  \n   Ten sub sandwiches minus 3 = 7 sub sandwiches.  \n   So Sidney initially ordered **7 subs**.\n\n2. **\"Then Mark ate 4 of Sidney's meatball sub sandwiches.\"**  \n   That means 4 subs are gone.  \n   Remaining: \\( 7 - 4 = 3 \\) subs.\n\n3. **\"So Sidney ordered another three sub sandwiches.\"**  \n   Now Sidney adds 3 more subs.  \n   Total now: \\( 3 + 3 = 6 \\) subs.\n\n4. **Each sub has 4 meatballs.**  \n   So meatballs remaining: \\( 6 \\times 4 = 24 \\).\n\n**Answer: 24**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218607,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 175,
+      "prompt_tokens": 87,
+      "total_tokens": 262,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DMNSdI6NsJm0YI6dl3Py6WlhK4HGuwRb",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 718.282,
+      "prompt_per_token_ms": 8.352116279069769,
+      "prompt_per_second": 119.73013384715193,
+      "predicted_n": 175,
+      "predicted_ms": 13029.214,
+      "predicted_per_token_ms": 74.45265142857143,
+      "predicted_per_second": 13.431355107069392
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 15,
+  "task_id": 15,
+  "rendered_prompt_sha256": "99b96547e2620e87c05b9dfe4cb2365d89b8908e05fccd46ac7f6c311bdc00c9",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The profit from jewelry would be 2.5% of $5,000:  \n0.025 × 5000 = $125  \n\nThe profit from electronics would be 1.2% of $8,000:  \n0.012 × 8000 = $96  \n\nSince $125 > $96, the merchant should choose jewelry for a profit of $125.  \n\nAnswer: 125",
+  "expected": "125",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.716509044001214
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The profit from jewelry would be 2.5% of $5,000:  \n0.025 × 5000 = $125  \n\nThe profit from electronics would be 1.2% of $8,000:  \n0.012 × 8000 = $96  \n\nSince $125 > $96, the merchant should choose jewelry for a profit of $125.  \n\nAnswer: 125",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217941,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 83,
+      "prompt_tokens": 119,
+      "total_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-teuD0Mfot4je0GcFdK1vZ12ZTVcMtxRu",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 118,
+      "prompt_ms": 864.779,
+      "prompt_per_token_ms": 7.328635593220339,
+      "prompt_per_second": 136.451047030513,
+      "predicted_n": 83,
+      "predicted_ms": 5835.065,
+      "predicted_per_token_ms": 70.30198795180722,
+      "predicted_per_second": 14.224348829019043
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1122,
+  "task_id": 1122,
+  "rendered_prompt_sha256": "48f9723e0f9c2a46f6137f7913fe2a7819f7aa6ceae1d639a064dc3f5071a6b3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Total toys needed: 400  \n- Two workers produce 6 toys/hour each → together they produce \\(2 \\times 6 = 12\\) toys/hour  \n- Two workers produce 4 toys/hour each → together they produce \\(2 \\times 4 = 8\\) toys/hour  \n- So the first four workers produce \\(12 + 8 = 20\\) toys/hour combined.\n\nThey all work a 10-hour shift, so the first four workers produce:\n\\[\n20 \\times 10 = 200 \\text{ toys}\n\\]\n\nAfter the shift, 20 toys are still needed, meaning the total produced was:\n\\[\n400 - 20 = 380 \\text{ toys}\n\\]\n\nThus, the fifth worker produced:\n\\[\n380 - 200 = 180 \\text{ toys in 10 hours}\n\\]\n\nSo the fifth worker’s rate is:\n\\[\n180 \\div 10 = 18 \\text{ toys per hour}\n\\]\n\nAnswer: 18",
+  "expected": "18",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.845914777000871
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Total toys needed: 400  \n- Two workers produce 6 toys/hour each → together they produce \\(2 \\times 6 = 12\\) toys/hour  \n- Two workers produce 4 toys/hour each → together they produce \\(2 \\times 4 = 8\\) toys/hour  \n- So the first four workers produce \\(12 + 8 = 20\\) toys/hour combined.\n\nThey all work a 10-hour shift, so the first four workers produce:\n\\[\n20 \\times 10 = 200 \\text{ toys}\n\\]\n\nAfter the shift, 20 toys are still needed, meaning the total produced was:\n\\[\n400 - 20 = 380 \\text{ toys}\n\\]\n\nThus, the fifth worker produced:\n\\[\n380 - 200 = 180 \\text{ toys in 10 hours}\n\\]\n\nSo the fifth worker’s rate is:\n\\[\n180 \\div 10 = 18 \\text{ toys per hour}\n\\]\n\nAnswer: 18",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217983,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 212,
+      "prompt_tokens": 122,
+      "total_tokens": 334,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-AD9c9GHR24N0UsdkYyuN29CDVGiuX1Uq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 874.868,
+      "prompt_per_token_ms": 7.230314049586777,
+      "prompt_per_second": 138.30657882103355,
+      "predicted_n": 212,
+      "predicted_ms": 14954.744,
+      "predicted_per_token_ms": 70.54124528301887,
+      "predicted_per_second": 14.176103582916564
+    }
+  }
+}

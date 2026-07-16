@@ -1,0 +1,58 @@
+{
+  "index": 347,
+  "task_id": 347,
+  "rendered_prompt_sha256": "8551c829e63f42ac7fd150fc66544f38e72b7e25bbeea39c4ecdf989e683cfbd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The original cost for 2 shirts is 2 × $30 = $60.  \nA 40% discount means he pays 60% of the original price.  \n60% of $60 = 0.60 × $60 = $36.  \n\nAnswer: 36",
+  "expected": "36",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.607477784998991
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The original cost for 2 shirts is 2 × $30 = $60.  \nA 40% discount means he pays 60% of the original price.  \n60% of $60 = 0.60 × $60 = $36.  \n\nAnswer: 36",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218521,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 67,
+      "total_tokens": 125,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cDddXzzekKjicnC0WoOrZxarXrGiobRj",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 66,
+      "prompt_ms": 566.199,
+      "prompt_per_token_ms": 8.578772727272726,
+      "prompt_per_second": 116.56679012149439,
+      "predicted_n": 58,
+      "predicted_ms": 4027.649,
+      "predicted_per_token_ms": 69.44222413793103,
+      "predicted_per_second": 14.400460417479279
+    }
+  }
+}

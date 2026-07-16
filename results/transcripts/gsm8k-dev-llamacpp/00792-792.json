@@ -1,0 +1,58 @@
+{
+  "index": 792,
+  "task_id": 792,
+  "rendered_prompt_sha256": "b592dae5d894a08a9849890e47071a3d69c3d493106d5bc9142247165639bf16",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Damien finds 10 bottle caps per day, each worth $0.25.  \nSo per day: 10 × 0.25 = $2.50.  \nIn 30 days: 30 × 2.50 = $75.00.  \n\nAnswer: 75",
+  "expected": "75",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.178822178000701
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Damien finds 10 bottle caps per day, each worth $0.25.  \nSo per day: 10 × 0.25 = $2.50.  \nIn 30 days: 30 × 2.50 = $75.00.  \n\nAnswer: 75",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218612,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 60,
+      "prompt_tokens": 82,
+      "total_tokens": 142,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Prvh2Q8wME6CYmKybIfKGIXDn926WzJn",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 81,
+      "prompt_ms": 700.473,
+      "prompt_per_token_ms": 8.647814814814815,
+      "prompt_per_second": 115.6361487166529,
+      "predicted_n": 60,
+      "predicted_ms": 4474.421,
+      "predicted_per_token_ms": 74.57368333333334,
+      "predicted_per_second": 13.409556230850875
+    }
+  }
+}

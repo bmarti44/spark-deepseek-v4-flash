@@ -1,0 +1,58 @@
+{
+  "index": 756,
+  "task_id": 756,
+  "rendered_prompt_sha256": "ccde9fe0a468e31c7708b210db200d94453f32f9fd2622a7298a2bdb5b94b336",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let the number of votes against be \\( x \\).  \nThen votes in favor are \\( 2x \\).  \nTotal votes: \\( x + 2x = 3x = 33 \\).  \nSo \\( x = 11 \\).  \nVotes in favor: \\( 2 \\times 11 = 22 \\).\n\nAnswer: 22",
+  "expected": "22",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.799508218000483
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let the number of votes against be \\( x \\).  \nThen votes in favor are \\( 2x \\).  \nTotal votes: \\( x + 2x = 3x = 33 \\).  \nSo \\( x = 11 \\).  \nVotes in favor: \\( 2 \\times 11 = 22 \\).\n\nAnswer: 22",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218334,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 82,
+      "total_tokens": 156,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-JLX7Z6NIfGi1lteJZyo7ysh7bOopSssN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 81,
+      "prompt_ms": 635.467,
+      "prompt_per_token_ms": 7.845271604938271,
+      "prompt_per_second": 127.46531291160674,
+      "predicted_n": 74,
+      "predicted_ms": 5161.215,
+      "predicted_per_token_ms": 69.74614864864866,
+      "predicted_per_second": 14.337709240944235
+    }
+  }
+}

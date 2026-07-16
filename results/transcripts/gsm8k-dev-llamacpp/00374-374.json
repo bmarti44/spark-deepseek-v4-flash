@@ -1,0 +1,58 @@
+{
+  "index": 374,
+  "task_id": 374,
+  "rendered_prompt_sha256": "e6360dd93fa0919b8da73e6cd259083a1b607e976e8e01618e217f87da38109c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Mary has 30 sheep. Half of them (15 sheep) give 1 kg each, so that's 15 kg. The other half (15 sheep) give 2 kg each, so that's 30 kg. Total per day is 15 + 30 = 45 kg.\n\nAnswer: 45",
+  "expected": "45",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.093171348000396
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Mary has 30 sheep. Half of them (15 sheep) give 1 kg each, so that's 15 kg. The other half (15 sheep) give 2 kg each, so that's 30 kg. Total per day is 15 + 30 = 45 kg.\n\nAnswer: 45",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218470,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 65,
+      "prompt_tokens": 68,
+      "total_tokens": 133,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-NTDy1ynicpVHodAPFTnBmD6ngdhw6Abh",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 67,
+      "prompt_ms": 562.731,
+      "prompt_per_token_ms": 8.398970149253731,
+      "prompt_per_second": 119.06221622764696,
+      "predicted_n": 65,
+      "predicted_ms": 4528.204,
+      "predicted_per_token_ms": 69.66467692307693,
+      "predicted_per_second": 14.354476962610342
+    }
+  }
+}

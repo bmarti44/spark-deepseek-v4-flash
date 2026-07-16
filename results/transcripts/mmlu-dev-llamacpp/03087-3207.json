@@ -1,0 +1,58 @@
+{
+  "index": 3087,
+  "task_id": 3207,
+  "rendered_prompt_sha256": "2e7e889d46127e90dc3c89ae9b492aa13ed5e42018d1e3f3e9dbbd7a39313a5a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is the one that accurately describes RNA processing in eukaryotic cells:  \n- Introns are removed (splicing).  \n- A 5′ cap and a poly-A tail are added.  \n- All of these modifications occur in the nucleus before the mRNA leaves.  \n\nThat matches option **G**.  \n\nAnswer: G",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.709152720999555
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is the one that accurately describes RNA processing in eukaryotic cells:  \n- Introns are removed (splicing).  \n- A 5′ cap and a poly-A tail are added.  \n- All of these modifications occur in the nucleus before the mRNA leaves.  \n\nThat matches option **G**.  \n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218771,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 68,
+      "prompt_tokens": 364,
+      "total_tokens": 432,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-xDaSytFVJFyW1tpntuxKQz2KHrDEAdz5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 363,
+      "prompt_ms": 1533.409,
+      "prompt_per_token_ms": 4.224267217630854,
+      "prompt_per_second": 236.72744844982645,
+      "predicted_n": 68,
+      "predicted_ms": 5162.061,
+      "predicted_per_token_ms": 75.91266176470587,
+      "predicted_per_second": 13.173033019175868
+    }
+  }
+}

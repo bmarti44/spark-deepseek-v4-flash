@@ -1,0 +1,58 @@
+{
+  "index": 289,
+  "task_id": 289,
+  "rendered_prompt_sha256": "97374d1ff6f837a20dfacf8d8e5815175fa7193db635428ae38631fff7a775ef",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The fast lane car travels at 60 miles/hour and covers 480 miles.  \nTime for fast lane: \\( 480 \\div 60 = 8 \\) hours.  \n\nThe slow lane car travels at half the speed: \\( 60 \\div 2 = 30 \\) miles/hour.  \nTo cover the same 480 miles: \\( 480 \\div 30 = 16 \\) hours.  \n\nAnswer: 16",
+  "expected": "16",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.844720276998487
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The fast lane car travels at 60 miles/hour and covers 480 miles.  \nTime for fast lane: \\( 480 \\div 60 = 8 \\) hours.  \n\nThe slow lane car travels at half the speed: \\( 60 \\div 2 = 30 \\) miles/hour.  \nTo cover the same 480 miles: \\( 480 \\div 30 = 16 \\) hours.  \n\nAnswer: 16",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217833,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 88,
+      "prompt_tokens": 88,
+      "total_tokens": 176,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-tuMB41WrmivNEEJL0jCVmJYq3GoxtUYo",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 681.572,
+      "prompt_per_token_ms": 7.8341609195402295,
+      "prompt_per_second": 127.6460887477772,
+      "predicted_n": 88,
+      "predicted_ms": 6151.651,
+      "predicted_per_token_ms": 69.905125,
+      "predicted_per_second": 14.305102808985751
+    }
+  }
+}

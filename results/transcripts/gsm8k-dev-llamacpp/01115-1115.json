@@ -1,0 +1,58 @@
+{
+  "index": 1115,
+  "task_id": 1115,
+  "rendered_prompt_sha256": "7cebb46d7bcb2e91b39248739803b2ef7d01b8755ee34abfa7f362a17169cf24",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Anna’s total budget: $16  \n- Already spent: $4  \n- Money left after today’s purchase: $2  \n\nSo the amount spent today is:  \n$16 - $4 - $2 = $10  \n\nShe bought 2 books at the same price, so each book cost:  \n$10 ÷ 2 = $5  \n\nAnswer: 5",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.8544442179991165
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Anna’s total budget: $16  \n- Already spent: $4  \n- Money left after today’s purchase: $2  \n\nSo the amount spent today is:  \n$16 - $4 - $2 = $10  \n\nShe bought 2 books at the same price, so each book cost:  \n$10 ÷ 2 = $5  \n\nAnswer: 5",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218437,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 86,
+      "prompt_tokens": 94,
+      "total_tokens": 180,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-VqCGSRhtE98KudN5CivCI0rpBk0DjadT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 93,
+      "prompt_ms": 698.163,
+      "prompt_per_token_ms": 7.507129032258065,
+      "prompt_per_second": 133.20671533724934,
+      "predicted_n": 86,
+      "predicted_ms": 6141.71,
+      "predicted_per_token_ms": 71.41523255813954,
+      "predicted_per_second": 14.002614906923316
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1176,
+  "task_id": 1176,
+  "rendered_prompt_sha256": "9bab27bd3bead628dc8da94fecc0354437b7a2c8c8e63009ab9429a0f06af59b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Initial length:** 5 inches  \n**After Monday:** He used 45%, so remaining is  \n\\( 5 \\times (1 - 0.45) = 5 \\times 0.55 = 2.75 \\) inches.\n\nNow, from Tuesday onward, he uses only 20% of the **current** chalk each day, until it’s below 2 inches (when he will recycle).\n\nWe need to see how many days he can use it before it drops below 2 inches.\n\n**Day 1 (Tuesday):**  \nRemaining = \\( 2.75 \\)  \nUses 20% → left with \\( 2.75 \\times 0.8 = 2.2 \\) inches.\n\n**Day 2 (Wednesday):**  \nRemaining = \\( 2.2 \\)  \nUses 20% → left with \\( 2.2 \\times 0.8 = 1.76 \\) inches.\n\nNow 1.76 < 2, so after Wednesday’s use, it’s time to recycle. That means he used it on Tuesday and Wednesday — that’s **2 days** before recycling.\n\nAnswer: 2",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.984616063999056
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Initial length:** 5 inches  \n**After Monday:** He used 45%, so remaining is  \n\\( 5 \\times (1 - 0.45) = 5 \\times 0.55 = 2.75 \\) inches.\n\nNow, from Tuesday onward, he uses only 20% of the **current** chalk each day, until it’s below 2 inches (when he will recycle).\n\nWe need to see how many days he can use it before it drops below 2 inches.\n\n**Day 1 (Tuesday):**  \nRemaining = \\( 2.75 \\)  \nUses 20% → left with \\( 2.75 \\times 0.8 = 2.2 \\) inches.\n\n**Day 2 (Wednesday):**  \nRemaining = \\( 2.2 \\)  \nUses 20% → left with \\( 2.2 \\times 0.8 = 1.76 \\) inches.\n\nNow 1.76 < 2, so after Wednesday’s use, it’s time to recycle. That means he used it on Tuesday and Wednesday — that’s **2 days** before recycling.\n\nAnswer: 2",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218183,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 255,
+      "prompt_tokens": 175,
+      "total_tokens": 430,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-sqBKLuo1RfjNGGg9fuU0sSP5NJmT1tow",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 174,
+      "prompt_ms": 929.806,
+      "prompt_per_token_ms": 5.3437126436781615,
+      "prompt_per_second": 187.1358111261919,
+      "predicted_n": 255,
+      "predicted_ms": 18040.769,
+      "predicted_per_token_ms": 70.7481137254902,
+      "predicted_per_second": 14.134652464093964
+    }
+  }
+}

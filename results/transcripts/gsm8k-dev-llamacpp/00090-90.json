@@ -1,0 +1,58 @@
+{
+  "index": 90,
+  "task_id": 90,
+  "rendered_prompt_sha256": "9101940f75249a624b8806a335864c789010531f245c246cf8b14d466c238ef5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find how much a child eats.  \nAn adult eats 10 lbs, so a child eats half: 10 ÷ 2 = 5 lbs.\n\nNow calculate total:  \nAdults: 20 × 10 = 200 lbs  \nChildren: 5 × 5 = 25 lbs  \nTotal: 200 + 25 = 225 lbs\n\nAnswer: 225",
+  "expected": "225",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.507827899000404
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find how much a child eats.  \nAn adult eats 10 lbs, so a child eats half: 10 ÷ 2 = 5 lbs.\n\nNow calculate total:  \nAdults: 20 × 10 = 200 lbs  \nChildren: 5 × 5 = 25 lbs  \nTotal: 200 + 25 = 225 lbs\n\nAnswer: 225",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218301,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 80,
+      "prompt_tokens": 113,
+      "total_tokens": 193,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FPGgNhYTdzKn5pf1TCwBAeRzdeML6qdt",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 112,
+      "prompt_ms": 804.257,
+      "prompt_per_token_ms": 7.180866071428571,
+      "prompt_per_second": 139.2589682153839,
+      "predicted_n": 80,
+      "predicted_ms": 5688.827,
+      "predicted_per_token_ms": 71.1103375,
+      "predicted_per_second": 14.062652986283464
+    }
+  }
+}

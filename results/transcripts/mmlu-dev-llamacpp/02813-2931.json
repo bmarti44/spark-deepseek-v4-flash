@@ -1,0 +1,58 @@
+{
+  "index": 2813,
+  "task_id": 2931,
+  "rendered_prompt_sha256": "9e6991ea83cf95c6a0a6d35db1d8b345396c3bd1f2c2aa32161b6773fbdfa30f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The fluid that encases embryos of terrestrial vertebrates to prevent desiccation and injury is secreted by the **amnion**.\n\nAnswer: C",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.976940446000299
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The fluid that encases embryos of terrestrial vertebrates to prevent desiccation and injury is secreted by the **amnion**.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218741,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 28,
+      "prompt_tokens": 102,
+      "total_tokens": 130,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-TCgeZGrQkC0N5FuYnxpS91jmuSQkvOhN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 101,
+      "prompt_ms": 769.331,
+      "prompt_per_token_ms": 7.617138613861386,
+      "prompt_per_second": 131.28289383893278,
+      "predicted_n": 28,
+      "predicted_ms": 2195.4,
+      "predicted_per_token_ms": 78.40714285714286,
+      "predicted_per_second": 12.753940056481733
+    }
+  }
+}

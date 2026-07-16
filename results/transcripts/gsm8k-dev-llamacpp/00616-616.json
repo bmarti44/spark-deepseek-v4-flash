@@ -1,0 +1,58 @@
+{
+  "index": 616,
+  "task_id": 616,
+  "rendered_prompt_sha256": "db2be5f42a9653e5ee91596039a1d89f37eb9c3ad6a1d47f372d1d1dab6c117c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "After the first week: 3 inches.  \nSecond week: doubles → 3 × 2 = 6 inches.  \nThird week: grows another 4 inches → 6 + 4 = 10 inches.  \n\nAnswer: 10",
+  "expected": "10",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.2453221430005215
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "After the first week: 3 inches.  \nSecond week: doubles → 3 × 2 = 6 inches.  \nThird week: grows another 4 inches → 6 + 4 = 10 inches.  \n\nAnswer: 10",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217851,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 80,
+      "total_tokens": 131,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-dzokpTORm3M6fN3Qb8dUlJDFvXY662BR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 79,
+      "prompt_ms": 639.132,
+      "prompt_per_token_ms": 8.090278481012657,
+      "prompt_per_second": 123.60513947040675,
+      "predicted_n": 51,
+      "predicted_ms": 3582.773,
+      "predicted_per_token_ms": 70.25045098039216,
+      "predicted_per_second": 14.234784062512471
+    }
+  }
+}

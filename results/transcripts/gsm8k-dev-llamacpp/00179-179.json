@@ -1,0 +1,58 @@
+{
+  "index": 179,
+  "task_id": 179,
+  "rendered_prompt_sha256": "c728439e00a5bb751597c7d7807a2b341b10a8c5dfeafd309596c7d3ba8874cb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Lloyd earned $10 per hour.  \nFirst week: 5 hours × $10 = $50  \nSecond week: 8 hours × $10 = $80  \nTotal for two weeks: $50 + $80 = $130  \n\nAnswer: 130",
+  "expected": "130",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.37362590200064
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Lloyd earned $10 per hour.  \nFirst week: 5 hours × $10 = $50  \nSecond week: 8 hours × $10 = $80  \nTotal for two weeks: $50 + $80 = $130  \n\nAnswer: 130",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218389,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 71,
+      "total_tokens": 125,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-t2zyUsUFPh3OOHyRFfLkAu8c2oddDXd5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 70,
+      "prompt_ms": 610.685,
+      "prompt_per_token_ms": 8.724071428571428,
+      "prompt_per_second": 114.62537969657026,
+      "predicted_n": 54,
+      "predicted_ms": 3749.045,
+      "predicted_per_token_ms": 69.42675925925926,
+      "predicted_per_second": 14.403668134151497
+    }
+  }
+}

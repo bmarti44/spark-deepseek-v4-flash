@@ -1,0 +1,58 @@
+{
+  "index": 1261,
+  "task_id": 1261,
+  "rendered_prompt_sha256": "ba117dd09186e45666b5183458f149b8e5cb818f1cff1c96cc48f39e13da9ceb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's calculate the cost for one week first:\n\n- Blouses: 5 × $5.00 = $25.00  \n- Pants: 2 × $8.00 = $16.00  \n- Skirt: 1 × $6.00 = $6.00  \n\nTotal per week = $25 + $16 + $6 = $47.00  \n\nFor 5 weeks:  \n5 × $47.00 = $235.00  \n\nAnswer: 235",
+  "expected": "235",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.944464401000005
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's calculate the cost for one week first:\n\n- Blouses: 5 × $5.00 = $25.00  \n- Pants: 2 × $8.00 = $16.00  \n- Skirt: 1 × $6.00 = $6.00  \n\nTotal per week = $25 + $16 + $6 = $47.00  \n\nFor 5 weeks:  \n5 × $47.00 = $235.00  \n\nAnswer: 235",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218342,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 102,
+      "prompt_tokens": 106,
+      "total_tokens": 208,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cHPMeM4XvczN87FwuqS3XpN8wAvODdx3",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 105,
+      "prompt_ms": 792.03,
+      "prompt_per_token_ms": 7.543142857142857,
+      "prompt_per_second": 132.57073595697133,
+      "predicted_n": 102,
+      "predicted_ms": 7136.899,
+      "predicted_per_token_ms": 69.96959803921568,
+      "predicted_per_second": 14.291921463369453
+    }
+  }
+}

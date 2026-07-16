@@ -1,0 +1,58 @@
+{
+  "index": 314,
+  "task_id": 314,
+  "rendered_prompt_sha256": "edf91ba9b48c77545822a510ded0908a57bedca356f644b7a1bc1ed63f03c32c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s define the number of players on defense as \\( d \\).  \nThen offense has twice as many: \\( 2d \\).  \nSpecial teams has half of defense: \\( \\frac{d}{2} \\).  \n\nTotal players:  \n\\[\nd + 2d + \\frac{d}{2} = 105\n\\]  \n\\[\n3d + \\frac{d}{2} = 105\n\\]  \n\\[\n\\frac{6d + d}{2} = 105\n\\]  \n\\[\n\\frac{7d}{2} = 105\n\\]  \n\\[\n7d = 210\n\\]  \n\\[\nd = 30\n\\]  \n\nAnswer: 30",
+  "expected": "30",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.683771955000338
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s define the number of players on defense as \\( d \\).  \nThen offense has twice as many: \\( 2d \\).  \nSpecial teams has half of defense: \\( \\frac{d}{2} \\).  \n\nTotal players:  \n\\[\nd + 2d + \\frac{d}{2} = 105\n\\]  \n\\[\n3d + \\frac{d}{2} = 105\n\\]  \n\\[\n\\frac{6d + d}{2} = 105\n\\]  \n\\[\n\\frac{7d}{2} = 105\n\\]  \n\\[\n7d = 210\n\\]  \n\\[\nd = 30\n\\]  \n\nAnswer: 30",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218551,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 144,
+      "prompt_tokens": 81,
+      "total_tokens": 225,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-PlOGh6Y87FfezNzBlvxxlI2q8G89cGFD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 80,
+      "prompt_ms": 628.388,
+      "prompt_per_token_ms": 7.854850000000001,
+      "prompt_per_second": 127.30987861003074,
+      "predicted_n": 144,
+      "predicted_ms": 10052.322,
+      "predicted_per_token_ms": 69.80779166666667,
+      "predicted_per_second": 14.325048481335953
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 387,
+  "task_id": 387,
+  "rendered_prompt_sha256": "43ffc21dfc2328eaaa155b1c82a54cd8a736394e1d812842cf5ce8ead6766a1a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The cost for 6 erasers is 6 × 2 = 12 dollars.  \nThe cost for 8 pencils is 8 × 3 = 24 dollars.  \nTotal cost is 12 + 24 = 36 dollars.\n\nAnswer: 36",
+  "expected": "36",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.361738899999182
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The cost for 6 erasers is 6 × 2 = 12 dollars.  \nThe cost for 8 pencils is 8 × 3 = 24 dollars.  \nTotal cost is 12 + 24 = 36 dollars.\n\nAnswer: 36",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218475,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 55,
+      "prompt_tokens": 55,
+      "total_tokens": 110,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-uGC1PRcwgD4gKOHI14olMwxEaS14Mbjv",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 54,
+      "prompt_ms": 528.681,
+      "prompt_per_token_ms": 9.79038888888889,
+      "prompt_per_second": 102.14098861127977,
+      "predicted_n": 55,
+      "predicted_ms": 3829.257,
+      "predicted_per_token_ms": 69.62285454545454,
+      "predicted_per_second": 14.36309968226212
+    }
+  }
+}

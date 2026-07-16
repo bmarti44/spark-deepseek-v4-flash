@@ -1,0 +1,58 @@
+{
+  "index": 132,
+  "task_id": 132,
+  "rendered_prompt_sha256": "dcb6538e5b4ae2265197ee4a969e9a1d336aa271d0b3af2b8678da2db7751d98",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, Pam rode the roller coaster 2 times and Fred rode it 4 times.  \nThat's a total of 2 + 4 = 6 roller coaster rides.\n\nThen each of them rode the luge 2 times.  \nSo that's 2 (Pam) + 2 (Fred) = 4 luge rides.\n\nTotal rides = 6 + 4 = 10 rides.\n\nEach ride costs 6 tickets, so total tickets used = 10 × 6 = 60.\n\nAnswer: 60",
+  "expected": "60",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.405700844999956
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, Pam rode the roller coaster 2 times and Fred rode it 4 times.  \nThat's a total of 2 + 4 = 6 roller coaster rides.\n\nThen each of them rode the luge 2 times.  \nSo that's 2 (Pam) + 2 (Fred) = 4 luge rides.\n\nTotal rides = 6 + 4 = 10 rides.\n\nEach ride costs 6 tickets, so total tickets used = 10 × 6 = 60.\n\nAnswer: 60",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218219,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 110,
+      "prompt_tokens": 87,
+      "total_tokens": 197,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7hsvqxIIXpuVD7ROwdlDIPa9a75VV0rH",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 690.737,
+      "prompt_per_token_ms": 8.03182558139535,
+      "prompt_per_second": 124.50469570907597,
+      "predicted_n": 110,
+      "predicted_ms": 7701.469,
+      "predicted_per_token_ms": 70.01335454545455,
+      "predicted_per_second": 14.282989388128422
+    }
+  }
+}

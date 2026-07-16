@@ -1,0 +1,58 @@
+{
+  "index": 66,
+  "task_id": 66,
+  "rendered_prompt_sha256": "4a46bedf87ed95e1c438eea45f1729f78c93764197783f280977c4999577dbba",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- There are 4 schools.  \n- Each school sends a girls’ team and a boys’ team → that’s 2 teams per school.  \n- Each team has 5 players → so per school: \\(2 \\times 5 = 10\\) players.  \n- Each team also has 1 coach → so per school: \\(2\\) coaches.  \n\nTotal people per school: \\(10 + 2 = 12\\).  \n\nFor 4 schools: \\(4 \\times 12 = 48\\).\n\nAnswer: 48",
+  "expected": "48",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.017229645998668
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- There are 4 schools.  \n- Each school sends a girls’ team and a boys’ team → that’s 2 teams per school.  \n- Each team has 5 players → so per school: \\(2 \\times 5 = 10\\) players.  \n- Each team also has 1 coach → so per school: \\(2\\) coaches.  \n\nTotal people per school: \\(10 + 2 = 12\\).  \n\nFor 4 schools: \\(4 \\times 12 = 48\\).\n\nAnswer: 48",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217950,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 87,
+      "total_tokens": 205,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-G8BxLVTNoXDD0vSiowFUxGOEHEOdrDHW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 86,
+      "prompt_ms": 676.398,
+      "prompt_per_token_ms": 7.865093023255814,
+      "prompt_per_second": 127.14407789496717,
+      "predicted_n": 118,
+      "predicted_ms": 8334.862,
+      "predicted_per_token_ms": 70.63442372881356,
+      "predicted_per_second": 14.15740296599992
+    }
+  }
+}

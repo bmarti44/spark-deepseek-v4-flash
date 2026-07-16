@@ -1,0 +1,58 @@
+{
+  "index": 1191,
+  "task_id": 1191,
+  "rendered_prompt_sha256": "15f83fe6174404ab78532b23a905af3bc295d017fb7e8eb0af97a991562bb782",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "May's hair started at 10 inches and ended at 8 inches, so she had 2 inches cut off.  \nThe haircut cost is $30 per inch, so 2 inches cost \\(2 \\times 30 = 60\\) dollars.  \nThe color cost is $40.  \nTotal cost is \\(60 + 40 = 100\\) dollars.  \n\nAnswer: 100",
+  "expected": "100",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.413526475000253
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "May's hair started at 10 inches and ended at 8 inches, so she had 2 inches cut off.  \nThe haircut cost is $30 per inch, so 2 inches cost \\(2 \\times 30 = 60\\) dollars.  \nThe color cost is $40.  \nTotal cost is \\(60 + 40 = 100\\) dollars.  \n\nAnswer: 100",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218079,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 77,
+      "total_tokens": 158,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-H5FlB1NI0Ti5OvlrGstcO5QAlgtMqsCm",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 76,
+      "prompt_ms": 626.2,
+      "prompt_per_token_ms": 8.239473684210527,
+      "prompt_per_second": 121.36697540721812,
+      "predicted_n": 81,
+      "predicted_ms": 5783.756,
+      "predicted_per_token_ms": 71.4043950617284,
+      "predicted_per_second": 14.004740172303258
+    }
+  }
+}

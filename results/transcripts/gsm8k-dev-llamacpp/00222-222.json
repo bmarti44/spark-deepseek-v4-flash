@@ -1,0 +1,58 @@
+{
+  "index": 222,
+  "task_id": 222,
+  "rendered_prompt_sha256": "eca266edae44191c60cc922c6b4ff83f9a3e9739547ccf4275c14a842aad7402",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Andy plants 90 geraniums.  \nHe plants 40 fewer petunias than geraniums, so petunias = 90 - 40 = 50.  \nTotal flowers = 90 + 50 = 140.\n\nAnswer: 140",
+  "expected": "140",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.271585434000372
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Andy plants 90 geraniums.  \nHe plants 40 fewer petunias than geraniums, so petunias = 90 - 40 = 50.  \nTotal flowers = 90 + 50 = 140.\n\nAnswer: 140",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217888,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 56,
+      "total_tokens": 110,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-LeREUpy3bGHOgEfig4oUD2hC9TCGt8SD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 55,
+      "prompt_ms": 526.016,
+      "prompt_per_token_ms": 9.563927272727272,
+      "prompt_per_second": 104.55955712373769,
+      "predicted_n": 54,
+      "predicted_ms": 3740.48,
+      "predicted_per_token_ms": 69.26814814814814,
+      "predicted_per_second": 14.436649841731542
+    }
+  }
+}

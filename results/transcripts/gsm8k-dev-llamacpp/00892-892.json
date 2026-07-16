@@ -1,0 +1,58 @@
+{
+  "index": 892,
+  "task_id": 892,
+  "rendered_prompt_sha256": "77146498b5f2b626a0fc6321f8fc5ea238d62482dfdcb6214bc0c0038d730202",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Salad = $6  \n- Yogurt = half the price of salad = $6 ÷ 2 = $3  \n- Total for salad + yogurt = $6 + $3 = $9  \n- Total paid per day = $11  \n- So, cost for two carrots = $11 − $9 = $2  \n- Cost for one carrot = $2 ÷ 2 = $1  \n\nAnswer: 1",
+  "expected": "1",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.279502583000067
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Salad = $6  \n- Yogurt = half the price of salad = $6 ÷ 2 = $3  \n- Total for salad + yogurt = $6 + $3 = $9  \n- Total paid per day = $11  \n- So, cost for two carrots = $11 − $9 = $2  \n- Cost for one carrot = $2 ÷ 2 = $1  \n\nAnswer: 1",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218540,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 86,
+      "total_tokens": 180,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-QmrF6ApvPysDpGlnJbqwc2L7RAnblCK5",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 85,
+      "prompt_ms": 690.523,
+      "prompt_per_token_ms": 8.123800000000001,
+      "prompt_per_second": 123.09510327679163,
+      "predicted_n": 94,
+      "predicted_ms": 6575.942,
+      "predicted_per_token_ms": 69.95682978723404,
+      "predicted_per_second": 14.294529970002776
+    }
+  }
+}

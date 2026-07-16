@@ -1,0 +1,58 @@
+{
+  "index": 100,
+  "task_id": 100,
+  "rendered_prompt_sha256": "718fa9f0ee6a657fd2ce27c69962bbcf6ccc6734315fbd69489cee6c715f3087",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- First friend: 20 rings  \n- Second friend: 1/4 times more than the first friend  \n  That means 20 + (1/4 × 20) = 20 + 5 = 25 rings  \n- Fourth friend: 60 rings  \n- Third friend: 10 more than the fourth friend  \n  That means 60 + 10 = 70 rings  \n\nNow total rings:  \n20 + 25 + 70 + 60 = 175  \n\nAnswer: 175",
+  "expected": "175",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.930983105999985
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- First friend: 20 rings  \n- Second friend: 1/4 times more than the first friend  \n  That means 20 + (1/4 × 20) = 20 + 5 = 25 rings  \n- Fourth friend: 60 rings  \n- Third friend: 10 more than the fourth friend  \n  That means 60 + 10 = 70 rings  \n\nNow total rings:  \n20 + 25 + 70 + 60 = 175  \n\nAnswer: 175",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218210,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 115,
+      "prompt_tokens": 121,
+      "total_tokens": 236,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Qc5rdOkISiDpm3hJmc0JaptqULvbdsb6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 120,
+      "prompt_ms": 878.934,
+      "prompt_per_token_ms": 7.32445,
+      "prompt_per_second": 136.52902265699132,
+      "predicted_n": 115,
+      "predicted_ms": 8037.01,
+      "predicted_per_token_ms": 69.88704347826088,
+      "predicted_per_second": 14.30880389597624
+    }
+  }
+}

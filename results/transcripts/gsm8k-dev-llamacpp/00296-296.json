@@ -1,0 +1,58 @@
+{
+  "index": 296,
+  "task_id": 296,
+  "rendered_prompt_sha256": "8eedfbaad92b1037ddf9c1d714f4e8d5a48b9b00100a762df58fbf6181835386",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the daily rice consumption.  \nEach person eats 0.2 kg per meal.  \nThere are 2 meals per day (lunch and dinner) for 5 people.  \n\nDaily consumption = 5 people × 2 meals × 0.2 kg = 2 kg per day.  \n\nA 42 kg bag lasts:  \n42 kg ÷ 2 kg per day = 21 days.  \n\nConvert days to weeks:  \n21 days ÷ 7 days per week = 3 weeks.  \n\nAnswer: 3",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.37596110099912
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the daily rice consumption.  \nEach person eats 0.2 kg per meal.  \nThere are 2 meals per day (lunch and dinner) for 5 people.  \n\nDaily consumption = 5 people × 2 meals × 0.2 kg = 2 kg per day.  \n\nA 42 kg bag lasts:  \n42 kg ÷ 2 kg per day = 21 days.  \n\nConvert days to weeks:  \n21 days ÷ 7 days per week = 3 weeks.  \n\nAnswer: 3",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218351,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 111,
+      "prompt_tokens": 74,
+      "total_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fuflnexFZsOoqYPiMIYx7HxXyvTChwi0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 73,
+      "prompt_ms": 605.975,
+      "prompt_per_token_ms": 8.301027397260274,
+      "prompt_per_second": 120.46701596600519,
+      "predicted_n": 111,
+      "predicted_ms": 7754.988,
+      "predicted_per_token_ms": 69.86475675675676,
+      "predicted_per_second": 14.313368376585494
+    }
+  }
+}

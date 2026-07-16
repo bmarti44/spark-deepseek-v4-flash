@@ -1,0 +1,58 @@
+{
+  "index": 3304,
+  "task_id": 3425,
+  "rendered_prompt_sha256": "b5041cdbd49de868ae36cae6882c97ae2683ab57da7ac7db42e518d7b8476a9b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To determine whether the worm itself or contaminating bacteria produce the light, the most direct approach is to **isolate the light-producing organ and test it in isolation**. If the isolated organ continues to produce light without any bacteria present, that strongly suggests the worm is the source.  \n\nAnswer: A",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.6092919950006035
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To determine whether the worm itself or contaminating bacteria produce the light, the most direct approach is to **isolate the light-producing organ and test it in isolation**. If the isolated organ continues to produce light without any bacteria present, that strongly suggests the worm is the source.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218789,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 60,
+      "prompt_tokens": 227,
+      "total_tokens": 287,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-pilvcorR33O451eEgtIxGW5Ww1fwDNDe",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 226,
+      "prompt_ms": 1103.789,
+      "prompt_per_token_ms": 4.884022123893805,
+      "prompt_per_second": 204.74927726223038,
+      "predicted_n": 60,
+      "predicted_ms": 4489.058,
+      "predicted_per_token_ms": 74.81763333333333,
+      "predicted_per_second": 13.365833099059982
+    }
+  }
+}

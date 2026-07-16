@@ -1,0 +1,58 @@
+{
+  "index": 998,
+  "task_id": 998,
+  "rendered_prompt_sha256": "fe56466c995ccc3b490db97b545ed176fa68578c1f61ac6eb094826284e48041",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total number of cookies from the guests.  \n100 guests × 15 cookies each = 1500 cookies.\n\nThe bride gave half of these to the church.  \n1500 ÷ 2 = 750 cookies.\n\nEach person in the church got 15 cookies.  \n750 ÷ 15 = 50 people.\n\nAnswer: 50",
+  "expected": "50",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.818531291000909
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total number of cookies from the guests.  \n100 guests × 15 cookies each = 1500 cookies.\n\nThe bride gave half of these to the church.  \n1500 ÷ 2 = 750 cookies.\n\nEach person in the church got 15 cookies.  \n750 ÷ 15 = 50 people.\n\nAnswer: 50",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218307,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 105,
+      "total_tokens": 177,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Onic6ka9aLYUIHtRQRgbupwQ4Slj3GOl",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 104,
+      "prompt_ms": 777.804,
+      "prompt_per_token_ms": 7.478884615384615,
+      "prompt_per_second": 133.7097777846347,
+      "predicted_n": 72,
+      "predicted_ms": 5036.107,
+      "predicted_per_token_ms": 69.94593055555555,
+      "predicted_per_second": 14.296757396139519
+    }
+  }
+}

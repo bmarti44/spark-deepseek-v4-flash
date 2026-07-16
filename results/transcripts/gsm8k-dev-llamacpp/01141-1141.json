@@ -1,0 +1,58 @@
+{
+  "index": 1141,
+  "task_id": 1141,
+  "rendered_prompt_sha256": "6a3078f2d1bc0bbf24ba88991212a797bb6f54ea19f32350642b6a66ec7aecb4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, calculate the eggs for the first 30 days:  \n3 eggs/day × 30 days = 90 eggs  \n\nThen for the next 30 days:  \n5 eggs/day × 30 days = 150 eggs  \n\nTotal eggs:  \n90 + 150 = 240 eggs  \n\nNow convert eggs to dozens (1 dozen = 12 eggs):  \n240 ÷ 12 = 20 dozens  \n\nAnswer: 20",
+  "expected": "20",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.768282676999661
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, calculate the eggs for the first 30 days:  \n3 eggs/day × 30 days = 90 eggs  \n\nThen for the next 30 days:  \n5 eggs/day × 30 days = 150 eggs  \n\nTotal eggs:  \n90 + 150 = 240 eggs  \n\nNow convert eggs to dozens (1 dozen = 12 eggs):  \n240 ÷ 12 = 20 dozens  \n\nAnswer: 20",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218385,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 87,
+      "prompt_tokens": 69,
+      "total_tokens": 156,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-42PMvUawQcFgautliyqb7IZzQxIELCxN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 557.15,
+      "prompt_per_token_ms": 8.193382352941176,
+      "prompt_per_second": 122.04971731131653,
+      "predicted_n": 87,
+      "predicted_ms": 6208.728,
+      "predicted_per_token_ms": 71.36468965517241,
+      "predicted_per_second": 14.012532035547377
+    }
+  }
+}

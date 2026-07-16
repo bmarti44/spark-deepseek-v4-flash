@@ -1,0 +1,58 @@
+{
+  "index": 608,
+  "task_id": 608,
+  "rendered_prompt_sha256": "413a78be4047d6005277625570eabfb10b272fdb7bd3075369d94102f7a3a1ef",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total original price:  \n$25 + $35 = $60  \n\nThen apply the 30% off:  \n30% of $60 = $18 off  \n$60 - $18 = $42  \n\nJoe has $50, so after spending $42:  \n$50 - $42 = $8  \n\nAnswer: 8",
+  "expected": "8",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.762454698000511
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total original price:  \n$25 + $35 = $60  \n\nThen apply the 30% off:  \n30% of $60 = $18 off  \n$60 - $18 = $42  \n\nJoe has $50, so after spending $42:  \n$50 - $42 = $8  \n\nAnswer: 8",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217839,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 98,
+      "total_tokens": 170,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9czwx7WRhmwlXMRUziFJMbUz00pPDIUL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 97,
+      "prompt_ms": 720.176,
+      "prompt_per_token_ms": 7.424494845360825,
+      "prompt_per_second": 134.68929817155805,
+      "predicted_n": 72,
+      "predicted_ms": 5017.74,
+      "predicted_per_token_ms": 69.69083333333333,
+      "predicted_per_second": 14.349089430699879
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 259,
+  "task_id": 259,
+  "rendered_prompt_sha256": "34c6c6d1e95f749d173c59d0821d90ed3ab227c56baad475f6231c16a24e420e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Andrea has 52 apples.  \n2. Andrea has 8 more apples than Jamal, so Jamal has \\( 52 - 8 = 44 \\) apples.  \n3. Andrea has half as many bananas as Jamal. Let Jamal’s bananas be \\( b \\), then Andrea’s bananas are \\( \\frac{b}{2} \\).  \n4. Jamal has 4 more bananas than apples. He has 44 apples, so his bananas are \\( 44 + 4 = 48 \\).  \n5. So Jamal’s bananas \\( b = 48 \\), and Andrea’s bananas are \\( \\frac{48}{2} = 24 \\).\n\nNow total fruits:  \n- Andrea: 52 apples + 24 bananas = 76  \n- Jamal: 44 apples + 48 bananas = 92  \n\nTotal fruits = \\( 76 + 92 = 168 \\).\n\nAnswer: 168",
+  "expected": "168",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.237336128999232
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Andrea has 52 apples.  \n2. Andrea has 8 more apples than Jamal, so Jamal has \\( 52 - 8 = 44 \\) apples.  \n3. Andrea has half as many bananas as Jamal. Let Jamal’s bananas be \\( b \\), then Andrea’s bananas are \\( \\frac{b}{2} \\).  \n4. Jamal has 4 more bananas than apples. He has 44 apples, so his bananas are \\( 44 + 4 = 48 \\).  \n5. So Jamal’s bananas \\( b = 48 \\), and Andrea’s bananas are \\( \\frac{48}{2} = 24 \\).\n\nNow total fruits:  \n- Andrea: 52 apples + 24 bananas = 76  \n- Jamal: 44 apples + 48 bananas = 92  \n\nTotal fruits = \\( 76 + 92 = 168 \\).\n\nAnswer: 168",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218294,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 208,
+      "prompt_tokens": 69,
+      "total_tokens": 277,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-z8qtFlXoc8mGbFVLU91I7cr6JmMGiAaa",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 564.05,
+      "prompt_per_token_ms": 8.29485294117647,
+      "prompt_per_second": 120.55668823685845,
+      "predicted_n": 208,
+      "predicted_ms": 14660.871,
+      "predicted_per_token_ms": 70.48495673076923,
+      "predicted_per_second": 14.187424471574712
+    }
+  }
+}

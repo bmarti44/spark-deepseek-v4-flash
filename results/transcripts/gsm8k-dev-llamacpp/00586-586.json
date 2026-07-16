@@ -1,0 +1,58 @@
+{
+  "index": 586,
+  "task_id": 586,
+  "rendered_prompt_sha256": "a0ceb70fc796a469e6816ef4eb6df0aaa5decac1d6fe022be3aa48a2a62378c7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, calculate total calories burned:\n\n- Aerobics: 2 hours × 500 calories/hour = 1000 calories  \n- Running: 1 hour × 600 calories/hour = 600 calories  \n- Total: 1000 + 600 = 1600 calories\n\nShe needs 100 ml of water per 200 calories burned:\n\n1600 ÷ 200 = 8 servings  \n8 × 100 ml = 800 ml\n\nAnswer: 800",
+  "expected": "800",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.358003579000069
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, calculate total calories burned:\n\n- Aerobics: 2 hours × 500 calories/hour = 1000 calories  \n- Running: 1 hour × 600 calories/hour = 600 calories  \n- Total: 1000 + 600 = 1600 calories\n\nShe needs 100 ml of water per 200 calories burned:\n\n1600 ÷ 200 = 8 servings  \n8 × 100 ml = 800 ml\n\nAnswer: 800",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218329,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 95,
+      "prompt_tokens": 88,
+      "total_tokens": 183,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-gcoZU8AjalM4pPWRoU40UpaI7cRHLgz6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 696.742,
+      "prompt_per_token_ms": 8.008528735632183,
+      "prompt_per_second": 124.86688042345662,
+      "predicted_n": 95,
+      "predicted_ms": 6655.554,
+      "predicted_per_token_ms": 70.05846315789474,
+      "predicted_per_second": 14.273792985527574
+    }
+  }
+}

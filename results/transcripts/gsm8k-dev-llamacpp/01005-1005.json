@@ -1,0 +1,58 @@
+{
+  "index": 1005,
+  "task_id": 1005,
+  "rendered_prompt_sha256": "c0159bc1361f52700445e35327104286a976acafc0ad03b89187f168216672f8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n1. Total porcupines initially: 50  \n2. Fraction female: \\(\\frac{3}{5}\\)  \n   Number of females:  \n   \\[\n   \\frac{3}{5} \\times 50 = 30\n   \\]\n3. Each female gives birth to 4 babies per month.  \n   In one year (12 months), each female gives birth to:  \n   \\[\n   4 \\times 12 = 48 \\text{ babies}\n   \\]\n4. Total babies born in a year:  \n   \\[\n   30 \\times 48 = 1440\n   \\]\n5. Total porcupines after a year:  \n   Initial 50 + 1440 babies = 1490\n\nAnswer: 1490",
+  "expected": "1490",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.523699068000496
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n1. Total porcupines initially: 50  \n2. Fraction female: \\(\\frac{3}{5}\\)  \n   Number of females:  \n   \\[\n   \\frac{3}{5} \\times 50 = 30\n   \\]\n3. Each female gives birth to 4 babies per month.  \n   In one year (12 months), each female gives birth to:  \n   \\[\n   4 \\times 12 = 48 \\text{ babies}\n   \\]\n4. Total babies born in a year:  \n   \\[\n   30 \\times 48 = 1440\n   \\]\n5. Total porcupines after a year:  \n   Initial 50 + 1440 babies = 1490\n\nAnswer: 1490",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217995,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 168,
+      "prompt_tokens": 88,
+      "total_tokens": 256,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DsTd67YztGEbgpc8bpz1PHDYuJfc0HhL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 683.476,
+      "prompt_per_token_ms": 7.856045977011494,
+      "prompt_per_second": 127.29049739859191,
+      "predicted_n": 168,
+      "predicted_ms": 11837.776,
+      "predicted_per_token_ms": 70.46295238095237,
+      "predicted_per_second": 14.191854956539133
+    }
+  }
+}

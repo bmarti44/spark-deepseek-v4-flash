@@ -1,0 +1,58 @@
+{
+  "index": 454,
+  "task_id": 454,
+  "rendered_prompt_sha256": "74832f6a505cd395b39721caabd58fb83c5ca53e8394557a751bfb73cc8a27fd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Marin and Nancy each eat 4 apples a day, so together they eat 4 + 4 = 8 apples per day.  \nIn 30 days, they eat 8 × 30 = 240 apples.\n\nAnswer: 240",
+  "expected": "150",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='240' expected='150'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.064877585000431
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Marin and Nancy each eat 4 apples a day, so together they eat 4 + 4 = 8 apples per day.  \nIn 30 days, they eat 8 × 30 = 240 apples.\n\nAnswer: 240",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218108,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 51,
+      "prompt_tokens": 54,
+      "total_tokens": 105,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-xN4iSrR7QQye96NcqwUcrCCHlmAOVYv1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 53,
+      "prompt_ms": 522.5,
+      "prompt_per_token_ms": 9.858490566037736,
+      "prompt_per_second": 101.43540669856459,
+      "predicted_n": 51,
+      "predicted_ms": 3538.082,
+      "predicted_per_token_ms": 69.3741568627451,
+      "predicted_per_second": 14.414589599675756
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 709,
+  "task_id": 709,
+  "rendered_prompt_sha256": "73692b06d72b7d0bbe0ca2a6dae5d3a381f8006ec917f2d497a50b0991162373",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n**Chocolate ice cream:**  \nRate = 100 quarts per 2 hours → 50 quarts per hour.\n\n**Vanilla ice cream:**  \nRate = 50 quarts per 4 hours → 12.5 quarts per hour.\n\nIf both are made simultaneously for 48 hours:\n\n- Chocolate: 50 quarts/hour × 48 hours = 2,400 quarts  \n- Vanilla: 12.5 quarts/hour × 48 hours = 600 quarts  \n\nTotal = 2,400 + 600 = 3,000 quarts.\n\nAnswer: 3000",
+  "expected": "3000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.470873603000655
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n**Chocolate ice cream:**  \nRate = 100 quarts per 2 hours → 50 quarts per hour.\n\n**Vanilla ice cream:**  \nRate = 50 quarts per 4 hours → 12.5 quarts per hour.\n\nIf both are made simultaneously for 48 hours:\n\n- Chocolate: 50 quarts/hour × 48 hours = 2,400 quarts  \n- Vanilla: 12.5 quarts/hour × 48 hours = 600 quarts  \n\nTotal = 2,400 + 600 = 3,000 quarts.\n\nAnswer: 3000",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218370,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 126,
+      "prompt_tokens": 76,
+      "total_tokens": 202,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7wOHAMjd2ElpCwGqhq8Itp4ePzwYngOI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 75,
+      "prompt_ms": 615.183,
+      "prompt_per_token_ms": 8.20244,
+      "prompt_per_second": 121.91494238299822,
+      "predicted_n": 126,
+      "predicted_ms": 8851.825,
+      "predicted_per_token_ms": 70.25257936507937,
+      "predicted_per_second": 14.234352802953062
+    }
+  }
+}

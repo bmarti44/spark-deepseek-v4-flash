@@ -1,0 +1,59 @@
+{
+  "index": 480,
+  "task_id": 480,
+  "rendered_prompt_sha256": "9be2d2aaad2ce51bbcd447599a7e76757faa438a8d150f053616eee7a35525e8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\nBen has:\n- Blue paint: 4 tubes  \n- Yellow paint: 3 tubes  \n\nJasper has:\n- Blue paint: half of Ben’s blue → \\( \\frac{4}{2} = 2 \\) tubes  \n- Yellow paint: three times Ben’s yellow → \\( 3 \\times 3 = 9 \\) tubes  \n\nTotal for Jasper:  \n\\( 2 + 9 = 11 \\) tubes  \n\nAnswer: 11",
+  "expected": "11",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.921045566999965
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\nBen has:\n- Blue paint: 4 tubes  \n- Yellow paint: 3 tubes  \n\nJasper has:\n- Blue paint: half of Ben’s blue → \\( \\frac{4}{2} = 2 \\) tubes  \n- Yellow paint: three times Ben’s yellow → \\( 3 \\times 3 = 9 \\) tubes  \n\nTotal for Jasper:  \n\\( 2 + 9 = 11 \\) tubes  \n\nAnswer: 11",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218003,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 104,
+      "prompt_tokens": 78,
+      "total_tokens": 182,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1tPJZ66WprgftD1bKRK0OVsPCTIs0bCY",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 618.2,
+      "prompt_per_token_ms": 8.028571428571428,
+      "prompt_per_second": 124.55516014234874,
+      "predicted_n": 104,
+      "predicted_ms": 7298.793,
+      "predicted_per_token_ms": 70.18070192307692,
+      "predicted_per_second": 14.24893129590057
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Ben has 4 tubes of blue paint and 3 tubes of yellow paint. Jasper has half as many tubes of blue paint as Ben, and three times as many tubes of yellow paint as Ben. How many tubes of paint does Jasper have?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

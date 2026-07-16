@@ -100,7 +100,7 @@ def main() -> int:
                         print(f"{key}: missing field {field!r}", file=sys.stderr)
                         return 1
                     slim[field] = row[field]
-                stream.write(json.dumps(slim, ensure_ascii=False) + "\n")
+                stream.write(json.dumps(slim, ensure_ascii=True) + "\n")
         out_entries[PIN_KEYS[key]] = {
             "dataset": entry["repo"],
             "config": config,

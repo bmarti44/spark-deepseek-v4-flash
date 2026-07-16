@@ -1,0 +1,58 @@
+{
+  "index": 970,
+  "task_id": 970,
+  "rendered_prompt_sha256": "94c1a5a947846d7c2c71c80ff38a8c0443f5cd4abb55c0e8c033af508c85fc84",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Carlton's team has 13 players. Zeke's team has 7 more, so 13 + 7 = 20 players. Combined, that's 13 + 20 = 33 players.\n\nAnswer: 33",
+  "expected": "33",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.917052585999045
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Carlton's team has 13 players. Zeke's team has 7 more, so 13 + 7 = 20 players. Combined, that's 13 + 20 = 33 players.\n\nAnswer: 33",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218194,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 48,
+      "prompt_tokens": 62,
+      "total_tokens": 110,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bgYoClq02Oe6yinrTSRgzITmGV2tqoSf",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 61,
+      "prompt_ms": 547.726,
+      "prompt_per_token_ms": 8.97911475409836,
+      "prompt_per_second": 111.36955338983361,
+      "predicted_n": 48,
+      "predicted_ms": 3355.055,
+      "predicted_per_token_ms": 69.89697916666667,
+      "predicted_per_second": 14.30676993372687
+    }
+  }
+}

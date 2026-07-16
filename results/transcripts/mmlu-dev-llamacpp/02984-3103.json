@@ -1,0 +1,58 @@
+{
+  "index": 2984,
+  "task_id": 3103,
+  "rendered_prompt_sha256": "1aebb00f2d938a53388929f35385197b7e68191a7ef426459a2278d7630b77a4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Convergent evolution occurs when unrelated or distantly related organisms independently evolve similar traits due to similar environmental pressures, not because they share a recent common ancestor.  \n\nThe best example here is:  \n**H. The wings of an insect and the wings of a bird** — these are analogous structures, evolved separately for flight, not from a common winged ancestor.  \n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.6459291339997435
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Convergent evolution occurs when unrelated or distantly related organisms independently evolve similar traits due to similar environmental pressures, not because they share a recent common ancestor.  \n\nThe best example here is:  \n**H. The wings of an insect and the wings of a bird** — these are analogous structures, evolved separately for flight, not from a common winged ancestor.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218764,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 77,
+      "prompt_tokens": 180,
+      "total_tokens": 257,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-2NOjH7Vb28QdPPqbFxb8ywAN7DBcB9Aj",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 179,
+      "prompt_ms": 944.429,
+      "prompt_per_token_ms": 5.276139664804469,
+      "prompt_per_second": 189.53251117871224,
+      "predicted_n": 77,
+      "predicted_ms": 5692.248,
+      "predicted_per_token_ms": 73.9252987012987,
+      "predicted_per_second": 13.527168879500683
+    }
+  }
+}

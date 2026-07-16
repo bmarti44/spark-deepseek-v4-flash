@@ -1,0 +1,58 @@
+{
+  "index": 1214,
+  "task_id": 1214,
+  "rendered_prompt_sha256": "cade79e17ff896d9b185736dfac9e864b7d110ec6f91be863292fde02a66382e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, find the total number of diaper changes per day for both children:\n\n2 children × 5 changes each = 10 total diaper changes per day.\n\nJordan’s wife changes half of them:\n\nHalf of 10 = 5 changes by wife.\n\nSo Jordan changes the other half:\n\n10 − 5 = 5 changes.\n\nAnswer: 5",
+  "expected": "5",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.836101756000062
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, find the total number of diaper changes per day for both children:\n\n2 children × 5 changes each = 10 total diaper changes per day.\n\nJordan’s wife changes half of them:\n\nHalf of 10 = 5 changes by wife.\n\nSo Jordan changes the other half:\n\n10 − 5 = 5 changes.\n\nAnswer: 5",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217785,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 72,
+      "total_tokens": 144,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WlOVFuXtN6royfoSTdkoRNWADuGFIVE8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 71,
+      "prompt_ms": 631.804,
+      "prompt_per_token_ms": 8.898647887323943,
+      "prompt_per_second": 112.37662312995803,
+      "predicted_n": 72,
+      "predicted_ms": 5191.877,
+      "predicted_per_token_ms": 72.10940277777779,
+      "predicted_per_second": 13.867816976403716
+    }
+  }
+}

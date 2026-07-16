@@ -1,0 +1,58 @@
+{
+  "index": 3341,
+  "task_id": 3462,
+  "rendered_prompt_sha256": "9c4e0edd76f7262a966eae5187019dd0046cd72e3e0798f2e73efb176a21b3fc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Sodium citrate binds calcium ions, which are necessary for the blood clotting cascade. By removing calcium, citrate prevents coagulation, keeping the blood in a liquid state for storage or transfusion.\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.9620965079993766
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Sodium citrate binds calcium ions, which are necessary for the blood clotting cascade. By removing calcium, citrate prevents coagulation, keeping the blood in a liquid state for storage or transfusion.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218793,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 192,
+      "total_tokens": 232,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-U9wuXVVuobtVjd9ROQ33ekpDr4BoWOU4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 191,
+      "prompt_ms": 979.069,
+      "prompt_per_token_ms": 5.126015706806283,
+      "prompt_per_second": 195.08328830756565,
+      "predicted_n": 40,
+      "predicted_ms": 2968.493,
+      "predicted_per_token_ms": 74.21232499999999,
+      "predicted_per_second": 13.474850707075948
+    }
+  }
+}

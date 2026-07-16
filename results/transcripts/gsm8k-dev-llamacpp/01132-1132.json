@@ -1,0 +1,59 @@
+{
+  "index": 1132,
+  "task_id": 1132,
+  "rendered_prompt_sha256": "c598937e361985ddbf4051b4439a4c74b20cfd9277ee43383dd790e448fc6acf",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. Valerie earns $5000 per month.  \n2. That is half of what her brother earns, so her brother earns:  \n   \\( 5000 \\times 2 = 10000 \\) per month.  \n3. Their combined salary:  \n   \\( 5000 + 10000 = 15000 \\).  \n4. Their mother earns twice their combined salary:  \n   \\( 2 \\times 15000 = 30000 \\).  \n5. Total amount all three have together:  \n   \\( 5000 + 10000 + 30000 = 45000 \\).\n\nAnswer: 45000",
+  "expected": "45000",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.576938288999372
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. Valerie earns $5000 per month.  \n2. That is half of what her brother earns, so her brother earns:  \n   \\( 5000 \\times 2 = 10000 \\) per month.  \n3. Their combined salary:  \n   \\( 5000 + 10000 = 15000 \\).  \n4. Their mother earns twice their combined salary:  \n   \\( 2 \\times 15000 = 30000 \\).  \n5. Total amount all three have together:  \n   \\( 5000 + 10000 + 30000 = 45000 \\).\n\nAnswer: 45000",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217879,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 141,
+      "prompt_tokens": 69,
+      "total_tokens": 210,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-THn0BmCjO3hykLcHUJj0o0RoYhshrLZ4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 68,
+      "prompt_ms": 562.886,
+      "prompt_per_token_ms": 8.277735294117647,
+      "prompt_per_second": 120.80598913456723,
+      "predicted_n": 141,
+      "predicted_ms": 10000.477,
+      "predicted_per_token_ms": 70.92536879432625,
+      "predicted_per_second": 14.099327462080057
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Valerie earns $5000 per month, 1/2 of what her brother earns. If their mother earns twice their combined salary, what's the total amount of money they all have together?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

@@ -1,0 +1,58 @@
+{
+  "index": 672,
+  "task_id": 672,
+  "rendered_prompt_sha256": "1d8c9709d7c332f7c5bea81b434139d256bb6e84fc299e370528c5fc2b9a32c2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down step by step.\n\n- Total days: 30  \n- Good days total: 12  \n- Bad days total: 8  \n- Neutral days total: 30 - (12 + 8) = 10  \n\nNow, the description says:  \n- First 8 days: good  \n- Second 8 days: bad  \n- Third 8 days: neutral  \n\nThat accounts for 8 + 8 + 8 = 24 days.  \nSo days 25–30 are the remaining 6 days.\n\nWe are told the next three days (days 25, 26, 27) are: good, neutral, good.  \nSo from the remaining 6 days, we've used:  \n- Good: 2  \n- Neutral: 1  \n\nNow, total good days originally = 12.  \nGood days already used in first 8 days = 8.  \nGood days used in days 25–27 = 2.  \nTotal good days used so far = 8 + 2 = 10.  \n\nGood days left = 12 - 10 = 2.\n\nAnswer: 2",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.572931810000227
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down step by step.\n\n- Total days: 30  \n- Good days total: 12  \n- Bad days total: 8  \n- Neutral days total: 30 - (12 + 8) = 10  \n\nNow, the description says:  \n- First 8 days: good  \n- Second 8 days: bad  \n- Third 8 days: neutral  \n\nThat accounts for 8 + 8 + 8 = 24 days.  \nSo days 25–30 are the remaining 6 days.\n\nWe are told the next three days (days 25, 26, 27) are: good, neutral, good.  \nSo from the remaining 6 days, we've used:  \n- Good: 2  \n- Neutral: 1  \n\nNow, total good days originally = 12.  \nGood days already used in first 8 days = 8.  \nGood days used in days 25–27 = 2.  \nTotal good days used so far = 8 + 2 = 10.  \n\nGood days left = 12 - 10 = 2.\n\nAnswer: 2",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217869,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 237,
+      "prompt_tokens": 108,
+      "total_tokens": 345,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-a5QdOai0fZYJYrmqTtts5GOkcnhQEuiv",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 107,
+      "prompt_ms": 780.72,
+      "prompt_per_token_ms": 7.296448598130842,
+      "prompt_per_second": 137.05297673942002,
+      "predicted_n": 237,
+      "predicted_ms": 16786.287,
+      "predicted_per_token_ms": 70.82821518987342,
+      "predicted_per_second": 14.118667219260578
+    }
+  }
+}

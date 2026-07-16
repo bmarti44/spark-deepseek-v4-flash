@@ -1,0 +1,58 @@
+{
+  "index": 57,
+  "task_id": 57,
+  "rendered_prompt_sha256": "1a4f782252f1178fc39ee149a6b0c1d790624fe72ebcf9ac3c6941e6e6aa6c4f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find the maximum number of boxes that can be added without exceeding 5000 pounds total.\n\nThe truck and driver weigh 3755 pounds.  \nEach box weighs 15 pounds.\n\nLet \\( n \\) be the number of boxes.  \nTotal weight = \\( 3755 + 15n \\).\n\nWe need:  \n\\[\n3755 + 15n \\leq 5000\n\\]\n\nSubtract 3755:  \n\\[\n15n \\leq 1245\n\\]\n\nDivide by 15:  \n\\[\nn \\leq 83\n\\]\n\nSince \\( n \\) must be an integer, the maximum is 83.\n\nAnswer: 83",
+  "expected": "83",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.231104794000203
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to find the maximum number of boxes that can be added without exceeding 5000 pounds total.\n\nThe truck and driver weigh 3755 pounds.  \nEach box weighs 15 pounds.\n\nLet \\( n \\) be the number of boxes.  \nTotal weight = \\( 3755 + 15n \\).\n\nWe need:  \n\\[\n3755 + 15n \\leq 5000\n\\]\n\nSubtract 3755:  \n\\[\n15n \\leq 1245\n\\]\n\nDivide by 15:  \n\\[\nn \\leq 83\n\\]\n\nSince \\( n \\) must be an integer, the maximum is 83.\n\nAnswer: 83",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217795,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 135,
+      "prompt_tokens": 101,
+      "total_tokens": 236,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vF5f5WtyVRE7nK2NkYGYFDAvuU7HhfJK",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 100,
+      "prompt_ms": 723.642,
+      "prompt_per_token_ms": 7.236420000000001,
+      "prompt_per_second": 138.18987842054494,
+      "predicted_n": 135,
+      "predicted_ms": 9486.326,
+      "predicted_per_token_ms": 70.26908148148148,
+      "predicted_per_second": 14.231009982157477
+    }
+  }
+}

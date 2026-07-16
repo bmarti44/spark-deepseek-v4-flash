@@ -1,0 +1,58 @@
+{
+  "index": 35,
+  "task_id": 35,
+  "rendered_prompt_sha256": "33e0babec68717e9631649ccffd6bea01e940edbe0ca678af69d0d091f20db78",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First 20 minutes: 4 points.  \nSecond 20 minutes: 25% more than 4 points.  \n25% of 4 is 1, so second period = 4 + 1 = 5 points.  \nTotal = 4 + 5 = 9 points.\n\nAnswer: 9",
+  "expected": "9",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.240841746001024
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First 20 minutes: 4 points.  \nSecond 20 minutes: 25% more than 4 points.  \n25% of 4 is 1, so second period = 4 + 1 = 5 points.  \nTotal = 4 + 5 = 9 points.\n\nAnswer: 9",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218533,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 66,
+      "prompt_tokens": 78,
+      "total_tokens": 144,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Z0kBW5xRte8gewa11U362tM7p1AdXvjQ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 77,
+      "prompt_ms": 623.758,
+      "prompt_per_token_ms": 8.100753246753246,
+      "prompt_per_second": 123.44531052106746,
+      "predicted_n": 66,
+      "predicted_ms": 4603.092,
+      "predicted_per_token_ms": 69.74381818181817,
+      "predicted_per_second": 14.338188330800255
+    }
+  }
+}

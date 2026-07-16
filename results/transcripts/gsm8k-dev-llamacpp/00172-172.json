@@ -1,0 +1,59 @@
+{
+  "index": 172,
+  "task_id": 172,
+  "rendered_prompt_sha256": "bbef4ed1b7d1fa64e2892bd072c45bcfacf27d47e329bca3a25b7531b8bde79e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Sally Thirtytwo is 8 years old.  \n- Sally Four is the same age as Sally Thirtytwo, so Sally Four is also 8.  \n- Granny Red is two times as old as Sally Four:  \n  Granny Red = 2 × 8 = 16.  \n- Sally Two is three years older than Granny Red:  \n  Sally Two = 16 + 3 = 19.  \n\nNow the four birds are:  \n- Sally Two: 19  \n- Granny Red: 16  \n- Sally Four: 8  \n- Sally Thirtytwo: 8  \n\nTotal age = 19 + 16 + 8 + 8 = 51  \n\nAnswer: 51",
+  "expected": "51",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.761360100001184
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Sally Thirtytwo is 8 years old.  \n- Sally Four is the same age as Sally Thirtytwo, so Sally Four is also 8.  \n- Granny Red is two times as old as Sally Four:  \n  Granny Red = 2 × 8 = 16.  \n- Sally Two is three years older than Granny Red:  \n  Sally Two = 16 + 3 = 19.  \n\nNow the four birds are:  \n- Sally Two: 19  \n- Granny Red: 16  \n- Sally Four: 8  \n- Sally Thirtytwo: 8  \n\nTotal age = 19 + 16 + 8 + 8 = 51  \n\nAnswer: 51",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218066,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 93,
+      "total_tokens": 251,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KmEmg73JH7k7GZWlBclW2Hxh0thHGwve",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 92,
+      "prompt_ms": 707.415,
+      "prompt_per_token_ms": 7.689293478260869,
+      "prompt_per_second": 130.0509601860294,
+      "predicted_n": 158,
+      "predicted_ms": 11050.878,
+      "predicted_per_token_ms": 69.94226582278482,
+      "predicted_per_second": 14.297506496768854
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>There are four birds at the Caboose. Sally Two is three years older than Granny Red. Granny Red is two times as old as Sally Four. If Sally Four is the same age as Sally Thirtytwo, and Sally Thirtytwo is 8 years old, what's the total age of the four birds?\n\nThink briefly if needed, then end with the final numeric answer on its own line in the form: Answer: <number><｜Assistant｜></think>"
+}

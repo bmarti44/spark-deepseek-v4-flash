@@ -1,0 +1,58 @@
+{
+  "index": 811,
+  "task_id": 811,
+  "rendered_prompt_sha256": "eb2d814e76846d22a3c8b59c2895d61763df197c1ecd2f9cc2268160cd585db3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, we need to figure out how many branches Felix climbed in total.  \nHe earns $0.25 per branch, and he made $105 total.  \n\nTotal branches = 105 ÷ 0.25 = 420 branches.  \n\nAssuming the week has 7 days, the average per day is:  \n420 ÷ 7 = 60 branches per day.  \n\nAnswer: 60",
+  "expected": "60",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.575538434000919
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, we need to figure out how many branches Felix climbed in total.  \nHe earns $0.25 per branch, and he made $105 total.  \n\nTotal branches = 105 ÷ 0.25 = 420 branches.  \n\nAssuming the week has 7 days, the average per day is:  \n420 ÷ 7 = 60 branches per day.  \n\nAnswer: 60",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218527,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 108,
+      "total_tokens": 189,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vPatzBvuAIZS5OPs2JLhMSsxCp03kafo",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 107,
+      "prompt_ms": 804.861,
+      "prompt_per_token_ms": 7.522065420560748,
+      "prompt_per_second": 132.94220989711266,
+      "predicted_n": 81,
+      "predicted_ms": 5752.176,
+      "predicted_per_token_ms": 71.01451851851853,
+      "predicted_per_second": 14.081627544080709
+    }
+  }
+}

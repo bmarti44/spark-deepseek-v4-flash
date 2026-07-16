@@ -1,0 +1,58 @@
+{
+  "index": 3288,
+  "task_id": 3409,
+  "rendered_prompt_sha256": "a9d014bfc2e7eb38c045aa248a58a6e63c24f4c9ad2543845338725b0dfba657",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is based on the fact that in humans, the presence of the Y chromosome (specifically the SRY gene on it) triggers male development, while its absence leads to female development.  \n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.330527348000032
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is based on the fact that in humans, the presence of the Y chromosome (specifically the SRY gene on it) triggers male development, while its absence leads to female development.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218783,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 45,
+      "prompt_tokens": 205,
+      "total_tokens": 250,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-4gGk35puHFZs7ZtIfeYmmPgvpRNYRnZD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 204,
+      "prompt_ms": 1062.071,
+      "prompt_per_token_ms": 5.206230392156862,
+      "prompt_per_second": 192.07755413715282,
+      "predicted_n": 45,
+      "predicted_ms": 3254.39,
+      "predicted_per_token_ms": 72.31977777777777,
+      "predicted_per_second": 13.827476116875973
+    }
+  }
+}

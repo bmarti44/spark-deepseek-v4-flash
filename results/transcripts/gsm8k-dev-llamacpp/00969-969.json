@@ -1,0 +1,58 @@
+{
+  "index": 969,
+  "task_id": 969,
+  "rendered_prompt_sha256": "aab8b37f49ddc0be1865cba1a208a3a85ce921ead20b5eb8e5b38cc72cbb8f2e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "John buys phones for himself, his 2 kids, and his wife — that’s 4 phones total.  \nThe first 2 phones are full price ($600 each), and each phone after the first 2 is half price ($300 each).\n\nSo:  \n- First 2 phones: 2 × $600 = $1,200  \n- Next 2 phones: 2 × $300 = $600  \nTotal: $1,200 + $600 = $1,800\n\nAnswer: 1800",
+  "expected": "1800",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.10324907499853
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "John buys phones for himself, his 2 kids, and his wife — that’s 4 phones total.  \nThe first 2 phones are full price ($600 each), and each phone after the first 2 is half price ($300 each).\n\nSo:  \n- First 2 phones: 2 × $600 = $1,200  \n- Next 2 phones: 2 × $300 = $600  \nTotal: $1,200 + $600 = $1,800\n\nAnswer: 1800",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218232,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 107,
+      "prompt_tokens": 76,
+      "total_tokens": 183,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-xWwDAZYtZyupqYXqG6V94E0EkCHV8AmU",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 75,
+      "prompt_ms": 627.579,
+      "prompt_per_token_ms": 8.367719999999998,
+      "prompt_per_second": 119.50686686457004,
+      "predicted_n": 107,
+      "predicted_ms": 7472.709,
+      "predicted_per_token_ms": 69.83840186915887,
+      "predicted_per_second": 14.318769806237604
+    }
+  }
+}

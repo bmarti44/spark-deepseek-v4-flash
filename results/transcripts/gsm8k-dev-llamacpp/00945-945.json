@@ -1,0 +1,58 @@
+{
+  "index": 945,
+  "task_id": 945,
+  "rendered_prompt_sha256": "3989e437618e36e3f1fa2c1839ecb1a9c71c52fd463cea352a6ecb900a572cd7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n**Step 1: Distance and speed for the first part**  \nTotal distance = 20 miles.  \nHe swims 60% of that first:  \n0.6 × 20 = 12 miles at 2 mph.  \nTime for first part = 12 / 2 = 6 hours.\n\n**Step 2: Rest time**  \nRest is half as long as swimming time so far:  \nRest = 6 / 2 = 3 hours.\n\n**Step 3: Remaining distance**  \nRemaining distance = 20 - 12 = 8 miles.  \nHe swims this at half the speed: 2 / 2 = 1 mph.  \nTime for second part = 8 / 1 = 8 hours.\n\n**Step 4: Total time**  \nTotal = 6 (swim) + 3 (rest) + 8 (swim) = 17 hours.\n\nAnswer: 17",
+  "expected": "17",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 15.431632639001691
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n**Step 1: Distance and speed for the first part**  \nTotal distance = 20 miles.  \nHe swims 60% of that first:  \n0.6 × 20 = 12 miles at 2 mph.  \nTime for first part = 12 / 2 = 6 hours.\n\n**Step 2: Rest time**  \nRest is half as long as swimming time so far:  \nRest = 6 / 2 = 3 hours.\n\n**Step 3: Remaining distance**  \nRemaining distance = 20 - 12 = 8 miles.  \nHe swims this at half the speed: 2 / 2 = 1 mph.  \nTime for second part = 8 / 1 = 8 hours.\n\n**Step 4: Total time**  \nTotal = 6 (swim) + 3 (rest) + 8 (swim) = 17 hours.\n\nAnswer: 17",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217904,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 207,
+      "prompt_tokens": 116,
+      "total_tokens": 323,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rntfu0U3btSbwQMa3S3vCRQCt419f4Uu",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 115,
+      "prompt_ms": 790.822,
+      "prompt_per_token_ms": 6.876713043478261,
+      "prompt_per_second": 145.41831157959692,
+      "predicted_n": 207,
+      "predicted_ms": 14623.86,
+      "predicted_per_token_ms": 70.64666666666668,
+      "predicted_per_second": 14.154949514013401
+    }
+  }
+}

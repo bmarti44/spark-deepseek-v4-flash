@@ -1,0 +1,58 @@
+{
+  "index": 770,
+  "task_id": 770,
+  "rendered_prompt_sha256": "d43e9115cdedfdbeb8abc14e02c00b3761bd8c6e009e672d9b650ca1ab453209",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- They have 4 vanilla scents, and sell 5 of each:  \n  Vanilla sales = 4 × 5 = 20\n\n- They have 8 fruity scents, and sell 2 of each:  \n  Fruity sales = 8 × 2 = 16\n\nDifference: 20 − 16 = 4\n\nAnswer: 4",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.01123403100064
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- They have 4 vanilla scents, and sell 5 of each:  \n  Vanilla sales = 4 × 5 = 20\n\n- They have 8 fruity scents, and sell 2 of each:  \n  Fruity sales = 8 × 2 = 16\n\nDifference: 20 − 16 = 4\n\nAnswer: 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218073,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 87,
+      "prompt_tokens": 137,
+      "total_tokens": 224,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-boaFLkxSNGmWOO81VdcOWVTHeRRFLOey",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 136,
+      "prompt_ms": 822.463,
+      "prompt_per_token_ms": 6.047522058823529,
+      "prompt_per_second": 165.35698262414238,
+      "predicted_n": 87,
+      "predicted_ms": 6170.828,
+      "predicted_per_token_ms": 70.92905747126437,
+      "predicted_per_second": 14.098594224308309
+    }
+  }
+}

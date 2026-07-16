@@ -1,0 +1,58 @@
+{
+  "index": 537,
+  "task_id": 537,
+  "rendered_prompt_sha256": "e52fa768d202c7ef3886f263e902707df12d289feb75338e5a4e6a2e63e19143",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step by step.\n\n- First book: 31 mm  \n- Second book: 50 mm  \n- Third book: 5 mm less than the second → 50 − 5 = 45 mm  \n- Fourth book: twice as thick as the first → 2 × 31 = 62 mm  \n\nNow sum them:  \n31 + 50 + 45 + 62 = 188 mm  \n\nAnswer: 188",
+  "expected": "188",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.126250346998859
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step by step.\n\n- First book: 31 mm  \n- Second book: 50 mm  \n- Third book: 5 mm less than the second → 50 − 5 = 45 mm  \n- Fourth book: twice as thick as the first → 2 × 31 = 62 mm  \n\nNow sum them:  \n31 + 50 + 45 + 62 = 188 mm  \n\nAnswer: 188",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218095,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 92,
+      "prompt_tokens": 92,
+      "total_tokens": 184,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-YErOq5kN5vkfjasI3dPA8X2YGiyviGiN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 91,
+      "prompt_ms": 686.943,
+      "prompt_per_token_ms": 7.548824175824175,
+      "prompt_per_second": 132.47096192842784,
+      "predicted_n": 92,
+      "predicted_ms": 6436.078,
+      "predicted_per_token_ms": 69.95736956521739,
+      "predicted_per_second": 14.294419676082233
+    }
+  }
+}

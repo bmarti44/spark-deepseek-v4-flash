@@ -1,0 +1,58 @@
+{
+  "index": 107,
+  "task_id": 107,
+  "rendered_prompt_sha256": "54da603140ba26ab0fe863958e8829757b3e2670a837f472e65552343207cf4b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- **Monday**: 1 hour  \n- **Tuesday**: 1 hour  \n- **Wednesday**: some number of 30-minute episodes (let’s call it \\( x \\))  \n- **Thursday**: 1 hour + 30 minutes = 1.5 hours  \n- **Friday**: 2 hours  \n\nTotal hours from Monday, Tuesday, Thursday, Friday:  \n\\( 1 + 1 + 1.5 + 2 = 5.5 \\) hours  \n\nHe watched 7 hours total, so Wednesday’s time is:  \n\\( 7 - 5.5 = 1.5 \\) hours  \n\nSince each episode on Wednesday is 0.5 hours:  \n\\( 1.5 \\div 0.5 = 3 \\) episodes  \n\nAnswer: 3",
+  "expected": "3",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.897658055000647
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- **Monday**: 1 hour  \n- **Tuesday**: 1 hour  \n- **Wednesday**: some number of 30-minute episodes (let’s call it \\( x \\))  \n- **Thursday**: 1 hour + 30 minutes = 1.5 hours  \n- **Friday**: 2 hours  \n\nTotal hours from Monday, Tuesday, Thursday, Friday:  \n\\( 1 + 1 + 1.5 + 2 = 5.5 \\) hours  \n\nHe watched 7 hours total, so Wednesday’s time is:  \n\\( 7 - 5.5 = 1.5 \\) hours  \n\nSince each episode on Wednesday is 0.5 hours:  \n\\( 1.5 \\div 0.5 = 3 \\) episodes  \n\nAnswer: 3",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218430,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 170,
+      "prompt_tokens": 141,
+      "total_tokens": 311,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9xmAsSUFdJuwmW9YoeBSWtlQeyS8y2zg",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 140,
+      "prompt_ms": 798.591,
+      "prompt_per_token_ms": 5.7042214285714286,
+      "prompt_per_second": 175.30876255805538,
+      "predicted_n": 170,
+      "predicted_ms": 12083.485,
+      "predicted_per_token_ms": 71.07932352941177,
+      "predicted_per_second": 14.068788929683778
+    }
+  }
+}

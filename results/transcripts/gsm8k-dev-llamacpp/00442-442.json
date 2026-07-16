@@ -1,0 +1,58 @@
+{
+  "index": 442,
+  "task_id": 442,
+  "rendered_prompt_sha256": "8e9fa3609d9874d46ea83219d770c902777db2532b84289e70e7264d822a6f17",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n1. **Starting temperature**: 40 degrees.  \n2. **Baking for 3 hours**: Each hour raises the temperature by 5 degrees.  \n   - Total increase = \\( 3 \\times 5 = 15 \\) degrees.  \n   - Temperature after baking: \\( 40 + 15 = 55 \\) degrees.  \n\n3. **Opening the window for 30 minutes**: It cools 2 degrees every 10 minutes.  \n   - In 30 minutes, that’s \\( 30 \\div 10 = 3 \\) intervals.  \n   - Total cooling = \\( 3 \\times 2 = 6 \\) degrees.  \n   - Final temperature: \\( 55 - 6 = 49 \\) degrees.  \n\nAnswer: 49",
+  "expected": "49",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.656065693001437
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n1. **Starting temperature**: 40 degrees.  \n2. **Baking for 3 hours**: Each hour raises the temperature by 5 degrees.  \n   - Total increase = \\( 3 \\times 5 = 15 \\) degrees.  \n   - Temperature after baking: \\( 40 + 15 = 55 \\) degrees.  \n\n3. **Opening the window for 30 minutes**: It cools 2 degrees every 10 minutes.  \n   - In 30 minutes, that’s \\( 30 \\div 10 = 3 \\) intervals.  \n   - Total cooling = \\( 3 \\times 2 = 6 \\) degrees.  \n   - Final temperature: \\( 55 - 6 = 49 \\) degrees.  \n\nAnswer: 49",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218262,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 168,
+      "prompt_tokens": 102,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-frYhtbuxeZZMc6e896IRoemYigmJhzYy",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 101,
+      "prompt_ms": 757.294,
+      "prompt_per_token_ms": 7.497960396039604,
+      "prompt_per_second": 133.36960282268183,
+      "predicted_n": 168,
+      "predicted_ms": 11883.184,
+      "predicted_per_token_ms": 70.7332380952381,
+      "predicted_per_second": 14.13762506749033
+    }
+  }
+}

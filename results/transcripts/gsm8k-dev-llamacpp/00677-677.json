@@ -1,0 +1,58 @@
+{
+  "index": 677,
+  "task_id": 677,
+  "rendered_prompt_sha256": "faeaa0476a8c55ea519dfedde01d8c33c05679d4a8b0676cba3aefcd277356d3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Carol has 20 signatures.  \n- Jennifer has 44 signatures.  \n- Together they have:  \n  20 + 44 = 64 signatures.\n\nThey want a total of 100 signatures between them.  \nSo they need:  \n100 − 64 = 36 more signatures.\n\nAnswer: 36",
+  "expected": "36",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.861629278000692
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Carol has 20 signatures.  \n- Jennifer has 44 signatures.  \n- Together they have:  \n  20 + 44 = 64 signatures.\n\nThey want a total of 100 signatures between them.  \nSo they need:  \n100 − 64 = 36 more signatures.\n\nAnswer: 36",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218164,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 71,
+      "prompt_tokens": 141,
+      "total_tokens": 212,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-2Ruqmt7ktzeorFbGpZU7hYErvMtZgncR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 140,
+      "prompt_ms": 838.496,
+      "prompt_per_token_ms": 5.989257142857142,
+      "prompt_per_second": 166.96561462427968,
+      "predicted_n": 71,
+      "predicted_ms": 5009.815,
+      "predicted_per_token_ms": 70.56077464788731,
+      "predicted_per_second": 14.172180010639117
+    }
+  }
+}

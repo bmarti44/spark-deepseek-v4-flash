@@ -1,0 +1,58 @@
+{
+  "index": 921,
+  "task_id": 921,
+  "rendered_prompt_sha256": "a3cb6c2f0284604ed773e938b3f1a663efcb062ba3915b4e7fc985ac0e8044a6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's break it down:\n\n- Abby eats 2 slices per day.  \n- Josh eats twice as much as Abby, so Josh eats \\(2 \\times 2 = 4\\) slices per day.  \n- Together, they eat \\(2 + 4 = 6\\) slices per day.  \n- The loaf has 24 slices.  \n- Number of days = \\(24 \\div 6 = 4\\).\n\nAnswer: 4",
+  "expected": "4",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.926558708999437
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's break it down:\n\n- Abby eats 2 slices per day.  \n- Josh eats twice as much as Abby, so Josh eats \\(2 \\times 2 = 4\\) slices per day.  \n- Together, they eat \\(2 + 4 = 6\\) slices per day.  \n- The loaf has 24 slices.  \n- Number of days = \\(24 \\div 6 = 4\\).\n\nAnswer: 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218037,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 91,
+      "prompt_tokens": 65,
+      "total_tokens": 156,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-zr8P1j7i7AIvUF63cimMTXlZBsTpatsM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 64,
+      "prompt_ms": 546.754,
+      "prompt_per_token_ms": 8.54303125,
+      "prompt_per_second": 117.05447056628758,
+      "predicted_n": 91,
+      "predicted_ms": 6366.635,
+      "predicted_per_token_ms": 69.96302197802198,
+      "predicted_per_second": 14.293264809432296
+    }
+  }
+}

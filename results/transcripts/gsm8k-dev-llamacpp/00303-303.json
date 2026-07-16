@@ -1,0 +1,58 @@
+{
+  "index": 303,
+  "task_id": 303,
+  "rendered_prompt_sha256": "9ff6c82767051e65c02c13379c22d2d89cc175bcadb5f3f7b04278e89a355ceb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down step by step.\n\n- Total books: 250  \n- Unsold now: 50  \n- So total sold over 3 years: 250 − 50 = 200 books  \n\n- This year (current year) sales: 45 books  \n- First year sales = twice the current year sales: 2 × 45 = 90 books  \n\nNow, sold in first year + second year + current year = 200  \n90 + second year + 45 = 200  \nSecond year = 200 − 135 = 65 books  \n\nEach book sells for $20, so second year earnings:  \n65 × 20 = 1300  \n\nAnswer: 1300",
+  "expected": "1300",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.002003809000598
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down step by step.\n\n- Total books: 250  \n- Unsold now: 50  \n- So total sold over 3 years: 250 − 50 = 200 books  \n\n- This year (current year) sales: 45 books  \n- First year sales = twice the current year sales: 2 × 45 = 90 books  \n\nNow, sold in first year + second year + current year = 200  \n90 + second year + 45 = 200  \nSecond year = 200 − 135 = 65 books  \n\nEach book sells for $20, so second year earnings:  \n65 × 20 = 1300  \n\nAnswer: 1300",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218453,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 146,
+      "prompt_tokens": 106,
+      "total_tokens": 252,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-MU0xJxLqxaEWjtbDTuua9mehbOadAzpL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 105,
+      "prompt_ms": 795.559,
+      "prompt_per_token_ms": 7.576752380952381,
+      "prompt_per_second": 131.98266879012118,
+      "predicted_n": 146,
+      "predicted_ms": 10202.607,
+      "predicted_per_token_ms": 69.8808698630137,
+      "predicted_per_second": 14.310068005167699
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 599,
+  "task_id": 599,
+  "rendered_prompt_sha256": "cf609130f5a13bbf0d1361dd099de66283a5e2201406741bfed1b64f466998db",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let's count the legs:\n\n- Dogs: 5 dogs × 4 legs each = 20 legs  \n- Cats: 2 cats × 4 legs each = 8 legs  \n- Birds: 10 birds × 2 legs each = 20 legs  \n\nTotal legs = 20 + 8 + 20 = 48  \n\nAnswer: 48",
+  "expected": "48",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.702332626999123
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let's count the legs:\n\n- Dogs: 5 dogs × 4 legs each = 20 legs  \n- Cats: 2 cats × 4 legs each = 8 legs  \n- Birds: 10 birds × 2 legs each = 20 legs  \n\nTotal legs = 20 + 8 + 20 = 48  \n\nAnswer: 48",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217827,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 60,
+      "total_tokens": 134,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-0udQYIro5A1RTP5nk2ptG1fzVEbVK1Cx",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 59,
+      "prompt_ms": 537.689,
+      "prompt_per_token_ms": 9.113372881355932,
+      "prompt_per_second": 109.72885813174531,
+      "predicted_n": 74,
+      "predicted_ms": 5160.422,
+      "predicted_per_token_ms": 69.73543243243243,
+      "predicted_per_second": 14.339912511031077
+    }
+  }
+}

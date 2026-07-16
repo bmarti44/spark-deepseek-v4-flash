@@ -1,0 +1,58 @@
+{
+  "index": 2855,
+  "task_id": 2973,
+  "rendered_prompt_sha256": "004c6463b2aa16b2d9e1eeab96ba33aa72ee75614b791eab06290ac39b909667",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The best answer is **B**, as it accurately describes how a flock of birds functions as a coordinated group with communication and cooperative behavior for survival, which aligns with the idea of an elementary society.  \n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.448535499999707
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The best answer is **B**, as it accurately describes how a flock of birds functions as a coordinated group with communication and cooperative behavior for survival, which aligns with the idea of an elementary society.  \n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218746,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 44,
+      "prompt_tokens": 214,
+      "total_tokens": 258,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-V2avZ6pM6lwaESRV7ac6p5cTKhloAg2H",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 213,
+      "prompt_ms": 1115.565,
+      "prompt_per_token_ms": 5.237394366197184,
+      "prompt_per_second": 190.93463850156647,
+      "predicted_n": 44,
+      "predicted_ms": 3318.295,
+      "predicted_per_token_ms": 75.41579545454546,
+      "predicted_per_second": 13.259821685534288
+    }
+  }
+}

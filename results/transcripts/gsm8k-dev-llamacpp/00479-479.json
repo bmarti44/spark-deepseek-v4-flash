@@ -1,0 +1,58 @@
+{
+  "index": 479,
+  "task_id": 479,
+  "rendered_prompt_sha256": "38c7e831d0ab8e33eacd00e71ea0f3911a8d458a813fb958022796a848fa4b54",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Plane tickets: $5,000 each, so for two people:  \n  2 × 5,000 = $10,000\n\n- Hotel normal price: $1,500 per day  \n  Busy weekend surcharge: 20% more  \n  20% of 1,500 = 300  \n  So hotel per day = 1,500 + 300 = $1,800\n\n- They stay 3 days:  \n  3 × 1,800 = $5,400\n\n- Total trip cost:  \n  10,000 + 5,400 = $15,400\n\nAnswer: 15400",
+  "expected": "15400",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.46009733000028
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Plane tickets: $5,000 each, so for two people:  \n  2 × 5,000 = $10,000\n\n- Hotel normal price: $1,500 per day  \n  Busy weekend surcharge: 20% more  \n  20% of 1,500 = 300  \n  So hotel per day = 1,500 + 300 = $1,800\n\n- They stay 3 days:  \n  3 × 1,800 = $5,400\n\n- Total trip cost:  \n  10,000 + 5,400 = $15,400\n\nAnswer: 15400",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784217961,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 139,
+      "prompt_tokens": 94,
+      "total_tokens": 233,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cJD4FtW7rPf3KHIYqkfDRJIXXsAwp0lz",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 93,
+      "prompt_ms": 722.423,
+      "prompt_per_token_ms": 7.767989247311828,
+      "prompt_per_second": 128.73344287211233,
+      "predicted_n": 139,
+      "predicted_ms": 9718.885,
+      "predicted_per_token_ms": 69.92003597122303,
+      "predicted_per_second": 14.302052138696979
+    }
+  }
+}

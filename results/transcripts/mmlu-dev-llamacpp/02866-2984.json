@@ -1,0 +1,58 @@
+{
+  "index": 2866,
+  "task_id": 2984,
+  "rendered_prompt_sha256": "05c9447edeb04800fa59b5a0b30b49d344f6b07230b51c169d1b34f67447e393",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The scenario describes a shift in the population toward taller individuals because the environment favors them. This is a classic example of **directional selection**, where one extreme phenotype is favored over others.\n\nAnswer: J",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.053071329000886
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The scenario describes a shift in the population toward taller individuals because the environment favors them. This is a classic example of **directional selection**, where one extreme phenotype is favored over others.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218750,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 41,
+      "prompt_tokens": 124,
+      "total_tokens": 165,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fMBAT8QnFwPyB64bSq4VQhlhsaBkaqQ7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 123,
+      "prompt_ms": 895.883,
+      "prompt_per_token_ms": 7.28360162601626,
+      "prompt_per_second": 137.2947137070354,
+      "predicted_n": 41,
+      "predicted_ms": 3140.807,
+      "predicted_per_token_ms": 76.6050487804878,
+      "predicted_per_second": 13.053969887356978
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1082,
+  "task_id": 1082,
+  "rendered_prompt_sha256": "81c9e406a8a440b3a0e2eabc6f184ccefa77af6e0fe1c0663728c0e17d2a5a65",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s break it down:\n\n- Distance from home to store: 4 miles.  \n- He walks halfway (2 miles), then turns back.  \n- He walks back home (2 miles), then goes to the store again (4 miles).  \n- Total distance walked: 2 + 2 + 4 = 8 miles.  \n- Speed: 4 miles per hour.  \n- Time = distance / speed = 8 / 4 = 2 hours.\n\nAnswer: 2",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.885344882999561
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s break it down:\n\n- Distance from home to store: 4 miles.  \n- He walks halfway (2 miles), then turns back.  \n- He walks back home (2 miles), then goes to the store again (4 miles).  \n- Total distance walked: 2 + 2 + 4 = 8 miles.  \n- Speed: 4 miles per hour.  \n- Time = distance / speed = 8 / 4 = 2 hours.\n\nAnswer: 2",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218054,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 103,
+      "prompt_tokens": 86,
+      "total_tokens": 189,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-kWijiOu3ZanexC3jaDn02B3bynB6mddT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 85,
+      "prompt_ms": 685.059,
+      "prompt_per_token_ms": 8.059517647058824,
+      "prompt_per_second": 124.07690432502893,
+      "predicted_n": 103,
+      "predicted_ms": 7196.109,
+      "predicted_per_token_ms": 69.8651359223301,
+      "predicted_per_second": 14.313290696402735
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 383,
+  "task_id": 383,
+  "rendered_prompt_sha256": "c8ac734757c5abc76c0be4757980dcbbd26d66507b2ab47af474956ee859617f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, let's find the total number of cups Millie can make:\n\n- 3 pitchers × 12 cups per pitcher = 36 cups total.\n\nShe sells each cup for $1, so total revenue if all sold:\n\n- 36 cups × $1 = $36.\n\nHer cost is $18, so total profit:\n\n- $36 − $18 = $18 profit.\n\nNow, she sells 4 cups per hour. To sell all 36 cups:\n\n- 36 cups ÷ 4 cups per hour = 9 hours.\n\nProfit per hour:\n\n- $18 ÷ 9 hours = $2 per hour.\n\nAnswer: 2",
+  "expected": "2",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.100871102999008
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, let's find the total number of cups Millie can make:\n\n- 3 pitchers × 12 cups per pitcher = 36 cups total.\n\nShe sells each cup for $1, so total revenue if all sold:\n\n- 36 cups × $1 = $36.\n\nHer cost is $18, so total profit:\n\n- $36 − $18 = $18 profit.\n\nNow, she sells 4 cups per hour. To sell all 36 cups:\n\n- 36 cups ÷ 4 cups per hour = 9 hours.\n\nProfit per hour:\n\n- $18 ÷ 9 hours = $2 per hour.\n\nAnswer: 2",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218361,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 132,
+      "prompt_tokens": 122,
+      "total_tokens": 254,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-S3UMyP54Bh3yxKtTHkjIEt093qWcKREd",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 843.542,
+      "prompt_per_token_ms": 6.971421487603306,
+      "prompt_per_second": 143.44276870624105,
+      "predicted_n": 132,
+      "predicted_ms": 9252.606,
+      "predicted_per_token_ms": 70.0955,
+      "predicted_per_second": 14.266251043219608
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "index": 2941,
+  "task_id": 3059,
+  "rendered_prompt_sha256": "49055c2ce75cb81d31ad53b5862998e660b545f92d7f3347f896abd6f5339ae3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Answer: C",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 1.1231655970004795
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Answer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218757,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 4,
+      "prompt_tokens": 88,
+      "total_tokens": 92,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-AlwVe5gtbuAz2qZ79lRJwMz3Bou08BhA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 87,
+      "prompt_ms": 795.59,
+      "prompt_per_token_ms": 9.144712643678162,
+      "prompt_per_second": 109.35280735051974,
+      "predicted_n": 4,
+      "predicted_ms": 312.287,
+      "predicted_per_token_ms": 78.07175,
+      "predicted_per_second": 12.808730430661539
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>All of the following statements about plant embryogenesis are correct EXCEPT:\n\nA. The suspensor is derived from the basal cell.\nB. Cotyledons are derived from the apical cell.\nC. Shoot apical meristem formation occurs after seed formation.\nD. Precursors of all three plant tissue systems are formed during embryogenesis.\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}
