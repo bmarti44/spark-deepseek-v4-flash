@@ -1,0 +1,63 @@
+{
+  "captured_from": "HF API by orchestrator, 2026-07-16",
+  "provenance_notes": [
+    "Audit finding HIGH-2 (docs/ds4-security-review.md): the DSpark drafter comes from a personal HF repo (bleysg) with no independent provenance chain, and the in-tree extractor cannot reproduce its exact Q2K quantization.",
+    "Orchestrator decision: PROCEED with pinned revision + sha256 because (a) in speculative decoding the target model verifies every drafted token, so a hostile drafter can degrade speed but not alter the output distribution; (b) GGUF parse-risk is contained by running the engine as the unprivileged dsv4 user with no credentials; (c) the drafter is optional — plain and MTP profiles work without it (fallback documented).",
+    "The engine repo also hosts a Layers37-42-Q4K-experts mixed quant (~90.9 GiB, fits single Spark) — recorded under alternatives as a potential dev-phase quality-tuning variant; NOT fetched by default."
+  ],
+  "sources": {
+    "antirez/deepseek-v4-gguf": {
+      "revision": "9170bf42beb77f38006e016503ecace31f2bd9a0",
+      "last_modified": "2026-05-31T11:28:43Z"
+    },
+    "bleysg/DeepSeek-V4-Flash-DSpark-drafter-GGUF": {
+      "revision": "c5a82d2a648fcc0718dd1c04b8340b6a148bf983",
+      "last_modified": "2026-07-12T23:32:48Z"
+    }
+  },
+  "files": [
+    {
+      "role": "base",
+      "repo": "antirez/deepseek-v4-gguf",
+      "path": "DeepSeek-V4-Flash-IQ2XXS-w2Q2K-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix.gguf",
+      "bytes": 86720111488,
+      "sha256": "efc7ed607ff27076e3e501fc3fefefa33c0ed8cf1eff483a2b7fdc0c2e616668"
+    },
+    {
+      "role": "mtp",
+      "repo": "antirez/deepseek-v4-gguf",
+      "path": "DeepSeek-V4-Flash-MTP-Q4K-Q8_0-F32.gguf",
+      "bytes": 3807602400,
+      "sha256": "afd481ee689dce9037f70f39085fcdae5a5b096d521cdad43b19fa52bf8f4083"
+    },
+    {
+      "role": "dspark_drafter",
+      "repo": "bleysg/DeepSeek-V4-Flash-DSpark-drafter-GGUF",
+      "path": "DSpark-drafter-Q2K-Q8.gguf",
+      "bytes": 6971241504,
+      "sha256": "f98c894c7be92457e40a9f95c689d008ecfe020aec6b082b811860e103ae0504"
+    }
+  ],
+  "alternatives": [
+    {
+      "role": "base_quality_variant",
+      "repo": "antirez/deepseek-v4-gguf",
+      "path": "DeepSeek-V4-Flash-Layers37-42Q4KExperts-OtherExpertLayersIQ2XXSGateUp-Q2KDown-AProjQ8-SExpQ8-OutQ8-chat-v2-imatrix-fixed.gguf",
+      "bytes": 97591747456,
+      "sha256": "edabc92af63ad8b139f00087fbfc10a4072f37b7597f4fd9ad1dfa6f83002396",
+      "note": "dev-phase tuning candidate only; requires its own membudget gate"
+    }
+  ],
+  "git_pins": {
+    "engine": {
+      "repo": "https://github.com/Entrpi/ds4.git",
+      "commit": "baa889025b16a7060f5f854226cb0d14e260eb52",
+      "human_label": "v0.2.2 (tag NOT trusted as identity; commit SHA is)"
+    },
+    "recipe_audited": {
+      "repo": "https://github.com/entrpi/ds4-on-spark.git",
+      "commit": "039e047309f5acbf05c1aa3f4221f95cc00e09bb",
+      "note": "audit provenance only — its install.sh is never executed"
+    }
+  }
+}
