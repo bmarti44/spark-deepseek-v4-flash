@@ -1,0 +1,90 @@
+{
+  "index": 126,
+  "task_id": "HumanEval/126",
+  "rendered_prompt_sha256": "050a2b9defc209aa64d0777939ff3387ee7db918434d818789eab7b36578b7ca",
+  "rendering": "raw",
+  "completion": "Here's a clear implementation for the function you described:\n\n```python\ndef is_sorted(lst):\n    # Check for duplicates appearing more than once\n    seen = {}\n    for num in lst:\n        seen[num] = seen.get(num, 0) + 1\n        if seen[num] > 2:  # More than one duplicate of the same number\n            return False\n    \n    # Check if list is sorted in ascending order\n    for i in range(len(lst) - 1):\n        if lst[i] > lst[i + 1]:\n            return False\n    \n    return True\n```\n\nThis function:\n1. First checks if any number appears more than twice (more than one duplicate), returning `False` if so.\n2. Then checks if the list is in ascending order, returning `False` if any element is greater than the next one.\n3. Returns `True` if both conditions pass.",
+  "finish_reason": "stop",
+  "expected": "    count_digit = dict([(i, 0) for i in lst])\n    for i in lst:\n        count_digit[i]+=1 \n    if any(count_digit[i] > 2 for i in lst):\n        return False\n    if all(lst[i-1] <= lst[i] for i in range(1, len(lst))):\n        return True\n    else:\n        return False\n    \n    \n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.112513007996313
+  },
+  "response": {
+    "id": "cmpl-1002",
+    "object": "text_completion",
+    "created": 1784243534,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a clear implementation for the function you described:\n\n```python\ndef is_sorted(lst):\n    # Check for duplicates appearing more than once\n    seen = {}\n    for num in lst:\n        seen[num] = seen.get(num, 0) + 1\n        if seen[num] > 2:  # More than one duplicate of the same number\n            return False\n    \n    # Check if list is sorted in ascending order\n    for i in range(len(lst) - 1):\n        if lst[i] > lst[i + 1]:\n            return False\n    \n    return True\n```\n\nThis function:\n1. First checks if any number appears more than twice (more than one duplicate), returning `False` if so.\n2. Then checks if the list is in ascending order, returning `False` if any element is greater than the next one.\n3. Returns `True` if both conditions pass.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 262,
+      "completion_tokens": 188,
+      "total_tokens": 450,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 570.5,
+      "prefill_tokens": 262,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 460.4,
+      "decode_tok_s": 33.9,
+      "spec_accept_rate": 0.851,
+      "tok_per_step": 3.78
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00126:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

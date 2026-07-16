@@ -1,0 +1,90 @@
+{
+  "index": 90,
+  "task_id": "HumanEval/90",
+  "rendered_prompt_sha256": "c411484e97c83ae8e5869ae414e5687f429deda4f5fb49e367e60c85635fed1e",
+  "rendering": "raw",
+  "completion": "Here's a straightforward implementation for the function you described:\n\n```python\ndef next_smallest(lst):\n    \"\"\"\n    Returns the 2nd smallest element of the list.\n    Returns None if there is no such element.\n    \"\"\"\n    # Remove duplicates and sort the list\n    unique_sorted = sorted(set(lst))\n    \n    # If there are fewer than 2 unique elements, return None\n    if len(unique_sorted) < 2:\n        return None\n    \n    # Return the second smallest element\n    return unique_sorted[1]\n```\n\nThis function:\n1. Removes duplicates using `set()`\n2. Sorts the unique values\n3. Returns `None` if there are fewer than 2 unique elements\n4. Otherwise returns the second element (index 1) from the sorted list\n\nThe examples match:\n- `next_smallest([1, 2, 3, 4, 5])` → `2`\n- `next_smallest([5, 1, 4, 3, 2])` → `2`\n- `next_smallest([])` → `None`\n- `next_smallest([1, 1])` → `None` (only one unique value)",
+  "finish_reason": "stop",
+  "expected": "    lst = sorted(set(lst))\n    return None if len(lst) < 2 else lst[1]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.565126285000588
+  },
+  "response": {
+    "id": "cmpl-966",
+    "object": "text_completion",
+    "created": 1784243270,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a straightforward implementation for the function you described:\n\n```python\ndef next_smallest(lst):\n    \"\"\"\n    Returns the 2nd smallest element of the list.\n    Returns None if there is no such element.\n    \"\"\"\n    # Remove duplicates and sort the list\n    unique_sorted = sorted(set(lst))\n    \n    # If there are fewer than 2 unique elements, return None\n    if len(unique_sorted) < 2:\n        return None\n    \n    # Return the second smallest element\n    return unique_sorted[1]\n```\n\nThis function:\n1. Removes duplicates using `set()`\n2. Sorts the unique values\n3. Returns `None` if there are fewer than 2 unique elements\n4. Otherwise returns the second element (index 1) from the sorted list\n\nThe examples match:\n- `next_smallest([1, 2, 3, 4, 5])` → `2`\n- `next_smallest([5, 1, 4, 3, 2])` → `2`\n- `next_smallest([])` → `None`\n- `next_smallest([1, 1])` → `None` (only one unique value)",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "completion_tokens": 259,
+      "total_tokens": 393,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 818.2,
+      "prefill_tokens": 134,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 164.1,
+      "decode_tok_s": 38.4,
+      "spec_accept_rate": 0.908,
+      "tok_per_step": 4.26
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00090:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

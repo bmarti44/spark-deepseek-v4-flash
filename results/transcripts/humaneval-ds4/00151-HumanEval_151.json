@@ -1,0 +1,90 @@
+{
+  "index": 151,
+  "task_id": "HumanEval/151",
+  "rendered_prompt_sha256": "76075722f14f440573576993f00d079bbb312818c40a47974f99bf0d9374d905",
+  "rendering": "raw",
+  "completion": "Here’s a possible implementation for your function:\n\n```python\ndef double_the_difference(lst):\n    total = 0\n    for num in lst:\n        if isinstance(num, int) and num >= 0 and num % 2 == 1:\n            total += num * num\n    return total\n```\n\nThis loops through each element, checks if it's a non‑negative integer and odd, then adds its square to the total.",
+  "finish_reason": "stop",
+  "expected": "    return sum([i**2 for i in lst if i > 0 and i%2!=0 and \".\" not in str(i)])\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.2909856620026403
+  },
+  "response": {
+    "id": "cmpl-1027",
+    "object": "text_completion",
+    "created": 1784243746,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here’s a possible implementation for your function:\n\n```python\ndef double_the_difference(lst):\n    total = 0\n    for num in lst:\n        if isinstance(num, int) and num >= 0 and num % 2 == 1:\n            total += num * num\n    return total\n```\n\nThis loops through each element, checks if it's a non‑negative integer and odd, then adds its square to the total.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 91,
+      "total_tokens": 239,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 839.2,
+      "prefill_tokens": 148,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 176.6,
+      "decode_tok_s": 37.1,
+      "spec_accept_rate": 0.907,
+      "tok_per_step": 4.18
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00151:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

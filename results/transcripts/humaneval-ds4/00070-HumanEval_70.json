@@ -1,0 +1,91 @@
+{
+  "index": 70,
+  "task_id": "HumanEval/70",
+  "rendered_prompt_sha256": "431d1a56bd425ed0718c9996fd486badefa4547c69e80bc5e81526cec2abae70",
+  "rendering": "raw",
+  "completion": "Here's a straightforward implementation of the `strange_sort_list` function:\n\n```python\ndef strange_sort_list(lst):\n    if not lst:\n        return []\n    \n    result = []\n    remaining = sorted(lst)\n    \n    while remaining:\n        # Take the minimum\n        result.append(remaining.pop(0))\n        if not remaining:\n            break\n        # Take the maximum\n        result.append(remaining.pop(-1))\n    \n    return result\n```\n\n**How it works:**\n1. If the list is empty, return an empty list.\n2. Sort the list so we can easily access min and max.\n3. In a loop, take the minimum (first element), then the maximum (last element), and repeat until the list is empty.\n4. Return the result.\n\nThis matches the examples:\n- `strange_sort_list([1, 2, 3, 4])` → `[1, 4, 2, 3]`\n- `strange_sort_list([5, 5, 5, 5])` → `[5, 5, 5, 5]`\n- `strange_sort_list([])` → `[]`",
+  "finish_reason": "stop",
+  "expected": "    res, switch = [], True\n    while lst:\n        res.append(min(lst) if switch else max(lst))\n        lst.remove(res[-1])\n        switch = not switch\n    return res\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.203662462998182
+  },
+  "response": {
+    "id": "cmpl-946",
+    "object": "text_completion",
+    "created": 1784243113,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a straightforward implementation of the `strange_sort_list` function:\n\n```python\ndef strange_sort_list(lst):\n    if not lst:\n        return []\n    \n    result = []\n    remaining = sorted(lst)\n    \n    while remaining:\n        # Take the minimum\n        result.append(remaining.pop(0))\n        if not remaining:\n            break\n        # Take the maximum\n        result.append(remaining.pop(-1))\n    \n    return result\n```\n\n**How it works:**\n1. If the list is empty, return an empty list.\n2. Sort the list so we can easily access min and max.\n3. In a loop, take the minimum (first element), then the maximum (last element), and repeat until the list is empty.\n4. Return the result.\n\nThis matches the examples:\n- `strange_sort_list([1, 2, 3, 4])` → `[1, 4, 2, 3]`\n- `strange_sort_list([5, 5, 5, 5])` → `[5, 5, 5, 5]`\n- `strange_sort_list([])` → `[]`",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "completion_tokens": 244,
+      "total_tokens": 372,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 814.7,
+      "prefill_tokens": 128,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 157.4,
+      "decode_tok_s": 38.2,
+      "spec_accept_rate": 0.911,
+      "tok_per_step": 4.22
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00070:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rendered_prompt": "\ndef strange_sort_list(lst):\n    '''\n    Given list of integers, return list in strange order.\n    Strange sorting, is when you start with the minimum value,\n    then maximum of the remaining integers, then minimum and so on.\n\n    Examples:\n    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\n    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\n    strange_sort_list([]) == []\n    '''\n"
+}

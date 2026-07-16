@@ -1,0 +1,90 @@
+{
+  "index": 124,
+  "task_id": "HumanEval/124",
+  "rendered_prompt_sha256": "71bb688daf8e872a52f7dfb4d4a09c07db640afd5fc1f8845baa1470a2930b78",
+  "rendering": "raw",
+  "completion": "Here's a Python function that validates a date string according to your rules:\n\n```python\ndef valid_date(date):\n    # Check if date string is empty\n    if not date:\n        return False\n    \n    # Check format: must be mm-dd-yyyy\n    parts = date.split('-')\n    if len(parts) != 3:\n        return False\n    \n    month_str, day_str, year_str = parts\n    \n    # Check that all parts are digits\n    if not (month_str.isdigit() and day_str.isdigit() and year_str.isdigit()):\n        return False\n    \n    # Convert to integers\n    month = int(month_str)\n    day = int(day_str)\n    year = int(year_str)\n    \n    # Check month range (1-12)\n    if month < 1 or month > 12:\n        return False\n    \n    # Check day range based on month\n    # Months with 31 days: 1,3,5,7,8,10,12\n    months_31 = {1, 3, 5, 7, 8, 10, 12}\n    months_30 = {4, 6, 9, 11}\n    \n    if month in months_31:\n        if day < 1 or day > 31:\n            return False\n    elif month in months_30:\n        if day < 1 or day > 30:\n            return False\n    elif month == 2:\n        if day < 1 or day > 29:\n            return False\n    else:\n        return False  # Invalid month (shouldn't happen due to earlier check)\n    \n    return True\n```\n\nThis function:\n1. Checks if the date string is empty\n2. Verifies the format is `mm-dd-yyyy` (splits by `-` and checks there are exactly 3 parts)\n3. Ensures all parts are numeric digits\n4. Validates month is between 1 and 12\n5. Validates day is within the correct range for the given month (31 for months 1,3,5,7,8,10,12; 30 for 4,6,9,11; 29 for February)",
+  "finish_reason": "stop",
+  "expected": "    try:\n        date = date.strip()\n        month, day, year = date.split('-')\n        month, day, year = int(month), int(day), int(year)\n        if month < 1 or month > 12:\n            return False\n        if month in [1,3,5,7,8,10,12] and day < 1 or day > 31:\n            return False\n        if month in [4,6,9,11] and day < 1 or day > 30:\n            return False\n        if month == 2 and day < 1 or day > 29:\n            return False\n    except:\n        return False\n\n    return True\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.989408421999542
+  },
+  "response": {
+    "id": "cmpl-1000",
+    "object": "text_completion",
+    "created": 1784243519,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a Python function that validates a date string according to your rules:\n\n```python\ndef valid_date(date):\n    # Check if date string is empty\n    if not date:\n        return False\n    \n    # Check format: must be mm-dd-yyyy\n    parts = date.split('-')\n    if len(parts) != 3:\n        return False\n    \n    month_str, day_str, year_str = parts\n    \n    # Check that all parts are digits\n    if not (month_str.isdigit() and day_str.isdigit() and year_str.isdigit()):\n        return False\n    \n    # Convert to integers\n    month = int(month_str)\n    day = int(day_str)\n    year = int(year_str)\n    \n    # Check month range (1-12)\n    if month < 1 or month > 12:\n        return False\n    \n    # Check day range based on month\n    # Months with 31 days: 1,3,5,7,8,10,12\n    months_31 = {1, 3, 5, 7, 8, 10, 12}\n    months_30 = {4, 6, 9, 11}\n    \n    if month in months_31:\n        if day < 1 or day > 31:\n            return False\n    elif month in months_30:\n        if day < 1 or day > 30:\n            return False\n    elif month == 2:\n        if day < 1 or day > 29:\n            return False\n    else:\n        return False  # Invalid month (shouldn't happen due to earlier check)\n    \n    return True\n```\n\nThis function:\n1. Checks if the date string is empty\n2. Verifies the format is `mm-dd-yyyy` (splits by `-` and checks there are exactly 3 parts)\n3. Ensures all parts are numeric digits\n4. Validates month is between 1 and 12\n5. Validates day is within the correct range for the given month (31 for months 1,3,5,7,8,10,12; 30 for 4,6,9,11; 29 for February)",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 265,
+      "completion_tokens": 468,
+      "total_tokens": 733,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 588.0,
+      "prefill_tokens": 265,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 451.8,
+      "decode_tok_s": 37.7,
+      "spec_accept_rate": 0.906,
+      "tok_per_step": 4.23
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00124:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

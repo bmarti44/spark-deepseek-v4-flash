@@ -1,0 +1,90 @@
+{
+  "index": 108,
+  "task_id": "HumanEval/108",
+  "rendered_prompt_sha256": "c2e8f36f104159515ac39779538568114e45da57511596c007abc0da04875981",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function:\n\n```python\ndef count_nums(arr):\n    def sum_of_signed_digits(n):\n        if n == 0:\n            return 0\n        sign = 1 if n >= 0 else -1\n        n = abs(n)\n        total = 0\n        digits = list(map(int, str(n)))\n        # First digit takes the sign\n        total += sign * digits[0]\n        # Rest are positive\n        for d in digits[1:]:\n            total += d\n        return total\n\n    count = 0\n    for num in arr:\n        if sum_of_signed_digits(num) > 0:\n            count += 1\n    return count\n```\n\nThis function:\n- For each number, computes the sum of its signed digits (first digit gets the sign of the number, rest are positive).\n- Counts how many numbers have that sum > 0.\n- Returns the count.",
+  "finish_reason": "stop",
+  "expected": "    def digits_sum(n):\n        neg = 1\n        if n < 0: n, neg = -1 * n, -1 \n        n = [int(i) for i in str(n)]\n        n[0] = n[0] * neg\n        return sum(n)\n    return len(list(filter(lambda x: x > 0, [digits_sum(i) for i in arr])))\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.982317881003837
+  },
+  "response": {
+    "id": "cmpl-984",
+    "object": "text_completion",
+    "created": 1784243412,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function:\n\n```python\ndef count_nums(arr):\n    def sum_of_signed_digits(n):\n        if n == 0:\n            return 0\n        sign = 1 if n >= 0 else -1\n        n = abs(n)\n        total = 0\n        digits = list(map(int, str(n)))\n        # First digit takes the sign\n        total += sign * digits[0]\n        # Rest are positive\n        for d in digits[1:]:\n            total += d\n        return total\n\n    count = 0\n    for num in arr:\n        if sum_of_signed_digits(num) > 0:\n            count += 1\n    return count\n```\n\nThis function:\n- For each number, computes the sum of its signed digits (first digit gets the sign of the number, rest are positive).\n- Counts how many numbers have that sum > 0.\n- Returns the count.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 134,
+      "completion_tokens": 201,
+      "total_tokens": 335,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 829.6,
+      "prefill_tokens": 134,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 161.8,
+      "decode_tok_s": 32.7,
+      "spec_accept_rate": 0.828,
+      "tok_per_step": 3.61
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00108:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

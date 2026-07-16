@@ -1,0 +1,90 @@
+{
+  "index": 109,
+  "task_id": "HumanEval/109",
+  "rendered_prompt_sha256": "e68cbac960bfb695527850d504ec27806e0f41a7711920d0a9e3152369179146",
+  "rendering": "raw",
+  "completion": "Here's a direct implementation for the function you described:  \n\n```python\ndef move_one_ball(arr):\n    if not arr:\n        return True\n    \n    n = len(arr)\n    # Find the smallest element's index\n    min_index = arr.index(min(arr))\n    \n    # Check if the array starting from min_index is sorted in non-decreasing order\n    # and wraps around correctly\n    sorted_arr = sorted(arr)\n    \n    # Try all possible rotations starting from each index\n    for start in range(n):\n        rotated = arr[start:] + arr[:start]\n        if rotated == sorted_arr:\n            return True\n    \n    return False\n```",
+  "finish_reason": "stop",
+  "expected": "    if len(arr)==0:\n      return True\n    sorted_array=sorted(arr)\n    my_arr=[]\n    \n    min_value=min(arr)\n    min_index=arr.index(min_value)\n    my_arr=arr[min_index:]+arr[0:min_index]\n    for i in range(len(arr)):\n      if my_arr[i]!=sorted_array[i]:\n        return False\n    return True\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.61764740000217
+  },
+  "response": {
+    "id": "cmpl-985",
+    "object": "text_completion",
+    "created": 1784243416,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a direct implementation for the function you described:  \n\n```python\ndef move_one_ball(arr):\n    if not arr:\n        return True\n    \n    n = len(arr)\n    # Find the smallest element's index\n    min_index = arr.index(min(arr))\n    \n    # Check if the array starting from min_index is sorted in non-decreasing order\n    # and wraps around correctly\n    sorted_arr = sorted(arr)\n    \n    # Try all possible rotations starting from each index\n    for start in range(n):\n        rotated = arr[start:] + arr[:start]\n        if rotated == sorted_arr:\n            return True\n    \n    return False\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 308,
+      "completion_tokens": 134,
+      "total_tokens": 442,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 650.5,
+      "prefill_tokens": 308,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 474.7,
+      "decode_tok_s": 33.8,
+      "spec_accept_rate": 0.851,
+      "tok_per_step": 3.75
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00109:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "index": 86,
+  "task_id": "HumanEval/86",
+  "rendered_prompt_sha256": "f8a02b3472de03cd4fa7b7d9d47abd5a5d64cb8eea267c81dc575e2a281aa972",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function you described:\n\n```python\ndef anti_shuffle(s):\n    \"\"\"\n    Takes a string and returns an ordered version of it.\n    Each word (separated by space) is replaced by a new word where all characters\n    are arranged in ascending order based on ASCII value.\n    The order of words and blank spaces is preserved.\n    \"\"\"\n    words = s.split(' ')  # split by space, preserving spaces as separate items\n    result_words = []\n    \n    for word in words:\n        if word == '':\n            result_words.append('')\n        else:\n            # Sort characters of the word by ASCII value\n            sorted_chars = sorted(word)\n            result_words.append(''.join(sorted_chars))\n    \n    return ' '.join(result_words)\n```\n\nThis function:\n- Splits the input string by spaces (keeping empty strings for consecutive spaces)\n- For each word, sorts its characters in ascending ASCII order\n- Reconstructs the string with the same spacing pattern\n\nExample usage:\n```python\nprint(anti_shuffle('Hi'))               # 'Hi'\nprint(anti_shuffle('hello'))            # 'ehllo'\nprint(anti_shuffle('Hello World!!!'))   # 'Hello !!!Wdlor'\n```",
+  "finish_reason": "stop",
+  "expected": "    return ' '.join([''.join(sorted(list(i))) for i in s.split(' ')])\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.769876226004271
+  },
+  "response": {
+    "id": "cmpl-962",
+    "object": "text_completion",
+    "created": 1784243239,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function you described:\n\n```python\ndef anti_shuffle(s):\n    \"\"\"\n    Takes a string and returns an ordered version of it.\n    Each word (separated by space) is replaced by a new word where all characters\n    are arranged in ascending order based on ASCII value.\n    The order of words and blank spaces is preserved.\n    \"\"\"\n    words = s.split(' ')  # split by space, preserving spaces as separate items\n    result_words = []\n    \n    for word in words:\n        if word == '':\n            result_words.append('')\n        else:\n            # Sort characters of the word by ASCII value\n            sorted_chars = sorted(word)\n            result_words.append(''.join(sorted_chars))\n    \n    return ' '.join(result_words)\n```\n\nThis function:\n- Splits the input string by spaces (keeping empty strings for consecutive spaces)\n- For each word, sorts its characters in ascending ASCII order\n- Reconstructs the string with the same spacing pattern\n\nExample usage:\n```python\nprint(anti_shuffle('Hi'))               # 'Hi'\nprint(anti_shuffle('hello'))            # 'ehllo'\nprint(anti_shuffle('Hello World!!!'))   # 'Hello !!!Wdlor'\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 138,
+      "completion_tokens": 260,
+      "total_tokens": 398,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 843.1,
+      "prefill_tokens": 138,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 164.0,
+      "decode_tok_s": 32.8,
+      "spec_accept_rate": 0.817,
+      "tok_per_step": 3.62
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00086:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

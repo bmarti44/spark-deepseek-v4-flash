@@ -1,0 +1,90 @@
+{
+  "index": 21,
+  "task_id": "HumanEval/21",
+  "rendered_prompt_sha256": "f5d1f07614da8dffb7e6ede02cdedd73f58405f47aeb516b82318416a4acf0c7",
+  "rendering": "raw",
+  "completion": "Here's the implementation for the function you described:\n\n```python\nfrom typing import List\n\ndef rescale_to_unit(numbers: List[float]) -> List[float]:\n    \"\"\"Given list of numbers (of at least two elements), apply a linear transform to that list,\n    such that the smallest number will become 0 and the largest will become 1.\"\"\"\n    if len(numbers) < 2:\n        raise ValueError(\"Input list must have at least two elements\")\n    \n    min_val = min(numbers)\n    max_val = max(numbers)\n    \n    # Avoid division by zero if all numbers are the same\n    if max_val == min_val:\n        return [0.0] * len(numbers)\n    \n    range_val = max_val - min_val\n    return [(x - min_val) / range_val for x in numbers]\n```\n\nThis function:\n1. Checks that the input has at least two elements\n2. Finds the minimum and maximum values\n3. Applies the linear transformation: `(x - min) / (max - min)` to each element\n4. Returns the rescaled list where the smallest becomes 0 and the largest becomes 1",
+  "finish_reason": "stop",
+  "expected": "    min_number = min(numbers)\n    max_number = max(numbers)\n    return [(x - min_number) / (max_number - min_number) for x in numbers]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.103860174000147
+  },
+  "response": {
+    "id": "cmpl-897",
+    "object": "text_completion",
+    "created": 1784242780,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's the implementation for the function you described:\n\n```python\nfrom typing import List\n\ndef rescale_to_unit(numbers: List[float]) -> List[float]:\n    \"\"\"Given list of numbers (of at least two elements), apply a linear transform to that list,\n    such that the smallest number will become 0 and the largest will become 1.\"\"\"\n    if len(numbers) < 2:\n        raise ValueError(\"Input list must have at least two elements\")\n    \n    min_val = min(numbers)\n    max_val = max(numbers)\n    \n    # Avoid division by zero if all numbers are the same\n    if max_val == min_val:\n        return [0.0] * len(numbers)\n    \n    range_val = max_val - min_val\n    return [(x - min_val) / range_val for x in numbers]\n```\n\nThis function:\n1. Checks that the input has at least two elements\n2. Finds the minimum and maximum values\n3. Applies the linear transformation: `(x - min) / (max - min)` to each element\n4. Returns the rescaled list where the smallest becomes 0 and the largest becomes 1",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 128,
+      "completion_tokens": 239,
+      "total_tokens": 367,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 815.7,
+      "prefill_tokens": 128,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 157.2,
+      "decode_tok_s": 38.0,
+      "spec_accept_rate": 0.892,
+      "tok_per_step": 4.21
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00021:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

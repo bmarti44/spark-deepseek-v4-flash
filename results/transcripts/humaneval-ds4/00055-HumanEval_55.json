@@ -1,0 +1,90 @@
+{
+  "index": 55,
+  "task_id": "HumanEval/55",
+  "rendered_prompt_sha256": "b99ee738edd1466c976259cf4271917d52d9a0df5220d566646b476a4400a336",
+  "rendering": "raw",
+  "completion": "Here's a Python implementation of the Fibonacci function:\n\n```python\ndef fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nThis implementation:\n- Handles edge cases (n ≤ 0 returns 0, n = 1 returns 1)\n- Uses an iterative approach with O(n) time complexity and O(1) space complexity\n- Starts with the first two Fibonacci numbers (0, 1) and iteratively computes up to the nth number\n- Returns the nth Fibonacci number (where fib(1) = 1, fib(2) = 1, fib(3) = 2, etc.)",
+  "finish_reason": "stop",
+  "expected": "    if n == 0:\n        return 0\n    if n == 1:\n        return 1\n    return fib(n - 1) + fib(n - 2)\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.50078330499673
+  },
+  "response": {
+    "id": "cmpl-931",
+    "object": "text_completion",
+    "created": 1784243004,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a Python implementation of the Fibonacci function:\n\n```python\ndef fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    \n    a, b = 0, 1\n    for _ in range(2, n + 1):\n        a, b = b, a + b\n    return b\n```\n\nThis implementation:\n- Handles edge cases (n ≤ 0 returns 0, n = 1 returns 1)\n- Uses an iterative approach with O(n) time complexity and O(1) space complexity\n- Starts with the first two Fibonacci numbers (0, 1) and iteratively computes up to the nth number\n- Returns the nth Fibonacci number (where fib(1) = 1, fib(2) = 1, fib(3) = 2, etc.)",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 53,
+      "completion_tokens": 222,
+      "total_tokens": 275,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 549.2,
+      "prefill_tokens": 53,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 96.7,
+      "decode_tok_s": 37.3,
+      "spec_accept_rate": 0.898,
+      "tok_per_step": 4.13
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00055:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

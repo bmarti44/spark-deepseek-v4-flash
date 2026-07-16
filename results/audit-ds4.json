@@ -1,0 +1,60 @@
+{
+  "kind": "accuracy-audit",
+  "pass": true,
+  "stack": "ds4",
+  "suites": {
+    "gsm8k-dev": {
+      "n": 100,
+      "correct_recount": 98,
+      "summary_correct": 98,
+      "match": true
+    },
+    "gsm8k-holdout": {
+      "n": 100,
+      "correct_recount": 98,
+      "summary_correct": 98,
+      "match": true
+    },
+    "mmlu-pro-dev": {
+      "n": 253,
+      "correct_recount": 192,
+      "summary_correct": 192,
+      "match": true
+    },
+    "mmlu-pro-holdout": {
+      "n": 247,
+      "correct_recount": 174,
+      "summary_correct": 174,
+      "match": true
+    },
+    "humaneval": {
+      "n": 164,
+      "correct_recount": 147,
+      "summary_correct": 147,
+      "match": true
+    }
+  },
+  "present_suites": [
+    "gsm8k-dev",
+    "gsm8k-holdout",
+    "mmlu-pro-dev",
+    "mmlu-pro-holdout",
+    "humaneval"
+  ],
+  "absent_suites": [],
+  "humaneval_taxonomy": {
+    "correct": 147,
+    "assertion": 15,
+    "syntax_error": 0,
+    "timeout": 0,
+    "other": 2,
+    "stored_correct_count": 147,
+    "syntax_cases": [],
+    "other_cases": [
+      "HumanEval/38 rc=1 NameError: name 'encode_cyclic' is not defined. Did you mean: 'decode_cyclic'?",
+      "HumanEval/67 rc=1 ValueError: invalid literal for int() with base 10: 'and'"
+    ],
+    "present": true
+  },
+  "generated_by": "scripts/36_audit_accuracy.py"
+}

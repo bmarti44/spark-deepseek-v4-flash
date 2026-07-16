@@ -1,0 +1,91 @@
+{
+  "index": 57,
+  "task_id": "HumanEval/57",
+  "rendered_prompt_sha256": "5656ff21e3b01209978415c290235784e32350405706cebc0045defa6271dd99",
+  "rendering": "raw",
+  "completion": "Here's a straightforward implementation for the `monotonic` function:\n\n```python\ndef monotonic(l: list):\n    \"\"\"Return True if list elements are monotonically increasing or decreasing.\"\"\"\n    if len(l) <= 1:\n        return True\n    \n    # Determine the direction from the first two elements\n    increasing = True\n    decreasing = True\n    \n    for i in range(1, len(l)):\n        if l[i] > l[i-1]:\n            decreasing = False\n        elif l[i] < l[i-1]:\n            increasing = False\n        # if equal, both remain unchanged\n    \n    return increasing or decreasing\n```\n\nThis works by:\n1. Checking if the list has 0 or 1 elements (trivially monotonic).\n2. Iterating through the list and tracking whether it could still be increasing or decreasing.\n3. If any pair breaks the increasing pattern, we mark `increasing = False`. Similarly for decreasing.\n4. At the end, if either `increasing` or `decreasing` is still `True`, the list is monotonic.",
+  "finish_reason": "stop",
+  "expected": "    if l == sorted(l) or l == sorted(l, reverse=True):\n        return True\n    return False\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.772637088004558
+  },
+  "response": {
+    "id": "cmpl-933",
+    "object": "text_completion",
+    "created": 1784243015,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a straightforward implementation for the `monotonic` function:\n\n```python\ndef monotonic(l: list):\n    \"\"\"Return True if list elements are monotonically increasing or decreasing.\"\"\"\n    if len(l) <= 1:\n        return True\n    \n    # Determine the direction from the first two elements\n    increasing = True\n    decreasing = True\n    \n    for i in range(1, len(l)):\n        if l[i] > l[i-1]:\n            decreasing = False\n        elif l[i] < l[i-1]:\n            increasing = False\n        # if equal, both remain unchanged\n    \n    return increasing or decreasing\n```\n\nThis works by:\n1. Checking if the list has 0 or 1 elements (trivially monotonic).\n2. Iterating through the list and tracking whether it could still be increasing or decreasing.\n3. If any pair breaks the increasing pattern, we mark `increasing = False`. Similarly for decreasing.\n4. At the end, if either `increasing` or `decreasing` is still `True`, the list is monotonic.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 90,
+      "completion_tokens": 223,
+      "total_tokens": 313,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 723.2,
+      "prefill_tokens": 90,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 124.7,
+      "decode_tok_s": 31.6,
+      "spec_accept_rate": 0.823,
+      "tok_per_step": 3.5
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00057:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n"
+}

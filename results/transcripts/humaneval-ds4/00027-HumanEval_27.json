@@ -1,0 +1,90 @@
+{
+  "index": 27,
+  "task_id": "HumanEval/27",
+  "rendered_prompt_sha256": "497a1ae9517dff889ad676a36f0e0bdcbe5afec3d283ad12045fd34df3e1dba4",
+  "rendering": "raw",
+  "completion": "Here's a Python function that flips the case of each character in a string:\n\n```python\ndef flip_case(string: str) -> str:\n    \"\"\" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n    >>> flip_case('Hello')\n    'hELLO'\n    \"\"\"\n    result = []\n    for char in string:\n        if char.islower():\n            result.append(char.upper())\n        elif char.isupper():\n            result.append(char.lower())\n        else:\n            result.append(char)  # keep non-alphabetic characters unchanged\n    return ''.join(result)\n```\n\nAlternatively, you can use a more concise approach with `str.swapcase()`:\n\n```python\ndef flip_case(string: str) -> str:\n    \"\"\" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n    >>> flip_case('Hello')\n    'hELLO'\n    \"\"\"\n    return string.swapcase()\n```\n\nBoth implementations will produce the expected output. The second one is simpler and uses Python's built-in method for this exact purpose.",
+  "finish_reason": "stop",
+  "expected": "    return string.swapcase()\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.2911790019934415
+  },
+  "response": {
+    "id": "cmpl-903",
+    "object": "text_completion",
+    "created": 1784242818,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a Python function that flips the case of each character in a string:\n\n```python\ndef flip_case(string: str) -> str:\n    \"\"\" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n    >>> flip_case('Hello')\n    'hELLO'\n    \"\"\"\n    result = []\n    for char in string:\n        if char.islower():\n            result.append(char.upper())\n        elif char.isupper():\n            result.append(char.lower())\n        else:\n            result.append(char)  # keep non-alphabetic characters unchanged\n    return ''.join(result)\n```\n\nAlternatively, you can use a more concise approach with `str.swapcase()`:\n\n```python\ndef flip_case(string: str) -> str:\n    \"\"\" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n    >>> flip_case('Hello')\n    'hELLO'\n    \"\"\"\n    return string.swapcase()\n```\n\nBoth implementations will produce the expected output. The second one is simpler and uses Python's built-in method for this exact purpose.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 52,
+      "completion_tokens": 217,
+      "total_tokens": 269,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 564.8,
+      "prefill_tokens": 52,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 92.3,
+      "decode_tok_s": 37.9,
+      "spec_accept_rate": 0.901,
+      "tok_per_step": 4.19
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00027:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

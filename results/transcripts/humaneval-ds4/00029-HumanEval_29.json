@@ -1,0 +1,90 @@
+{
+  "index": 29,
+  "task_id": "HumanEval/29",
+  "rendered_prompt_sha256": "a173ce6b1e3767cabcf0ff73457d20e4eac07e0968b173b76afa0b35c0799646",
+  "rendering": "raw",
+  "completion": "Here's the implementation for the `filter_by_prefix` function:\n\n```python\nfrom typing import List\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n    return [s for s in strings if s.startswith(prefix)]\n```\n\nThis function uses a list comprehension to iterate through the input list and keep only those strings that start with the given prefix using Python's built-in `str.startswith()` method.",
+  "finish_reason": "stop",
+  "expected": "    return [x for x in strings if x.startswith(prefix)]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.636351200002537
+  },
+  "response": {
+    "id": "cmpl-905",
+    "object": "text_completion",
+    "created": 1784242827,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's the implementation for the `filter_by_prefix` function:\n\n```python\nfrom typing import List\n\ndef filter_by_prefix(strings: List[str], prefix: str) -> List[str]:\n    \"\"\" Filter an input list of strings only for ones that start with a given prefix.\n    >>> filter_by_prefix([], 'a')\n    []\n    >>> filter_by_prefix(['abc', 'bcd', 'cde', 'array'], 'a')\n    ['abc', 'array']\n    \"\"\"\n    return [s for s in strings if s.startswith(prefix)]\n```\n\nThis function uses a list comprehension to iterate through the input list and keep only those strings that start with the given prefix using Python's built-in `str.startswith()` method.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 93,
+      "completion_tokens": 151,
+      "total_tokens": 244,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 749.0,
+      "prefill_tokens": 93,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 124.4,
+      "decode_tok_s": 38.9,
+      "spec_accept_rate": 0.935,
+      "tok_per_step": 4.34
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00029:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

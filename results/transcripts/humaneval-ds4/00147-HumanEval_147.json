@@ -1,0 +1,90 @@
+{
+  "index": 147,
+  "task_id": "HumanEval/147",
+  "rendered_prompt_sha256": "d1dd4daedba3670f782bbac1a37a9c1e97e18079d4fb18cf53a18977426075b7",
+  "rendering": "raw",
+  "completion": "Here’s a direct implementation for the function you described:  \n\n```python\ndef get_max_triples(n):\n    \"\"\"\n    Returns the number of triples (a[i], a[j], a[k]) with i < j < k\n    such that a[i] + a[j] + a[k] is a multiple of 3.\n    \"\"\"\n    # Build array a\n    a = [i * i - i + 1 for i in range(1, n + 1)]\n    \n    # Count residues modulo 3\n    count = [0, 0, 0]  # count[0] for mod 0, count[1] for mod 1, count[2] for mod 2\n    for value in a:\n        count[value % 3] += 1\n    \n    # Number of triples with sum divisible by 3:\n    # All three from same residue class mod 3\n    total = 0\n    for r in range(3):\n        c = count[r]\n        if c >= 3:\n            total += c * (c - 1) * (c - 2) // 6\n    \n    # One from each different residue class (0,1,2)\n    total += count[0] * count[1] * count[2]\n    \n    return total\n```",
+  "finish_reason": "stop",
+  "expected": "    A = [i*i - i + 1 for i in range(1,n+1)]\n    ans = []\n    for i in range(n):\n        for j in range(i+1,n):\n            for k in range(j+1,n):\n                if (A[i]+A[j]+A[k])%3 == 0:\n                    ans += [(A[i],A[j],A[k])]\n    return len(ans)\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.994531905998883
+  },
+  "response": {
+    "id": "cmpl-1023",
+    "object": "text_completion",
+    "created": 1784243727,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here’s a direct implementation for the function you described:  \n\n```python\ndef get_max_triples(n):\n    \"\"\"\n    Returns the number of triples (a[i], a[j], a[k]) with i < j < k\n    such that a[i] + a[j] + a[k] is a multiple of 3.\n    \"\"\"\n    # Build array a\n    a = [i * i - i + 1 for i in range(1, n + 1)]\n    \n    # Count residues modulo 3\n    count = [0, 0, 0]  # count[0] for mod 0, count[1] for mod 1, count[2] for mod 2\n    for value in a:\n        count[value % 3] += 1\n    \n    # Number of triples with sum divisible by 3:\n    # All three from same residue class mod 3\n    total = 0\n    for r in range(3):\n        c = count[r]\n        if c >= 3:\n            total += c * (c - 1) * (c - 2) // 6\n    \n    # One from each different residue class (0,1,2)\n    total += count[0] * count[1] * count[2]\n    \n    return total\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 171,
+      "completion_tokens": 283,
+      "total_tokens": 454,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 488.1,
+      "prefill_tokens": 171,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 351.4,
+      "decode_tok_s": 37.7,
+      "spec_accept_rate": 0.895,
+      "tok_per_step": 4.18
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00147:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

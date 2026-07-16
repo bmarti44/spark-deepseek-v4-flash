@@ -1,0 +1,90 @@
+{
+  "index": 141,
+  "task_id": "HumanEval/141",
+  "rendered_prompt_sha256": "1346cfd15de72531685d9c4a09fb6a7b459df3852a0d84cd6a0632a0a1c32e5b",
+  "rendering": "raw",
+  "completion": "Here’s a Python function that follows your specification:\n\n```python\ndef file_name_check(file_name):\n    # Count digits\n    digit_count = sum(1 for ch in file_name if ch.isdigit())\n    if digit_count > 3:\n        return 'No'\n    \n    # Check exactly one dot\n    if file_name.count('.') != 1:\n        return 'No'\n    \n    # Split into parts\n    parts = file_name.split('.')\n    before_dot = parts[0]\n    after_dot = parts[1]\n    \n    # Check before dot is not empty and starts with a latin letter\n    if not before_dot or not before_dot[0].isalpha():\n        return 'No'\n    \n    # Check after dot is one of the allowed extensions\n    if after_dot not in ['txt', 'exe', 'dll']:\n        return 'No'\n    \n    return 'Yes'\n```",
+  "finish_reason": "stop",
+  "expected": "    suf = ['txt', 'exe', 'dll']\n    lst = file_name.split(sep='.')\n    if len(lst) != 2:\n        return 'No'\n    if not lst[1] in suf:\n        return 'No'\n    if len(lst[0]) == 0:\n        return 'No'\n    if not lst[0][0].isalpha():\n        return 'No'\n    t = len([x for x in lst[0] if x.isdigit()])\n    if t > 3:\n        return 'No'\n    return 'Yes'\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.849991185998078
+  },
+  "response": {
+    "id": "cmpl-1017",
+    "object": "text_completion",
+    "created": 1784243670,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here’s a Python function that follows your specification:\n\n```python\ndef file_name_check(file_name):\n    # Count digits\n    digit_count = sum(1 for ch in file_name if ch.isdigit())\n    if digit_count > 3:\n        return 'No'\n    \n    # Check exactly one dot\n    if file_name.count('.') != 1:\n        return 'No'\n    \n    # Split into parts\n    parts = file_name.split('.')\n    before_dot = parts[0]\n    after_dot = parts[1]\n    \n    # Check before dot is not empty and starts with a latin letter\n    if not before_dot or not before_dot[0].isalpha():\n        return 'No'\n    \n    # Check after dot is one of the allowed extensions\n    if after_dot not in ['txt', 'exe', 'dll']:\n        return 'No'\n    \n    return 'Yes'\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 221,
+      "completion_tokens": 195,
+      "total_tokens": 416,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 583.7,
+      "prefill_tokens": 221,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 379.6,
+      "decode_tok_s": 37.0,
+      "spec_accept_rate": 0.92,
+      "tok_per_step": 4.36
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00141:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

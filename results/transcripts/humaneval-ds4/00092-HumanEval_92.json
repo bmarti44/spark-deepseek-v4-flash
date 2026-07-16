@@ -1,0 +1,90 @@
+{
+  "index": 92,
+  "task_id": "HumanEval/92",
+  "rendered_prompt_sha256": "1d19b808783c5f57c39df1de99cec4193d4b59538aa48ed22d6ca85c727a51e2",
+  "rendering": "raw",
+  "completion": "Here's a clear implementation of the function:\n\n```python\ndef any_int(x, y, z):\n    # Check if all inputs are integers\n    if not (isinstance(x, int) and isinstance(y, int) and isinstance(z, int)):\n        return False\n    \n    # Check if any number equals the sum of the other two\n    return (x == y + z) or (y == x + z) or (z == x + y)\n```\n\nThis function:\n1. First checks that all three inputs are integers (returns `False` if any is not)\n2. Then checks if any one of the numbers equals the sum of the other two\n3. Returns `True` only if both conditions are met, otherwise `False`",
+  "finish_reason": "stop",
+  "expected": "    \n    if isinstance(x,int) and isinstance(y,int) and isinstance(z,int):\n        if (x+y==z) or (x+z==y) or (y+z==x):\n            return True\n        return False\n    return False\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.8183336069996585
+  },
+  "response": {
+    "id": "cmpl-968",
+    "object": "text_completion",
+    "created": 1784243283,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a clear implementation of the function:\n\n```python\ndef any_int(x, y, z):\n    # Check if all inputs are integers\n    if not (isinstance(x, int) and isinstance(y, int) and isinstance(z, int)):\n        return False\n    \n    # Check if any number equals the sum of the other two\n    return (x == y + z) or (y == x + z) or (z == x + y)\n```\n\nThis function:\n1. First checks that all three inputs are integers (returns `False` if any is not)\n2. Then checks if any one of the numbers equals the sum of the other two\n3. Returns `True` only if both conditions are met, otherwise `False`",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 139,
+      "completion_tokens": 154,
+      "total_tokens": 293,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 832.3,
+      "prefill_tokens": 139,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 167.3,
+      "decode_tok_s": 38.6,
+      "spec_accept_rate": 0.9,
+      "tok_per_step": 4.31
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00092:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "index": 87,
+  "task_id": "HumanEval/87",
+  "rendered_prompt_sha256": "8de3ecf44a0ece8d4e372c37aa51439548bd77398c179f009834d5b5d1ea34fb",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function you described:\n\n```python\ndef get_row(lst, x):\n    result = []\n    for row_index, row in enumerate(lst):\n        for col_index, value in enumerate(row):\n            if value == x:\n                result.append((row_index, col_index))\n    \n    # Sort by row ascending, then by column descending\n    result.sort(key=lambda coord: (coord[0], -coord[1]))\n    return result\n```\n\nThis function:\n1. Iterates through each row and each column in the nested list.\n2. When it finds an element equal to `x`, it records the `(row, column)` coordinate.\n3. After collecting all coordinates, it sorts them first by row (ascending), then by column (descending) using the negative column index in the sort key.",
+  "finish_reason": "stop",
+  "expected": "    coords = [(i, j) for i in range(len(lst)) for j in range(len(lst[i])) if lst[i][j] == x]\n    return sorted(sorted(coords, key=lambda x: x[1], reverse=True), key=lambda x: x[0])\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.458198985994386
+  },
+  "response": {
+    "id": "cmpl-963",
+    "object": "text_completion",
+    "created": 1784243245,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function you described:\n\n```python\ndef get_row(lst, x):\n    result = []\n    for row_index, row in enumerate(lst):\n        for col_index, value in enumerate(row):\n            if value == x:\n                result.append((row_index, col_index))\n    \n    # Sort by row ascending, then by column descending\n    result.sort(key=lambda coord: (coord[0], -coord[1]))\n    return result\n```\n\nThis function:\n1. Iterates through each row and each column in the nested list.\n2. When it finds an element equal to `x`, it records the `(row, column)` coordinate.\n3. After collecting all coordinates, it sorts them first by row (ascending), then by column (descending) using the negative column index in the sort key.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 264,
+      "completion_tokens": 171,
+      "total_tokens": 435,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 595.6,
+      "prefill_tokens": 264,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 444.3,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.863,
+      "tok_per_step": 3.91
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00087:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

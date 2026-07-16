@@ -1,0 +1,90 @@
+{
+  "index": 95,
+  "task_id": "HumanEval/95",
+  "rendered_prompt_sha256": "e8a971e0e8838d69639de6628a8eff45638ce938c172670b7274c41d63207631",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function:\n\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    \n    all_lower = True\n    all_upper = True\n    \n    for key in dict.keys():\n        if not isinstance(key, str):\n            all_lower = False\n            all_upper = False\n            break\n        if not key.islower():\n            all_lower = False\n        if not key.isupper():\n            all_upper = False\n    \n    return all_lower or all_upper\n```\n\nThis function:\n- Returns `False` if the dictionary is empty.\n- Checks each key: if any key is not a string, both flags become `False`.\n- Otherwise, it checks if the key is all lowercase or all uppercase.\n- Returns `True` if all keys are lowercase **or** all keys are uppercase.",
+  "finish_reason": "stop",
+  "expected": "    if len(dict.keys()) == 0:\n        return False\n    else:\n        state = \"start\"\n        for key in dict.keys():\n\n            if isinstance(key, str) == False:\n                state = \"mixed\"\n                break\n            if state == \"start\":\n                if key.isupper():\n                    state = \"upper\"\n                elif key.islower():\n                    state = \"lower\"\n                else:\n                    break\n            elif (state == \"upper\" and not key.isupper()) or (state == \"lower\" and not key.islower()):\n                    state = \"mixed\"\n                    break\n            else:\n                break\n        return state == \"upper\" or state == \"lower\" \n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.5872272009946755
+  },
+  "response": {
+    "id": "cmpl-971",
+    "object": "text_completion",
+    "created": 1784243307,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function:\n\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    \n    all_lower = True\n    all_upper = True\n    \n    for key in dict.keys():\n        if not isinstance(key, str):\n            all_lower = False\n            all_upper = False\n            break\n        if not key.islower():\n            all_lower = False\n        if not key.isupper():\n            all_upper = False\n    \n    return all_lower or all_upper\n```\n\nThis function:\n- Returns `False` if the dictionary is empty.\n- Checks each key: if any key is not a string, both flags become `False`.\n- Otherwise, it checks if the key is all lowercase or all uppercase.\n- Returns `True` if all keys are lowercase **or** all keys are uppercase.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "completion_tokens": 179,
+      "total_tokens": 363,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 500.4,
+      "prefill_tokens": 184,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 368.7,
+      "decode_tok_s": 35.2,
+      "spec_accept_rate": 0.874,
+      "tok_per_step": 3.91
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00095:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

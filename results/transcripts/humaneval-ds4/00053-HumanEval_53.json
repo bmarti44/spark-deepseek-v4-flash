@@ -1,0 +1,90 @@
+{
+  "index": 53,
+  "task_id": "HumanEval/53",
+  "rendered_prompt_sha256": "37ae93665c1512f10b22de3b438a4310a63dabf773891ef3120880a8f2dc7217",
+  "rendering": "raw",
+  "completion": "Here's the implementation of the `add` function:\n\n```python\ndef add(x: int, y: int):\n    \"\"\"Add two numbers x and y\n    >>> add(2, 3)\n    5\n    >>> add(5, 7)\n    12\n    \"\"\"\n    return x + y\n```\n\nThe function simply returns the sum of the two integer arguments `x` and `y`. The docstring includes examples showing the expected behavior.",
+  "finish_reason": "stop",
+  "expected": "    return x + y\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.215612975996919
+  },
+  "response": {
+    "id": "cmpl-929",
+    "object": "text_completion",
+    "created": 1784242990,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's the implementation of the `add` function:\n\n```python\ndef add(x: int, y: int):\n    \"\"\"Add two numbers x and y\n    >>> add(2, 3)\n    5\n    >>> add(5, 7)\n    12\n    \"\"\"\n    return x + y\n```\n\nThe function simply returns the sum of the two integer arguments `x` and `y`. The docstring includes examples showing the expected behavior.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 55,
+      "completion_tokens": 94,
+      "total_tokens": 149,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 559.8,
+      "prefill_tokens": 55,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 98.5,
+      "decode_tok_s": 35.4,
+      "spec_accept_rate": 0.908,
+      "tok_per_step": 3.96
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00053:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

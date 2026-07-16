@@ -1,0 +1,91 @@
+{
+  "index": 22,
+  "task_id": "HumanEval/22",
+  "rendered_prompt_sha256": "b7bde40423debe285816bdcee858624a7ded823a414e8cf0e71d1185fc6cdb32",
+  "rendering": "raw",
+  "completion": "Here's the implementation for the `filter_integers` function:\n\n```python\nfrom typing import List, Any\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int)]\n```\n\nThis function:\n- Takes a list of any Python values\n- Uses a list comprehension to filter only the elements that are instances of `int`\n- Returns a new list containing only the integer values\n\nThe `isinstance(v, int)` check ensures that only actual integers are included, while floats, strings, and other types are excluded.",
+  "finish_reason": "stop",
+  "expected": "    return [x for x in values if isinstance(x, int)]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.002906622001319
+  },
+  "response": {
+    "id": "cmpl-898",
+    "object": "text_completion",
+    "created": 1784242786,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's the implementation for the `filter_integers` function:\n\n```python\nfrom typing import List, Any\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int)]\n```\n\nThis function:\n- Takes a list of any Python values\n- Uses a list comprehension to filter only the elements that are instances of `int`\n- Returns a new list containing only the integer values\n\nThe `isinstance(v, int)` check ensures that only actual integers are included, while floats, strings, and other types are excluded.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 98,
+      "completion_tokens": 189,
+      "total_tokens": 287,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 811.7,
+      "prefill_tokens": 98,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 120.9,
+      "decode_tok_s": 36.4,
+      "spec_accept_rate": 0.887,
+      "tok_per_step": 4.04
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00022:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rendered_prompt": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n"
+}

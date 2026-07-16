@@ -1,0 +1,90 @@
+{
+  "index": 91,
+  "task_id": "HumanEval/91",
+  "rendered_prompt_sha256": "9445e82177f062459a801e24909bc856435701d82f1d67a9dad1f9d6fd0f6362",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function:\n\n```python\ndef is_bored(S):\n    \"\"\"\n    Counts the number of sentences that start with the word \"I\".\n    Sentences are delimited by '.', '?' or '!'.\n    \"\"\"\n    count = 0\n    # Split the string into sentences based on the delimiters\n    # We need to keep the delimiters to know where sentences end,\n    # but we can split and then check each part.\n    import re\n    sentences = re.split(r'[.?!]', S)\n    for sentence in sentences:\n        # Remove leading/trailing whitespace\n        sentence = sentence.strip()\n        if sentence.startswith(\"I \") or sentence == \"I\":\n            count += 1\n    return count\n```\n\nThis function:\n- Uses `re.split` to split the string at `.`, `?`, or `!`.\n- For each resulting part, strips whitespace.\n- Checks if the sentence starts with \"I\" (either followed by a space or exactly \"I\").\n- Returns the count.",
+  "finish_reason": "stop",
+  "expected": "    import re\n    sentences = re.split(r'[.?!]\\s*', S)\n    return sum(sentence[0:2] == 'I ' for sentence in sentences)\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.753540338999301
+  },
+  "response": {
+    "id": "cmpl-967",
+    "object": "text_completion",
+    "created": 1784243278,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function:\n\n```python\ndef is_bored(S):\n    \"\"\"\n    Counts the number of sentences that start with the word \"I\".\n    Sentences are delimited by '.', '?' or '!'.\n    \"\"\"\n    count = 0\n    # Split the string into sentences based on the delimiters\n    # We need to keep the delimiters to know where sentences end,\n    # but we can split and then check each part.\n    import re\n    sentences = re.split(r'[.?!]', S)\n    for sentence in sentences:\n        # Remove leading/trailing whitespace\n        sentence = sentence.strip()\n        if sentence.startswith(\"I \") or sentence == \"I\":\n            count += 1\n    return count\n```\n\nThis function:\n- Uses `re.split` to split the string at `.`, `?`, or `!`.\n- For each resulting part, strips whitespace.\n- Checks if the sentence starts with \"I\" (either followed by a space or exactly \"I\").\n- Returns the count.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "completion_tokens": 224,
+      "total_tokens": 336,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 838.1,
+      "prefill_tokens": 112,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 133.9,
+      "decode_tok_s": 32.4,
+      "spec_accept_rate": 0.816,
+      "tok_per_step": 3.57
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00091:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

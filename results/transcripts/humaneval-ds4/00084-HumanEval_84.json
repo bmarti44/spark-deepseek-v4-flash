@@ -1,0 +1,90 @@
+{
+  "index": 84,
+  "task_id": "HumanEval/84",
+  "rendered_prompt_sha256": "5b69b9b354c92bcb61d5e63ec962c1df7cc559708ce12f54b705344d47dc5b28",
+  "rendering": "raw",
+  "completion": "Here's a clear implementation for the problem:\n\n```python\ndef solve(N):\n    # Step 1: Sum the digits of N\n    digit_sum = sum(int(d) for d in str(N))\n    \n    # Step 2: Convert the sum to binary (without '0b' prefix)\n    binary_string = bin(digit_sum)[2:]\n    \n    return binary_string\n```\n\n**How it works:**\n1. `str(N)` converts the number to a string so we can iterate over each digit.\n2. `sum(int(d) for d in str(N))` adds up each digit as an integer.\n3. `bin(digit_sum)` converts the sum to a binary string (e.g., `\"0b1100\"`).\n4. `[2:]` removes the `\"0b\"` prefix, leaving just the binary digits.\n\n**Examples:**\n- `solve(1000)` → `\"1\"` (sum = 1)\n- `solve(150)` → `\"110\"` (sum = 6)\n- `solve(147)` → `\"1100\"` (sum = 12)",
+  "finish_reason": "stop",
+  "expected": "    return bin(sum(int(i) for i in str(N)))[2:]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.297739493995323
+  },
+  "response": {
+    "id": "cmpl-960",
+    "object": "text_completion",
+    "created": 1784243223,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a clear implementation for the problem:\n\n```python\ndef solve(N):\n    # Step 1: Sum the digits of N\n    digit_sum = sum(int(d) for d in str(N))\n    \n    # Step 2: Convert the sum to binary (without '0b' prefix)\n    binary_string = bin(digit_sum)[2:]\n    \n    return binary_string\n```\n\n**How it works:**\n1. `str(N)` converts the number to a string so we can iterate over each digit.\n2. `sum(int(d) for d in str(N))` adds up each digit as an integer.\n3. `bin(digit_sum)` converts the sum to a binary string (e.g., `\"0b1100\"`).\n4. `[2:]` removes the `\"0b\"` prefix, leaving just the binary digits.\n\n**Examples:**\n- `solve(1000)` → `\"1\"` (sum = 1)\n- `solve(150)` → `\"110\"` (sum = 6)\n- `solve(147)` → `\"1100\"` (sum = 12)",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 239,
+      "total_tokens": 376,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 819.7,
+      "prefill_tokens": 137,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 167.4,
+      "decode_tok_s": 36.9,
+      "spec_accept_rate": 0.886,
+      "tok_per_step": 4.07
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00084:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

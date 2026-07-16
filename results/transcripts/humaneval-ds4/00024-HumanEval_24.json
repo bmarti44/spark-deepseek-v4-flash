@@ -1,0 +1,90 @@
+{
+  "index": 24,
+  "task_id": "HumanEval/24",
+  "rendered_prompt_sha256": "3bc8bf3f66a3b5e171a358bbd5f33fba1a5d16ea65459198757dcb662dbaaac2",
+  "rendering": "raw",
+  "completion": "Here's a clean implementation of the `largest_divisor` function:\n\n```python\ndef largest_divisor(n: int) -> int:\n    \"\"\" For a given number n, find the largest number that divides n evenly, smaller than n\n    >>> largest_divisor(15)\n    5\n    \"\"\"\n    # Start from n//2 and go downwards to find the largest divisor\n    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1  # Fallback (shouldn't happen for n > 1)\n```\n\n**How it works:**\n- The largest possible divisor smaller than `n` is at most `n // 2` (since any number greater than `n//2` cannot divide `n` evenly except `n` itself).\n- We iterate backwards from `n // 2` down to 1.\n- The first number that divides `n` evenly is the largest divisor.\n- If none found (which only happens for `n = 1`), we return 1.\n\n**Example:**\n- `largest_divisor(15)` → checks 7, 6, 5 → 5 divides 15 → returns 5\n- `largest_divisor(17)` → checks 8, 7, 6, 5, 4, 3, 2, 1 → 1 divides 17 → returns 1",
+  "finish_reason": "stop",
+  "expected": "    for i in reversed(range(n)):\n        if n % i == 0:\n            return i\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.344925010002044
+  },
+  "response": {
+    "id": "cmpl-900",
+    "object": "text_completion",
+    "created": 1784242799,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a clean implementation of the `largest_divisor` function:\n\n```python\ndef largest_divisor(n: int) -> int:\n    \"\"\" For a given number n, find the largest number that divides n evenly, smaller than n\n    >>> largest_divisor(15)\n    5\n    \"\"\"\n    # Start from n//2 and go downwards to find the largest divisor\n    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1  # Fallback (shouldn't happen for n > 1)\n```\n\n**How it works:**\n- The largest possible divisor smaller than `n` is at most `n // 2` (since any number greater than `n//2` cannot divide `n` evenly except `n` itself).\n- We iterate backwards from `n // 2` down to 1.\n- The first number that divides `n` evenly is the largest divisor.\n- If none found (which only happens for `n = 1`), we return 1.\n\n**Example:**\n- `largest_divisor(15)` → checks 7, 6, 5 → 5 divides 15 → returns 5\n- `largest_divisor(17)` → checks 8, 7, 6, 5, 4, 3, 2, 1 → 1 divides 17 → returns 1",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 55,
+      "completion_tokens": 306,
+      "total_tokens": 361,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 569.0,
+      "prefill_tokens": 55,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 96.9,
+      "decode_tok_s": 34.9,
+      "spec_accept_rate": 0.862,
+      "tok_per_step": 3.84
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00024:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

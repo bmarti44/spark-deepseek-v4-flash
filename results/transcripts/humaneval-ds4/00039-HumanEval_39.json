@@ -1,0 +1,90 @@
+{
+  "index": 39,
+  "task_id": "HumanEval/39",
+  "rendered_prompt_sha256": "6dde5c311a83caad26ca80e7e914c596b9cb6e8467630530600e21c98d547c5a",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for `prime_fib`:\n\n```python\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    count = 0\n    a, b = 0, 1\n    while True:\n        # Check if the current Fibonacci number is prime\n        fib = a + b\n        if is_prime(fib):\n            count += 1\n            if count == n:\n                return fib\n        # Update Fibonacci sequence\n        a, b = b, fib\n```\n\nThis function:\n- Uses a helper `is_prime` to check primality.\n- Generates Fibonacci numbers iteratively.\n- Counts how many prime Fibonacci numbers have been found.\n- Returns the `n`-th such number.",
+  "finish_reason": "stop",
+  "expected": "    import math\n\n    def is_prime(p):\n        if p < 2:\n            return False\n        for k in range(2, min(int(math.sqrt(p)) + 1, p - 1)):\n            if p % k == 0:\n                return False\n        return True\n    f = [0, 1]\n    while True:\n        f.append(f[-1] + f[-2])\n        if is_prime(f[-1]):\n            n -= 1\n        if n == 0:\n            return f[-1]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.310635937006737
+  },
+  "response": {
+    "id": "cmpl-915",
+    "object": "text_completion",
+    "created": 1784242905,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for `prime_fib`:\n\n```python\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    count = 0\n    a, b = 0, 1\n    while True:\n        # Check if the current Fibonacci number is prime\n        fib = a + b\n        if is_prime(fib):\n            count += 1\n            if count == n:\n                return fib\n        # Update Fibonacci sequence\n        a, b = b, fib\n```\n\nThis function:\n- Uses a helper `is_prime` to check primality.\n- Generates Fibonacci numbers iteratively.\n- Counts how many prime Fibonacci numbers have been found.\n- Returns the `n`-th such number.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 96,
+      "completion_tokens": 279,
+      "total_tokens": 375,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 778.6,
+      "prefill_tokens": 96,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 123.5,
+      "decode_tok_s": 37.0,
+      "spec_accept_rate": 0.886,
+      "tok_per_step": 4.12
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00039:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

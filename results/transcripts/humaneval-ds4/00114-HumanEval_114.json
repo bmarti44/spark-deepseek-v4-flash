@@ -1,0 +1,90 @@
+{
+  "index": 114,
+  "task_id": "HumanEval/114",
+  "rendered_prompt_sha256": "4bdb0afd53bc0e28529bafba0538d6b3a566ad5f476fb7f1016cfabe823f1c3f",
+  "rendering": "raw",
+  "completion": "Let’s think through the problem.\n\nWe need the **minimum sum** of any non-empty sub-array.  \nIf all numbers are positive, the minimum sum is the smallest single element.  \nIf there are negative numbers, the minimum sum might be a sub-array with the most negative total.\n\nThe classic approach is **Kadane’s algorithm** but for minimum sum instead of maximum sum.\n\nWe can iterate through the array, keeping track of:\n- `current_min`: the minimum sum of sub-arrays ending at the current position.\n- `global_min`: the overall minimum sum found so far.\n\nAt each step:\n- `current_min = min(nums[i], current_min + nums[i])`\n- `global_min = min(global_min, current_min)`\n\nLet’s implement it.\n\n```python\ndef minSubArraySum(nums):\n    current_min = nums[0]\n    global_min = nums[0]\n    \n    for i in range(1, len(nums)):\n        current_min = min(nums[i], current_min + nums[i])\n        global_min = min(global_min, current_min)\n    \n    return global_min\n```",
+  "finish_reason": "stop",
+  "expected": "    max_sum = 0\n    s = 0\n    for num in nums:\n        s += -num\n        if (s < 0):\n            s = 0\n        max_sum = max(s, max_sum)\n    if max_sum == 0:\n        max_sum = max(-i for i in nums)\n    min_sum = -max_sum\n    return min_sum\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.728423118998762
+  },
+  "response": {
+    "id": "cmpl-990",
+    "object": "text_completion",
+    "created": 1784243448,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Let’s think through the problem.\n\nWe need the **minimum sum** of any non-empty sub-array.  \nIf all numbers are positive, the minimum sum is the smallest single element.  \nIf there are negative numbers, the minimum sum might be a sub-array with the most negative total.\n\nThe classic approach is **Kadane’s algorithm** but for minimum sum instead of maximum sum.\n\nWe can iterate through the array, keeping track of:\n- `current_min`: the minimum sum of sub-arrays ending at the current position.\n- `global_min`: the overall minimum sum found so far.\n\nAt each step:\n- `current_min = min(nums[i], current_min + nums[i])`\n- `global_min = min(global_min, current_min)`\n\nLet’s implement it.\n\n```python\ndef minSubArraySum(nums):\n    current_min = nums[0]\n    global_min = nums[0]\n    \n    for i in range(1, len(nums)):\n        current_min = min(nums[i], current_min + nums[i])\n        global_min = min(global_min, current_min)\n    \n    return global_min\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 94,
+      "completion_tokens": 235,
+      "total_tokens": 329,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 807.9,
+      "prefill_tokens": 94,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 116.5,
+      "decode_tok_s": 34.0,
+      "spec_accept_rate": 0.838,
+      "tok_per_step": 3.75
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00114:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "index": 49,
+  "task_id": "HumanEval/49",
+  "rendered_prompt_sha256": "e66b53fb6c885a4c550b997add2be1d3229f04eabfca6e66e7a2d1e2845b164f",
+  "rendering": "raw",
+  "completion": "Here's a clean implementation of `modp` that efficiently computes \\(2^n \\mod p\\) using fast exponentiation:\n\n```python\ndef modp(n: int, p: int):\n    \"\"\"Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"\n    result = 1\n    base = 2 % p\n    exp = n\n    while exp > 0:\n        if exp & 1:\n            result = (result * base) % p\n        base = (base * base) % p\n        exp >>= 1\n    return result % p\n```",
+  "finish_reason": "stop",
+  "expected": "    ret = 1\n    for i in range(n):\n        ret = (2 * ret) % p\n    return ret\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.49505556999793
+  },
+  "response": {
+    "id": "cmpl-925",
+    "object": "text_completion",
+    "created": 1784242965,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a clean implementation of `modp` that efficiently computes \\(2^n \\mod p\\) using fast exponentiation:\n\n```python\ndef modp(n: int, p: int):\n    \"\"\"Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"\n    result = 1\n    base = 2 % p\n    exp = n\n    while exp > 0:\n        if exp & 1:\n            result = (result * base) % p\n        base = (base * base) % p\n        exp >>= 1\n    return result % p\n```",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 104,
+      "completion_tokens": 191,
+      "total_tokens": 295,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 798.1,
+      "prefill_tokens": 104,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 130.5,
+      "decode_tok_s": 40.7,
+      "spec_accept_rate": 0.949,
+      "tok_per_step": 4.57
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00049:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

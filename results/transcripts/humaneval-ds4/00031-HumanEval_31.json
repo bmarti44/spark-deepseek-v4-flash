@@ -1,0 +1,90 @@
+{
+  "index": 31,
+  "task_id": "HumanEval/31",
+  "rendered_prompt_sha256": "453ca5e2c63fdbba8afa4208d797faeb371744b7de1e5c401d89664050bcc613",
+  "rendering": "raw",
+  "completion": "Here's a straightforward implementation of the `is_prime` function:\n\n```python\ndef is_prime(n):\n    \"\"\"Return true if a given number is prime, and false otherwise.\"\"\"\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n```\n\nThis function:\n1. Returns `False` for numbers ≤ 1 (since they are not prime).\n2. Returns `True` for 2 and 3 (the smallest primes).\n3. Checks divisibility by 2 and 3 early to eliminate many cases.\n4. Uses the 6k ± 1 optimization to check only potential factors of the form `6k ± 1` up to the square root of `n`.",
+  "finish_reason": "stop",
+  "expected": "    if n < 2:\n        return False\n    for k in range(2, n - 1):\n        if n % k == 0:\n            return False\n    return True\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.412288232000719
+  },
+  "response": {
+    "id": "cmpl-907",
+    "object": "text_completion",
+    "created": 1784242840,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a straightforward implementation of the `is_prime` function:\n\n```python\ndef is_prime(n):\n    \"\"\"Return true if a given number is prime, and false otherwise.\"\"\"\n    if n <= 1:\n        return False\n    if n <= 3:\n        return True\n    if n % 2 == 0 or n % 3 == 0:\n        return False\n    i = 5\n    while i * i <= n:\n        if n % i == 0 or n % (i + 2) == 0:\n            return False\n        i += 6\n    return True\n```\n\nThis function:\n1. Returns `False` for numbers ≤ 1 (since they are not prime).\n2. Returns `True` for 2 and 3 (the smallest primes).\n3. Checks divisibility by 2 and 3 early to eliminate many cases.\n4. Uses the 6k ± 1 optimization to check only potential factors of the form `6k ± 1` up to the square root of `n`.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 103,
+      "completion_tokens": 220,
+      "total_tokens": 323,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 783.3,
+      "prefill_tokens": 103,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 131.7,
+      "decode_tok_s": 33.2,
+      "spec_accept_rate": 0.846,
+      "tok_per_step": 3.68
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00031:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

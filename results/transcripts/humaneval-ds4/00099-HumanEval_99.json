@@ -1,0 +1,90 @@
+{
+  "index": 99,
+  "task_id": "HumanEval/99",
+  "rendered_prompt_sha256": "53ad185333496f1faa011070d323b24af3e23506e32f52ced0b3c0f9867d2719",
+  "rendering": "raw",
+  "completion": "Here's a possible implementation for the function:\n\n```python\ndef closest_integer(value):\n    # Convert the string to a float\n    num = float(value)\n    \n    # Get the absolute value and the fractional part\n    abs_num = abs(num)\n    fractional = abs_num - int(abs_num)\n    \n    # Determine rounding direction\n    if fractional > 0.5:\n        # Round away from zero\n        result = int(abs_num) + 1\n    elif fractional < 0.5:\n        # Round towards zero\n        result = int(abs_num)\n    else:\n        # Exactly 0.5: round away from zero\n        result = int(abs_num) + 1\n    \n    # Apply sign\n    if num < 0:\n        result = -result\n    \n    return result\n```\n\nThis function:\n- Converts the input string to a float.\n- Works with the absolute value to handle negative numbers uniformly.\n- Checks the fractional part to decide rounding:\n  - If > 0.5, round away from zero.\n  - If < 0.5, round towards zero.\n  - If exactly 0.5, round away from zero (as required).\n- Applies the original sign back to the result.",
+  "finish_reason": "stop",
+  "expected": "    from math import floor, ceil\n\n    if value.count('.') == 1:\n        # remove trailing zeros\n        while (value[-1] == '0'):\n            value = value[:-1]\n\n    num = float(value)\n    if value[-2:] == '.5':\n        if num > 0:\n            res = ceil(num)\n        else:\n            res = floor(num)\n    elif len(value) > 0:\n        res = int(round(num))\n    else:\n        res = 0\n\n    return res\n\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.402061136999691
+  },
+  "response": {
+    "id": "cmpl-975",
+    "object": "text_completion",
+    "created": 1784243340,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's a possible implementation for the function:\n\n```python\ndef closest_integer(value):\n    # Convert the string to a float\n    num = float(value)\n    \n    # Get the absolute value and the fractional part\n    abs_num = abs(num)\n    fractional = abs_num - int(abs_num)\n    \n    # Determine rounding direction\n    if fractional > 0.5:\n        # Round away from zero\n        result = int(abs_num) + 1\n    elif fractional < 0.5:\n        # Round towards zero\n        result = int(abs_num)\n    else:\n        # Exactly 0.5: round away from zero\n        result = int(abs_num) + 1\n    \n    # Apply sign\n    if num < 0:\n        result = -result\n    \n    return result\n```\n\nThis function:\n- Converts the input string to a float.\n- Works with the absolute value to handle negative numbers uniformly.\n- Checks the fractional part to decide rounding:\n  - If > 0.5, round away from zero.\n  - If < 0.5, round towards zero.\n  - If exactly 0.5, round away from zero (as required).\n- Applies the original sign back to the result.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 160,
+      "completion_tokens": 257,
+      "total_tokens": 417,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 921.6,
+      "prefill_tokens": 160,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 173.9,
+      "decode_tok_s": 34.4,
+      "spec_accept_rate": 0.855,
+      "tok_per_step": 3.79
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00099:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

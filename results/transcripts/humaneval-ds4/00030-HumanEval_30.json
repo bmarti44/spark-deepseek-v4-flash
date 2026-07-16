@@ -1,0 +1,90 @@
+{
+  "index": 30,
+  "task_id": "HumanEval/30",
+  "rendered_prompt_sha256": "278875ddc3e598e47227263e6384f3c169b8526e9ab6475e52e939d6a151f00b",
+  "rendering": "raw",
+  "completion": "Here's the implementation for the function you described:\n\n```python\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n    return [num for num in l if num > 0]\n```\n\nThis uses a list comprehension to filter out only the positive numbers (greater than 0). Note that 0 is not considered positive, so it's excluded from the results.",
+  "finish_reason": "stop",
+  "expected": "    return [e for e in l if e > 0]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "enable_thinking": false,
+      "model": "deepseek-v4-flash",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.355352137994487
+  },
+  "response": {
+    "id": "cmpl-906",
+    "object": "text_completion",
+    "created": 1784242832,
+    "model": "deepseek-v4-flash",
+    "choices": [
+      {
+        "text": "Here's the implementation for the function you described:\n\n```python\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n    return [num for num in l if num > 0]\n```\n\nThis uses a list comprehension to filter out only the positive numbers (greater than 0). Note that 0 is not considered positive, so it's excluded from the results.",
+        "index": 0,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 121,
+      "completion_tokens": 174,
+      "total_tokens": 295,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0
+      }
+    },
+    "timings": {
+      "ttft_ms": 872.6,
+      "prefill_tokens": 121,
+      "prefill_cached_tokens": 0,
+      "prefill_tok_s": 138.9,
+      "decode_tok_s": 38.8,
+      "spec_accept_rate": 0.93,
+      "tok_per_step": 4.38
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-8csewb4a/case-00030:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}
