@@ -1,0 +1,33 @@
+{
+  "captured_from": "HF API by orchestrator, 2026-07-16",
+  "note": "datasets-server API path abandoned (anonymous 429 rate limits); parquet files fetched at pinned revisions instead, consistent with all other artifact pins.",
+  "datasets": [
+    {
+      "key": "gsm8k",
+      "repo": "openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "path": "main/test-00000-of-00001.parquet",
+      "bytes": 419088,
+      "sha256": "ee7b8da9e381df27b9e3f7758a159ab2bdaa4dbaa910546cbbc47e0cb44e4f59",
+      "expected_rows": 1319
+    },
+    {
+      "key": "mmlu-pro",
+      "repo": "TIGER-Lab/MMLU-Pro",
+      "revision": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
+      "path": "data/test-00000-of-00001.parquet",
+      "bytes": 4144185,
+      "sha256": "0e24a191921c2f453518a537a8b2117bd137e7714d4ef1565e9ba06c1ecb9ad8",
+      "expected_rows": 12032
+    },
+    {
+      "key": "humaneval",
+      "repo": "openai/openai_humaneval",
+      "revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+      "path": "openai_humaneval/test-00000-of-00001.parquet",
+      "bytes": 83920,
+      "sha256": "2f2871a15fbc95b6c683043359f4ed8e144c5a1c4f24f25f66bc51f598dfcfb6",
+      "expected_rows": 164
+    }
+  ]
+}
