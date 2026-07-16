@@ -8,7 +8,7 @@ readonly SECRET_PATTERN_NOHEX='Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? 
 
 is_checksum_file() {
   case "$1" in
-    verification/MANIFEST.sha256|configs/versions.lock|*.sha256) return 0 ;;
+    verification/MANIFEST.sha256|configs/versions.lock|configs/pins/*|*.sha256) return 0 ;;
     *) return 1 ;;
   esac
 }
