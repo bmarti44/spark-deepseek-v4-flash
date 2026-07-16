@@ -1,0 +1,101 @@
+{
+  "index": 108,
+  "task_id": "HumanEval/108",
+  "rendered_prompt_sha256": "c2e8f36f104159515ac39779538568114e45da57511596c007abc0da04875981",
+  "rendering": "raw",
+  "completion": "    count = 0\n    for num in arr:\n        if num < 0:\n            num = -num\n            digits = [int(d) for d in str(num)]\n            signed_sum = -digits[0] + sum(digits[1:])\n        else:\n            digits = [int(d) for d in str(num)]\n            signed_sum = sum(digits)\n        if signed_sum > 0:\n            count += 1\n    return count",
+  "finish_reason": "stop",
+  "expected": "    def digits_sum(n):\n        neg = 1\n        if n < 0: n, neg = -1 * n, -1 \n        n = [int(i) for i in str(n)]\n        n[0] = n[0] * neg\n        return sum(n)\n    return len(list(filter(lambda x: x > 0, [digits_sum(i) for i in arr])))\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 7.862351474999741
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    count = 0\n    for num in arr:\n        if num < 0:\n            num = -num\n            digits = [int(d) for d in str(num)]\n            signed_sum = -digits[0] + sum(digits[1:])\n        else:\n            digits = [int(d) for d in str(num)]\n            signed_sum = sum(digits)\n        if signed_sum > 0:\n            count += 1\n    return count",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228557,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 98,
+      "prompt_tokens": 125,
+      "total_tokens": 223,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1BZvcWngG8cBeKR54lXaBPAxCOPosflg",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 124,
+      "prompt_ms": 856.543,
+      "prompt_per_token_ms": 6.907604838709678,
+      "prompt_per_second": 144.76798012475732,
+      "predicted_n": 98,
+      "predicted_ms": 7003.611,
+      "predicted_per_token_ms": 71.46541836734694,
+      "predicted_per_second": 13.99278172359944
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00108:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

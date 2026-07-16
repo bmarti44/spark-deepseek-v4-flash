@@ -1,0 +1,101 @@
+{
+  "index": 46,
+  "task_id": "HumanEval/46",
+  "rendered_prompt_sha256": "96e26625e9d731f1fea4d5f87089c184ef579180d536f358509ce635fff242b7",
+  "rendering": "raw",
+  "completion": "    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    if n == 0:\n        return 0\n    if n == 1:\n        return 0\n    if n == 2:\n        return 2\n    if n == 3:\n        return 0\n    fib4_prev = [0, 0, 2, 0]\n    for i in range(4, n + 1):\n        fib4_curr = sum(fib4_prev)\n        fib4_prev = fib4_prev[1:] + [fib4_curr]\n    return fib4_prev[-1]",
+  "finish_reason": "stop",
+  "expected": "    results = [0, 0, 2, 0]\n    if n < 4:\n        return results[n]\n\n    for _ in range(4, n + 1):\n        results.append(results[-1] + results[-2] + results[-3] + results[-4])\n        results.pop(0)\n\n    return results[-1]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 11.075274810998962
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    if n == 0:\n        return 0\n    if n == 1:\n        return 0\n    if n == 2:\n        return 2\n    if n == 3:\n        return 0\n    fib4_prev = [0, 0, 2, 0]\n    for i in range(4, n + 1):\n        fib4_curr = sum(fib4_prev)\n        fib4_prev = fib4_prev[1:] + [fib4_curr]\n    return fib4_prev[-1]",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228103,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 139,
+      "prompt_tokens": 163,
+      "total_tokens": 302,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fZXfWpAOHMrnQrbpkvmT0jOgKGPXLmx1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 162,
+      "prompt_ms": 846.34,
+      "prompt_per_token_ms": 5.2243209876543215,
+      "prompt_per_second": 191.4124347189073,
+      "predicted_n": 139,
+      "predicted_ms": 10226.94,
+      "predicted_per_token_ms": 73.57510791366907,
+      "predicted_per_second": 13.5915532896448
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00046:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

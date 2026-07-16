@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "8263070842ca0f18fc57424b0ae368d722873d203c436e2b43ba27a2ca22a47b",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The patient’s presentation—chronic productive cough, recurrent respiratory infections, infertility due to low sperm count, hyperinflation on chest X-ray, and obstructive pattern on spirometry—strongly suggests cystic fibrosis. The most specific diagnostic test for cystic fibrosis is the **sweat chloride test**.\n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.079769416999625
+    "elapsed_s": 5.7884046510007465
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219977,
+    "created": 1784230887,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-DQNDP3mZT496kD3LxYwSABOZNwSDmIKO",
+    "id": "chatcmpl-1K4RaRx7vYr2iJwgLWKKVIkZxHJcWUu1",
     "timings": {
       "cache_n": 1,
       "prompt_n": 206,
-      "prompt_ms": 1163.097,
-      "prompt_per_token_ms": 5.646101941747573,
-      "prompt_per_second": 177.11334480271208,
+      "prompt_ms": 1101.594,
+      "prompt_per_token_ms": 5.347543689320388,
+      "prompt_per_second": 187.00174474443398,
       "predicted_n": 63,
-      "predicted_ms": 4901.463,
-      "predicted_per_token_ms": 77.801,
-      "predicted_per_second": 12.853305227439236
+      "predicted_ms": 4683.203,
+      "predicted_per_token_ms": 74.33655555555556,
+      "predicted_per_second": 13.452331662753034
     }
   }
 }

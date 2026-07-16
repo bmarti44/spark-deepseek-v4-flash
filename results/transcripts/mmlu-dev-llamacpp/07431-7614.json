@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "8a3cf20f4c730b3745d867ece0bc5a702fcd1948bfd2177def071077b3d52731",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The relationship between money supply (M), velocity of money (V), and nominal GNP (or GDP) is given by the equation:\n\n\\[\nM \\times V = \\text{Nominal GNP}\n\\]\n\nHere, GNP = $2,000$ billion and V = 4, so:\n\n\\[\nM \\times 4 = 2,000\n\\]\n\\[\nM = \\frac{2,000}{4} = 500\n\\]\n\nThus, the money supply is $500 billion.\n\nAnswer: J",
+  "finish_reason": "stop",
   "expected": "J",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.870279786999163
+    "elapsed_s": 8.479396988997905
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219622,
+    "created": 1784230194,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-zXvmWHlCxYVkwrROHyuFJZqVlsToViRY",
+    "id": "chatcmpl-RLXyvwBGSlnCrHBh5XcRdj3un5ntKKmT",
     "timings": {
       "cache_n": 1,
       "prompt_n": 106,
-      "prompt_ms": 780.186,
-      "prompt_per_token_ms": 7.360245283018868,
-      "prompt_per_second": 135.86503731161542,
+      "prompt_ms": 748.314,
+      "prompt_per_token_ms": 7.0595660377358485,
+      "prompt_per_second": 141.6517665044353,
       "predicted_n": 109,
-      "predicted_ms": 8086.757,
-      "predicted_per_token_ms": 74.19043119266054,
-      "predicted_per_second": 13.478827173859683
+      "predicted_ms": 7729.525,
+      "predicted_per_token_ms": 70.91307339449541,
+      "predicted_per_second": 14.101772101131699
     }
   }
 }

@@ -3,10 +3,11 @@
   "task_id": 860,
   "rendered_prompt_sha256": "69ca5bc919e29edaa9a5c5a4f58fea1e743e585ccfa61c888ebfaf4a5676341b",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} -",
+  "completion": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} - 1}\n\\]  \nFirst compute \\((1.055)^{15}\\):  \n1.055^2 = 1.113025  \n1.055^4 = 1.113025^2 ≈ 1.2388  \n1.055^8 ≈ 1.2388^2 ≈ 1.5347  \n1.055^16 ≈ 1.5347^2 ≈ 2.3553  \nThen 1.055^15 = 2.3553 / 1.055 ≈ 2.2325  \n\nSo:  \n\\[\nA = 9000 \\times \\frac{0.055 \\times 2.2325}{2.2325 - 1}\n= 9000 \\times \\frac{0.1227875}{1.2325}\n\\]  \n\\[\n= 9000 \\times 0.09964 \\approx 896.76\n\\]  \n\nAnnual payment ≈ **$897** (to nearest dollar).\n\n---\n\nFuel cost: $375 per year.\n\nTotal annual cost for years 1–3 = $897 + $375 = $1,272 per year.\n\nPresent worth of these costs (years 1–3):  \n\\[\n1272 \\times 2.72325 \\approx 3463\n\\]  \n\nPlus down payment: $2,500  \nTotal present cost (excluding resale value) = $2,500 + $3,463 = **$5,963**.\n\n---\n\nAt end of year 3, we sell the equipment for some resale value \\(S\\).  \nPresent value of that resale (positive cash inflow) = \\(S \\times (P/F, 5\\%, 3)\\)  \n\\((P/F, 5\\%, 3) = 0.86384\\)  \n\nSo net present cost of buying =  \n\\[\n5963 - 0.86384 \\times S\n\\]\n\n---\n\n### Equate to rent present cost:\n\\[\n5963 - 0.86384 S = 4248\n\\]  \n\\[\n5963 - 4248 = 0.86384 S\n\\]  \n\\[\n1715 = 0.86384 S\n\\]  \n\\[\nS \\approx \\frac{1715}{0.86384} \\approx 1985\n\\]  \n\nClosest to $1,987.\n\n---\n\n**Answer: F**  \n\nAnswer: F",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='I'",
+  "reason": "incorrect: parsed='F' expected='I'",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.57059385700086
+    "elapsed_s": 56.71336788700137
   },
   "response": {
     "choices": [
       {
-        "text": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} -",
+        "text": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} - 1}\n\\]  \nFirst compute \\((1.055)^{15}\\):  \n1.055^2 = 1.113025  \n1.055^4 = 1.113025^2 ≈ 1.2388  \n1.055^8 ≈ 1.2388^2 ≈ 1.5347  \n1.055^16 ≈ 1.5347^2 ≈ 2.3553  \nThen 1.055^15 = 2.3553 / 1.055 ≈ 2.2325  \n\nSo:  \n\\[\nA = 9000 \\times \\frac{0.055 \\times 2.2325}{2.2325 - 1}\n= 9000 \\times \\frac{0.1227875}{1.2325}\n\\]  \n\\[\n= 9000 \\times 0.09964 \\approx 896.76\n\\]  \n\nAnnual payment ≈ **$897** (to nearest dollar).\n\n---\n\nFuel cost: $375 per year.\n\nTotal annual cost for years 1–3 = $897 + $375 = $1,272 per year.\n\nPresent worth of these costs (years 1–3):  \n\\[\n1272 \\times 2.72325 \\approx 3463\n\\]  \n\nPlus down payment: $2,500  \nTotal present cost (excluding resale value) = $2,500 + $3,463 = **$5,963**.\n\n---\n\nAt end of year 3, we sell the equipment for some resale value \\(S\\).  \nPresent value of that resale (positive cash inflow) = \\(S \\times (P/F, 5\\%, 3)\\)  \n\\((P/F, 5\\%, 3) = 0.86384\\)  \n\nSo net present cost of buying =  \n\\[\n5963 - 0.86384 \\times S\n\\]\n\n---\n\n### Equate to rent present cost:\n\\[\n5963 - 0.86384 S = 4248\n\\]  \n\\[\n5963 - 4248 = 0.86384 S\n\\]  \n\\[\n1715 = 0.86384 S\n\\]  \n\\[\nS \\approx \\frac{1715}{0.86384} \\approx 1985\n\\]  \n\nClosest to $1,987.\n\n---\n\n**Answer: F**  \n\nAnswer: F",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219015,
+    "created": 1784229391,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 751,
       "prompt_tokens": 284,
-      "total_tokens": 540,
+      "total_tokens": 1035,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-u6T7prUvQZfS6fjDa2IabulBPvzdRj1R",
+    "id": "chatcmpl-J6X5h3q486zrZ47nIQilrQidtoIEgTLq",
     "timings": {
       "cache_n": 1,
       "prompt_n": 283,
-      "prompt_ms": 1232.031,
-      "prompt_per_token_ms": 4.3534664310954065,
-      "prompt_per_second": 229.70201236819528,
-      "predicted_n": 256,
-      "predicted_ms": 18334.556,
-      "predicted_per_token_ms": 71.619359375,
-      "predicted_per_second": 13.962705178134666
+      "prompt_ms": 1283.216,
+      "prompt_per_token_ms": 4.534332155477031,
+      "prompt_per_second": 220.539644144088,
+      "predicted_n": 751,
+      "predicted_ms": 55427.108,
+      "predicted_per_token_ms": 73.80440479360853,
+      "predicted_per_second": 13.549326802329286
     }
   }
 }

@@ -1,0 +1,101 @@
+{
+  "index": 1,
+  "task_id": "HumanEval/1",
+  "rendered_prompt_sha256": "ba4d0641a184fb3cdd632060a25d6408a7e91fe9d79b5c341407e74b80536327",
+  "rendering": "raw",
+  "completion": "    # Remove spaces from the input string\n    paren_string = paren_string.replace(' ', '')\n\n    # Initialize variables\n    groups = []\n    current_group = ''\n    balance = 0\n\n    # Iterate through each character in the string\n    for char in paren_string:\n        # Add the character to the current group\n        current_group += char\n\n        # Update the balance based on the character\n        if char == '(':\n            balance += 1\n        elif char == ')':\n            balance -= 1\n\n        # If the balance is zero, we have a complete group\n        if balance == 0:\n            groups.append(current_group)\n            current_group = ''\n\n    return groups",
+  "finish_reason": "stop",
+  "expected": "    result = []\n    current_string = []\n    current_depth = 0\n\n    for c in paren_string:\n        if c == '(':\n            current_depth += 1\n            current_string.append(c)\n        elif c == ')':\n            current_depth -= 1\n            current_string.append(c)\n\n            if current_depth == 0:\n                result.append(''.join(current_string))\n                current_string.clear()\n\n    return result\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 11.687437634998787
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Remove spaces from the input string\n    paren_string = paren_string.replace(' ', '')\n\n    # Initialize variables\n    groups = []\n    current_group = ''\n    balance = 0\n\n    # Iterate through each character in the string\n    for char in paren_string:\n        # Add the character to the current group\n        current_group += char\n\n        # Update the balance based on the character\n        if char == '(':\n            balance += 1\n        elif char == ')':\n            balance -= 1\n\n        # If the balance is zero, we have a complete group\n        if balance == 0:\n            groups.append(current_group)\n            current_group = ''\n\n    return groups",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784227795,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 145,
+      "prompt_tokens": 115,
+      "total_tokens": 260,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KE1YsXgyviHdvKfesnevfcnoMlW4vD5X",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 114,
+      "prompt_ms": 824.317,
+      "prompt_per_token_ms": 7.2308508771929825,
+      "prompt_per_second": 138.29631076394153,
+      "predicted_n": 145,
+      "predicted_ms": 10860.934,
+      "predicted_per_token_ms": 74.90299310344827,
+      "predicted_per_second": 13.35060133870623
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00001:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

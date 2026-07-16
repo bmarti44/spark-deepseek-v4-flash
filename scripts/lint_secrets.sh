@@ -74,6 +74,9 @@ allowlist = {
     "revision",
     "config_digest",
     "sha1",
+    "server_binary_sha256",
+    "model_manifest_sha256s",
+    "canonical_sha256",
 }
 hex64 = re.compile(r"[0-9a-fA-F]{64}")
 raw = os.fdopen(3, encoding="utf-8").read()

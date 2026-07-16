@@ -3,10 +3,11 @@
   "task_id": 10276,
   "rendered_prompt_sha256": "51e011209278a709b44e5b7d955b2522b3b77b90f9b0542b553d5742a2e7b1e2",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\",
+  "completion": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\approx 3.157 \\times 10^{-5} \\text{ radians}\n\\]\n\nAt distance \\( R = 10,000 \\text{ km} = 10^7 \\text{ m} \\), the beam radius in the far field grows approximately as:\n\n\\[\nw(R) \\approx \\theta R\n\\]\n\nSo:\n\n\\[\nw(R) \\approx 3.157 \\times 10^{-5} \\times 10^7 = 315.7 \\text{ m}\n\\]\n\nThe diameter is twice the radius:\n\n\\[\nD \\approx 2 \\times 315.7 \\approx 631.4 \\text{ m}\n\\]\n\nThis is much smaller than the given options, so we likely need the full divergence formula for a Gaussian beam:  \nThe far-field divergence angle is often given by:\n\n\\[\n\\theta = \\frac{\\lambda}{\\pi w_0}\n\\]\n\nBut for a beam with initial diameter \\( D_0 \\), sometimes the formula used is:\n\n\\[\n\\theta \\approx 2.44 \\frac{\\lambda}{D_0}\n\\]\n\nfor a uniformly illuminated circular aperture (Airy disk). Let’s check that:\n\n\\[\n\\theta \\approx 2.44 \\times \\frac{694.3 \\times 10^{-9}}{14 \\times 10^{-3}}\n= 2.44 \\times \\frac{6.943 \\times 10^{-7}}{1.4 \\times 10^{-2}}\n= 2.44 \\times 4.9593 \\times 10^{-5}\n\\approx 1.210 \\times 10^{-4} \\text{ rad}\n\\]\n\nThen beam diameter at target:\n\n\\[\nD \\approx \\theta \\times R = 1.210 \\times 10^{-4} \\times 10^7 = 1210 \\text{ m}\n\\]\n\nThat matches option B.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='B'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.801032717999988
+    "elapsed_s": 46.94959333299994
   },
   "response": {
     "choices": [
       {
-        "text": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\",
+        "text": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\approx 3.157 \\times 10^{-5} \\text{ radians}\n\\]\n\nAt distance \\( R = 10,000 \\text{ km} = 10^7 \\text{ m} \\), the beam radius in the far field grows approximately as:\n\n\\[\nw(R) \\approx \\theta R\n\\]\n\nSo:\n\n\\[\nw(R) \\approx 3.157 \\times 10^{-5} \\times 10^7 = 315.7 \\text{ m}\n\\]\n\nThe diameter is twice the radius:\n\n\\[\nD \\approx 2 \\times 315.7 \\approx 631.4 \\text{ m}\n\\]\n\nThis is much smaller than the given options, so we likely need the full divergence formula for a Gaussian beam:  \nThe far-field divergence angle is often given by:\n\n\\[\n\\theta = \\frac{\\lambda}{\\pi w_0}\n\\]\n\nBut for a beam with initial diameter \\( D_0 \\), sometimes the formula used is:\n\n\\[\n\\theta \\approx 2.44 \\frac{\\lambda}{D_0}\n\\]\n\nfor a uniformly illuminated circular aperture (Airy disk). Let’s check that:\n\n\\[\n\\theta \\approx 2.44 \\times \\frac{694.3 \\times 10^{-9}}{14 \\times 10^{-3}}\n= 2.44 \\times \\frac{6.943 \\times 10^{-7}}{1.4 \\times 10^{-2}}\n= 2.44 \\times 4.9593 \\times 10^{-5}\n\\approx 1.210 \\times 10^{-4} \\text{ rad}\n\\]\n\nThen beam diameter at target:\n\n\\[\nD \\approx \\theta \\times R = 1.210 \\times 10^{-4} \\times 10^7 = 1210 \\text{ m}\n\\]\n\nThat matches option B.\n\nAnswer: B",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784221166,
+    "created": 1784232437,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 648,
       "prompt_tokens": 145,
-      "total_tokens": 401,
+      "total_tokens": 793,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-X6OBCBWw9mYMSf6i24kSMsB6ZWYLBS4H",
+    "id": "chatcmpl-sVFl4oYwUGj3ON4Wb2Emqut1XXr01w13",
     "timings": {
       "cache_n": 1,
       "prompt_n": 144,
-      "prompt_ms": 843.938,
-      "prompt_per_token_ms": 5.860680555555556,
-      "prompt_per_second": 170.6286480760435,
-      "predicted_n": 256,
-      "predicted_ms": 18954.98,
-      "predicted_per_token_ms": 74.042890625,
-      "predicted_per_second": 13.50568557708845
+      "prompt_ms": 824.683,
+      "prompt_per_token_ms": 5.7269652777777775,
+      "prompt_per_second": 174.6125480942374,
+      "predicted_n": 648,
+      "predicted_ms": 46122.946,
+      "predicted_per_token_ms": 71.17738580246915,
+      "predicted_per_second": 14.049406124231526
     }
   }
 }

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "9016b40df20d85f076e2e48a2a49d42e9f8b45f76aa1c45a1aed5c0948fc1161",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The work done is the force (weight) multiplied by the vertical distance, regardless of the time taken.  \n\nWeight = \\( 360 \\, \\text{lb} \\)  \nHeight = \\( 20 \\, \\text{ft} \\)  \n\nWork = \\( 360 \\times 20 = 7200 \\, \\text{ft-lb} \\)  \n\nAnswer: F",
+  "finish_reason": "stop",
   "expected": "F",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.523249638999914
+    "elapsed_s": 6.233975801998895
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220476,
+    "created": 1784231404,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-uIIrgtgFX8in7UkUVhGAB5kE56mJnxbC",
+    "id": "chatcmpl-JMamew6JxTrBRWHJF6NDMWOh8hLslvsn",
     "timings": {
       "cache_n": 1,
       "prompt_n": 182,
-      "prompt_ms": 955.587,
-      "prompt_per_token_ms": 5.250478021978022,
-      "prompt_per_second": 190.4588488541598,
+      "prompt_ms": 911.26,
+      "prompt_per_token_ms": 5.006923076923077,
+      "prompt_per_second": 199.72345982485788,
       "predicted_n": 75,
-      "predicted_ms": 5564.772,
-      "predicted_per_token_ms": 74.19696,
-      "predicted_per_second": 13.477641132466884
+      "predicted_ms": 5320.371,
+      "predicted_per_token_ms": 70.93828,
+      "predicted_per_second": 14.096761297285472
     }
   }
 }

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "edba3181fc3fdbcbb1ec05dfabe30bf1056f844cc1eb89ef374013e701e4d06f",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The \"production period\" in marketing history refers to the era when companies focused primarily on production efficiency and product availability, assuming that consumers would buy whatever was produced. This period is generally considered to have ended in the **1920s**, when the focus shifted toward selling and advertising due to increased competition and market saturation.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 5.486903568998969
+    "elapsed_s": 5.692013591000432
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784218954,
+    "created": 1784229286,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-b5FZ6TWV0juds5odkNecRuS82Zdxm4J1",
+    "id": "chatcmpl-AGBuzenV6t7YZ8BatiuKhRjfVRBDUIod",
     "timings": {
       "cache_n": 1,
       "prompt_n": 134,
-      "prompt_ms": 765.413,
-      "prompt_per_token_ms": 5.712037313432836,
-      "prompt_per_second": 175.0688843800667,
+      "prompt_ms": 787.412,
+      "prompt_per_token_ms": 5.8762089552238805,
+      "prompt_per_second": 170.17774684663175,
       "predicted_n": 67,
-      "predicted_ms": 4718.807,
-      "predicted_per_token_ms": 70.4299552238806,
-      "predicted_per_second": 14.198503986282974
+      "predicted_ms": 4902.581,
+      "predicted_per_token_ms": 73.17285074626867,
+      "predicted_per_second": 13.666270888742073
     }
   },
   "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>In the history of marketing, when did the production period end?\n\nA. In the 1960s.\nB. At the start of the Industrial Revolution.\nC. After the end of the First World War.\nD. In the late 1930s.\nE. In the early 1900s.\nF. In the late 1800s.\nG. In the 1920s.\nH. In the early 1950s.\nI. After the end of the Second World War.\nJ. In the mid-1800s.\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "177650301579a4bfaecacd56d7976cae9a5104585fff2dc289cd41744255c427",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We can use the ideal gas law for a constant-volume gas thermometer.  \nAt constant volume, pressure is proportional to absolute temperature:\n\n\\[\n\\frac{P}{T} = \\text{constant}\n\\]\n\nGiven:  \n\\( P = 6.69 \\, \\mathrm{kPa} \\) at \\( T = 273.16 \\, \\mathrm{K} \\).\n\nThe constant is:\n\n\\[\n\\frac{P}{T} = \\frac{6.69}{273.16}\n\\]\n\nFor a change of \\( \\Delta T = 1.00 \\, \\mathrm{K} \\), the change in pressure is:\n\n\\[\n\\Delta P = \\frac{P}{T} \\cdot \\Delta T = \\frac{6.69}{273.16} \\times 1.00\n\\]\n\nCalculate:\n\n\\[\n\\frac{6.69}{273.16} \\approx 0.02449 \\, \\mathrm{kPa}\n\\]\n\nRounded to four decimal places, that is \\( 0.0245 \\, \\mathrm{kPa} \\).\n\nThe correct answer is:\n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 16.4960097080002
+    "elapsed_s": 16.54024401499919
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219183,
+    "created": 1784229591,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-Y9HDfrefR1rtpyTdkzI20wxR7cJkbsoC",
+    "id": "chatcmpl-vsmqX0WVW4pZM7JuQqryivhTsgDZY5F7",
     "timings": {
       "cache_n": 1,
       "prompt_n": 124,
-      "prompt_ms": 868.267,
-      "prompt_per_token_ms": 7.002153225806452,
-      "prompt_per_second": 142.81321298632793,
+      "prompt_ms": 867.434,
+      "prompt_per_token_ms": 6.995435483870968,
+      "prompt_per_second": 142.95035703004493,
       "predicted_n": 218,
-      "predicted_ms": 15614.018,
-      "predicted_per_token_ms": 71.62393577981652,
-      "predicted_per_second": 13.961813032366171
+      "predicted_ms": 15670.239,
+      "predicted_per_token_ms": 71.88183027522936,
+      "predicted_per_second": 13.911721448536937
     }
   }
 }

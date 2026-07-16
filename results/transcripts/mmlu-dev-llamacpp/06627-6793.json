@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "05b7b359ec10697a9b8e5216839bbc69f36598f918859004dcb4abcdebaa6059",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The patient’s presentation—nausea, vomiting, and now hematemesis—raises concern for a possible Mallory-Weiss tear, which is often caused by repeated vomiting. However, in a young woman of reproductive age, the first and most critical step is to rule out pregnancy, as it can affect both the differential diagnosis and management decisions (e.g., avoiding certain tests or treatments). A urine pregnancy test is quick, noninvasive, and should be done before more invasive or costly tests.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.936023553998893
+    "elapsed_s": 8.54124440799933
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220053,
+    "created": 1784230959,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-Y0FHEgFRG9j3fBzbOk4fZH1IAKSE3Aga",
+    "id": "chatcmpl-jYdZjllykp6sY0yU2eyOgjUqNja2Nu0R",
     "timings": {
       "cache_n": 1,
       "prompt_n": 178,
-      "prompt_ms": 1029.391,
-      "prompt_per_token_ms": 5.783095505617978,
-      "prompt_per_second": 172.91777371280688,
+      "prompt_ms": 981.349,
+      "prompt_per_token_ms": 5.513196629213484,
+      "prompt_per_second": 181.38297384518657,
       "predicted_n": 105,
-      "predicted_ms": 7894.596,
-      "predicted_per_token_ms": 75.18662857142857,
-      "predicted_per_second": 13.300237276233007
+      "predicted_ms": 7557.453,
+      "predicted_per_token_ms": 71.97574285714286,
+      "predicted_per_second": 13.89356969868023
     }
   }
 }

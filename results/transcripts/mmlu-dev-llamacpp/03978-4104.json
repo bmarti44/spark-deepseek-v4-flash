@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "e6ddf34e145a5ef4b015009ccf5f5bb6388bf31ff310bc630b5b7fafb891eb2b",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The difference in molar Gibbs energy between a real gas and an ideal gas is given by:\n\n\\[\nG_m - G_m^{\\text{ideal}} = RT \\ln \\phi\n\\]\n\nwhere \\(\\phi\\) is the fugacity coefficient.\n\nGiven:\n- \\(T = 200\\ \\mathrm{K}\\)\n- \\(R = 8.314\\ \\mathrm{J\\ mol^{-1} K^{-1}}\\)\n- \\(\\phi = 0.72\\)\n\nCalculate:\n\n\\[\nRT = 8.314 \\times 200 = 1662.8\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\n\\[\n\\ln(0.72) \\approx -0.3285\n\\]\n\n\\[\nG_m - G_m^{\\text{ideal}} = 1662.8 \\times (-0.3285) \\approx -546.3\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\nConvert to kJ/mol:\n\n\\[\n-546.3\\ \\mathrm{J\\ mol^{-1}} \\approx -0.546\\ \\mathrm{kJ\\ mol^{-1}}\n\\]\n\nClosest value in the options is \\(-0.55\\ \\mathrm{kJ\\ mol^{-1}}\\).\n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 18.7084952289988
+    "elapsed_s": 18.703148232001695
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219290,
+    "created": 1784229770,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-qpdpDOWuGggZ6NHhILo2R1tXvk0ahLsj",
+    "id": "chatcmpl-X9MhM5aPzx9t9EJpbv8bmBM3bTM5LhnL",
     "timings": {
       "cache_n": 1,
       "prompt_n": 267,
-      "prompt_ms": 1131.186,
-      "prompt_per_token_ms": 4.236651685393258,
-      "prompt_per_second": 236.0354530554657,
+      "prompt_ms": 1139.945,
+      "prompt_per_token_ms": 4.2694569288389514,
+      "prompt_per_second": 234.22182649162897,
       "predicted_n": 246,
-      "predicted_ms": 17564.435,
-      "predicted_per_token_ms": 71.40014227642277,
-      "predicted_per_second": 14.005574332450772
+      "predicted_ms": 17560.307,
+      "predicted_per_token_ms": 71.38336178861789,
+      "predicted_per_second": 14.008866701476233
     }
   }
 }

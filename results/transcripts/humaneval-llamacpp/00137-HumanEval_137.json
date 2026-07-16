@@ -1,0 +1,101 @@
+{
+  "index": 137,
+  "task_id": "HumanEval/137",
+  "rendered_prompt_sha256": "0c94cb2d22bf30cfd86a065309a310cb675ef7a5da3dfb3370f5b9e256ed8620",
+  "rendering": "raw",
+  "completion": "    if type(a) == str:\n        a = a.replace(',', '.')\n        a = float(a)\n    if type(b) == str:\n        b = b.replace(',', '.')\n        b = float(b)\n    if a > b:\n        return a\n    elif b > a:\n        return b\n    else:\n        return None",
+  "finish_reason": "stop",
+  "expected": "    temp_a, temp_b = a, b\n    if isinstance(temp_a, str): temp_a = temp_a.replace(',','.')\n    if isinstance(temp_b, str): temp_b = temp_b.replace(',','.')\n    if float(temp_a) == float(temp_b): return None\n    return a if float(temp_a) > float(temp_b) else b \n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.87435829199967
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    if type(a) == str:\n        a = a.replace(',', '.')\n        a = float(a)\n    if type(b) == str:\n        b = b.replace(',', '.')\n        b = float(b)\n    if a > b:\n        return a\n    elif b > a:\n        return b\n    else:\n        return None",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228763,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 73,
+      "prompt_tokens": 136,
+      "total_tokens": 209,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-kpaFNXzioWudRp3vSXsozTvboneIu3FD",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 135,
+      "prompt_ms": 778.661,
+      "prompt_per_token_ms": 5.767859259259259,
+      "prompt_per_second": 173.3745493867036,
+      "predicted_n": 73,
+      "predicted_ms": 5093.341,
+      "predicted_per_token_ms": 69.77179452054796,
+      "predicted_per_second": 14.332439159286604
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00137:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 45, in <module>\n    check(compare_one)\n  File \"/case/main.py\", line 35, in check\n    assert candidate(1, \"2,3\") == \"2,3\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

@@ -50,8 +50,13 @@ def audit_result_schema(path: Path, require_digest: bool) -> list[str]:
         problems.append(f"{path.name}: bad correct={correct!r}")
     if not isinstance(acc, (int, float)) or abs(acc - correct / n) > 1e-9:
         problems.append(f"{path.name}: accuracy {acc!r} != correct/n {correct}/{n}")
-    w = d.get("wilson95") or {}
-    lo, hi = w.get("lower"), w.get("upper")
+    w = d.get("wilson95")
+    if isinstance(w, dict):
+        lo, hi = w.get("lower"), w.get("upper")
+    elif isinstance(w, (list, tuple)) and len(w) == 2:
+        lo, hi = w
+    else:
+        lo = hi = None
     if not (isinstance(lo, (int, float)) and isinstance(hi, (int, float)) and 0 <= lo <= acc <= hi <= 1):
         problems.append(f"{path.name}: wilson95 not monotone: {w}")
     if d.get("invalid_count") is None:

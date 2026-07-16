@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "ea44ef4f06455d41478d57495d3bc1868a693a1036566e4d69bce12cfd721594",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The wedding planner obtained a written grant from the neighbor for a right-of-way over a specific strip of land. That written grant created an **express easement**, even though the document might not have been formally recorded or the neighbor later interfered with it. The other options (like easement by estoppel, prescription, necessity, etc.) do not apply because the easement was explicitly granted in writing.\n\nAnswer: D",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 7.874809273998835
+    "elapsed_s": 7.530486347000988
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220144,
+    "created": 1784231047,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-i8tF4hhIyicevNm80ZNDz0EVkrWXkkKt",
+    "id": "chatcmpl-nN2FpOGot4zPjgGt92VaqekXWY10AKB9",
     "timings": {
       "cache_n": 1,
       "prompt_n": 332,
-      "prompt_ms": 1448.565,
-      "prompt_per_token_ms": 4.363147590361446,
-      "prompt_per_second": 229.19233862477694,
+      "prompt_ms": 1383.289,
+      "prompt_per_token_ms": 4.1665331325301205,
+      "prompt_per_second": 240.00769181277374,
       "predicted_n": 86,
-      "predicted_ms": 6412.331,
-      "predicted_per_token_ms": 74.56198837209303,
-      "predicted_per_second": 13.411659504164708
+      "predicted_ms": 6144.414,
+      "predicted_per_token_ms": 71.44667441860464,
+      "predicted_per_second": 13.996452712984508
     }
   }
 }

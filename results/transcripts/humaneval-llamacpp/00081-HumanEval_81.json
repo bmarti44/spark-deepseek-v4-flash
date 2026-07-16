@@ -1,0 +1,101 @@
+{
+  "index": 81,
+  "task_id": "HumanEval/81",
+  "rendered_prompt_sha256": "489ff1f658e105a21a1e28c105082983a77af3a6b0576d9cdfb43745de1b507c",
+  "rendering": "raw",
+  "completion": "    # dictionary for grade mapping\n    grade_map = {\n        4.0: 'A+',\n        3.7: 'A',\n        3.3: 'A-',\n        3.0: 'B+',\n        2.7: 'B',\n        2.3: 'B-',\n        2.0: 'C+',\n        1.7: 'C',\n        1.3: 'C-',\n        1.0: 'D+',\n        0.7: 'D',\n        0.0: 'D-',\n    }\n    # list to store the letter grades\n    letter_grades = []\n    # iterate over the grades\n    for grade in grades:\n        # find the letter grade for the current grade\n        for gpa, letter in grade_map.items():\n            if grade >= gpa:\n                letter_grades.append(letter)\n                break\n        else:\n            letter_grades.append('E')\n    return letter_grades",
+  "finish_reason": "stop",
+  "expected": "\n   \n    letter_grade = []\n    for gpa in grades:\n        if gpa == 4.0:\n            letter_grade.append(\"A+\")\n        elif gpa > 3.7:\n            letter_grade.append(\"A\")\n        elif gpa > 3.3:\n            letter_grade.append(\"A-\")\n        elif gpa > 3.0:\n            letter_grade.append(\"B+\")\n        elif gpa > 2.7:\n            letter_grade.append(\"B\")\n        elif gpa > 2.3:\n            letter_grade.append(\"B-\")\n        elif gpa > 2.0:\n            letter_grade.append(\"C+\")\n        elif gpa > 1.7:\n            letter_grade.append(\"C\")\n        elif gpa > 1.3:\n            letter_grade.append(\"C-\")\n        elif gpa > 1.0:\n            letter_grade.append(\"D+\")\n        elif gpa > 0.7:\n            letter_grade.append(\"D\")\n        elif gpa > 0.0:\n            letter_grade.append(\"D-\")\n        else:\n            letter_grade.append(\"E\")\n    return letter_grade\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 16.41112462899764
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # dictionary for grade mapping\n    grade_map = {\n        4.0: 'A+',\n        3.7: 'A',\n        3.3: 'A-',\n        3.0: 'B+',\n        2.7: 'B',\n        2.3: 'B-',\n        2.0: 'C+',\n        1.7: 'C',\n        1.3: 'C-',\n        1.0: 'D+',\n        0.7: 'D',\n        0.0: 'D-',\n    }\n    # list to store the letter grades\n    letter_grades = []\n    # iterate over the grades\n    for grade in grades:\n        # find the letter grade for the current grade\n        for gpa, letter in grade_map.items():\n            if grade >= gpa:\n                letter_grades.append(letter)\n                break\n        else:\n            letter_grades.append('E')\n    return letter_grades",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228343,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 203,
+      "prompt_tokens": 268,
+      "total_tokens": 471,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-o6C49WN22X6449Bbjb9cRWoXlNMzAGMB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 267,
+      "prompt_ms": 1218.184,
+      "prompt_per_token_ms": 4.562486891385768,
+      "prompt_per_second": 219.17871191872493,
+      "predicted_n": 203,
+      "predicted_ms": 15189.55,
+      "predicted_per_token_ms": 74.82536945812808,
+      "predicted_per_second": 13.364451218107188
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00081:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 71, in <module>\n    check(numerical_letter_grade)\n  File \"/case/main.py\", line 59, in check\n    assert candidate([4.0, 3, 1.7, 2, 3.5]) == ['A+', 'B', 'C-', 'C', 'A-']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

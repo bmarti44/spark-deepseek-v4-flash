@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "84fda61054ce6ed0472bb54f23806c36c1b7edc062ee72cadd43a62aefe72bcb",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The unilateral Z-transform of the unit step sequence \\( f[n] = u[n] \\) is:\n\n\\[\nF(z) = \\sum_{n=0}^\\infty 1 \\cdot z^{-n} = \\frac{1}{1 - z^{-1}} = \\frac{z}{z - 1}\n\\]\n\nThis matches option **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.5264823059987975
+    "elapsed_s": 6.240630300999328
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219903,
+    "created": 1784230810,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-cNVL9YfHOMN38EkdHAMnlNe8OZyPEvHO",
+    "id": "chatcmpl-VbNZ05of7UoRweIuqV0oVzz2s9l8f85D",
     "timings": {
       "cache_n": 1,
       "prompt_n": 177,
-      "prompt_ms": 916.282,
-      "prompt_per_token_ms": 5.176734463276836,
-      "prompt_per_second": 193.1719710744072,
+      "prompt_ms": 879.284,
+      "prompt_per_token_ms": 4.967706214689265,
+      "prompt_per_second": 201.3001487573981,
       "predicted_n": 76,
-      "predicted_ms": 5607.935,
-      "predicted_per_token_ms": 73.78861842105263,
-      "predicted_per_second": 13.552225551829684
+      "predicted_ms": 5358.392,
+      "predicted_per_token_ms": 70.50515789473684,
+      "predicted_per_second": 14.183359485457578
     }
   }
 }

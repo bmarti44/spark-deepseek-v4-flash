@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "3a9bd4aef5daf96fd7b72a85938be3643337b348dc8384eb349a2a4b3e6de720",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The key issue here is whether the second friend can succeed in a tort claim, most likely for assault (since there was no physical harm, but there was an attempt to cause apprehension of harmful contact).  \n\nAssault requires that the victim be aware of the threat and placed in apprehension of imminent harm. Here, the second friend was unaware the gun was loaded, so he did not experience fear or apprehension.  \n\nThus, the correct answer is:  \nAnswer: F",
+  "finish_reason": "stop",
   "expected": "F",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.853323745001035
+    "elapsed_s": 8.463385787999869
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220157,
+    "created": 1784231059,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-1VU7efb8JwEnmJOeU2KW3zgm2x9757ng",
+    "id": "chatcmpl-6k4tbGzxnpc3ms8lT27FvtX1a2VICZZ4",
     "timings": {
       "cache_n": 1,
       "prompt_n": 422,
-      "prompt_ms": 1773.837,
-      "prompt_per_token_ms": 4.203405213270142,
-      "prompt_per_second": 237.90235517694128,
+      "prompt_ms": 1681.009,
+      "prompt_per_token_ms": 3.9834336492890996,
+      "prompt_per_second": 251.0397029403174,
       "predicted_n": 94,
-      "predicted_ms": 7066.602,
-      "predicted_per_token_ms": 75.1766170212766,
-      "predicted_per_second": 13.30200851837984
+      "predicted_ms": 6778.993,
+      "predicted_per_token_ms": 72.11694680851065,
+      "predicted_per_second": 13.866366287736247
     }
   }
 }

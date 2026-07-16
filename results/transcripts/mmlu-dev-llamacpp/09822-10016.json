@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "0f5df4126874d9b5f10b1772b0970267220785faca59360822c67ed1a51727b2",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We can use Ohm’s law:  \n\\[\nR = \\frac{V_1}{I_1} = \\frac{120}{8.00} = 15 \\, \\Omega\n\\]  \nFor the new voltage:  \n\\[\nI_2 = \\frac{V_2}{R} = \\frac{180}{15} = 12.0 \\, \\text{A}\n\\]  \n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 7.24839479000002
+    "elapsed_s": 6.93421463499908
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784221074,
+    "created": 1784232267,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-i00oRX5EPOlQ9zesBZ7d0BCs0z7Ln9i8",
+    "id": "chatcmpl-Jj71nD8LmI8cUoXbfklVxueN2ab3EmOn",
     "timings": {
       "cache_n": 1,
       "prompt_n": 158,
-      "prompt_ms": 914.828,
-      "prompt_per_token_ms": 5.7900506329113925,
-      "prompt_per_second": 172.7100613448648,
+      "prompt_ms": 851.456,
+      "prompt_per_token_ms": 5.388962025316456,
+      "prompt_per_second": 185.56449188214071,
       "predicted_n": 86,
-      "predicted_ms": 6330.778,
-      "predicted_per_token_ms": 73.6136976744186,
-      "predicted_per_second": 13.58442832776635
+      "predicted_ms": 6080.212,
+      "predicted_per_token_ms": 70.70013953488373,
+      "predicted_per_second": 14.144243654662041
     }
   }
 }

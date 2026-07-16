@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "fba1056a72f58f4f196a36b32f94cc53ce2da5d35e301c58b04c254942d366fe",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The interest on the loan is calculated using simple interest:\n\n\\[\n\\text{Interest} = P \\times r \\times t\n\\]\n\nWhere:\n- \\( P = 150 \\)\n- \\( r = 6\\% = 0.06 \\) per year\n- \\( t = \\frac{90}{360} \\) (since 90 days is a quarter of a 360-day year for simple interest calculations)\n\n\\[\n\\text{Interest} = 150 \\times 0.06 \\times \\frac{90}{360}\n\\]\n\\[\n= 150 \\times 0.06 \\times 0.25\n\\]\n\\[\n= 150 \\times 0.015\n\\]\n\\[\n= 2.25\n\\]\n\nTotal amount due:\n\\[\n150 + 2.25 = 152.25\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+  "finish_reason": "stop",
   "expected": "F",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 13.781631312998798
+    "elapsed_s": 13.75555087000248
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784218872,
+    "created": 1784229188,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-eiJhFa4UnKrMeagCfpt9ZBCxwLSxpkc8",
+    "id": "chatcmpl-K2yTRAIv0IocuMLVRdG2uVkb3Nxe5RdH",
     "timings": {
       "cache_n": 1,
       "prompt_n": 127,
-      "prompt_ms": 864.488,
-      "prompt_per_token_ms": 6.8069921259842525,
-      "prompt_per_second": 146.9077650586243,
+      "prompt_ms": 863.016,
+      "prompt_per_token_ms": 6.795401574803149,
+      "prompt_per_second": 147.1583377364962,
       "predicted_n": 183,
-      "predicted_ms": 12905.178,
-      "predicted_per_token_ms": 70.52009836065574,
-      "predicted_per_second": 14.180354583253328
+      "predicted_ms": 12890.644,
+      "predicted_per_token_ms": 70.44067759562842,
+      "predicted_per_second": 14.196342711814864
     }
   }
 }

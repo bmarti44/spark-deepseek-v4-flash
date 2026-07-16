@@ -3,10 +3,11 @@
   "task_id": 4566,
   "rendered_prompt_sha256": "b5afda8074eb9d8be8fdc1ac2f0775db4293e2f6675dab659a656af9f78d3696",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We have the equilibrium:\n\n\\[\n\\text{CO}_2 + 2\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{HCO}_3^-\n\\]\n\nThe acid dissociation constant is:\n\n\\[\nK_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{HCO}_3^-]}{[\\text{CO}_2]} = 4.3 \\times 10^{-7}\n\\]\n\nWe are given pH = 7.40, so:\n\n\\[\n[\\text{H}_3\\text{O}^+] = 10^{-7.40} = 10^{-7.4}\n\\]\n\nWe want the ratio:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{K_a}{[\\text{H}_3\\text{O}^+]}\n\\]\n\nSubstitute:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{4.3 \\times 10^{-7}}{10^{-7.4}}\n\\]\n\nSince \\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\), and \\(10^{-0.",
+  "completion": "We have the equilibrium:\n\n\\[\n\\text{CO}_2 + 2\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{HCO}_3^-\n\\]\n\nThe acid dissociation constant is:\n\n\\[\nK_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{HCO}_3^-]}{[\\text{CO}_2]} = 4.3 \\times 10^{-7}\n\\]\n\nWe are given pH = 7.40, so:\n\n\\[\n[\\text{H}_3\\text{O}^+] = 10^{-7.40} = 10^{-7.4}\n\\]\n\nWe want the ratio:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{K_a}{[\\text{H}_3\\text{O}^+]}\n\\]\n\nSubstitute:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{4.3 \\times 10^{-7}}{10^{-7.4}}\n\\]\n\nSince \\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\), and \\(10^{-0.4} \\approx 0.3981\\):\n\n\\[\n\\frac{4.3 \\times 10^{-7}}{0.3981 \\times 10^{-7}} = \\frac{4.3}{0.3981} \\approx 10.80\n\\]\n\nChecking more precisely:  \n\\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\)  \n\\(10^{-0.4} = 10^{-2/5} \\approx 0.398107\\)  \nSo:\n\n\\[\n\\frac{4.3}{0.398107} \\approx 10.80\n\\]\n\nThe closest answer is **10.75**.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='H' expected='B'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.066577360999872
+    "elapsed_s": 29.418176625000342
   },
   "response": {
     "choices": [
       {
-        "text": "We have the equilibrium:\n\n\\[\n\\text{CO}_2 + 2\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{HCO}_3^-\n\\]\n\nThe acid dissociation constant is:\n\n\\[\nK_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{HCO}_3^-]}{[\\text{CO}_2]} = 4.3 \\times 10^{-7}\n\\]\n\nWe are given pH = 7.40, so:\n\n\\[\n[\\text{H}_3\\text{O}^+] = 10^{-7.40} = 10^{-7.4}\n\\]\n\nWe want the ratio:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{K_a}{[\\text{H}_3\\text{O}^+]}\n\\]\n\nSubstitute:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{4.3 \\times 10^{-7}}{10^{-7.4}}\n\\]\n\nSince \\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\), and \\(10^{-0.",
+        "text": "We have the equilibrium:\n\n\\[\n\\text{CO}_2 + 2\\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_3\\text{O}^+ + \\text{HCO}_3^-\n\\]\n\nThe acid dissociation constant is:\n\n\\[\nK_a = \\frac{[\\text{H}_3\\text{O}^+][\\text{HCO}_3^-]}{[\\text{CO}_2]} = 4.3 \\times 10^{-7}\n\\]\n\nWe are given pH = 7.40, so:\n\n\\[\n[\\text{H}_3\\text{O}^+] = 10^{-7.40} = 10^{-7.4}\n\\]\n\nWe want the ratio:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{K_a}{[\\text{H}_3\\text{O}^+]}\n\\]\n\nSubstitute:\n\n\\[\n\\frac{[\\text{HCO}_3^-]}{[\\text{CO}_2]} = \\frac{4.3 \\times 10^{-7}}{10^{-7.4}}\n\\]\n\nSince \\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\), and \\(10^{-0.4} \\approx 0.3981\\):\n\n\\[\n\\frac{4.3 \\times 10^{-7}}{0.3981 \\times 10^{-7}} = \\frac{4.3}{0.3981} \\approx 10.80\n\\]\n\nChecking more precisely:  \n\\(10^{-7.4} = 10^{-7} \\times 10^{-0.4}\\)  \n\\(10^{-0.4} = 10^{-2/5} \\approx 0.398107\\)  \nSo:\n\n\\[\n\\frac{4.3}{0.398107} \\approx 10.80\n\\]\n\nThe closest answer is **10.75**.\n\nAnswer: B",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219377,
+    "created": 1784229924,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 401,
       "prompt_tokens": 166,
-      "total_tokens": 422,
+      "total_tokens": 567,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-XApVCd1T8Ca37J5yr4lRViREFcdofqVC",
+    "id": "chatcmpl-5Y8VZuOGIS9JBwUQBZ8dtIwukNQ0YXU3",
     "timings": {
       "cache_n": 1,
       "prompt_n": 165,
-      "prompt_ms": 898.124,
-      "prompt_per_token_ms": 5.443175757575758,
-      "prompt_per_second": 183.71627971193286,
-      "predicted_n": 256,
-      "predicted_ms": 18165.663,
-      "predicted_per_token_ms": 70.95962109375,
-      "predicted_per_second": 14.092521698767614
+      "prompt_ms": 900.3,
+      "prompt_per_token_ms": 5.456363636363636,
+      "prompt_per_second": 183.27224258580472,
+      "predicted_n": 401,
+      "predicted_ms": 28515.223,
+      "predicted_per_token_ms": 71.11028179551123,
+      "predicted_per_second": 14.062664002312028
     }
   }
 }

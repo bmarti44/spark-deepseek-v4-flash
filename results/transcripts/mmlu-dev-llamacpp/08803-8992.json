@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "32a333a79fd8f680a4b4f227bfb17ceab961a4d6b54e228aa26328832cc9ad7a",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We have the proportion:\n\n\\[\n\\frac{18.5}{m} = \\frac{3.60}{7.5}\n\\]\n\nCross-multiply:\n\n\\[\n18.5 \\times 7.5 = 3.60 \\times m\n\\]\n\n\\[\n138.75 = 3.60m\n\\]\n\nSolve for \\( m \\):\n\n\\[\nm = \\frac{138.75}{3.60}\n\\]\n\n\\[\nm = 38.541666\\ldots\n\\]\n\nRounding to the nearest hundredth:\n\n\\[\nm \\approx 38.54\n\\]\n\nThat matches option **F**.\n\nAnswer: F",
+  "finish_reason": "stop",
   "expected": "F",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 10.495873805000883
+    "elapsed_s": 10.041571629000828
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220563,
+    "created": 1784231543,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-GTgVL6G0lXxpNZHw01VHDat5jCVQn815",
+    "id": "chatcmpl-AglreZ6rKtUEvqu6yMiXQdLIpNnvla7C",
     "timings": {
       "cache_n": 1,
       "prompt_n": 122,
-      "prompt_ms": 843.117,
-      "prompt_per_token_ms": 6.910795081967213,
-      "prompt_per_second": 144.70115061136238,
+      "prompt_ms": 807.196,
+      "prompt_per_token_ms": 6.616360655737705,
+      "prompt_per_second": 151.14049128092805,
       "predicted_n": 130,
-      "predicted_ms": 9650.086,
-      "predicted_per_token_ms": 74.23143076923077,
-      "predicted_per_second": 13.471382534829225
+      "predicted_ms": 9232.567,
+      "predicted_per_token_ms": 71.01974615384614,
+      "predicted_per_second": 14.080591020893756
     }
   }
 }

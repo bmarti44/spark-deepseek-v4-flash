@@ -3,7 +3,8 @@
   "task_id": 178,
   "rendered_prompt_sha256": "6069f80af200eb205aa189e21fcd63ec92bf0e59bcac3cb9cc67a229dfbcf2a4",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "First, find the assessed value of the house:\n\n\\[\n\\text{Assessed value} = 16,500 \\times 0.22 = 3,630\n\\]\n\nNow calculate each tax based on the rates per $100:\n\n**Local college fund**:  \nRate = $0.41 per $100  \n\\[\n\\frac{3,630}{100} \\times 0.41 = 36.3 \\times 0.41 = 14.883\n\\]\n\n**Special education**:  \nRate = $0.02 per $100  \n\\[\n36.3 \\times 0.02 = 0.726\n\\]\n\n**Health and welfare**:  \nRate = $0.001 per $100  \n\\[\n36.3 \\times 0.001 = 0.0363\n\\]\n\n**Community construction**:  \nRate = $0.089 per $100  \n\\[\n36.3 \\times 0.089 = 3.2307\n\\]\n\nNow total tax:\n\n\\[\n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876 \\approx 18.88\n\\]\n\nThe total tax is closest to **$18.88**, which matches option C.\n\n",
+  "completion": "First, find the assessed value of the house:\n\n\\[\n\\text{Assessed value} = 16,500 \\times 0.22 = 3,630\n\\]\n\nNow calculate each tax based on the rates per $100:\n\n**Local college fund**:  \nRate = $0.41 per $100  \n\\[\n\\frac{3,630}{100} \\times 0.41 = 36.3 \\times 0.41 = 14.883\n\\]\n\n**Special education**:  \nRate = $0.02 per $100  \n\\[\n36.3 \\times 0.02 = 0.726\n\\]\n\n**Health and welfare**:  \nRate = $0.001 per $100  \n\\[\n36.3 \\times 0.001 = 0.0363\n\\]\n\n**Community construction**:  \nRate = $0.089 per $100  \n\\[\n36.3 \\times 0.089 = 3.2307\n\\]\n\nNow total tax:\n\n\\[\n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876 \\approx 18.88\n\\]\n\nThe total tax is closest to **$18.88**, which matches option C.\n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.869991421999657
+    "elapsed_s": 20.175130874999013
   },
   "response": {
     "choices": [
       {
-        "text": "First, find the assessed value of the house:\n\n\\[\n\\text{Assessed value} = 16,500 \\times 0.22 = 3,630\n\\]\n\nNow calculate each tax based on the rates per $100:\n\n**Local college fund**:  \nRate = $0.41 per $100  \n\\[\n\\frac{3,630}{100} \\times 0.41 = 36.3 \\times 0.41 = 14.883\n\\]\n\n**Special education**:  \nRate = $0.02 per $100  \n\\[\n36.3 \\times 0.02 = 0.726\n\\]\n\n**Health and welfare**:  \nRate = $0.001 per $100  \n\\[\n36.3 \\times 0.001 = 0.0363\n\\]\n\n**Community construction**:  \nRate = $0.089 per $100  \n\\[\n36.3 \\times 0.089 = 3.2307\n\\]\n\nNow total tax:\n\n\\[\n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876 \\approx 18.88\n\\]\n\nThe total tax is closest to **$18.88**, which matches option C.\n\n",
+        "text": "First, find the assessed value of the house:\n\n\\[\n\\text{Assessed value} = 16,500 \\times 0.22 = 3,630\n\\]\n\nNow calculate each tax based on the rates per $100:\n\n**Local college fund**:  \nRate = $0.41 per $100  \n\\[\n\\frac{3,630}{100} \\times 0.41 = 36.3 \\times 0.41 = 14.883\n\\]\n\n**Special education**:  \nRate = $0.02 per $100  \n\\[\n36.3 \\times 0.02 = 0.726\n\\]\n\n**Health and welfare**:  \nRate = $0.001 per $100  \n\\[\n36.3 \\times 0.001 = 0.0363\n\\]\n\n**Community construction**:  \nRate = $0.089 per $100  \n\\[\n36.3 \\times 0.089 = 3.2307\n\\]\n\nNow total tax:\n\n\\[\n14.883 + 0.726 + 0.0363 + 3.2307 = 18.876 \\approx 18.88\n\\]\n\nThe total tax is closest to **$18.88**, which matches option C.\n\nAnswer: C",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784218833,
+    "created": 1784229115,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 260,
       "prompt_tokens": 175,
-      "total_tokens": 431,
+      "total_tokens": 435,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-A2KbzhaP3YQ4lCjYuax6AmkuKUxF9ffd",
+    "id": "chatcmpl-42ejyFKOA3nVrQF58PlWbY0UN5hx3jVF",
     "timings": {
       "cache_n": 1,
       "prompt_n": 174,
-      "prompt_ms": 966.078,
-      "prompt_per_token_ms": 5.5521724137931034,
-      "prompt_per_second": 180.1096805847975,
-      "predicted_n": 256,
-      "predicted_ms": 18901.646,
-      "predicted_per_token_ms": 73.8345546875,
-      "predicted_per_second": 13.543794016669235
+      "prompt_ms": 975.121,
+      "prompt_per_token_ms": 5.604143678160919,
+      "prompt_per_second": 178.43939367524646,
+      "predicted_n": 260,
+      "predicted_ms": 19197.504,
+      "predicted_per_token_ms": 73.83655384615385,
+      "predicted_per_second": 13.543427312217254
     }
   }
 }

@@ -1,0 +1,101 @@
+{
+  "index": 68,
+  "task_id": "HumanEval/68",
+  "rendered_prompt_sha256": "cd3be7d4325387ffeafdc0c15742e1e5f66dfe1e94b683910809f5c17a9c3a74",
+  "rendering": "raw",
+  "completion": "    # Initialize variables to store the smallest even value and its index\n    smallest_even_value = None\n    smallest_even_index = None\n\n    # Iterate through the array\n    for i, value in enumerate(arr):\n        # Check if the value is even\n        if value % 2 == 0:\n            # If it's the first even value encountered, set it as the smallest\n            if smallest_even_value is None:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's smaller than the current smallest even value, update\n            elif value < smallest_even_value:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's equal to the current smallest even value, check the index\n            elif value == smallest_even_value and i < smallest_even_index:\n                smallest_even_index = i\n\n    # If no even values were found, return an empty list\n    if smallest_even_value is None:\n        return []\n    else:\n        return [smallest_even_value, smallest_even_index]",
+  "finish_reason": "stop",
+  "expected": "    if(len(arr) == 0): return []\n    evens = list(filter(lambda x: x%2 == 0, arr))\n    if(evens == []): return []\n    return [min(evens), arr.index(min(evens))]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 18.966410335000546
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Initialize variables to store the smallest even value and its index\n    smallest_even_value = None\n    smallest_even_index = None\n\n    # Iterate through the array\n    for i, value in enumerate(arr):\n        # Check if the value is even\n        if value % 2 == 0:\n            # If it's the first even value encountered, set it as the smallest\n            if smallest_even_value is None:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's smaller than the current smallest even value, update\n            elif value < smallest_even_value:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's equal to the current smallest even value, check the index\n            elif value == smallest_even_value and i < smallest_even_index:\n                smallest_even_index = i\n\n    # If no even values were found, return an empty list\n    if smallest_even_value is None:\n        return []\n    else:\n        return [smallest_even_value, smallest_even_index]",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228219,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 233,
+      "prompt_tokens": 307,
+      "total_tokens": 540,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-RXlKgbVUTlCZTNLnhZwpGrt4MbtGHn5i",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 306,
+      "prompt_ms": 1378.587,
+      "prompt_per_token_ms": 4.5051862745098035,
+      "prompt_per_second": 221.96640473180148,
+      "predicted_n": 233,
+      "predicted_ms": 17584.715,
+      "predicted_per_token_ms": 75.47087982832618,
+      "predicted_per_second": 13.250143661697104
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00068:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

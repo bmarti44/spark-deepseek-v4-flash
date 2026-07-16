@@ -1,0 +1,101 @@
+{
+  "index": 51,
+  "task_id": "HumanEval/51",
+  "rendered_prompt_sha256": "94f4ed2b675b10bfe15e0adb2ea620b19790cfb4df26b9362df57d6daa6c9b8b",
+  "rendering": "raw",
+  "completion": "    vowels = 'aeiouyAEIOUY'\n    return ''.join([char for char in text if char not in vowels])\n\n",
+  "finish_reason": "stop",
+  "expected": "    return \"\".join([s for s in text if s.lower() not in [\"a\", \"e\", \"i\", \"o\", \"u\"]])\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 3.203185880000092
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    vowels = 'aeiouyAEIOUY'\n    return ''.join([char for char in text if char not in vowels])\n\n",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228130,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 33,
+      "prompt_tokens": 111,
+      "total_tokens": 144,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ReUSd5PHhtyazSEs64Tysor0VMLv4BoL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 110,
+      "prompt_ms": 742.775,
+      "prompt_per_token_ms": 6.7524999999999995,
+      "prompt_per_second": 148.0932987782303,
+      "predicted_n": 33,
+      "predicted_ms": 2458.685,
+      "predicted_per_token_ms": 74.50560606060606,
+      "predicted_per_second": 13.42180881243429
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00051:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 40, in <module>\n    check(remove_vowels)\n  File \"/case/main.py\", line 36, in check\n    assert candidate('ybcd') == 'ybcd'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "index": 115,
+  "task_id": "HumanEval/115",
+  "rendered_prompt_sha256": "c3a3940108ef0c6a7e15e737fd5d29759d8a27f7cfe7a44411ff3f4b3ff3771b",
+  "rendering": "raw",
+  "completion": "    total_water = sum(sum(row) for row in grid)\n    if total_water == 0:\n        return 0\n    num_wells = len(grid)\n    num_units_per_well = len(grid[0])\n    total_buckets_needed = math.ceil(total_water / capacity)\n    return total_buckets_needed",
+  "finish_reason": "stop",
+  "expected": "    return sum([math.ceil(sum(arr)/capacity) for arr in grid])\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 6.84611454500191
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    total_water = sum(sum(row) for row in grid)\n    if total_water == 0:\n        return 0\n    num_wells = len(grid)\n    num_units_per_well = len(grid[0])\n    total_buckets_needed = math.ceil(total_water / capacity)\n    return total_buckets_needed",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228602,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 322,
+      "total_tokens": 398,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-L7QwDMDZn5ewAVxtqOkFxa5viJOfKm8f",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 321,
+      "prompt_ms": 1325.484,
+      "prompt_per_token_ms": 4.129233644859813,
+      "prompt_per_second": 242.17568827688606,
+      "predicted_n": 76,
+      "predicted_ms": 5518.51,
+      "predicted_per_token_ms": 72.61197368421053,
+      "predicted_per_second": 13.771833339071597
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00115:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 62, in <module>\n    check(max_fill)\n  File \"/case/main.py\", line 58, in check\n    assert candidate([[1,1,1,1], [1,1,1,1]], 9) == 2, \"Error\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Error\n"
+  }
+}

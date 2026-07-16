@@ -1,0 +1,101 @@
+{
+  "index": 102,
+  "task_id": "HumanEval/102",
+  "rendered_prompt_sha256": "3b2e226ef819e4547fbd11a4ee933844a256dcd27e6d79fc1da3d380ff755d18",
+  "rendering": "raw",
+  "completion": "    # Ensure x <= y\n    if x > y:\n        return -1\n    # Find the biggest even number in the range\n    for num in range(y, x - 1, -1):\n        if num % 2 == 0:\n            return num\n    return -1",
+  "finish_reason": "stop",
+  "expected": "    if x > y:\n        return -1\n    if y % 2 == 0:\n        return y\n    if x == y:\n        return -1\n    return y - 1\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.067228371000965
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Ensure x <= y\n    if x > y:\n        return -1\n    # Find the biggest even number in the range\n    for num in range(y, x - 1, -1):\n        if num % 2 == 0:\n            return num\n    return -1",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228511,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 89,
+      "total_tokens": 152,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bjIVxCmFSpzJz2LS4BjQdjGDzbn4xGPP",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 88,
+      "prompt_ms": 655.347,
+      "prompt_per_token_ms": 7.447125,
+      "prompt_per_second": 134.2800073854004,
+      "predicted_n": 63,
+      "predicted_ms": 4410.101,
+      "predicted_per_token_ms": 70.00160317460318,
+      "predicted_per_second": 14.285387114716876
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00102:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

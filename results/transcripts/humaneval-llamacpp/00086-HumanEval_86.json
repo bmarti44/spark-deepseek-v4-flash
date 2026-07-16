@@ -1,0 +1,101 @@
+{
+  "index": 86,
+  "task_id": "HumanEval/86",
+  "rendered_prompt_sha256": "f8a02b3472de03cd4fa7b7d9d47abd5a5d64cb8eea267c81dc575e2a281aa972",
+  "rendering": "raw",
+  "completion": "    # Split the string into words and spaces\n    words = s.split()\n    # Sort each word and join them back with spaces\n    sorted_words = [''.join(sorted(word)) for word in words]\n    # Join the sorted words with spaces\n    return ' '.join(sorted_words)",
+  "finish_reason": "stop",
+  "expected": "    return ' '.join([''.join(sorted(list(i))) for i in s.split(' ')])\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.314018802000646
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Split the string into words and spaces\n    words = s.split()\n    # Sort each word and join them back with spaces\n    sorted_words = [''.join(sorted(word)) for word in words]\n    # Join the sorted words with spaces\n    return ' '.join(sorted_words)",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228371,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 62,
+      "prompt_tokens": 129,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-OHMjND7viAtmqweRVeHcyefTx2ekLNhR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 128,
+      "prompt_ms": 949.816,
+      "prompt_per_token_ms": 7.4204375,
+      "prompt_per_second": 134.7629435595947,
+      "predicted_n": 62,
+      "predicted_ms": 4362.46,
+      "predicted_per_token_ms": 70.36225806451613,
+      "predicted_per_second": 14.212164696065981
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00086:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

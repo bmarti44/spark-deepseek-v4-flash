@@ -1,0 +1,101 @@
+{
+  "index": 143,
+  "task_id": "HumanEval/143",
+  "rendered_prompt_sha256": "85e7c088d3b44a74767bc7408853a709f18dd89c1ef964694103be8ee8dca8e1",
+  "rendering": "raw",
+  "completion": "    # Check if a number is prime\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    # Split the sentence into words\n    words = sentence.split()\n    # Filter words with prime length\n    prime_words = [word for word in words if is_prime(len(word))]\n    # Join the words back into a sentence\n    return ' '.join(prime_words) if prime_words else ''",
+  "finish_reason": "stop",
+  "expected": "    new_lst = []\n    for word in sentence.split():\n        flg = 0\n        if len(word) == 1:\n            flg = 1\n        for i in range(2, len(word)):\n            if len(word)%i == 0:\n                flg = 1\n        if flg == 0 or len(word) == 2:\n            new_lst.append(word)\n    return \" \".join(new_lst)\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 9.775356985999679
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Check if a number is prime\n    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    # Split the sentence into words\n    words = sentence.split()\n    # Filter words with prime length\n    prime_words = [word for word in words if is_prime(len(word))]\n    # Join the words back into a sentence\n    return ' '.join(prime_words) if prime_words else ''",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228870,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 145,
+      "total_tokens": 270,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-WrHixf4BDSRB21h9ltXMYJVAwqfEBQoO",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 145,
+      "prompt_ms": 845.873,
+      "prompt_per_token_ms": 5.833606896551724,
+      "prompt_per_second": 171.4205323967073,
+      "predicted_n": 125,
+      "predicted_ms": 8926.96,
+      "predicted_per_token_ms": 71.41568,
+      "predicted_per_second": 14.002527176104744
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00143:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

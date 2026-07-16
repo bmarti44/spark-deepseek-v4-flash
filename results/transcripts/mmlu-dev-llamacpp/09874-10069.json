@@ -3,10 +3,11 @@
   "task_id": 10069,
   "rendered_prompt_sha256": "97596ebf45c96abc77580d37ec8c0ced1e27c9e2121ecd64790c7b3d74a3e166",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "Let’s define the initial numbers:\n\nLet \\( N_B(0) = x \\), then \\( N_A(0) = 2x \\).\n\nHalf-lives:  \n\\( T_A = 3 \\) days, so decay constant \\( \\lambda_A = \\frac{\\ln 2}{3} \\)  \n\\( T_B = 6 \\) days, so decay constant \\( \\lambda_B = \\frac{\\ln 2}{6} \\)\n\nAfter time \\( t \\):\n\n\\[\nN_A(t) = 2x \\, e^{-\\frac{\\ln 2}{3} t}\n\\]\n\\[\nN_B(t) = x \\, e^{-\\frac{\\ln 2}{6} t}\n\\]\n\nThe initial ratio \\( \\frac{N_A}{N_B} = 2 \\).  \nWe want the ratio reversed, i.e., \\( \\frac{N_A}{N_B} = \\frac{1}{2} \\).\n\nSo:\n\n\\[\n\\frac{2x e^{-\\frac{\\ln 2}{3} t}}{x e^{-\\frac{\\ln 2}{6} t}} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{3} t + \\frac{\\ln 2",
+  "completion": "Let’s define the initial numbers:\n\nLet \\( N_B(0) = x \\), then \\( N_A(0) = 2x \\).\n\nHalf-lives:  \n\\( T_A = 3 \\) days, so decay constant \\( \\lambda_A = \\frac{\\ln 2}{3} \\)  \n\\( T_B = 6 \\) days, so decay constant \\( \\lambda_B = \\frac{\\ln 2}{6} \\)\n\nAfter time \\( t \\):\n\n\\[\nN_A(t) = 2x \\, e^{-\\frac{\\ln 2}{3} t}\n\\]\n\\[\nN_B(t) = x \\, e^{-\\frac{\\ln 2}{6} t}\n\\]\n\nThe initial ratio \\( \\frac{N_A}{N_B} = 2 \\).  \nWe want the ratio reversed, i.e., \\( \\frac{N_A}{N_B} = \\frac{1}{2} \\).\n\nSo:\n\n\\[\n\\frac{2x e^{-\\frac{\\ln 2}{3} t}}{x e^{-\\frac{\\ln 2}{6} t}} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{3} t + \\frac{\\ln 2}{6} t} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{6} t} = \\frac{1}{2}\n\\]\n\\[\ne^{-\\frac{\\ln 2}{6} t} = \\frac{1}{4}\n\\]\n\nTake natural log:\n\n\\[\n-\\frac{\\ln 2}{6} t = \\ln\\left(\\frac{1}{4}\\right) = -\\ln 4 = -2\\ln 2\n\\]\n\\[\n\\frac{\\ln 2}{6} t = 2 \\ln 2\n\\]\n\\[\n\\frac{t}{6} = 2\n\\]\n\\[\nt = 12 \\text{ days}\n\\]\n\nThe correct answer is **C. 12.0**.\n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='E' expected='C'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.73387891799939
+    "elapsed_s": 30.997023087002162
   },
   "response": {
     "choices": [
       {
-        "text": "Let’s define the initial numbers:\n\nLet \\( N_B(0) = x \\), then \\( N_A(0) = 2x \\).\n\nHalf-lives:  \n\\( T_A = 3 \\) days, so decay constant \\( \\lambda_A = \\frac{\\ln 2}{3} \\)  \n\\( T_B = 6 \\) days, so decay constant \\( \\lambda_B = \\frac{\\ln 2}{6} \\)\n\nAfter time \\( t \\):\n\n\\[\nN_A(t) = 2x \\, e^{-\\frac{\\ln 2}{3} t}\n\\]\n\\[\nN_B(t) = x \\, e^{-\\frac{\\ln 2}{6} t}\n\\]\n\nThe initial ratio \\( \\frac{N_A}{N_B} = 2 \\).  \nWe want the ratio reversed, i.e., \\( \\frac{N_A}{N_B} = \\frac{1}{2} \\).\n\nSo:\n\n\\[\n\\frac{2x e^{-\\frac{\\ln 2}{3} t}}{x e^{-\\frac{\\ln 2}{6} t}} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{3} t + \\frac{\\ln 2",
+        "text": "Let’s define the initial numbers:\n\nLet \\( N_B(0) = x \\), then \\( N_A(0) = 2x \\).\n\nHalf-lives:  \n\\( T_A = 3 \\) days, so decay constant \\( \\lambda_A = \\frac{\\ln 2}{3} \\)  \n\\( T_B = 6 \\) days, so decay constant \\( \\lambda_B = \\frac{\\ln 2}{6} \\)\n\nAfter time \\( t \\):\n\n\\[\nN_A(t) = 2x \\, e^{-\\frac{\\ln 2}{3} t}\n\\]\n\\[\nN_B(t) = x \\, e^{-\\frac{\\ln 2}{6} t}\n\\]\n\nThe initial ratio \\( \\frac{N_A}{N_B} = 2 \\).  \nWe want the ratio reversed, i.e., \\( \\frac{N_A}{N_B} = \\frac{1}{2} \\).\n\nSo:\n\n\\[\n\\frac{2x e^{-\\frac{\\ln 2}{3} t}}{x e^{-\\frac{\\ln 2}{6} t}} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{3} t + \\frac{\\ln 2}{6} t} = \\frac{1}{2}\n\\]\n\\[\n2 e^{-\\frac{\\ln 2}{6} t} = \\frac{1}{2}\n\\]\n\\[\ne^{-\\frac{\\ln 2}{6} t} = \\frac{1}{4}\n\\]\n\nTake natural log:\n\n\\[\n-\\frac{\\ln 2}{6} t = \\ln\\left(\\frac{1}{4}\\right) = -\\ln 4 = -2\\ln 2\n\\]\n\\[\n\\frac{\\ln 2}{6} t = 2 \\ln 2\n\\]\n\\[\n\\frac{t}{6} = 2\n\\]\n\\[\nt = 12 \\text{ days}\n\\]\n\nThe correct answer is **C. 12.0**.\n\nAnswer: C",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784221094,
+    "created": 1784232298,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 425,
       "prompt_tokens": 160,
-      "total_tokens": 416,
+      "total_tokens": 585,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-VxqkFvS0HclDVPJaZJxIyZMbnqGNwiXH",
+    "id": "chatcmpl-oJMYoGClQuLHXWMXzSWdmSZDuO9GpEAB",
     "timings": {
       "cache_n": 1,
       "prompt_n": 159,
-      "prompt_ms": 879.13,
-      "prompt_per_token_ms": 5.529119496855346,
-      "prompt_per_second": 180.86062357103043,
-      "predicted_n": 256,
-      "predicted_ms": 18851.666,
-      "predicted_per_token_ms": 73.6393203125,
-      "predicted_per_second": 13.579701656076443
+      "prompt_ms": 852.482,
+      "prompt_per_token_ms": 5.361522012578616,
+      "prompt_per_second": 186.51420205939831,
+      "predicted_n": 425,
+      "predicted_ms": 30141.949,
+      "predicted_per_token_ms": 70.92223294117647,
+      "predicted_per_second": 14.0999508691359
     }
   }
 }

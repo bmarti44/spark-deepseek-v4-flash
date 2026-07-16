@@ -3,10 +3,11 @@
   "task_id": 10270,
   "rendered_prompt_sha256": "001dfd45d8b76c0270375d111d7b512ead30b87409e4d501f8a4f8c00b5b8573",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-m",
+  "completion": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-momentum:\n\\[\nm v_n \\sin\\theta = M v_f \\sin\\psi\n\\]\nSo:\n\\[\nv_n \\sin\\theta = \\frac{M}{m} v_f \\sin\\psi = 2 v_f \\sin\\psi\n\\]\n\nFrom x-momentum:\n\\[\nm v_n \\cos\\theta = M v_i - M v_f \\cos\\psi\n\\]\n\\[\nv_n \\cos\\theta = \\frac{M}{m}(v_i - v_f \\cos\\psi) = 2(v_i - v_f \\cos\\psi)\n\\]\n\n---\n\n### Step 3: Use energy conservation\nSquare and sum to get \\(v_n^2\\):\n\\[\nv_n^2 = (v_n \\sin\\theta)^2 + (v_n \\cos\\theta)^2\n\\]\n\\[\nv_n^2 = (2 v_f \\sin\\psi)^2 + [2(v_i - v_f \\cos\\psi)]^2\n\\]\n\\[\nv_n^2 = 4 v_f^2 \\sin^2\\psi + 4(v_i^2 - 2 v_i v_f \\cos\\psi + v_f^2 \\cos^2\\psi)\n\\]\n\\[\nv_n^2 = 4 v_f^2 (\\sin^2\\psi + \\cos^2\\psi) + 4 v_i^2 - 8 v_i v_f \\cos\\psi\n\\]\n\\[\nv_n^2 = 4 v_f^2 + 4 v_i^2 - 8 v_i v_f \\cos\\psi\n\\]\n\n---\n\n### Step 4: Energy equation\nEnergy conservation:\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\nMultiply by 2:\n\\[\nM v_i^2 = M v_f^2 + m v_n^2\n\\]\nWith \\(M=2m\\):\n\\[\n2m v_i^2 = 2m v_f^2 + m v_n^2\n\\]\nDivide by \\(m\\):\n\\[\n2 v_i^2 = 2 v_f^2 + v_n^2\n\\]\n\n---\n\n### Step 5: Substitute \\(v_n^2\\)\n\\[\n2 v_i^2 = 2 v_f^2 + (4 v_f^2 + 4 v_i^2 - 8 v_i v",
+  "finish_reason": "length",
   "expected": "C",
   "scored_correct": false,
-  "reason": "incorrect: parsed='F' expected='C'",
+  "reason": "truncated without answer",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.234973197999352
+    "elapsed_s": 55.8261754740015
   },
   "response": {
     "choices": [
       {
-        "text": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-m",
+        "text": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-momentum:\n\\[\nm v_n \\sin\\theta = M v_f \\sin\\psi\n\\]\nSo:\n\\[\nv_n \\sin\\theta = \\frac{M}{m} v_f \\sin\\psi = 2 v_f \\sin\\psi\n\\]\n\nFrom x-momentum:\n\\[\nm v_n \\cos\\theta = M v_i - M v_f \\cos\\psi\n\\]\n\\[\nv_n \\cos\\theta = \\frac{M}{m}(v_i - v_f \\cos\\psi) = 2(v_i - v_f \\cos\\psi)\n\\]\n\n---\n\n### Step 3: Use energy conservation\nSquare and sum to get \\(v_n^2\\):\n\\[\nv_n^2 = (v_n \\sin\\theta)^2 + (v_n \\cos\\theta)^2\n\\]\n\\[\nv_n^2 = (2 v_f \\sin\\psi)^2 + [2(v_i - v_f \\cos\\psi)]^2\n\\]\n\\[\nv_n^2 = 4 v_f^2 \\sin^2\\psi + 4(v_i^2 - 2 v_i v_f \\cos\\psi + v_f^2 \\cos^2\\psi)\n\\]\n\\[\nv_n^2 = 4 v_f^2 (\\sin^2\\psi + \\cos^2\\psi) + 4 v_i^2 - 8 v_i v_f \\cos\\psi\n\\]\n\\[\nv_n^2 = 4 v_f^2 + 4 v_i^2 - 8 v_i v_f \\cos\\psi\n\\]\n\n---\n\n### Step 4: Energy equation\nEnergy conservation:\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\nMultiply by 2:\n\\[\nM v_i^2 = M v_f^2 + m v_n^2\n\\]\nWith \\(M=2m\\):\n\\[\n2m v_i^2 = 2m v_f^2 + m v_n^2\n\\]\nDivide by \\(m\\):\n\\[\n2 v_i^2 = 2 v_f^2 + v_n^2\n\\]\n\n---\n\n### Step 5: Substitute \\(v_n^2\\)\n\\[\n2 v_i^2 = 2 v_f^2 + (4 v_f^2 + 4 v_i^2 - 8 v_i v",
         "index": 0,
         "logprobs": null,
         "finish_reason": "length"
       }
     ],
-    "created": 1784221147,
+    "created": 1784232390,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 768,
       "prompt_tokens": 236,
-      "total_tokens": 492,
+      "total_tokens": 1004,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-gzq0b1ZXkAF0wkEzbh9X035aBPAipDqA",
+    "id": "chatcmpl-ojVs4RSgSBDJoeTucSg7Q29RVkWyGFA0",
     "timings": {
       "cache_n": 1,
       "prompt_n": 235,
-      "prompt_ms": 1239.603,
-      "prompt_per_token_ms": 5.274906382978724,
-      "prompt_per_second": 189.5768241929069,
-      "predicted_n": 256,
-      "predicted_ms": 18992.338,
-      "predicted_per_token_ms": 74.1888203125,
-      "predicted_per_second": 13.479119842959829
+      "prompt_ms": 1170.598,
+      "prompt_per_token_ms": 4.981268085106382,
+      "prompt_per_second": 200.7520942287617,
+      "predicted_n": 768,
+      "predicted_ms": 54653.536,
+      "predicted_per_token_ms": 71.16345833333334,
+      "predicted_per_second": 14.052155747068221
     }
   }
 }

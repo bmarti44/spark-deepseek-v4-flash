@@ -3,10 +3,11 @@
   "task_id": 245,
   "rendered_prompt_sha256": "3b47acfa3e3946b03c6a0e65001f3ca563845ce092379c15583bc407268e5869",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "Let’s go step-by-step.\n\n**Step 1 – Basic income and depreciation**  \n- Building cost: $50,000 (depreciable)  \n- Land cost: $30,000 (not depreciable)  \n- Annual rent: $10,450  \n- Annual expenses: $3,200  \n- Depreciation (straight line, 40 years): $50,000 / 40 = $1,250 per year  \n\n**Before-tax income (if no loan):**  \n$10,450 – $3,200 – $1,250 = $6,000  \n\n**Tax (40%):** $6,000 × 0.4 = $2,400  \n**After-tax income:** $6,000 – $2,400 = $3,600  \n\n**Rate of return on full $80,000 investment:**  \n$3,600 / $80,000 = **4.5%**\n\n---\n\n**Step 2 – Plan B**  \nBorrow $30,000 at 4.5% interest.  \nInterest per year: $30,000 × 0.045 = $1,350  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,",
+  "completion": "Let’s go step-by-step.\n\n**Step 1 – Basic income and depreciation**  \n- Building cost: $50,000 (depreciable)  \n- Land cost: $30,000 (not depreciable)  \n- Annual rent: $10,450  \n- Annual expenses: $3,200  \n- Depreciation (straight line, 40 years): $50,000 / 40 = $1,250 per year  \n\n**Before-tax income (if no loan):**  \n$10,450 – $3,200 – $1,250 = $6,000  \n\n**Tax (40%):** $6,000 × 0.4 = $2,400  \n**After-tax income:** $6,000 – $2,400 = $3,600  \n\n**Rate of return on full $80,000 investment:**  \n$3,600 / $80,000 = **4.5%**\n\n---\n\n**Step 2 – Plan B**  \nBorrow $30,000 at 4.5% interest.  \nInterest per year: $30,000 × 0.045 = $1,350  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,250 – $1,350 = $4,650  \nTax (40%): $4,650 × 0.4 = $1,860  \nAfter-tax: $4,650 – $1,860 = $2,790  \n\nEquity invested: $50,000  \nRate of return: $2,790 / $50,000 = **5.58%**\n\n---\n\n**Step 3 – Plan C**  \nBorrow $60,000 at 5.25% interest.  \nInterest per year: $60,000 × 0.0525 = $3,150  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,250 – $3,150 = $2,850  \nTax (40%): $2,850 × 0.4 = $1,140  \nAfter-tax: $2,850 – $1,140 = $1,710  \n\nEquity invested: $20,000  \nRate of return: $1,710 / $20,000 = **8.55%**\n\n---\n\n**Step 4 – Compare**  \nPlan A: 4.5%  \nPlan B: 5.58%  \nPlan C: 8.55%  \n\nHighest is **Plan C**.\n\nNow check the options:  \n- A: Plan B if rates drop to 3% — not relevant, C is still higher.  \n- B: Plan A if tax rate 30% — recalc: $6,000 × 0.7 = $4,200 → 5.25%, still less than C’s 8.55%.  \n- C: Plan A — no.  \n- D: Plan C if rent increases 5% annually — not needed, already highest.  \n- E: Plan C — yes.  \n- F: None — no.  \n- G: Plan B — no.  \n- H: Plan C if additional deductions — already highest.  \n- I: Plan A with grant — 10% off means $72,000 investment, return $3,600 → 5%, still less than C.  \n- J: Plan B with extra investor — dilutes return, not better than C.\n\nSo the correct answer is **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='B' expected='E'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.02877659600017
+    "elapsed_s": 54.356618124002125
   },
   "response": {
     "choices": [
       {
-        "text": "Let’s go step-by-step.\n\n**Step 1 – Basic income and depreciation**  \n- Building cost: $50,000 (depreciable)  \n- Land cost: $30,000 (not depreciable)  \n- Annual rent: $10,450  \n- Annual expenses: $3,200  \n- Depreciation (straight line, 40 years): $50,000 / 40 = $1,250 per year  \n\n**Before-tax income (if no loan):**  \n$10,450 – $3,200 – $1,250 = $6,000  \n\n**Tax (40%):** $6,000 × 0.4 = $2,400  \n**After-tax income:** $6,000 – $2,400 = $3,600  \n\n**Rate of return on full $80,000 investment:**  \n$3,600 / $80,000 = **4.5%**\n\n---\n\n**Step 2 – Plan B**  \nBorrow $30,000 at 4.5% interest.  \nInterest per year: $30,000 × 0.045 = $1,350  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,",
+        "text": "Let’s go step-by-step.\n\n**Step 1 – Basic income and depreciation**  \n- Building cost: $50,000 (depreciable)  \n- Land cost: $30,000 (not depreciable)  \n- Annual rent: $10,450  \n- Annual expenses: $3,200  \n- Depreciation (straight line, 40 years): $50,000 / 40 = $1,250 per year  \n\n**Before-tax income (if no loan):**  \n$10,450 – $3,200 – $1,250 = $6,000  \n\n**Tax (40%):** $6,000 × 0.4 = $2,400  \n**After-tax income:** $6,000 – $2,400 = $3,600  \n\n**Rate of return on full $80,000 investment:**  \n$3,600 / $80,000 = **4.5%**\n\n---\n\n**Step 2 – Plan B**  \nBorrow $30,000 at 4.5% interest.  \nInterest per year: $30,000 × 0.045 = $1,350  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,250 – $1,350 = $4,650  \nTax (40%): $4,650 × 0.4 = $1,860  \nAfter-tax: $4,650 – $1,860 = $2,790  \n\nEquity invested: $50,000  \nRate of return: $2,790 / $50,000 = **5.58%**\n\n---\n\n**Step 3 – Plan C**  \nBorrow $60,000 at 5.25% interest.  \nInterest per year: $60,000 × 0.0525 = $3,150  \n\nBefore-tax income:  \n$10,450 – $3,200 – $1,250 – $3,150 = $2,850  \nTax (40%): $2,850 × 0.4 = $1,140  \nAfter-tax: $2,850 – $1,140 = $1,710  \n\nEquity invested: $20,000  \nRate of return: $1,710 / $20,000 = **8.55%**\n\n---\n\n**Step 4 – Compare**  \nPlan A: 4.5%  \nPlan B: 5.58%  \nPlan C: 8.55%  \n\nHighest is **Plan C**.\n\nNow check the options:  \n- A: Plan B if rates drop to 3% — not relevant, C is still higher.  \n- B: Plan A if tax rate 30% — recalc: $6,000 × 0.7 = $4,200 → 5.25%, still less than C’s 8.55%.  \n- C: Plan A — no.  \n- D: Plan C if rent increases 5% annually — not needed, already highest.  \n- E: Plan C — yes.  \n- F: None — no.  \n- G: Plan B — no.  \n- H: Plan C if additional deductions — already highest.  \n- I: Plan A with grant — 10% off means $72,000 investment, return $3,600 → 5%, still less than C.  \n- J: Plan B with extra investor — dilutes return, not better than C.\n\nSo the correct answer is **E**.\n\nAnswer: E",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784218853,
+    "created": 1784229170,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 726,
       "prompt_tokens": 306,
-      "total_tokens": 562,
+      "total_tokens": 1032,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-X9gAoaBbDzggYLlceYnRh2rpsY8lNykw",
+    "id": "chatcmpl-Mp5v6cXPHITwqTtybpcO8571hGwmsUPX",
     "timings": {
       "cache_n": 1,
       "prompt_n": 305,
-      "prompt_ms": 1413.728,
-      "prompt_per_token_ms": 4.635173770491804,
-      "prompt_per_second": 215.7416419565857,
-      "predicted_n": 256,
-      "predicted_ms": 18598.029,
-      "predicted_per_token_ms": 72.64855078125,
-      "predicted_per_second": 13.764899495532566
+      "prompt_ms": 1424.175,
+      "prompt_per_token_ms": 4.669426229508197,
+      "prompt_per_second": 214.15907455193357,
+      "predicted_n": 726,
+      "predicted_ms": 52929.119,
+      "predicted_per_token_ms": 72.90512258953167,
+      "predicted_per_second": 13.716457286961456
     }
   }
 }

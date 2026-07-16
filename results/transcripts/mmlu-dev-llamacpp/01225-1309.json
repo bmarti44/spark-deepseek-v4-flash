@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "5e788551a551e8130cce7b3d4efd0765e7286bebb67df2a621d8eee7353b79e2",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The witness’s testimony involves an out-of-court statement (“Watch it, buddy, you’re going to step on that piece of fish”) offered to prove that the customer was warned and therefore may have been contributorily negligent. That is a hearsay use unless an exception applies.  \n\nThe statement is not admissible as a present sense impression or excited utterance because it was not made by the witness themselves but rather reported by the witness. However, it could be admissible not for the truth of the matter asserted (i.e., that there was actually a piece of fish there) but to show that a warning was given, which is relevant to contributory negligence. That is a non-hearsay purpose.  \n\nThus, the correct answer is:  \n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 12.908762906999982
+    "elapsed_s": 12.333597724998981
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220135,
+    "created": 1784231037,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-CqIEGXQSvWTmNDuJiCbYwp6e3M01t8pV",
+    "id": "chatcmpl-X4fKbkI0NiqZncenmrYJPCbi1ymyUZry",
     "timings": {
       "cache_n": 1,
       "prompt_n": 311,
-      "prompt_ms": 1407.931,
-      "prompt_per_token_ms": 4.527109324758842,
-      "prompt_per_second": 220.89150675707828,
+      "prompt_ms": 1344.218,
+      "prompt_per_token_ms": 4.322244372990354,
+      "prompt_per_second": 231.36128217298085,
       "predicted_n": 155,
-      "predicted_ms": 11486.406,
-      "predicted_per_token_ms": 74.10584516129033,
-      "predicted_per_second": 13.494212201797497
+      "predicted_ms": 10985.461,
+      "predicted_per_token_ms": 70.87394193548387,
+      "predicted_per_second": 14.109558078627744
     }
   }
 }

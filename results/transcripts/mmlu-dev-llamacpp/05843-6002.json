@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "1871303878cdfb11ee78ef8938ea6fa7b4f3cc21fb6978ac4d9b24246976eafe",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Polyomaviruses are known to cause tumors in various species, including humans (e.g., Merkel cell carcinoma from Merkel cell polyomavirus). While they can be associated with other conditions, their predominant disease association is with tumor formation.\n\nAnswer: A",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": false,
   "reason": "incorrect: parsed='A' expected='C'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 4.438567346998752
+    "elapsed_s": 4.238560692996543
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219958,
+    "created": 1784230869,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-E99sPcsR3mBqV15E1cGRKuPKse9zS8MX",
+    "id": "chatcmpl-UXwY46lBF4pVCRqvgYjX8GmuIwQLLeRs",
     "timings": {
       "cache_n": 1,
       "prompt_n": 53,
-      "prompt_ms": 543.452,
-      "prompt_per_token_ms": 10.253811320754718,
-      "prompt_per_second": 97.52471239410288,
+      "prompt_ms": 528.61,
+      "prompt_per_token_ms": 9.973773584905661,
+      "prompt_per_second": 100.26295378445356,
       "predicted_n": 53,
-      "predicted_ms": 3882.781,
-      "predicted_per_token_ms": 73.26001886792453,
-      "predicted_per_second": 13.650010134488655
+      "predicted_ms": 3707.984,
+      "predicted_per_token_ms": 69.96196226415094,
+      "predicted_per_second": 14.293481309520214
     }
   }
 }

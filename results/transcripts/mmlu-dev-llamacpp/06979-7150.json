@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "81e6579111754898a65c4bf39067f00aabcb41395d340484793130aff5ea2582",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "In the equation of exchange (MV = PQ), monetarists, following Milton Friedman, argue that velocity (V) is relatively stable and predictable, and that real output (Q) is determined by real factors in the long run. Therefore, they view V and Q as **stable** in the short run and not causing major fluctuations in the relationship between money supply and nominal GDP.\n\nAnswer: H",
+  "finish_reason": "stop",
   "expected": "H",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.785780363001322
+    "elapsed_s": 6.486495485998603
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219560,
+    "created": 1784230135,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-LjvCE2XqGqetDhdrfOXRr4bckos56Pbs",
+    "id": "chatcmpl-dgOUCjblYJdFfr1UEClwM9TPDYEQGccv",
     "timings": {
       "cache_n": 1,
       "prompt_n": 85,
-      "prompt_ms": 709.958,
-      "prompt_per_token_ms": 8.352447058823529,
-      "prompt_per_second": 119.72539220629953,
+      "prompt_ms": 675.363,
+      "prompt_per_token_ms": 7.94544705882353,
+      "prompt_per_second": 125.85824216014201,
       "predicted_n": 81,
-      "predicted_ms": 6072.873,
-      "predicted_per_token_ms": 74.97374074074074,
-      "predicted_per_second": 13.338003281148808
+      "predicted_ms": 5808.475,
+      "predicted_per_token_ms": 71.70956790123458,
+      "predicted_per_second": 13.945140505898708
     }
   }
 }

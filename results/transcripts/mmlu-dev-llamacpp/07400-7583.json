@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "a7ba8e7bf8fc75d9a16ebb9c307596c3cc00458aefc6e37a14f8fbf5171818b7",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We have 27 quarterly observations and 3 parameters (\\(\\beta_1, \\beta_2, \\beta_3\\)), so the degrees of freedom for the t-test are:\n\n\\[\nn - k = 27 - 3 = 24\n\\]\n\nFor a two-sided 5% test, we need the critical value \\( t_{0.025, 24} \\).  \nFrom t-tables, the value for 24 degrees of freedom at the 0.025 level (two-tailed) is approximately **2.064**, which is closest to **2.06** in the options.\n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 10.375947608999923
+    "elapsed_s": 9.92457895699772
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219598,
+    "created": 1784230170,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-vUvGA7h6RCsVYQ9yDGRCnbrJ2tS08vhh",
+    "id": "chatcmpl-UKQDQenJ5x9wbxUIApoV1hPgR75FtDsb",
     "timings": {
       "cache_n": 1,
       "prompt_n": 166,
-      "prompt_ms": 952.919,
-      "prompt_per_token_ms": 5.740475903614458,
-      "prompt_per_second": 174.20158481465896,
+      "prompt_ms": 905.307,
+      "prompt_per_token_ms": 5.4536566265060245,
+      "prompt_per_second": 183.36321270022214,
       "predicted_n": 127,
-      "predicted_ms": 9421.008,
-      "predicted_per_token_ms": 74.1811653543307,
-      "predicted_per_second": 13.480510790352794
+      "predicted_ms": 9017.386,
+      "predicted_per_token_ms": 71.00303937007874,
+      "predicted_per_second": 14.08390413807283
     }
   }
 }

@@ -1,0 +1,101 @@
+{
+  "index": 140,
+  "task_id": "HumanEval/140",
+  "rendered_prompt_sha256": "f757e5d21a3d47b21dcd96c7c9f869adfbfe70276370fddb0f4ded8fb1c311f9",
+  "rendering": "raw",
+  "completion": "    result = []\n    space_count = 0\n    for char in text:\n        if char == ' ':\n            space_count += 1\n            if space_count == 2:\n                result.append('-')\n            elif space_count > 2:\n                continue\n            else:\n                result.append('_')\n        else:\n            if space_count > 2:\n                result.append('-')\n            space_count = 0\n            result.append(char)\n    if space_count > 2:\n        result.append('-')\n    return ''.join(result)",
+  "finish_reason": "stop",
+  "expected": "    new_text = \"\"\n    i = 0\n    start, end = 0, 0\n    while i < len(text):\n        if text[i] == \" \":\n            end += 1\n        else:\n            if end - start > 2:\n                new_text += \"-\"+text[i]\n            elif end - start > 0:\n                new_text += \"_\"*(end - start)+text[i]\n            else:\n                new_text += text[i]\n            start, end = i+1, i+1\n        i+=1\n    if end - start > 2:\n        new_text += \"-\"\n    elif end - start > 0:\n        new_text += \"_\"\n    return new_text\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 8.664322174001427
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    result = []\n    space_count = 0\n    for char in text:\n        if char == ' ':\n            space_count += 1\n            if space_count == 2:\n                result.append('-')\n            elif space_count > 2:\n                continue\n            else:\n                result.append('_')\n        else:\n            if space_count > 2:\n                result.append('-')\n            space_count = 0\n            result.append(char)\n    if space_count > 2:\n        result.append('-')\n    return ''.join(result)",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228814,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 112,
+      "prompt_tokens": 106,
+      "total_tokens": 218,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ebb0en8tHmpncgO6H67UukGdvOXQLGld",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 105,
+      "prompt_ms": 734.429,
+      "prompt_per_token_ms": 6.9945619047619045,
+      "prompt_per_second": 142.96821067795526,
+      "predicted_n": 112,
+      "predicted_ms": 7927.463,
+      "predicted_per_token_ms": 70.78091964285714,
+      "predicted_per_second": 14.128101260138333
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00140:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 47, in <module>\n    check(fix_spaces)\n  File \"/case/main.py\", line 39, in check\n    assert candidate(\"Yellow Yellow  Dirty  Fellow\") == \"Yellow_Yellow__Dirty__Fellow\", \"This prints if this assert fails 3 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 3 (good for debugging!)\n"
+  }
+}

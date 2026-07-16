@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "4d6d8f4428485ac1ba5b8f98d33ac97fa2aaa48046f4f19f13f4ce8975d3e503",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The correct answer is based on metabolic principles:  \n- In mammals, fatty acids cannot be converted into carbohydrates (because the conversion of acetyl-CoA to net glucose is not possible).  \n- However, fatty acids can be made from carbohydrates and some amino acids.  \n- Amino acids can be converted to fatty acids and vice versa (to some extent).  \n- Carbohydrates can be converted to both amino acids and fatty acids.  \n\nThe option that correctly reflects these rules is **C**: *Fatty acids can be made from but not converted to carbohydrates and amino acids*.  \n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 9.577787496000383
+    "elapsed_s": 9.138450885999191
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219968,
+    "created": 1784230878,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-FnteEGeunaDdPba9d9CbB6kJiprXIIKt",
+    "id": "chatcmpl-UwtgKtYANcZzJ7TjzdVdXsGxAQevzHav",
     "timings": {
       "cache_n": 1,
       "prompt_n": 107,
-      "prompt_ms": 801.971,
-      "prompt_per_token_ms": 7.495056074766355,
-      "prompt_per_second": 133.421283313237,
+      "prompt_ms": 770.298,
+      "prompt_per_token_ms": 7.199046728971963,
+      "prompt_per_second": 138.90728003967294,
       "predicted_n": 118,
-      "predicted_ms": 8763.134,
-      "predicted_per_token_ms": 74.26384745762712,
-      "predicted_per_second": 13.465502182210153
+      "predicted_ms": 8365.731,
+      "predicted_per_token_ms": 70.89602542372882,
+      "predicted_per_second": 14.105163075408473
     }
   }
 }

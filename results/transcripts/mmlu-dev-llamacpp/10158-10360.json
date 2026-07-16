@@ -3,10 +3,11 @@
   "task_id": 10360,
   "rendered_prompt_sha256": "6baac4706aa6937062715dd2a0532facc9abbc850af4f5a55f095f9aecb2e7fc",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "To determine which pairs are unifiable, we need to check if there exists a substitution for variables that makes the two expressions lexically identical.\n\n**Expressions:**\n- I: \\( f(w, w) \\)\n- II: \\( f(x, 1) \\)\n- III: \\( f(y, g(z)) \\)\n\n---\n\n**Pair (I, II):**  \nI: \\( f(w, w) \\)  \nII: \\( f(x, 1) \\)  \n\nWe need the second arguments to match: \\( w \\) must equal \\( 1 \\). That means we substitute \\( w = 1 \\).  \nThen first argument: \\( w \\) becomes \\( 1 \\), and \\( x \\) must equal that, so \\( x = 1 \\).  \nAfter substitution: both become \\( f(1, 1) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (I, III):**  \nI: \\( f(w, w) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( w = g(z) \\).  \nThen first argument: \\( w \\) becomes \\( g(z) \\), so \\( y \\) must equal \\( g(z) \\).",
+  "completion": "To determine which pairs are unifiable, we need to check if there exists a substitution for variables that makes the two expressions lexically identical.\n\n**Expressions:**\n- I: \\( f(w, w) \\)\n- II: \\( f(x, 1) \\)\n- III: \\( f(y, g(z)) \\)\n\n---\n\n**Pair (I, II):**  \nI: \\( f(w, w) \\)  \nII: \\( f(x, 1) \\)  \n\nWe need the second arguments to match: \\( w \\) must equal \\( 1 \\). That means we substitute \\( w = 1 \\).  \nThen first argument: \\( w \\) becomes \\( 1 \\), and \\( x \\) must equal that, so \\( x = 1 \\).  \nAfter substitution: both become \\( f(1, 1) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (I, III):**  \nI: \\( f(w, w) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( w = g(z) \\).  \nThen first argument: \\( w \\) becomes \\( g(z) \\), so \\( y \\) must equal \\( g(z) \\).  \nSubstitute \\( y = g(z) \\) and \\( w = g(z) \\).  \nBoth become \\( f(g(z), g(z)) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (II, III):**  \nII: \\( f(x, 1) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( 1 = g(z) \\).  \nBut \\( g(z) \\) is a function applied to a variable, and \\( 1 \\) is a constant. They cannot be made equal by substitution because \\( g(z) \\) can never become the constant \\( 1 \\) (no substitution changes the function symbol).  \nSo they are **not** unifiable. ❌\n\n---\n\nThus unifiable pairs are (I, II) and (I, III).\n\nThe correct option is **C**.\n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='G' expected='C'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.012429894999514
+    "elapsed_s": 32.41401686400059
   },
   "response": {
     "choices": [
       {
-        "text": "To determine which pairs are unifiable, we need to check if there exists a substitution for variables that makes the two expressions lexically identical.\n\n**Expressions:**\n- I: \\( f(w, w) \\)\n- II: \\( f(x, 1) \\)\n- III: \\( f(y, g(z)) \\)\n\n---\n\n**Pair (I, II):**  \nI: \\( f(w, w) \\)  \nII: \\( f(x, 1) \\)  \n\nWe need the second arguments to match: \\( w \\) must equal \\( 1 \\). That means we substitute \\( w = 1 \\).  \nThen first argument: \\( w \\) becomes \\( 1 \\), and \\( x \\) must equal that, so \\( x = 1 \\).  \nAfter substitution: both become \\( f(1, 1) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (I, III):**  \nI: \\( f(w, w) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( w = g(z) \\).  \nThen first argument: \\( w \\) becomes \\( g(z) \\), so \\( y \\) must equal \\( g(z) \\).",
+        "text": "To determine which pairs are unifiable, we need to check if there exists a substitution for variables that makes the two expressions lexically identical.\n\n**Expressions:**\n- I: \\( f(w, w) \\)\n- II: \\( f(x, 1) \\)\n- III: \\( f(y, g(z)) \\)\n\n---\n\n**Pair (I, II):**  \nI: \\( f(w, w) \\)  \nII: \\( f(x, 1) \\)  \n\nWe need the second arguments to match: \\( w \\) must equal \\( 1 \\). That means we substitute \\( w = 1 \\).  \nThen first argument: \\( w \\) becomes \\( 1 \\), and \\( x \\) must equal that, so \\( x = 1 \\).  \nAfter substitution: both become \\( f(1, 1) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (I, III):**  \nI: \\( f(w, w) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( w = g(z) \\).  \nThen first argument: \\( w \\) becomes \\( g(z) \\), so \\( y \\) must equal \\( g(z) \\).  \nSubstitute \\( y = g(z) \\) and \\( w = g(z) \\).  \nBoth become \\( f(g(z), g(z)) \\).  \nSo they are unifiable. ✅\n\n---\n\n**Pair (II, III):**  \nII: \\( f(x, 1) \\)  \nIII: \\( f(y, g(z)) \\)  \n\nWe need second arguments to match: \\( 1 = g(z) \\).  \nBut \\( g(z) \\) is a function applied to a variable, and \\( 1 \\) is a constant. They cannot be made equal by substitution because \\( g(z) \\) can never become the constant \\( 1 \\) (no substitution changes the function symbol).  \nSo they are **not** unifiable. ❌\n\n---\n\nThus unifiable pairs are (I, II) and (I, III).\n\nThe correct option is **C**.\n\nAnswer: C",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219415,
+    "created": 1784229974,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 440,
       "prompt_tokens": 226,
-      "total_tokens": 482,
+      "total_tokens": 666,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-oZLj7SMQwiuax3DDJcLvMZRBj3YAehlr",
+    "id": "chatcmpl-kRZhByNiJykygrwjGZRW9yuz39R0H25v",
     "timings": {
       "cache_n": 1,
       "prompt_n": 225,
-      "prompt_ms": 1134.078,
-      "prompt_per_token_ms": 5.040346666666666,
-      "prompt_per_second": 198.39905191706393,
-      "predicted_n": 256,
-      "predicted_ms": 18865.154,
-      "predicted_per_token_ms": 73.6920078125,
-      "predicted_per_second": 13.569992590572015
+      "prompt_ms": 1087.688,
+      "prompt_per_token_ms": 4.83416888888889,
+      "prompt_per_second": 206.86079096211412,
+      "predicted_n": 440,
+      "predicted_ms": 31322.704,
+      "predicted_per_token_ms": 71.18796363636363,
+      "predicted_per_second": 14.04731852013798
     }
   }
 }

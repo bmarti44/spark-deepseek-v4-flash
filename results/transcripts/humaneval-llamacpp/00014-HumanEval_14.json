@@ -1,0 +1,101 @@
+{
+  "index": 14,
+  "task_id": "HumanEval/14",
+  "rendered_prompt_sha256": "f4eca2c1c9ceb5ca5b0b0885dfd75fb4f768967fd2e53640176e413a499cc165",
+  "rendering": "raw",
+  "completion": "    return [string[:i] for i in range(1, len(string) + 1)]\n```\n\nThis function uses a list comprehension to generate all prefixes of the input string. The range starts from 1 (to exclude the empty prefix) and goes up to the length of the string (inclusive). For each index `i`, it takes the substring from the start of the string up to `i` (exclusive), which gives the prefix of length `i`. The result is a list of all prefixes from shortest to longest.</think>\"\"\"\nall_prefixes('abc')\n\"\"\"\n['a', 'ab', 'abc']\n\"\"\"\nall_prefixes('')\n\"\"\"\n[]\n\"\"\"\nall_prefixes('a')\n\"\"\"\n['a']\n\"\"\"\nall_prefixes('ab')\n\"\"\"\n['a', 'ab']\n\"\"\"\nall_prefixes('abc')\n\"\"\"\n['a', 'ab', 'abc']\n\"\"\"\nall_prefixes('abcd')\n\"\"\"\n['a', 'ab', 'abc', 'abcd']\n\"\"\"\nall_prefixes('abcde')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde']\n\"\"\"\nall_prefixes('abcdef')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef']\n\"\"\"\nall_prefixes('abcdefg')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg']\n\"\"\"\nall_prefixes('abcdefgh')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh']\n\"\"\"\nall_prefixes('abcdefghi')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi']\n\"\"\"\nall_prefixes('abcdefghij')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij']\n\"\"\"\nall_prefixes('abcdefghijk')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk']\n\"\"\"\nall_prefixes('abcdefghijkl')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk', 'abcdefghijkl",
+  "finish_reason": "length",
+  "expected": "    result = []\n\n    for i in range(len(string)):\n        result.append(string[:i+1])\n    return result\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 38.4299637160002
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    return [string[:i] for i in range(1, len(string) + 1)]\n```\n\nThis function uses a list comprehension to generate all prefixes of the input string. The range starts from 1 (to exclude the empty prefix) and goes up to the length of the string (inclusive). For each index `i`, it takes the substring from the start of the string up to `i` (exclusive), which gives the prefix of length `i`. The result is a list of all prefixes from shortest to longest.</think>\"\"\"\nall_prefixes('abc')\n\"\"\"\n['a', 'ab', 'abc']\n\"\"\"\nall_prefixes('')\n\"\"\"\n[]\n\"\"\"\nall_prefixes('a')\n\"\"\"\n['a']\n\"\"\"\nall_prefixes('ab')\n\"\"\"\n['a', 'ab']\n\"\"\"\nall_prefixes('abc')\n\"\"\"\n['a', 'ab', 'abc']\n\"\"\"\nall_prefixes('abcd')\n\"\"\"\n['a', 'ab', 'abc', 'abcd']\n\"\"\"\nall_prefixes('abcde')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde']\n\"\"\"\nall_prefixes('abcdef')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef']\n\"\"\"\nall_prefixes('abcdefg')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg']\n\"\"\"\nall_prefixes('abcdefgh')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh']\n\"\"\"\nall_prefixes('abcdefghi')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi']\n\"\"\"\nall_prefixes('abcdefghij')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij']\n\"\"\"\nall_prefixes('abcdefghijk')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk']\n\"\"\"\nall_prefixes('abcdefghijkl')\n\"\"\"\n['a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef', 'abcdefg', 'abcdefgh', 'abcdefghi', 'abcdefghij', 'abcdefghijk', 'abcdefghijkl",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784227894,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 53,
+      "total_tokens": 565,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-MnFFTTHPCRvvEQsV4WnQhs2vBdh8dMMl",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 53,
+      "prompt_ms": 544.852,
+      "prompt_per_token_ms": 10.280226415094338,
+      "prompt_per_second": 97.27412214693165,
+      "predicted_n": 512,
+      "predicted_ms": 37883.002,
+      "predicted_per_token_ms": 73.99023828125,
+      "predicted_per_second": 13.51529638543429
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00014:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

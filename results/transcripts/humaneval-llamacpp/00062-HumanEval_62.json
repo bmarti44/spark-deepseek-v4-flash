@@ -1,0 +1,102 @@
+{
+  "index": 62,
+  "task_id": "HumanEval/62",
+  "rendered_prompt_sha256": "2ed91ee79d7a7ff2cac9f9699c62f64df5f2e38d86c9bcac80d028bb32933331",
+  "rendering": "raw",
+  "completion": "    # If the list is empty, return empty list\n    if not xs:\n        return []\n    # If the list has only one element, return empty list\n    if len(xs) == 1:\n        return []\n    # Compute derivative coefficients\n    result = []\n    for i in range(1, len(xs)):\n        result.append(i * xs[i])\n    return result",
+  "finish_reason": "stop",
+  "expected": "    return [(i * x) for i, x in enumerate(xs)][1:]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 6.66248484499738
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # If the list is empty, return empty list\n    if not xs:\n        return []\n    # If the list has only one element, return empty list\n    if len(xs) == 1:\n        return []\n    # Compute derivative coefficients\n    result = []\n    for i in range(1, len(xs)):\n        result.append(i * xs[i])\n    return result",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228174,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 104,
+      "total_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-dull9xZPWgy0nuXqyShg4mupR5TJz001",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 103,
+      "prompt_ms": 730.019,
+      "prompt_per_token_ms": 7.087563106796116,
+      "prompt_per_second": 141.09221814774682,
+      "predicted_n": 81,
+      "predicted_ms": 5930.215,
+      "predicted_per_token_ms": 73.21253086419753,
+      "predicted_per_second": 13.658863970361951
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00062:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "rendered_prompt": "\n\ndef derivative(xs: list):\n    \"\"\" xs represent coefficients of a polynomial.\n    xs[0] + xs[1] * x + xs[2] * x^2 + ....\n     Return derivative of this polynomial in the same form.\n    >>> derivative([3, 1, 2, 4, 5])\n    [1, 4, 12, 20]\n    >>> derivative([1, 2, 3])\n    [2, 6]\n    \"\"\"\n"
+}

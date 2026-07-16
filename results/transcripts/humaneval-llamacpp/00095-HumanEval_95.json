@@ -1,0 +1,101 @@
+{
+  "index": 95,
+  "task_id": "HumanEval/95",
+  "rendered_prompt_sha256": "e8a971e0e8838d69639de6628a8eff45638ce938c172670b7274c41d63207631",
+  "rendering": "raw",
+  "completion": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python",
+  "finish_reason": "stop",
+  "expected": "    if len(dict.keys()) == 0:\n        return False\n    else:\n        state = \"start\"\n        for key in dict.keys():\n\n            if isinstance(key, str) == False:\n                state = \"mixed\"\n                break\n            if state == \"start\":\n                if key.isupper():\n                    state = \"upper\"\n                elif key.islower():\n                    state = \"lower\"\n                else:\n                    break\n            elif (state == \"upper\" and not key.isupper()) or (state == \"lower\" and not key.islower()):\n                    state = \"mixed\"\n                    break\n            else:\n                break\n        return state == \"upper\" or state == \"lower\" \n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 7.113147555999603
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228476,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 83,
+      "prompt_tokens": 175,
+      "total_tokens": 258,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-MCviN4ZNwHfNFWbZBoTOKoNi5ihVw8cc",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 175,
+      "prompt_ms": 975.87,
+      "prompt_per_token_ms": 5.5764000000000005,
+      "prompt_per_second": 179.32716447887526,
+      "predicted_n": 83,
+      "predicted_ms": 6134.985,
+      "predicted_per_token_ms": 73.91548192771084,
+      "predicted_per_second": 13.528965433493319
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00095:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

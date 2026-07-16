@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "d7adad6e752ed8ae74d1e2bcab7e93a7891a9ef1f38b3718c58c02b88a8a9411",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Answer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 0.8509624010002881
+    "elapsed_s": 0.8172344789963972
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220631,
+    "created": 1784231620,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-BcM04wJmr1VTKx929kqULVEWn2VZaWJY",
+    "id": "chatcmpl-6508qX3TGFrw8Q5JMW6PHWNM1dD5VvF3",
     "timings": {
       "cache_n": 1,
       "prompt_n": 70,
-      "prompt_ms": 579.444,
-      "prompt_per_token_ms": 8.277771428571429,
-      "prompt_per_second": 120.80546178750666,
+      "prompt_ms": 554.371,
+      "prompt_per_token_ms": 7.919585714285714,
+      "prompt_per_second": 126.26923125488166,
       "predicted_n": 4,
-      "predicted_ms": 269.115,
-      "predicted_per_token_ms": 67.27875,
-      "predicted_per_second": 14.863534176838897
+      "predicted_ms": 260.556,
+      "predicted_per_token_ms": 65.139,
+      "predicted_per_second": 15.351786180322081
     }
   },
   "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Which of the following elements is a metal?\n\nA. Ne\nB. N\nC. S\nD. I\nE. F\nF. Se\nG. Ga\nH. O\nI. He\nJ. H\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"

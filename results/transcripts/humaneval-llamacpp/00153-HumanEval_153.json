@@ -1,0 +1,101 @@
+{
+  "index": 153,
+  "task_id": "HumanEval/153",
+  "rendered_prompt_sha256": "c0ecd987e3c84c2b50926b5a4061c8386ec1e6b0704e3ce8630d46ca5a3144ca",
+  "rendering": "raw",
+  "completion": "    strongest_extension = extensions[0]\n    strongest_strength = None\n    for extension in extensions:\n        cap = sum(1 for c in extension if c.isupper())\n        sm = sum(1 for c in extension if c.islower())\n        strength = cap - sm\n        if strongest_strength is None or strength > strongest_strength:\n            strongest_extension = extension\n            strongest_strength = strength\n    return f'{class_name}.{strongest_extension}'",
+  "finish_reason": "stop",
+  "expected": "    strong = extensions[0]\n    my_val = len([x for x in extensions[0] if x.isalpha() and x.isupper()]) - len([x for x in extensions[0] if x.isalpha() and x.islower()])\n    for s in extensions:\n        val = len([x for x in s if x.isalpha() and x.isupper()]) - len([x for x in s if x.isalpha() and x.islower()])\n        if val > my_val:\n            strong = s\n            my_val = val\n\n    ans = class_name + \".\" + strong\n    return ans\n\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 8.610331829000643
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    strongest_extension = extensions[0]\n    strongest_strength = None\n    for extension in extensions:\n        cap = sum(1 for c in extension if c.isupper())\n        sm = sum(1 for c in extension if c.islower())\n        strength = cap - sm\n        if strongest_strength is None or strength > strongest_strength:\n            strongest_extension = extension\n            strongest_strength = strength\n    return f'{class_name}.{strongest_extension}'",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228943,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 270,
+      "total_tokens": 375,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-nw5FeW2SX3xIkhoC7WdkkM9ywV5uQerW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 269,
+      "prompt_ms": 1171.991,
+      "prompt_per_token_ms": 4.356843866171004,
+      "prompt_per_second": 229.5239468562472,
+      "predicted_n": 105,
+      "predicted_ms": 7436.325,
+      "predicted_per_token_ms": 70.82214285714285,
+      "predicted_per_second": 14.119877762201087
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00153:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

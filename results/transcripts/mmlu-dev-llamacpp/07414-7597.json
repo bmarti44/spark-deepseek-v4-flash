@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "8936706f560f0d5bcd83c99c4f74cb66a4867c28ede138c46ec17a88c284e4db",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The scenario describes an increase in both the price of cars and the price of steel, with the automobile industry being competitive and the supply of steel constant in the short run.  \n\nIf the supply of steel is constant, an increase in steel prices must come from increased demand for steel. Cars use steel as an input, so if demand for cars increases, that raises demand for steel, pushing up steel prices. Higher demand for cars also directly pushes up car prices in a competitive market.  \n\n- A (increased taxes) would raise car prices but not necessarily steel prices.  \n- B (decreased demand) would lower car prices, not raise them.  \n- C (increased demand for cars) fits both price increases.  \n- D (decreased supply of steel) would raise steel prices but not car prices unless supply is constant (contradiction).  \n- E (technological advancements) would lower car prices, not raise them.  \n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 15.413790380000137
+    "elapsed_s": 14.792316789000324
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219613,
+    "created": 1784230185,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-n65GKjgfiIAkFfAhfzcXAsOC270ELJFP",
+    "id": "chatcmpl-mwcC2ixLDZqfVsChCN1fzzY1julUzOgk",
     "timings": {
       "cache_n": 1,
       "prompt_n": 112,
-      "prompt_ms": 844.564,
-      "prompt_per_token_ms": 7.54075,
-      "prompt_per_second": 132.61280376620365,
+      "prompt_ms": 824.454,
+      "prompt_per_token_ms": 7.361196428571428,
+      "prompt_per_second": 135.84748209117794,
       "predicted_n": 195,
-      "predicted_ms": 14566.042,
-      "predicted_per_token_ms": 74.69765128205128,
-      "predicted_per_second": 13.387301780401293
+      "predicted_ms": 13965.56,
+      "predicted_per_token_ms": 71.61825641025641,
+      "predicted_per_second": 13.962920212293671
     }
   }
 }

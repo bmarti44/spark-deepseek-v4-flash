@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "9df19b80010bd29625158e14b823a0c58299a2ff216ff957a97f912824325d2d",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The relationship between directivity \\( D \\), wavelength \\( \\lambda \\), and maximum effective aperture \\( A_e \\) is:\n\n\\[\nA_e = \\frac{D \\lambda^2}{4\\pi}\n\\]\n\nGiven:\n- \\( D = 50 \\)\n- \\( \\lambda = 4 \\) meters\n\nCalculate:\n\n\\[\nA_e = \\frac{50 \\times (4)^2}{4\\pi} = \\frac{50 \\times 16}{4\\pi} = \\frac{800}{4\\pi} = \\frac{200}{\\pi}\n\\]\n\n\\[\n\\frac{200}{\\pi} \\approx 63.66 \\text{ m}^2\n\\]\n\nThat matches option H.\n\nAnswer: H",
+  "finish_reason": "stop",
   "expected": "H",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 11.600158240999008
+    "elapsed_s": 11.110576044000481
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219813,
+    "created": 1784230625,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-BpyXDxa7qfsKwGENqPlILzdGNGWyVWDa",
+    "id": "chatcmpl-KcEaAeiyTpsFgTqTDCgONJKdpZ6Yf0aA",
     "timings": {
       "cache_n": 1,
       "prompt_n": 136,
-      "prompt_ms": 808.372,
-      "prompt_per_token_ms": 5.943911764705882,
-      "prompt_per_second": 168.23937494123993,
+      "prompt_ms": 777.714,
+      "prompt_per_token_ms": 5.718485294117648,
+      "prompt_per_second": 174.87148231869298,
       "predicted_n": 145,
-      "predicted_ms": 10787.709,
-      "predicted_per_token_ms": 74.39799310344829,
-      "predicted_per_second": 13.44122278418893
+      "predicted_ms": 10329.812,
+      "predicted_per_token_ms": 71.24008275862069,
+      "predicted_per_second": 14.037041526021966
     }
   }
 }

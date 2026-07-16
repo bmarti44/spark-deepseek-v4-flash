@@ -3,10 +3,11 @@
   "task_id": 11851,
   "rendered_prompt_sha256": "1052bb321d61b66329879c63e9f6187f7753e663a9f880e578f1ad24a83ea83b",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^",
+  "completion": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^4\n\\]\n\n---\n\n**Step 3: Use Stefan-Boltzmann constant**  \nIn English units:  \n\\[\n\\sigma = 0.1714 \\times 10^{-8} \\ \\text{Btu/(hr·ft²·°R⁴)}\n\\]  \nSo:  \n\\[\nq = 0.1 \\times 0.1714 \\times 10^{-8} \\times (499.67)^4\n\\]\n\n---\n\n**Step 4: Compute \\(T^4\\)**  \nFirst, \\(500^4 = 6.25 \\times 10^{10}\\)  \nMore precisely:  \n\\(499.67^2 \\approx 249,670\\)  \nSquare again:  \n\\(249,670^2 \\approx 6.235 \\times 10^{10}\\)  \n\n---\n\n**Step 5: Multiply**  \n\\[\nq \\approx 0.1 \\times 0.1714 \\times 10^{-8} \\times 6.235 \\times 10^{10}\n\\]  \n\\[\n= 0.1 \\times 0.1714 \\times 6.235 \\times 10^{2}\n\\]  \n\\[\n= 0.1 \\times (0.1714 \\times 6.235) \\times 100\n\\]  \n\\[\n0.1714 \\times 6.235 \\approx 1.068\n\\]  \n\\[\n0.1 \\times 1.068 \\times 100 = 10.68 \\ \\text{Btu/(hr·ft²)}\n\\]\n\n---\n\nThis matches closely with **10.71** from the options.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='G'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.12353540299955
+    "elapsed_s": 43.609707055999024
   },
   "response": {
     "choices": [
       {
-        "text": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^",
+        "text": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^4\n\\]\n\n---\n\n**Step 3: Use Stefan-Boltzmann constant**  \nIn English units:  \n\\[\n\\sigma = 0.1714 \\times 10^{-8} \\ \\text{Btu/(hr·ft²·°R⁴)}\n\\]  \nSo:  \n\\[\nq = 0.1 \\times 0.1714 \\times 10^{-8} \\times (499.67)^4\n\\]\n\n---\n\n**Step 4: Compute \\(T^4\\)**  \nFirst, \\(500^4 = 6.25 \\times 10^{10}\\)  \nMore precisely:  \n\\(499.67^2 \\approx 249,670\\)  \nSquare again:  \n\\(249,670^2 \\approx 6.235 \\times 10^{10}\\)  \n\n---\n\n**Step 5: Multiply**  \n\\[\nq \\approx 0.1 \\times 0.1714 \\times 10^{-8} \\times 6.235 \\times 10^{10}\n\\]  \n\\[\n= 0.1 \\times 0.1714 \\times 6.235 \\times 10^{2}\n\\]  \n\\[\n= 0.1 \\times (0.1714 \\times 6.235) \\times 100\n\\]  \n\\[\n0.1714 \\times 6.235 \\approx 1.068\n\\]  \n\\[\n0.1 \\times 1.068 \\times 100 = 10.68 \\ \\text{Btu/(hr·ft²)}\n\\]\n\n---\n\nThis matches closely with **10.71** from the options.\n\nAnswer: G",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219855,
+    "created": 1784230724,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 597,
       "prompt_tokens": 211,
-      "total_tokens": 467,
+      "total_tokens": 808,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-sdwL0lFuXA7Lk4MqvSQayJzKosaDpQUB",
+    "id": "chatcmpl-MSpFoB7HRZqWwxHHSPYmp0YOeHNg3Uvh",
     "timings": {
       "cache_n": 1,
       "prompt_n": 210,
-      "prompt_ms": 1115.512,
-      "prompt_per_token_ms": 5.311961904761905,
-      "prompt_per_second": 188.25436212250517,
-      "predicted_n": 256,
-      "predicted_ms": 19005.307,
-      "predicted_per_token_ms": 74.23948046875,
-      "predicted_per_second": 13.469921848671005
+      "prompt_ms": 1061.355,
+      "prompt_per_token_ms": 5.0540714285714285,
+      "prompt_per_second": 197.8602823748887,
+      "predicted_n": 597,
+      "predicted_ms": 42545.524,
+      "predicted_per_token_ms": 71.26553433835845,
+      "predicted_per_second": 14.03202837506479
     }
   }
 }

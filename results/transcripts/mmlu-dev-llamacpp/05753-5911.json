@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "ff4969254733fd17fa0927b82e18c7c70302748f6739dad8bc161e409679272b",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The costs that should be expensed as research and development (R&D) are those incurred before the product is ready for commercial production.  \n\n- Labor and material costs incurred in producing a prototype: **$100,000** → R&D expense  \n- Cost of testing the prototype: **$40,000** → R&D expense  \n- Legal costs to file a patent: **$5,000** → These are generally capitalized as part of the patent cost, not expensed as R&D.  \n\nSo total R&D expense = $100,000 + $40,000 = **$140,000**.  \n\nAnswer: D",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 10.526027673000499
+    "elapsed_s": 10.068643793001684
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220682,
+    "created": 1784231669,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-6EbeE749AIb5qDOq8i40BVb5uJx3mjMl",
+    "id": "chatcmpl-bxbYNCwm1D0xSPKXjVqzvheV1ZWKdHiz",
     "timings": {
       "cache_n": 1,
       "prompt_n": 159,
-      "prompt_ms": 908.564,
-      "prompt_per_token_ms": 5.714238993710691,
-      "prompt_per_second": 175.0014308293087,
+      "prompt_ms": 869.828,
+      "prompt_per_token_ms": 5.470616352201258,
+      "prompt_per_second": 182.79475942370217,
       "predicted_n": 129,
-      "predicted_ms": 9615.45,
-      "predicted_per_token_ms": 74.53837209302326,
-      "predicted_per_second": 13.415908771820352
+      "predicted_ms": 9196.598,
+      "predicted_per_token_ms": 71.29145736434108,
+      "predicted_per_second": 14.026926043739216
     }
   }
 }

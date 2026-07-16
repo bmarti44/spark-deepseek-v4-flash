@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "5ae8d703764954ce7836c7db445567391a8f8469c6145de4c9f0994f5ebfbd43",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "A packet filter firewall typically operates at the **network layer** (Layer 3) and the **transport layer** (Layer 4) of the OSI model, inspecting packet headers like IP addresses and port numbers.\n\nAnswer: A",
+  "finish_reason": "stop",
   "expected": "A",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 4.373173385998598
+    "elapsed_s": 4.178583017001074
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219445,
+    "created": 1784230005,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-QFaTbd7ZsF4Y70h6aKWebsIuIusrGSJb",
+    "id": "chatcmpl-W3JTRdsl9FO79wsukkApWOYRrVAMRSSi",
     "timings": {
       "cache_n": 1,
       "prompt_n": 91,
-      "prompt_ms": 697.571,
-      "prompt_per_token_ms": 7.665615384615385,
-      "prompt_per_second": 130.45267076756343,
+      "prompt_ms": 668.434,
+      "prompt_per_token_ms": 7.345428571428571,
+      "prompt_per_second": 136.1390952584698,
       "predicted_n": 48,
-      "predicted_ms": 3663.231,
-      "predicted_per_token_ms": 76.3173125,
-      "predicted_per_second": 13.103186776919063
+      "predicted_ms": 3508.043,
+      "predicted_per_token_ms": 73.08422916666667,
+      "predicted_per_second": 13.682842542123913
     }
   }
 }

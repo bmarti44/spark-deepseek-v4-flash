@@ -1,0 +1,101 @@
+{
+  "index": 20,
+  "task_id": "HumanEval/20",
+  "rendered_prompt_sha256": "881d52f394307cce02e432bc6342c93bfe0f6652b203f0bf1a0fc365ed87c594",
+  "rendering": "raw",
+  "completion": "    # Sort the list\n    sorted_numbers = sorted(numbers)\n    # Initialize the minimum difference to a large number\n    min_diff = float('inf')\n    # Initialize the closest pair to None\n    closest_pair = None\n    # Iterate over the sorted list\n    for i in range(len(sorted_numbers) - 1):\n        # Compute the difference between the current and next element\n        diff = sorted_numbers[i + 1] - sorted_numbers[i]\n        # If the difference is less than the minimum difference, update the minimum difference and the closest pair\n        if diff < min_diff:\n            min_diff = diff\n            closest_pair = (sorted_numbers[i], sorted_numbers[i + 1])\n    # Return the closest pair\n    return closest_pair",
+  "finish_reason": "stop",
+  "expected": "    closest_pair = None\n    distance = None\n\n    for idx, elem in enumerate(numbers):\n        for idx2, elem2 in enumerate(numbers):\n            if idx != idx2:\n                if distance is None:\n                    distance = abs(elem - elem2)\n                    closest_pair = tuple(sorted([elem, elem2]))\n                else:\n                    new_distance = abs(elem - elem2)\n                    if new_distance < distance:\n                        distance = new_distance\n                        closest_pair = tuple(sorted([elem, elem2]))\n\n    return closest_pair\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 12.536552954003128
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Sort the list\n    sorted_numbers = sorted(numbers)\n    # Initialize the minimum difference to a large number\n    min_diff = float('inf')\n    # Initialize the closest pair to None\n    closest_pair = None\n    # Iterate over the sorted list\n    for i in range(len(sorted_numbers) - 1):\n        # Compute the difference between the current and next element\n        diff = sorted_numbers[i + 1] - sorted_numbers[i]\n        # If the difference is less than the minimum difference, update the minimum difference and the closest pair\n        if diff < min_diff:\n            min_diff = diff\n            closest_pair = (sorted_numbers[i], sorted_numbers[i + 1])\n    # Return the closest pair\n    return closest_pair",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784227943,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 165,
+      "total_tokens": 323,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aHZwwc7QFFAwTrwyPvUixei3ufsvJ7RO",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 164,
+      "prompt_ms": 872.726,
+      "prompt_per_token_ms": 5.3215,
+      "prompt_per_second": 187.9169407122052,
+      "predicted_n": 158,
+      "predicted_ms": 11661.529,
+      "predicted_per_token_ms": 73.80714556962026,
+      "predicted_per_second": 13.54882365768674
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00020:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -3,7 +3,8 @@
   "task_id": 344,
   "rendered_prompt_sha256": "3cb76c0a9a3320fc085edb4a2c96e6f10c35ab0b66ee7e0fa47b39f6f1e1e964",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "To find the interest for each loan, we use the simple interest formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\nWhere:\n- \\(P\\) = principal (loan amount)\n- \\(r\\) = annual interest rate (as a decimal)\n- \\(t\\) = time in years\n\n---\n\n**Ms. Atlas:**  \n\\(P = 1800\\), \\(r = 6\\% = 0.06\\), \\(t = 60\\) days  \nSince 60 days is \\(\\frac{60}{360}\\) of a year (assuming ordinary interest, 360 days):  \n\\[\nI = 1800 \\times 0.06 \\times \\frac{60}{360} = 1800 \\times 0.06 \\times \\frac{1}{6}\n\\]  \n\\[\n= 1800 \\times 0.01 = 18\n\\]  \nSo Ms. Atlas pays **$18**.\n\n---\n\n**Mr. Johnson:**  \n\\(P = 2400\\), \\(r = 5\\% = 0.05\\), \\(t = 3\\) years  \n\\[\nI = 2400 \\times 0.05 \\times 3 = 2400 \\times 0.15 = 360\n",
+  "completion": "To find the interest for each loan, we use the simple interest formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\nWhere:\n- \\(P\\) = principal (loan amount)\n- \\(r\\) = annual interest rate (as a decimal)\n- \\(t\\) = time in years\n\n---\n\n**Ms. Atlas:**  \n\\(P = 1800\\), \\(r = 6\\% = 0.06\\), \\(t = 60\\) days  \nSince 60 days is \\(\\frac{60}{360}\\) of a year (assuming ordinary interest, 360 days):  \n\\[\nI = 1800 \\times 0.06 \\times \\frac{60}{360} = 1800 \\times 0.06 \\times \\frac{1}{6}\n\\]  \n\\[\n= 1800 \\times 0.01 = 18\n\\]  \nSo Ms. Atlas pays **$18**.\n\n---\n\n**Mr. Johnson:**  \n\\(P = 2400\\), \\(r = 5\\% = 0.05\\), \\(t = 3\\) years  \n\\[\nI = 2400 \\times 0.05 \\times 3 = 2400 \\times 0.15 = 360\n\\]  \nSo Mr. Johnson pays **$360**.\n\n---\n\n**Mr. Breakman:**  \n\\(P = 7000\\), \\(r = 6\\frac{1}{2}\\% = 6.5\\% = 0.065\\), \\(t = 4\\) years  \n\\[\nI = 7000 \\times 0.065 \\times 4 = 7000 \\times 0.26 = 1820\n\\]  \nSo Mr. Breakman pays **$1,820**.\n\n---\n\nThe matching option is:  \nMs. Atlas: $18, Mr. Johnson: $360, Mr. Breakman: $1,820 → **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.75789271100075
+    "elapsed_s": 30.222441696001624
   },
   "response": {
     "choices": [
       {
-        "text": "To find the interest for each loan, we use the simple interest formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\nWhere:\n- \\(P\\) = principal (loan amount)\n- \\(r\\) = annual interest rate (as a decimal)\n- \\(t\\) = time in years\n\n---\n\n**Ms. Atlas:**  \n\\(P = 1800\\), \\(r = 6\\% = 0.06\\), \\(t = 60\\) days  \nSince 60 days is \\(\\frac{60}{360}\\) of a year (assuming ordinary interest, 360 days):  \n\\[\nI = 1800 \\times 0.06 \\times \\frac{60}{360} = 1800 \\times 0.06 \\times \\frac{1}{6}\n\\]  \n\\[\n= 1800 \\times 0.01 = 18\n\\]  \nSo Ms. Atlas pays **$18**.\n\n---\n\n**Mr. Johnson:**  \n\\(P = 2400\\), \\(r = 5\\% = 0.05\\), \\(t = 3\\) years  \n\\[\nI = 2400 \\times 0.05 \\times 3 = 2400 \\times 0.15 = 360\n",
+        "text": "To find the interest for each loan, we use the simple interest formula:\n\n\\[\nI = P \\times r \\times t\n\\]\n\nWhere:\n- \\(P\\) = principal (loan amount)\n- \\(r\\) = annual interest rate (as a decimal)\n- \\(t\\) = time in years\n\n---\n\n**Ms. Atlas:**  \n\\(P = 1800\\), \\(r = 6\\% = 0.06\\), \\(t = 60\\) days  \nSince 60 days is \\(\\frac{60}{360}\\) of a year (assuming ordinary interest, 360 days):  \n\\[\nI = 1800 \\times 0.06 \\times \\frac{60}{360} = 1800 \\times 0.06 \\times \\frac{1}{6}\n\\]  \n\\[\n= 1800 \\times 0.01 = 18\n\\]  \nSo Ms. Atlas pays **$18**.\n\n---\n\n**Mr. Johnson:**  \n\\(P = 2400\\), \\(r = 5\\% = 0.05\\), \\(t = 3\\) years  \n\\[\nI = 2400 \\times 0.05 \\times 3 = 2400 \\times 0.15 = 360\n\\]  \nSo Mr. Johnson pays **$360**.\n\n---\n\n**Mr. Breakman:**  \n\\(P = 7000\\), \\(r = 6\\frac{1}{2}\\% = 6.5\\% = 0.065\\), \\(t = 4\\) years  \n\\[\nI = 7000 \\times 0.065 \\times 4 = 7000 \\times 0.26 = 1820\n\\]  \nSo Mr. Breakman pays **$1,820**.\n\n---\n\nThe matching option is:  \nMs. Atlas: $18, Mr. Johnson: $360, Mr. Breakman: $1,820 → **I**.\n\nAnswer: I",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784218891,
+    "created": 1784229218,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 398,
       "prompt_tokens": 388,
-      "total_tokens": 644,
+      "total_tokens": 786,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-n1DoProI2d9IURODHTsxP5zfTOPOEwNZ",
+    "id": "chatcmpl-Znf6kwi394sk55ejekECOUyO48lge9LS",
     "timings": {
       "cache_n": 1,
       "prompt_n": 387,
-      "prompt_ms": 1529.675,
-      "prompt_per_token_ms": 3.9526485788113694,
-      "prompt_per_second": 252.9949172209783,
-      "predicted_n": 256,
-      "predicted_ms": 18214.856,
-      "predicted_per_token_ms": 71.15178125,
-      "predicted_per_second": 14.054461918337427
+      "prompt_ms": 1525.125,
+      "prompt_per_token_ms": 3.940891472868217,
+      "prompt_per_second": 253.7496926481436,
+      "predicted_n": 398,
+      "predicted_ms": 28694.402,
+      "predicted_per_token_ms": 72.09648743718593,
+      "predicted_per_second": 13.870301252488204
     }
   }
 }

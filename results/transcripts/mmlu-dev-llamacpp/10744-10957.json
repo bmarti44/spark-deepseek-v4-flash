@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "09acae7aad9b6e13a651e3c969c12717746288c86e1cb4b8a07fb7d3dc3d4a00",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Thomson discusses a version of the violinist case where the violinist only needs to use your kidneys for one hour. Her view is that even though you ought to let the violinist use your kidneys for that hour, we should not conclude that the violinist has a right to use them. This matches option E.\n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.5611614730005385
+    "elapsed_s": 6.2786503759998595
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220713,
+    "created": 1784231699,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-xsjact0Jt8Ngt8emRR9hxVvaXnnJta4d",
+    "id": "chatcmpl-4Vai1EjM9v9o9TaUzffAIUNg8rPEQOno",
     "timings": {
       "cache_n": 1,
       "prompt_n": 319,
-      "prompt_ms": 1395.478,
-      "prompt_per_token_ms": 4.374539184952979,
-      "prompt_per_second": 228.59550634262956,
+      "prompt_ms": 1332.541,
+      "prompt_per_token_ms": 4.177244514106583,
+      "prompt_per_second": 239.39225884982153,
       "predicted_n": 68,
-      "predicted_ms": 5162.962,
-      "predicted_per_token_ms": 75.92591176470589,
-      "predicted_per_second": 13.170734163838508
+      "predicted_ms": 4942.558,
+      "predicted_per_token_ms": 72.68467647058823,
+      "predicted_per_second": 13.758058074381728
     }
   }
 }

@@ -3,10 +3,11 @@
   "task_id": 10318,
   "rendered_prompt_sha256": "d5a0ebc35fa3c5e0845d6a3f2e6d4c743de45a6f9bb2e2f9b9ba83c2d50e0848",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na",
+  "completion": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na = -\\frac{(8.99 \\times 10^9)(1.6 \\times 10^{-19})^2}{2(-4 \\times 10^{-18})}\n\\]\n\\[\n= \\frac{8.99 \\times 10^9 \\times 2.56 \\times 10^{-38}}{8 \\times 10^{-18}}\n\\]\n\\[\n= \\frac{2.30144 \\times 10^{-28}}{8 \\times 10^{-18}} = 2.8768 \\times 10^{-11} \\, \\text{m}\n\\]\n\n---\n\n### Step 3: Eccentricity from angular momentum  \nFor an elliptical orbit:\n\\[\nL = \\mu \\sqrt{k e^2 a (1 - e^2)}\n\\]\nSo:\n\\[\nL^2 = \\mu^2 k e^2 a (1 - e^2)\n\\]\n\\[\n1 - e^2 = \\frac{L^2}{\\mu^2 k e^2 a}\n\\]\nPlug numbers:\n\n\\(\\mu = 9.11 \\times 10^{-31}\\),  \n\\(L = 6 \\times 10^{-35}\\),  \n\\(L^2 = 3.6 \\times 10^{-69}\\),  \n\\(\\mu^2 = 8.29921 \\times 10^{-61}\\),  \n\\(k e^2 = (8.99 \\times 10^9)(2.56 \\times 10^{-38}) = 2.30144 \\times 10^{-28}\\),  \n\\(a = 2.8768 \\times 10^{-11}\\).\n\nDenominator:  \n\\(\\mu^2 k e^2 a = (8.29921 \\times 10^{-61}) (2.30144 \\times 10^{-28}) (2.8768 \\times 10^{-11})\\)  \nFirst product: \\(8.29921 \\times 2.30144 \\approx 19.102\\) → exponent \\(-61-28 = -89\\) → \\(1.9102 \\times 10^{-88}\\)  \nMultiply by \\(2.8768 \\times 10^{-11}\\):  \n\\(1.9102 \\times 2.8768 \\approx 5.494\\) → exponent \\(-88-11 = -99\\) → \\(5.494 \\times 10^{-99}\\)\n\nSo:\n\\[\n1 - e^2 = \\frac{3.6 \\times 10^{-",
+  "finish_reason": "length",
   "expected": "G",
   "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='G'",
+  "reason": "truncated without answer",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.504819285999474
+    "elapsed_s": 56.05059876800078
   },
   "response": {
     "choices": [
       {
-        "text": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na",
+        "text": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na = -\\frac{(8.99 \\times 10^9)(1.6 \\times 10^{-19})^2}{2(-4 \\times 10^{-18})}\n\\]\n\\[\n= \\frac{8.99 \\times 10^9 \\times 2.56 \\times 10^{-38}}{8 \\times 10^{-18}}\n\\]\n\\[\n= \\frac{2.30144 \\times 10^{-28}}{8 \\times 10^{-18}} = 2.8768 \\times 10^{-11} \\, \\text{m}\n\\]\n\n---\n\n### Step 3: Eccentricity from angular momentum  \nFor an elliptical orbit:\n\\[\nL = \\mu \\sqrt{k e^2 a (1 - e^2)}\n\\]\nSo:\n\\[\nL^2 = \\mu^2 k e^2 a (1 - e^2)\n\\]\n\\[\n1 - e^2 = \\frac{L^2}{\\mu^2 k e^2 a}\n\\]\nPlug numbers:\n\n\\(\\mu = 9.11 \\times 10^{-31}\\),  \n\\(L = 6 \\times 10^{-35}\\),  \n\\(L^2 = 3.6 \\times 10^{-69}\\),  \n\\(\\mu^2 = 8.29921 \\times 10^{-61}\\),  \n\\(k e^2 = (8.99 \\times 10^9)(2.56 \\times 10^{-38}) = 2.30144 \\times 10^{-28}\\),  \n\\(a = 2.8768 \\times 10^{-11}\\).\n\nDenominator:  \n\\(\\mu^2 k e^2 a = (8.29921 \\times 10^{-61}) (2.30144 \\times 10^{-28}) (2.8768 \\times 10^{-11})\\)  \nFirst product: \\(8.29921 \\times 2.30144 \\approx 19.102\\) → exponent \\(-61-28 = -89\\) → \\(1.9102 \\times 10^{-88}\\)  \nMultiply by \\(2.8768 \\times 10^{-11}\\):  \n\\(1.9102 \\times 2.8768 \\approx 5.494\\) → exponent \\(-88-11 = -99\\) → \\(5.494 \\times 10^{-99}\\)\n\nSo:\n\\[\n1 - e^2 = \\frac{3.6 \\times 10^{-",
         "index": 0,
         "logprobs": null,
         "finish_reason": "length"
       }
     ],
-    "created": 1784221187,
+    "created": 1784232493,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 768,
       "prompt_tokens": 312,
-      "total_tokens": 568,
+      "total_tokens": 1080,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-2XHYwCWoPEWIhia4X9ihrp4cBFTiWVUT",
+    "id": "chatcmpl-f1hmCteLw0f84mGxc0shTEQxrpCVJukg",
     "timings": {
       "cache_n": 1,
       "prompt_n": 311,
-      "prompt_ms": 1324.367,
-      "prompt_per_token_ms": 4.258414790996785,
-      "prompt_per_second": 234.82916744376746,
-      "predicted_n": 256,
-      "predicted_ms": 19167.984,
-      "predicted_per_token_ms": 74.8749375,
-      "predicted_per_second": 13.355603802674292
+      "prompt_ms": 1262.432,
+      "prompt_per_token_ms": 4.059266881028939,
+      "prompt_per_second": 246.34990241058526,
+      "predicted_n": 768,
+      "predicted_ms": 54786.244,
+      "predicted_per_token_ms": 71.33625520833333,
+      "predicted_per_second": 14.0181173945781
     }
   }
 }

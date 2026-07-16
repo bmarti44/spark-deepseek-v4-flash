@@ -3,10 +3,11 @@
   "task_id": 10164,
   "rendered_prompt_sha256": "03903bcb9dc374be6e8b43387c8b7e88ab0531627f15c5676292308e2c2c0138",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "The electric field at the midpoint between two equal but opposite charges will be the vector sum of the fields from each charge.  \n\nEach charge has magnitude \\( q = 4.0 \\, \\text{nC} = 4.0 \\times 10^{-9} \\, \\text{C} \\).  \nThe distance from the midpoint to each charge is half the separation:  \n\\[\nr = \\frac{2.0 \\, \\text{cm}}{2} = 1.0 \\, \\text{cm} = 0.01 \\, \\text{m}\n\\]  \n\nThe electric field magnitude from a point charge is:  \n\\[\nE = \\frac{k q}{r^2}\n\\]  \nwith \\( k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2 \\).  \n\nSo:  \n\\[\nE = \\frac{(8.99 \\times 10^9)(4.0 \\times 10^{-9})}{(0.01)^2}\n= \\frac{35.96}{0.0001} = 3.596 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nAt the midpoint, the fields from the positive and negative charges point in",
+  "completion": "The electric field at the midpoint between two equal but opposite charges will be the vector sum of the fields from each charge.  \n\nEach charge has magnitude \\( q = 4.0 \\, \\text{nC} = 4.0 \\times 10^{-9} \\, \\text{C} \\).  \nThe distance from the midpoint to each charge is half the separation:  \n\\[\nr = \\frac{2.0 \\, \\text{cm}}{2} = 1.0 \\, \\text{cm} = 0.01 \\, \\text{m}\n\\]  \n\nThe electric field magnitude from a point charge is:  \n\\[\nE = \\frac{k q}{r^2}\n\\]  \nwith \\( k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2 \\).  \n\nSo:  \n\\[\nE = \\frac{(8.99 \\times 10^9)(4.0 \\times 10^{-9})}{(0.01)^2}\n= \\frac{35.96}{0.0001} = 3.596 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nAt the midpoint, the fields from the positive and negative charges point in the same direction (from positive toward negative), so they add:  \n\\[\nE_{\\text{net}} = 2 \\times 3.596 \\times 10^5 \\approx 7.2 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nThe correct answer is:  \nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='E' expected='C'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.99595525500081
+    "elapsed_s": 23.998748143003468
   },
   "response": {
     "choices": [
       {
-        "text": "The electric field at the midpoint between two equal but opposite charges will be the vector sum of the fields from each charge.  \n\nEach charge has magnitude \\( q = 4.0 \\, \\text{nC} = 4.0 \\times 10^{-9} \\, \\text{C} \\).  \nThe distance from the midpoint to each charge is half the separation:  \n\\[\nr = \\frac{2.0 \\, \\text{cm}}{2} = 1.0 \\, \\text{cm} = 0.01 \\, \\text{m}\n\\]  \n\nThe electric field magnitude from a point charge is:  \n\\[\nE = \\frac{k q}{r^2}\n\\]  \nwith \\( k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2 \\).  \n\nSo:  \n\\[\nE = \\frac{(8.99 \\times 10^9)(4.0 \\times 10^{-9})}{(0.01)^2}\n= \\frac{35.96}{0.0001} = 3.596 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nAt the midpoint, the fields from the positive and negative charges point in",
+        "text": "The electric field at the midpoint between two equal but opposite charges will be the vector sum of the fields from each charge.  \n\nEach charge has magnitude \\( q = 4.0 \\, \\text{nC} = 4.0 \\times 10^{-9} \\, \\text{C} \\).  \nThe distance from the midpoint to each charge is half the separation:  \n\\[\nr = \\frac{2.0 \\, \\text{cm}}{2} = 1.0 \\, \\text{cm} = 0.01 \\, \\text{m}\n\\]  \n\nThe electric field magnitude from a point charge is:  \n\\[\nE = \\frac{k q}{r^2}\n\\]  \nwith \\( k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2 \\).  \n\nSo:  \n\\[\nE = \\frac{(8.99 \\times 10^9)(4.0 \\times 10^{-9})}{(0.01)^2}\n= \\frac{35.96}{0.0001} = 3.596 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nAt the midpoint, the fields from the positive and negative charges point in the same direction (from positive toward negative), so they add:  \n\\[\nE_{\\text{net}} = 2 \\times 3.596 \\times 10^5 \\approx 7.2 \\times 10^5 \\, \\text{V/m}\n\\]  \n\nThe correct answer is:  \nAnswer: C",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784221114,
+    "created": 1784232322,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 323,
       "prompt_tokens": 199,
-      "total_tokens": 455,
+      "total_tokens": 522,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-KrvKUb1NHDgtEGOyy3aaNOMjKYbbrN0y",
+    "id": "chatcmpl-hTItgNx3s3UtiyxZlbB9WYYK2wLCy3jW",
     "timings": {
       "cache_n": 1,
       "prompt_n": 198,
-      "prompt_ms": 1055.225,
-      "prompt_per_token_ms": 5.329419191919191,
-      "prompt_per_second": 187.6377075979057,
-      "predicted_n": 256,
-      "predicted_ms": 18937.799,
-      "predicted_per_token_ms": 73.97577734375,
-      "predicted_per_second": 13.517938383441498
+      "prompt_ms": 988.841,
+      "prompt_per_token_ms": 4.994146464646465,
+      "prompt_per_second": 200.23441584643032,
+      "predicted_n": 323,
+      "predicted_ms": 23007.953,
+      "predicted_per_token_ms": 71.23205263157895,
+      "predicted_per_second": 14.038623948858032
     }
   }
 }

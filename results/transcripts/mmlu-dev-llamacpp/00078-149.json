@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "7da2b8d476ad46716841557007a1cbe82582ec43f6b6b8bf027b001616d6d359",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The formula for compound interest is:\n\n\\[\nA = P \\left(1 + \\frac{r}{n}\\right)^{nt}\n\\]\n\nWhere:  \n- \\(P = 500\\)  \n- \\(r = 0.08\\)  \n- \\(n = 4\\) (quarterly)  \n- \\(t = 5\\)\n\nFirst, calculate the quarterly rate:  \n\\[\n\\frac{0.08}{4} = 0.02\n\\]\n\nNumber of periods:  \n\\[\n4 \\times 5 = 20\n\\]\n\nSo:  \n\\[\nA = 500 \\times (1.02)^{20}\n\\]\n\nNow \\((1.02)^{20}\\):  \n- \\((1.02)^{10} \\approx 1.21899\\)  \n- Square that: \\(1.21899^2 \\approx 1.48595\\)  \n- Multiply by \\(1.02\\) four more times or continue:  \nActually, more precisely:  \n\\((1.02)^{20} \\approx 1.485947\\)\n\nThen:  \n\\[\n500 \\times 1.485947 \\approx 742.97\n\\]\n\nThat matches option **I**.\n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 18.880292566000207
+    "elapsed_s": 18.92459130499992
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784218813,
+    "created": 1784229095,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-YfMCkA3PRHlPDSq0B7MfVdvEUz5NIDxi",
+    "id": "chatcmpl-lVcz0OMbyf5zQEOOFTij1m1845HvAYMk",
     "timings": {
       "cache_n": 1,
       "prompt_n": 127,
-      "prompt_ms": 900.357,
-      "prompt_per_token_ms": 7.089425196850393,
-      "prompt_per_second": 141.05515923128272,
+      "prompt_ms": 897.165,
+      "prompt_per_token_ms": 7.064291338582676,
+      "prompt_per_second": 141.5570157105995,
       "predicted_n": 243,
-      "predicted_ms": 17967.102,
-      "predicted_per_token_ms": 73.93869135802468,
-      "predicted_per_second": 13.524718677502918
+      "predicted_ms": 18024.82,
+      "predicted_per_token_ms": 74.17621399176954,
+      "predicted_per_second": 13.481410632672059
     }
   }
 }

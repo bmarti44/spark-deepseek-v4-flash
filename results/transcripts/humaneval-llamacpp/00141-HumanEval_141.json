@@ -1,0 +1,101 @@
+{
+  "index": 141,
+  "task_id": "HumanEval/141",
+  "rendered_prompt_sha256": "1346cfd15de72531685d9c4a09fb6a7b459df3852a0d84cd6a0632a0a1c32e5b",
+  "rendering": "raw",
+  "completion": "    if file_name.count('.') != 1:\n        return 'No'\n    before_dot, after_dot = file_name.split('.')\n    if not before_dot or not before_dot[0].isalpha():\n        return 'No'\n    if after_dot not in ['txt', 'exe', 'dll']:\n        return 'No'\n    if sum(1 for c in file_name if c.isdigit()) > 3:\n        return 'No'\n    return 'Yes'",
+  "finish_reason": "stop",
+  "expected": "    suf = ['txt', 'exe', 'dll']\n    lst = file_name.split(sep='.')\n    if len(lst) != 2:\n        return 'No'\n    if not lst[1] in suf:\n        return 'No'\n    if len(lst[0]) == 0:\n        return 'No'\n    if not lst[0][0].isalpha():\n        return 'No'\n    t = len([x for x in lst[0] if x.isdigit()])\n    if t > 3:\n        return 'No'\n    return 'Yes'\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 8.678955178998876
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    if file_name.count('.') != 1:\n        return 'No'\n    before_dot, after_dot = file_name.split('.')\n    if not before_dot or not before_dot[0].isalpha():\n        return 'No'\n    if after_dot not in ['txt', 'exe', 'dll']:\n        return 'No'\n    if sum(1 for c in file_name if c.isdigit()) > 3:\n        return 'No'\n    return 'Yes'",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228822,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 106,
+      "prompt_tokens": 212,
+      "total_tokens": 318,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-fBQr9W1NKZHB4XjPj5VdIqIFSiBdE4Rc",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 211,
+      "prompt_ms": 1045.271,
+      "prompt_per_token_ms": 4.953890995260664,
+      "prompt_per_second": 201.86152681936073,
+      "predicted_n": 106,
+      "predicted_ms": 7631.275,
+      "predicted_per_token_ms": 71.99316037735849,
+      "predicted_per_second": 13.890208385885716
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00141:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

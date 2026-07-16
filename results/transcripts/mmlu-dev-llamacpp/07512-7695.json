@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "356f5034fe811ca6da0e18628b6b553099a69e89eba37df734b21199d3930a81",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Let’s go through each statement carefully.\n\n**Statement 1:**  \n\"The external direct product of cyclic groups is cyclic.\"  \nThis is **false** in general. For example, \\(\\mathbb{Z}_2 \\times \\mathbb{Z}_2\\) is not cyclic. The direct product of cyclic groups is cyclic only when the groups have coprime orders. So Statement 1 is false.\n\n**Statement 2:**  \n\"The external direct product of \\(D_3\\) and \\(D_4\\) is isomorphic to \\(D_{12}\\).\"  \n\\(D_3\\) has order 6, \\(D_4\\) has order 8, so their direct product has order 48. \\(D_{12}\\) has order 24, so they can’t be isomorphic. Also, \\(D_3 \\times D_4\\) is not even dihedral. So Statement 2 is false.\n\nBoth are false.\n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 14.946592373000385
+    "elapsed_s": 14.325086919998284
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220238,
+    "created": 1784231138,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-BlXpYeoFh1wJZVqwoDeOoQNLcZj1erkD",
+    "id": "chatcmpl-oLdmik0Krvxuh8zqxtBC8F8FoQosTsiW",
     "timings": {
       "cache_n": 1,
       "prompt_n": 169,
-      "prompt_ms": 938.103,
-      "prompt_per_token_ms": 5.550905325443787,
-      "prompt_per_second": 180.15079367617415,
+      "prompt_ms": 893.99,
+      "prompt_per_token_ms": 5.2898816568047335,
+      "prompt_per_second": 189.0401458629291,
       "predicted_n": 189,
-      "predicted_ms": 14006.075,
-      "predicted_per_token_ms": 74.10621693121693,
-      "predicted_per_second": 13.494144505152228
+      "predicted_ms": 13428.189,
+      "predicted_per_token_ms": 71.04861904761906,
+      "predicted_per_second": 14.07486891940529
     }
   }
 }

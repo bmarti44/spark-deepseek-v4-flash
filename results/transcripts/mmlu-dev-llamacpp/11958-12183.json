@@ -3,7 +3,8 @@
   "task_id": 12183,
   "rendered_prompt_sha256": "4a08b1a4002521211f71422f2ac2465d4e4f13248227f80bc2f524ab326aa147",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We are given  \n\\[\nf_X(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < \\infty\n\\]  \nand \\( Y = X^2 \\).  \n\nFor \\( y > 0 \\), the transformation \\( x = \\pm \\sqrt{y} \\) is two-to-one.  \nThe density of \\( Y \\) is:  \n\n\\[\nh(y) = f_X(\\sqrt{y}) \\left| \\frac{dx}{dy} \\right| + f_X(-\\sqrt{y}) \\left| \\frac{dx}{dy} \\right|\n\\]  \n\nSince \\( f_X \\) is symmetric,  \n\\[\nf_X(\\sqrt{y}) = f_X(-\\sqrt{y}) = \\frac{1}{\\pi(1+y)}\n\\]  \n\nThe derivative:  \n\\[\n\\frac{dx}{dy} = \\frac{1}{2\\sqrt{y}}\n\\]  \n\nThus:  \n\\[\nh(y) = 2 \\cdot \\frac{1}{\\pi(1+y)} \\cdot \\frac{1}{2\\sqrt{y}} = \\frac{1}{\\pi \\sqrt{y} (1+y)}\n\\]  \n\nThis matches option **G** (where \"surdy\" likely means sqrt(y)).",
+  "completion": "We are given  \n\\[\nf_X(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < \\infty\n\\]  \nand \\( Y = X^2 \\).  \n\nFor \\( y > 0 \\), the transformation \\( x = \\pm \\sqrt{y} \\) is two-to-one.  \nThe density of \\( Y \\) is:  \n\n\\[\nh(y) = f_X(\\sqrt{y}) \\left| \\frac{dx}{dy} \\right| + f_X(-\\sqrt{y}) \\left| \\frac{dx}{dy} \\right|\n\\]  \n\nSince \\( f_X \\) is symmetric,  \n\\[\nf_X(\\sqrt{y}) = f_X(-\\sqrt{y}) = \\frac{1}{\\pi(1+y)}\n\\]  \n\nThe derivative:  \n\\[\n\\frac{dx}{dy} = \\frac{1}{2\\sqrt{y}}\n\\]  \n\nThus:  \n\\[\nh(y) = 2 \\cdot \\frac{1}{\\pi(1+y)} \\cdot \\frac{1}{2\\sqrt{y}} = \\frac{1}{\\pi \\sqrt{y} (1+y)}\n\\]  \n\nThis matches option **G** (where \"surdy\" likely means sqrt(y)).  \n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.58761032899929
+    "elapsed_s": 20.073189347000152
   },
   "response": {
     "choices": [
       {
-        "text": "We are given  \n\\[\nf_X(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < \\infty\n\\]  \nand \\( Y = X^2 \\).  \n\nFor \\( y > 0 \\), the transformation \\( x = \\pm \\sqrt{y} \\) is two-to-one.  \nThe density of \\( Y \\) is:  \n\n\\[\nh(y) = f_X(\\sqrt{y}) \\left| \\frac{dx}{dy} \\right| + f_X(-\\sqrt{y}) \\left| \\frac{dx}{dy} \\right|\n\\]  \n\nSince \\( f_X \\) is symmetric,  \n\\[\nf_X(\\sqrt{y}) = f_X(-\\sqrt{y}) = \\frac{1}{\\pi(1+y)}\n\\]  \n\nThe derivative:  \n\\[\n\\frac{dx}{dy} = \\frac{1}{2\\sqrt{y}}\n\\]  \n\nThus:  \n\\[\nh(y) = 2 \\cdot \\frac{1}{\\pi(1+y)} \\cdot \\frac{1}{2\\sqrt{y}} = \\frac{1}{\\pi \\sqrt{y} (1+y)}\n\\]  \n\nThis matches option **G** (where \"surdy\" likely means sqrt(y)).",
+        "text": "We are given  \n\\[\nf_X(x) = \\frac{1}{\\pi(1+x^2)}, \\quad -\\infty < x < \\infty\n\\]  \nand \\( Y = X^2 \\).  \n\nFor \\( y > 0 \\), the transformation \\( x = \\pm \\sqrt{y} \\) is two-to-one.  \nThe density of \\( Y \\) is:  \n\n\\[\nh(y) = f_X(\\sqrt{y}) \\left| \\frac{dx}{dy} \\right| + f_X(-\\sqrt{y}) \\left| \\frac{dx}{dy} \\right|\n\\]  \n\nSince \\( f_X \\) is symmetric,  \n\\[\nf_X(\\sqrt{y}) = f_X(-\\sqrt{y}) = \\frac{1}{\\pi(1+y)}\n\\]  \n\nThe derivative:  \n\\[\n\\frac{dx}{dy} = \\frac{1}{2\\sqrt{y}}\n\\]  \n\nThus:  \n\\[\nh(y) = 2 \\cdot \\frac{1}{\\pi(1+y)} \\cdot \\frac{1}{2\\sqrt{y}} = \\frac{1}{\\pi \\sqrt{y} (1+y)}\n\\]  \n\nThis matches option **G** (where \"surdy\" likely means sqrt(y)).  \n\nAnswer: G",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219934,
+    "created": 1784230840,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 261,
       "prompt_tokens": 338,
-      "total_tokens": 594,
+      "total_tokens": 599,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-VxkwrKYYz01I2wNlgCvcbNCnTcYFUDtP",
+    "id": "chatcmpl-aVUglosRvdMGzSkaWv6I8nu9rBbHXihN",
     "timings": {
       "cache_n": 1,
       "prompt_n": 337,
-      "prompt_ms": 1361.699,
-      "prompt_per_token_ms": 4.040649851632048,
-      "prompt_per_second": 247.48494344197945,
-      "predicted_n": 256,
-      "predicted_ms": 19223.305,
-      "predicted_per_token_ms": 75.09103515625,
-      "predicted_per_second": 13.317168925946916
+      "prompt_ms": 1296.956,
+      "prompt_per_token_ms": 3.84853412462908,
+      "prompt_per_second": 259.839192694278,
+      "predicted_n": 261,
+      "predicted_ms": 18774.463,
+      "predicted_per_token_ms": 71.93280842911878,
+      "predicted_per_second": 13.901862332893357
     }
   }
 }

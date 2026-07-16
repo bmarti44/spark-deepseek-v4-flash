@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "7b5791c9a6aba0d1e02ce124d34530a95fa0561b58a8a955d30c7ca098369ff1",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Let’s estimate this step by step.\n\n- The U.S. chicken population is roughly **9 billion** broilers per year (plus about 300 million laying hens, but broilers dominate by mass).\n- A chicken produces about **0.1 kg of manure per day** (rough estimate).\n- For broilers, average lifespan is about **47 days**.\n- Total manure per broiler over its life:  \n  \\( 0.1 \\times 47 \\approx 4.7 \\, \\text{kg} \\)\n- For 9 billion broilers:  \n  \\( 9 \\times 10^9 \\times 4.7 \\approx 4.23 \\times 10^{10} \\, \\text{kg} \\)\n- Adding layers and other chickens might increase this somewhat, but the order of magnitude stays around \\( 10^{10} \\) kg.\n\nThat matches **A. 4 × 10¹⁰ kg**.\n\nAnswer: A",
+  "finish_reason": "stop",
   "expected": "A",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 15.828075195000565
+    "elapsed_s": 15.094828176999727
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220605,
+    "created": 1784231595,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-vq6Tf1IRujZuxHQmctuzVIzcW7eEJJsl",
+    "id": "chatcmpl-FsCzsmYfd9850JnmHVViJl3jYgefrFBX",
     "timings": {
       "cache_n": 1,
       "prompt_n": 135,
-      "prompt_ms": 808.983,
-      "prompt_per_token_ms": 5.992466666666666,
-      "prompt_per_second": 166.87618899284658,
+      "prompt_ms": 770.952,
+      "prompt_per_token_ms": 5.710755555555555,
+      "prompt_per_second": 175.10817794103914,
       "predicted_n": 202,
-      "predicted_ms": 15016.437,
-      "predicted_per_token_ms": 74.33879702970297,
-      "predicted_per_second": 13.451926046105346
+      "predicted_ms": 14321.331,
+      "predicted_per_token_ms": 70.89767821782178,
+      "predicted_per_second": 14.10483425039195
     }
   }
 }

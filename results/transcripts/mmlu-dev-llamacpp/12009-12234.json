@@ -3,10 +3,11 @@
   "task_id": 12234,
   "rendered_prompt_sha256": "730bb8374463217b9377dc4144e31de86c2af4c04f54659317ac64a7fb68ec0c",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We can approach this using Shannon–Hartley theorem concepts and information theory.\n\n**Step 1: Bits per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nThe number of bits per pixel is:\n\n\\[\n\\log_2(10) \\approx 3.3219 \\text{ bits}\n\\]\n\n**Step 2: Total bits per frame**  \nThere are 300,000 pixels per frame:\n\n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\text{ bits per frame}\n\\]\n\n**Step 3: Bits per second (data rate)**  \n30 frames per second:\n\n\\[\n996,570 \\times 30 \\approx 29,897,100 \\text{ bps} \\approx 29.9 \\text{ Mbps}\n\\]\n\n**Step 4: Required bandwidth from Shannon–Hartley**  \nShannon–Hartley theorem:\n\n\\[\nC = B \\log_2(1 + \\text{SNR})\n\\]\n\nGiven SNR = 1000 (linear), so:\n\n\\[\n\\log_2(1001) \\approx \\log_2(1024) = 10\n\\]\n\n(More precisely, \\(\\log_2(100",
+  "completion": "We can approach this using Shannon–Hartley theorem concepts and information theory.\n\n**Step 1: Bits per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nThe number of bits per pixel is:\n\n\\[\n\\log_2(10) \\approx 3.3219 \\text{ bits}\n\\]\n\n**Step 2: Total bits per frame**  \nThere are 300,000 pixels per frame:\n\n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\text{ bits per frame}\n\\]\n\n**Step 3: Bits per second (data rate)**  \n30 frames per second:\n\n\\[\n996,570 \\times 30 \\approx 29,897,100 \\text{ bps} \\approx 29.9 \\text{ Mbps}\n\\]\n\n**Step 4: Required bandwidth from Shannon–Hartley**  \nShannon–Hartley theorem:\n\n\\[\nC = B \\log_2(1 + \\text{SNR})\n\\]\n\nGiven SNR = 1000 (linear), so:\n\n\\[\n\\log_2(1001) \\approx \\log_2(1024) = 10\n\\]\n\n(More precisely, \\(\\log_2(1001) \\approx 9.97\\), but close enough to 10.)\n\nThus:\n\n\\[\n29.9 \\times 10^6 = B \\times 10\n\\]\n\n\\[\nB \\approx 2.99 \\text{ MHz}\n\\]\n\n**Step 5: Closest option**  \n2.99 MHz rounds to **3 MHz**.\n\nAnswer: **G**  \n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='B' expected='G'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.07113111199942
+    "elapsed_s": 25.06958157900226
   },
   "response": {
     "choices": [
       {
-        "text": "We can approach this using Shannon–Hartley theorem concepts and information theory.\n\n**Step 1: Bits per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nThe number of bits per pixel is:\n\n\\[\n\\log_2(10) \\approx 3.3219 \\text{ bits}\n\\]\n\n**Step 2: Total bits per frame**  \nThere are 300,000 pixels per frame:\n\n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\text{ bits per frame}\n\\]\n\n**Step 3: Bits per second (data rate)**  \n30 frames per second:\n\n\\[\n996,570 \\times 30 \\approx 29,897,100 \\text{ bps} \\approx 29.9 \\text{ Mbps}\n\\]\n\n**Step 4: Required bandwidth from Shannon–Hartley**  \nShannon–Hartley theorem:\n\n\\[\nC = B \\log_2(1 + \\text{SNR})\n\\]\n\nGiven SNR = 1000 (linear), so:\n\n\\[\n\\log_2(1001) \\approx \\log_2(1024) = 10\n\\]\n\n(More precisely, \\(\\log_2(100",
+        "text": "We can approach this using Shannon–Hartley theorem concepts and information theory.\n\n**Step 1: Bits per picture element**  \nEach picture element (pixel) has 10 equally likely brightness levels.  \nThe number of bits per pixel is:\n\n\\[\n\\log_2(10) \\approx 3.3219 \\text{ bits}\n\\]\n\n**Step 2: Total bits per frame**  \nThere are 300,000 pixels per frame:\n\n\\[\n300,000 \\times 3.3219 \\approx 996,570 \\text{ bits per frame}\n\\]\n\n**Step 3: Bits per second (data rate)**  \n30 frames per second:\n\n\\[\n996,570 \\times 30 \\approx 29,897,100 \\text{ bps} \\approx 29.9 \\text{ Mbps}\n\\]\n\n**Step 4: Required bandwidth from Shannon–Hartley**  \nShannon–Hartley theorem:\n\n\\[\nC = B \\log_2(1 + \\text{SNR})\n\\]\n\nGiven SNR = 1000 (linear), so:\n\n\\[\n\\log_2(1001) \\approx \\log_2(1024) = 10\n\\]\n\n(More precisely, \\(\\log_2(1001) \\approx 9.97\\), but close enough to 10.)\n\nThus:\n\n\\[\n29.9 \\times 10^6 = B \\times 10\n\\]\n\n\\[\nB \\approx 2.99 \\text{ MHz}\n\\]\n\n**Step 5: Closest option**  \n2.99 MHz rounds to **3 MHz**.\n\nAnswer: **G**  \n\nAnswer: G",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219954,
+    "created": 1784230865,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 338,
       "prompt_tokens": 190,
-      "total_tokens": 446,
+      "total_tokens": 528,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-4JGYLk9OaC0lyucUSNcmNhUpCPvB3a5f",
+    "id": "chatcmpl-A6bToESjsctTPEHNgxZGhNhsSyZ3Urmm",
     "timings": {
       "cache_n": 1,
       "prompt_n": 189,
-      "prompt_ms": 1018.178,
-      "prompt_per_token_ms": 5.387185185185185,
-      "prompt_per_second": 185.62569609636037,
-      "predicted_n": 256,
-      "predicted_ms": 19040.513,
-      "predicted_per_token_ms": 74.37700390625,
-      "predicted_per_second": 13.445015898468702
+      "prompt_ms": 974.446,
+      "prompt_per_token_ms": 5.155798941798942,
+      "prompt_per_second": 193.956360845034,
+      "predicted_n": 338,
+      "predicted_ms": 24093.171,
+      "predicted_per_token_ms": 71.28157100591716,
+      "predicted_per_second": 14.028871500559227
     }
   }
 }

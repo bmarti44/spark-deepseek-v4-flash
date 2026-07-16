@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "59006ad24ff3f5e5cd4d0f3b9661d921bcf26050664e27069086e3918ba7fdbc",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The price elasticity of demand is 3, which is greater than 1, meaning demand is elastic. When demand is elastic, total revenue increases when the price is decreased, because the percentage increase in quantity demanded is larger than the percentage decrease in price.  \n\nThe correct option is: **I. decrease price as demand is elastic.**  \n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.1775904149999405
+    "elapsed_s": 5.898936067002069
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219554,
+    "created": 1784230128,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-oHhcDOESoPOqtdWejzpc3kO0iXeGGO0i",
+    "id": "chatcmpl-YVlPgh0WQ39myGg0urMEjunlWBEf9vZK",
     "timings": {
       "cache_n": 1,
       "prompt_n": 142,
-      "prompt_ms": 849.824,
-      "prompt_per_token_ms": 5.984676056338028,
-      "prompt_per_second": 167.0934216967278,
+      "prompt_ms": 816.703,
+      "prompt_per_token_ms": 5.751429577464789,
+      "prompt_per_second": 173.8698155877963,
       "predicted_n": 72,
-      "predicted_ms": 5325.028,
-      "predicted_per_token_ms": 73.95872222222222,
-      "predicted_per_second": 13.521055663932659
+      "predicted_ms": 5079.276,
+      "predicted_per_token_ms": 70.5455,
+      "predicted_per_second": 14.175248598422295
     }
   }
 }

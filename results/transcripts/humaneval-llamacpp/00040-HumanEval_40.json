@@ -1,0 +1,101 @@
+{
+  "index": 40,
+  "task_id": "HumanEval/40",
+  "rendered_prompt_sha256": "9d88f259a8dff048e25628589b4c2a1b4fb22419540df1e34d2d731216ae41dc",
+  "rendering": "raw",
+  "completion": "    # Sort the list to make it easier to find triples\n    l.sort()\n    n = len(l)\n    # Iterate over the list, but stop at n-2 because we need at least 3 elements\n    for i in range(n - 2):\n        # Skip duplicates\n        if i > 0 and l[i] == l[i - 1]:\n            continue\n        # Use two pointers to find the other two elements\n        left = i + 1\n        right = n - 1\n        while left < right:\n            total = l[i] + l[left] + l[right]\n            if total == 0:\n                return True\n            elif total < 0:\n                left += 1\n            else:\n                right -= 1\n    return False",
+  "finish_reason": "stop",
+  "expected": "    for i in range(len(l)):\n        for j in range(i + 1, len(l)):\n            for k in range(j + 1, len(l)):\n                if l[i] + l[j] + l[k] == 0:\n                    return True\n    return False\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 13.22992782500296
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Sort the list to make it easier to find triples\n    l.sort()\n    n = len(l)\n    # Iterate over the list, but stop at n-2 because we need at least 3 elements\n    for i in range(n - 2):\n        # Skip duplicates\n        if i > 0 and l[i] == l[i - 1]:\n            continue\n        # Use two pointers to find the other two elements\n        left = i + 1\n        right = n - 1\n        while left < right:\n            total = l[i] + l[left] + l[right]\n            if total == 0:\n                return True\n            elif total < 0:\n                left += 1\n            else:\n                right -= 1\n    return False",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228069,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 167,
+      "prompt_tokens": 161,
+      "total_tokens": 328,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7hQaCMDdMYx1BtLGEeqxV4JXbopd96mf",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 160,
+      "prompt_ms": 828.978,
+      "prompt_per_token_ms": 5.181112499999999,
+      "prompt_per_second": 193.00874088335277,
+      "predicted_n": 167,
+      "predicted_ms": 12399.052,
+      "predicted_per_token_ms": 74.24582035928144,
+      "predicted_per_second": 13.468771644799942
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00040:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

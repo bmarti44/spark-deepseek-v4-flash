@@ -3,10 +3,11 @@
   "task_id": 3842,
   "rendered_prompt_sha256": "13b0792873f411a4fa4811849802c9cfb37e7590058eb74ad8dc3e73c2759a92",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We have 0.1 moles of Cu(NO₃)₂ and 1.0 mole of NH₃ diluted to 1 L, so initial concentrations:\n\n\\[\n[\\text{Cu}^{2+}]_0 = 0.1 \\, M\n\\]\n\\[\n[\\text{NH}_3]_0 = 1.0 \\, M\n\\]\n\nThe reaction is:\n\n\\[\n\\text{Cu}^{2+} + 4 \\text{NH}_3 \\rightleftharpoons \\text{Cu(NH}_3)_4^{2+}\n\\]\n\nGiven the equilibrium constant for the formation is very large (usually ~10^13), but here they give \\(K_{eq} = 8.5 \\times 10^{-13}\\) — this is actually the *dissociation* constant for the complex, not the formation constant.  \nSo:\n\n\\[\n\\text{Cu(NH}_3)_4^{2+} \\rightleftharpoons \\text{Cu}^{2+} + 4 \\text{NH}_3\n\\]\n\\[\nK_d = 8.5 \\times 10^{-13}\n\\]\n\nSince NH₃ is in large excess, nearly all Cu²⁺ will be complex",
+  "completion": "We have 0.1 moles of Cu(NO₃)₂ and 1.0 mole of NH₃ diluted to 1 L, so initial concentrations:\n\n\\[\n[\\text{Cu}^{2+}]_0 = 0.1 \\, M\n\\]\n\\[\n[\\text{NH}_3]_0 = 1.0 \\, M\n\\]\n\nThe reaction is:\n\n\\[\n\\text{Cu}^{2+} + 4 \\text{NH}_3 \\rightleftharpoons \\text{Cu(NH}_3)_4^{2+}\n\\]\n\nGiven the equilibrium constant for the formation is very large (usually ~10^13), but here they give \\(K_{eq} = 8.5 \\times 10^{-13}\\) — this is actually the *dissociation* constant for the complex, not the formation constant.  \nSo:\n\n\\[\n\\text{Cu(NH}_3)_4^{2+} \\rightleftharpoons \\text{Cu}^{2+} + 4 \\text{NH}_3\n\\]\n\\[\nK_d = 8.5 \\times 10^{-13}\n\\]\n\nSince NH₃ is in large excess, nearly all Cu²⁺ will be complexed. Let \\(x\\) = equilibrium concentration of free Cu²⁺.\n\nInitial after mixing:  \n- Cu²⁺ initially 0.1 M, but almost all becomes complex:  \n  Complex concentration ≈ 0.1 M, NH₃ consumed ≈ 0.4 M, so remaining NH₃ ≈ 1.0 - 0.4 = 0.6 M.\n\nAt equilibrium:\n\n\\[\n[\\text{Cu}^{2+}] = x\n\\]\n\\[\n[\\text{NH}_3] \\approx 0.6 \\, M\n\\]\n\\[\n[\\text{Cu(NH}_3)_4^{2+}] \\approx 0.1 \\, M\n\\]\n\nThe dissociation constant:\n\n\\[\nK_d = \\frac{[\\text{Cu}^{2+}][\\text{NH}_3]^4}{[\\text{Cu(NH}_3)_4^{2+}]}\n\\]\n\\[\n8.5 \\times 10^{-13} = \\frac{x \\cdot (0.6)^4}{0.1}\n\\]\n\\[\n(0.6)^4 = 0.1296\n\\]\n\\[\n8.5 \\times 10^{-13} = \\frac{x \\cdot 0.1296}{0.1}\n\\]\n\\[\n8.5 \\times 10^{-13} = x \\cdot 1.296\n\\]\n\\[\nx = \\frac{8.5 \\times 10^{-13}}{1.296} \\approx 6.56 \\times 10^{-13}\n\\]\n\nThat matches **6.5 × 10⁻¹³ M**.\n\nAnswer: H",
+  "finish_reason": "stop",
   "expected": "H",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='D' expected='H'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.092041760999564
+    "elapsed_s": 44.03662506299952
   },
   "response": {
     "choices": [
       {
-        "text": "We have 0.1 moles of Cu(NO₃)₂ and 1.0 mole of NH₃ diluted to 1 L, so initial concentrations:\n\n\\[\n[\\text{Cu}^{2+}]_0 = 0.1 \\, M\n\\]\n\\[\n[\\text{NH}_3]_0 = 1.0 \\, M\n\\]\n\nThe reaction is:\n\n\\[\n\\text{Cu}^{2+} + 4 \\text{NH}_3 \\rightleftharpoons \\text{Cu(NH}_3)_4^{2+}\n\\]\n\nGiven the equilibrium constant for the formation is very large (usually ~10^13), but here they give \\(K_{eq} = 8.5 \\times 10^{-13}\\) — this is actually the *dissociation* constant for the complex, not the formation constant.  \nSo:\n\n\\[\n\\text{Cu(NH}_3)_4^{2+} \\rightleftharpoons \\text{Cu}^{2+} + 4 \\text{NH}_3\n\\]\n\\[\nK_d = 8.5 \\times 10^{-13}\n\\]\n\nSince NH₃ is in large excess, nearly all Cu²⁺ will be complex",
+        "text": "We have 0.1 moles of Cu(NO₃)₂ and 1.0 mole of NH₃ diluted to 1 L, so initial concentrations:\n\n\\[\n[\\text{Cu}^{2+}]_0 = 0.1 \\, M\n\\]\n\\[\n[\\text{NH}_3]_0 = 1.0 \\, M\n\\]\n\nThe reaction is:\n\n\\[\n\\text{Cu}^{2+} + 4 \\text{NH}_3 \\rightleftharpoons \\text{Cu(NH}_3)_4^{2+}\n\\]\n\nGiven the equilibrium constant for the formation is very large (usually ~10^13), but here they give \\(K_{eq} = 8.5 \\times 10^{-13}\\) — this is actually the *dissociation* constant for the complex, not the formation constant.  \nSo:\n\n\\[\n\\text{Cu(NH}_3)_4^{2+} \\rightleftharpoons \\text{Cu}^{2+} + 4 \\text{NH}_3\n\\]\n\\[\nK_d = 8.5 \\times 10^{-13}\n\\]\n\nSince NH₃ is in large excess, nearly all Cu²⁺ will be complexed. Let \\(x\\) = equilibrium concentration of free Cu²⁺.\n\nInitial after mixing:  \n- Cu²⁺ initially 0.1 M, but almost all becomes complex:  \n  Complex concentration ≈ 0.1 M, NH₃ consumed ≈ 0.4 M, so remaining NH₃ ≈ 1.0 - 0.4 = 0.6 M.\n\nAt equilibrium:\n\n\\[\n[\\text{Cu}^{2+}] = x\n\\]\n\\[\n[\\text{NH}_3] \\approx 0.6 \\, M\n\\]\n\\[\n[\\text{Cu(NH}_3)_4^{2+}] \\approx 0.1 \\, M\n\\]\n\nThe dissociation constant:\n\n\\[\nK_d = \\frac{[\\text{Cu}^{2+}][\\text{NH}_3]^4}{[\\text{Cu(NH}_3)_4^{2+}]}\n\\]\n\\[\n8.5 \\times 10^{-13} = \\frac{x \\cdot (0.6)^4}{0.1}\n\\]\n\\[\n(0.6)^4 = 0.1296\n\\]\n\\[\n8.5 \\times 10^{-13} = \\frac{x \\cdot 0.1296}{0.1}\n\\]\n\\[\n8.5 \\times 10^{-13} = x \\cdot 1.296\n\\]\n\\[\nx = \\frac{8.5 \\times 10^{-13}}{1.296} \\approx 6.56 \\times 10^{-13}\n\\]\n\nThat matches **6.5 × 10⁻¹³ M**.\n\nAnswer: H",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219147,
+    "created": 1784229555,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 605,
       "prompt_tokens": 193,
-      "total_tokens": 449,
+      "total_tokens": 798,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-GpYXAPASphq8VttfYS1aqzIeZkCJIngr",
+    "id": "chatcmpl-sbSaVusEK8XQYiNykCl7Hiv2Z1BIMMsW",
     "timings": {
       "cache_n": 1,
       "prompt_n": 192,
-      "prompt_ms": 923.94,
-      "prompt_per_token_ms": 4.8121875,
-      "prompt_per_second": 207.80570166893952,
-      "predicted_n": 256,
-      "predicted_ms": 18165.885,
-      "predicted_per_token_ms": 70.96048828125,
-      "predicted_per_second": 14.092349478156446
+      "prompt_ms": 925.014,
+      "prompt_per_token_ms": 4.81778125,
+      "prompt_per_second": 207.56442605193004,
+      "predicted_n": 605,
+      "predicted_ms": 43109.361,
+      "predicted_per_token_ms": 71.25514214876033,
+      "predicted_per_second": 14.034074872972486
     }
   }
 }

@@ -3,10 +3,11 @@
   "task_id": 9870,
   "rendered_prompt_sha256": "1206586ea91d90ac17ed395b855743458aee8286b1f3adc26f3aff9d2901888b",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i",
+  "completion": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i} = -2.5 - 0.025 = -2.525\n\\]\n\\[\nd_i = -\\frac{1}{2.525} \\approx -0.396 \\, \\text{cm}\n\\]\n\nSo the image is about \\(0.396 \\, \\text{cm}\\) behind the mirror (inside the cornea).  \nIn mm: \\(0.396 \\, \\text{cm} \\approx 3.96 \\, \\text{mm} \\approx 4 \\, \\text{mm}\\) inside.\n\n**Step 2: Find magnification**  \n\\[\nm = -\\frac{d_i}{d_o} = -\\frac{-0.396}{40} = \\frac{0.396}{40} = 0.0099\n\\]\n\n**Step 3: Image size**  \n\\[\nh_i = |m| \\times h_o = 0.0099 \\times 20 \\, \\text{cm} \\approx 0.198 \\, \\text{cm} = 1.98 \\, \\text{mm}\n\\]\n\nSo about 2 mm diameter.\n\nThus: **4 mm inside, 2 mm diameter** → matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='I' expected='G'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.17336108500058
+    "elapsed_s": 36.78848023699902
   },
   "response": {
     "choices": [
       {
-        "text": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i",
+        "text": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i} = -2.5 - 0.025 = -2.525\n\\]\n\\[\nd_i = -\\frac{1}{2.525} \\approx -0.396 \\, \\text{cm}\n\\]\n\nSo the image is about \\(0.396 \\, \\text{cm}\\) behind the mirror (inside the cornea).  \nIn mm: \\(0.396 \\, \\text{cm} \\approx 3.96 \\, \\text{mm} \\approx 4 \\, \\text{mm}\\) inside.\n\n**Step 2: Find magnification**  \n\\[\nm = -\\frac{d_i}{d_o} = -\\frac{-0.396}{40} = \\frac{0.396}{40} = 0.0099\n\\]\n\n**Step 3: Image size**  \n\\[\nh_i = |m| \\times h_o = 0.0099 \\times 20 \\, \\text{cm} \\approx 0.198 \\, \\text{cm} = 1.98 \\, \\text{mm}\n\\]\n\nSo about 2 mm diameter.\n\nThus: **4 mm inside, 2 mm diameter** → matches option **G**.\n\nAnswer: G",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784221054,
+    "created": 1784232247,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 502,
       "prompt_tokens": 248,
-      "total_tokens": 504,
+      "total_tokens": 750,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-F91uex7f4IIovO1NcNKUAZJ9n9ywxPA7",
+    "id": "chatcmpl-Qn4ca1DIuKOV7SKZ32ST4yQNEqswHryE",
     "timings": {
       "cache_n": 1,
       "prompt_n": 247,
-      "prompt_ms": 1226.788,
-      "prompt_per_token_ms": 4.966753036437247,
-      "prompt_per_second": 201.33878062061254,
-      "predicted_n": 256,
-      "predicted_ms": 18944.142,
-      "predicted_per_token_ms": 74.0005546875,
-      "predicted_per_second": 13.513412219988638
+      "prompt_ms": 1174.245,
+      "prompt_per_token_ms": 4.754028340080971,
+      "prompt_per_second": 210.34792568842107,
+      "predicted_n": 502,
+      "predicted_ms": 35611.256,
+      "predicted_per_token_ms": 70.93875697211156,
+      "predicted_per_second": 14.096666514654805
     }
   }
 }

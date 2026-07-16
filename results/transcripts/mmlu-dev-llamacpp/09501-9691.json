@@ -3,10 +3,11 @@
   "task_id": 9691,
   "rendered_prompt_sha256": "a061a9db3d4fe8da9315ff79f40735dd0a7049ebd555fdb6bf91d694de05b533",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{",
+  "completion": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{2gR - v^2 \\cos^2\\theta} \\right)\n\\]\n\nWait — better to use the standard result for ballistic missiles on a spherical Earth:\n\nThe range angle is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{2gR - v^2 \\cos^2\\theta} \\right)\n\\]\n\nBut for speeds much less than orbital, a simpler approximation works:  \nRange on flat Earth:  \n\\[\nR_{\\text{flat}} = \\frac{v^2 \\sin(2\\theta)}{g}\n\\]  \nThen convert to angle on sphere:  \n\\[\n\\Theta = \\frac{R_{\\text{flat}}}{R_{\\text{Earth}}}\n\\]  \nOnly valid if range is small compared to Earth’s radius.\n\n---\n\n### Step 3 – Compute flat-Earth range  \n\\( v = 6000 \\, \\text{m/s} \\), \\( \\theta = 60^\\circ \\), so \\( 2\\theta = 120^\\circ \\), \\(\\sin 120^\\circ = \\frac{\\sqrt{3}}{2} \\approx 0.8660\\).\n\n\\[\nR_{\\text{flat}} = \\frac{(6000)^2 \\times 0.8660}{9.81}\n= \\frac{36\\times 10^6 \\times 0.8660}{9.81}\n\\]\n\nNumerator: \\( 36 \\times 0.8660 = 31.176 \\times 10^6 \\)  \nDivide by 9.81:  \n\\[\nR_{\\text{flat}} \\approx 3.178 \\times 10^6 \\, \\text{m}\n\\]\n\n---\n\n### Step 4 – Convert to great circle distance  \nEarth radius \\( R_E \\approx 6.371 \\times 10^6 \\, \\text{m} \\).  \nAngle:  \n\\[\n\\Theta \\approx \\frac{3.178\\times 10^6}{6.371\\times 10^6} \\approx 0.4988 \\, \\text{rad}\n\\]  \nGreat circle distance = \\( R_E \\times \\Theta \\approx 6.371\\times 10^6 \\times 0.4988 \\approx 3.178\\times 10^6 \\, \\text{m} \\).\n\nThat’s not matching any answer exactly — but maybe they used a different Earth radius or included Earth’s rotation.\n\n---\n\n### Step 5 – Check for Earth rotation effect",
+  "finish_reason": "length",
   "expected": "I",
   "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='I'",
+  "reason": "truncated without answer",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.003922264999346
+    "elapsed_s": 55.368606721000106
   },
   "response": {
     "choices": [
       {
-        "text": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{",
+        "text": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{2gR - v^2 \\cos^2\\theta} \\right)\n\\]\n\nWait — better to use the standard result for ballistic missiles on a spherical Earth:\n\nThe range angle is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{2gR - v^2 \\cos^2\\theta} \\right)\n\\]\n\nBut for speeds much less than orbital, a simpler approximation works:  \nRange on flat Earth:  \n\\[\nR_{\\text{flat}} = \\frac{v^2 \\sin(2\\theta)}{g}\n\\]  \nThen convert to angle on sphere:  \n\\[\n\\Theta = \\frac{R_{\\text{flat}}}{R_{\\text{Earth}}}\n\\]  \nOnly valid if range is small compared to Earth’s radius.\n\n---\n\n### Step 3 – Compute flat-Earth range  \n\\( v = 6000 \\, \\text{m/s} \\), \\( \\theta = 60^\\circ \\), so \\( 2\\theta = 120^\\circ \\), \\(\\sin 120^\\circ = \\frac{\\sqrt{3}}{2} \\approx 0.8660\\).\n\n\\[\nR_{\\text{flat}} = \\frac{(6000)^2 \\times 0.8660}{9.81}\n= \\frac{36\\times 10^6 \\times 0.8660}{9.81}\n\\]\n\nNumerator: \\( 36 \\times 0.8660 = 31.176 \\times 10^6 \\)  \nDivide by 9.81:  \n\\[\nR_{\\text{flat}} \\approx 3.178 \\times 10^6 \\, \\text{m}\n\\]\n\n---\n\n### Step 4 – Convert to great circle distance  \nEarth radius \\( R_E \\approx 6.371 \\times 10^6 \\, \\text{m} \\).  \nAngle:  \n\\[\n\\Theta \\approx \\frac{3.178\\times 10^6}{6.371\\times 10^6} \\approx 0.4988 \\, \\text{rad}\n\\]  \nGreat circle distance = \\( R_E \\times \\Theta \\approx 6.371\\times 10^6 \\times 0.4988 \\approx 3.178\\times 10^6 \\, \\text{m} \\).\n\nThat’s not matching any answer exactly — but maybe they used a different Earth radius or included Earth’s rotation.\n\n---\n\n### Step 5 – Check for Earth rotation effect",
         "index": 0,
         "logprobs": null,
         "finish_reason": "length"
       }
     ],
-    "created": 1784220984,
+    "created": 1784232125,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 768,
       "prompt_tokens": 195,
-      "total_tokens": 451,
+      "total_tokens": 963,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-ZOYyC3BAXhZoEVTihIcXeSEkV4Ij7rPf",
+    "id": "chatcmpl-uYlUP8oGImjMOPIczHDSOFJ7CCNoOvmp",
     "timings": {
       "cache_n": 1,
       "prompt_n": 194,
-      "prompt_ms": 1007.047,
-      "prompt_per_token_ms": 5.190963917525774,
-      "prompt_per_second": 192.64244866426293,
-      "predicted_n": 256,
-      "predicted_ms": 18993.588,
-      "predicted_per_token_ms": 74.193703125,
-      "predicted_per_second": 13.478232759392275
+      "prompt_ms": 962.991,
+      "prompt_per_token_ms": 4.963871134020619,
+      "prompt_per_second": 201.45567300213605,
+      "predicted_n": 768,
+      "predicted_ms": 54402.768,
+      "predicted_per_token_ms": 70.83693749999999,
+      "predicted_per_second": 14.11692875627211
     }
   }
 }

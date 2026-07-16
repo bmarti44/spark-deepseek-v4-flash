@@ -1,0 +1,101 @@
+{
+  "index": 2,
+  "task_id": "HumanEval/2",
+  "rendered_prompt_sha256": "fecb9ddd4f103f1c3e9d9c7d6c3b948a4b1285b50c3498437c85a9d604d957eb",
+  "rendering": "raw",
+  "completion": "    return number - int(number) if number >= 0 else number - int(number) + 1",
+  "finish_reason": "stop",
+  "expected": "    return number % 1.0\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 2.4686036050006805
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    return number - int(number) if number >= 0 else number - int(number) + 1",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784227798,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 24,
+      "prompt_tokens": 80,
+      "total_tokens": 104,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-nXb82iixG8bF4RNw2ry3n8Hh40vJe99s",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 80,
+      "prompt_ms": 689.985,
+      "prompt_per_token_ms": 8.6248125,
+      "prompt_per_second": 115.94454951919245,
+      "predicted_n": 24,
+      "predicted_ms": 1776.576,
+      "predicted_per_token_ms": 74.024,
+      "predicted_per_second": 13.509132173349183
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00002:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

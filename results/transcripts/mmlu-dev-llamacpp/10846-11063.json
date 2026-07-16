@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "5c285db0ba83b5e2b33592ad5f4d8eb1e22172c50e352bd35c98381c555b65cf",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "According to Joseph Butler’s moral philosophy, particularly in his *Sermons*, he argues that we cannot truly perceive something as good without also having some desire or inclination toward it. This aligns most closely with option J.\n\nAnswer: J",
+  "finish_reason": "stop",
   "expected": "A",
   "scored_correct": false,
   "reason": "incorrect: parsed='J' expected='A'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 4.472321016000933
+    "elapsed_s": 4.279694524000661
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220731,
+    "created": 1784231716,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-exQvkSHvVpZOB7HTFReR3MuwZ4sxQMCA",
+    "id": "chatcmpl-ajkC1ilrIwc1CyorQpCZpKejLioSYQR9",
     "timings": {
       "cache_n": 1,
       "prompt_n": 141,
-      "prompt_ms": 823.056,
-      "prompt_per_token_ms": 5.837276595744681,
-      "prompt_per_second": 171.31276608153027,
+      "prompt_ms": 788.738,
+      "prompt_per_token_ms": 5.593886524822695,
+      "prompt_per_second": 178.76658662318792,
       "predicted_n": 49,
-      "predicted_ms": 3646.98,
-      "predicted_per_token_ms": 74.42816326530613,
-      "predicted_per_second": 13.435774257056524
+      "predicted_ms": 3487.031,
+      "predicted_per_token_ms": 71.16389795918367,
+      "predicted_per_second": 14.052068937729548
     }
   }
 }

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "318b6ce9b205af7ab8c2c23dec5e710529c65b786f56ae1a1ecd2cf6fd3100d0",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "In cyclic electron flow around photosystem I, electrons are passed along an electron transport chain that generates a proton gradient used for ATP synthesis, but they do not reduce NADP⁺. No water is split, no oxygen is released, and no carbon fixation occurs.  \n\nThe correct outcome is **synthesis of ATP** (or conversion of ADP to ATP).  \n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.466691001000072
+    "elapsed_s": 6.3078898819985625
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784218756,
+    "created": 1784229038,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-FWzkPySBnnmAFQQLN4Z6LCG8oIezvgpw",
+    "id": "chatcmpl-5K9J2jimrD9xOkXIOrOdLiK3zMOSPCEG",
     "timings": {
       "cache_n": 1,
       "prompt_n": 126,
-      "prompt_ms": 862.794,
-      "prompt_per_token_ms": 6.847571428571428,
-      "prompt_per_second": 146.03717689274615,
+      "prompt_ms": 832.693,
+      "prompt_per_token_ms": 6.608674603174603,
+      "prompt_per_second": 151.3162714229614,
       "predicted_n": 77,
-      "predicted_ms": 5582.913,
-      "predicted_per_token_ms": 72.50536363636363,
-      "predicted_per_second": 13.792083093539164
+      "predicted_ms": 5473.185,
+      "predicted_per_token_ms": 71.08032467532468,
+      "predicted_per_second": 14.068590774841338
     }
   }
 }

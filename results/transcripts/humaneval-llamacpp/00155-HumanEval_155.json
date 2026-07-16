@@ -1,0 +1,101 @@
+{
+  "index": 155,
+  "task_id": "HumanEval/155",
+  "rendered_prompt_sha256": "8e85f42e3477e802ebd61afb54ef97ef1dd36e242780e51d22074ec019a3657f",
+  "rendering": "raw",
+  "completion": "    num = abs(num)\n    evens = 0\n    odds = 0\n    while num > 0:\n        digit = num % 10\n        if digit % 2 == 0:\n            evens += 1\n        else:\n            odds += 1\n        num //= 10\n    return (evens, odds)",
+  "finish_reason": "stop",
+  "expected": "    even_count = 0\n    odd_count = 0\n    for i in str(abs(num)):\n        if int(i)%2==0:\n            even_count +=1\n        else:\n            odd_count +=1\n    return (even_count, odd_count)\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.8851622299989685
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    num = abs(num)\n    evens = 0\n    odds = 0\n    while num > 0:\n        digit = num % 10\n        if digit % 2 == 0:\n            evens += 1\n        else:\n            odds += 1\n        num //= 10\n    return (evens, odds)",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228956,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 63,
+      "total_tokens": 139,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-09ywYeAT6tpvqg1Krd5W9FHcfblQYiCb",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 62,
+      "prompt_ms": 538.728,
+      "prompt_per_token_ms": 8.68916129032258,
+      "prompt_per_second": 115.08590606020108,
+      "predicted_n": 76,
+      "predicted_ms": 5344.379,
+      "predicted_per_token_ms": 70.32077631578947,
+      "predicted_per_second": 14.220548355571339
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00155:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 40, in <module>\n    check(even_odd_count)\n  File \"/case/main.py\", line 32, in check\n    assert candidate(0) == (1, 0)\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

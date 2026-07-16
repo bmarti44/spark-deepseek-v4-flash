@@ -3,10 +3,11 @@
   "task_id": 10590,
   "rendered_prompt_sha256": "342608a98a7b922a41bc01a682d81a81e93649738b931d320b1adc39e377dcc5",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "Let’s reason through this step by step.\n\nA **complete K-ary tree of depth N** means:\n- Depth 0: 1 node (root)\n- Depth 1: K nodes\n- Depth 2: K² nodes\n- ...\n- Depth N: K^N nodes\n\n**Total number of nodes**:\n\\[\n1 + K + K^2 + \\dots + K^N = \\frac{K^{N+1} - 1}{K - 1}\n\\]\n\n**Nonterminal nodes** are all nodes except those at the last level (depth N), because in a complete K-ary tree, only the deepest level has leaves.\n\nNumber of nonterminal nodes = total nodes - nodes at depth N:\n\\[\n\\frac{K^{N+1} - 1}{K - 1} - K^N\n\\]\n\nSimplify:\n\\[\n\\frac{K^{N+1} - 1 - K^N(K - 1)}{K - 1}\n= \\frac{K^{N+1} - 1 - K^{N+1} + K^N}{K - 1}\n= \\frac{K^N - 1}{K - 1}\n\\]\n\n**Ratio** of nonterminal nodes",
+  "completion": "Let’s reason through this step by step.\n\nA **complete K-ary tree of depth N** means:\n- Depth 0: 1 node (root)\n- Depth 1: K nodes\n- Depth 2: K² nodes\n- ...\n- Depth N: K^N nodes\n\n**Total number of nodes**:\n\\[\n1 + K + K^2 + \\dots + K^N = \\frac{K^{N+1} - 1}{K - 1}\n\\]\n\n**Nonterminal nodes** are all nodes except those at the last level (depth N), because in a complete K-ary tree, only the deepest level has leaves.\n\nNumber of nonterminal nodes = total nodes - nodes at depth N:\n\\[\n\\frac{K^{N+1} - 1}{K - 1} - K^N\n\\]\n\nSimplify:\n\\[\n\\frac{K^{N+1} - 1 - K^N(K - 1)}{K - 1}\n= \\frac{K^{N+1} - 1 - K^{N+1} + K^N}{K - 1}\n= \\frac{K^N - 1}{K - 1}\n\\]\n\n**Ratio** of nonterminal nodes to total nodes:\n\\[\n\\frac{\\frac{K^N - 1}{K - 1}}{\\frac{K^{N+1} - 1}{K - 1}}\n= \\frac{K^N - 1}{K^{N+1} - 1}\n\\]\n\nFor large N, \\(K^N\\) dominates, so:\n\\[\n\\frac{K^N}{K^{N+1}} = \\frac{1}{K}\n\\]\n\nThus the ratio approximates \\( \\frac{1}{K} \\).\n\nThe correct answer is **J**.\n\nAnswer: J",
+  "finish_reason": "stop",
   "expected": "J",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='J'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.909491407999667
+    "elapsed_s": 27.377950935002445
   },
   "response": {
     "choices": [
       {
-        "text": "Let’s reason through this step by step.\n\nA **complete K-ary tree of depth N** means:\n- Depth 0: 1 node (root)\n- Depth 1: K nodes\n- Depth 2: K² nodes\n- ...\n- Depth N: K^N nodes\n\n**Total number of nodes**:\n\\[\n1 + K + K^2 + \\dots + K^N = \\frac{K^{N+1} - 1}{K - 1}\n\\]\n\n**Nonterminal nodes** are all nodes except those at the last level (depth N), because in a complete K-ary tree, only the deepest level has leaves.\n\nNumber of nonterminal nodes = total nodes - nodes at depth N:\n\\[\n\\frac{K^{N+1} - 1}{K - 1} - K^N\n\\]\n\nSimplify:\n\\[\n\\frac{K^{N+1} - 1 - K^N(K - 1)}{K - 1}\n= \\frac{K^{N+1} - 1 - K^{N+1} + K^N}{K - 1}\n= \\frac{K^N - 1}{K - 1}\n\\]\n\n**Ratio** of nonterminal nodes",
+        "text": "Let’s reason through this step by step.\n\nA **complete K-ary tree of depth N** means:\n- Depth 0: 1 node (root)\n- Depth 1: K nodes\n- Depth 2: K² nodes\n- ...\n- Depth N: K^N nodes\n\n**Total number of nodes**:\n\\[\n1 + K + K^2 + \\dots + K^N = \\frac{K^{N+1} - 1}{K - 1}\n\\]\n\n**Nonterminal nodes** are all nodes except those at the last level (depth N), because in a complete K-ary tree, only the deepest level has leaves.\n\nNumber of nonterminal nodes = total nodes - nodes at depth N:\n\\[\n\\frac{K^{N+1} - 1}{K - 1} - K^N\n\\]\n\nSimplify:\n\\[\n\\frac{K^{N+1} - 1 - K^N(K - 1)}{K - 1}\n= \\frac{K^{N+1} - 1 - K^{N+1} + K^N}{K - 1}\n= \\frac{K^N - 1}{K - 1}\n\\]\n\n**Ratio** of nonterminal nodes to total nodes:\n\\[\n\\frac{\\frac{K^N - 1}{K - 1}}{\\frac{K^{N+1} - 1}{K - 1}}\n= \\frac{K^N - 1}{K^{N+1} - 1}\n\\]\n\nFor large N, \\(K^N\\) dominates, so:\n\\[\n\\frac{K^N}{K^{N+1}} = \\frac{1}{K}\n\\]\n\nThus the ratio approximates \\( \\frac{1}{K} \\).\n\nThe correct answer is **J**.\n\nAnswer: J",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219470,
+    "created": 1784230038,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 375,
       "prompt_tokens": 128,
-      "total_tokens": 384,
+      "total_tokens": 503,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-kihDrlMNPudP7NiL7ScJ9lhkLX9taNjF",
+    "id": "chatcmpl-7HeDUlP9BRHhxfdtznv1INHRnT65yMaQ",
     "timings": {
       "cache_n": 1,
       "prompt_n": 127,
-      "prompt_ms": 886.29,
-      "prompt_per_token_ms": 6.978661417322835,
-      "prompt_per_second": 143.2939557029866,
-      "predicted_n": 256,
-      "predicted_ms": 19010.435,
-      "predicted_per_token_ms": 74.25951171875,
-      "predicted_per_second": 13.46628838319586
+      "prompt_ms": 851.392,
+      "prompt_per_token_ms": 6.703874015748032,
+      "prompt_per_second": 149.16748101931896,
+      "predicted_n": 375,
+      "predicted_ms": 26524.015,
+      "predicted_per_token_ms": 70.73070666666666,
+      "predicted_per_second": 14.138131048410282
     }
   }
 }

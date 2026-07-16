@@ -1,0 +1,101 @@
+{
+  "index": 9,
+  "task_id": "HumanEval/9",
+  "rendered_prompt_sha256": "583b281fbe1bf261fbade6e1a03119de96084ac87b508387f0d23c3b0cfdbbdb",
+  "rendering": "raw",
+  "completion": "    max_so_far = numbers[0]\n    result = [max_so_far]\n    for i in range(1, len(numbers)):\n        if numbers[i] > max_so_far:\n            max_so_far = numbers[i]\n        result.append(max_so_far)\n    return result",
+  "finish_reason": "stop",
+  "expected": "    running_max = None\n    result = []\n\n    for n in numbers:\n        if running_max is None:\n            running_max = n\n        else:\n            running_max = max(running_max, n)\n\n        result.append(running_max)\n\n    return result\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.62049879299957
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    max_so_far = numbers[0]\n    result = [max_so_far]\n    for i in range(1, len(numbers)):\n        if numbers[i] > max_so_far:\n            max_so_far = numbers[i]\n        result.append(max_so_far)\n    return result",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784227830,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 94,
+      "total_tokens": 161,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-r1Aa1LNVudr7m8X2ce4aeEWJVIUHtATT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 93,
+      "prompt_ms": 702.522,
+      "prompt_per_token_ms": 7.554,
+      "prompt_per_second": 132.38019592268995,
+      "predicted_n": 67,
+      "predicted_ms": 4915.416,
+      "predicted_per_token_ms": 73.36441791044777,
+      "predicted_per_second": 13.630585895476598
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00009:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 34, in <module>\n    check(rolling_max)\n  File \"/case/main.py\", line 28, in check\n    assert candidate([]) == []\n           ^^^^^^^^^^^^^\n  File \"/case/main.py\", line 10, in rolling_max\n    max_so_far = numbers[0]\n                 ~~~~~~~^^^\nIndexError: list index out of range\n"
+  }
+}

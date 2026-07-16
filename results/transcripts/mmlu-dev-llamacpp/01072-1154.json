@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "d0fdff28549c415c0eaaf0ae0f9dcceb4e4dde0c7da6cbfa41606d28b3ba6d8e",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The scenario described is essentially the same as *Lawrence v. Texas* (2003), in which the Supreme Court struck down a Texas law criminalizing same-sex sodomy. The Court held that the statute violated the right to privacy and liberty under the Due Process Clause of the Fourteenth Amendment.  \n\nThe correct answer is:  \n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": false,
   "reason": "incorrect: parsed='G' expected='D'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.798366286000601
+    "elapsed_s": 6.496697719001531
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220118,
+    "created": 1784231021,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-UleLeQqt2Q2OKDU6Uwczkf4KzCt9PYXG",
+    "id": "chatcmpl-pQXWBfD9AeQfFbdTKl5c8Rq4ZCLpIyI0",
     "timings": {
       "cache_n": 1,
       "prompt_n": 341,
-      "prompt_ms": 1534.445,
-      "prompt_per_token_ms": 4.4998387096774195,
-      "prompt_per_second": 222.23018746191622,
+      "prompt_ms": 1464.834,
+      "prompt_per_token_ms": 4.295700879765396,
+      "prompt_per_second": 232.79088278944917,
       "predicted_n": 70,
-      "predicted_ms": 5250.415,
-      "predicted_per_token_ms": 75.00592857142857,
-      "predicted_per_second": 13.33227944838646
+      "predicted_ms": 5027.604,
+      "predicted_per_token_ms": 71.82291428571429,
+      "predicted_per_second": 13.923133166414855
     }
   }
 }

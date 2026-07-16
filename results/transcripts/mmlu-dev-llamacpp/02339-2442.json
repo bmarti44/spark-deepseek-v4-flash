@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "fb7a92a96595b99ca34e9b383325ad3049ae9c129155a381a225a6d5d7486ffd",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The question asks which statement reflects what the **catharsis theory** claims (that venting aggression reduces later aggression) but is **unsupported by research**.\n\nCatharsis theory suggests that releasing aggressive energy (like through acting aggressively) will reduce the likelihood of further aggression. However, research generally shows the opposite — that acting aggressively often increases, rather than decreases, later aggression.\n\nThe option that matches this unsupported claim is:\n\n**G. aggressive act reduces inclination to engages in other aggressive acts**\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.876561794999361
+    "elapsed_s": 8.508082635999017
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784221217,
+    "created": 1784232522,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-yWq7xdFpgOeRJOKR4CJROqnb1Ws7WC63",
+    "id": "chatcmpl-Ht68GDYE7lBMh10ERb6nSKnjbnfPSkzf",
     "timings": {
       "cache_n": 1,
       "prompt_n": 176,
-      "prompt_ms": 987.641,
-      "prompt_per_token_ms": 5.611596590909091,
-      "prompt_per_second": 178.20240350491727,
+      "prompt_ms": 946.056,
+      "prompt_per_token_ms": 5.375318181818182,
+      "prompt_per_second": 186.03549895566437,
       "predicted_n": 106,
-      "predicted_ms": 7876.092,
-      "predicted_per_token_ms": 74.30275471698113,
-      "predicted_per_second": 13.458451221748046
+      "predicted_ms": 7557.975,
+      "predicted_per_token_ms": 71.30165094339623,
+      "predicted_per_second": 14.024920696350543
     }
   }
 }

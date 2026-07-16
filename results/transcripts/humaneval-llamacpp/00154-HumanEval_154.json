@@ -1,0 +1,101 @@
+{
+  "index": 154,
+  "task_id": "HumanEval/154",
+  "rendered_prompt_sha256": "66607b421ed8b5eb91de52ca96f1b071ecc536edf716451650816ae4e7701f64",
+  "rendering": "raw",
+  "completion": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    \n    # Generate all rotations of b\n    for i in range(len(b)):\n        # Rotate b by i positions\n        rotated = b[i:] + b[:i]\n        # Check if rotated is a substring of a\n        if rotated in a:\n            return True\n    \n    return False",
+  "finish_reason": "stop",
+  "expected": "    l = len(b)\n    pat = b + b\n    for i in range(len(a) - l + 1):\n        for j in range(l + 1):\n            if a[i:i+l] == pat[j:j+l]:\n                return True\n    return False\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 6.646295156999258
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    \n    # Generate all rotations of b\n    for i in range(len(b)):\n        # Rotate b by i positions\n        rotated = b[i:] + b[:i]\n        # Check if rotated is a substring of a\n        if rotated in a:\n            return True\n    \n    return False",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228950,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 131,
+      "total_tokens": 213,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-h4KFlL5BQ5n1tug7fPY6qULdD316JIcN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 130,
+      "prompt_ms": 865.408,
+      "prompt_per_token_ms": 6.656984615384616,
+      "prompt_per_second": 150.21816299364,
+      "predicted_n": 82,
+      "predicted_ms": 5778.472,
+      "predicted_per_token_ms": 70.46917073170731,
+      "predicted_per_second": 14.19060263682164
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00154:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

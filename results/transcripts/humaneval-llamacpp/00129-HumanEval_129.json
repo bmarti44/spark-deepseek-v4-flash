@@ -1,0 +1,101 @@
+{
+  "index": 129,
+  "task_id": "HumanEval/129",
+  "rendered_prompt_sha256": "417c9ed701884d14aff5ce42047f77711731af279eeeba3d3b685b92a8f29adb",
+  "rendering": "raw",
+  "completion": "    n = len(grid)\n    # We'll use a priority queue to store (value, row, col, path)\n    # We'll also store the path as a tuple of values.\n    # We'll use a dictionary to store the best path for each cell.\n    # We'll start from all cells.\n    # We'll use a priority queue to store (value, row, col, path)\n    # We'll also store the path as a tuple of values.\n    # We'll use a dictionary to store the best path for each cell.\n    # We'll start from all cells.\n    pq = []\n    for i in range(n):\n        for j in range(n):\n            heapq.heappush(pq, (grid[i][j], i, j, (grid[i][j],)))\n    best = {}\n    while pq:\n        val, i, j, path = heapq.heappop(pq)\n        if (i, j) in best and len(best[(i, j)]) >= k:\n            continue\n        if len(path) == k:\n            return list(path)\n        for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:\n            ni, nj = i + di, j + dj\n            if 0 <= ni < n and 0 <= nj < n:\n                new_path = path + (grid[ni][nj],)\n                if (ni, nj) not in best or len(best[(ni, nj)]) > len(new_path) or (len(best[(ni, nj)]) == len(new_path) and new_path < best[(ni, nj)]):\n                    best[(ni, nj)] = new_path\n                    heapq.heappush(pq, (grid[ni][nj], ni, nj, new_path))\n    return []",
+  "finish_reason": "stop",
+  "expected": "    n = len(grid)\n    val = n * n + 1\n    for i in range(n):\n        for j in range(n):\n            if grid[i][j] == 1:\n                temp = []\n                if i != 0:\n                    temp.append(grid[i - 1][j])\n\n                if j != 0:\n                    temp.append(grid[i][j - 1])\n\n                if i != n - 1:\n                    temp.append(grid[i + 1][j])\n\n                if j != n - 1:\n                    temp.append(grid[i][j + 1])\n\n                val = min(temp)\n\n    ans = []\n    for i in range(k):\n        if i % 2 == 0:\n            ans.append(1)\n        else:\n            ans.append(val)\n    return ans\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 30.265007239002443
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    n = len(grid)\n    # We'll use a priority queue to store (value, row, col, path)\n    # We'll also store the path as a tuple of values.\n    # We'll use a dictionary to store the best path for each cell.\n    # We'll start from all cells.\n    # We'll use a priority queue to store (value, row, col, path)\n    # We'll also store the path as a tuple of values.\n    # We'll use a dictionary to store the best path for each cell.\n    # We'll start from all cells.\n    pq = []\n    for i in range(n):\n        for j in range(n):\n            heapq.heappush(pq, (grid[i][j], i, j, (grid[i][j],)))\n    best = {}\n    while pq:\n        val, i, j, path = heapq.heappop(pq)\n        if (i, j) in best and len(best[(i, j)]) >= k:\n            continue\n        if len(path) == k:\n            return list(path)\n        for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:\n            ni, nj = i + di, j + dj\n            if 0 <= ni < n and 0 <= nj < n:\n                new_path = path + (grid[ni][nj],)\n                if (ni, nj) not in best or len(best[(ni, nj)]) > len(new_path) or (len(best[(ni, nj)]) == len(new_path) and new_path < best[(ni, nj)]):\n                    best[(ni, nj)] = new_path\n                    heapq.heappush(pq, (grid[ni][nj], ni, nj, new_path))\n    return []",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228718,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 390,
+      "prompt_tokens": 391,
+      "total_tokens": 781,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-OffCqCeI6S0xoV3KawcLAkT7AnzdcL5s",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 390,
+      "prompt_ms": 1558.457,
+      "prompt_per_token_ms": 3.99604358974359,
+      "prompt_per_second": 250.24752046415136,
+      "predicted_n": 390,
+      "predicted_ms": 28703.412,
+      "predicted_per_token_ms": 73.59849230769231,
+      "predicted_per_second": 13.587234855563512
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00129:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 82, in <module>\n    check(minPath)\n  File \"/case/main.py\", line 66, in check\n    assert candidate([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 44, in minPath\n    heapq.heappush(pq, (grid[i][j], i, j, (grid[i][j],)))\n    ^^^^^\nNameError: name 'heapq' is not defined. Did you mean: 'help'? Or did you forget to import 'heapq'?\n"
+  }
+}

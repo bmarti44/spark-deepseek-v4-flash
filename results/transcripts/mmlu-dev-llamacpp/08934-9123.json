@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "10528f50fa3aa1aceb39df53c95c496ea8129650f6684e60d4517d106455480f",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "According to Coulomb’s law, the force between two charged particles is inversely proportional to the square of the distance between them. If the distance is halved (placed twice as close), the force becomes \\( \\frac{1}{(1/2)^2} = 4 \\) times as strong.\n\nAnswer: A",
+  "finish_reason": "stop",
   "expected": "A",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 5.595153946998835
+    "elapsed_s": 5.356594551998569
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220754,
+    "created": 1784231738,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-iYNCO6GIRJZh0xcWIY3eTRX6LpYAN2x8",
+    "id": "chatcmpl-v3O9nXuUIsI9FKTzZNe3xvMWlNt251Ti",
     "timings": {
       "cache_n": 1,
       "prompt_n": 111,
-      "prompt_ms": 810.036,
-      "prompt_per_token_ms": 7.297621621621621,
-      "prompt_per_second": 137.03094677273603,
+      "prompt_ms": 769.618,
+      "prompt_per_token_ms": 6.933495495495496,
+      "prompt_per_second": 144.2273959288894,
       "predicted_n": 64,
-      "predicted_ms": 4783.092,
-      "predicted_per_token_ms": 74.7358125,
-      "predicted_per_second": 13.380466024906067
+      "predicted_ms": 4583.858,
+      "predicted_per_token_ms": 71.62278125,
+      "predicted_per_second": 13.962038091057794
     }
   }
 }

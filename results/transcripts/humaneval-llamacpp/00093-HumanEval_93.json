@@ -1,0 +1,101 @@
+{
+  "index": 93,
+  "task_id": "HumanEval/93",
+  "rendered_prompt_sha256": "856a164439599802d5210e2969c1c5673c84b83b4bdca5db34384d7b10d3d741",
+  "rendering": "raw",
+  "completion": "    vowels = ['a', 'e', 'i', 'o', 'u']\n    encoded = ''\n    for char in message:\n        if char.isalpha():\n            if char.lower() in vowels:\n                # Replace vowel with letter 2 places ahead\n                new_char = chr(ord(char) + 2)\n                # If new_char goes beyond 'z', wrap around to 'a'\n                if new_char > 'z':\n                    new_char = chr(ord('a') + (ord(new_char) - ord('z') - 1))\n                # Swap case\n                if char.isupper():\n                    new_char = new_char.lower()\n                else:\n                    new_char = new_char.upper()\n                encoded += new_char\n            else:\n                # Swap case for non-vowels\n                if char.isupper():\n                    encoded += char.lower()\n                else:\n                    encoded += char.upper()\n        else:\n            encoded += char\n    return encoded",
+  "finish_reason": "stop",
+  "expected": "    vowels = \"aeiouAEIOU\"\n    vowels_replace = dict([(i, chr(ord(i) + 2)) for i in vowels])\n    message = message.swapcase()\n    return ''.join([vowels_replace[i] if i in vowels else i for i in message])\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 15.490187395000248
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    vowels = ['a', 'e', 'i', 'o', 'u']\n    encoded = ''\n    for char in message:\n        if char.isalpha():\n            if char.lower() in vowels:\n                # Replace vowel with letter 2 places ahead\n                new_char = chr(ord(char) + 2)\n                # If new_char goes beyond 'z', wrap around to 'a'\n                if new_char > 'z':\n                    new_char = chr(ord('a') + (ord(new_char) - ord('z') - 1))\n                # Swap case\n                if char.isupper():\n                    new_char = new_char.lower()\n                else:\n                    new_char = new_char.upper()\n                encoded += new_char\n            else:\n                # Swap case for non-vowels\n                if char.isupper():\n                    encoded += char.lower()\n                else:\n                    encoded += char.upper()\n        else:\n            encoded += char\n    return encoded",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228428,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 198,
+      "prompt_tokens": 104,
+      "total_tokens": 302,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aXuEyYZubULAsoCbuc2usUXDKfwDRwjZ",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 103,
+      "prompt_ms": 796.899,
+      "prompt_per_token_ms": 7.736883495145631,
+      "prompt_per_second": 129.2510092245065,
+      "predicted_n": 198,
+      "predicted_ms": 14691.422,
+      "predicted_per_token_ms": 74.19910101010102,
+      "predicted_per_second": 13.477252236032701
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00093:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

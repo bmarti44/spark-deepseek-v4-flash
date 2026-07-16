@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "111c9b76b313455515fef00ed394795dc380dc9b35357018e15f59a8c167e469",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The real interest rate is defined as the nominal interest rate minus the anticipated inflation rate.  \n\nCorrect option: **E**  \n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 2.9718411449994164
+    "elapsed_s": 2.8519381529986276
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219539,
+    "created": 1784230114,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-zWMpPl7t0uKuYvvaTWTl2hIIcrLPU2mY",
+    "id": "chatcmpl-Fe5qOWy0ESJgTssA9NYXdpVPssjczeA6",
     "timings": {
       "cache_n": 1,
       "prompt_n": 144,
-      "prompt_ms": 809.344,
-      "prompt_per_token_ms": 5.620444444444445,
-      "prompt_per_second": 177.92187252886288,
+      "prompt_ms": 776.652,
+      "prompt_per_token_ms": 5.393416666666667,
+      "prompt_per_second": 185.41122664977365,
       "predicted_n": 29,
-      "predicted_ms": 2158.943,
-      "predicted_per_token_ms": 74.4463103448276,
-      "predicted_per_second": 13.432499144257166
+      "predicted_ms": 2072.513,
+      "predicted_per_token_ms": 71.46596551724137,
+      "predicted_per_second": 13.992674593597242
     }
   }
 }

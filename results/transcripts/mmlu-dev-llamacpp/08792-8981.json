@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "21e6966937285606557e33cf473da3ab3e5bb2eb3e9f34f3c91f69add1c93aa2",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The correct statement is:\n\n**G. Correlations of +0.87 and -0.87 indicate the same degree of clustering around the regression line.**\n\nThis is true because the absolute value of the correlation coefficient measures the strength of the linear relationship, regardless of the sign. Both +0.87 and −0.87 indicate equally strong linear relationships, just in opposite directions.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.832959598001253
+    "elapsed_s": 6.52947506000055
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220553,
+    "created": 1784231532,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-Sb2J4CndPW7lb5dGlJwrcMfoF028kwHB",
+    "id": "chatcmpl-X1ZQ7ntDBcUOBknbLVyhXkejlOdTXYaj",
     "timings": {
       "cache_n": 1,
       "prompt_n": 167,
-      "prompt_ms": 938.727,
-      "prompt_per_token_ms": 5.621119760479042,
-      "prompt_per_second": 177.90049716264687,
+      "prompt_ms": 902.064,
+      "prompt_per_token_ms": 5.401580838323353,
+      "prompt_per_second": 185.13098848862165,
       "predicted_n": 80,
-      "predicted_ms": 5891.399,
-      "predicted_per_token_ms": 73.6424875,
-      "predicted_per_second": 13.579117625541912
+      "predicted_ms": 5625.506,
+      "predicted_per_token_ms": 70.318825,
+      "predicted_per_second": 14.220942969396885
     }
   }
 }

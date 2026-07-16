@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "f664c36998948294603642f0daaa1b617e152eb0c3ff221e536141fcff97a7d9",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "A 7 percent discount loan typically means that the interest is deducted upfront from the loan amount. So if you borrow $100, you receive $100 minus 7% interest, which is $93, and then you repay the full $100 after a year.  \n\nThat matches option **C**.  \n\nAnswer: C",
+  "finish_reason": "stop",
   "expected": "C",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.061507170999903
+    "elapsed_s": 5.763606986998639
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219523,
+    "created": 1784230099,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-n0G3DpDzv0jY3kQy6BHgWM2ncnpLtAos",
+    "id": "chatcmpl-K5aZ76pqPwOgNuaVhg9W7uSZTtMUiAiC",
     "timings": {
       "cache_n": 1,
       "prompt_n": 281,
-      "prompt_ms": 1223.093,
-      "prompt_per_token_ms": 4.352644128113879,
-      "prompt_per_second": 229.74540774904278,
+      "prompt_ms": 1155.164,
+      "prompt_per_token_ms": 4.1109039145907476,
+      "prompt_per_second": 243.25550311470926,
       "predicted_n": 65,
-      "predicted_ms": 4825.243,
-      "predicted_per_token_ms": 74.2345076923077,
-      "predicted_per_second": 13.470824163674244
+      "predicted_ms": 4605.267,
+      "predicted_per_token_ms": 70.85026153846154,
+      "predicted_per_second": 14.1142739389486
     }
   }
 }

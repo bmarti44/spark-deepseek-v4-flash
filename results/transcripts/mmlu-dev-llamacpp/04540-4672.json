@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "1cc2cfeed4cacaa8c3788b0a08b9f59baa91100f85d38b462011065e63684e02",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The Moche built a vast complex of temples and artisan workshops at the heart of their urban center, particularly at sites like Huaca de la Luna and Huaca del Sol.  \n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": false,
   "reason": "incorrect: parsed='I' expected='E'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 3.7878641320003226
+    "elapsed_s": 3.6236455150028632
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220057,
+    "created": 1784230963,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-d1sEFss52ULwevgw4j51j3a9H3Dv54qq",
+    "id": "chatcmpl-aUnf6C704ggfCtcvhzlAHX1LBCRfi3bA",
     "timings": {
       "cache_n": 1,
       "prompt_n": 133,
-      "prompt_ms": 810.783,
-      "prompt_per_token_ms": 6.096112781954887,
-      "prompt_per_second": 164.03895986965685,
+      "prompt_ms": 781.04,
+      "prompt_per_token_ms": 5.872481203007519,
+      "prompt_per_second": 170.28577281573286,
       "predicted_n": 40,
-      "predicted_ms": 2974.118,
-      "predicted_per_token_ms": 74.35294999999999,
-      "predicted_per_second": 13.449365492559476
+      "predicted_ms": 2840.276,
+      "predicted_per_token_ms": 71.0069,
+      "predicted_per_second": 14.08313839922599
     }
   }
 }

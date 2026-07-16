@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "be6eb1066f1122732cd602731cee3c1d92a21ccb0c63f6ddc2456d3a4693a99f",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We are told that \\( A \\) is a real \\( 2 \\times 2 \\) matrix, \\( A = A^{-1} \\), and \\( A \\neq I, A \\neq -I \\).\n\nThe condition \\( A = A^{-1} \\) means \\( A^2 = I \\).  \nFor a \\( 2 \\times 2 \\) matrix, if \\( A^2 = I \\), then the eigenvalues satisfy \\( \\lambda^2 = 1 \\), so eigenvalues are \\( 1 \\) or \\( -1 \\).\n\nSince \\( A \\neq I \\) and \\( A \\neq -I \\), the eigenvalues must be \\( 1 \\) and \\( -1 \\) (one each).  \nThe trace of a matrix is the sum of its eigenvalues.  \nThus, trace = \\( 1 + (-1) = 0 \\).\n\nThe correct answer is **B**.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 14.669997309001701
+    "elapsed_s": 14.082694652002829
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220370,
+    "created": 1784231287,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-xcAOM8R3La0Ua6QLMRbDHOKaxAaKL2sH",
+    "id": "chatcmpl-lZ7PEywEN9kxjXRwDh4QCuLhz39bq1Dq",
     "timings": {
       "cache_n": 1,
       "prompt_n": 113,
-      "prompt_ms": 813.399,
-      "prompt_per_token_ms": 7.1982212389380535,
-      "prompt_per_second": 138.92320988838196,
+      "prompt_ms": 776.789,
+      "prompt_per_token_ms": 6.8742389380530975,
+      "prompt_per_second": 145.4706490436914,
       "predicted_n": 185,
-      "predicted_ms": 13853.71,
-      "predicted_per_token_ms": 74.88491891891891,
-      "predicted_per_second": 13.353823632803056
+      "predicted_ms": 13303.08,
+      "predicted_per_token_ms": 71.90854054054054,
+      "predicted_per_second": 13.906553970960108
     }
   },
   "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Let I != A != -I, where I is the identity matrix and A is a real 2 x 2 matrix. If A = A^(-1), then the trace of A is\n\nA. 0.5\nB. 0\nC. 3\nD. 1\nE. -2\nF. 2\nG. -4\nH. 4\nI. -3\nJ. -1\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"

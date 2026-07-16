@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "ad5fc37885ad655927d84af37d46636e7bf85430e175635c77e31aa893871e04",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "When Corporation X pays out $300,000 in salaries, it uses cash (an asset) to pay employees. This decreases assets. There is no change in liabilities because the payment is happening now, not creating a future obligation. The expense is recognized, increasing salary expense.\n\nThe correct description is: Salary expense is increased by $300,000; assets (cash) are decreased by $300,000.\n\nThat matches option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "I",
   "scored_correct": false,
   "reason": "incorrect: parsed='G' expected='I'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.135038809999969
+    "elapsed_s": 7.773825421998481
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220654,
+    "created": 1784231642,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-gBuD3sgsXefgDnESNZ1vRipUmqZ5777Y",
+    "id": "chatcmpl-ONyJbNWjQn2HR09GTt9xsK7fFInqqp5f",
     "timings": {
       "cache_n": 1,
       "prompt_n": 252,
-      "prompt_ms": 1221.741,
-      "prompt_per_token_ms": 4.848178571428571,
-      "prompt_per_second": 206.26302956191208,
+      "prompt_ms": 1152.119,
+      "prompt_per_token_ms": 4.571900793650793,
+      "prompt_per_second": 218.72740576277278,
       "predicted_n": 92,
-      "predicted_ms": 6911.424,
-      "predicted_per_token_ms": 75.12417391304348,
-      "predicted_per_second": 13.311294459723495
+      "predicted_ms": 6619.506,
+      "predicted_per_token_ms": 71.95115217391304,
+      "predicted_per_second": 13.898318092014723
     }
   }
 }

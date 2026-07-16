@@ -3,10 +3,11 @@
   "task_id": 3824,
   "rendered_prompt_sha256": "a17453facd2027ba4939c3731c110868ffa32a2f4e83ac104994282d773a45fc",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We are told the gas undergoes isothermal compression, so we can use Boyle’s law:\n\n\\[\nP_1 V_1 = P_2 V_2\n\\]\n\nGiven:  \n- Volume reduction = \\(2.20 \\, \\text{dm}^3\\)  \n- Final volume \\(V_2 = 4.65 \\, \\text{dm}^3\\)  \n- Final pressure \\(P_2 = 5.04 \\, \\text{bar}\\)  \n\nThe initial volume \\(V_1\\) is:\n\n\\[\nV_1 = V_2 + 2.20 = 4.65 + 2.20 = 6.85 \\, \\text{dm}^3\n\\]\n\nNow apply Boyle’s law:\n\n\\[\nP_1 \\times 6.85 = 5.04 \\times 4.65\n\\]\n\n\\[\nP_1 = \\frac{5.04 \\times 4.65}{6.85}\n\\]\n\nCalculate:\n\n\\[\n5.04 \\times 4.65 = 23.436\n\\]\n\\[\n\\frac{23.436}{6.85} \\approx 3.421 \\, \\text{bar}\n\\]\n\nNow convert bar to atm:  \n\\(1 \\, \\",
+  "completion": "We are told the gas undergoes isothermal compression, so we can use Boyle’s law:\n\n\\[\nP_1 V_1 = P_2 V_2\n\\]\n\nGiven:  \n- Volume reduction = \\(2.20 \\, \\text{dm}^3\\)  \n- Final volume \\(V_2 = 4.65 \\, \\text{dm}^3\\)  \n- Final pressure \\(P_2 = 5.04 \\, \\text{bar}\\)  \n\nThe initial volume \\(V_1\\) is:\n\n\\[\nV_1 = V_2 + 2.20 = 4.65 + 2.20 = 6.85 \\, \\text{dm}^3\n\\]\n\nNow apply Boyle’s law:\n\n\\[\nP_1 \\times 6.85 = 5.04 \\times 4.65\n\\]\n\n\\[\nP_1 = \\frac{5.04 \\times 4.65}{6.85}\n\\]\n\nCalculate:\n\n\\[\n5.04 \\times 4.65 = 23.436\n\\]\n\\[\n\\frac{23.436}{6.85} \\approx 3.421 \\, \\text{bar}\n\\]\n\nNow convert bar to atm:  \n\\(1 \\, \\text{bar} \\approx 0.986923 \\, \\text{atm}\\)\n\n\\[\nP_1 \\approx 3.421 \\times 0.986923 \\approx 3.376 \\, \\text{atm}\n\\]\n\nThis matches option B (3.38 atm).\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
-  "scored_correct": false,
-  "reason": "unparseable: no standalone answer letter A-J found",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.132008439000856
+    "elapsed_s": 23.56287380699723
   },
   "response": {
     "choices": [
       {
-        "text": "We are told the gas undergoes isothermal compression, so we can use Boyle’s law:\n\n\\[\nP_1 V_1 = P_2 V_2\n\\]\n\nGiven:  \n- Volume reduction = \\(2.20 \\, \\text{dm}^3\\)  \n- Final volume \\(V_2 = 4.65 \\, \\text{dm}^3\\)  \n- Final pressure \\(P_2 = 5.04 \\, \\text{bar}\\)  \n\nThe initial volume \\(V_1\\) is:\n\n\\[\nV_1 = V_2 + 2.20 = 4.65 + 2.20 = 6.85 \\, \\text{dm}^3\n\\]\n\nNow apply Boyle’s law:\n\n\\[\nP_1 \\times 6.85 = 5.04 \\times 4.65\n\\]\n\n\\[\nP_1 = \\frac{5.04 \\times 4.65}{6.85}\n\\]\n\nCalculate:\n\n\\[\n5.04 \\times 4.65 = 23.436\n\\]\n\\[\n\\frac{23.436}{6.85} \\approx 3.421 \\, \\text{bar}\n\\]\n\nNow convert bar to atm:  \n\\(1 \\, \\",
+        "text": "We are told the gas undergoes isothermal compression, so we can use Boyle’s law:\n\n\\[\nP_1 V_1 = P_2 V_2\n\\]\n\nGiven:  \n- Volume reduction = \\(2.20 \\, \\text{dm}^3\\)  \n- Final volume \\(V_2 = 4.65 \\, \\text{dm}^3\\)  \n- Final pressure \\(P_2 = 5.04 \\, \\text{bar}\\)  \n\nThe initial volume \\(V_1\\) is:\n\n\\[\nV_1 = V_2 + 2.20 = 4.65 + 2.20 = 6.85 \\, \\text{dm}^3\n\\]\n\nNow apply Boyle’s law:\n\n\\[\nP_1 \\times 6.85 = 5.04 \\times 4.65\n\\]\n\n\\[\nP_1 = \\frac{5.04 \\times 4.65}{6.85}\n\\]\n\nCalculate:\n\n\\[\n5.04 \\times 4.65 = 23.436\n\\]\n\\[\n\\frac{23.436}{6.85} \\approx 3.421 \\, \\text{bar}\n\\]\n\nNow convert bar to atm:  \n\\(1 \\, \\text{bar} \\approx 0.986923 \\, \\text{atm}\\)\n\n\\[\nP_1 \\approx 3.421 \\times 0.986923 \\approx 3.376 \\, \\text{atm}\n\\]\n\nThis matches option B (3.38 atm).\n\nAnswer: B",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219128,
+    "created": 1784229511,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 318,
       "prompt_tokens": 181,
-      "total_tokens": 437,
+      "total_tokens": 499,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-OTL3XAM55vRki3iLL7Bdzqq2dDJjlRw6",
+    "id": "chatcmpl-AEbpEnTPGosvK8Nfblq7YMZ3v8wcYtcP",
     "timings": {
       "cache_n": 1,
       "prompt_n": 180,
-      "prompt_ms": 923.258,
-      "prompt_per_token_ms": 5.129211111111111,
-      "prompt_per_second": 194.9617550023937,
-      "predicted_n": 256,
-      "predicted_ms": 18196.313,
-      "predicted_per_token_ms": 71.07934765625,
-      "predicted_per_second": 14.068784154240479
+      "prompt_ms": 922.866,
+      "prompt_per_token_ms": 5.127033333333333,
+      "prompt_per_second": 195.04456768371574,
+      "predicted_n": 318,
+      "predicted_ms": 22637.335,
+      "predicted_per_token_ms": 71.18658805031447,
+      "predicted_per_second": 14.047589965868331
     }
   }
 }

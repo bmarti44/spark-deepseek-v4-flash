@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "db67be1958c533efbd5f51e89a25adc1cc85068f107d3f1e94c5d450dbebe220",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The key here is the language \"on the condition that\" it be used only as recreational property. In property law, that phrasing typically creates a **fee simple determinable**, which automatically reverts to the grantor if the condition is violated — no need for the grantor to take affirmative action to reclaim it.  \n\nThe businessman’s notification that he is taking possession back fits the automatic reversion concept.  \n\nAnswer: J",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": false,
   "reason": "incorrect: parsed='J' expected='D'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.59276411800056
+    "elapsed_s": 8.130591789999016
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220197,
+    "created": 1784231098,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-U9jwRI69lRAoJvDez7xzfewl3Kb9rq3V",
+    "id": "chatcmpl-IOohSX30tUuTM9zRITYkxU3WyuhsuzE4",
     "timings": {
       "cache_n": 1,
       "prompt_n": 468,
-      "prompt_ms": 1893.253,
-      "prompt_per_token_ms": 4.045412393162393,
-      "prompt_per_second": 247.19358691099396,
+      "prompt_ms": 1801.96,
+      "prompt_per_token_ms": 3.8503418803418805,
+      "prompt_per_second": 259.7171968301183,
       "predicted_n": 87,
-      "predicted_ms": 6694.259,
-      "predicted_per_token_ms": 76.94550574712643,
-      "predicted_per_second": 12.996210633619047
+      "predicted_ms": 6325.556,
+      "predicted_per_token_ms": 72.70754022988505,
+      "predicted_per_second": 13.753731687775748
     }
   }
 }

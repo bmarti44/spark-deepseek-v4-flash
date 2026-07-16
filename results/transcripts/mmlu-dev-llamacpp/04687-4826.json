@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "e42d41a7a1b34be0276e09a6a307e6961bb7fdef60ffbbb1d11817112f91835f",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The passage describes a British queen in 1839 concerned about the exhausting social schedule of parties, concerts, and balls among the nobility. The question asks for a similar fondness for entertainment taken to its \"most outrageous degree\" in another era and place.\n\nHistorically, the most famous example of extravagant and excessive aristocratic entertainment is often associated with **eighteenth-century France**, particularly the lavish court of Louis XVI and Marie Antoinette, where opulent balls, parties, and entertainments were notorious.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": false,
   "reason": "incorrect: parsed='G' expected='E'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 9.497643844999402
+    "elapsed_s": 9.029156405998947
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220068,
+    "created": 1784230974,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-nAIVTMkooDYCFaHTgcZtY9dTifqWHny6",
+    "id": "chatcmpl-gyH8VhyjZLUOPpWyfHXQfw8qTTsIRgZh",
     "timings": {
       "cache_n": 1,
       "prompt_n": 376,
-      "prompt_ms": 1691.512,
-      "prompt_per_token_ms": 4.498702127659574,
-      "prompt_per_second": 222.28633317410697,
+      "prompt_ms": 1604.239,
+      "prompt_per_token_ms": 4.266593085106383,
+      "prompt_per_second": 234.3790420255336,
       "predicted_n": 104,
-      "predicted_ms": 7791.673,
-      "predicted_per_token_ms": 74.9199326923077,
-      "predicted_per_second": 13.34758273351564
+      "predicted_ms": 7421.763,
+      "predicted_per_token_ms": 71.36310576923077,
+      "predicted_per_second": 14.012843040124023
     }
   }
 }

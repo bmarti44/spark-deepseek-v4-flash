@@ -3,10 +3,11 @@
   "task_id": 11408,
   "rendered_prompt_sha256": "865b2f475ae266e99fce12d96ccc74e40176d6a266741b69d5e2c3fc28f80ec9",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We need to find the partial fraction expansion of:\n\n\\[\nF(s) = \\frac{s^2 + 3s + 1}{(s+1)^3 (s+2)^2}\n\\]\n\nThe general form is:\n\n\\[\n\\frac{A}{(s+1)^3} + \\frac{B}{(s+1)^2} + \\frac{C}{s+1} + \\frac{D}{(s+2)^2} + \\frac{E}{s+2}\n\\]\n\nMultiply both sides by \\((s+1)^3 (s+2)^2\\):\n\n\\[\ns^2 + 3s + 1 = A(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + D(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nWe can solve systematically.\n\n**Step 1: Find \\(A\\)**  \nSet \\(s = -1\\):  \nLeft: \\((-1)^2 + 3(-1) + 1 = 1 - 3 + 1 = -1\\)  \nRight: \\(A(1)^2 = A\\)  \nSo \\(A = -1\\).\n\n**Step 2",
+  "completion": "We need to find the partial fraction expansion of:\n\n\\[\nF(s) = \\frac{s^2 + 3s + 1}{(s+1)^3 (s+2)^2}\n\\]\n\nThe general form is:\n\n\\[\n\\frac{A}{(s+1)^3} + \\frac{B}{(s+1)^2} + \\frac{C}{s+1} + \\frac{D}{(s+2)^2} + \\frac{E}{s+2}\n\\]\n\nMultiply both sides by \\((s+1)^3 (s+2)^2\\):\n\n\\[\ns^2 + 3s + 1 = A(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + D(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nWe can solve systematically.\n\n**Step 1: Find \\(A\\)**  \nSet \\(s = -1\\):  \nLeft: \\((-1)^2 + 3(-1) + 1 = 1 - 3 + 1 = -1\\)  \nRight: \\(A(1)^2 = A\\)  \nSo \\(A = -1\\).\n\n**Step 2: Find \\(D\\)**  \nSet \\(s = -2\\):  \nLeft: \\(4 - 6 + 1 = -1\\)  \nRight: \\(D(-1)^3 = -D\\)  \nSo \\(-D = -1 \\Rightarrow D = 1\\).\n\n**Step 3: Find \\(C\\) and \\(E\\) via derivative or coefficient matching**  \nWe have:\n\n\\[\ns^2 + 3s + 1 = -1(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + 1(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nLet’s expand systematically.\n\nFirst, expand known terms:\n\n- \\(-1(s+2)^2 = -(s^2 + 4s + 4) = -s^2 - 4s - 4\\)  \n- \\(1(s+1)^3 = s^3 + 3s^2 + 3s + 1\\)\n\nSum of these two:  \n\\((s^3 + 3s^2 + 3s + 1) + (-s^2 - 4s - 4) = s^3 + 2s^2 - s - 3\\)\n\nSo the equation becomes:\n\n\\[\ns^2 + 3s + 1 = s^3 + 2s^2 - s - 3 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + E(s+1)^3(s+2)\n\\]\n\nBring the polynomial terms to left:\n\nLeft minus polynomial part:\n\n\\[\n(s^2 + 3s + 1) - (s^3 + 2s^2 - s - 3) = -s^3 - s^2 + 4s + 4\n\\]\n\nSo:\n\n\\[\n- s^3 - s^2 + 4s + 4 = B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + E(s+1)^3(s+2)\n\\]\n\n**Step 4: Expand the right terms**\n\n- \\((s+1)(s+2)^2 = (s+1)(s^2+4s+4) = s^3 + 4s^2 + 4s + s^2 + 4s + 4 =",
+  "finish_reason": "length",
   "expected": "D",
   "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='D'",
+  "reason": "truncated without answer",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 21.819586823999998
+    "elapsed_s": 57.1852370250017
   },
   "response": {
     "choices": [
       {
-        "text": "We need to find the partial fraction expansion of:\n\n\\[\nF(s) = \\frac{s^2 + 3s + 1}{(s+1)^3 (s+2)^2}\n\\]\n\nThe general form is:\n\n\\[\n\\frac{A}{(s+1)^3} + \\frac{B}{(s+1)^2} + \\frac{C}{s+1} + \\frac{D}{(s+2)^2} + \\frac{E}{s+2}\n\\]\n\nMultiply both sides by \\((s+1)^3 (s+2)^2\\):\n\n\\[\ns^2 + 3s + 1 = A(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + D(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nWe can solve systematically.\n\n**Step 1: Find \\(A\\)**  \nSet \\(s = -1\\):  \nLeft: \\((-1)^2 + 3(-1) + 1 = 1 - 3 + 1 = -1\\)  \nRight: \\(A(1)^2 = A\\)  \nSo \\(A = -1\\).\n\n**Step 2",
+        "text": "We need to find the partial fraction expansion of:\n\n\\[\nF(s) = \\frac{s^2 + 3s + 1}{(s+1)^3 (s+2)^2}\n\\]\n\nThe general form is:\n\n\\[\n\\frac{A}{(s+1)^3} + \\frac{B}{(s+1)^2} + \\frac{C}{s+1} + \\frac{D}{(s+2)^2} + \\frac{E}{s+2}\n\\]\n\nMultiply both sides by \\((s+1)^3 (s+2)^2\\):\n\n\\[\ns^2 + 3s + 1 = A(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + D(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nWe can solve systematically.\n\n**Step 1: Find \\(A\\)**  \nSet \\(s = -1\\):  \nLeft: \\((-1)^2 + 3(-1) + 1 = 1 - 3 + 1 = -1\\)  \nRight: \\(A(1)^2 = A\\)  \nSo \\(A = -1\\).\n\n**Step 2: Find \\(D\\)**  \nSet \\(s = -2\\):  \nLeft: \\(4 - 6 + 1 = -1\\)  \nRight: \\(D(-1)^3 = -D\\)  \nSo \\(-D = -1 \\Rightarrow D = 1\\).\n\n**Step 3: Find \\(C\\) and \\(E\\) via derivative or coefficient matching**  \nWe have:\n\n\\[\ns^2 + 3s + 1 = -1(s+2)^2 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + 1(s+1)^3 + E(s+1)^3(s+2)\n\\]\n\nLet’s expand systematically.\n\nFirst, expand known terms:\n\n- \\(-1(s+2)^2 = -(s^2 + 4s + 4) = -s^2 - 4s - 4\\)  \n- \\(1(s+1)^3 = s^3 + 3s^2 + 3s + 1\\)\n\nSum of these two:  \n\\((s^3 + 3s^2 + 3s + 1) + (-s^2 - 4s - 4) = s^3 + 2s^2 - s - 3\\)\n\nSo the equation becomes:\n\n\\[\ns^2 + 3s + 1 = s^3 + 2s^2 - s - 3 + B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + E(s+1)^3(s+2)\n\\]\n\nBring the polynomial terms to left:\n\nLeft minus polynomial part:\n\n\\[\n(s^2 + 3s + 1) - (s^3 + 2s^2 - s - 3) = -s^3 - s^2 + 4s + 4\n\\]\n\nSo:\n\n\\[\n- s^3 - s^2 + 4s + 4 = B(s+1)(s+2)^2 + C(s+1)^2(s+2)^2 + E(s+1)^3(s+2)\n\\]\n\n**Step 4: Expand the right terms**\n\n- \\((s+1)(s+2)^2 = (s+1)(s^2+4s+4) = s^3 + 4s^2 + 4s + s^2 + 4s + 4 =",
         "index": 0,
         "logprobs": null,
         "finish_reason": "length"
       }
     ],
-    "created": 1784219711,
+    "created": 1784230418,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 768,
       "prompt_tokens": 691,
-      "total_tokens": 947,
+      "total_tokens": 1459,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-UzyxDl9lkF6noXXZcErQ63ewkyfKxg38",
+    "id": "chatcmpl-kblgPQdKTSJVRrOOnVZoH6oHkDrXOaXw",
     "timings": {
       "cache_n": 1,
       "prompt_n": 690,
-      "prompt_ms": 2603.314,
-      "prompt_per_token_ms": 3.77291884057971,
-      "prompt_per_second": 265.0467826777715,
-      "predicted_n": 256,
-      "predicted_ms": 19213.115,
-      "predicted_per_token_ms": 75.05123046875,
-      "predicted_per_second": 13.324231911379282
+      "prompt_ms": 2478.662,
+      "prompt_per_token_ms": 3.592263768115942,
+      "prompt_per_second": 278.37599479073793,
+      "predicted_n": 768,
+      "predicted_ms": 54703.806,
+      "predicted_per_token_ms": 71.2289140625,
+      "predicted_per_second": 14.039242534605362
     }
   }
 }

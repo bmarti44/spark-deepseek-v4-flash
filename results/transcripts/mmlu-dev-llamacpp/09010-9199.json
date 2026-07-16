@@ -3,10 +3,11 @@
   "task_id": 9199,
   "rendered_prompt_sha256": "37aa860bf20ca997a4a26efba29533763aace7beee03dba041d971970bcc3ead",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We can solve this step-by-step.\n\n**Step 1: Convert speeds from mi/hr to ft/sec**  \n1 mi/hr = \\( \\frac{5280}{3600} = \\frac{22}{15} \\) ft/sec.\n\n- Initial speed:  \n\\( 30 \\, \\text{mi/hr} = 30 \\times \\frac{22}{15} = 44 \\, \\text{ft/sec} \\)\n\n- Final speed:  \n\\( 60 \\, \\text{mi/hr} = 60 \\times \\frac{22}{15} = 88 \\, \\text{ft/sec} \\)\n\n**Step 2: Find acceleration**  \nAcceleration \\( a = \\frac{v_f - v_i}{t} = \\frac{88 - 44}{10} = \\frac{44}{10} = 4.4 \\, \\text{ft/sec}^2 \\)\n\n**Step 3: Find distance traveled**  \nUsing \\( s = v_i t + \\frac{1}{2} a t^2 \\):  \n\\( s = 44 \\times 10 + \\frac{1}{2} \\times 4.4 \\times 10^2 \\)  \n\\( s = 440 + \\frac",
+  "completion": "We can solve this step-by-step.\n\n**Step 1: Convert speeds from mi/hr to ft/sec**  \n1 mi/hr = \\( \\frac{5280}{3600} = \\frac{22}{15} \\) ft/sec.\n\n- Initial speed:  \n\\( 30 \\, \\text{mi/hr} = 30 \\times \\frac{22}{15} = 44 \\, \\text{ft/sec} \\)\n\n- Final speed:  \n\\( 60 \\, \\text{mi/hr} = 60 \\times \\frac{22}{15} = 88 \\, \\text{ft/sec} \\)\n\n**Step 2: Find acceleration**  \nAcceleration \\( a = \\frac{v_f - v_i}{t} = \\frac{88 - 44}{10} = \\frac{44}{10} = 4.4 \\, \\text{ft/sec}^2 \\)\n\n**Step 3: Find distance traveled**  \nUsing \\( s = v_i t + \\frac{1}{2} a t^2 \\):  \n\\( s = 44 \\times 10 + \\frac{1}{2} \\times 4.4 \\times 10^2 \\)  \n\\( s = 440 + \\frac{1}{2} \\times 4.4 \\times 100 \\)  \n\\( s = 440 + 220 = 660 \\, \\text{ft} \\)\n\nThe correct answer is **660 ft**, which corresponds to option **E**.\n\nAnswer: E",
+  "finish_reason": "stop",
   "expected": "E",
-  "scored_correct": false,
-  "reason": "incorrect: parsed='A' expected='E'",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.79012525899998
+    "elapsed_s": 22.771896539001318
   },
   "response": {
     "choices": [
       {
-        "text": "We can solve this step-by-step.\n\n**Step 1: Convert speeds from mi/hr to ft/sec**  \n1 mi/hr = \\( \\frac{5280}{3600} = \\frac{22}{15} \\) ft/sec.\n\n- Initial speed:  \n\\( 30 \\, \\text{mi/hr} = 30 \\times \\frac{22}{15} = 44 \\, \\text{ft/sec} \\)\n\n- Final speed:  \n\\( 60 \\, \\text{mi/hr} = 60 \\times \\frac{22}{15} = 88 \\, \\text{ft/sec} \\)\n\n**Step 2: Find acceleration**  \nAcceleration \\( a = \\frac{v_f - v_i}{t} = \\frac{88 - 44}{10} = \\frac{44}{10} = 4.4 \\, \\text{ft/sec}^2 \\)\n\n**Step 3: Find distance traveled**  \nUsing \\( s = v_i t + \\frac{1}{2} a t^2 \\):  \n\\( s = 44 \\times 10 + \\frac{1}{2} \\times 4.4 \\times 10^2 \\)  \n\\( s = 440 + \\frac",
+        "text": "We can solve this step-by-step.\n\n**Step 1: Convert speeds from mi/hr to ft/sec**  \n1 mi/hr = \\( \\frac{5280}{3600} = \\frac{22}{15} \\) ft/sec.\n\n- Initial speed:  \n\\( 30 \\, \\text{mi/hr} = 30 \\times \\frac{22}{15} = 44 \\, \\text{ft/sec} \\)\n\n- Final speed:  \n\\( 60 \\, \\text{mi/hr} = 60 \\times \\frac{22}{15} = 88 \\, \\text{ft/sec} \\)\n\n**Step 2: Find acceleration**  \nAcceleration \\( a = \\frac{v_f - v_i}{t} = \\frac{88 - 44}{10} = \\frac{44}{10} = 4.4 \\, \\text{ft/sec}^2 \\)\n\n**Step 3: Find distance traveled**  \nUsing \\( s = v_i t + \\frac{1}{2} a t^2 \\):  \n\\( s = 44 \\times 10 + \\frac{1}{2} \\times 4.4 \\times 10^2 \\)  \n\\( s = 440 + \\frac{1}{2} \\times 4.4 \\times 100 \\)  \n\\( s = 440 + 220 = 660 \\, \\text{ft} \\)\n\nThe correct answer is **660 ft**, which corresponds to option **E**.\n\nAnswer: E",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784220774,
+    "created": 1784231760,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 311,
       "prompt_tokens": 126,
-      "total_tokens": 382,
+      "total_tokens": 437,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-QcRSvveiRCOaitDghGuqbIsQxQncTeNx",
+    "id": "chatcmpl-t9uilHcNia5KgOy1L4CpRCBlUG3l7xR1",
     "timings": {
       "cache_n": 1,
       "prompt_n": 125,
-      "prompt_ms": 887.186,
-      "prompt_per_token_ms": 7.097488,
-      "prompt_per_second": 140.89491944192085,
-      "predicted_n": 256,
-      "predicted_ms": 18891.165,
-      "predicted_per_token_ms": 73.79361328125,
-      "predicted_per_second": 13.551308243827206
+      "prompt_ms": 838.847,
+      "prompt_per_token_ms": 6.710776,
+      "prompt_per_second": 149.01406335124284,
+      "predicted_n": 311,
+      "predicted_ms": 21930.202,
+      "predicted_per_token_ms": 70.5151189710611,
+      "predicted_per_second": 14.181355921846958
     }
   }
 }

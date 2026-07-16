@@ -1,0 +1,101 @@
+{
+  "index": 32,
+  "task_id": "HumanEval/32",
+  "rendered_prompt_sha256": "17c137edab480f3be30b47bb48eea2748f23b120a73b2bb80c7901112e1b223f",
+  "rendering": "raw",
+  "completion": "    assert len(xs) % 2 == 0 and xs[-1] != 0\n    if len(xs) == 2:\n        return -xs[0] / xs[1]\n    # Use Newton's method to find a zero\n    x = 0.0\n    for i in range(1000):\n        x = x - poly(xs, x) / poly(xs, x + 1e-10)\n    return x",
+  "finish_reason": "stop",
+  "expected": "    begin, end = -1., 1.\n    while poly(xs, begin) * poly(xs, end) > 0:\n        begin *= 2.0\n        end *= 2.0\n    while end - begin > 1e-10:\n        center = (begin + end) / 2.0\n        if poly(xs, center) * poly(xs, begin) > 0:\n            begin = center\n        else:\n            end = center\n    return begin\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 8.654184275001171
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    assert len(xs) % 2 == 0 and xs[-1] != 0\n    if len(xs) == 2:\n        return -xs[0] / xs[1]\n    # Use Newton's method to find a zero\n    x = 0.0\n    for i in range(1000):\n        x = x - poly(xs, x) / poly(xs, x + 1e-10)\n    return x",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228014,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 99,
+      "prompt_tokens": 258,
+      "total_tokens": 357,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-IJp5IwA1YNztMShM9acFR5RS9iOoe9sL",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 258,
+      "prompt_ms": 1329.843,
+      "prompt_per_token_ms": 5.1544302325581395,
+      "prompt_per_second": 194.00786408621167,
+      "predicted_n": 99,
+      "predicted_ms": 7321.588,
+      "predicted_per_token_ms": 73.95543434343433,
+      "predicted_per_second": 13.521656777190959
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00032:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 57, in <module>\n    check(find_zero)\n  File \"/case/main.py\", line 53, in check\n    assert math.fabs(poly(coeffs, solution)) < 1e-4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

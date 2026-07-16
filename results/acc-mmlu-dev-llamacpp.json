@@ -3,17 +3,44 @@
   "suite": "mmlu-pro",
   "split": "dev",
   "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+  "config_digest": "5e6c2c8035023b1a883e6b3bce22207d2c813bd44ed5088140c34a73cdc79811",
+  "config_digest_payload": {
+    "stack_label": "llamacpp-udq2kxl",
+    "server_binary_sha256": "8556ecf160a5884ff0133d66e199f98e7ee68895ab5ae9a15fe2af96365fe53d",
+    "model_manifest_sha256s": [
+      "7ac87c8ae9a2cca12c44457aab8aa80a95dee1b6c905ffff2b020d966a3064af"
+    ],
+    "suite": "mmlu-pro",
+    "split": "dev",
+    "extra_body": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "max_tokens": 768,
+    "harness_manifest_line": "7a742b64b37ff64af8a2dafcc1f11afdccd92c97d94e7f561d47e67cbd4a5024  scripts/31_bench_accuracy.py"
+  },
+  "config_evidence": [
+    {
+      "path": "/home/bmarti44/spark-deepseek-v4-flash/configs/build-manifests/llamacpp.json",
+      "canonical_sha256": "80ee55e89cd0aba7b16620434545ccb656a1d0feee6d18296ad689de7cb2dbcf"
+    },
+    {
+      "path": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/manifest.json",
+      "canonical_sha256": "7ac87c8ae9a2cca12c44457aab8aa80a95dee1b6c905ffff2b020d966a3064af"
+    }
+  ],
   "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
   "n": 253,
-  "correct": 164,
-  "accuracy": 0.6482213438735178,
+  "correct": 197,
+  "accuracy": 0.7786561264822134,
   "wilson95": [
-    0.587562527178712,
-    0.704446404495979
+    0.7235458735396514,
+    0.8254309180087673
   ],
-  "invalid_count": 6,
-  "started_at": "2026-07-16T16:18:48.198565+00:00",
-  "finished_at": "2026-07-16T17:00:55.721774+00:00",
+  "invalid_count": 16,
+  "started_at": "2026-07-16T19:10:10.620520+00:00",
+  "finished_at": "2026-07-16T20:09:19.975406+00:00",
   "dataset_revisions": {
     "openai/gsm8k": "740312add88f781978c0658806c59bc2815b9866",
     "TIGER-Lab/MMLU-Pro": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
@@ -313,7 +340,7 @@
         ],
         "tags": [],
         "object": "model",
-        "created": 1784218728,
+        "created": 1784229010,
         "owned_by": "llamacpp",
         "meta": {
           "vocab_type": 2,
@@ -332,7 +359,7 @@
     "endpoint": "/v1/completions",
     "temperature": 0,
     "seed": 42,
-    "max_tokens": 256,
+    "max_tokens": 768,
     "stop": null,
     "extra_body": {
       "chat_template_kwargs": {

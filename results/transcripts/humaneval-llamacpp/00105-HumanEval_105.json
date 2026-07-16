@@ -1,0 +1,101 @@
+{
+  "index": 105,
+  "task_id": "HumanEval/105",
+  "rendered_prompt_sha256": "7610e97e9e03b58b9d2f83c6ffb2e08c7a8827a982645a091f53b347cdfa7a5b",
+  "rendering": "raw",
+  "completion": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    # Sort the filtered list\n    filtered.sort()\n    # Reverse the sorted list\n    filtered.reverse()\n    # Map each number to its corresponding word\n    num_to_word = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    # Return the list of words\n    return [num_to_word[num] for num in filtered]",
+  "finish_reason": "stop",
+  "expected": "    dic = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\",\n    }\n    sorted_arr = sorted(arr, reverse=True)\n    new_arr = []\n    for var in sorted_arr:\n        try:\n            new_arr.append(dic[var])\n        except:\n            pass\n    return new_arr\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 11.859926678000193
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    # Sort the filtered list\n    filtered.sort()\n    # Reverse the sorted list\n    filtered.reverse()\n    # Map each number to its corresponding word\n    num_to_word = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    # Return the list of words\n    return [num_to_word[num] for num in filtered]",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228532,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 150,
+      "prompt_tokens": 271,
+      "total_tokens": 421,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1cTEMedVRNZmipLcIJ2FY5AxpouA4yuA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 270,
+      "prompt_ms": 1125.294,
+      "prompt_per_token_ms": 4.167755555555556,
+      "prompt_per_second": 239.9372963865443,
+      "predicted_n": 150,
+      "predicted_ms": 10731.504,
+      "predicted_per_token_ms": 71.54336,
+      "predicted_per_second": 13.977537538074811
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00105:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -3,10 +3,11 @@
   "task_id": 1547,
   "rendered_prompt_sha256": "a6323c66c111b05f338fa7978d033ea5d5dc777944e257c40189c4b708ee43e7",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "The defendant’s attorney is trying to suppress the gun as evidence, so they would focus on facts that undermine the legality of the search or the admissibility of the evidence.  \n\n- **A** (neighbor lacked authority) would help suppress the search.  \n- **B** (no Miranda rights before consent) is irrelevant because Miranda applies to custodial interrogation, not consent to search.  \n- **C** (daughter not present) is irrelevant to the search’s legality.  \n- **D** (defendant didn’t own the gun) could help if ownership is needed for a charge, but not for suppression.  \n- **E** (coercion by police) would help suppress consent.  \n- **F** (gun not in plain view) matters because plain view exception wouldn’t apply.  \n- **G** (gave neighbor keys) supports neighbor’s apparent authority.  \n- **H** (told neighbor not to answer door) undermines neighbor’s authority.  \n- **I** (alibi) is about guilt, not suppression.  \n- **J** (no warrant) is central to suppression.  \n\nThe *least* likely fact for the attorney to try to prove is one that doesn’t help",
+  "completion": "The defendant’s attorney is trying to suppress the gun as evidence, so they would focus on facts that undermine the legality of the search or the admissibility of the evidence.  \n\n- **A** (neighbor lacked authority) would help suppress the search.  \n- **B** (no Miranda rights before consent) is irrelevant because Miranda applies to custodial interrogation, not consent to search.  \n- **C** (daughter not present) is irrelevant to the search’s legality.  \n- **D** (defendant didn’t own the gun) could help if ownership is needed for a charge, but not for suppression.  \n- **E** (coercion by police) would help suppress consent.  \n- **F** (gun not in plain view) matters because plain view exception wouldn’t apply.  \n- **G** (gave neighbor keys) supports neighbor’s apparent authority.  \n- **H** (told neighbor not to answer door) undermines neighbor’s authority.  \n- **I** (alibi) is about guilt, not suppression.  \n- **J** (no warrant) is central to suppression.  \n\nThe *least* likely fact for the attorney to try to prove is one that doesn’t help suppression. **I** (alibi) is about innocence, not the search.  \n\nAnswer: I",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": false,
-  "reason": "incorrect: parsed='J' expected='G'",
+  "reason": "incorrect: parsed='I' expected='G'",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.72246310400078
+    "elapsed_s": 21.343352692001645
   },
   "response": {
     "choices": [
       {
-        "text": "The defendant’s attorney is trying to suppress the gun as evidence, so they would focus on facts that undermine the legality of the search or the admissibility of the evidence.  \n\n- **A** (neighbor lacked authority) would help suppress the search.  \n- **B** (no Miranda rights before consent) is irrelevant because Miranda applies to custodial interrogation, not consent to search.  \n- **C** (daughter not present) is irrelevant to the search’s legality.  \n- **D** (defendant didn’t own the gun) could help if ownership is needed for a charge, but not for suppression.  \n- **E** (coercion by police) would help suppress consent.  \n- **F** (gun not in plain view) matters because plain view exception wouldn’t apply.  \n- **G** (gave neighbor keys) supports neighbor’s apparent authority.  \n- **H** (told neighbor not to answer door) undermines neighbor’s authority.  \n- **I** (alibi) is about guilt, not suppression.  \n- **J** (no warrant) is central to suppression.  \n\nThe *least* likely fact for the attorney to try to prove is one that doesn’t help",
+        "text": "The defendant’s attorney is trying to suppress the gun as evidence, so they would focus on facts that undermine the legality of the search or the admissibility of the evidence.  \n\n- **A** (neighbor lacked authority) would help suppress the search.  \n- **B** (no Miranda rights before consent) is irrelevant because Miranda applies to custodial interrogation, not consent to search.  \n- **C** (daughter not present) is irrelevant to the search’s legality.  \n- **D** (defendant didn’t own the gun) could help if ownership is needed for a charge, but not for suppression.  \n- **E** (coercion by police) would help suppress consent.  \n- **F** (gun not in plain view) matters because plain view exception wouldn’t apply.  \n- **G** (gave neighbor keys) supports neighbor’s apparent authority.  \n- **H** (told neighbor not to answer door) undermines neighbor’s authority.  \n- **I** (alibi) is about guilt, not suppression.  \n- **J** (no warrant) is central to suppression.  \n\nThe *least* likely fact for the attorney to try to prove is one that doesn’t help suppression. **I** (alibi) is about innocence, not the search.  \n\nAnswer: I",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784220178,
+    "created": 1784231080,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 278,
       "prompt_tokens": 386,
-      "total_tokens": 642,
+      "total_tokens": 664,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-Q117CAUl3DbsY0B4myt3blMcjPpqSEbE",
+    "id": "chatcmpl-LD5Q7BHlTmPjyMhbTpCO5pTMbwRMOf7d",
     "timings": {
       "cache_n": 1,
       "prompt_n": 385,
-      "prompt_ms": 1648.1,
-      "prompt_per_token_ms": 4.280779220779221,
-      "prompt_per_second": 233.60232995570658,
-      "predicted_n": 256,
-      "predicted_ms": 19070.711,
-      "predicted_per_token_ms": 74.49496484375,
-      "predicted_per_second": 13.423726047759835
+      "prompt_ms": 1567.612,
+      "prompt_per_token_ms": 4.071719480519481,
+      "prompt_per_second": 245.5964868857855,
+      "predicted_n": 278,
+      "predicted_ms": 19771.979,
+      "predicted_per_token_ms": 71.12222661870503,
+      "predicted_per_second": 14.060302208494152
     }
   }
 }

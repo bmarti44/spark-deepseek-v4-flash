@@ -1,0 +1,101 @@
+{
+  "index": 119,
+  "task_id": "HumanEval/119",
+  "rendered_prompt_sha256": "7d057f437949f329d47d033084ee94a506621185f9063e13a91bbb741dca6216",
+  "rendering": "raw",
+  "completion": "    # Count the number of open and close parentheses in each string\n    counts = []\n    for s in lst:\n        open_count = s.count('(')\n        close_count = s.count(')')\n        counts.append((open_count, close_count))\n\n    # Check if the total number of open parentheses equals the total number of close parentheses\n    total_open = sum([c[0] for c in counts])\n    total_close = sum([c[1] for c in counts])\n    if total_open != total_close:\n        return 'No'\n\n    # Check if it's possible to concatenate the strings in some order to get a balanced string\n    # We can do this by checking if the maximum number of open parentheses in any prefix is less than or equal to the total number of close parentheses\n    # and the maximum number of close parentheses in any prefix is less than or equal to the total number of open parentheses\n    max_open_prefix = 0\n    max_close_prefix = 0\n    for c in counts:\n        max_open_prefix = max(max_open_prefix, c[0])\n        max_close_prefix = max(max_close_prefix, c[1])\n    if max_open_prefix <= total_close and max_close_prefix <= total_open:\n        return 'Yes'\n    else:\n        return 'No'",
+  "finish_reason": "stop",
+  "expected": "    def check(s):\n        val = 0\n        for i in s:\n            if i == '(':\n                val = val + 1\n            else:\n                val = val - 1\n            if val < 0:\n                return False\n        return True if val == 0 else False\n\n    S1 = lst[0] + lst[1]\n    S2 = lst[1] + lst[0]\n    return 'Yes' if check(S1) or check(S2) else 'No'\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 19.96601467200162
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Count the number of open and close parentheses in each string\n    counts = []\n    for s in lst:\n        open_count = s.count('(')\n        close_count = s.count(')')\n        counts.append((open_count, close_count))\n\n    # Check if the total number of open parentheses equals the total number of close parentheses\n    total_open = sum([c[0] for c in counts])\n    total_close = sum([c[1] for c in counts])\n    if total_open != total_close:\n        return 'No'\n\n    # Check if it's possible to concatenate the strings in some order to get a balanced string\n    # We can do this by checking if the maximum number of open parentheses in any prefix is less than or equal to the total number of close parentheses\n    # and the maximum number of close parentheses in any prefix is less than or equal to the total number of open parentheses\n    max_open_prefix = 0\n    max_close_prefix = 0\n    for c in counts:\n        max_open_prefix = max(max_open_prefix, c[0])\n        max_close_prefix = max(max_close_prefix, c[1])\n    if max_open_prefix <= total_close and max_close_prefix <= total_open:\n        return 'Yes'\n    else:\n        return 'No'",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228636,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 270,
+      "prompt_tokens": 166,
+      "total_tokens": 436,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CZgynrILVnGJUYBmsN1z3igSCmigiZXx",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 165,
+      "prompt_ms": 886.202,
+      "prompt_per_token_ms": 5.370921212121212,
+      "prompt_per_second": 186.18779916994094,
+      "predicted_n": 270,
+      "predicted_ms": 19077.572,
+      "predicted_per_token_ms": 70.65767407407408,
+      "predicted_per_second": 14.152744384872456
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00119:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 65, in <module>\n    check(match_parens)\n  File \"/case/main.py\", line 56, in check\n    assert candidate([')(', ')(']) == 'No'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

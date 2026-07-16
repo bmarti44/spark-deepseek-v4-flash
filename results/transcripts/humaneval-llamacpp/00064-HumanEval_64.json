@@ -1,0 +1,101 @@
+{
+  "index": 64,
+  "task_id": "HumanEval/64",
+  "rendered_prompt_sha256": "bc81b28f391ede1728b9b45d174a5a8953119ebc8f98908735202a05f839c5d8",
+  "rendering": "raw",
+  "completion": "    # Implementation of vowels_count function\n    count = 0\n    vowels = \"aeiou\"\n    for i, char in enumerate(s):\n        if char.lower() in vowels:\n            count += 1\n        elif char.lower() == 'y' and i == len(s) - 1:\n            count += 1\n    return count\n```\n\n### Response\n```python",
+  "finish_reason": "stop",
+  "expected": "    vowels = \"aeiouAEIOU\"\n    n_vowels = sum(c in vowels for c in s)\n    if s[-1] == 'y' or s[-1] == 'Y':\n        n_vowels += 1\n    return n_vowels\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 7.068369731998246
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Implementation of vowels_count function\n    count = 0\n    vowels = \"aeiou\"\n    for i, char in enumerate(s):\n        if char.lower() in vowels:\n            count += 1\n        elif char.lower() == 'y' and i == len(s) - 1:\n            count += 1\n    return count\n```\n\n### Response\n```python",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228189,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 119,
+      "total_tokens": 201,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-MUobSkfAReFo9FCvNUKQS56fr4LPtTJt",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 119,
+      "prompt_ms": 921.149,
+      "prompt_per_token_ms": 7.740747899159664,
+      "prompt_per_second": 129.18648340279367,
+      "predicted_n": 82,
+      "predicted_ms": 6144.685,
+      "predicted_per_token_ms": 74.93518292682927,
+      "predicted_per_second": 13.344866335703133
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00064:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

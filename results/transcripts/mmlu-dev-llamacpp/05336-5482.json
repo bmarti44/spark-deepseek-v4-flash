@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "36f69938b8c8999e3bfd9878b78d4daf1f196b503563f9880b64865147007f3d",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The correct term for the tendency of a population to keep growing even after fertility has dropped to replacement level is **demographic momentum**.  \n\nAnswer: D",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 2.9369649889995344
+    "elapsed_s": 2.811679341000854
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220630,
+    "created": 1784231619,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-e0alPym5rZTKIKaIGnQRFlsnvAKs47hG",
+    "id": "chatcmpl-o743NOgVIRbcgi8ovKYXYVuyQYAmakRQ",
     "timings": {
       "cache_n": 1,
       "prompt_n": 88,
-      "prompt_ms": 702.892,
-      "prompt_per_token_ms": 7.987409090909091,
-      "prompt_per_second": 125.19704307347358,
+      "prompt_ms": 673.442,
+      "prompt_per_token_ms": 7.65275,
+      "prompt_per_second": 130.67198066054686,
       "predicted_n": 31,
-      "predicted_ms": 2230.173,
-      "predicted_per_token_ms": 71.94106451612903,
-      "predicted_per_second": 13.900266929964626
+      "predicted_ms": 2135.493,
+      "predicted_per_token_ms": 68.88687096774193,
+      "predicted_per_second": 14.516554257026364
     }
   }
 }

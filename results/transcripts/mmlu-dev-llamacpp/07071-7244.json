@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "6906289ca50c82965a57c2e252b29340b327561caf0675fef62f41f914c23b0f",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The statement says that education benefits not just Chris but also others (making him a better worker, voter, parent, and citizen). These benefits to others are positive externalities.  \n\nWhen there are positive externalities, the market tends to underprovide the good, so it is often subsidized to encourage more consumption.  \n\nThe correct choice is: **G. externalities and should be subsidized**.  \n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 7.159396114000629
+    "elapsed_s": 6.854209905999596
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219569,
+    "created": 1784230142,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-XrR9iNz8xVD79NvyIbys976qp7jO3Ko0",
+    "id": "chatcmpl-4RnX90n7E8Mvxtc7gfYjJlDtRt3CqGXW",
     "timings": {
       "cache_n": 1,
       "prompt_n": 158,
-      "prompt_ms": 892.685,
-      "prompt_per_token_ms": 5.649905063291139,
-      "prompt_per_second": 176.99412446719728,
+      "prompt_ms": 860.307,
+      "prompt_per_token_ms": 5.444981012658228,
+      "prompt_per_second": 183.65536953668865,
       "predicted_n": 85,
-      "predicted_ms": 6253.887,
-      "predicted_per_token_ms": 73.57514117647058,
-      "predicted_per_second": 13.591547144999582
+      "predicted_ms": 5990.337,
+      "predicted_per_token_ms": 70.47455294117647,
+      "predicted_per_second": 14.189518886833913
     }
   }
 }

@@ -1,0 +1,101 @@
+{
+  "index": 97,
+  "task_id": "HumanEval/97",
+  "rendered_prompt_sha256": "cadfab7a20c335c251fcd403e9c144183ae36eee01a205783c534184aa1d3004",
+  "rendering": "raw",
+  "completion": "    return abs(a) % 10 * abs(b) % 10",
+  "finish_reason": "stop",
+  "expected": "    return abs(a % 10) * abs(b % 10)\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 1.9166520140024659
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    return abs(a) % 10 * abs(b) % 10",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228482,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 93,
+      "total_tokens": 109,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qFIsddS75OtkGnqeDED8d6ZHY1VNvxvp",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 92,
+      "prompt_ms": 727.977,
+      "prompt_per_token_ms": 7.912793478260869,
+      "prompt_per_second": 126.37761907313005,
+      "predicted_n": 16,
+      "predicted_ms": 1186.357,
+      "predicted_per_token_ms": 74.1473125,
+      "predicted_per_second": 13.486665480963994
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00097:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 32, in <module>\n    check(multiply)\n  File \"/case/main.py\", line 18, in check\n    assert candidate(148, 412) == 16, \"First test error: \" + str(candidate(148, 412))                    \n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: First test error: 6\n"
+  }
+}

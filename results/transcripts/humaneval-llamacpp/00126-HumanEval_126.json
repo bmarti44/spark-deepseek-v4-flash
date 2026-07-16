@@ -1,0 +1,101 @@
+{
+  "index": 126,
+  "task_id": "HumanEval/126",
+  "rendered_prompt_sha256": "050a2b9defc209aa64d0777939ff3387ee7db918434d818789eab7b36578b7ca",
+  "rendering": "raw",
+  "completion": "    # Check for duplicates more than once\n    # If there are duplicates more than once, return False\n    # If there are no duplicates more than once, check if sorted\n    # If sorted, return True\n    # Else, return False\n    if len(lst) != len(set(lst)):\n        return False\n    return lst == sorted(lst)",
+  "finish_reason": "stop",
+  "expected": "    count_digit = dict([(i, 0) for i in lst])\n    for i in lst:\n        count_digit[i]+=1 \n    if any(count_digit[i] > 2 for i in lst):\n        return False\n    if all(lst[i-1] <= lst[i] for i in range(1, len(lst))):\n        return True\n    else:\n        return False\n    \n    \n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 6.459429626000201
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Check for duplicates more than once\n    # If there are duplicates more than once, return False\n    # If there are no duplicates more than once, check if sorted\n    # If sorted, return True\n    # Else, return False\n    if len(lst) != len(set(lst)):\n        return False\n    return lst == sorted(lst)",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228669,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 253,
+      "total_tokens": 327,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-phJOc1cUqIhyuC3DwwsE9f4f0NPQA3rT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 252,
+      "prompt_ms": 1149.115,
+      "prompt_per_token_ms": 4.559980158730159,
+      "prompt_per_second": 219.29919981899113,
+      "predicted_n": 74,
+      "predicted_ms": 5307.744,
+      "predicted_per_token_ms": 71.72627027027026,
+      "predicted_per_second": 13.94189320359083
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00126:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 49, in <module>\n    check(is_sorted)\n  File \"/case/main.py\", line 44, in check\n    assert candidate([1, 2, 2, 3, 3, 4]) == True, \"This prints if this assert fails 7 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 7 (good for debugging!)\n"
+  }
+}

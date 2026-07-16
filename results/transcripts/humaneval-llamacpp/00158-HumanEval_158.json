@@ -1,0 +1,101 @@
+{
+  "index": 158,
+  "task_id": "HumanEval/158",
+  "rendered_prompt_sha256": "c40e718aa330b51ea3bb37b1532061de990739b868af73c34faa3af0512626c3",
+  "rendering": "raw",
+  "completion": "    max_unique = 0\n    max_word = \"\"\n    for word in words:\n        unique = len(set(word))\n        if unique > max_unique:\n            max_unique = unique\n            max_word = word\n        elif unique == max_unique:\n            if word < max_word:\n                max_word = word\n    return max_word",
+  "finish_reason": "stop",
+  "expected": "    return sorted(words, key = lambda x: (-len(set(x)), x))[0]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 5.602353463000327
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    max_unique = 0\n    max_word = \"\"\n    for word in words:\n        unique = len(set(word))\n        if unique > max_unique:\n            max_unique = unique\n            max_word = word\n        elif unique == max_unique:\n            if word < max_word:\n                max_word = word\n    return max_word",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228978,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 69,
+      "prompt_tokens": 116,
+      "total_tokens": 185,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-GC1EwTrxSge4l4uOvquo7k3VBGCB2PS6",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 115,
+      "prompt_ms": 771.303,
+      "prompt_per_token_ms": 6.706982608695652,
+      "prompt_per_second": 149.09834397117604,
+      "predicted_n": 69,
+      "predicted_ms": 4828.905,
+      "predicted_per_token_ms": 69.9841304347826,
+      "predicted_per_second": 14.288953706896285
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00158:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

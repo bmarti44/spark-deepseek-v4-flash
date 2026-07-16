@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "b570ba2b202c3e20c1498400f84ddc7389434b40d14d1efb0978ba362896f0d8",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We need to choose 3 cards from a standard 52-card deck, all of different suits.\n\n**Step 1: Choose the suits**  \nThere are 4 suits, and we need 3 different ones.  \nNumber of ways to choose 3 suits from 4:  \n\\[\n\\binom{4}{3} = 4\n\\]\n\n**Step 2: Choose one card from each chosen suit**  \nEach suit has 13 cards.  \nFor each of the 3 chosen suits, we pick 1 card:  \n\\[\n13 \\times 13 \\times 13 = 13^3 = 2197\n\\]\n\n**Step 3: Multiply**  \nTotal combinations:  \n\\[\n4 \\times 2197 = 8788\n\\]\n\nThe correct answer is **B**.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 13.279211684000984
+    "elapsed_s": 12.73212794400024
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220305,
+    "created": 1784231201,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-JZXqT5mtQVESpyIXIpzgrKHxNFhanIgS",
+    "id": "chatcmpl-QNvhtzdXWQxQtAtIFQwtxeK4REQeogf6",
     "timings": {
       "cache_n": 1,
       "prompt_n": 116,
-      "prompt_ms": 817.801,
-      "prompt_per_token_ms": 7.050008620689655,
-      "prompt_per_second": 141.84379818562215,
+      "prompt_ms": 775.136,
+      "prompt_per_token_ms": 6.682206896551724,
+      "prompt_per_second": 149.65115799033975,
       "predicted_n": 169,
-      "predicted_ms": 12459.668,
-      "predicted_per_token_ms": 73.72584615384615,
-      "predicted_per_second": 13.56376429933767
+      "predicted_ms": 11955.023,
+      "predicted_per_token_ms": 70.73978106508875,
+      "predicted_per_second": 14.136317429083993
     }
   }
 }

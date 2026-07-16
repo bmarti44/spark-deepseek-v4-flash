@@ -1,0 +1,101 @@
+{
+  "index": 94,
+  "task_id": "HumanEval/94",
+  "rendered_prompt_sha256": "1c6ca165f1b5548225ce755ffb9fe188813105f3eac8cfb3f515326db7f25812",
+  "rendering": "raw",
+  "completion": "    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    max_prime = 0\n    for num in lst:\n        if is_prime(num) and num > max_prime:\n            max_prime = num\n\n    if max_prime == 0:\n        return 0\n\n    return sum(int(digit) for digit in str(max_prime))\n```\n\nresults/llama-3.1-70b-Instruct/out/llama-3.1-70b-Instruct_0_0.json\n\n\n{\n    \"file_name\": \"llama-3.1-70b-Instruct_0_0\",\n    \"model_id\": \"meta-llama-3.1-70b-instruct\",\n    \"create_new_benchmark\": 0,\n    \"file_path\": \"results/llama-3.1-70b-Instruct/out/llama-3.1-70b-Instruct_0_0\",\n    \"mode\": \"incremental\",\n    \"current_run\": 0,\n    \"current_benchmark\": -1,\n    \"current_task\": -1,\n    \"current_task_index\": -1,\n    \"current_attempt\": -1,\n    \"total_benchmark\": 0,\n    \"total_task\": 0,\n    \"total_attempt\": 0,\n    \"passed\": 0,\n    \"failed\": 0,\n    \"total_errors\": 0,\n    \"total_compile_errors\": 0,\n    \"total_runtime_errors\": 0,\n    \"total_other_errors\": 0,\n    \"total_time_seconds\": 0.0,\n    \"total_avg_execution_time_ms\": 0.0,\n    \"total_avg_peak_memory_mb\": 0.0,\n    \"total_avg_total_memory_mb\": 0.0,\n    \"total_avg_cpu_time_ms\": 0.0,\n    \"total_avg_energy_j\": 0.0,\n    \"total_avg_power_w\": 0.0,\n    \"total_avg_gpu_energy_j\": 0.0,\n    \"total_avg_gpu_power_w\": ",
+  "finish_reason": "length",
+  "expected": "    def isPrime(n):\n        for i in range(2,int(n**0.5)+1):\n            if n%i==0:\n                return False\n\n        return True\n    maxx = 0\n    i = 0\n    while i < len(lst):\n        if(lst[i] > maxx and isPrime(lst[i])):\n            maxx = lst[i]\n        i+=1\n    result = sum(int(digit) for digit in str(maxx))\n    return result\n\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 39.66110850699988
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n**0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    max_prime = 0\n    for num in lst:\n        if is_prime(num) and num > max_prime:\n            max_prime = num\n\n    if max_prime == 0:\n        return 0\n\n    return sum(int(digit) for digit in str(max_prime))\n```\n\nresults/llama-3.1-70b-Instruct/out/llama-3.1-70b-Instruct_0_0.json\n\n\n{\n    \"file_name\": \"llama-3.1-70b-Instruct_0_0\",\n    \"model_id\": \"meta-llama-3.1-70b-instruct\",\n    \"create_new_benchmark\": 0,\n    \"file_path\": \"results/llama-3.1-70b-Instruct/out/llama-3.1-70b-Instruct_0_0\",\n    \"mode\": \"incremental\",\n    \"current_run\": 0,\n    \"current_benchmark\": -1,\n    \"current_task\": -1,\n    \"current_task_index\": -1,\n    \"current_attempt\": -1,\n    \"total_benchmark\": 0,\n    \"total_task\": 0,\n    \"total_attempt\": 0,\n    \"passed\": 0,\n    \"failed\": 0,\n    \"total_errors\": 0,\n    \"total_compile_errors\": 0,\n    \"total_runtime_errors\": 0,\n    \"total_other_errors\": 0,\n    \"total_time_seconds\": 0.0,\n    \"total_avg_execution_time_ms\": 0.0,\n    \"total_avg_peak_memory_mb\": 0.0,\n    \"total_avg_total_memory_mb\": 0.0,\n    \"total_avg_cpu_time_ms\": 0.0,\n    \"total_avg_energy_j\": 0.0,\n    \"total_avg_power_w\": 0.0,\n    \"total_avg_gpu_energy_j\": 0.0,\n    \"total_avg_gpu_power_w\": ",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784228468,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 281,
+      "total_tokens": 793,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-Ow9iZONMDMiKFR6CgfQsxVrQCNpFWnsV",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 281,
+      "prompt_ms": 1227.005,
+      "prompt_per_token_ms": 4.366565836298933,
+      "prompt_per_second": 229.01292170773547,
+      "predicted_n": 512,
+      "predicted_ms": 38431.921,
+      "predicted_per_token_ms": 75.062345703125,
+      "predicted_per_second": 13.322258858723195
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00094:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "334d8a59d2f696552d97ef7e0914999da5c754ef1cb84c5c722e0d17d677aa18",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The projective hypothesis is the idea that people project their own inner thoughts, feelings, and conflicts onto ambiguous stimuli, and that this reveals aspects of their psychological functioning. This is the basis for projective tests like the Rorschach inkblots.\n\nThe statement that most closely matches this is:\n\n**H. The way an individual interprets ambiguous situations will reflect inner aspects of psychological functioning.**\n\nAnswer: H",
+  "finish_reason": "stop",
   "expected": "H",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 7.005930163999437
+    "elapsed_s": 6.7210971799977415
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784221198,
+    "created": 1784232503,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-x0uSuRO9U21PeOxLGD6fnSuSpg7XgULR",
+    "id": "chatcmpl-KZ1HlMMHSCI3Lgl3xxxFSgxvvpViKaLD",
     "timings": {
       "cache_n": 1,
       "prompt_n": 195,
-      "prompt_ms": 1027.208,
-      "prompt_per_token_ms": 5.267733333333334,
-      "prompt_per_second": 189.83497013263135,
+      "prompt_ms": 976.505,
+      "prompt_per_token_ms": 5.007717948717949,
+      "prompt_per_second": 199.69175785070223,
       "predicted_n": 79,
-      "predicted_ms": 5976.35,
-      "predicted_per_token_ms": 75.65,
-      "predicted_per_second": 13.218770654329147
+      "predicted_ms": 5741.343,
+      "predicted_per_token_ms": 72.67522784810126,
+      "predicted_per_second": 13.75984678149346
     }
   }
 }

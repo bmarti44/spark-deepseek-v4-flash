@@ -1,0 +1,101 @@
+{
+  "index": 33,
+  "task_id": "HumanEval/33",
+  "rendered_prompt_sha256": "41c45573886f68a38b5dc46f74ab70ef4cb79656e72bc97a04b861810158fa8c",
+  "rendering": "raw",
+  "completion": "    # Create a list of values at indices divisible by three\n    values = [l[i] for i in range(0, len(l), 3)]\n    # Sort the values\n    values.sort()\n    # Create a new list with the sorted values\n    new_list = []\n    for i in range(len(l)):\n        if i % 3 == 0:\n            new_list.append(values.pop(0))\n        else:\n            new_list.append(l[i])\n    return new_list",
+  "finish_reason": "stop",
+  "expected": "    l = list(l)\n    l[::3] = sorted(l[::3])\n    return l\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 8.397798019999755
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Create a list of values at indices divisible by three\n    values = [l[i] for i in range(0, len(l), 3)]\n    # Sort the values\n    values.sort()\n    # Create a new list with the sorted values\n    new_list = []\n    for i in range(len(l)):\n        if i % 3 == 0:\n            new_list.append(values.pop(0))\n        else:\n            new_list.append(l[i])\n    return new_list",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228023,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 101,
+      "prompt_tokens": 148,
+      "total_tokens": 249,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-TMt6jjZBQsLpLZrVjU8i6b4vfCoDmYNm",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 148,
+      "prompt_ms": 896.571,
+      "prompt_per_token_ms": 6.057912162162163,
+      "prompt_per_second": 165.07337399938208,
+      "predicted_n": 101,
+      "predicted_ms": 7498.482,
+      "predicted_per_token_ms": 74.24239603960396,
+      "predicted_per_second": 13.469392871783915
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00033:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

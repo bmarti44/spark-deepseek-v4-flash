@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "620739d63c07304a452caa575b99b87fe5872b0ff6d76ff35ce0e7e5802d1ccd",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "In a parallel circuit, the current through each branch depends on the resistance of that branch. If the two lamps are identical, the current would be the same in both. But if they are different, the current could be different.  \nSince the problem doesn’t state that the lamps are identical, the current in the other lamp depends on its resistance.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "H",
   "scored_correct": false,
   "reason": "incorrect: parsed='B' expected='H'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 6.3261954999998125
+    "elapsed_s": 6.061925510999572
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220884,
+    "created": 1784231926,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-ZzDWx4Ina9gzvZ67x9FAVNjpp12Qc9q3",
+    "id": "chatcmpl-rg4AwlWKIBQVb4JuW9MV7QpVzxll8QcT",
     "timings": {
       "cache_n": 1,
       "prompt_n": 138,
-      "prompt_ms": 821.06,
-      "prompt_per_token_ms": 5.949710144927536,
-      "prompt_per_second": 168.07541470781672,
+      "prompt_ms": 784.358,
+      "prompt_per_token_ms": 5.683753623188405,
+      "prompt_per_second": 175.94006818315106,
       "predicted_n": 75,
-      "predicted_ms": 5502.547,
-      "predicted_per_token_ms": 73.36729333333332,
-      "predicted_per_second": 13.630051683338644
+      "predicted_ms": 5274.462,
+      "predicted_per_token_ms": 70.32616,
+      "predicted_per_second": 14.219459728783711
     }
   }
 }

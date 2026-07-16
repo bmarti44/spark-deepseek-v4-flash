@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "b2fad7efb16002e689c3fa193b76e36187040c62fa91a4435989ccced6f2d273",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "We need integers from 1 to 100 that are divisible by 2 but not by 3.\n\n**Step 1: Count numbers divisible by 2**  \nFrom 1 to 100, half are even:  \n\\[\n\\frac{100}{2} = 50\n\\]\n\n**Step 2: Count numbers divisible by both 2 and 3 (i.e., divisible by 6)**  \n\\[\n\\frac{100}{6} = 16 \\text{ (since } 6 \\times 16 = 96, \\text{ remainder 4)}\n\\]  \nSo 16 numbers are divisible by 6.\n\n**Step 3: Subtract**  \nNumbers divisible by 2 but not by 3:  \n\\[\n50 - 16 = 34\n\\]\n\n**Step 4: Probability**  \n\\[\n\\frac{34}{100} = \\frac{17}{50}\n\\]\n\nThe correct answer is \\(\\frac{17}{50}\\), which corresponds to option **D**.\n\nAnswer: D",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 16.30786049299968
+    "elapsed_s": 15.64858474400171
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220255,
+    "created": 1784231154,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-5WzGIrUDneGypfKRv2orzYFOGl9bzkm9",
+    "id": "chatcmpl-5NOTES6s5MCkTKiYVWbssldzpQZygIJA",
     "timings": {
       "cache_n": 1,
       "prompt_n": 156,
-      "prompt_ms": 848.003,
-      "prompt_per_token_ms": 5.4359166666666665,
-      "prompt_per_second": 183.96161334334903,
+      "prompt_ms": 809.378,
+      "prompt_per_token_ms": 5.188320512820513,
+      "prompt_per_second": 192.74059833600614,
       "predicted_n": 208,
-      "predicted_ms": 15457.165,
-      "predicted_per_token_ms": 74.31329326923077,
-      "predicted_per_second": 13.456542645433364
+      "predicted_ms": 14836.393,
+      "predicted_per_token_ms": 71.3288125,
+      "predicted_per_second": 14.019580096051648
     }
   }
 }

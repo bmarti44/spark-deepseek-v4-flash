@@ -1,0 +1,101 @@
+{
+  "index": 132,
+  "task_id": "HumanEval/132",
+  "rendered_prompt_sha256": "ceeef7227e3911edf98ea8a7c714116780f3468053e4cccc66bbb2dfa185c334",
+  "rendering": "raw",
+  "completion": "    # Count the number of opening and closing brackets\n    open_brackets = 0\n    close_brackets = 0\n    for char in string:\n        if char == '[':\n            open_brackets += 1\n        elif char == ']':\n            close_brackets += 1\n    # If there is at least one opening bracket and one closing bracket, then there is a valid subsequence\n    if open_brackets > 0 and close_brackets > 0:\n        return True\n    else:\n        return False",
+  "finish_reason": "stop",
+  "expected": "    opening_bracket_index = []\n    closing_bracket_index = []\n    for i in range(len(string)):\n        if string[i] == '[':\n            opening_bracket_index.append(i)\n        else:\n            closing_bracket_index.append(i)\n    closing_bracket_index.reverse()\n    cnt = 0\n    i = 0\n    l = len(closing_bracket_index)\n    for idx in opening_bracket_index:\n        if i < l and idx < closing_bracket_index[i]:\n            cnt += 1\n            i += 1\n    return cnt >= 2\n\n    \n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 9.139568634996976
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    # Count the number of opening and closing brackets\n    open_brackets = 0\n    close_brackets = 0\n    for char in string:\n        if char == '[':\n            open_brackets += 1\n        elif char == ']':\n            close_brackets += 1\n    # If there is at least one opening bracket and one closing bracket, then there is a valid subsequence\n    if open_brackets > 0 and close_brackets > 0:\n        return True\n    else:\n        return False",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228741,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 119,
+      "prompt_tokens": 136,
+      "total_tokens": 255,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Vw5vqQV0g3lNhMs0oOAdqGjk3MnWJ4gO",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 135,
+      "prompt_ms": 763.329,
+      "prompt_per_token_ms": 5.654288888888889,
+      "prompt_per_second": 176.85689918763734,
+      "predicted_n": 119,
+      "predicted_ms": 8373.97,
+      "predicted_per_token_ms": 70.36949579831932,
+      "predicted_per_second": 14.210702928240728
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00132:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 52, in <module>\n    check(is_nested)\n  File \"/case/main.py\", line 34, in check\n    assert candidate('[]]]]]]][[[[[]') == False\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

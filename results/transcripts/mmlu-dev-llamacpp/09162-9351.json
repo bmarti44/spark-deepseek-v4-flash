@@ -3,7 +3,8 @@
   "task_id": 9351,
   "rendered_prompt_sha256": "66945915fa093365a155b9276fa10cd524b76b9864e98592151d445752b56ad2",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "We can solve this using Gauss’s Law for gravity.  \nFor a spherically symmetric mass distribution, the gravitational force inside the Earth at radius \\( r \\) depends only on the mass enclosed within that radius:\n\n\\[\nF(r) = \\frac{G M_{\\text{enc}}(r) m}{r^2}\n\\]\n\nIf Earth has constant density \\(\\rho\\), then:\n\n\\[\nM_{\\text{enc}}(r) = \\rho \\cdot \\frac{4}{3} \\pi r^3\n\\]\n\nAnd the total mass of Earth is:\n\n\\[\nM = \\rho \\cdot \\frac{4}{3} \\pi R^3\n\\]\n\nSo:\n\n\\[\n\\frac{M_{\\text{enc}}(r)}{M} = \\frac{r^3}{R^3}\n\\]\n\nThus:\n\n\\[\nF(r) = \\frac{G M m}{R^3} r\n\\]\n\nAt the surface (\\(r = R\\)), \\(F = mg\\) with \\(g \\approx 9.8 \\, \\text{N/kg}\\).  \nSo:\n\n\\[\nF(r) = m g \\frac{r}{R}\n\\]\n\nFor \\(m = 1 \\, \\text{kg}\\):\n\n- At depth \\(d = R/4\\): \\(r",
+  "completion": "We can solve this using Gauss’s Law for gravity.  \nFor a spherically symmetric mass distribution, the gravitational force inside the Earth at radius \\( r \\) depends only on the mass enclosed within that radius:\n\n\\[\nF(r) = \\frac{G M_{\\text{enc}}(r) m}{r^2}\n\\]\n\nIf Earth has constant density \\(\\rho\\), then:\n\n\\[\nM_{\\text{enc}}(r) = \\rho \\cdot \\frac{4}{3} \\pi r^3\n\\]\n\nAnd the total mass of Earth is:\n\n\\[\nM = \\rho \\cdot \\frac{4}{3} \\pi R^3\n\\]\n\nSo:\n\n\\[\n\\frac{M_{\\text{enc}}(r)}{M} = \\frac{r^3}{R^3}\n\\]\n\nThus:\n\n\\[\nF(r) = \\frac{G M m}{R^3} r\n\\]\n\nAt the surface (\\(r = R\\)), \\(F = mg\\) with \\(g \\approx 9.8 \\, \\text{N/kg}\\).  \nSo:\n\n\\[\nF(r) = m g \\frac{r}{R}\n\\]\n\nFor \\(m = 1 \\, \\text{kg}\\):\n\n- At depth \\(d = R/4\\): \\(r = R - R/4 = 3R/4\\)  \n  Force = \\(9.8 \\times \\frac{3}{4} = 7.35 \\, \\text{N}\\)\n\n- At depth \\(d = R/2\\): \\(r = R/2\\)  \n  Force = \\(9.8 \\times \\frac{1}{2} = 4.9 \\, \\text{N}\\)\n\nThese match option **D**.\n\nAnswer: D",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 20.230988646000696
+    "elapsed_s": 26.2262762499995
   },
   "response": {
     "choices": [
       {
-        "text": "We can solve this using Gauss’s Law for gravity.  \nFor a spherically symmetric mass distribution, the gravitational force inside the Earth at radius \\( r \\) depends only on the mass enclosed within that radius:\n\n\\[\nF(r) = \\frac{G M_{\\text{enc}}(r) m}{r^2}\n\\]\n\nIf Earth has constant density \\(\\rho\\), then:\n\n\\[\nM_{\\text{enc}}(r) = \\rho \\cdot \\frac{4}{3} \\pi r^3\n\\]\n\nAnd the total mass of Earth is:\n\n\\[\nM = \\rho \\cdot \\frac{4}{3} \\pi R^3\n\\]\n\nSo:\n\n\\[\n\\frac{M_{\\text{enc}}(r)}{M} = \\frac{r^3}{R^3}\n\\]\n\nThus:\n\n\\[\nF(r) = \\frac{G M m}{R^3} r\n\\]\n\nAt the surface (\\(r = R\\)), \\(F = mg\\) with \\(g \\approx 9.8 \\, \\text{N/kg}\\).  \nSo:\n\n\\[\nF(r) = m g \\frac{r}{R}\n\\]\n\nFor \\(m = 1 \\, \\text{kg}\\):\n\n- At depth \\(d = R/4\\): \\(r",
+        "text": "We can solve this using Gauss’s Law for gravity.  \nFor a spherically symmetric mass distribution, the gravitational force inside the Earth at radius \\( r \\) depends only on the mass enclosed within that radius:\n\n\\[\nF(r) = \\frac{G M_{\\text{enc}}(r) m}{r^2}\n\\]\n\nIf Earth has constant density \\(\\rho\\), then:\n\n\\[\nM_{\\text{enc}}(r) = \\rho \\cdot \\frac{4}{3} \\pi r^3\n\\]\n\nAnd the total mass of Earth is:\n\n\\[\nM = \\rho \\cdot \\frac{4}{3} \\pi R^3\n\\]\n\nSo:\n\n\\[\n\\frac{M_{\\text{enc}}(r)}{M} = \\frac{r^3}{R^3}\n\\]\n\nThus:\n\n\\[\nF(r) = \\frac{G M m}{R^3} r\n\\]\n\nAt the surface (\\(r = R\\)), \\(F = mg\\) with \\(g \\approx 9.8 \\, \\text{N/kg}\\).  \nSo:\n\n\\[\nF(r) = m g \\frac{r}{R}\n\\]\n\nFor \\(m = 1 \\, \\text{kg}\\):\n\n- At depth \\(d = R/4\\): \\(r = R - R/4 = 3R/4\\)  \n  Force = \\(9.8 \\times \\frac{3}{4} = 7.35 \\, \\text{N}\\)\n\n- At depth \\(d = R/2\\): \\(r = R/2\\)  \n  Force = \\(9.8 \\times \\frac{1}{2} = 4.9 \\, \\text{N}\\)\n\nThese match option **D**.\n\nAnswer: D",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784220804,
+    "created": 1784231796,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 351,
       "prompt_tokens": 253,
-      "total_tokens": 509,
+      "total_tokens": 604,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-67Ip2y5RAfXMIpdrxM8wsGSNAe4BcVP7",
+    "id": "chatcmpl-qah9FrY2jjheNEgJQrRGVTdy1SPEbg8F",
     "timings": {
       "cache_n": 1,
       "prompt_n": 252,
-      "prompt_ms": 1270.889,
-      "prompt_per_token_ms": 5.043210317460317,
-      "prompt_per_second": 198.28639637293267,
-      "predicted_n": 256,
-      "predicted_ms": 18957.495,
-      "predicted_per_token_ms": 74.05271484375,
-      "predicted_per_second": 13.50389384251453
+      "prompt_ms": 1195.886,
+      "prompt_per_token_ms": 4.745579365079365,
+      "prompt_per_second": 210.7224267196037,
+      "predicted_n": 351,
+      "predicted_ms": 25028.068,
+      "predicted_per_token_ms": 71.30503703703704,
+      "predicted_per_second": 14.02425468877582
     }
   }
 }

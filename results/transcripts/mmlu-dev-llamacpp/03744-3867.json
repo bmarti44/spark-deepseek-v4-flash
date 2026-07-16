@@ -3,7 +3,8 @@
   "task_id": 3867,
   "rendered_prompt_sha256": "0fe649b06778c2435e7c3f00016317e76a69368ba9e0ec1e4cafe06150ef0ff3",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "To determine the number of faradays required, we start with the reaction:\n\n\\[\n2H_2O \\rightarrow 2H_2 + O_2\n\\]\n\nFor every 2 moles of water decomposed, 2 moles of \\(H_2\\) are produced.  \nThe half-reaction for hydrogen is:\n\n\\[\n2H^+ + 2e^- \\rightarrow H_2\n\\]\n\nSo for each mole of \\(H_2\\), 2 moles of electrons are needed.  \nFor 2 moles of \\(H_2\\), that’s \\(2 \\times 2 = 4\\) moles of electrons.\n\nThus, for 2 moles of water (36 g), 4 faradays are required.\n\nNow, we have 454 g of water.  \nMolar mass of water = 18 g/mol.  \nMoles of water = \\( \\frac{454}{18} \\approx 25.222\\) moles.\n\nSince 2 moles of water require 4 faradays,  \n1 mole of water requires 2 faradays.\n\nSo for 25.222 moles:\n\n\\[\n25.222 \\times 2 \\approx 50.44 \\text{ faradays}\n\\]\n\nThat rounds to **50.4 faradays**.\n\n",
+  "completion": "To determine the number of faradays required, we start with the reaction:\n\n\\[\n2H_2O \\rightarrow 2H_2 + O_2\n\\]\n\nFor every 2 moles of water decomposed, 2 moles of \\(H_2\\) are produced.  \nThe half-reaction for hydrogen is:\n\n\\[\n2H^+ + 2e^- \\rightarrow H_2\n\\]\n\nSo for each mole of \\(H_2\\), 2 moles of electrons are needed.  \nFor 2 moles of \\(H_2\\), that’s \\(2 \\times 2 = 4\\) moles of electrons.\n\nThus, for 2 moles of water (36 g), 4 faradays are required.\n\nNow, we have 454 g of water.  \nMolar mass of water = 18 g/mol.  \nMoles of water = \\( \\frac{454}{18} \\approx 25.222\\) moles.\n\nSince 2 moles of water require 4 faradays,  \n1 mole of water requires 2 faradays.\n\nSo for 25.222 moles:\n\n\\[\n25.222 \\times 2 \\approx 50.44 \\text{ faradays}\n\\]\n\nThat rounds to **50.4 faradays**.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 18.934017744999437
+    "elapsed_s": 19.247212742000556
   },
   "response": {
     "choices": [
       {
-        "text": "To determine the number of faradays required, we start with the reaction:\n\n\\[\n2H_2O \\rightarrow 2H_2 + O_2\n\\]\n\nFor every 2 moles of water decomposed, 2 moles of \\(H_2\\) are produced.  \nThe half-reaction for hydrogen is:\n\n\\[\n2H^+ + 2e^- \\rightarrow H_2\n\\]\n\nSo for each mole of \\(H_2\\), 2 moles of electrons are needed.  \nFor 2 moles of \\(H_2\\), that’s \\(2 \\times 2 = 4\\) moles of electrons.\n\nThus, for 2 moles of water (36 g), 4 faradays are required.\n\nNow, we have 454 g of water.  \nMolar mass of water = 18 g/mol.  \nMoles of water = \\( \\frac{454}{18} \\approx 25.222\\) moles.\n\nSince 2 moles of water require 4 faradays,  \n1 mole of water requires 2 faradays.\n\nSo for 25.222 moles:\n\n\\[\n25.222 \\times 2 \\approx 50.44 \\text{ faradays}\n\\]\n\nThat rounds to **50.4 faradays**.\n\n",
+        "text": "To determine the number of faradays required, we start with the reaction:\n\n\\[\n2H_2O \\rightarrow 2H_2 + O_2\n\\]\n\nFor every 2 moles of water decomposed, 2 moles of \\(H_2\\) are produced.  \nThe half-reaction for hydrogen is:\n\n\\[\n2H^+ + 2e^- \\rightarrow H_2\n\\]\n\nSo for each mole of \\(H_2\\), 2 moles of electrons are needed.  \nFor 2 moles of \\(H_2\\), that’s \\(2 \\times 2 = 4\\) moles of electrons.\n\nThus, for 2 moles of water (36 g), 4 faradays are required.\n\nNow, we have 454 g of water.  \nMolar mass of water = 18 g/mol.  \nMoles of water = \\( \\frac{454}{18} \\approx 25.222\\) moles.\n\nSince 2 moles of water require 4 faradays,  \n1 mole of water requires 2 faradays.\n\nSo for 25.222 moles:\n\n\\[\n25.222 \\times 2 \\approx 50.44 \\text{ faradays}\n\\]\n\nThat rounds to **50.4 faradays**.\n\nAnswer: G",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219166,
+    "created": 1784229574,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 260,
       "prompt_tokens": 151,
-      "total_tokens": 407,
+      "total_tokens": 411,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-ifZE9LRSYFUSLDPvVkvwZQ2VPrG728By",
+    "id": "chatcmpl-HyvnGzspe67N8fpBYJvlwmzJxMUusNDC",
     "timings": {
       "cache_n": 1,
       "prompt_n": 150,
-      "prompt_ms": 801.908,
-      "prompt_per_token_ms": 5.346053333333334,
-      "prompt_per_second": 187.05387650453667,
-      "predicted_n": 256,
-      "predicted_ms": 18130.196,
-      "predicted_per_token_ms": 70.821078125,
-      "predicted_per_second": 14.120090042049187
+      "prompt_ms": 809.814,
+      "prompt_per_token_ms": 5.398759999999999,
+      "prompt_per_second": 185.2277189576866,
+      "predicted_n": 260,
+      "predicted_ms": 18435.689,
+      "predicted_per_token_ms": 70.90649615384615,
+      "predicted_per_second": 14.103080172376526
     }
   }
 }

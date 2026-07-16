@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "698986cc8a5160eeda918e6a368569c1d361906bf366a67bb0bfcc1f1b0de802",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The correct answer is **G. III and IV only**.\n\nHere’s the reasoning:\n\n- **I.** Movies made in Africa by U.S. citizens — not included in U.S. GDP because production occurs outside U.S. geographic territory.  \n- **II.** Olive oil made in Italy and sold in the U.S. — not included because it is produced abroad (imports are subtracted).  \n- **III.** Blue jeans made in the U.S. and sold in Japan — included because production happens within the U.S.  \n- **IV.** Wine made in the U.S. by Canadian citizens — included because production occurs within U.S. borders regardless of producer nationality.\n\nThus, only III and IV count.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 12.076938399000937
+    "elapsed_s": 11.528341511999315
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219536,
+    "created": 1784230112,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-IGsJoWp7Jy1q4QCL8gpU4Qqzp5ADKL3B",
+    "id": "chatcmpl-djUSPqnI0tUWg2JLR7IqxlNUU5WNbtim",
     "timings": {
       "cache_n": 1,
       "prompt_n": 174,
-      "prompt_ms": 942.943,
-      "prompt_per_token_ms": 5.4192126436781605,
-      "prompt_per_second": 184.52865125463575,
+      "prompt_ms": 906.068,
+      "prompt_per_token_ms": 5.207287356321839,
+      "prompt_per_second": 192.0385666417973,
       "predicted_n": 149,
-      "predicted_ms": 11130.715,
-      "predicted_per_token_ms": 74.70278523489932,
-      "predicted_per_second": 13.386381737381651
+      "predicted_ms": 10619.68,
+      "predicted_per_token_ms": 71.27302013422819,
+      "predicted_per_second": 14.030554592982087
     }
   }
 }

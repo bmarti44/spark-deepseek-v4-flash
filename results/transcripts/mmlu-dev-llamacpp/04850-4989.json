@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "01263af89f78e1d708304cfb8596f3e8032bbbf1629cbf24f923f12d0d5b8f8b",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The passage highlights Queen Victoria’s packed social schedule—parties, concerts, balls—and her fatigue from these obligations. It also mentions that political negotiations with the Tories are “quite at an end,” implying that her social engagements are separate from the real political work. This suggests that true political power lay elsewhere, not in the monarchy’s social calendar.\n\nAnswer: B",
+  "finish_reason": "stop",
   "expected": "B",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 7.716022041000542
+    "elapsed_s": 7.379641856998205
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220091,
+    "created": 1784230995,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-E6uSDHeimHuoirQEKNJhxPjy6nZYIcFA",
+    "id": "chatcmpl-FSd34NyGczgyOHoMsJI5iAcIpkhfMR1z",
     "timings": {
       "cache_n": 1,
       "prompt_n": 450,
-      "prompt_ms": 1837.124,
-      "prompt_per_token_ms": 4.082497777777778,
-      "prompt_per_second": 244.94808189322003,
+      "prompt_ms": 1756.488,
+      "prompt_per_token_ms": 3.903306666666667,
+      "prompt_per_second": 256.19303974749613,
       "predicted_n": 77,
-      "predicted_ms": 5873.546,
-      "predicted_per_token_ms": 76.27981818181819,
-      "predicted_per_second": 13.109627472058618
+      "predicted_ms": 5619.889,
+      "predicted_per_token_ms": 72.98557142857143,
+      "predicted_per_second": 13.701338229278194
     }
   }
 }

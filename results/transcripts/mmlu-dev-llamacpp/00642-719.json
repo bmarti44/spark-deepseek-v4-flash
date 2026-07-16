@@ -3,7 +3,8 @@
   "task_id": 719,
   "rendered_prompt_sha256": "6b3d8123161e0ab89d24f649dee05040fb5e5cec679ac4518d44dfd3016aef54",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "The declining-balance method uses a fixed percentage applied to the book value at the start of each year.  \nHere, the cost is $4,000, the rate is 40%, and the salvage value is $800.\n\n**Year 1:**  \nDepreciation = 40% of $4,000 = $1,600  \nBook value after year 1 = $4,000 − $1,600 = $2,400\n\n**Year 2:**  \nDepreciation = 40% of $2,400 = $960  \nBook value = $2,400 − $960 = $1,440\n\n**Year 3:**  \nDepreciation = 40% of $1,440 = $576  \nBook value = $1,440 − $576 = $864\n\n**Year 4:**  \nDepreciation = 40% of $864 = $345.6  \nBook value = $864 − $345.6 = $518.4\n\n**Year 5:**  \nDepreciation = 40% of $518.4 = $207.36  \nBook value = $518.4 − $207.36 = $311.04\n\nBut note: The salvage value is $800, and the declining-balance",
+  "completion": "The declining-balance method uses a fixed percentage applied to the book value at the start of each year.  \nHere, the cost is $4,000, the rate is 40%, and the salvage value is $800.\n\n**Year 1:**  \nDepreciation = 40% of $4,000 = $1,600  \nBook value after year 1 = $4,000 − $1,600 = $2,400\n\n**Year 2:**  \nDepreciation = 40% of $2,400 = $960  \nBook value = $2,400 − $960 = $1,440\n\n**Year 3:**  \nDepreciation = 40% of $1,440 = $576  \nBook value = $1,440 − $576 = $864\n\n**Year 4:**  \nDepreciation = 40% of $864 = $345.6  \nBook value = $864 − $345.6 = $518.4\n\n**Year 5:**  \nDepreciation = 40% of $518.4 = $207.36  \nBook value = $518.4 − $207.36 = $311.04\n\nBut note: The salvage value is $800, and the declining-balance method does not automatically stop at salvage unless adjusted. However, the given options show that in some cases they stop at salvage.  \nLooking at the options, the sequence **$1,600, $960, $576, $345.6, $207.36** matches option **A**.\n\nAnswer: A",
+  "finish_reason": "stop",
   "expected": "D",
   "scored_correct": false,
   "reason": "incorrect: parsed='A' expected='D'",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.689423294001244
+    "elapsed_s": 25.3853208440014
   },
   "response": {
     "choices": [
       {
-        "text": "The declining-balance method uses a fixed percentage applied to the book value at the start of each year.  \nHere, the cost is $4,000, the rate is 40%, and the salvage value is $800.\n\n**Year 1:**  \nDepreciation = 40% of $4,000 = $1,600  \nBook value after year 1 = $4,000 − $1,600 = $2,400\n\n**Year 2:**  \nDepreciation = 40% of $2,400 = $960  \nBook value = $2,400 − $960 = $1,440\n\n**Year 3:**  \nDepreciation = 40% of $1,440 = $576  \nBook value = $1,440 − $576 = $864\n\n**Year 4:**  \nDepreciation = 40% of $864 = $345.6  \nBook value = $864 − $345.6 = $518.4\n\n**Year 5:**  \nDepreciation = 40% of $518.4 = $207.36  \nBook value = $518.4 − $207.36 = $311.04\n\nBut note: The salvage value is $800, and the declining-balance",
+        "text": "The declining-balance method uses a fixed percentage applied to the book value at the start of each year.  \nHere, the cost is $4,000, the rate is 40%, and the salvage value is $800.\n\n**Year 1:**  \nDepreciation = 40% of $4,000 = $1,600  \nBook value after year 1 = $4,000 − $1,600 = $2,400\n\n**Year 2:**  \nDepreciation = 40% of $2,400 = $960  \nBook value = $2,400 − $960 = $1,440\n\n**Year 3:**  \nDepreciation = 40% of $1,440 = $576  \nBook value = $1,440 − $576 = $864\n\n**Year 4:**  \nDepreciation = 40% of $864 = $345.6  \nBook value = $864 − $345.6 = $518.4\n\n**Year 5:**  \nDepreciation = 40% of $518.4 = $207.36  \nBook value = $518.4 − $207.36 = $311.04\n\nBut note: The salvage value is $800, and the declining-balance method does not automatically stop at salvage unless adjusted. However, the given options show that in some cases they stop at salvage.  \nLooking at the options, the sequence **$1,600, $960, $576, $345.6, $207.36** matches option **A**.\n\nAnswer: A",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784218994,
+    "created": 1784229333,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 320,
       "prompt_tokens": 319,
-      "total_tokens": 575,
+      "total_tokens": 639,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-H245NRqLoHaL1zDOPowjvBDndCtm8lPo",
+    "id": "chatcmpl-CU5a6cixjDSyMGpjCsgM80GpoEPlC6d8",
     "timings": {
       "cache_n": 1,
       "prompt_n": 318,
-      "prompt_ms": 1327.883,
-      "prompt_per_token_ms": 4.175732704402516,
-      "prompt_per_second": 239.47892999609152,
-      "predicted_n": 256,
-      "predicted_ms": 18347.767,
-      "predicted_per_token_ms": 71.67096484375,
-      "predicted_per_second": 13.952651567899244
+      "prompt_ms": 1392.17,
+      "prompt_per_token_ms": 4.377893081761006,
+      "prompt_per_second": 228.4203796950085,
+      "predicted_n": 320,
+      "predicted_ms": 23990.525,
+      "predicted_per_token_ms": 74.97039062500001,
+      "predicted_per_second": 13.338599301182445
     }
   }
 }

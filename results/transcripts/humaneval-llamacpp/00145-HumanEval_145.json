@@ -1,0 +1,101 @@
+{
+  "index": 145,
+  "task_id": "HumanEval/145",
+  "rendered_prompt_sha256": "7a5c9e6cb4cbac4500da147421870d0aaac0c5e8f98d646aca7a6349fa239c3e",
+  "rendering": "raw",
+  "completion": "    def sum_of_digits(num):\n        return sum(int(d) for d in str(abs(num)))\n    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))",
+  "finish_reason": "stop",
+  "expected": "    def digits_sum(n):\n        neg = 1\n        if n < 0: n, neg = -1 * n, -1 \n        n = [int(i) for i in str(n)]\n        n[0] = n[0] * neg\n        return sum(n)\n    return sorted(nums, key=digits_sum)\n",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 3.8667432370020833
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    def sum_of_digits(num):\n        return sum(int(d) for d in str(abs(num)))\n    return sorted(nums, key=lambda x: (sum_of_digits(x), nums.index(x)))",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228885,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 42,
+      "prompt_tokens": 110,
+      "total_tokens": 152,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Ty0LeK4pp7JdaS6P7KKXnB2gv6lNROIE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 109,
+      "prompt_ms": 778.38,
+      "prompt_per_token_ms": 7.141100917431193,
+      "prompt_per_second": 140.0344304838254,
+      "predicted_n": 42,
+      "predicted_ms": 3085.954,
+      "predicted_per_token_ms": 73.47509523809524,
+      "predicted_per_second": 13.61005381156038
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00145:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 33, in <module>\n    check(order_by_points)\n  File \"/case/main.py\", line 21, in check\n    assert candidate([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+}

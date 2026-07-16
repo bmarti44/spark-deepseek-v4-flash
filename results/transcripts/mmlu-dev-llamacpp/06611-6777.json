@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "ff54bbe3ce8686ea268fc9ea4817b2a494b48608ead8ae066dabfc62a4671491",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The IIIrd cranial nerve (oculomotor nerve) controls pupillary constriction, among other functions. In a IIIrd nerve palsy, the parasympathetic fibers are affected, leading to loss of pupillary constriction. This results in a dilated, fixed pupil on the affected side, often described as \"unilateral fixed dilated pupil.\"  \n\nWhen this occurs due to a compressive lesion (like an aneurysm or uncal herniation), it is a neurosurgical emergency.  \n\nThe correct option is:  \n**Answer: E**",
+  "finish_reason": "stop",
   "expected": "E",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 8.885662050000974
+    "elapsed_s": 8.426515409002604
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220044,
+    "created": 1784230950,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-WQdJkWyYp4It3kULkjEab80br99snxcS",
+    "id": "chatcmpl-DuCZ4uVhpPDKJ7fsPCPR7rLwEaQiV1Lx",
     "timings": {
       "cache_n": 1,
       "prompt_n": 120,
-      "prompt_ms": 878.132,
-      "prompt_per_token_ms": 7.3177666666666665,
-      "prompt_per_second": 136.65371493124042,
+      "prompt_ms": 830.385,
+      "prompt_per_token_ms": 6.919875,
+      "prompt_per_second": 144.51128091186618,
       "predicted_n": 107,
-      "predicted_ms": 7993.853,
-      "predicted_per_token_ms": 74.70890654205607,
-      "predicted_per_second": 13.385284918299098
+      "predicted_ms": 7593.295,
+      "predicted_per_token_ms": 70.96537383177571,
+      "predicted_per_second": 14.091379302397707
     }
   }
 }

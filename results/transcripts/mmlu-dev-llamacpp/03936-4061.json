@@ -3,7 +3,8 @@
   "task_id": 4061,
   "rendered_prompt_sha256": "40e41052ce3d7e12b413fe749b418f31a49acfd58b8d11c131e642ea871806de",
   "rendering": "official-encoder-chat-nonthinking",
-  "completion": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH",
+  "completion": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH}^-]}{K_{a1}} = \\frac{K_W}{K_{a1}}\n\\]\n\nThus the correct expression is:\n\n\\[\nK_h(\\text{HCO}_3^-) = \\frac{K_W}{K_{a1}(\\text{H}_2\\text{CO}_3)}\n\\]\n\nThat matches option **H**.\n\nAnswer: H",
+  "finish_reason": "stop",
   "expected": "H",
   "scored_correct": true,
   "reason": "correct",
@@ -14,45 +15,45 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 19.77919026499876
+    "elapsed_s": 24.81181364800068
   },
   "response": {
     "choices": [
       {
-        "text": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH",
+        "text": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH}^-]}{K_{a1}} = \\frac{K_W}{K_{a1}}\n\\]\n\nThus the correct expression is:\n\n\\[\nK_h(\\text{HCO}_3^-) = \\frac{K_W}{K_{a1}(\\text{H}_2\\text{CO}_3)}\n\\]\n\nThat matches option **H**.\n\nAnswer: H",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "length"
+        "finish_reason": "stop"
       }
     ],
-    "created": 1784219252,
+    "created": 1784229723,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 256,
+      "completion_tokens": 327,
       "prompt_tokens": 381,
-      "total_tokens": 637,
+      "total_tokens": 708,
       "prompt_tokens_details": {
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-7zGZ3tb0nYOPt2hPuXGLVhtdruwvotok",
+    "id": "chatcmpl-6Kp6M6MrBdyupofqQqVPvt4SpsQvyeXo",
     "timings": {
       "cache_n": 1,
       "prompt_n": 380,
-      "prompt_ms": 1447.956,
-      "prompt_per_token_ms": 3.8104105263157892,
-      "prompt_per_second": 262.4389138896486,
-      "predicted_n": 256,
-      "predicted_ms": 18327.938,
-      "predicted_per_token_ms": 71.5935078125,
-      "predicted_per_second": 13.967746944582638
+      "prompt_ms": 1444.525,
+      "prompt_per_token_ms": 3.801381578947369,
+      "prompt_per_second": 263.062252297468,
+      "predicted_n": 327,
+      "predicted_ms": 23364.592,
+      "predicted_per_token_ms": 71.45135168195719,
+      "predicted_per_second": 13.995536493853605
     }
   }
 }

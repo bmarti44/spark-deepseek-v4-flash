@@ -1,0 +1,101 @@
+{
+  "index": 42,
+  "task_id": "HumanEval/42",
+  "rendered_prompt_sha256": "8b6d8ac13f22a485fb80312ee1b077ba1cc2653fbff4c36fb7e3d36ca1b8d609",
+  "rendering": "raw",
+  "completion": "    return [x + 1 for x in l]",
+  "finish_reason": "stop",
+  "expected": "    return [(e + 1) for e in l]\n",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 512,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false,
+      "stop": [
+        "\ndef ",
+        "\nclass ",
+        "\nif __name__",
+        "\nprint("
+      ]
+    },
+    "elapsed_s": 1.7057067079986155
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "    return [x + 1 for x in l]",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784228078,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 107,
+      "total_tokens": 120,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rUHyHjdQL5wxf3n0wolVHLZnSPu3CWy1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 106,
+      "prompt_ms": 728.105,
+      "prompt_per_token_ms": 6.868915094339623,
+      "prompt_per_second": 145.583397998915,
+      "predicted_n": 13,
+      "predicted_ms": 975.583,
+      "predicted_per_token_ms": 75.04484615384615,
+      "predicted_per_second": 13.325365448147414
+    }
+  },
+  "execution": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--memory",
+      "512m",
+      "--memory-swap",
+      "512m",
+      "--pids-limit",
+      "128",
+      "--cpus",
+      "1",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-u",
+      "65534:65534",
+      "-v",
+      "/tmp/dsv4-humaneval-4zjsyynq/case-00042:/case:ro",
+      "python:3.12-slim",
+      "timeout",
+      "10",
+      "python",
+      "/case/main.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

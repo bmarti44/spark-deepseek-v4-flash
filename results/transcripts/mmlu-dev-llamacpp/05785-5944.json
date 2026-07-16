@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "db3df6a6fae38b6fad92069f2a85ca21f02b9722bcebe150baad5f2cc3578a2e",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "The growth in income inequality in the 1980s is often linked to structural economic changes, including a surge in low-paying service sector jobs and a decline in higher-paying manufacturing jobs. Among the options, the most directly relevant cause is:\n\n**G. there was a surge in the number of low-paying jobs**\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "F",
   "scored_correct": false,
   "reason": "incorrect: parsed='G' expected='F'",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 5.887530591000541
+    "elapsed_s": 5.626233757000591
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784220688,
+    "created": 1784231675,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-lgpnC94cFy9aPoBOh8V9ltUZulrVFrSz",
+    "id": "chatcmpl-68N1aavKHzV3QX5bDfDqYT2PkFd48yKv",
     "timings": {
       "cache_n": 1,
       "prompt_n": 166,
-      "prompt_ms": 952.669,
-      "prompt_per_token_ms": 5.738969879518073,
-      "prompt_per_second": 174.24729890444635,
+      "prompt_ms": 907.113,
+      "prompt_per_token_ms": 5.464536144578314,
+      "prompt_per_second": 182.99814907293796,
       "predicted_n": 67,
-      "predicted_ms": 4931.805,
-      "predicted_per_token_ms": 73.60902985074627,
-      "predicted_per_second": 13.585289767133938
+      "predicted_ms": 4716.731,
+      "predicted_per_token_ms": 70.39897014925373,
+      "predicted_per_second": 14.204753249655324
     }
   }
 }

@@ -4,6 +4,7 @@
   "rendered_prompt_sha256": "bb39cd1a0d0a859eacbe8cdcf9bbdf26ab9794ea86c8176c96eaea86c886c8ab",
   "rendering": "official-encoder-chat-nonthinking",
   "completion": "Sulfurous acid (H₂SO₃) is a diprotic weak acid. It dissociates in two steps:\n\n1. H₂SO₃ ⇌ H⁺ + HSO₃⁻ (first dissociation, Ka₁)  \n2. HSO₃⁻ ⇌ H⁺ + SO₃²⁻ (second dissociation, Ka₂)\n\nFor weak diprotic acids, Ka₁ is much larger than Ka₂, so the first dissociation is more extensive than the second.  \nThus, in solution:  \n- H₂SO₃ is the most abundant species (since it only partially dissociates).  \n- HSO₃⁻ is less abundant than H₂SO₃ but more abundant than SO₃²⁻.  \n- SO₃²⁻ is the least abundant because the second dissociation is very weak.\n\nSo the correct order is:  \n**[H₂SO₃] > [HSO₃⁻] > [SO₃²⁻]**  \n\nThat corresponds to option **G**.\n\nAnswer: G",
+  "finish_reason": "stop",
   "expected": "G",
   "scored_correct": true,
   "reason": "correct",
@@ -14,12 +15,12 @@
         "enable_thinking": false
       },
       "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
-      "max_tokens": 256,
+      "max_tokens": 768,
       "temperature": 0,
       "seed": 42,
       "stream": false
     },
-    "elapsed_s": 16.525928323999324
+    "elapsed_s": 16.498680700999103
   },
   "response": {
     "choices": [
@@ -30,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784219045,
+    "created": 1784229421,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -42,17 +43,17 @@
         "cached_tokens": 1
       }
     },
-    "id": "chatcmpl-6O9AAugvJwU4oKsGkkfxnDbyhLMhizYB",
+    "id": "chatcmpl-Fru3Dxpv7KlcPDtUlB9uNwc5CKLq7uFi",
     "timings": {
       "cache_n": 1,
       "prompt_n": 264,
-      "prompt_ms": 1068.663,
-      "prompt_per_token_ms": 4.047965909090909,
-      "prompt_per_second": 247.03765359145024,
+      "prompt_ms": 1061.065,
+      "prompt_per_token_ms": 4.019185606060606,
+      "prompt_per_second": 248.80662353390224,
       "predicted_n": 217,
-      "predicted_ms": 15453.6,
-      "predicted_per_token_ms": 71.2147465437788,
-      "predicted_per_second": 14.04203551276078
+      "predicted_ms": 15435.062,
+      "predicted_per_token_ms": 71.12931797235024,
+      "predicted_per_second": 14.058900443678166
     }
   }
 }
