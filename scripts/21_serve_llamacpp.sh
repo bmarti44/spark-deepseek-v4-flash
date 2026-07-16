@@ -309,7 +309,7 @@ do_start() {
     write_state || { kill -TERM -- "-$flock_pid" 2>/dev/null || true; kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'failed to write state file'; }
 
     local deadline
-    deadline=$((SECONDS + 300))
+    deadline=$((SECONDS + 600))
     while (( SECONDS < deadline )); do
         if ! pid_alive "$server_pid"; then
             terminate_from_state || true
@@ -325,7 +325,7 @@ do_start() {
         fi
     done
     terminate_from_state || true
-    die 'llama.cpp readiness timed out after 300 seconds'
+    die 'llama.cpp readiness timed out after 600 seconds'
 }
 
 action=start
