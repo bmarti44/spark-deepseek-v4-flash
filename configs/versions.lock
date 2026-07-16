@@ -8,6 +8,20 @@
     "cuda": "13.0",
     "dgx_os_updated": "2026-07-16"
   },
-  "pins": {},
+  "pins": {
+    "llama.cpp": {
+      "repo": "https://github.com/ggml-org/llama.cpp.git",
+      "commit": "32e789fdfd598e9a1872da55ac941e4d94f030bd",
+      "chosen": "2026-07-16",
+      "rationale": "docs/llamacpp-pin-choice.md"
+    },
+    "ds4_engine": {
+      "repo": "https://github.com/Entrpi/ds4.git",
+      "commit": "baa889025b16a7060f5f854226cb0d14e260eb52",
+      "chosen": "2026-07-16",
+      "rationale": "docs/ds4-security-review.md"
+    },
+    "weights": "configs/pins/*.json"
+  },
   "artifacts": {}
 }
