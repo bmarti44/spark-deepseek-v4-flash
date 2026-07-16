@@ -1,0 +1,10 @@
+{
+  "kind": "envelope-exception",
+  "stack": "ds4",
+  "reason": "The ds4 engine (DSpark profile, commit baa88902) fails warm-server requests above ~28K prompt tokens with HTTP 500 (lazy session-graph allocation; DS4_SESSION_LAZY_GRAPH=0 was tested and rejected because eager allocation breached the memory watchdog). The speed suite records this as 5/5 invalid reps in the 28672-token cell, so suite_valid=false. Protocol v2 pre-registered the 4K cell as the decision metric and the max-context cell as an engine-envelope check; this exception accepts the documented envelope: candidate A serves prompts up to ~28K tokens only. If A wins, the endpoint documentation MUST state this limit, and B remains the fallback for full-context workloads.",
+  "accepted_cells": [0, 4096, 16384],
+  "failed_cell_tokens": 28672,
+  "evidence": "results/speed-ds4-dspark.json",
+  "declared_at": "2026-07-16T20:45:00Z",
+  "declared_before_decision": true
+}

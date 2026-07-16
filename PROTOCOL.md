@@ -14,9 +14,29 @@ number used by the decision must come from a v2 run.
 | MMLU-Pro scoring: last-letter fallback + 256 max_tokens → anchored `Answer: <letter>` required, `finish_reason` length without marker = invalid, max_tokens 768 | Adversarial review proved the fallback credits truncated reasoning ("I don't know" → I; 8 confirmed false credits in B's dev run) | All v1 MMLU results are VOID for both candidates. MMLU dev+holdout regenerate under v2 for both. The regeneration is a protocol correction declared before any of A's accuracy numbers existed; configs are unchanged; other suites' v1 results replayed clean and stand. |
 | holdout ledger: appended at completion, caller-supplied config hash → `started` entry before first request, config digest derived from binary/weights/flags hashes | Adversarial review: interruption discloses holdout without a ledger record | Applies from v2 onward. |
 
+## v2 → v3 changes and why (scored review of 2026-07-16, overall 38/100)
+
+A second independent review (Codex sol high; tasks/review-2026-07-16-sol-high.md)
+found the *integrity layer* gameable even though its evidence replay reproduced
+every committed aggregate. v3 hardens verification WITHOUT changing any scorer,
+prompt, rendering, dataset, split, or generation parameter — therefore **all v2
+accuracy/speed/golden/parity results remain valid** and are not rerun.
+
+| Change | Kind | Why it does not void v2 results |
+|---|---|---|
+| `34_decision.py` recomputes speed medians and soak/audit summaries from raw arrays; requires `suite_valid`; requires an accuracy-audit artifact per candidate; sole-candidate floor (composite ≥60, 4K decode ≥5 tok/s) | decision-layer, added BEFORE any decision was generated | Inputs unchanged; only how much the decision trusts them changed. |
+| speed `suite_valid=false` makes a candidate ineligible unless `results/envelope-exception-<stack>.json` documents the accepted envelope | decision-layer | v2 pre-registered "4K cell is the decision metric; 28K cell = engine-envelope check". A's known warm->28K failure gets an exception file stating exactly that pre-registered scope; the exception is surfaced verbatim in DECISION.md rather than silently ignored (the review showed silence was the risk). |
+| `35_soak.py` thresholds frozen as constants; caching-resistant prompt rotation; sampler/window/duration honesty gates | new tool, no soak evidence existed yet | First soak evidence is produced under v3. |
+| `36_audit_accuracy.py` full-recount (every transcript), count/uniqueness checks, machine-readable pass artifact | verifier-side | Recount of unchanged transcripts; scoring identical. |
+| watchdog starts before engine; memwatch fails closed; systemd preflight blocking; guard timer; auth-helper rate/concurrency limits; installer end-to-end verification | ops/security | Not part of any measurement. |
+| threat model documented (docs/threat-model.md): operator-adversary is OUT of scope; public GitHub history is the witness | documentation | Scores the controls against the real setting. |
+
 ## Standing rule
 
 Any future gate/harness change after a candidate has produced results under the
 current version requires: a new version entry here, voiding of affected results
 for ALL candidates, and rerun under the new version. "Frozen" means frozen per
-version, enforced by verification/MANIFEST.sha256.
+version, enforced by verification/MANIFEST.sha256. Changes that only add
+integrity checks on unchanged raw evidence (recomputation, recounting, artifact
+requirements) are decision-layer hardening and do not void measurement results;
+they must still be recorded here before the decision runs.
