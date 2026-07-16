@@ -1,0 +1,12 @@
+{
+  "captured_from": "HF API by orchestrator, 2026-07-16",
+  "purpose": "Official prompt-encoding package + tokenizer for the token-parity gate and accuracy harness (plan: prompts rendered by the official encoder, token IDs verified against each backend).",
+  "repo": "deepseek-ai/DeepSeek-V4-Flash",
+  "revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
+  "files": [
+    {"path": "encoding/encoding_dsv4.py", "bytes": 27908, "git_oid_sha1": "cdb68f233a71b142732372b901fa140d7d2148a3"},
+    {"path": "encoding/test_encoding_dsv4.py", "bytes": 3741, "git_oid_sha1": "1c896e797e3f0cc6a95f6dd51079df1e6ba1887e"},
+    {"path": "encoding/README.md", "bytes": 8118, "git_oid_sha1": "f9bf68d953bb81a1532b52c3663d390ac1409bc8"}
+  ],
+  "note": "tokenizer file entries to be added by the harness fetch step at the same pinned revision; non-LFS files carry git blob SHA1 oids rather than sha256 (verify via git hash-object)."
+}
