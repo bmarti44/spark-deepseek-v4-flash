@@ -1,0 +1,58 @@
+{
+  "index": 1348,
+  "task_id": 1438,
+  "rendered_prompt_sha256": "3a9bd4aef5daf96fd7b72a85938be3643337b348dc8384eb349a2a4b3e6de720",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The key issue here is whether the second friend can succeed in a tort claim, most likely for assault (since there was no physical harm, but there was an attempt to cause apprehension of harmful contact).  \n\nAssault requires that the victim be aware of the threat and placed in apprehension of imminent harm. Here, the second friend was unaware the gun was loaded, so he did not experience fear or apprehension.  \n\nThus, the correct answer is:  \nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.853323745001035
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The key issue here is whether the second friend can succeed in a tort claim, most likely for assault (since there was no physical harm, but there was an attempt to cause apprehension of harmful contact).  \n\nAssault requires that the victim be aware of the threat and placed in apprehension of imminent harm. Here, the second friend was unaware the gun was loaded, so he did not experience fear or apprehension.  \n\nThus, the correct answer is:  \nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220157,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 94,
+      "prompt_tokens": 423,
+      "total_tokens": 517,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-1VU7efb8JwEnmJOeU2KW3zgm2x9757ng",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 422,
+      "prompt_ms": 1773.837,
+      "prompt_per_token_ms": 4.203405213270142,
+      "prompt_per_second": 237.90235517694128,
+      "predicted_n": 94,
+      "predicted_ms": 7066.602,
+      "predicted_per_token_ms": 75.1766170212766,
+      "predicted_per_second": 13.30200851837984
+    }
+  }
+}

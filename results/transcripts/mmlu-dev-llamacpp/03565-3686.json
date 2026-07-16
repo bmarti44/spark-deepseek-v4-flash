@@ -1,0 +1,58 @@
+{
+  "index": 3565,
+  "task_id": 3686,
+  "rendered_prompt_sha256": "0bbd4d62d5dc5ba70558777f71fae80785b4206041f836ac3f059e801e694895",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "First, let's write the balanced decomposition reaction:\n\n\\[\n2 \\text{NaNO}_3 \\rightarrow 2 \\text{NaNO}_2 + \\text{O}_2\n\\]\n\nFrom the equation:  \n- 2 moles of NaNO₃ produce 1 mole of O₂.\n\nMolar masses:  \n- NaNO₃: Na (23) + N (14) + 3×16 = 23 + 14 + 48 = 85 g/mol  \n- O₂: 2×16 = 32 g/mol\n\nMoles of O₂ in 1.50 g:  \n\\[\n\\frac{1.50}{32} = 0.046875 \\text{ mol}\n\\]\n\nMoles of NaNO₃ needed (2:1 ratio):  \n\\[\n2 \\times 0.046875 = 0.09375 \\text{ mol}\n\\]\n\nMass of NaNO₃:  \n\\[\n0.09375 \\times 85 = 7.96875 \\text{ g} \\approx 7.97 \\text{ g}\n\\]\n\nAnswer: J",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.232162303998848
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "First, let's write the balanced decomposition reaction:\n\n\\[\n2 \\text{NaNO}_3 \\rightarrow 2 \\text{NaNO}_2 + \\text{O}_2\n\\]\n\nFrom the equation:  \n- 2 moles of NaNO₃ produce 1 mole of O₂.\n\nMolar masses:  \n- NaNO₃: Na (23) + N (14) + 3×16 = 23 + 14 + 48 = 85 g/mol  \n- O₂: 2×16 = 32 g/mol\n\nMoles of O₂ in 1.50 g:  \n\\[\n\\frac{1.50}{32} = 0.046875 \\text{ mol}\n\\]\n\nMoles of NaNO₃ needed (2:1 ratio):  \n\\[\n2 \\times 0.046875 = 0.09375 \\text{ mol}\n\\]\n\nMass of NaNO₃:  \n\\[\n0.09375 \\times 85 = 7.96875 \\text{ g} \\approx 7.97 \\text{ g}\n\\]\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219081,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 144,
+      "total_tokens": 376,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-EnEE4gY2uRvIIDr1MPZ9sX773dnprkm1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 143,
+      "prompt_ms": 789.163,
+      "prompt_per_token_ms": 5.5186223776223775,
+      "prompt_per_second": 181.20464340066627,
+      "predicted_n": 232,
+      "predicted_ms": 16429.348,
+      "predicted_per_token_ms": 70.8161551724138,
+      "predicted_per_second": 14.12107163351826
+    }
+  }
+}

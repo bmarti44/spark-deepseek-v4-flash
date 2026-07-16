@@ -1,0 +1,58 @@
+{
+  "index": 10704,
+  "task_id": 10917,
+  "rendered_prompt_sha256": "180dcd226ee9efa873e5a31816ef6c845b7745fdbc14ab2c4de3a69324e90175",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Michael Walzer, in his writings on terrorism, discusses several common justifications or excuses often given for terrorism. The four main excuses he identifies and critiques are:\n\n1. **Terrorism is a necessary evil** (B)  \n2. **Terrorism benefits oppressed groups** (C)  \n3. **Terrorism is a legitimate form of self-defense** (E)  \n4. **All political activity is terroristic** (F)  \n\nAmong the options listed, the one that is **not** one of these four is:\n\n**A. Terrorism is a form of freedom of speech.**\n\nAnswer: A",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.270743262000906
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Michael Walzer, in his writings on terrorism, discusses several common justifications or excuses often given for terrorism. The four main excuses he identifies and critiques are:\n\n1. **Terrorism is a necessary evil** (B)  \n2. **Terrorism benefits oppressed groups** (C)  \n3. **Terrorism is a legitimate form of self-defense** (E)  \n4. **All political activity is terroristic** (F)  \n\nAmong the options listed, the one that is **not** one of these four is:\n\n**A. Terrorism is a form of freedom of speech.**\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220707,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 127,
+      "prompt_tokens": 136,
+      "total_tokens": 263,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-JRqAYjp3p1EXMhenHyZwwXFsYM5xKeOq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 135,
+      "prompt_ms": 830.219,
+      "prompt_per_token_ms": 6.149770370370371,
+      "prompt_per_second": 162.60769748704857,
+      "predicted_n": 127,
+      "predicted_ms": 9437.323,
+      "predicted_per_token_ms": 74.30962992125984,
+      "predicted_per_second": 13.457206031837629
+    }
+  }
+}

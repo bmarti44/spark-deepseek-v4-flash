@@ -1,0 +1,58 @@
+{
+  "index": 3837,
+  "task_id": 3960,
+  "rendered_prompt_sha256": "30540309bd44d8fad9cd7e936959de4c970354d84744ff2d3557f46d0d2d8f78",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve this using the particle-in-a-box model.  \nThe energy levels for a particle in a 1D box of length \\(L\\) are:\n\n\\[\nE_n = \\frac{n^2 h^2}{8 m L^2}\n\\]\n\nwhere:  \n- \\(h = 6.626 \\times 10^{-34} \\ \\text{J·s}\\)  \n- \\(m = 9.109 \\times 10^{-31} \\ \\text{kg}\\) (electron mass)  \n- \\(L = 0.2 \\ \\text{nm} = 2 \\times 10^{-10} \\ \\text{m}\\)\n\n---\n\n### Step 1: Calculate \\(E_1\\) (ground state)\n\n\\[\nE_1 = \\frac{1^2 \\cdot (6.626 \\times 10^{-34})^2}{8 \\cdot (9.109 \\times 10^{-31}) \\cdot (2 \\times 10^{-10})^2}\n\\]\n\nFirst compute denominator:  \n\\(8 m L^2 = 8 \\cdot 9.109 \\times 10^{-31} \\cdot 4 \\times 10^{-20}\\)  \n= \\(8 \\cdot 9.109 \\",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='I'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.24936420099948
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can solve this using the particle-in-a-box model.  \nThe energy levels for a particle in a 1D box of length \\(L\\) are:\n\n\\[\nE_n = \\frac{n^2 h^2}{8 m L^2}\n\\]\n\nwhere:  \n- \\(h = 6.626 \\times 10^{-34} \\ \\text{J·s}\\)  \n- \\(m = 9.109 \\times 10^{-31} \\ \\text{kg}\\) (electron mass)  \n- \\(L = 0.2 \\ \\text{nm} = 2 \\times 10^{-10} \\ \\text{m}\\)\n\n---\n\n### Step 1: Calculate \\(E_1\\) (ground state)\n\n\\[\nE_1 = \\frac{1^2 \\cdot (6.626 \\times 10^{-34})^2}{8 \\cdot (9.109 \\times 10^{-31}) \\cdot (2 \\times 10^{-10})^2}\n\\]\n\nFirst compute denominator:  \n\\(8 m L^2 = 8 \\cdot 9.109 \\times 10^{-31} \\cdot 4 \\times 10^{-20}\\)  \n= \\(8 \\cdot 9.109 \\",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219202,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 222,
+      "total_tokens": 478,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-N5rTZWTZnMGVmEQ07Bnte6Y5ToCvyiDI",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 221,
+      "prompt_ms": 1064.054,
+      "prompt_per_token_ms": 4.814723981900453,
+      "prompt_per_second": 207.69622594342013,
+      "predicted_n": 256,
+      "predicted_ms": 18169.601,
+      "predicted_per_token_ms": 70.97500390625,
+      "predicted_per_second": 14.089467347136573
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1677,
+  "task_id": 1772,
+  "rendered_prompt_sha256": "accb58c4985e77eec23526d8f09df7f87a473af7f4a70b05ec94fb54e8d62640",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The key to adverse possession is that the statutory period begins when the adverse possessor’s actions first give rise to a claim that is hostile to the true owner’s rights.  \n\nHere, the tenant originally had permission (the lease), so the clock for adverse possession could not start until that permission ended. The lease was for seven years, but the widow died one year into it. However, the tenant continued living there after her death and stopped paying rent.  \n\nSince the lease was still in effect for another six years after her death, the tenant’s possession remained permissive until the lease expired. Only after the lease expired did the tenant’s continued possession become adverse.  \n\nThus, the adverse possession period began when the lease expired.  \n\nAnswer: B",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='J'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.027722467000785
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The key to adverse possession is that the statutory period begins when the adverse possessor’s actions first give rise to a claim that is hostile to the true owner’s rights.  \n\nHere, the tenant originally had permission (the lease), so the clock for adverse possession could not start until that permission ended. The lease was for seven years, but the widow died one year into it. However, the tenant continued living there after her death and stopped paying rent.  \n\nSince the lease was still in effect for another six years after her death, the tenant’s possession remained permissive until the lease expired. Only after the lease expired did the tenant’s continued possession become adverse.  \n\nThus, the adverse possession period began when the lease expired.  \n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220210,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 155,
+      "prompt_tokens": 323,
+      "total_tokens": 478,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-N2soF8laXY2odyMRmB1DqcMg29w2LXfd",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 322,
+      "prompt_ms": 1442.252,
+      "prompt_per_token_ms": 4.479043478260869,
+      "prompt_per_second": 223.26195422159233,
+      "predicted_n": 155,
+      "predicted_ms": 11572.007,
+      "predicted_per_token_ms": 74.65810967741935,
+      "predicted_per_second": 13.394392174149223
+    }
+  }
+}

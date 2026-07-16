@@ -1,0 +1,58 @@
+{
+  "index": 6979,
+  "task_id": 7150,
+  "rendered_prompt_sha256": "81e6579111754898a65c4bf39067f00aabcb41395d340484793130aff5ea2582",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In the equation of exchange (MV = PQ), monetarists, following Milton Friedman, argue that velocity (V) is relatively stable and predictable, and that real output (Q) is determined by real factors in the long run. Therefore, they view V and Q as **stable** in the short run and not causing major fluctuations in the relationship between money supply and nominal GDP.\n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.785780363001322
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In the equation of exchange (MV = PQ), monetarists, following Milton Friedman, argue that velocity (V) is relatively stable and predictable, and that real output (Q) is determined by real factors in the long run. Therefore, they view V and Q as **stable** in the short run and not causing major fluctuations in the relationship between money supply and nominal GDP.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219560,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 86,
+      "total_tokens": 167,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-LjvCE2XqGqetDhdrfOXRr4bckos56Pbs",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 85,
+      "prompt_ms": 709.958,
+      "prompt_per_token_ms": 8.352447058823529,
+      "prompt_per_second": 119.72539220629953,
+      "predicted_n": 81,
+      "predicted_ms": 6072.873,
+      "predicted_per_token_ms": 74.97374074074074,
+      "predicted_per_second": 13.338003281148808
+    }
+  }
+}

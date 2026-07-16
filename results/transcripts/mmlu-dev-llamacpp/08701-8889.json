@@ -1,0 +1,58 @@
+{
+  "index": 8701,
+  "task_id": 8889,
+  "rendered_prompt_sha256": "f90ad172525ea8a32b4f5739356a320bb2ae01fcf936765dbe606ea0a845462c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To find the quotient of \\( 2,314 \\div 4 \\):\n\n- 4 goes into 23 five times (5 × 4 = 20), remainder 3.  \n- Bring down the 1 to make 31. 4 goes into 31 seven times (7 × 4 = 28), remainder 3.  \n- Bring down the 4 to make 34. 4 goes into 34 eight times (8 × 4 = 32), remainder 2.  \n\nSo the quotient is 578 with a remainder of 2, written as **578 r2**.\n\nThe correct option is **B**.\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.75392533000013
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To find the quotient of \\( 2,314 \\div 4 \\):\n\n- 4 goes into 23 five times (5 × 4 = 20), remainder 3.  \n- Bring down the 1 to make 31. 4 goes into 31 seven times (7 × 4 = 28), remainder 3.  \n- Bring down the 4 to make 34. 4 goes into 34 eight times (8 × 4 = 32), remainder 2.  \n\nSo the quotient is 578 with a remainder of 2, written as **578 r2**.\n\nThe correct option is **B**.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220526,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 136,
+      "prompt_tokens": 99,
+      "total_tokens": 235,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-JYFJ6k11Rdo3axqZrHv1emEf36CilerS",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 98,
+      "prompt_ms": 689.036,
+      "prompt_per_token_ms": 7.030979591836734,
+      "prompt_per_second": 142.22769202189727,
+      "predicted_n": 136,
+      "predicted_ms": 10062.077,
+      "predicted_per_token_ms": 73.98586029411764,
+      "predicted_per_second": 13.516096130053468
+    }
+  }
+}

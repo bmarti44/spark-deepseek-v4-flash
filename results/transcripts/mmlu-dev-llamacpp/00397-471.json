@@ -1,0 +1,58 @@
+{
+  "index": 397,
+  "task_id": 471,
+  "rendered_prompt_sha256": "aeb07724ec7241d395771ba09a559b26fe8dff97a8ba107cee05eb716e1c416f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The capital budget is $125,626.79, and the village expects to raise $4,256.30 from fines and licenses.  \nThe amount that needs to be covered by property taxes is:\n\n\\[\n125,626.79 - 4,256.30 = 121,370.49\n\\]\n\nThe total assessed valuation is $2,697,112.  \nThe tax rate per $1,000 of assessed valuation is:\n\n\\[\n\\frac{121,370.49}{2,697,112} \\times 1000\n\\]\n\nFirst, divide:\n\n\\[\n\\frac{121,370.49}{2,697,112} \\approx 0.045\n\\]\n\nThen multiply by 1000:\n\n\\[\n0.045 \\times 1000 = 45\n\\]\n\nSo the tax rate is **$45 per $1,000**.\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.99313554299988
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The capital budget is $125,626.79, and the village expects to raise $4,256.30 from fines and licenses.  \nThe amount that needs to be covered by property taxes is:\n\n\\[\n125,626.79 - 4,256.30 = 121,370.49\n\\]\n\nThe total assessed valuation is $2,697,112.  \nThe tax rate per $1,000 of assessed valuation is:\n\n\\[\n\\frac{121,370.49}{2,697,112} \\times 1000\n\\]\n\nFirst, divide:\n\n\\[\n\\frac{121,370.49}{2,697,112} \\approx 0.045\n\\]\n\nThen multiply by 1000:\n\n\\[\n0.045 \\times 1000 = 45\n\\]\n\nSo the tax rate is **$45 per $1,000**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218929,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 181,
+      "prompt_tokens": 226,
+      "total_tokens": 407,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rl5Z41HxlIW4YUjz0vqkzsCYEZtyCIXC",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 225,
+      "prompt_ms": 1088.466,
+      "prompt_per_token_ms": 4.837626666666666,
+      "prompt_per_second": 206.71293361483043,
+      "predicted_n": 181,
+      "predicted_ms": 12901.888,
+      "predicted_per_token_ms": 71.28114917127073,
+      "predicted_per_second": 14.02895452200484
+    }
+  }
+}

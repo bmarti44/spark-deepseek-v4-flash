@@ -1,0 +1,58 @@
+{
+  "index": 8068,
+  "task_id": 8253,
+  "rendered_prompt_sha256": "45fb26586496d16b5cdd7d1887a0e20fc2774692e028e8eaa6a45f23d7a3fffa",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have the equation:  \n1.2 = 0.4y  \n\nTo solve mentally, divide both sides by 0.4:  \ny = 1.2 ÷ 0.4  \nSince 0.4 × 3 = 1.2, the answer is 3.  \n\nAnswer: A",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.647437824000008
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have the equation:  \n1.2 = 0.4y  \n\nTo solve mentally, divide both sides by 0.4:  \ny = 1.2 ÷ 0.4  \nSince 0.4 × 3 = 1.2, the answer is 3.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220310,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 95,
+      "total_tokens": 162,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-IZRnIsWh73SFwT9TM1St4OIXMLsOzPfN",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 94,
+      "prompt_ms": 660.077,
+      "prompt_per_token_ms": 7.022095744680851,
+      "prompt_per_second": 142.40762820095233,
+      "predicted_n": 67,
+      "predicted_ms": 4984.6,
+      "predicted_per_token_ms": 74.39701492537314,
+      "predicted_per_second": 13.441399510492316
+    }
+  }
+}

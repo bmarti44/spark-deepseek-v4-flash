@@ -1,0 +1,58 @@
+{
+  "index": 5286,
+  "task_id": 5430,
+  "rendered_prompt_sha256": "f0cc30e3163f5e068af8163e231fd0695c9543a5c5ab79a8d22702f8f8a4e9ea",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is **G**. A mistrial at the state level (for example, a hung jury) means double jeopardy does not attach, so the case can be retried at the federal level under different jurisdiction.\n\nAnswer: G",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='G' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.411200893000569
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is **G**. A mistrial at the state level (for example, a hung jury) means double jeopardy does not attach, so the case can be retried at the federal level under different jurisdiction.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220627,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 48,
+      "prompt_tokens": 142,
+      "total_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-pGdHwNFyqx9IBx1rrbpNEKVymrdY2jkA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 141,
+      "prompt_ms": 858.023,
+      "prompt_per_token_ms": 6.085269503546099,
+      "prompt_per_second": 164.3312591853598,
+      "predicted_n": 48,
+      "predicted_ms": 3540.84,
+      "predicted_per_token_ms": 73.7675,
+      "predicted_per_second": 13.556105330938422
+    }
+  }
+}

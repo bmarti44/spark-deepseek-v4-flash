@@ -1,0 +1,58 @@
+{
+  "index": 11330,
+  "task_id": 11554,
+  "rendered_prompt_sha256": "4eda422fdcf31eb91ab84192f5b019f5a7db9c3808ce175d3335e268dd31ff3a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To determine the pressure drop, we first need to check whether the flow is laminar or turbulent by computing the Reynolds number.\n\nGiven:  \n- Velocity, \\( V = 1.2 \\, \\text{ft/s} \\)  \n- Kinematic viscosity, \\( \\nu = 5 \\times 10^{-4} \\, \\text{ft}^2/\\text{s} \\)  \n- Density, \\( \\rho = 56 \\, \\text{lb/ft}^3 \\)  \n- Length, \\( L = 100 \\, \\text{ft} \\)  \n\n### For 1/2 in. diameter pipe:  \nDiameter \\( D = 0.5 \\, \\text{in} = \\frac{0.5}{12} = 0.04167 \\, \\text{ft} \\)  \n\nReynolds number:  \n\\[\nRe = \\frac{VD}{\\nu} = \\frac{1.2 \\times 0.04167}{5 \\times 10^{-4}} = \\frac{0.05}{5 \\times 10^{-4}} = 100\n\\]  \nSince \\( Re < 2000 \\), flow is laminar.\n\nFor laminar flow, the pressure drop is given by the Hagen–Poiseu",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='D' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 21.023530370001026
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To determine the pressure drop, we first need to check whether the flow is laminar or turbulent by computing the Reynolds number.\n\nGiven:  \n- Velocity, \\( V = 1.2 \\, \\text{ft/s} \\)  \n- Kinematic viscosity, \\( \\nu = 5 \\times 10^{-4} \\, \\text{ft}^2/\\text{s} \\)  \n- Density, \\( \\rho = 56 \\, \\text{lb/ft}^3 \\)  \n- Length, \\( L = 100 \\, \\text{ft} \\)  \n\n### For 1/2 in. diameter pipe:  \nDiameter \\( D = 0.5 \\, \\text{in} = \\frac{0.5}{12} = 0.04167 \\, \\text{ft} \\)  \n\nReynolds number:  \n\\[\nRe = \\frac{VD}{\\nu} = \\frac{1.2 \\times 0.04167}{5 \\times 10^{-4}} = \\frac{0.05}{5 \\times 10^{-4}} = 100\n\\]  \nSince \\( Re < 2000 \\), flow is laminar.\n\nFor laminar flow, the pressure drop is given by the Hagen–Poiseu",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219748,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 455,
+      "total_tokens": 711,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Fbvk6dchs68FuJGgP4u7W69uuBGEBSi0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 454,
+      "prompt_ms": 1833.334,
+      "prompt_per_token_ms": 4.038180616740088,
+      "prompt_per_second": 247.6362735868096,
+      "predicted_n": 256,
+      "predicted_ms": 19176.922,
+      "predicted_per_token_ms": 74.9098515625,
+      "predicted_per_second": 13.349379008789837
+    }
+  }
+}

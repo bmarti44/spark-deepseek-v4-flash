@@ -1,0 +1,58 @@
+{
+  "index": 9986,
+  "task_id": 10186,
+  "rendered_prompt_sha256": "62d07010f4049ed3f6f6302be215f5aa92d2f14e2cf49ca2e1e4a205316f6d38",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The maximum efficiency of a steam engine operating between two temperatures is given by the Carnot efficiency formula:\n\n\\[\n\\eta = 1 - \\frac{T_{\\text{cold}}}{T_{\\text{hot}}}\n\\]\n\nwhere temperatures must be in Kelvin.\n\nConvert:\n\n- \\( T_{\\text{hot}} = 175^\\circ C = 175 + 273 = 448 \\, K \\)  \n- \\( T_{\\text{cold}} = 75^\\circ C = 75 + 273 = 348 \\, K \\)\n\nThen:\n\n\\[\n\\eta = 1 - \\frac{348}{448} = 1 - 0.7768 \\approx 0.2232\n\\]\n\nThat is **22.32%**, which matches option **G**.\n\nAnswer: G",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.665810698999849
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The maximum efficiency of a steam engine operating between two temperatures is given by the Carnot efficiency formula:\n\n\\[\n\\eta = 1 - \\frac{T_{\\text{cold}}}{T_{\\text{hot}}}\n\\]\n\nwhere temperatures must be in Kelvin.\n\nConvert:\n\n- \\( T_{\\text{hot}} = 175^\\circ C = 175 + 273 = 448 \\, K \\)  \n- \\( T_{\\text{cold}} = 75^\\circ C = 75 + 273 = 348 \\, K \\)\n\nThen:\n\n\\[\n\\eta = 1 - \\frac{348}{448} = 1 - 0.7768 \\approx 0.2232\n\\]\n\nThat is **22.32%**, which matches option **G**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221126,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 158,
+      "prompt_tokens": 113,
+      "total_tokens": 271,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-omUkyrscFrB60ph0ecydVaYUWEcWWkAV",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 112,
+      "prompt_ms": 814.233,
+      "prompt_per_token_ms": 7.269937499999999,
+      "prompt_per_second": 137.55276438071166,
+      "predicted_n": 158,
+      "predicted_ms": 11849.491,
+      "predicted_per_token_ms": 74.99677848101265,
+      "predicted_per_second": 13.33390607242117
+    }
+  }
+}

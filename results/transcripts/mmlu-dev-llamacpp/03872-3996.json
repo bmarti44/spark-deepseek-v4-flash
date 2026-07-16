@@ -1,0 +1,58 @@
+{
+  "index": 3872,
+  "task_id": 3996,
+  "rendered_prompt_sha256": "41767a3312dfa63ab2730b1aa870c6d2a162eb6d9dd1e6c8eda5f348fdf44d36",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can find the coefficient of the reference configuration \\(\\Phi_0\\) in the normalized CI-SD wave function using the Davidson correction formula.  \n\nThe Davidson correction estimates the contribution of unlinked quadruple excitations and is given by:\n\n\\[\n\\Delta E_{\\text{Davidson}} = E_{\\text{CI-SD}} - E_{\\text{SCF}}\n\\]\n\nand the corrected energy is:\n\n\\[\nE_{\\text{corrected}} = E_{\\text{CI-SD}} + \\frac{(1 - c_0^2)}{c_0^2} (E_{\\text{CI-SD}} - E_{\\text{SCF}})\n\\]\n\nWhere \\(c_0\\) is the coefficient of \\(\\Phi_0\\) in the normalized CI wave function.  \n\nGiven:\n\n- \\(E_{\\text{SCF}} = -76.040542\\)  \n- \\(E_{\\text{CI-SD}} = -76.243772\\)  \n- \\(E_{\\text{corrected}} = -76.254549\\)\n\nFirst, compute:\n\n\\[\n\\Delta E = E_{\\text{CI-SD}} - E_{\\text{SCF}} = -76.243772 - (-76.040542) = -0.203230",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.170861615999456
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can find the coefficient of the reference configuration \\(\\Phi_0\\) in the normalized CI-SD wave function using the Davidson correction formula.  \n\nThe Davidson correction estimates the contribution of unlinked quadruple excitations and is given by:\n\n\\[\n\\Delta E_{\\text{Davidson}} = E_{\\text{CI-SD}} - E_{\\text{SCF}}\n\\]\n\nand the corrected energy is:\n\n\\[\nE_{\\text{corrected}} = E_{\\text{CI-SD}} + \\frac{(1 - c_0^2)}{c_0^2} (E_{\\text{CI-SD}} - E_{\\text{SCF}})\n\\]\n\nWhere \\(c_0\\) is the coefficient of \\(\\Phi_0\\) in the normalized CI wave function.  \n\nGiven:\n\n- \\(E_{\\text{SCF}} = -76.040542\\)  \n- \\(E_{\\text{CI-SD}} = -76.243772\\)  \n- \\(E_{\\text{corrected}} = -76.254549\\)\n\nFirst, compute:\n\n\\[\n\\Delta E = E_{\\text{CI-SD}} - E_{\\text{SCF}} = -76.243772 - (-76.040542) = -0.203230",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219221,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 192,
+      "total_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-oZybdSRqgsS2fam5c6sgwDWYj7qPfYG8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 191,
+      "prompt_ms": 983.774,
+      "prompt_per_token_ms": 5.150649214659686,
+      "prompt_per_second": 194.15028248357854,
+      "predicted_n": 256,
+      "predicted_ms": 18174.06,
+      "predicted_per_token_ms": 70.992421875,
+      "predicted_per_second": 14.08601050068064
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 6358,
+  "task_id": 6522,
+  "rendered_prompt_sha256": "5ae4676bf1392675b110bb32382edf84ef32f36fea3c9df8c5afa7d0001d5ea1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The teacher uses two different reinforcement schedules:\n\n1. **Daily sticker for punctuality** — this is a **continuous reinforcement schedule** (reward every time the behavior occurs).\n2. **Weekly sticker for three consecutive high quiz scores** — this is a **fixed-ratio schedule** (reward after a fixed number of correct behaviors).\n\nThe observation: quiz performance increased significantly (strong response to fixed-ratio schedule), but tardiness decreased only slightly (weak response to continuous reinforcement).\n\nThis matches the idea that **fixed-ratio schedules often produce stronger behavior change than continuous reinforcement**, because the reward is more intermittent and requires sustained effort.\n\nThe correct choice is:\n\n**Answer: F**",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 11.882778328999848
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The teacher uses two different reinforcement schedules:\n\n1. **Daily sticker for punctuality** — this is a **continuous reinforcement schedule** (reward every time the behavior occurs).\n2. **Weekly sticker for three consecutive high quiz scores** — this is a **fixed-ratio schedule** (reward after a fixed number of correct behaviors).\n\nThe observation: quiz performance increased significantly (strong response to fixed-ratio schedule), but tardiness decreased only slightly (weak response to continuous reinforcement).\n\nThis matches the idea that **fixed-ratio schedules often produce stronger behavior change than continuous reinforcement**, because the reward is more intermittent and requires sustained effort.\n\nThe correct choice is:\n\n**Answer: F**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219999,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 136,
+      "prompt_tokens": 361,
+      "total_tokens": 497,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-5vNTIhlP862q1z3Fi8i1boX7PC1q0RzL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 360,
+      "prompt_ms": 1627.631,
+      "prompt_per_token_ms": 4.521197222222223,
+      "prompt_per_second": 221.18035353221953,
+      "predicted_n": 136,
+      "predicted_ms": 10240.796,
+      "predicted_per_token_ms": 75.2999705882353,
+      "predicted_per_second": 13.280217670579512
+    }
+  }
+}

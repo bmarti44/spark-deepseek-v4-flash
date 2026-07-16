@@ -1,0 +1,58 @@
+{
+  "index": 11627,
+  "task_id": 11851,
+  "rendered_prompt_sha256": "1052bb321d61b66329879c63e9f6187f7753e663a9f880e578f1ad24a83ea83b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.12353540299955
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are given:\n\n- Spaceship surface temperature: \\(40^\\circ\\text{F}\\)  \n- Emissivity: \\(\\varepsilon = 0.1\\)  \n- Space as perfect blackbody at \\(0^\\circ\\text{R}\\)  \n- Spaceship as gray infinite cylinder (so shape factor to surroundings = 1)  \n- Need net radiant heat loss per square foot in Btu/hr-ft².\n\n---\n\n**Step 1: Convert temperature to Rankine**  \n\\[\nT = 40^\\circ\\text{F} + 459.67 = 499.67^\\circ\\text{R}\n\\]  \nWe can use \\(500^\\circ\\text{R}\\) as approximate, but let's keep precise:  \n\\[\nT = 499.67^\\circ\\text{R}\n\\]\n\n---\n\n**Step 2: Radiant heat transfer formula**  \nFor a gray surface with emissivity \\(\\varepsilon\\) and surroundings as blackbody at \\(T_{\\text{space}} = 0^\\circ\\text{R}\\), net radiant heat loss per unit area is:\n\n\\[\nq = \\varepsilon \\sigma (T^4 - T_{\\text{space}}^4)\n\\]  \nSince \\(T_{\\text{space}} = 0\\),  \n\\[\nq = \\varepsilon \\sigma T^",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219855,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 211,
+      "total_tokens": 467,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-sdwL0lFuXA7Lk4MqvSQayJzKosaDpQUB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 210,
+      "prompt_ms": 1115.512,
+      "prompt_per_token_ms": 5.311961904761905,
+      "prompt_per_second": 188.25436212250517,
+      "predicted_n": 256,
+      "predicted_ms": 19005.307,
+      "predicted_per_token_ms": 74.23948046875,
+      "predicted_per_second": 13.469921848671005
+    }
+  }
+}

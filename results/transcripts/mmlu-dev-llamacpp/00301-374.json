@@ -1,0 +1,58 @@
+{
+  "index": 301,
+  "task_id": 374,
+  "rendered_prompt_sha256": "dd94045eabb5d27e6a16bef1d1124d6e5616c2991655c22f90c74bcb712e54bd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step by step.\n\nWe start with **$4,500.00**.\n\n1. First discount of **20%**:  \n   \\( 4500 \\times (1 - 0.20) = 4500 \\times 0.80 = 3600 \\)\n\n2. Second discount of **15%**:  \n   \\( 3600 \\times (1 - 0.15) = 3600 \\times 0.85 = 3060 \\)\n\n3. Third discount of **\\(2\\frac{1}{2}\\%\\)** (which is 2.5%):  \n   \\( 3060 \\times (1 - 0.025) = 3060 \\times 0.975 = 2983.50 \\)\n\nThe net amount is **$2,983.50**.\n\nAnswer: G",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.268733593999059
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step by step.\n\nWe start with **$4,500.00**.\n\n1. First discount of **20%**:  \n   \\( 4500 \\times (1 - 0.20) = 4500 \\times 0.80 = 3600 \\)\n\n2. Second discount of **15%**:  \n   \\( 3600 \\times (1 - 0.15) = 3600 \\times 0.85 = 3060 \\)\n\n3. Third discount of **\\(2\\frac{1}{2}\\%\\)** (which is 2.5%):  \n   \\( 3060 \\times (1 - 0.025) = 3060 \\times 0.975 = 2983.50 \\)\n\nThe net amount is **$2,983.50**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218912,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 177,
+      "prompt_tokens": 135,
+      "total_tokens": 312,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ssBhdCi06Gnrri4vHgh1rWvsItB7miTy",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 134,
+      "prompt_ms": 756.038,
+      "prompt_per_token_ms": 5.642074626865671,
+      "prompt_per_second": 177.23976837143107,
+      "predicted_n": 177,
+      "predicted_ms": 12500.275,
+      "predicted_per_token_ms": 70.62302259887005,
+      "predicted_per_second": 14.15968848685329
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 3936,
+  "task_id": 4061,
+  "rendered_prompt_sha256": "40e41052ce3d7e12b413fe749b418f31a49acfd58b8d11c131e642ea871806de",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.77919026499876
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The hydrolysis constant for bicarbonate, \\( K_h(\\text{HCO}_3^-) \\), refers to the equilibrium:\n\n\\[\n\\text{HCO}_3^- + \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}_2\\text{CO}_3 + \\text{OH}^-\n\\]\n\nThe equilibrium expression is:\n\n\\[\nK_h = \\frac{[\\text{H}_2\\text{CO}_3][\\text{OH}^-]}{[\\text{HCO}_3^-]}\n\\]\n\nWe know that for carbonic acid:\n\n\\[\nK_{a1} = \\frac{[\\text{H}^+][\\text{HCO}_3^-]}{[\\text{H}_2\\text{CO}_3]}\n\\]\n\nAnd the water constant:\n\n\\[\nK_W = [\\text{H}^+][\\text{OH}^-]\n\\]\n\nFrom \\( K_{a1} \\), we have:\n\n\\[\n\\frac{[\\text{H}_2\\text{CO}_3]}{[\\text{HCO}_3^-]} = \\frac{[\\text{H}^+]}{K_{a1}}\n\\]\n\nSubstitute into \\( K_h \\):\n\n\\[\nK_h = \\frac{[\\text{H}^+][\\text{OH",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219252,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 381,
+      "total_tokens": 637,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-7zGZ3tb0nYOPt2hPuXGLVhtdruwvotok",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 380,
+      "prompt_ms": 1447.956,
+      "prompt_per_token_ms": 3.8104105263157892,
+      "prompt_per_second": 262.4389138896486,
+      "predicted_n": 256,
+      "predicted_ms": 18327.938,
+      "predicted_per_token_ms": 71.5935078125,
+      "predicted_per_second": 13.967746944582638
+    }
+  }
+}

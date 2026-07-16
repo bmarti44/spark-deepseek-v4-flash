@@ -1,0 +1,58 @@
+{
+  "index": 3512,
+  "task_id": 3633,
+  "rendered_prompt_sha256": "bb39cd1a0d0a859eacbe8cdcf9bbdf26ab9794ea86c8176c96eaea86c886c8ab",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Sulfurous acid (H₂SO₃) is a diprotic weak acid. It dissociates in two steps:\n\n1. H₂SO₃ ⇌ H⁺ + HSO₃⁻ (first dissociation, Ka₁)  \n2. HSO₃⁻ ⇌ H⁺ + SO₃²⁻ (second dissociation, Ka₂)\n\nFor weak diprotic acids, Ka₁ is much larger than Ka₂, so the first dissociation is more extensive than the second.  \nThus, in solution:  \n- H₂SO₃ is the most abundant species (since it only partially dissociates).  \n- HSO₃⁻ is less abundant than H₂SO₃ but more abundant than SO₃²⁻.  \n- SO₃²⁻ is the least abundant because the second dissociation is very weak.\n\nSo the correct order is:  \n**[H₂SO₃] > [HSO₃⁻] > [SO₃²⁻]**  \n\nThat corresponds to option **G**.\n\nAnswer: G",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 16.525928323999324
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Sulfurous acid (H₂SO₃) is a diprotic weak acid. It dissociates in two steps:\n\n1. H₂SO₃ ⇌ H⁺ + HSO₃⁻ (first dissociation, Ka₁)  \n2. HSO₃⁻ ⇌ H⁺ + SO₃²⁻ (second dissociation, Ka₂)\n\nFor weak diprotic acids, Ka₁ is much larger than Ka₂, so the first dissociation is more extensive than the second.  \nThus, in solution:  \n- H₂SO₃ is the most abundant species (since it only partially dissociates).  \n- HSO₃⁻ is less abundant than H₂SO₃ but more abundant than SO₃²⁻.  \n- SO₃²⁻ is the least abundant because the second dissociation is very weak.\n\nSo the correct order is:  \n**[H₂SO₃] > [HSO₃⁻] > [SO₃²⁻]**  \n\nThat corresponds to option **G**.\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219045,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 217,
+      "prompt_tokens": 265,
+      "total_tokens": 482,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-6O9AAugvJwU4oKsGkkfxnDbyhLMhizYB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 264,
+      "prompt_ms": 1068.663,
+      "prompt_per_token_ms": 4.047965909090909,
+      "prompt_per_second": 247.03765359145024,
+      "predicted_n": 217,
+      "predicted_ms": 15453.6,
+      "predicted_per_token_ms": 71.2147465437788,
+      "predicted_per_second": 14.04203551276078
+    }
+  }
+}

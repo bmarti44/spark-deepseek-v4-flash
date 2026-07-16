@@ -1,0 +1,58 @@
+{
+  "index": 474,
+  "task_id": 549,
+  "rendered_prompt_sha256": "136efa3ec221cd83075605eb6c07295b66b97ad425dd923571d6d49ee65c79bb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are told:\n\n- **Fixed costs** = $200,000  \n- **Capacity** = 200,000 units  \n- **Sales volume** = 80% of capacity = 0.8 × 200,000 = **160,000 units**  \n- **Variable cost per unit** = $9  \n- **Investment** = $1,400,000  \n- **Desired return on investment (before tax)** = 20%\n\n---\n\n**Step 1: Desired profit**  \n\\[\n\\text{Profit} = 20\\% \\times 1,400,000 = 0.2 \\times 1,400,000 = 280,000\n\\]\n\n---\n\n**Step 2: Total cost**  \nVariable cost for 160,000 units:  \n\\[\n160,000 \\times 9 = 1,440,000\n\\]  \nTotal cost = Fixed + Variable:  \n\\[\n200,000 + 1,440,000 = 1,640,000\n\\]\n\n---\n\n**Step 3: Required total revenue**  \nRevenue = Total cost + Desired profit  \n\\[\n1,640,000 + 280,000 = 1,920,000\n\\]\n\n---\n\n**Step 4",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "unparseable: no standalone answer letter A-J found",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.011384346998966
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are told:\n\n- **Fixed costs** = $200,000  \n- **Capacity** = 200,000 units  \n- **Sales volume** = 80% of capacity = 0.8 × 200,000 = **160,000 units**  \n- **Variable cost per unit** = $9  \n- **Investment** = $1,400,000  \n- **Desired return on investment (before tax)** = 20%\n\n---\n\n**Step 1: Desired profit**  \n\\[\n\\text{Profit} = 20\\% \\times 1,400,000 = 0.2 \\times 1,400,000 = 280,000\n\\]\n\n---\n\n**Step 2: Total cost**  \nVariable cost for 160,000 units:  \n\\[\n160,000 \\times 9 = 1,440,000\n\\]  \nTotal cost = Fixed + Variable:  \n\\[\n200,000 + 1,440,000 = 1,640,000\n\\]\n\n---\n\n**Step 3: Required total revenue**  \nRevenue = Total cost + Desired profit  \n\\[\n1,640,000 + 280,000 = 1,920,000\n\\]\n\n---\n\n**Step 4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784218948,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 156,
+      "total_tokens": 412,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-PD9XAYu2CIhccMsjtOJgNFcKI6KqzB1y",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 155,
+      "prompt_ms": 849.743,
+      "prompt_per_token_ms": 5.482212903225807,
+      "prompt_per_second": 182.40809279982298,
+      "predicted_n": 256,
+      "predicted_ms": 18159.075,
+      "predicted_per_token_ms": 70.93388671875,
+      "predicted_per_second": 14.097634378403084
+    }
+  }
+}

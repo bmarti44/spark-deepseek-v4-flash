@@ -1,0 +1,58 @@
+{
+  "index": 255,
+  "task_id": 327,
+  "rendered_prompt_sha256": "4fe182ffec1d3fae90993b3165121d9b27c25e05fb6e9ccd7ab8bc29d1c1a36c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The list price is $900, and the discount is 25%.  \nDiscount amount = 25% of $900 = 0.25 × 900 = $225.  \nNet price = $900 − $225 = $675.  \n\nAnswer: I",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.723805551000623
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The list price is $900, and the discount is 25%.  \nDiscount amount = 25% of $900 = 0.25 × 900 = $225.  \nNet price = $900 − $225 = $675.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218858,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 54,
+      "prompt_tokens": 110,
+      "total_tokens": 164,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qID68M6lNTxPaleQJeyIR140QvIDt3ZU",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 109,
+      "prompt_ms": 782.072,
+      "prompt_per_token_ms": 7.1749724770642205,
+      "prompt_per_second": 139.37335692877383,
+      "predicted_n": 54,
+      "predicted_ms": 3928.148,
+      "predicted_per_token_ms": 72.74348148148148,
+      "predicted_per_second": 13.746936215234252
+    }
+  }
+}

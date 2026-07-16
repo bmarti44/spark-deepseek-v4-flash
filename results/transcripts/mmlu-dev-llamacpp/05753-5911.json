@@ -1,0 +1,58 @@
+{
+  "index": 5753,
+  "task_id": 5911,
+  "rendered_prompt_sha256": "ff4969254733fd17fa0927b82e18c7c70302748f6739dad8bc161e409679272b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The costs that should be expensed as research and development (R&D) are those incurred before the product is ready for commercial production.  \n\n- Labor and material costs incurred in producing a prototype: **$100,000** → R&D expense  \n- Cost of testing the prototype: **$40,000** → R&D expense  \n- Legal costs to file a patent: **$5,000** → These are generally capitalized as part of the patent cost, not expensed as R&D.  \n\nSo total R&D expense = $100,000 + $40,000 = **$140,000**.  \n\nAnswer: D",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.526027673000499
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The costs that should be expensed as research and development (R&D) are those incurred before the product is ready for commercial production.  \n\n- Labor and material costs incurred in producing a prototype: **$100,000** → R&D expense  \n- Cost of testing the prototype: **$40,000** → R&D expense  \n- Legal costs to file a patent: **$5,000** → These are generally capitalized as part of the patent cost, not expensed as R&D.  \n\nSo total R&D expense = $100,000 + $40,000 = **$140,000**.  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220682,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 129,
+      "prompt_tokens": 160,
+      "total_tokens": 289,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-6EbeE749AIb5qDOq8i40BVb5uJx3mjMl",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 159,
+      "prompt_ms": 908.564,
+      "prompt_per_token_ms": 5.714238993710691,
+      "prompt_per_second": 175.0014308293087,
+      "predicted_n": 129,
+      "predicted_ms": 9615.45,
+      "predicted_per_token_ms": 74.53837209302326,
+      "predicted_per_second": 13.415908771820352
+    }
+  }
+}

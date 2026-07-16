@@ -1,0 +1,58 @@
+{
+  "index": 9501,
+  "task_id": 9691,
+  "rendered_prompt_sha256": "a061a9db3d4fe8da9315ff79f40735dd0a7049ebd555fdb6bf91d694de05b533",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='I'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.003922264999346
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step-by-step.\n\nWe have:  \n- Launch at equator, eastward  \n- Angle = 60° from horizontal  \n- Speed relative to Earth: \\( V_1 = 6 \\, \\text{km/s} \\)  \n- We need the great circle distance traveled around Earth.\n\n---\n\n### Step 1 – Determine the type of trajectory  \nSince the speed is 6 km/s, which is less than orbital speed (~7.9 km/s), the rocket will follow a ballistic (suborbital) trajectory. The range on a spherical Earth for a ballistic projectile (ignoring rotation) can be found from the range formula for a spherical Earth.\n\n---\n\n### Step 2 – Range formula for ballistic trajectory on a sphere  \nFor a non-rotating spherical Earth, the range angle \\( \\Theta \\) (in radians) for a given launch speed \\( v \\) and angle \\( \\theta \\) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin\\theta \\cos\\theta}{gR} \\right)\n\\]\n\nBut actually the correct ballistic range formula (from central force motion) is:\n\n\\[\n\\Theta = 2 \\arcsin\\left( \\frac{v^2 \\sin(2\\theta)}{",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220984,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 195,
+      "total_tokens": 451,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ZOYyC3BAXhZoEVTihIcXeSEkV4Ij7rPf",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 194,
+      "prompt_ms": 1007.047,
+      "prompt_per_token_ms": 5.190963917525774,
+      "prompt_per_second": 192.64244866426293,
+      "predicted_n": 256,
+      "predicted_ms": 18993.588,
+      "predicted_per_token_ms": 74.193703125,
+      "predicted_per_second": 13.478232759392275
+    }
+  }
+}

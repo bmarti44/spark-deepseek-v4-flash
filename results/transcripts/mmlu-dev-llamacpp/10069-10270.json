@@ -1,0 +1,58 @@
+{
+  "index": 10069,
+  "task_id": 10270,
+  "rendered_prompt_sha256": "001dfd45d8b76c0270375d111d7b512ead30b87409e4d501f8a4f8c00b5b8573",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-m",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='C'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.234973197999352
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have an elastic collision where a deuteron (mass \\(2m\\)) moving initially at \\(v_i = 14.9 \\, \\text{km/s}\\) hits a stationary neutron (mass \\(m\\)).  \nThe deuteron is scattered at \\(\\psi = 10^\\circ\\) in the lab frame. We need its final speed.\n\n---\n\n### Step 1: Set up conservation laws\nLet:\n- \\(M = 2m\\) (deuteron)\n- \\(m\\) (neutron)\n- Initial: deuteron velocity \\(v_i\\), neutron at rest.\n- Final: deuteron velocity \\(v_f\\) at angle \\(\\psi\\), neutron velocity \\(v_n\\) at some angle.\n\n**Momentum (x):**\n\\[\nM v_i = M v_f \\cos\\psi + m v_n \\cos\\theta\n\\]\n\n**Momentum (y):**\n\\[\n0 = M v_f \\sin\\psi - m v_n \\sin\\theta\n\\]\n\n**Energy:**\n\\[\n\\frac{1}{2} M v_i^2 = \\frac{1}{2} M v_f^2 + \\frac{1}{2} m v_n^2\n\\]\n\n---\n\n### Step 2: Eliminate neutron variables\nFrom y-m",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784221147,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 236,
+      "total_tokens": 492,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-gzq0b1ZXkAF0wkEzbh9X035aBPAipDqA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 235,
+      "prompt_ms": 1239.603,
+      "prompt_per_token_ms": 5.274906382978724,
+      "prompt_per_second": 189.5768241929069,
+      "predicted_n": 256,
+      "predicted_ms": 18992.338,
+      "predicted_per_token_ms": 74.1888203125,
+      "predicted_per_second": 13.479119842959829
+    }
+  }
+}

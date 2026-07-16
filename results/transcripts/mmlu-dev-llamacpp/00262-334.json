@@ -1,0 +1,58 @@
+{
+  "index": 262,
+  "task_id": 334,
+  "rendered_prompt_sha256": "fba1056a72f58f4f196a36b32f94cc53ce2da5d35e301c58b04c254942d366fe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The interest on the loan is calculated using simple interest:\n\n\\[\n\\text{Interest} = P \\times r \\times t\n\\]\n\nWhere:\n- \\( P = 150 \\)\n- \\( r = 6\\% = 0.06 \\) per year\n- \\( t = \\frac{90}{360} \\) (since 90 days is a quarter of a 360-day year for simple interest calculations)\n\n\\[\n\\text{Interest} = 150 \\times 0.06 \\times \\frac{90}{360}\n\\]\n\\[\n= 150 \\times 0.06 \\times 0.25\n\\]\n\\[\n= 150 \\times 0.015\n\\]\n\\[\n= 2.25\n\\]\n\nTotal amount due:\n\\[\n150 + 2.25 = 152.25\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.781631312998798
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The interest on the loan is calculated using simple interest:\n\n\\[\n\\text{Interest} = P \\times r \\times t\n\\]\n\nWhere:\n- \\( P = 150 \\)\n- \\( r = 6\\% = 0.06 \\) per year\n- \\( t = \\frac{90}{360} \\) (since 90 days is a quarter of a 360-day year for simple interest calculations)\n\n\\[\n\\text{Interest} = 150 \\times 0.06 \\times \\frac{90}{360}\n\\]\n\\[\n= 150 \\times 0.06 \\times 0.25\n\\]\n\\[\n= 150 \\times 0.015\n\\]\n\\[\n= 2.25\n\\]\n\nTotal amount due:\n\\[\n150 + 2.25 = 152.25\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218872,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 183,
+      "prompt_tokens": 128,
+      "total_tokens": 311,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-eiJhFa4UnKrMeagCfpt9ZBCxwLSxpkc8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 127,
+      "prompt_ms": 864.488,
+      "prompt_per_token_ms": 6.8069921259842525,
+      "prompt_per_second": 146.9077650586243,
+      "predicted_n": 183,
+      "predicted_ms": 12905.178,
+      "predicted_per_token_ms": 70.52009836065574,
+      "predicted_per_second": 14.180354583253328
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 1005,
+  "task_id": 1085,
+  "rendered_prompt_sha256": "2187895d08f475c042a052cd15d0df01c418a35ab36732fed88d92996ac329cc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The scenario involves a claim for intentional infliction of emotional distress (IIED). For IIED, the conduct must be extreme and outrageous, and typically severe emotional distress must result. Insults, harsh words, and rude comments—even if humiliating—usually do not meet the high threshold for IIED unless there is a pattern of conduct or special circumstances. Here, the comment was a single insult, and while hurtful, it generally would not be considered extreme and outrageous enough to support liability. Additionally, mere hurt feelings without physical harm or severe distress are not enough.  \n\nAnswer: I",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.585317670000222
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The scenario involves a claim for intentional infliction of emotional distress (IIED). For IIED, the conduct must be extreme and outrageous, and typically severe emotional distress must result. Insults, harsh words, and rude comments—even if humiliating—usually do not meet the high threshold for IIED unless there is a pattern of conduct or special circumstances. Here, the comment was a single insult, and while hurtful, it generally would not be considered extreme and outrageous enough to support liability. Additionally, mere hurt feelings without physical harm or severe distress are not enough.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220109,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 121,
+      "prompt_tokens": 310,
+      "total_tokens": 431,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-AKdyfaABMlKlj5vQj5JBVm2NFA1jb5jy",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 309,
+      "prompt_ms": 1421.962,
+      "prompt_per_token_ms": 4.601818770226537,
+      "prompt_per_second": 217.30538509467902,
+      "predicted_n": 121,
+      "predicted_ms": 9160.093,
+      "predicted_per_token_ms": 75.7032479338843,
+      "predicted_per_second": 13.209472873255763
+    }
+  }
+}

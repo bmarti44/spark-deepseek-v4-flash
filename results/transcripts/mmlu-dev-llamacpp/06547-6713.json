@@ -1,0 +1,58 @@
+{
+  "index": 6547,
+  "task_id": 6713,
+  "rendered_prompt_sha256": "f1cd99b7d801eaeb615af89efc890400d14c78afe6a8f4a3f1df4ca1b8bbc90f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The most special characteristic of the adaptive immune system is its ability to recognize specific pathogens and generate a targeted response, including the formation of memory cells. Among the options, the one that best captures this unique feature is the **clonal expansion of new antibodies and/or T cells**, because it reflects the specificity and amplification that define adaptive immunity.\n\nAnswer: H",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='H' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.160799567998765
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The most special characteristic of the adaptive immune system is its ability to recognize specific pathogens and generate a targeted response, including the formation of memory cells. Among the options, the one that best captures this unique feature is the **clonal expansion of new antibodies and/or T cells**, because it reflects the specificity and amplification that define adaptive immunity.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220030,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 71,
+      "prompt_tokens": 107,
+      "total_tokens": 178,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vfJRShBdYFYTnfbIFzPQVzahRnzEjWmu",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 106,
+      "prompt_ms": 802.633,
+      "prompt_per_token_ms": 7.572009433962265,
+      "prompt_per_second": 132.0653399498899,
+      "predicted_n": 71,
+      "predicted_ms": 5355.72,
+      "predicted_per_token_ms": 75.43267605633802,
+      "predicted_per_second": 13.256854353849715
+    }
+  }
+}

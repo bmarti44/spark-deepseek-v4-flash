@@ -1,0 +1,58 @@
+{
+  "index": 8740,
+  "task_id": 8929,
+  "rendered_prompt_sha256": "8d7d5a9e86b758ec489614aba924f928006f8bb503fd9f872bab6e4c1a796c30",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s define variables step by step.\n\nLet:  \n- \\( F_v \\) = volume of Fresh  \n- \\( F_c \\) = cost of Fresh  \n- \\( B_v \\) = volume of Bright  \n- \\( B_c \\) = cost of Bright  \n- \\( G_v \\) = volume of Glow  \n- \\( G_c \\) = cost of Glow  \n\nWe know:  \n1. Bright is 60% more expensive than Fresh:  \n\\[\nB_c = 1.6 \\, F_c\n\\]\n\n2. Bright has 25% less volume than Glow:  \n\\[\nB_v = 0.75 \\, G_v\n\\]\n\n3. Glow is 25% less expensive than Bright:  \n\\[\nG_c = 0.75 \\, B_c\n\\]\n\n4. Glow has \\(33\\frac{1}{3}\\%\\) more volume than Fresh:  \n\\[\nG_v = \\left(1 + \\frac{1}{3}\\right) F_v = \\frac{4}{3} F_v\n\\]\n\n5. Fresh costs $1.00 per unit volume:  \n\\[\n\\frac{F_c}{F_v} = 1\n\\]\nSo \\( F_c = F_v \\).\n\nNow we want cents",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.896557883999776
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s define variables step by step.\n\nLet:  \n- \\( F_v \\) = volume of Fresh  \n- \\( F_c \\) = cost of Fresh  \n- \\( B_v \\) = volume of Bright  \n- \\( B_c \\) = cost of Bright  \n- \\( G_v \\) = volume of Glow  \n- \\( G_c \\) = cost of Glow  \n\nWe know:  \n1. Bright is 60% more expensive than Fresh:  \n\\[\nB_c = 1.6 \\, F_c\n\\]\n\n2. Bright has 25% less volume than Glow:  \n\\[\nB_v = 0.75 \\, G_v\n\\]\n\n3. Glow is 25% less expensive than Bright:  \n\\[\nG_c = 0.75 \\, B_c\n\\]\n\n4. Glow has \\(33\\frac{1}{3}\\%\\) more volume than Fresh:  \n\\[\nG_v = \\left(1 + \\frac{1}{3}\\right) F_v = \\frac{4}{3} F_v\n\\]\n\n5. Fresh costs $1.00 per unit volume:  \n\\[\n\\frac{F_c}{F_v} = 1\n\\]\nSo \\( F_c = F_v \\).\n\nNow we want cents",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220546,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 162,
+      "total_tokens": 418,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-afzD2YaM3m0amrmlZbzx7eMxJksNM3df",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 161,
+      "prompt_ms": 899.417,
+      "prompt_per_token_ms": 5.58644099378882,
+      "prompt_per_second": 179.004844249108,
+      "predicted_n": 256,
+      "predicted_ms": 18994.701,
+      "predicted_per_token_ms": 74.19805078125,
+      "predicted_per_second": 13.47744299844467
+    }
+  }
+}

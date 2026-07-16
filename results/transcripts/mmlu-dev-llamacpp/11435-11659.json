@@ -1,0 +1,58 @@
+{
+  "index": 11435,
+  "task_id": 11659,
+  "rendered_prompt_sha256": "5e989ea058e8bf7de2cfec71a1b50a039bf98411feb16b4c72ff2e21a58dd234",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The best Colour Rendering Index (CRI) among the options is typically found in **incandescent** lamps, which have a CRI close to 100. Halogen lamps (a type of incandescent) also have very high CRI, but incandescent is the broader category listed here.  \n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.865417889999662
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The best Colour Rendering Index (CRI) among the options is typically found in **incandescent** lamps, which have a CRI close to 100. Halogen lamps (a type of incandescent) also have very high CRI, but incandescent is the broader category listed here.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219760,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 68,
+      "prompt_tokens": 90,
+      "total_tokens": 158,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DWOEAmZaMJcpcRt1J7NnI3i65eag4vH4",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 89,
+      "prompt_ms": 703.812,
+      "prompt_per_token_ms": 7.908,
+      "prompt_per_second": 126.45422357106727,
+      "predicted_n": 68,
+      "predicted_ms": 5146.588,
+      "predicted_per_token_ms": 75.68511764705882,
+      "predicted_per_second": 13.212637187977744
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 8076,
+  "task_id": 8261,
+  "rendered_prompt_sha256": "21b26e05c283b397005fc80a2ad0c928c9b28d795305abe6adce3933b2f814ab",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Molly’s haircut cost $25.  \nA 15% tip is \\( 0.15 \\times 25 = 3.75 \\).  \nTotal cost: \\( 25 + 3.75 = 28.75 \\).  \n\nAnswer: E",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.009833255000558
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Molly’s haircut cost $25.  \nA 15% tip is \\( 0.15 \\times 25 = 3.75 \\).  \nTotal cost: \\( 25 + 3.75 = 28.75 \\).  \n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220315,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 57,
+      "prompt_tokens": 118,
+      "total_tokens": 175,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-0cuu9LKXGI76w7fI1EnGhF5XsNcaSzxB",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 117,
+      "prompt_ms": 853.565,
+      "prompt_per_token_ms": 7.295427350427351,
+      "prompt_per_second": 137.072162049756,
+      "predicted_n": 57,
+      "predicted_ms": 4153.46,
+      "predicted_per_token_ms": 72.86771929824562,
+      "predicted_per_second": 13.723497999258448
+    }
+  }
+}

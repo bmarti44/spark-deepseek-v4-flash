@@ -1,0 +1,58 @@
+{
+  "index": 10900,
+  "task_id": 11120,
+  "rendered_prompt_sha256": "fe5e91049915c3e6a6da469197bb76b956b243b9ea0fb460b516453146d74ce1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can test consistency by trying to assign truth values that satisfy all three statements:\n\n1. \\( D \\equiv E \\) — D and E have the same truth value.  \n2. \\( F \\lor D \\) — At least one of F or D is true.  \n3. \\( \\sim E \\cdot \\sim F \\) — E is false and F is false.\n\nFrom (3): E is false, F is false.  \nFrom (1): Since E is false, D must also be false.  \nNow check (2): \\( F \\lor D \\) becomes false ∨ false = false. This contradicts (2), which requires it to be true.\n\nThus, no assignment satisfies all three — the set is inconsistent.\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.398318149998886
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can test consistency by trying to assign truth values that satisfy all three statements:\n\n1. \\( D \\equiv E \\) — D and E have the same truth value.  \n2. \\( F \\lor D \\) — At least one of F or D is true.  \n3. \\( \\sim E \\cdot \\sim F \\) — E is false and F is false.\n\nFrom (3): E is false, F is false.  \nFrom (1): Since E is false, D must also be false.  \nNow check (2): \\( F \\lor D \\) becomes false ∨ false = false. This contradicts (2), which requires it to be true.\n\nThus, no assignment satisfies all three — the set is inconsistent.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220744,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 152,
+      "prompt_tokens": 228,
+      "total_tokens": 380,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-yNCNUbyBUAb0UD73gwaDp6XccWv9KIpY",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 227,
+      "prompt_ms": 1122.527,
+      "prompt_per_token_ms": 4.945052863436124,
+      "prompt_per_second": 202.22230734761837,
+      "predicted_n": 152,
+      "predicted_ms": 11273.493,
+      "predicted_per_token_ms": 74.16771710526316,
+      "predicted_per_second": 13.48295510539635
+    }
+  }
+}

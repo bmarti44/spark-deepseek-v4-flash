@@ -1,0 +1,58 @@
+{
+  "index": 8934,
+  "task_id": 9123,
+  "rendered_prompt_sha256": "10528f50fa3aa1aceb39df53c95c496ea8129650f6684e60d4517d106455480f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "According to Coulomb’s law, the force between two charged particles is inversely proportional to the square of the distance between them. If the distance is halved (placed twice as close), the force becomes \\( \\frac{1}{(1/2)^2} = 4 \\) times as strong.\n\nAnswer: A",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.595153946998835
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "According to Coulomb’s law, the force between two charged particles is inversely proportional to the square of the distance between them. If the distance is halved (placed twice as close), the force becomes \\( \\frac{1}{(1/2)^2} = 4 \\) times as strong.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220754,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 64,
+      "prompt_tokens": 112,
+      "total_tokens": 176,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-iYNCO6GIRJZh0xcWIY3eTRX6LpYAN2x8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 111,
+      "prompt_ms": 810.036,
+      "prompt_per_token_ms": 7.297621621621621,
+      "prompt_per_second": 137.03094677273603,
+      "predicted_n": 64,
+      "predicted_ms": 4783.092,
+      "predicted_per_token_ms": 74.7358125,
+      "predicted_per_second": 13.380466024906067
+    }
+  }
+}

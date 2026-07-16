@@ -1,0 +1,58 @@
+{
+  "index": 11704,
+  "task_id": 11929,
+  "rendered_prompt_sha256": "e8e75bd56768bd7dfe74226a613e772cea81245c05360d58928e5ccbb242533e",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to evaluate the divergence of the vector field  \n\\[\n\\mathbf{u} = x^2 \\mathbf{i} + e^{xy} \\mathbf{j} + xyz \\, \\mathbf{k}\n\\]  \nat the point \\((-1, 1, 2)\\).\n\nThe divergence is  \n\\[\n\\nabla \\cdot \\mathbf{u} = \\frac{\\partial}{\\partial x}(x^2) + \\frac{\\partial}{\\partial y}(e^{xy}) + \\frac{\\partial}{\\partial z}(xyz)\n\\]\n\nCompute each partial derivative:\n\n1. \\(\\frac{\\partial}{\\partial x}(x^2) = 2x\\)  \n2. \\(\\frac{\\partial}{\\partial y}(e^{xy}) = x e^{xy}\\)  \n3. \\(\\frac{\\partial}{\\partial z}(xyz) = xy\\)\n\nSo  \n\\[\n\\nabla \\cdot \\mathbf{u} = 2x + x e^{xy} + xy\n\\]\n\nNow evaluate at \\((-1, 1, 2)\\):\n\n- \\(2(-1) = -2\\)  \n- \\(x e^{xy} = (-1) e^{(-1)(1)} = - e^{-1}\\)  \n- \\(xy = (-1)(1)",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.825785341001392
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to evaluate the divergence of the vector field  \n\\[\n\\mathbf{u} = x^2 \\mathbf{i} + e^{xy} \\mathbf{j} + xyz \\, \\mathbf{k}\n\\]  \nat the point \\((-1, 1, 2)\\).\n\nThe divergence is  \n\\[\n\\nabla \\cdot \\mathbf{u} = \\frac{\\partial}{\\partial x}(x^2) + \\frac{\\partial}{\\partial y}(e^{xy}) + \\frac{\\partial}{\\partial z}(xyz)\n\\]\n\nCompute each partial derivative:\n\n1. \\(\\frac{\\partial}{\\partial x}(x^2) = 2x\\)  \n2. \\(\\frac{\\partial}{\\partial y}(e^{xy}) = x e^{xy}\\)  \n3. \\(\\frac{\\partial}{\\partial z}(xyz) = xy\\)\n\nSo  \n\\[\n\\nabla \\cdot \\mathbf{u} = 2x + x e^{xy} + xy\n\\]\n\nNow evaluate at \\((-1, 1, 2)\\):\n\n- \\(2(-1) = -2\\)  \n- \\(x e^{xy} = (-1) e^{(-1)(1)} = - e^{-1}\\)  \n- \\(xy = (-1)(1)",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219874,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 149,
+      "total_tokens": 405,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-DCttsdu89Nd9HIsQrVUorxJdPdV6W8MR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 148,
+      "prompt_ms": 800.99,
+      "prompt_per_token_ms": 5.412094594594595,
+      "prompt_per_second": 184.77134545999326,
+      "predicted_n": 256,
+      "predicted_ms": 19022.334,
+      "predicted_per_token_ms": 74.3059921875,
+      "predicted_per_second": 13.457864844555878
+    }
+  }
+}

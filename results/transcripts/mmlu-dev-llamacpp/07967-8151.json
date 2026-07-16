@@ -1,0 +1,58 @@
+{
+  "index": 7967,
+  "task_id": 8151,
+  "rendered_prompt_sha256": "c1910ac131abb53999f3b6f0522f65ae5260131b8f51281ed81447d94054a052",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s calculate \\(28 \\times 42\\):\n\n\\[\n28 \\times 40 = 1120\n\\]\n\\[\n28 \\times 2 = 56\n\\]\n\\[\n1120 + 56 = 1176\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.273786358000507
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s calculate \\(28 \\times 42\\):\n\n\\[\n28 \\times 40 = 1120\n\\]\n\\[\n28 \\times 2 = 56\n\\]\n\\[\n1120 + 56 = 1176\n\\]\n\nThe correct answer is **F**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220291,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 101,
+      "total_tokens": 164,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-b6gPETFnvQpjGOecP9hySshT1dLiwz3A",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 100,
+      "prompt_ms": 676.873,
+      "prompt_per_token_ms": 6.768730000000001,
+      "prompt_per_second": 147.73820199653406,
+      "predicted_n": 63,
+      "predicted_ms": 4595.063,
+      "predicted_per_token_ms": 72.93750793650794,
+      "predicted_per_second": 13.710366974293931
+    }
+  }
+}

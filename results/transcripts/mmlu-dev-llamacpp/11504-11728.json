@@ -1,0 +1,58 @@
+{
+  "index": 11504,
+  "task_id": 11728,
+  "rendered_prompt_sha256": "888fc8adb0dc0122ac26d2967452a47dfcce705134c802d19a525203a4d27489",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To determine the correct answer, we need to compute the condensing heat transfer coefficients for steam at 7 psia on a cylinder in both horizontal and vertical orientations.\n\n**Step 1: Find steam saturation temperature at 7 psia**  \nFrom steam tables:  \nAt 7 psia, saturation temperature \\( T_{sat} \\approx 101.1^\\circ\\text{F} \\) (or about 38°C, but we'll use °F).\n\n**Step 2: Film temperature for properties**  \nWall temperature = 140°F, which is above saturation — this means condensation occurs only if wall is below saturation. Wait — for condensation, wall must be below saturation temperature. Here wall is 140°F, saturation is ~101°F, so wall is hotter — this implies no condensation, but the problem says \"condensing steam\" so likely the wall is the condensing surface, meaning steam is outside and wall is cooler. Possibly the 140°F is steam temperature? Let’s check:  \nIf steam at 7 psia is 101°F, and wall is 140°F, that would be heating, not condensing. So likely the 140°F is the steam temperature? But 7 ps",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.71905591199902
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To determine the correct answer, we need to compute the condensing heat transfer coefficients for steam at 7 psia on a cylinder in both horizontal and vertical orientations.\n\n**Step 1: Find steam saturation temperature at 7 psia**  \nFrom steam tables:  \nAt 7 psia, saturation temperature \\( T_{sat} \\approx 101.1^\\circ\\text{F} \\) (or about 38°C, but we'll use °F).\n\n**Step 2: Film temperature for properties**  \nWall temperature = 140°F, which is above saturation — this means condensation occurs only if wall is below saturation. Wait — for condensation, wall must be below saturation temperature. Here wall is 140°F, saturation is ~101°F, so wall is hotter — this implies no condensation, but the problem says \"condensing steam\" so likely the wall is the condensing surface, meaning steam is outside and wall is cooler. Possibly the 140°F is steam temperature? Let’s check:  \nIf steam at 7 psia is 101°F, and wall is 140°F, that would be heating, not condensing. So likely the 140°F is the steam temperature? But 7 ps",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219801,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 390,
+      "total_tokens": 646,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-pmuN3vjrTt8yCMJncVnYZq6GDdc0UAmA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 389,
+      "prompt_ms": 1606.907,
+      "prompt_per_token_ms": 4.130866323907455,
+      "prompt_per_second": 242.07997102508114,
+      "predicted_n": 256,
+      "predicted_ms": 19098.298,
+      "predicted_per_token_ms": 74.6027265625,
+      "predicted_per_second": 13.40433582091975
+    }
+  }
+}

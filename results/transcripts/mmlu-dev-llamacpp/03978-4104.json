@@ -1,0 +1,58 @@
+{
+  "index": 3978,
+  "task_id": 4104,
+  "rendered_prompt_sha256": "e6ddf34e145a5ef4b015009ccf5f5bb6388bf31ff310bc630b5b7fafb891eb2b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The difference in molar Gibbs energy between a real gas and an ideal gas is given by:\n\n\\[\nG_m - G_m^{\\text{ideal}} = RT \\ln \\phi\n\\]\n\nwhere \\(\\phi\\) is the fugacity coefficient.\n\nGiven:\n- \\(T = 200\\ \\mathrm{K}\\)\n- \\(R = 8.314\\ \\mathrm{J\\ mol^{-1} K^{-1}}\\)\n- \\(\\phi = 0.72\\)\n\nCalculate:\n\n\\[\nRT = 8.314 \\times 200 = 1662.8\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\n\\[\n\\ln(0.72) \\approx -0.3285\n\\]\n\n\\[\nG_m - G_m^{\\text{ideal}} = 1662.8 \\times (-0.3285) \\approx -546.3\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\nConvert to kJ/mol:\n\n\\[\n-546.3\\ \\mathrm{J\\ mol^{-1}} \\approx -0.546\\ \\mathrm{kJ\\ mol^{-1}}\n\\]\n\nClosest value in the options is \\(-0.55\\ \\mathrm{kJ\\ mol^{-1}}\\).\n\nAnswer: C",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.7084952289988
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The difference in molar Gibbs energy between a real gas and an ideal gas is given by:\n\n\\[\nG_m - G_m^{\\text{ideal}} = RT \\ln \\phi\n\\]\n\nwhere \\(\\phi\\) is the fugacity coefficient.\n\nGiven:\n- \\(T = 200\\ \\mathrm{K}\\)\n- \\(R = 8.314\\ \\mathrm{J\\ mol^{-1} K^{-1}}\\)\n- \\(\\phi = 0.72\\)\n\nCalculate:\n\n\\[\nRT = 8.314 \\times 200 = 1662.8\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\n\\[\n\\ln(0.72) \\approx -0.3285\n\\]\n\n\\[\nG_m - G_m^{\\text{ideal}} = 1662.8 \\times (-0.3285) \\approx -546.3\\ \\mathrm{J\\ mol^{-1}}\n\\]\n\nConvert to kJ/mol:\n\n\\[\n-546.3\\ \\mathrm{J\\ mol^{-1}} \\approx -0.546\\ \\mathrm{kJ\\ mol^{-1}}\n\\]\n\nClosest value in the options is \\(-0.55\\ \\mathrm{kJ\\ mol^{-1}}\\).\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219290,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 246,
+      "prompt_tokens": 268,
+      "total_tokens": 514,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qpdpDOWuGggZ6NHhILo2R1tXvk0ahLsj",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 267,
+      "prompt_ms": 1131.186,
+      "prompt_per_token_ms": 4.236651685393258,
+      "prompt_per_second": 236.0354530554657,
+      "predicted_n": 246,
+      "predicted_ms": 17564.435,
+      "predicted_per_token_ms": 71.40014227642277,
+      "predicted_per_second": 14.005574332450772
+    }
+  }
+}

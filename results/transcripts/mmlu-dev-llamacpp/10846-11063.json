@@ -1,0 +1,58 @@
+{
+  "index": 10846,
+  "task_id": 11063,
+  "rendered_prompt_sha256": "5c285db0ba83b5e2b33592ad5f4d8eb1e22172c50e352bd35c98381c555b65cf",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "According to Joseph Butler’s moral philosophy, particularly in his *Sermons*, he argues that we cannot truly perceive something as good without also having some desire or inclination toward it. This aligns most closely with option J.\n\nAnswer: J",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='J' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 4.472321016000933
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "According to Joseph Butler’s moral philosophy, particularly in his *Sermons*, he argues that we cannot truly perceive something as good without also having some desire or inclination toward it. This aligns most closely with option J.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220731,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 49,
+      "prompt_tokens": 142,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-exQvkSHvVpZOB7HTFReR3MuwZ4sxQMCA",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 141,
+      "prompt_ms": 823.056,
+      "prompt_per_token_ms": 5.837276595744681,
+      "prompt_per_second": 171.31276608153027,
+      "predicted_n": 49,
+      "predicted_ms": 3646.98,
+      "predicted_per_token_ms": 74.42816326530613,
+      "predicted_per_second": 13.435774257056524
+    }
+  }
+}

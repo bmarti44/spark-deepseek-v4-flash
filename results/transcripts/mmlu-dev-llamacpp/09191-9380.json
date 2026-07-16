@@ -1,0 +1,58 @@
+{
+  "index": 9191,
+  "task_id": 9380,
+  "rendered_prompt_sha256": "7e80098e950706aee6b2a84704ca383323534f99c0fe4c0f93cac5667233846c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have the half-reaction:\n\n\\[\n\\mathrm{O}_2(g) + 4\\mathrm{H}^+(aq) + 4e^- \\to 2\\mathrm{H}_2\\mathrm{O}(l)\n\\]\n\nThe Nernst equation for this at 298.15 K is:\n\n\\[\nE = E^\\circ - \\frac{0.05916}{4} \\log \\left( \\frac{1}{a_{\\mathrm{O}_2} \\cdot a_{\\mathrm{H}^+}^4} \\right)\n\\]\n\nGiven \\(E = +1.03\\ \\mathrm{V}\\) and \\(a_{\\mathrm{O}_2} = 1.00\\), and the standard potential \\(E^\\circ\\) for this reaction is \\(+1.229\\ \\mathrm{V}\\) (standard reduction potential for oxygen).  \n\nWe plug in:\n\n\\[\n1.03 = 1.229 - \\frac{0.05916}{4} \\log \\left( \\frac{1}{1 \\cdot a_{\\mathrm{H}^+}^4} \\right)\n\\]\n\n\\[\n1.03 - 1.229 = -0.199 = -\\frac{0.05916}{4} \\log \\left( a_{\\mathrm{H}^+}^{-4",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='H' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.07205558700116
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have the half-reaction:\n\n\\[\n\\mathrm{O}_2(g) + 4\\mathrm{H}^+(aq) + 4e^- \\to 2\\mathrm{H}_2\\mathrm{O}(l)\n\\]\n\nThe Nernst equation for this at 298.15 K is:\n\n\\[\nE = E^\\circ - \\frac{0.05916}{4} \\log \\left( \\frac{1}{a_{\\mathrm{O}_2} \\cdot a_{\\mathrm{H}^+}^4} \\right)\n\\]\n\nGiven \\(E = +1.03\\ \\mathrm{V}\\) and \\(a_{\\mathrm{O}_2} = 1.00\\), and the standard potential \\(E^\\circ\\) for this reaction is \\(+1.229\\ \\mathrm{V}\\) (standard reduction potential for oxygen).  \n\nWe plug in:\n\n\\[\n1.03 = 1.229 - \\frac{0.05916}{4} \\log \\left( \\frac{1}{1 \\cdot a_{\\mathrm{H}^+}^4} \\right)\n\\]\n\n\\[\n1.03 - 1.229 = -0.199 = -\\frac{0.05916}{4} \\log \\left( a_{\\mathrm{H}^+}^{-4",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220824,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 221,
+      "total_tokens": 477,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-CBzGdFjFAPeUwmZosWyyQKhzjbcsHuc1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 220,
+      "prompt_ms": 1088.648,
+      "prompt_per_token_ms": 4.9483999999999995,
+      "prompt_per_second": 202.08552259316144,
+      "predicted_n": 256,
+      "predicted_ms": 18980.889,
+      "predicted_per_token_ms": 74.14409765625,
+      "predicted_per_second": 13.487250254716733
+    }
+  }
+}

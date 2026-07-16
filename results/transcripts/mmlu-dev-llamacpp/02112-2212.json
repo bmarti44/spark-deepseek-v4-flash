@@ -1,0 +1,58 @@
+{
+  "index": 2112,
+  "task_id": 2212,
+  "rendered_prompt_sha256": "334d8a59d2f696552d97ef7e0914999da5c754ef1cb84c5c722e0d17d677aa18",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The projective hypothesis is the idea that people project their own inner thoughts, feelings, and conflicts onto ambiguous stimuli, and that this reveals aspects of their psychological functioning. This is the basis for projective tests like the Rorschach inkblots.\n\nThe statement that most closely matches this is:\n\n**H. The way an individual interprets ambiguous situations will reflect inner aspects of psychological functioning.**\n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.005930163999437
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The projective hypothesis is the idea that people project their own inner thoughts, feelings, and conflicts onto ambiguous stimuli, and that this reveals aspects of their psychological functioning. This is the basis for projective tests like the Rorschach inkblots.\n\nThe statement that most closely matches this is:\n\n**H. The way an individual interprets ambiguous situations will reflect inner aspects of psychological functioning.**\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221198,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 79,
+      "prompt_tokens": 196,
+      "total_tokens": 275,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-x0uSuRO9U21PeOxLGD6fnSuSpg7XgULR",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 195,
+      "prompt_ms": 1027.208,
+      "prompt_per_token_ms": 5.267733333333334,
+      "prompt_per_second": 189.83497013263135,
+      "predicted_n": 79,
+      "predicted_ms": 5976.35,
+      "predicted_per_token_ms": 75.65,
+      "predicted_per_second": 13.218770654329147
+    }
+  }
+}

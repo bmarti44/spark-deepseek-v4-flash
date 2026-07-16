@@ -1,0 +1,58 @@
+{
+  "index": 11144,
+  "task_id": 11366,
+  "rendered_prompt_sha256": "5aa12e66508ec288de361047f48fa405401fd70433b8ab4a92c105479cece11c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to find the density and velocity of methane at the given conditions.\n\n**Step 1 – Known data**  \n- Gas: Methane (CH₄)  \n- Pressure: \\( P = 3000 \\, \\text{psi} \\)  \n- Temperature: \\( T = 65^\\circ\\text{F} = 65 + 459.67 = 524.67 \\, ^\\circ\\text{R} \\)  \n- Pipe ID: \\( D = 12 \\, \\text{in} = 1 \\, \\text{ft} \\)  \n- Mass flow rate: \\( \\dot{m} = 70 \\, \\text{lbm/s} \\)  \n\n**Step 2 – Critical properties for methane**  \nFrom standard data:  \n- \\( P_c = 673 \\, \\text{psi} \\)  \n- \\( T_c = 343.3 \\, ^\\circ\\text{R} \\)  \n\n**Step 3 – Reduced properties**  \n\\[\nP_r = \\frac{3000}{673} \\approx 4.457\n\\]  \n\\[\nT_r = \\frac{524.67}{343.3} \\approx 1.528\n\\]  \n\n**Step 4 – Compressibility factor from generalized chart**  \nFor \\(",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.375209910000194
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to find the density and velocity of methane at the given conditions.\n\n**Step 1 – Known data**  \n- Gas: Methane (CH₄)  \n- Pressure: \\( P = 3000 \\, \\text{psi} \\)  \n- Temperature: \\( T = 65^\\circ\\text{F} = 65 + 459.67 = 524.67 \\, ^\\circ\\text{R} \\)  \n- Pipe ID: \\( D = 12 \\, \\text{in} = 1 \\, \\text{ft} \\)  \n- Mass flow rate: \\( \\dot{m} = 70 \\, \\text{lbm/s} \\)  \n\n**Step 2 – Critical properties for methane**  \nFrom standard data:  \n- \\( P_c = 673 \\, \\text{psi} \\)  \n- \\( T_c = 343.3 \\, ^\\circ\\text{R} \\)  \n\n**Step 3 – Reduced properties**  \n\\[\nP_r = \\frac{3000}{673} \\approx 4.457\n\\]  \n\\[\nT_r = \\frac{524.67}{343.3} \\approx 1.528\n\\]  \n\n**Step 4 – Compressibility factor from generalized chart**  \nFor \\(",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219689,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 264,
+      "total_tokens": 520,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-mqXr5qbtGOYqTS6YZgiA7jrNPjmLD5tX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 263,
+      "prompt_ms": 1168.899,
+      "prompt_per_token_ms": 4.44448288973384,
+      "prompt_per_second": 224.99805372406001,
+      "predicted_n": 256,
+      "predicted_ms": 19193.0,
+      "predicted_per_token_ms": 74.97265625,
+      "predicted_per_second": 13.338196217370916
+    }
+  }
+}

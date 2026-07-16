@@ -1,0 +1,58 @@
+{
+  "index": 2297,
+  "task_id": 2398,
+  "rendered_prompt_sha256": "0904c2dcac833a35c82d3c9a882e3b4ddb2a6dba11107b348647106717463382",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The referral concern is about Susan’s inability to remain seated, which is a behavioral issue. Among the options, **Susan's diet** (I) is least directly relevant to understanding the immediate classroom behavior and environmental or instructional factors that might be influencing it.  \n\nAnswer: I",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.02272129999983
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The referral concern is about Susan’s inability to remain seated, which is a behavioral issue. Among the options, **Susan's diet** (I) is least directly relevant to understanding the immediate classroom behavior and environmental or instructional factors that might be influencing it.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221208,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 57,
+      "prompt_tokens": 134,
+      "total_tokens": 191,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-KlxCI0eFB7YYZcGw4hryH06QPtUiGAnK",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 133,
+      "prompt_ms": 859.406,
+      "prompt_per_token_ms": 6.461699248120301,
+      "prompt_per_second": 154.75805381856773,
+      "predicted_n": 57,
+      "predicted_ms": 4160.504,
+      "predicted_per_token_ms": 72.99129824561403,
+      "predicted_per_second": 13.700263237338554
+    }
+  }
+}

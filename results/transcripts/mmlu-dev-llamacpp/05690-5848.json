@@ -1,0 +1,58 @@
+{
+  "index": 5690,
+  "task_id": 5848,
+  "rendered_prompt_sha256": "4721a8108f6d6e4fdc3446372eac73eca51b319a67bd41724bce16f6f7e81eb8",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To determine the **distributable net income (DNI)** for a simple trust, we follow the rules under Internal Revenue Code Section 643.  \n\nHere’s the breakdown:\n\n- **Dividend income**: $2,500  \n- **Taxable interest income**: $2,000  \n- **Capital gains (allocable to corpus)**: $5,000 — but capital gains allocated to corpus are **not** included in DNI unless they are actually distributed or used for charitable purposes. In a simple trust, capital gains are generally not included in DNI.  \n- **Accounting fees (allocable to income)**: ($500) — deductible from income  \n- **Trustee fees (allocable to income)**: ($750) — deductible from income  \n\nSo DNI = (Dividend income + Taxable interest income) – (deductions allocable to income)  \n\n= ($2,500 + $2,000) – ($500 + $750)  \n= $4,500 – $1,250  \n= **$3,250**\n\nThe correct answer is **J. 3250**.\n\nAnswer: J",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 18.14301371700094
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To determine the **distributable net income (DNI)** for a simple trust, we follow the rules under Internal Revenue Code Section 643.  \n\nHere’s the breakdown:\n\n- **Dividend income**: $2,500  \n- **Taxable interest income**: $2,000  \n- **Capital gains (allocable to corpus)**: $5,000 — but capital gains allocated to corpus are **not** included in DNI unless they are actually distributed or used for charitable purposes. In a simple trust, capital gains are generally not included in DNI.  \n- **Accounting fees (allocable to income)**: ($500) — deductible from income  \n- **Trustee fees (allocable to income)**: ($750) — deductible from income  \n\nSo DNI = (Dividend income + Taxable interest income) – (deductions allocable to income)  \n\n= ($2,500 + $2,000) – ($500 + $750)  \n= $4,500 – $1,250  \n= **$3,250**\n\nThe correct answer is **J. 3250**.\n\nAnswer: J",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220672,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 232,
+      "prompt_tokens": 162,
+      "total_tokens": 394,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-rk1aShUbrBVng1zkDYjj6QxOjcIks8C0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 161,
+      "prompt_ms": 907.455,
+      "prompt_per_token_ms": 5.63636645962733,
+      "prompt_per_second": 177.4192659691114,
+      "predicted_n": 232,
+      "predicted_ms": 17232.938,
+      "predicted_per_token_ms": 74.27990517241379,
+      "predicted_per_second": 13.462591230816244
+    }
+  }
+}

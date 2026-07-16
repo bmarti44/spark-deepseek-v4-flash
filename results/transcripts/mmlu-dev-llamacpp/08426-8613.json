@@ -1,0 +1,58 @@
+{
+  "index": 8426,
+  "task_id": 8613,
+  "rendered_prompt_sha256": "878ac8753325d628980faf6487585fa471b45d2a57030a165463daa459a5c17a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We want the largest integer \\( x \\) such that  \n\\[\n\\frac{x+11}{x+7}\n\\]  \nis an integer.\n\nWe can rewrite:  \n\\[\n\\frac{x+11}{x+7} = \\frac{x+7+4}{x+7} = 1 + \\frac{4}{x+7}\n\\]  \nFor this to be an integer, \\( \\frac{4}{x+7} \\) must be an integer, meaning \\( x+7 \\) must be a divisor of 4.\n\nDivisors of 4: \\( \\pm 1, \\pm 2, \\pm 4 \\).  \nSo:  \n\\[\nx+7 = 1 \\implies x = -6\n\\]  \n\\[\nx+7 = -1 \\implies x = -8\n\\]  \n\\[\nx+7 = 2 \\implies x = -5\n\\]  \n\\[\nx+7 = -2 \\implies x = -9\n\\]  \n\\[\nx+7 = 4 \\implies x = -3\n\\]  \n\\[\nx+7 = -4 \\implies x = -11\n\\]  \n\nThe largest integer among these is \\( x = -3 \\).\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.419243496999115
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We want the largest integer \\( x \\) such that  \n\\[\n\\frac{x+11}{x+7}\n\\]  \nis an integer.\n\nWe can rewrite:  \n\\[\n\\frac{x+11}{x+7} = \\frac{x+7+4}{x+7} = 1 + \\frac{4}{x+7}\n\\]  \nFor this to be an integer, \\( \\frac{4}{x+7} \\) must be an integer, meaning \\( x+7 \\) must be a divisor of 4.\n\nDivisors of 4: \\( \\pm 1, \\pm 2, \\pm 4 \\).  \nSo:  \n\\[\nx+7 = 1 \\implies x = -6\n\\]  \n\\[\nx+7 = -1 \\implies x = -8\n\\]  \n\\[\nx+7 = 2 \\implies x = -5\n\\]  \n\\[\nx+7 = -2 \\implies x = -9\n\\]  \n\\[\nx+7 = 4 \\implies x = -3\n\\]  \n\\[\nx+7 = -4 \\implies x = -11\n\\]  \n\nThe largest integer among these is \\( x = -3 \\).\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220412,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 254,
+      "prompt_tokens": 91,
+      "total_tokens": 345,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WvsNrwEMrPZtoX88yS6J8YJ2E6iLTgBF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 90,
+      "prompt_ms": 680.87,
+      "prompt_per_token_ms": 7.565222222222222,
+      "prompt_per_second": 132.18382363740508,
+      "predicted_n": 254,
+      "predicted_ms": 18736.41,
+      "predicted_per_token_ms": 73.7653937007874,
+      "predicted_per_second": 13.55649241236715
+    }
+  }
+}

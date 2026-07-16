@@ -1,0 +1,58 @@
+{
+  "index": 9353,
+  "task_id": 9542,
+  "rendered_prompt_sha256": "620739d63c07304a452caa575b99b87fe5872b0ff6d76ff35ce0e7e5802d1ccd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "In a parallel circuit, the current through each branch depends on the resistance of that branch. If the two lamps are identical, the current would be the same in both. But if they are different, the current could be different.  \nSince the problem doesn’t state that the lamps are identical, the current in the other lamp depends on its resistance.\n\nAnswer: B",
+  "expected": "H",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='H'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.3261954999998125
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "In a parallel circuit, the current through each branch depends on the resistance of that branch. If the two lamps are identical, the current would be the same in both. But if they are different, the current could be different.  \nSince the problem doesn’t state that the lamps are identical, the current in the other lamp depends on its resistance.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220884,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 75,
+      "prompt_tokens": 139,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-ZzDWx4Ina9gzvZ67x9FAVNjpp12Qc9q3",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 138,
+      "prompt_ms": 821.06,
+      "prompt_per_token_ms": 5.949710144927536,
+      "prompt_per_second": 168.07541470781672,
+      "predicted_n": 75,
+      "predicted_ms": 5502.547,
+      "predicted_per_token_ms": 73.36729333333332,
+      "predicted_per_second": 13.630051683338644
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 6940,
+  "task_id": 7110,
+  "rendered_prompt_sha256": "59006ad24ff3f5e5cd4d0f3b9661d921bcf26050664e27069086e3918ba7fdbc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The price elasticity of demand is 3, which is greater than 1, meaning demand is elastic. When demand is elastic, total revenue increases when the price is decreased, because the percentage increase in quantity demanded is larger than the percentage decrease in price.  \n\nThe correct option is: **I. decrease price as demand is elastic.**  \n\nAnswer: I",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.1775904149999405
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The price elasticity of demand is 3, which is greater than 1, meaning demand is elastic. When demand is elastic, total revenue increases when the price is decreased, because the percentage increase in quantity demanded is larger than the percentage decrease in price.  \n\nThe correct option is: **I. decrease price as demand is elastic.**  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219554,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 72,
+      "prompt_tokens": 143,
+      "total_tokens": 215,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-oHhcDOESoPOqtdWejzpc3kO0iXeGGO0i",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 142,
+      "prompt_ms": 849.824,
+      "prompt_per_token_ms": 5.984676056338028,
+      "prompt_per_second": 167.0934216967278,
+      "predicted_n": 72,
+      "predicted_ms": 5325.028,
+      "predicted_per_token_ms": 73.95872222222222,
+      "predicted_per_second": 13.521055663932659
+    }
+  }
+}

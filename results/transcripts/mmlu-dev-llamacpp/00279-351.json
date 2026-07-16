@@ -1,0 +1,58 @@
+{
+  "index": 279,
+  "task_id": 351,
+  "rendered_prompt_sha256": "5defcddd57181e327a77f0b762a41ee588fa4a3676e0defdba7b37b4522e5a3a",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The commission is 10% on sales above $2,500.  \nSales above $2,500:  \n$5,070.20 - $2,500 = $2,570.20  \n\nCommission:  \n10% of $2,570.20 = $257.02  \n\nSalary:  \n$300 per month  \n\nTotal income:  \n$300 + $257.02 = $557.02  \n\nThe correct answer is **H**.  \n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.6454332659996
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The commission is 10% on sales above $2,500.  \nSales above $2,500:  \n$5,070.20 - $2,500 = $2,570.20  \n\nCommission:  \n10% of $2,570.20 = $257.02  \n\nSalary:  \n$300 per month  \n\nTotal income:  \n$300 + $257.02 = $557.02  \n\nThe correct answer is **H**.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218899,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 97,
+      "prompt_tokens": 149,
+      "total_tokens": 246,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-MsbstyI8M5X0BSlGNVLA1Qk44VbFbTYS",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 148,
+      "prompt_ms": 829.07,
+      "prompt_per_token_ms": 5.601824324324324,
+      "prompt_per_second": 178.51327390932008,
+      "predicted_n": 97,
+      "predicted_ms": 6814.414,
+      "predicted_per_token_ms": 70.25169072164948,
+      "predicted_per_second": 14.234532859318499
+    }
+  }
+}

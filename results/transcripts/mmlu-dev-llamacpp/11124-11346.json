@@ -1,0 +1,58 @@
+{
+  "index": 11124,
+  "task_id": 11346,
+  "rendered_prompt_sha256": "d67852479992c9ca1ae41df798c308799a86d8c62938898eeac5d382b1d86173",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step-by-step.\n\n**Step 1: Find critical velocity**  \nGiven:  \n- Diameter \\( D = \\frac{1}{4} \\) in = \\( 0.25 \\) in = \\( \\frac{0.25}{12} \\) ft = \\( 0.020833 \\) ft  \n- Reynolds number at critical: \\( Re = 2500 \\)  \n- Viscosity: \\( \\mu = 0.679 \\times 10^{-3} \\) lbm/ft-sec  \n- Density of water: \\( \\rho = 62.4 \\) lbm/ft³  \n\nCritical velocity:  \n\\[\nV_c = \\frac{Re \\, \\mu}{\\rho D}\n= \\frac{2500 \\times 0.679 \\times 10^{-3}}{62.4 \\times 0.020833}\n\\]  \nNumerator: \\( 2500 \\times 0.000679 = 1.6975 \\)  \nDenominator: \\( 62.4 \\times 0.020833 \\approx 1.2998 \\)  \nSo:  \n\\[\nV_c \\approx \\frac{1.6975}{1.2998} \\approx 1.306 \\ \\",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.978603707999355
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step-by-step.\n\n**Step 1: Find critical velocity**  \nGiven:  \n- Diameter \\( D = \\frac{1}{4} \\) in = \\( 0.25 \\) in = \\( \\frac{0.25}{12} \\) ft = \\( 0.020833 \\) ft  \n- Reynolds number at critical: \\( Re = 2500 \\)  \n- Viscosity: \\( \\mu = 0.679 \\times 10^{-3} \\) lbm/ft-sec  \n- Density of water: \\( \\rho = 62.4 \\) lbm/ft³  \n\nCritical velocity:  \n\\[\nV_c = \\frac{Re \\, \\mu}{\\rho D}\n= \\frac{2500 \\times 0.679 \\times 10^{-3}}{62.4 \\times 0.020833}\n\\]  \nNumerator: \\( 2500 \\times 0.000679 = 1.6975 \\)  \nDenominator: \\( 62.4 \\times 0.020833 \\approx 1.2998 \\)  \nSo:  \n\\[\nV_c \\approx \\frac{1.6975}{1.2998} \\approx 1.306 \\ \\",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219668,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 175,
+      "total_tokens": 431,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-d22DPs9OfqDBN70QZpeP7fPkvNAPi4BW",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 174,
+      "prompt_ms": 969.549,
+      "prompt_per_token_ms": 5.572120689655172,
+      "prompt_per_second": 179.464885219829,
+      "predicted_n": 256,
+      "predicted_ms": 19006.467,
+      "predicted_per_token_ms": 74.24401171875,
+      "predicted_per_second": 13.46909975430994
+    }
+  }
+}

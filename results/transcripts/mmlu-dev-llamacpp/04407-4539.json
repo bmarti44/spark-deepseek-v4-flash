@@ -1,0 +1,58 @@
+{
+  "index": 4407,
+  "task_id": 4539,
+  "rendered_prompt_sha256": "e27d9f8e1c325cd3c2196ffa7aed8da2bd592dee79a6140f313874e994673713",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The de Broglie wavelength is given by:\n\n\\[\n\\lambda = \\frac{h}{p}\n\\]\n\nFor a particle with kinetic energy \\(E\\) (non-relativistic, since 4.8 MeV is much less than the rest mass of an alpha particle ~ 3727 MeV), we have:\n\n\\[\np = \\sqrt{2mE}\n\\]\n\nMass of an alpha particle:  \n\\( m \\approx 4.0026 \\, \\text{u} = 4.0026 \\times 1.66 \\times 10^{-27} \\, \\text{kg} \\approx 6.64 \\times 10^{-27} \\, \\text{kg} \\)  \n\nEnergy:  \n\\( E = 4.8 \\, \\text{MeV} = 4.8 \\times 1.602 \\times 10^{-13} \\, \\text{J} \\approx 7.69 \\times 10^{-13} \\, \\text{J} \\)  \n\nThen:  \n\\[\np = \\sqrt{2 \\times 6.64 \\times 10^{-27} \\times 7.69 \\times 10^{-13}} \n= \\sqrt{1.021 \\times 10^{-38}} \\approx ",
+  "expected": "J",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.207228464001673
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The de Broglie wavelength is given by:\n\n\\[\n\\lambda = \\frac{h}{p}\n\\]\n\nFor a particle with kinetic energy \\(E\\) (non-relativistic, since 4.8 MeV is much less than the rest mass of an alpha particle ~ 3727 MeV), we have:\n\n\\[\np = \\sqrt{2mE}\n\\]\n\nMass of an alpha particle:  \n\\( m \\approx 4.0026 \\, \\text{u} = 4.0026 \\times 1.66 \\times 10^{-27} \\, \\text{kg} \\approx 6.64 \\times 10^{-27} \\, \\text{kg} \\)  \n\nEnergy:  \n\\( E = 4.8 \\, \\text{MeV} = 4.8 \\times 1.602 \\times 10^{-13} \\, \\text{J} \\approx 7.69 \\times 10^{-13} \\, \\text{J} \\)  \n\nThen:  \n\\[\np = \\sqrt{2 \\times 6.64 \\times 10^{-27} \\times 7.69 \\times 10^{-13}} \n= \\sqrt{1.021 \\times 10^{-38}} \\approx ",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219358,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 190,
+      "total_tokens": 446,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-cqi8dQyuKJtaATZmEMHwP8GoLyTVvR3F",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 189,
+      "prompt_ms": 926.859,
+      "prompt_per_token_ms": 4.904015873015873,
+      "prompt_per_second": 203.9145112687043,
+      "predicted_n": 256,
+      "predicted_ms": 18277.676,
+      "predicted_per_token_ms": 71.397171875,
+      "predicted_per_second": 14.00615701908711
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 2339,
+  "task_id": 2442,
+  "rendered_prompt_sha256": "fb7a92a96595b99ca34e9b383325ad3049ae9c129155a381a225a6d5d7486ffd",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The question asks which statement reflects what the **catharsis theory** claims (that venting aggression reduces later aggression) but is **unsupported by research**.\n\nCatharsis theory suggests that releasing aggressive energy (like through acting aggressively) will reduce the likelihood of further aggression. However, research generally shows the opposite — that acting aggressively often increases, rather than decreases, later aggression.\n\nThe option that matches this unsupported claim is:\n\n**G. aggressive act reduces inclination to engages in other aggressive acts**\n\nAnswer: G",
+  "expected": "G",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.876561794999361
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The question asks which statement reflects what the **catharsis theory** claims (that venting aggression reduces later aggression) but is **unsupported by research**.\n\nCatharsis theory suggests that releasing aggressive energy (like through acting aggressively) will reduce the likelihood of further aggression. However, research generally shows the opposite — that acting aggressively often increases, rather than decreases, later aggression.\n\nThe option that matches this unsupported claim is:\n\n**G. aggressive act reduces inclination to engages in other aggressive acts**\n\nAnswer: G",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221217,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 106,
+      "prompt_tokens": 177,
+      "total_tokens": 283,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-yWq7xdFpgOeRJOKR4CJROqnb1Ws7WC63",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 176,
+      "prompt_ms": 987.641,
+      "prompt_per_token_ms": 5.611596590909091,
+      "prompt_per_second": 178.20240350491727,
+      "predicted_n": 106,
+      "predicted_ms": 7876.092,
+      "predicted_per_token_ms": 74.30275471698113,
+      "predicted_per_second": 13.458451221748046
+    }
+  }
+}

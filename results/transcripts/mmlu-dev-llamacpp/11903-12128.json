@@ -1,0 +1,58 @@
+{
+  "index": 11903,
+  "task_id": 12128,
+  "rendered_prompt_sha256": "b2de86e1133b04a6c3d565bb023798326738165584242f09df61c54b6db53a1d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "When capacitors are connected in series, the reciprocal of the equivalent capacitance is the sum of the reciprocals of each capacitance.  \n\nFor five capacitors each of \\( 5 \\, \\mu\\text{F} \\):\n\n\\[\n\\frac{1}{C_{\\text{eq}}} = \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} = \\frac{5}{5} = 1\n\\]\n\nSo:\n\n\\[\nC_{\\text{eq}} = 1 \\, \\mu\\text{F}\n\\]\n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.37287764299981
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "When capacitors are connected in series, the reciprocal of the equivalent capacitance is the sum of the reciprocals of each capacitance.  \n\nFor five capacitors each of \\( 5 \\, \\mu\\text{F} \\):\n\n\\[\n\\frac{1}{C_{\\text{eq}}} = \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} + \\frac{1}{5} = \\frac{5}{5} = 1\n\\]\n\nSo:\n\n\\[\nC_{\\text{eq}} = 1 \\, \\mu\\text{F}\n\\]\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219913,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 128,
+      "prompt_tokens": 118,
+      "total_tokens": 246,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-3ZSuxd16okMOnK0mPXldoPLsqal3XtkG",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 117,
+      "prompt_ms": 836.539,
+      "prompt_per_token_ms": 7.149905982905983,
+      "prompt_per_second": 139.86197893941585,
+      "predicted_n": 128,
+      "predicted_ms": 9532.683,
+      "predicted_per_token_ms": 74.4740859375,
+      "predicted_per_second": 13.427489406707428
+    }
+  }
+}

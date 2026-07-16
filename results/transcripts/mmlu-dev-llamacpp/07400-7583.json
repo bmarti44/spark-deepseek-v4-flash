@@ -1,0 +1,58 @@
+{
+  "index": 7400,
+  "task_id": 7583,
+  "rendered_prompt_sha256": "a7ba8e7bf8fc75d9a16ebb9c307596c3cc00458aefc6e37a14f8fbf5171818b7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have 27 quarterly observations and 3 parameters (\\(\\beta_1, \\beta_2, \\beta_3\\)), so the degrees of freedom for the t-test are:\n\n\\[\nn - k = 27 - 3 = 24\n\\]\n\nFor a two-sided 5% test, we need the critical value \\( t_{0.025, 24} \\).  \nFrom t-tables, the value for 24 degrees of freedom at the 0.025 level (two-tailed) is approximately **2.064**, which is closest to **2.06** in the options.\n\nAnswer: E",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 10.375947608999923
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have 27 quarterly observations and 3 parameters (\\(\\beta_1, \\beta_2, \\beta_3\\)), so the degrees of freedom for the t-test are:\n\n\\[\nn - k = 27 - 3 = 24\n\\]\n\nFor a two-sided 5% test, we need the critical value \\( t_{0.025, 24} \\).  \nFrom t-tables, the value for 24 degrees of freedom at the 0.025 level (two-tailed) is approximately **2.064**, which is closest to **2.06** in the options.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219598,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 127,
+      "prompt_tokens": 167,
+      "total_tokens": 294,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-vUvGA7h6RCsVYQ9yDGRCnbrJ2tS08vhh",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 166,
+      "prompt_ms": 952.919,
+      "prompt_per_token_ms": 5.740475903614458,
+      "prompt_per_second": 174.20158481465896,
+      "predicted_n": 127,
+      "predicted_ms": 9421.008,
+      "predicted_per_token_ms": 74.1811653543307,
+      "predicted_per_second": 13.480510790352794
+    }
+  }
+}

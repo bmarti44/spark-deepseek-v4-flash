@@ -1,0 +1,58 @@
+{
+  "index": 9747,
+  "task_id": 9940,
+  "rendered_prompt_sha256": "d1ebcb938a3cebd19daf51bab12d768d645ab6b5f8fa4ba7e1f36e6f83aaf2f3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The mechanical advantage of an ideal pulley system is given by the ratio of the output force (weight lifted) to the input force (force applied).  \n\nHere:  \n- Output force = 100 N  \n- Input force = 25 N  \n\nMechanical advantage = \\( \\frac{100}{25} = 4 \\).  \n\nFor an ideal pulley, the distance the load moves is inversely proportional to the mechanical advantage:  \n\\[\n\\text{Distance load moves} = \\frac{\\text{distance rope pulled}}{\\text{mechanical advantage}}\n\\]  \n\nIf 1 m of rope is pulled, the crate rises:  \n\\[\n\\frac{1 \\text{ m}}{4} = 0.25 \\text{ m} = 25 \\text{ cm}\n\\]  \n\nAnswer: D",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.05266733999997
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The mechanical advantage of an ideal pulley system is given by the ratio of the output force (weight lifted) to the input force (force applied).  \n\nHere:  \n- Output force = 100 N  \n- Input force = 25 N  \n\nMechanical advantage = \\( \\frac{100}{25} = 4 \\).  \n\nFor an ideal pulley, the distance the load moves is inversely proportional to the mechanical advantage:  \n\\[\n\\text{Distance load moves} = \\frac{\\text{distance rope pulled}}{\\text{mechanical advantage}}\n\\]  \n\nIf 1 m of rope is pulled, the crate rises:  \n\\[\n\\frac{1 \\text{ m}}{4} = 0.25 \\text{ m} = 25 \\text{ cm}\n\\]  \n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221067,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 162,
+      "prompt_tokens": 121,
+      "total_tokens": 283,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-n4280fI8R7s7SIkEeU8BNgqaDRSRSckT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 120,
+      "prompt_ms": 876.957,
+      "prompt_per_token_ms": 7.307975,
+      "prompt_per_second": 136.83681183912094,
+      "predicted_n": 162,
+      "predicted_ms": 12173.559,
+      "predicted_per_token_ms": 75.14542592592592,
+      "predicted_per_second": 13.307529868627574
+    }
+  }
+}

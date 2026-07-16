@@ -1,0 +1,58 @@
+{
+  "index": 9330,
+  "task_id": 9519,
+  "rendered_prompt_sha256": "fab50803403dc39e2d052731166365a56530110199af9738410ab3e86c1526a5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The energy of a photon emitted when an electron transitions from a higher orbit \\( n_i \\) to a lower orbit \\( n_f \\) in a hydrogen atom is given by:\n\n\\[\n\\Delta E = 2.18 \\times 10^{-18} \\, \\text{J} \\times \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right)\n\\]\n\nHere, \\( n_i = 3 \\) and \\( n_f = 2 \\), so:\n\n\\[\n\\Delta E = 2.18 \\times 10^{-18} \\, \\text{J} \\times \\left( \\frac{1}{2^2} - \\frac{1}{3^2} \\right)\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='D' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 13.42230329099948
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The energy of a photon emitted when an electron transitions from a higher orbit \\( n_i \\) to a lower orbit \\( n_f \\) in a hydrogen atom is given by:\n\n\\[\n\\Delta E = 2.18 \\times 10^{-18} \\, \\text{J} \\times \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right)\n\\]\n\nHere, \\( n_i = 3 \\) and \\( n_f = 2 \\), so:\n\n\\[\n\\Delta E = 2.18 \\times 10^{-18} \\, \\text{J} \\times \\left( \\frac{1}{2^2} - \\frac{1}{3^2} \\right)\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220878,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 164,
+      "prompt_tokens": 265,
+      "total_tokens": 429,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-oa4jrB6Gp3Sj4rBszQMwf570Yp9sgKW0",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 264,
+      "prompt_ms": 1155.686,
+      "prompt_per_token_ms": 4.377598484848485,
+      "prompt_per_second": 228.4357515795813,
+      "predicted_n": 164,
+      "predicted_ms": 12264.362,
+      "predicted_per_token_ms": 74.78269512195122,
+      "predicted_per_second": 13.372077569138943
+    }
+  }
+}

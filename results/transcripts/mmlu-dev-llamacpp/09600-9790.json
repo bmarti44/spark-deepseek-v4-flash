@@ -1,0 +1,58 @@
+{
+  "index": 9600,
+  "task_id": 9790,
+  "rendered_prompt_sha256": "ee3ae8f1f10bc69c9fde1e4e77d75ff922fbd1a8eb62b1489ab36513fe797ed2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The period of a pendulum is given by:\n\n\\[\nT = 2\\pi \\sqrt{\\frac{L}{g}}\n\\]\n\nIf the pendulum has a period of 1 second in London where \\( g_L = 32.200 \\, \\text{ft/s}^2 \\), then the length \\( L \\) is:\n\n\\[\n1 = 2\\pi \\sqrt{\\frac{L}{32.200}}\n\\]\n\\[\n\\frac{1}{2\\pi} = \\sqrt{\\frac{L}{32.200}}\n\\]\n\\[\n\\frac{1}{(2\\pi)^2} = \\frac{L}{32.200}\n\\]\n\\[\nL = \\frac{32.200}{(2\\pi)^2}\n\\]\n\nIn Paris, the pendulum loses 20 seconds per day.  \nA day has \\( 24 \\times 3600 = 86400 \\) seconds.  \nLosing 20 seconds per day means it makes \\( 86400 - 20 = 86380 \\) oscillations in a day.  \nSo the period in Paris is:\n\n\\[\nT_P = \\frac{86400}{86380} \\, \\text{seconds}\n\\]\n\nSince \\( T \\propto \\frac{1}{\\sqrt{g}} \\):\n\n\\[\n\\frac{T_P}{T_L",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='G' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.05098337600066
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The period of a pendulum is given by:\n\n\\[\nT = 2\\pi \\sqrt{\\frac{L}{g}}\n\\]\n\nIf the pendulum has a period of 1 second in London where \\( g_L = 32.200 \\, \\text{ft/s}^2 \\), then the length \\( L \\) is:\n\n\\[\n1 = 2\\pi \\sqrt{\\frac{L}{32.200}}\n\\]\n\\[\n\\frac{1}{2\\pi} = \\sqrt{\\frac{L}{32.200}}\n\\]\n\\[\n\\frac{1}{(2\\pi)^2} = \\frac{L}{32.200}\n\\]\n\\[\nL = \\frac{32.200}{(2\\pi)^2}\n\\]\n\nIn Paris, the pendulum loses 20 seconds per day.  \nA day has \\( 24 \\times 3600 = 86400 \\) seconds.  \nLosing 20 seconds per day means it makes \\( 86400 - 20 = 86380 \\) oscillations in a day.  \nSo the period in Paris is:\n\n\\[\nT_P = \\frac{86400}{86380} \\, \\text{seconds}\n\\]\n\nSince \\( T \\propto \\frac{1}{\\sqrt{g}} \\):\n\n\\[\n\\frac{T_P}{T_L",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784221033,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 205,
+      "total_tokens": 461,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-T1OiWkuT5BGCfvNx2FV9h022TzaCpI8I",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 204,
+      "prompt_ms": 1084.217,
+      "prompt_per_token_ms": 5.314789215686275,
+      "prompt_per_second": 188.15421636074694,
+      "predicted_n": 256,
+      "predicted_ms": 18963.666,
+      "predicted_per_token_ms": 74.0768203125,
+      "predicted_per_second": 13.499499516601905
+    }
+  }
+}

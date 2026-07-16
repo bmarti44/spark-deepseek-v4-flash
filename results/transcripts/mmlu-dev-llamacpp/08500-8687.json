@@ -1,0 +1,58 @@
+{
+  "index": 8500,
+  "task_id": 8687,
+  "rendered_prompt_sha256": "f0dbfdfba4bdb3cf526047b319cc29665645d84c621205c8893657425fca7b7b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need values of \\( x \\) that satisfy:  \n\\[\n0.0051 < x < 0.038\n\\]  \nChecking each option:\n\n- A. 0.0042 → less than 0.0051, no  \n- B. 0.0381 → greater than 0.038, no  \n- C. 0.039 → greater than 0.038, no  \n- D. 0.052 → greater than 0.038, no  \n- E. 0.0261 → between 0.0051 and 0.038, yes  \n- F. 0.005 → less than 0.0051, no  \n- G. 0.0021 → less than 0.0051, no  \n- H. 0.049 → greater than 0.038, no  \n- I. 0.050 → greater than 0.038, no  \n- J. 0.045 → greater than 0.038, no  \n\nOnly E fits.\n\nAnswer: E",
+  "expected": "E",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 17.335535526999593
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need values of \\( x \\) that satisfy:  \n\\[\n0.0051 < x < 0.038\n\\]  \nChecking each option:\n\n- A. 0.0042 → less than 0.0051, no  \n- B. 0.0381 → greater than 0.038, no  \n- C. 0.039 → greater than 0.038, no  \n- D. 0.052 → greater than 0.038, no  \n- E. 0.0261 → between 0.0051 and 0.038, yes  \n- F. 0.005 → less than 0.0051, no  \n- G. 0.0021 → less than 0.0051, no  \n- H. 0.049 → greater than 0.038, no  \n- I. 0.050 → greater than 0.038, no  \n- J. 0.045 → greater than 0.038, no  \n\nOnly E fits.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220449,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 221,
+      "prompt_tokens": 122,
+      "total_tokens": 343,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-f0urWWJvDzVavX1OnOBv1aX4HmLJfSCE",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 121,
+      "prompt_ms": 837.704,
+      "prompt_per_token_ms": 6.923173553719008,
+      "prompt_per_second": 144.4424283517806,
+      "predicted_n": 221,
+      "predicted_ms": 16494.471,
+      "predicted_per_token_ms": 74.63561538461539,
+      "predicted_per_second": 13.398429085722118
+    }
+  }
+}

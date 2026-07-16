@@ -1,0 +1,58 @@
+{
+  "index": 6627,
+  "task_id": 6793,
+  "rendered_prompt_sha256": "05b7b359ec10697a9b8e5216839bbc69f36598f918859004dcb4abcdebaa6059",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The patient’s presentation—nausea, vomiting, and now hematemesis—raises concern for a possible Mallory-Weiss tear, which is often caused by repeated vomiting. However, in a young woman of reproductive age, the first and most critical step is to rule out pregnancy, as it can affect both the differential diagnosis and management decisions (e.g., avoiding certain tests or treatments). A urine pregnancy test is quick, noninvasive, and should be done before more invasive or costly tests.\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 8.936023553998893
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The patient’s presentation—nausea, vomiting, and now hematemesis—raises concern for a possible Mallory-Weiss tear, which is often caused by repeated vomiting. However, in a young woman of reproductive age, the first and most critical step is to rule out pregnancy, as it can affect both the differential diagnosis and management decisions (e.g., avoiding certain tests or treatments). A urine pregnancy test is quick, noninvasive, and should be done before more invasive or costly tests.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220053,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 179,
+      "total_tokens": 284,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Y0FHEgFRG9j3fBzbOk4fZH1IAKSE3Aga",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 178,
+      "prompt_ms": 1029.391,
+      "prompt_per_token_ms": 5.783095505617978,
+      "prompt_per_second": 172.91777371280688,
+      "predicted_n": 105,
+      "predicted_ms": 7894.596,
+      "predicted_per_token_ms": 75.18662857142857,
+      "predicted_per_second": 13.300237276233007
+    }
+  }
+}

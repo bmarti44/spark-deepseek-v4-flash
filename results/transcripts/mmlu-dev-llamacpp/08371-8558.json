@@ -1,0 +1,58 @@
+{
+  "index": 8371,
+  "task_id": 8558,
+  "rendered_prompt_sha256": "b52d6e7645f3a58751a2bc9946dc03233e87956f9180179eebf0e856b374aadb",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "To solve \\( x + 2.7 = 8.4 \\), subtract 2.7 from both sides:  \n\\( x = 8.4 - 2.7 = 5.7 \\).  \n\nThe correct answer is **A**.  \n\nAnswer: A",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.009346509999887
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "To solve \\( x + 2.7 = 8.4 \\), subtract 2.7 from both sides:  \n\\( x = 8.4 - 2.7 = 5.7 \\).  \n\nThe correct answer is **A**.  \n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220392,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 114,
+      "total_tokens": 172,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-A4BH62QFQdjJVlbaISkyqm7xGijL66Nz",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 113,
+      "prompt_ms": 776.74,
+      "prompt_per_token_ms": 6.8738053097345135,
+      "prompt_per_second": 145.4798259391817,
+      "predicted_n": 58,
+      "predicted_ms": 4229.811,
+      "predicted_per_token_ms": 72.92777586206896,
+      "predicted_per_second": 13.71219659696379
+    }
+  }
+}

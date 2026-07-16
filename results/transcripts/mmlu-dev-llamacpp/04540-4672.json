@@ -1,0 +1,58 @@
+{
+  "index": 4540,
+  "task_id": 4672,
+  "rendered_prompt_sha256": "1cc2cfeed4cacaa8c3788b0a08b9f59baa91100f85d38b462011065e63684e02",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Moche built a vast complex of temples and artisan workshops at the heart of their urban center, particularly at sites like Huaca de la Luna and Huaca del Sol.  \n\nAnswer: I",
+  "expected": "E",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='E'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.7878641320003226
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Moche built a vast complex of temples and artisan workshops at the heart of their urban center, particularly at sites like Huaca de la Luna and Huaca del Sol.  \n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220057,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 40,
+      "prompt_tokens": 134,
+      "total_tokens": 174,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-d1sEFss52ULwevgw4j51j3a9H3Dv54qq",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 133,
+      "prompt_ms": 810.783,
+      "prompt_per_token_ms": 6.096112781954887,
+      "prompt_per_second": 164.03895986965685,
+      "predicted_n": 40,
+      "predicted_ms": 2974.118,
+      "predicted_per_token_ms": 74.35294999999999,
+      "predicted_per_second": 13.449365492559476
+    }
+  }
+}

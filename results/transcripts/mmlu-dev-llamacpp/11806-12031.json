@@ -1,0 +1,58 @@
+{
+  "index": 11806,
+  "task_id": 12031,
+  "rendered_prompt_sha256": "88bd5fdb4527c57c65385a6d7483a6397c54dfe38ed155e3fb5492b9f86129f7",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can solve step-by-step.\n\n**Given:**  \n- Density: \\(\\rho = 62.4 \\, \\text{lb/ft}^3\\)  \n- Viscosity: \\(\\mu = 7.5 \\times 10^{-4} \\, \\text{lb/(ft·s)}\\)  \n- Free-stream velocity: \\(U = 12 \\, \\text{ft/s}\\)  \n- Distance from leading edge: \\(x = 2 \\, \\text{in} = \\frac{2}{12} = \\frac{1}{6} \\, \\text{ft}\\)\n\n---\n\n### Step 1 – Reynolds number at \\(x\\)\n\n\\[\nRe_x = \\frac{\\rho U x}{\\mu} = \\frac{62.4 \\times 12 \\times (1/6)}{7.5 \\times 10^{-4}}\n\\]\n\n\\[\n= \\frac{62.4 \\times 2}{7.5 \\times 10^{-4}} = \\frac{124.8}{7.5 \\times 10^{-4}}\n\\]\n\n\\[\n= \\frac{124.8}{0.00075} = 166,400\n\\]\n\nSince \\(Re_x < 5 \\times 10^5\\), flow is laminar",
+  "expected": "C",
+  "scored_correct": false,
+  "reason": "unparseable: no standalone answer letter A-J found",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.992129698999634
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can solve step-by-step.\n\n**Given:**  \n- Density: \\(\\rho = 62.4 \\, \\text{lb/ft}^3\\)  \n- Viscosity: \\(\\mu = 7.5 \\times 10^{-4} \\, \\text{lb/(ft·s)}\\)  \n- Free-stream velocity: \\(U = 12 \\, \\text{ft/s}\\)  \n- Distance from leading edge: \\(x = 2 \\, \\text{in} = \\frac{2}{12} = \\frac{1}{6} \\, \\text{ft}\\)\n\n---\n\n### Step 1 – Reynolds number at \\(x\\)\n\n\\[\nRe_x = \\frac{\\rho U x}{\\mu} = \\frac{62.4 \\times 12 \\times (1/6)}{7.5 \\times 10^{-4}}\n\\]\n\n\\[\n= \\frac{62.4 \\times 2}{7.5 \\times 10^{-4}} = \\frac{124.8}{7.5 \\times 10^{-4}}\n\\]\n\n\\[\n= \\frac{124.8}{0.00075} = 166,400\n\\]\n\nSince \\(Re_x < 5 \\times 10^5\\), flow is laminar",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219896,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 459,
+      "total_tokens": 715,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-c57hMthu8HIPFLkJnfH49WClfVrDi6ot",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 458,
+      "prompt_ms": 1836.206,
+      "prompt_per_token_ms": 4.009183406113537,
+      "prompt_per_second": 249.42735183307323,
+      "predicted_n": 256,
+      "predicted_ms": 19152.999,
+      "predicted_per_token_ms": 74.81640234375,
+      "predicted_per_second": 13.366053013421032
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "index": 8329,
+  "task_id": 8516,
+  "rendered_prompt_sha256": "f66efcb9a25374193702fc97d6578b437ef031f39dea907ec2628a8da8a5c765",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "For a spatial Poisson process with constant intensity \\(\\lambda = 11\\), the number of points \\(N(S)\\) in a region \\(S\\) of volume \\(|S|\\) has expectation \\(\\lambda |S|\\). By the law of large numbers for spatial Poisson processes, as the region expands (here \\(r \\to \\infty\\) so \\(|S| \\to \\infty\\)), the ratio  \n\\[\n\\frac{N(S)}{|S|} \\to \\lambda\n\\]  \nalmost surely.  \n\nHere \\(\\lambda = 11\\), so the limit is \\(11\\).\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.53462124699945
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "For a spatial Poisson process with constant intensity \\(\\lambda = 11\\), the number of points \\(N(S)\\) in a region \\(S\\) of volume \\(|S|\\) has expectation \\(\\lambda |S|\\). By the law of large numbers for spatial Poisson processes, as the region expands (here \\(r \\to \\infty\\) so \\(|S| \\to \\infty\\)), the ratio  \n\\[\n\\frac{N(S)}{|S|} \\to \\lambda\n\\]  \nalmost surely.  \n\nHere \\(\\lambda = 11\\), so the limit is \\(11\\).\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220379,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 116,
+      "prompt_tokens": 156,
+      "total_tokens": 272,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-4ddAXvqCQB6rUpPNgM3aHNIPfhz4rPzF",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 155,
+      "prompt_ms": 878.567,
+      "prompt_per_token_ms": 5.668174193548388,
+      "prompt_per_second": 176.42365351760307,
+      "predicted_n": 116,
+      "predicted_ms": 8653.87,
+      "predicted_per_token_ms": 74.6023275862069,
+      "predicted_per_second": 13.404407507854867
+    }
+  }
+}

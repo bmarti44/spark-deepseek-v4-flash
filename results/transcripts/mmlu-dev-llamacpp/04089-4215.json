@@ -1,0 +1,58 @@
+{
+  "index": 4089,
+  "task_id": 4215,
+  "rendered_prompt_sha256": "b6247ca279b193db3a6326561a757f219088d4be4442ab650a34fcceee10645d",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The ideal gas equation for 1 mole is:\n\n\\[\nPV = RT\n\\]\n\nRearranging:\n\n\\[\n\\frac{VP}{T} = R\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+  "expected": "D",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.8886741750011424
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The ideal gas equation for 1 mole is:\n\n\\[\nPV = RT\n\\]\n\nRearranging:\n\n\\[\n\\frac{VP}{T} = R\n\\]\n\nThat matches option **D**.\n\nAnswer: D",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219294,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 166,
+      "total_tokens": 209,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-aodOL8b8iFRmg4NjB9PU7FJpVn7Oo9I8",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 165,
+      "prompt_ms": 841.282,
+      "prompt_per_token_ms": 5.0986787878787885,
+      "prompt_per_second": 196.12924084908508,
+      "predicted_n": 43,
+      "predicted_ms": 3043.937,
+      "predicted_per_token_ms": 70.78923255813953,
+      "predicted_per_second": 14.12644217012376
+    }
+  }
+}

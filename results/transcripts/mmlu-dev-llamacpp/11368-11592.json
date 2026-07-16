@@ -1,0 +1,58 @@
+{
+  "index": 11368,
+  "task_id": 11592,
+  "rendered_prompt_sha256": "635db7a074da68d5280a2d2c7b64baf1440b854678d7748aa22714c9168c5650",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "At very low temperatures like –60°C, the saturation pressure of water vapor is extremely small because the air can hold very little moisture.  \nFrom standard saturation pressure tables for water, at –60°C the saturation pressure is about **0.00109 kPa** (or around 1.09 Pa).  \n\nThat matches option **F**.\n\nAnswer: F",
+  "expected": "F",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 6.313304944000265
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "At very low temperatures like –60°C, the saturation pressure of water vapor is extremely small because the air can hold very little moisture.  \nFrom standard saturation pressure tables for water, at –60°C the saturation pressure is about **0.00109 kPa** (or around 1.09 Pa).  \n\nThat matches option **F**.\n\nAnswer: F",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219754,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 140,
+      "total_tokens": 214,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-YG9CDyFjQnbEnrXFuDe0gV5UrZOCzdl9",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 139,
+      "prompt_ms": 842.329,
+      "prompt_per_token_ms": 6.059920863309352,
+      "prompt_per_second": 165.0186566056731,
+      "predicted_n": 74,
+      "predicted_ms": 5467.095,
+      "predicted_per_token_ms": 73.87966216216216,
+      "predicted_per_second": 13.535524807964741
+    }
+  }
+}

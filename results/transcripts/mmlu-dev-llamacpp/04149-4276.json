@@ -1,0 +1,58 @@
+{
+  "index": 4149,
+  "task_id": 4276,
+  "rendered_prompt_sha256": "328e3cbe47bc16d425fb4157c738e125e167a20e2ef7a56b31fe548ec57b449c",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- \\( p = 327.6 \\text{ atm} \\)  \n- \\( T = 776.4 \\text{ K} \\)  \n- Density \\( \\rho = 133.2 \\text{ kg/m}^3 \\)  \n- Molar mass \\( M = 18.02 \\text{ g/mol} = 0.01802 \\text{ kg/mol} \\)  \n- \\( a = 5.464 \\text{ dm}^6 \\text{ atm mol}^{-2} \\)  \n- \\( b = 0.03049 \\text{ dm}^3 \\text{ mol}^{-1} \\)  \n- Critical values: \\( T_c = 647.4 \\text{ K}, p_c = 218.3 \\text{ atm} \\)\n\nWe need the compression factor from the **virial expansion of van der Waals equation**.\n\n---\n\n### Step 1: Molar volume\nDensity \\( \\rho = 133.2 \\text{ kg/m}^3 \\).  \nMolar volume:\n\n\\[\nV_m = \\frac{M}{\\rho} = \\frac{0.01802}{133.2} \\text{ m}^3/\\text{mol}\n\\]\n\n\\[\nV_m =",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='I'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.37845062699853
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are given:\n\n- \\( p = 327.6 \\text{ atm} \\)  \n- \\( T = 776.4 \\text{ K} \\)  \n- Density \\( \\rho = 133.2 \\text{ kg/m}^3 \\)  \n- Molar mass \\( M = 18.02 \\text{ g/mol} = 0.01802 \\text{ kg/mol} \\)  \n- \\( a = 5.464 \\text{ dm}^6 \\text{ atm mol}^{-2} \\)  \n- \\( b = 0.03049 \\text{ dm}^3 \\text{ mol}^{-1} \\)  \n- Critical values: \\( T_c = 647.4 \\text{ K}, p_c = 218.3 \\text{ atm} \\)\n\nWe need the compression factor from the **virial expansion of van der Waals equation**.\n\n---\n\n### Step 1: Molar volume\nDensity \\( \\rho = 133.2 \\text{ kg/m}^3 \\).  \nMolar volume:\n\n\\[\nV_m = \\frac{M}{\\rho} = \\frac{0.01802}{133.2} \\text{ m}^3/\\text{mol}\n\\]\n\n\\[\nV_m =",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219313,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 266,
+      "total_tokens": 522,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-UU0RTYG9OttSM1n5guW2DAZMP0Dok4LX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 265,
+      "prompt_ms": 1112.394,
+      "prompt_per_token_ms": 4.19771320754717,
+      "prompt_per_second": 238.22494547795117,
+      "predicted_n": 256,
+      "predicted_ms": 18252.794,
+      "predicted_per_token_ms": 71.2999765625,
+      "predicted_per_second": 14.025250052129005
+    }
+  }
+}

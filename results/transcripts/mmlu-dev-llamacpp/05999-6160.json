@@ -1,0 +1,58 @@
+{
+  "index": 5999,
+  "task_id": 6160,
+  "rendered_prompt_sha256": "8e2ad101f0b25cbf082ce59fa844222ff5445dba774a706c860efa13a3991346",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Pseudocholinesterase deficiency leads to prolonged paralysis from **succinylcholine**, a depolarizing neuromuscular blocker, because the enzyme normally breaks it down quickly.\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 3.32902164799998
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Pseudocholinesterase deficiency leads to prolonged paralysis from **succinylcholine**, a depolarizing neuromuscular blocker, because the enzyme normally breaks it down quickly.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219971,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 36,
+      "prompt_tokens": 91,
+      "total_tokens": 127,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-x6IiLQaQUGZ00LBzfCkfKGigEQHBvaNX",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 90,
+      "prompt_ms": 695.961,
+      "prompt_per_token_ms": 7.7329,
+      "prompt_per_second": 129.3175910719135,
+      "predicted_n": 36,
+      "predicted_ms": 2619.924,
+      "predicted_per_token_ms": 72.77566666666667,
+      "predicted_per_second": 13.740856605000756
+    }
+  }
+}

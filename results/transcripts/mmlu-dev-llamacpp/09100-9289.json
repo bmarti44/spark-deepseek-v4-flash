@@ -1,0 +1,58 @@
+{
+  "index": 9100,
+  "task_id": 9289,
+  "rendered_prompt_sha256": "085355e09b2e07a338c8fef55635bba67407c206835a8a6747e90830b43ff2f2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The inductive reactance is given by:\n\n\\[\nX_L = 2 \\pi f L\n\\]\n\nWhere:  \n- \\( f = 60 \\, \\text{Hz} \\)  \n- \\( L = 20 \\, \\text{mH} = 0.02 \\, \\text{H} \\)\n\nSo:\n\n\\[\nX_L = 2 \\pi (60)(0.02) = 2 \\pi (1.2) = 2.4 \\pi \\approx 7.5398 \\, \\Omega\n\\]\n\nThis rounds to about **7.5 ohms**.\n\nAnswer: B",
+  "expected": "B",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.994320226000127
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The inductive reactance is given by:\n\n\\[\nX_L = 2 \\pi f L\n\\]\n\nWhere:  \n- \\( f = 60 \\, \\text{Hz} \\)  \n- \\( L = 20 \\, \\text{mH} = 0.02 \\, \\text{H} \\)\n\nSo:\n\n\\[\nX_L = 2 \\pi (60)(0.02) = 2 \\pi (1.2) = 2.4 \\pi \\approx 7.5398 \\, \\Omega\n\\]\n\nThis rounds to about **7.5 ohms**.\n\nAnswer: B",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220784,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 124,
+      "prompt_tokens": 130,
+      "total_tokens": 254,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-r7CpgmQv0aeagISjC7DCNnLZXE3hDLsC",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 129,
+      "prompt_ms": 889.427,
+      "prompt_per_token_ms": 6.894782945736434,
+      "prompt_per_second": 145.03719810619646,
+      "predicted_n": 124,
+      "predicted_ms": 9102.184,
+      "predicted_per_token_ms": 73.40470967741935,
+      "predicted_per_second": 13.623104081394093
+    }
+  }
+}

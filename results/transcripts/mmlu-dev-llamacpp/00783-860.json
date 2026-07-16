@@ -1,0 +1,58 @@
+{
+  "index": 783,
+  "task_id": 860,
+  "rendered_prompt_sha256": "69ca5bc919e29edaa9a5c5a4f58fea1e743e585ccfa61c888ebfaf4a5676341b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} -",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='I'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.57059385700086
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We need to compare the two options at a 5% minimum attractive rate of return (MARR).\n\n---\n\n### Option 1: Rent  \n- Rent cost: $130/month × 12 months = $1,560 per year  \n- Rent includes fuel, so no extra fuel cost.  \n- Duration: 3 years  \n\nPresent worth of rental costs (at 5% MARR):  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times (P/A, 5\\%, 3)\n\\]  \nFrom tables: \\((P/A, 5\\%, 3) = 2.72325\\)  \n\n\\[\nPW_{\\text{rent}} = 1560 \\times 2.72325 \\approx 4248\n\\]  \n\nSo present cost of renting ≈ **$4,248**.\n\n---\n\n### Option 2: Buy  \n- Down payment: $2,500 (immediate cost, present value = $2,500)  \n- Loan: $9,000 at 5.5% over 15 years, equal annual payments.  \n\nAnnual payment:  \n\\[\nA = 9000 \\times \\frac{0.055(1.055)^{15}}{(1.055)^{15} -",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219015,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 284,
+      "total_tokens": 540,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-u6T7prUvQZfS6fjDa2IabulBPvzdRj1R",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 283,
+      "prompt_ms": 1232.031,
+      "prompt_per_token_ms": 4.3534664310954065,
+      "prompt_per_second": 229.70201236819528,
+      "predicted_n": 256,
+      "predicted_ms": 18334.556,
+      "predicted_per_token_ms": 71.619359375,
+      "predicted_per_second": 13.962705178134666
+    }
+  }
+}

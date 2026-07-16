@@ -1,0 +1,58 @@
+{
+  "index": 5900,
+  "task_id": 6060,
+  "rendered_prompt_sha256": "4d6d8f4428485ac1ba5b8f98d33ac97fa2aaa48046f4f19f13f4ce8975d3e503",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct answer is based on metabolic principles:  \n- In mammals, fatty acids cannot be converted into carbohydrates (because the conversion of acetyl-CoA to net glucose is not possible).  \n- However, fatty acids can be made from carbohydrates and some amino acids.  \n- Amino acids can be converted to fatty acids and vice versa (to some extent).  \n- Carbohydrates can be converted to both amino acids and fatty acids.  \n\nThe option that correctly reflects these rules is **C**: *Fatty acids can be made from but not converted to carbohydrates and amino acids*.  \n\nAnswer: C",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.577787496000383
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct answer is based on metabolic principles:  \n- In mammals, fatty acids cannot be converted into carbohydrates (because the conversion of acetyl-CoA to net glucose is not possible).  \n- However, fatty acids can be made from carbohydrates and some amino acids.  \n- Amino acids can be converted to fatty acids and vice versa (to some extent).  \n- Carbohydrates can be converted to both amino acids and fatty acids.  \n\nThe option that correctly reflects these rules is **C**: *Fatty acids can be made from but not converted to carbohydrates and amino acids*.  \n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219968,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 108,
+      "total_tokens": 226,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-FnteEGeunaDdPba9d9CbB6kJiprXIIKt",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 107,
+      "prompt_ms": 801.971,
+      "prompt_per_token_ms": 7.495056074766355,
+      "prompt_per_second": 133.421283313237,
+      "predicted_n": 118,
+      "predicted_ms": 8763.134,
+      "predicted_per_token_ms": 74.26384745762712,
+      "predicted_per_second": 13.465502182210153
+    }
+  }
+}

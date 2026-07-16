@@ -1,0 +1,58 @@
+{
+  "index": 365,
+  "task_id": 439,
+  "rendered_prompt_sha256": "8612c5de344d7eb2fc98947c78cbacc689c4e63aaa888658acc60251cab2bf33",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The description matches a **shopping product**, which is bought less frequently and often requires research or comparison before purchase.\n\nAnswer: C",
+  "expected": "C",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 2.8965163320008287
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The description matches a **shopping product**, which is bought less frequently and often requires research or comparison before purchase.\n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784218915,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 27,
+      "prompt_tokens": 104,
+      "total_tokens": 131,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-bEgmOVPS069K3WcHuAOwzlPTuUEvx0cC",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 103,
+      "prompt_ms": 776.76,
+      "prompt_per_token_ms": 7.5413592233009705,
+      "prompt_per_second": 132.60209073587723,
+      "predicted_n": 27,
+      "predicted_ms": 2105.806,
+      "predicted_per_token_ms": 77.99281481481482,
+      "predicted_per_second": 12.821693926221124
+    }
+  }
+}

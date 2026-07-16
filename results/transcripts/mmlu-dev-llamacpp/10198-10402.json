@@ -1,0 +1,59 @@
+{
+  "index": 10198,
+  "task_id": 10402,
+  "rendered_prompt_sha256": "90904f2bbf7252f4c290e518210f16528c1de1c3c1d03e2a15107ea4ca5cf231",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The correct subroutine that sorts a list of N elements in ascending order is **C**, which implements a selection sort algorithm.  \n\nAnswer: C",
+  "expected": "I",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='C' expected='I'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.9057380450012715
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The correct subroutine that sorts a list of N elements in ascending order is **C**, which implements a selection sort algorithm.  \n\nAnswer: C",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219421,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 29,
+      "prompt_tokens": 990,
+      "total_tokens": 1019,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-8wHzash237ik81dq5mykcyVWWkZSkDss",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 989,
+      "prompt_ms": 3700.873,
+      "prompt_per_token_ms": 3.742035389282103,
+      "prompt_per_second": 267.23424446069885,
+      "predicted_n": 29,
+      "predicted_ms": 2187.822,
+      "predicted_per_token_ms": 75.44213793103448,
+      "predicted_per_second": 13.255191692925658
+    }
+  },
+  "rendered_prompt": "<｜begin▁of▁sentence｜><｜User｜>Develop a FORTRAN subroutine that sorts a list of N elements and arranges them in ascending order.\n\nA. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N DO 20 J = 1, N IF (Y (J).LT.Y (I)) THEN TEMP = Y (I) Y (I) = Y (J) Y (J) = TEMP END IF 20 CONTINUE 10 CONTINUE RETURN END\nB. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = N, 1, -1 DO 20 J = N, I+1, -1 IF (Y (J).LT.Y (I)) THEN TEMP = Y (I) Y (I) = Y (J) Y (J) = TEMP END IF 20 CONTINUE 10 CONTINUE RETURN END\nC. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N MIN = I DO 20 J = I+1, N IF (Y (J).LT.Y (MIN)) MIN = J 20 CONTINUE TEMP = Y (I) Y (I) = Y (MIN) Y (MIN) = TEMP 10 CONTINUE RETURN END\nD. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N DO 20 J = 1, N-1 IF (Y (J).LE.Y (J+1)) GO TO 20 TEMP = Y (J) Y (J) = Y (J+1) Y (J+1) = TEMP 20 CONTINUE 10 CONTINUE RETURN END\nE. SUBROUTINE SORT (Y, N) DIMENSION Y (1) CY IS THE ARRAY TO BE SORTED N1 = N - 1 DO 10 I = 1, N1 J = I + 1 DO 20 K = J, N IF (Y (I).LT.Y (K)) GO TO 20 TEMP = Y (I) Y (I) = Y (K) Y (K) = TEMP 20CONTINUE 10CONTINUE RETURN END\nF. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N J = I + 1 DO 20 K = J, N IF (Y (I).GT.Y (K)) GO TO 20 Y (I) = Y (K) Y (K) = TEMP 20CONTINUE 10CONTINUE RETURN END\nG. SUBROUTINE SORT (Y, N) DIMENSION Y (1) DO 10 I = 1, N J = I + 1 DO 20 K = J, N IF (Y (I).GE.Y (K)) GO TO 20 TEMP = Y (I) Y (I) = Y (K) Y (K) = TEMP 20CONTINUE 10CONTINUE RETURN END\nH. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N MAX = I DO 20 J = I+1, N IF (Y (J).GT.Y (MAX)) MAX = J 20 CONTINUE TEMP = Y (I) Y (I) = Y (MAX) Y (MAX) = TEMP 10 CONTINUE RETURN END\nI. SUBROUTINE SORT (Y, N) DIMENSION Y (1) CY IS THE ARRAY TO BE SORTED N1 = N - 1 DO 10 I = 1, N1 J = I + 1 DO 20 K = J, N IF (Y (I).LE.Y (K)) GO TO 20 TEMP = Y (I) Y (I) = Y (K) Y (K) = TEMP 20CONTINUE 10CONTINUE RETURN END\nJ. SUBROUTINE SORT (Y, N) DIMENSION Y (N) DO 10 I = 1, N-1 DO 20 J = I+1, N IF (Y (J).GT.Y (I)) THEN TEMP = Y (I) Y (I) = Y (J) Y (J) = TEMP END IF 20 CONTINUE 10 CONTINUE RETURN END\n\nReply with the single letter of the correct option in the form: Answer: <letter><｜Assistant｜></think>"
+}

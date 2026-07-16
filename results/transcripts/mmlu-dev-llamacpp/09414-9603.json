@@ -1,0 +1,58 @@
+{
+  "index": 9414,
+  "task_id": 9603,
+  "rendered_prompt_sha256": "68195a9a24ebed885438579890d5a2935061065aecf736f6a8ed4d75a7f087e3",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are given:\n\n- Diameter = 4.0 ft → radius \\( R = 2.0 \\) ft  \n- Weight = 600 lb → mass \\( m = \\frac{600}{32.2} \\) slugs (since weight = mg, with \\( g \\approx 32.2 \\, \\text{ft/s}^2 \\))  \n- Torque \\( \\tau = 225 \\) lb-ft  \n- Moment of inertia for a uniform disk: \\( I = \\frac{1}{2} m R^2 \\)\n\n**Step 1: Find mass in slugs**  \n\\[\nm = \\frac{600}{32.2} \\approx 18.634 \\, \\text{slugs}\n\\]\n\n**Step 2: Moment of inertia**  \n\\[\nI = \\frac{1}{2} (18.634) (2.0)^2 = \\frac{1}{2} (18.634)(4) = \\frac{74.536}{2} = 37.268 \\, \\text{slug-ft}^2\n\\]\n\n**Step 3: Angular acceleration**  \n\\[\n\\alpha = \\frac{\\tau}{I} = \\frac{225}{37.268} \\approx ",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.120071469998948
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are given:\n\n- Diameter = 4.0 ft → radius \\( R = 2.0 \\) ft  \n- Weight = 600 lb → mass \\( m = \\frac{600}{32.2} \\) slugs (since weight = mg, with \\( g \\approx 32.2 \\, \\text{ft/s}^2 \\))  \n- Torque \\( \\tau = 225 \\) lb-ft  \n- Moment of inertia for a uniform disk: \\( I = \\frac{1}{2} m R^2 \\)\n\n**Step 1: Find mass in slugs**  \n\\[\nm = \\frac{600}{32.2} \\approx 18.634 \\, \\text{slugs}\n\\]\n\n**Step 2: Moment of inertia**  \n\\[\nI = \\frac{1}{2} (18.634) (2.0)^2 = \\frac{1}{2} (18.634)(4) = \\frac{74.536}{2} = 37.268 \\, \\text{slug-ft}^2\n\\]\n\n**Step 3: Angular acceleration**  \n\\[\n\\alpha = \\frac{\\tau}{I} = \\frac{225}{37.268} \\approx ",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220924,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 229,
+      "total_tokens": 485,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9vNafjCEZPw1LR3JcirtrYU3m0I51mUa",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 228,
+      "prompt_ms": 1147.184,
+      "prompt_per_token_ms": 5.031508771929825,
+      "prompt_per_second": 198.74754180671977,
+      "predicted_n": 256,
+      "predicted_ms": 18970.152,
+      "predicted_per_token_ms": 74.10215625,
+      "predicted_per_second": 13.4948839629751
+    }
+  }
+}

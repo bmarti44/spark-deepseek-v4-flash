@@ -1,0 +1,58 @@
+{
+  "index": 3683,
+  "task_id": 3806,
+  "rendered_prompt_sha256": "effeba43534caba1ee88401fa5eb14763e3d73c5e35e410ef23c878fb397c035",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s analyze the bond lengths based on bond order.  \n- **CO₂**: O=C=O, double bonds → bond order 2.  \n- **CO₃²⁻**: Resonance structures with average bond order ~1.33.  \n- **NO₂⁻**: Resonance with average bond order ~1.5.  \n- **NO₃⁻**: Resonance with average bond order ~1.33.  \n\nShorter bonds come from higher bond order. Among these, **CO₂** has the highest bond order (2), so it has the shortest bonds.  \n\nThe correct answer is **H**.\n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.918464714999573
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s analyze the bond lengths based on bond order.  \n- **CO₂**: O=C=O, double bonds → bond order 2.  \n- **CO₃²⁻**: Resonance structures with average bond order ~1.33.  \n- **NO₂⁻**: Resonance with average bond order ~1.5.  \n- **NO₃⁻**: Resonance with average bond order ~1.33.  \n\nShorter bonds come from higher bond order. Among these, **CO₂** has the highest bond order (2), so it has the shortest bonds.  \n\nThe correct answer is **H**.\n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219109,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 130,
+      "prompt_tokens": 100,
+      "total_tokens": 230,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-u7tFFi6RtnH6KKHsTMps3QnVwFoCHtWM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 99,
+      "prompt_ms": 690.787,
+      "prompt_per_token_ms": 6.977646464646465,
+      "prompt_per_second": 143.31479891775612,
+      "predicted_n": 130,
+      "predicted_ms": 9224.916,
+      "predicted_per_token_ms": 70.9608923076923,
+      "predicted_per_second": 14.092269241259217
+    }
+  }
+}

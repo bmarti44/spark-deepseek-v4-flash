@@ -1,0 +1,58 @@
+{
+  "index": 9526,
+  "task_id": 9716,
+  "rendered_prompt_sha256": "33e85802664ea490be4ff6d061da0bcbf18f727b13c2a57d4ab3dce37b951092",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The relationship between charge \\( Q \\), capacitance \\( C \\), and voltage \\( V \\) is:\n\n\\[\nQ = C \\cdot V\n\\]\n\nHere:  \n\\( C = 2 \\, \\text{mF} = 2 \\times 10^{-3} \\, \\text{F} \\)  \n\\( V = 5 \\, \\text{V} \\)\n\nSo:\n\n\\[\nQ = (2 \\times 10^{-3}) \\times 5 = 10 \\times 10^{-3} = 0.01 \\, \\text{C}\n\\]\n\nThat matches option **I**.\n\nAnswer: I",
+  "expected": "I",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 9.94676976700066
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The relationship between charge \\( Q \\), capacitance \\( C \\), and voltage \\( V \\) is:\n\n\\[\nQ = C \\cdot V\n\\]\n\nHere:  \n\\( C = 2 \\, \\text{mF} = 2 \\times 10^{-3} \\, \\text{F} \\)  \n\\( V = 5 \\, \\text{V} \\)\n\nSo:\n\n\\[\nQ = (2 \\times 10^{-3}) \\times 5 = 10 \\times 10^{-3} = 0.01 \\, \\text{C}\n\\]\n\nThat matches option **I**.\n\nAnswer: I",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220994,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 123,
+      "prompt_tokens": 137,
+      "total_tokens": 260,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-NKSU29nN2hWgf9H7ju05BoRulEaHRQse",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 136,
+      "prompt_ms": 812.264,
+      "prompt_per_token_ms": 5.972529411764706,
+      "prompt_per_second": 167.43324830350724,
+      "predicted_n": 123,
+      "predicted_ms": 9132.413,
+      "predicted_per_token_ms": 74.24726016260163,
+      "predicted_per_second": 13.46851045829837
+    }
+  }
+}

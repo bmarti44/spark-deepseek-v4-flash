@@ -1,0 +1,58 @@
+{
+  "index": 10075,
+  "task_id": 10276,
+  "rendered_prompt_sha256": "51e011209278a709b44e5b7d955b2522b3b77b90f9b0542b553d5742a2e7b1e2",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\",
+  "expected": "B",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='B'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.801032717999988
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can model the laser beam as a Gaussian beam. The beam divergence due to diffraction is given by the far-field angular spread:\n\n\\[\n\\theta \\approx \\frac{\\lambda}{\\pi w_0}\n\\]\n\nwhere \\( w_0 \\) is the beam waist radius.  \nGiven the initial diameter is 14 mm, the radius is:\n\n\\[\nw_0 = \\frac{14 \\text{ mm}}{2} = 7 \\text{ mm} = 7 \\times 10^{-3} \\text{ m}\n\\]\n\nWavelength:\n\n\\[\n\\lambda = 694.3 \\text{ nm} = 694.3 \\times 10^{-9} \\text{ m}\n\\]\n\nThen:\n\n\\[\n\\theta \\approx \\frac{694.3 \\times 10^{-9}}{\\pi \\times 7 \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-9}}{7\\pi \\times 10^{-3}}\n= \\frac{694.3 \\times 10^{-6}}{7\\pi}\n\\]\n\n\\[\n\\theta \\approx \\frac{6.943 \\times 10^{-4}}{7\\pi}\n\\approx \\frac{9.9186 \\times 10^{-5}}{\\pi} \\",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784221166,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 145,
+      "total_tokens": 401,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-X6OBCBWw9mYMSf6i24kSMsB6ZWYLBS4H",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 144,
+      "prompt_ms": 843.938,
+      "prompt_per_token_ms": 5.860680555555556,
+      "prompt_per_second": 170.6286480760435,
+      "predicted_n": 256,
+      "predicted_ms": 18954.98,
+      "predicted_per_token_ms": 74.042890625,
+      "predicted_per_second": 13.50568557708845
+    }
+  }
+}

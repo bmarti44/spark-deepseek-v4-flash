@@ -1,0 +1,58 @@
+{
+  "index": 2627,
+  "task_id": 2739,
+  "rendered_prompt_sha256": "8631ea4ff7e38d9f89241a9ddb2cba1b9d5dec18ad09246069853a47fafd9a43",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The values are 4, 4, 6, 7, 9.  \nFirst, find the mean:  \n\\[\n\\text{Mean} = \\frac{4+4+6+7+9}{5} = \\frac{30}{5} = 6\n\\]  \nNow find each deviation (value − mean):  \n- 4 − 6 = −2  \n- 4 − 6 = −2  \n- 6 − 6 = 0  \n- 7 − 6 = 1  \n- 9 − 6 = 3  \n\nSo the deviations are: −2, −2, 0, 1, 3.  \n\nThat matches option **H**.  \n\nAnswer: H",
+  "expected": "H",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 12.422450083999138
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The values are 4, 4, 6, 7, 9.  \nFirst, find the mean:  \n\\[\n\\text{Mean} = \\frac{4+4+6+7+9}{5} = \\frac{30}{5} = 6\n\\]  \nNow find each deviation (value − mean):  \n- 4 − 6 = −2  \n- 4 − 6 = −2  \n- 6 − 6 = 0  \n- 7 − 6 = 1  \n- 9 − 6 = 3  \n\nSo the deviations are: −2, −2, 0, 1, 3.  \n\nThat matches option **H**.  \n\nAnswer: H",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784221255,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 154,
+      "prompt_tokens": 218,
+      "total_tokens": 372,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-n1im0IHVfZ4s9XrTvVSJDy6VUkSvNrqr",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 217,
+      "prompt_ms": 1021.276,
+      "prompt_per_token_ms": 4.7063410138248845,
+      "prompt_per_second": 212.47929061291953,
+      "predicted_n": 154,
+      "predicted_ms": 11398.5,
+      "predicted_per_token_ms": 74.01623376623377,
+      "predicted_per_second": 13.510549633723734
+    }
+  }
+}

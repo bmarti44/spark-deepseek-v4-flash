@@ -1,0 +1,58 @@
+{
+  "index": 11462,
+  "task_id": 11686,
+  "rendered_prompt_sha256": "fc890c08f971fe8df0fdc4b41875ae1255a4763330121bb6cf5f7bc6dd1233f1",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have a sinusoidal voltage applied across a parallel plate capacitor:\n\n- Frequency \\( f = 1 \\, \\text{MHz} \\), so angular frequency  \n\\[\n\\omega = 2\\pi \\times 10^6 \\, \\text{rad/s}\n\\]  \n- Peak voltage \\( V_0 = 10 \\, \\text{V} \\)  \n- Plate separation \\( d = 2 \\, \\text{cm} = 0.02 \\, \\text{m} \\)  \n- Electron released from one plate when voltage is zero, with initial velocity \\( v_{0x} = 10^6 \\, \\text{m/s} \\) perpendicular to plates (in X-direction).  \n\nThe electric field between plates is  \n\\[\nE(t) = \\frac{V(t)}{d} = \\frac{10 \\sin(\\omega t)}{0.02} = 500 \\sin(\\omega t) \\, \\text{V/m}\n\\]  \n(We take voltage zero at \\( t=0 \\) and increasing, so \\( V(t) = 10 \\sin(\\omega t) \\).)\n\nForce on electron:  \n\\[\nF = -e E(t) = - (1.6 \\times 10^{-19}) \\times 500 \\sin(\\omega t",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='J'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.830186061999484
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have a sinusoidal voltage applied across a parallel plate capacitor:\n\n- Frequency \\( f = 1 \\, \\text{MHz} \\), so angular frequency  \n\\[\n\\omega = 2\\pi \\times 10^6 \\, \\text{rad/s}\n\\]  \n- Peak voltage \\( V_0 = 10 \\, \\text{V} \\)  \n- Plate separation \\( d = 2 \\, \\text{cm} = 0.02 \\, \\text{m} \\)  \n- Electron released from one plate when voltage is zero, with initial velocity \\( v_{0x} = 10^6 \\, \\text{m/s} \\) perpendicular to plates (in X-direction).  \n\nThe electric field between plates is  \n\\[\nE(t) = \\frac{V(t)}{d} = \\frac{10 \\sin(\\omega t)}{0.02} = 500 \\sin(\\omega t) \\, \\text{V/m}\n\\]  \n(We take voltage zero at \\( t=0 \\) and increasing, so \\( V(t) = 10 \\sin(\\omega t) \\).)\n\nForce on electron:  \n\\[\nF = -e E(t) = - (1.6 \\times 10^{-19}) \\times 500 \\sin(\\omega t",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219781,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 421,
+      "total_tokens": 677,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-S3fEDzsgXDztiKpESLKXGEoGTBFoVMw1",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 420,
+      "prompt_ms": 1690.998,
+      "prompt_per_token_ms": 4.026185714285714,
+      "prompt_per_second": 248.37403710708114,
+      "predicted_n": 256,
+      "predicted_ms": 19136.162,
+      "predicted_per_token_ms": 74.7506328125,
+      "predicted_per_second": 13.377813168596711
+    }
+  }
+}

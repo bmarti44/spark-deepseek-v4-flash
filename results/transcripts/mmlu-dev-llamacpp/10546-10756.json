@@ -1,0 +1,58 @@
+{
+  "index": 10546,
+  "task_id": 10756,
+  "rendered_prompt_sha256": "157717331e8ed2938eac4ae16c033f912adbc38fe5ae5018d288a55d79759d8f",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "When adding two numbers in two's complement, overflow occurs if the sign bits of the operands are the same, but the sign bit of the result is different.  \n\nLet’s check each:\n\n- **A**: 11110000 (-16) + 00001111 (15) = 11111111 (-1) → signs different, no overflow.  \n- **B**: 01111111 (127) + 10000000 (-128) = 11111111 (-1) → signs different, no overflow.  \n- **C**: 00000001 (1) + 10000000 (-128) = 10000001 (-127) → signs different, no overflow.  \n- **D**: 10000001 (-127) + 10101010 (-86) = 100101011 (truncated to 00101011, 43) → both negative, result positive → **overflow**.  \n- **E**: 11111111 (-1) + 00000001 (1) = 00000000 (0) → signs different, no overflow.  \n- **F**: 11111111 (-1) + 10000001 (-127) = 110000000 (truncated",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='F' expected='D'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.885201748000327
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "When adding two numbers in two's complement, overflow occurs if the sign bits of the operands are the same, but the sign bit of the result is different.  \n\nLet’s check each:\n\n- **A**: 11110000 (-16) + 00001111 (15) = 11111111 (-1) → signs different, no overflow.  \n- **B**: 01111111 (127) + 10000000 (-128) = 11111111 (-1) → signs different, no overflow.  \n- **C**: 00000001 (1) + 10000000 (-128) = 10000001 (-127) → signs different, no overflow.  \n- **D**: 10000001 (-127) + 10101010 (-86) = 100101011 (truncated to 00101011, 43) → both negative, result positive → **overflow**.  \n- **E**: 11111111 (-1) + 00000001 (1) = 00000000 (0) → signs different, no overflow.  \n- **F**: 11111111 (-1) + 10000001 (-127) = 110000000 (truncated",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219512,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 158,
+      "total_tokens": 414,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-qbhqD8l5UVHyg0QwHvpX1jsRycmMhkcL",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 157,
+      "prompt_ms": 838.898,
+      "prompt_per_token_ms": 5.343299363057325,
+      "prompt_per_second": 187.15028525518,
+      "predicted_n": 256,
+      "predicted_ms": 19043.879,
+      "predicted_per_token_ms": 74.39015234375,
+      "predicted_per_second": 13.442639495871612
+    }
+  }
+}

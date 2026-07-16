@@ -1,0 +1,58 @@
+{
+  "index": 8246,
+  "task_id": 8433,
+  "rendered_prompt_sha256": "714764c635f94407534aa81544de50dbfe5252b53addc156b0bfb8384e012274",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have a sample of size \\(n = 12\\) from \\(\\text{Uniform}(0,1)\\).  \nFor this distribution:  \n- Mean: \\(\\mu = \\frac{1}{2}\\)  \n- Variance: \\(\\sigma^2 = \\frac{1}{12}\\)  \n\nThe sample mean \\(\\bar{X}\\) has:  \n\\[\n\\mu_{\\bar{X}} = \\frac{1}{2}, \\quad \\sigma_{\\bar{X}}^2 = \\frac{1/12}{12} = \\frac{1}{144}\n\\]  \nSo \\(\\sigma_{\\bar{X}} = \\frac{1}{12}\\).\n\nWe want:  \n\\[\nP\\left(\\frac{1}{2} \\leq \\bar{X} \\leq \\frac{2}{3}\\right)\n\\]  \nStandardize:  \n\\[\nz_1 = \\frac{1/2 - 1/2}{1/12} = 0\n\\]  \n\\[\nz_2 = \\frac{2/3 - 1/2}{1/12} = \\frac{1/6}{1/12} = 2\n\\]  \n\nThus the probability is \\(P(0 \\leq Z \\leq 2)\\), where \\(Z\\) is standard",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.83468054399964
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have a sample of size \\(n = 12\\) from \\(\\text{Uniform}(0,1)\\).  \nFor this distribution:  \n- Mean: \\(\\mu = \\frac{1}{2}\\)  \n- Variance: \\(\\sigma^2 = \\frac{1}{12}\\)  \n\nThe sample mean \\(\\bar{X}\\) has:  \n\\[\n\\mu_{\\bar{X}} = \\frac{1}{2}, \\quad \\sigma_{\\bar{X}}^2 = \\frac{1/12}{12} = \\frac{1}{144}\n\\]  \nSo \\(\\sigma_{\\bar{X}} = \\frac{1}{12}\\).\n\nWe want:  \n\\[\nP\\left(\\frac{1}{2} \\leq \\bar{X} \\leq \\frac{2}{3}\\right)\n\\]  \nStandardize:  \n\\[\nz_1 = \\frac{1/2 - 1/2}{1/12} = 0\n\\]  \n\\[\nz_2 = \\frac{2/3 - 1/2}{1/12} = \\frac{1/6}{1/12} = 2\n\\]  \n\nThus the probability is \\(P(0 \\leq Z \\leq 2)\\), where \\(Z\\) is standard",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220355,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 160,
+      "total_tokens": 416,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-it9xyg2s7sq4n6DphW4Qw3UWwy2Jwfvg",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 159,
+      "prompt_ms": 870.182,
+      "prompt_per_token_ms": 5.472842767295598,
+      "prompt_per_second": 182.72039642281732,
+      "predicted_n": 256,
+      "predicted_ms": 18961.677,
+      "predicted_per_token_ms": 74.06905078125,
+      "predicted_per_second": 13.500915557205198
+    }
+  }
+}

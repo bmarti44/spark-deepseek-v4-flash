@@ -1,0 +1,58 @@
+{
+  "index": 6335,
+  "task_id": 6499,
+  "rendered_prompt_sha256": "cf07e38693272f1bf6dfe697904ff6f99c172bf22ba12d5858dcd9431e4e55d6",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The relative risk ratio is 1.2, with a 95% confidence interval of 1.1 to 1.8.  \nSince the entire confidence interval is above 1.0, the result is statistically significant, and the relative risk > 1 indicates an increased risk.  \n\nThe most appropriate conclusion is: **A. Statistically significant overall increase in risk**.\n\nAnswer: A",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 7.166049547999137
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The relative risk ratio is 1.2, with a 95% confidence interval of 1.1 to 1.8.  \nSince the entire confidence interval is above 1.0, the result is statistically significant, and the relative risk > 1 indicates an increased risk.  \n\nThe most appropriate conclusion is: **A. Statistically significant overall increase in risk**.\n\nAnswer: A",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219987,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 81,
+      "prompt_tokens": 207,
+      "total_tokens": 288,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-9KmTTcpsomYY2clfcKazHizpQ1I7aO2k",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 206,
+      "prompt_ms": 1117.847,
+      "prompt_per_token_ms": 5.426441747572816,
+      "prompt_per_second": 184.28282224669385,
+      "predicted_n": 81,
+      "predicted_ms": 6045.078,
+      "predicted_per_token_ms": 74.63059259259259,
+      "predicted_per_second": 13.399330827493044
+    }
+  }
+}

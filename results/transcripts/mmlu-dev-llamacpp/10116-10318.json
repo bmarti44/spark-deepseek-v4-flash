@@ -1,0 +1,58 @@
+{
+  "index": 10116,
+  "task_id": 10318,
+  "rendered_prompt_sha256": "d5a0ebc35fa3c5e0845d6a3f2e6d4c743de45a6f9bb2e2f9b9ba83c2d50e0848",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='A' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.504819285999474
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have an electron orbiting a proton, so it’s a hydrogen-like system.  \nGiven:  \n- Angular momentum \\( L = 6 \\times 10^{-35} \\, \\text{N·s} \\)  \n- Total energy \\( H_0 = -4 \\times 10^{-18} \\, \\text{J} \\)  \n\nWe need the perihelion (nearest approach) and aphelion (farthest separation).\n\n---\n\n### Step 1: Check if it’s a bound orbit  \nNegative energy means bound orbit (elliptical).\n\n---\n\n### Step 2: Use formulas for elliptical orbit  \nFor a reduced mass \\(\\mu \\approx m_e = 9.11 \\times 10^{-31} \\, \\text{kg}\\),  \nCoulomb constant \\(k = 8.99 \\times 10^9 \\, \\text{N·m}^2/\\text{C}^2\\),  \nCharge \\(e = 1.6 \\times 10^{-19} \\, \\text{C}\\).\n\nThe semi-major axis \\(a\\) is given by:\n\n\\[\nE = -\\frac{k e^2}{2a}\n\\]\nSo:\n\\[\na = -\\frac{k e^2}{2E}\n\\]\n\\[\na",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784221187,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 312,
+      "total_tokens": 568,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-2XHYwCWoPEWIhia4X9ihrp4cBFTiWVUT",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 311,
+      "prompt_ms": 1324.367,
+      "prompt_per_token_ms": 4.258414790996785,
+      "prompt_per_second": 234.82916744376746,
+      "predicted_n": 256,
+      "predicted_ms": 19167.984,
+      "predicted_per_token_ms": 74.8749375,
+      "predicted_per_second": 13.355603802674292
+    }
+  }
+}

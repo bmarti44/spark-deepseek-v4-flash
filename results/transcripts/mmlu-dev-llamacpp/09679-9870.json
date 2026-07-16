@@ -1,0 +1,58 @@
+{
+  "index": 9679,
+  "task_id": 9870,
+  "rendered_prompt_sha256": "1206586ea91d90ac17ed395b855743458aee8286b1f3adc26f3aff9d2901888b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='I' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 20.17336108500058
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We can treat the cornea as a convex mirror.  \nFor a convex mirror, the mirror equation is:\n\n\\[\n\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}\n\\]\n\nwhere \\(f\\) is focal length, \\(d_o\\) is object distance (positive in front), and \\(d_i\\) is image distance (negative for virtual images behind the mirror).  \nFor a spherical mirror, focal length \\(f = \\frac{R}{2}\\) with sign: convex mirror has \\(f = -\\frac{R}{2}\\).\n\nGiven:  \n- Radius \\(R = 0.8 \\, \\text{cm}\\) → \\(f = -\\frac{0.8}{2} = -0.4 \\, \\text{cm}\\)  \n- Object distance \\(d_o = 40 \\, \\text{cm}\\)  \n- Object height \\(h_o = 20 \\, \\text{cm}\\)\n\n**Step 1: Find image distance**  \n\\[\n\\frac{1}{d_i} = \\frac{1}{f} - \\frac{1}{d_o} = \\frac{1}{-0.4} - \\frac{1}{40}\n\\]\n\\[\n\\frac{1}{d_i",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784221054,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 248,
+      "total_tokens": 504,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-F91uex7f4IIovO1NcNKUAZJ9n9ywxPA7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 247,
+      "prompt_ms": 1226.788,
+      "prompt_per_token_ms": 4.966753036437247,
+      "prompt_per_second": 201.33878062061254,
+      "predicted_n": 256,
+      "predicted_ms": 18944.142,
+      "predicted_per_token_ms": 74.0005546875,
+      "predicted_per_second": 13.513412219988638
+    }
+  }
+}

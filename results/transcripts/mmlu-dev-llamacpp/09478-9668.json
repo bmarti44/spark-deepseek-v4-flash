@@ -1,0 +1,58 @@
+{
+  "index": 9478,
+  "task_id": 9668,
+  "rendered_prompt_sha256": "f3a5858e29dbddf4a380cfea9117ad01a47100d4d418beb8771be2165cb48abe",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The diffraction grating equation is:\n\n\\[\nn \\lambda = d \\sin \\theta\n\\]\n\nwhere:\n- \\(n\\) is the order number,\n- \\(\\lambda = 5.89 \\times 10^{-5} \\text{ cm}\\),\n- \\(\\theta\\) is the angular separation from the central maximum,\n- \\(d\\) is the grating spacing (distance between adjacent lines).\n\nFor the 20th order (\\(n = 20\\)), the angle given is \\(15^\\circ 10'\\).\n\nConvert \\(15^\\circ 10'\\) to decimal degrees:\n\n\\[\n15^\\circ 10' = 15 + \\frac{10}{60} = 15.1667^\\circ\n\\]\n\nNow apply the formula:\n\n\\[\n20 \\times (5.89 \\times 10^{-5}) = d \\sin(15.1667^\\circ)\n\\]\n\nCalculate \\(\\sin(15.1667^\\circ)\\):\n\n\\[\n\\sin(15.1667^\\circ) \\approx 0.2617\n\\]\n\nThen:\n\n\\[\n20 \\times 5.89 \\times 10^{-5} = d \\times 0.2617\n\\]\n\n\\[\n1.178 \\times 10^{-3} = d \\times ",
+  "expected": "F",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='D' expected='F'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.861681573998794
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The diffraction grating equation is:\n\n\\[\nn \\lambda = d \\sin \\theta\n\\]\n\nwhere:\n- \\(n\\) is the order number,\n- \\(\\lambda = 5.89 \\times 10^{-5} \\text{ cm}\\),\n- \\(\\theta\\) is the angular separation from the central maximum,\n- \\(d\\) is the grating spacing (distance between adjacent lines).\n\nFor the 20th order (\\(n = 20\\)), the angle given is \\(15^\\circ 10'\\).\n\nConvert \\(15^\\circ 10'\\) to decimal degrees:\n\n\\[\n15^\\circ 10' = 15 + \\frac{10}{60} = 15.1667^\\circ\n\\]\n\nNow apply the formula:\n\n\\[\n20 \\times (5.89 \\times 10^{-5}) = d \\sin(15.1667^\\circ)\n\\]\n\nCalculate \\(\\sin(15.1667^\\circ)\\):\n\n\\[\n\\sin(15.1667^\\circ) \\approx 0.2617\n\\]\n\nThen:\n\n\\[\n20 \\times 5.89 \\times 10^{-5} = d \\times 0.2617\n\\]\n\n\\[\n1.178 \\times 10^{-3} = d \\times ",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220964,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 153,
+      "total_tokens": 409,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-nDhhJjagCzTaOorWBpJ5fUlHj9a9TBfO",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 152,
+      "prompt_ms": 894.466,
+      "prompt_per_token_ms": 5.884644736842105,
+      "prompt_per_second": 169.9337928998978,
+      "predicted_n": 256,
+      "predicted_ms": 18964.308,
+      "predicted_per_token_ms": 74.079328125,
+      "predicted_per_second": 13.49904251713271
+    }
+  }
+}

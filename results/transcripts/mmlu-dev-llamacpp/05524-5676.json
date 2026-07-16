@@ -1,0 +1,58 @@
+{
+  "index": 5524,
+  "task_id": 5676,
+  "rendered_prompt_sha256": "31d992427d5f1f3f4e251b64f18d1144dc164df49e25e80c2389f09601186be5",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The Kinsey scale ranges from 0 (exclusively heterosexual) to 6 (exclusively homosexual).  \nA rating of 4 means \"predominantly homosexual, but more than incidentally heterosexual.\"  \nThis corresponds to **mostly homosexual with incidental heterosexual experience**.\n\nAnswer: E",
+  "expected": "G",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='E' expected='G'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.244697292999263
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The Kinsey scale ranges from 0 (exclusively heterosexual) to 6 (exclusively homosexual).  \nA rating of 4 means \"predominantly homosexual, but more than incidentally heterosexual.\"  \nThis corresponds to **mostly homosexual with incidental heterosexual experience**.\n\nAnswer: E",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784220639,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 58,
+      "prompt_tokens": 125,
+      "total_tokens": 183,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WYCX0ZSMLuzw795SSRG6NfboGYmOygIk",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 124,
+      "prompt_ms": 886.866,
+      "prompt_per_token_ms": 7.152145161290322,
+      "prompt_per_second": 139.8181912487343,
+      "predicted_n": 58,
+      "predicted_ms": 4355.622,
+      "predicted_per_token_ms": 75.09693103448276,
+      "predicted_per_second": 13.316123391791114
+    }
+  }
+}

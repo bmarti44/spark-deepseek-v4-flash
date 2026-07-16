@@ -1,0 +1,58 @@
+{
+  "index": 9384,
+  "task_id": 9573,
+  "rendered_prompt_sha256": "bdcef9b3859ef2884d345faa0bf22cf5ec4ed74f5b7cf323e28c2e6f644f338b",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We are told that the group velocity \\( v_g \\) varies inversely with wavelength \\(\\lambda\\).  \nGroup velocity is related to the phase velocity \\( v_p = \\frac{c}{n} \\) by:\n\n\\[\nv_g = v_p - \\lambda \\frac{d v_p}{d\\lambda}\n\\]\n\nSince \\( v_p = \\frac{c}{n} \\), we have:\n\n\\[\nv_g = \\frac{c}{n} - \\lambda \\frac{d}{d\\lambda} \\left( \\frac{c}{n} \\right)\n= \\frac{c}{n} - \\lambda \\left( -\\frac{c}{n^2} \\frac{dn}{d\\lambda} \\right)\n= \\frac{c}{n} + \\frac{c \\lambda}{n^2} \\frac{dn}{d\\lambda}\n\\]\n\nSo:\n\n\\[\nv_g = \\frac{c}{n} \\left( 1 + \\frac{\\lambda}{n} \\frac{dn}{d\\lambda} \\right)\n\\]\n\nWe are told \\( v_g \\propto \\frac{1}{\\lambda} \\).  \nThus:\n\n\\[\n\\frac{c}{n} \\left( 1 + \\frac{\\lambda}{n} \\frac{dn}{d\\lambda} \\",
+  "expected": "A",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='D' expected='A'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.836333409000872
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We are told that the group velocity \\( v_g \\) varies inversely with wavelength \\(\\lambda\\).  \nGroup velocity is related to the phase velocity \\( v_p = \\frac{c}{n} \\) by:\n\n\\[\nv_g = v_p - \\lambda \\frac{d v_p}{d\\lambda}\n\\]\n\nSince \\( v_p = \\frac{c}{n} \\), we have:\n\n\\[\nv_g = \\frac{c}{n} - \\lambda \\frac{d}{d\\lambda} \\left( \\frac{c}{n} \\right)\n= \\frac{c}{n} - \\lambda \\left( -\\frac{c}{n^2} \\frac{dn}{d\\lambda} \\right)\n= \\frac{c}{n} + \\frac{c \\lambda}{n^2} \\frac{dn}{d\\lambda}\n\\]\n\nSo:\n\n\\[\nv_g = \\frac{c}{n} \\left( 1 + \\frac{\\lambda}{n} \\frac{dn}{d\\lambda} \\right)\n\\]\n\nWe are told \\( v_g \\propto \\frac{1}{\\lambda} \\).  \nThus:\n\n\\[\n\\frac{c}{n} \\left( 1 + \\frac{\\lambda}{n} \\frac{dn}{d\\lambda} \\",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220904,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 191,
+      "total_tokens": 447,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-4mJHnXlGih44IRMmh315CJLprAvVB4jM",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 190,
+      "prompt_ms": 950.464,
+      "prompt_per_token_ms": 5.0024421052631585,
+      "prompt_per_second": 199.9023634772069,
+      "predicted_n": 256,
+      "predicted_ms": 18881.969,
+      "predicted_per_token_ms": 73.75769140625,
+      "predicted_per_second": 13.55790807621811
+    }
+  }
+}

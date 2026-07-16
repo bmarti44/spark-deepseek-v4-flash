@@ -1,0 +1,58 @@
+{
+  "index": 4282,
+  "task_id": 4410,
+  "rendered_prompt_sha256": "77b2ead0e19ea95424d0150295bf86e443ac9b7173d14abab89dba78ce1918dc",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "Let’s go step-by-step.\n\n**Part (a): Solubility in water**  \nMg(OH)₂(s) ⇌ Mg²⁺(aq) + 2 OH⁻(aq)  \nKsp = [Mg²⁺][OH⁻]² = 8.9 × 10⁻¹²  \n\nLet solubility = s mol/L. Then:  \n[Mg²⁺] = s  \n[OH⁻] = 2s  \n\nKsp = s × (2s)² = 4s³ = 8.9 × 10⁻¹²  \ns³ = (8.9 × 10⁻¹²) / 4 = 2.225 × 10⁻¹²  \ns = (2.225 × 10⁻¹²)^(1/3)  \n\nCube root:  \n(2.225)^(1/3) ≈ 1.31  \n(10⁻¹²)^(1/3) = 10⁻⁴  \nSo s ≈ 1.31 × 10⁻⁴ mol/L  \n\nThat matches **1.3 × 10⁻⁴** closely.\n\n**Part (b): Solubility in 0.05 M NaOH",
+  "expected": "J",
+  "scored_correct": false,
+  "reason": "incorrect: parsed='B' expected='J'",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.642245828999876
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "Let’s go step-by-step.\n\n**Part (a): Solubility in water**  \nMg(OH)₂(s) ⇌ Mg²⁺(aq) + 2 OH⁻(aq)  \nKsp = [Mg²⁺][OH⁻]² = 8.9 × 10⁻¹²  \n\nLet solubility = s mol/L. Then:  \n[Mg²⁺] = s  \n[OH⁻] = 2s  \n\nKsp = s × (2s)² = 4s³ = 8.9 × 10⁻¹²  \ns³ = (8.9 × 10⁻¹²) / 4 = 2.225 × 10⁻¹²  \ns = (2.225 × 10⁻¹²)^(1/3)  \n\nCube root:  \n(2.225)^(1/3) ≈ 1.31  \n(10⁻¹²)^(1/3) = 10⁻⁴  \nSo s ≈ 1.31 × 10⁻⁴ mol/L  \n\nThat matches **1.3 × 10⁻⁴** closely.\n\n**Part (b): Solubility in 0.05 M NaOH",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784219333,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 346,
+      "total_tokens": 602,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-0hgR2qs7wEUULKZx79hZPNlwhACxY25G",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 345,
+      "prompt_ms": 1362.012,
+      "prompt_per_token_ms": 3.947860869565217,
+      "prompt_per_second": 253.30173302437865,
+      "predicted_n": 256,
+      "predicted_ms": 18276.237,
+      "predicted_per_token_ms": 71.39155078125,
+      "predicted_per_second": 14.007259809554887
+    }
+  }
+}

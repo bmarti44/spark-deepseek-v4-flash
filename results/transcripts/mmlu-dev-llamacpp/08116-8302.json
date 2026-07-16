@@ -1,0 +1,58 @@
+{
+  "index": 8116,
+  "task_id": 8302,
+  "rendered_prompt_sha256": "6b671adf17d176380854c51ab4d57732758fffb293374026ba5f604f695005b4",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "We have  \n\\[\nu = \\arctan\\left(\\frac{y}{x}\\right)\n\\]  \nWe need  \n\\[\n\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}.\n\\]\n\nFirst, compute the first partial derivatives:\n\n\\[\n\\frac{\\partial u}{\\partial x} = \\frac{1}{1 + (y/x)^2} \\cdot \\frac{\\partial}{\\partial x}\\left(\\frac{y}{x}\\right)\n= \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\left(-\\frac{y}{x^2}\\right)\n= -\\frac{y}{x^2 + y^2}.\n\\]\n\n\\[\n\\frac{\\partial u}{\\partial y} = \\frac{1}{1 + (y/x)^2} \\cdot \\frac{\\partial}{\\partial y}\\left(\\frac{y}{x}\\right)\n= \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\frac{1}{x}\n= \\frac{x}{x^2 + y^2}.\n\\]\n\nNow second derivatives:\n\n\\[\n\\frac{\\partial^2 u}{\\partial x^2} = \\frac{\\",
+  "expected": "D",
+  "scored_correct": false,
+  "reason": "unparseable: no standalone answer letter A-J found",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 19.78943959299977
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "We have  \n\\[\nu = \\arctan\\left(\\frac{y}{x}\\right)\n\\]  \nWe need  \n\\[\n\\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2}.\n\\]\n\nFirst, compute the first partial derivatives:\n\n\\[\n\\frac{\\partial u}{\\partial x} = \\frac{1}{1 + (y/x)^2} \\cdot \\frac{\\partial}{\\partial x}\\left(\\frac{y}{x}\\right)\n= \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\left(-\\frac{y}{x^2}\\right)\n= -\\frac{y}{x^2 + y^2}.\n\\]\n\n\\[\n\\frac{\\partial u}{\\partial y} = \\frac{1}{1 + (y/x)^2} \\cdot \\frac{\\partial}{\\partial y}\\left(\\frac{y}{x}\\right)\n= \\frac{1}{1 + \\frac{y^2}{x^2}} \\cdot \\frac{1}{x}\n= \\frac{x}{x^2 + y^2}.\n\\]\n\nNow second derivatives:\n\n\\[\n\\frac{\\partial^2 u}{\\partial x^2} = \\frac{\\",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "length"
+      }
+    ],
+    "created": 1784220335,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 135,
+      "total_tokens": 391,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-WTMDC9r9B4Z8kAMIpJr3mkcQ4tHmyvry",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 134,
+      "prompt_ms": 820.357,
+      "prompt_per_token_ms": 6.1220671641791045,
+      "prompt_per_second": 163.34351995533652,
+      "predicted_n": 256,
+      "predicted_ms": 18966.387,
+      "predicted_per_token_ms": 74.08744921875,
+      "predicted_per_second": 13.497562819950897
+    }
+  }
+}

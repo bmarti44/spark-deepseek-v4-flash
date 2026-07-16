@@ -1,0 +1,58 @@
+{
+  "index": 6675,
+  "task_id": 6842,
+  "rendered_prompt_sha256": "0b4ccccaf031dd2886f9b0d7983c50e6b6092c29568989bb35c6af884ff6d759",
+  "rendering": "official-encoder-chat-nonthinking",
+  "completion": "The free rider problem occurs when people benefit from a public good without paying for it, making it difficult for the market to provide the good efficiently. The most effective government solution is to compel payment through taxation, ensuring everyone contributes to funding the public good.  \n\n**Answer: A**",
+  "expected": "A",
+  "scored_correct": true,
+  "reason": "correct",
+  "request": {
+    "endpoint": "/v1/completions",
+    "payload_without_prompt": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "max_tokens": 256,
+      "temperature": 0,
+      "seed": 42,
+      "stream": false
+    },
+    "elapsed_s": 5.121475003999876
+  },
+  "response": {
+    "choices": [
+      {
+        "text": "The free rider problem occurs when people benefit from a public good without paying for it, making it difficult for the market to provide the good efficiently. The most effective government solution is to compel payment through taxation, ensuring everyone contributes to funding the public good.  \n\n**Answer: A**",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "created": 1784219517,
+    "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+    "system_fingerprint": "b10046-32e789fdf",
+    "object": "text_completion",
+    "usage": {
+      "completion_tokens": 57,
+      "prompt_tokens": 133,
+      "total_tokens": 190,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "id": "chatcmpl-Dody0TrbzeDRD4fvHvpWzIb73pYbZ3A7",
+    "timings": {
+      "cache_n": 1,
+      "prompt_n": 132,
+      "prompt_ms": 899.641,
+      "prompt_per_token_ms": 6.815462121212121,
+      "prompt_per_second": 146.7251937161601,
+      "predicted_n": 57,
+      "predicted_ms": 4209.415,
+      "predicted_per_token_ms": 73.84938596491229,
+      "predicted_per_second": 13.54107399721814
+    }
+  }
+}
