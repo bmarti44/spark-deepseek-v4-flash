@@ -1,0 +1,5 @@
+{"gate":"G2.4-smoke","stack":"llamacpp","commit_pin":"32e789fdfd598e9a1872da55ac941e4d94f030bd","quant":"UD-Q2_K_XL","ts":"2026-07-16T14:11:33Z",
+ "health":"ok","auth":{"inference_no_key":401,"inference_with_key":200,"public_metadata_endpoints":["/health","/v1/models"]},
+ "first_completion":{"coherent":true,"decode_tok_s":13.8,"prefill_tok_s_cold_15tok":15.6},
+ "memory":{"baseline_gib":113.6,"available_after_load_gib":23.3,"floor_gib":16},
+ "notes":"llama.cpp leaves /health and /v1/models public by design; inference endpoints enforce the key. Full golden-test gate pending harness."}
