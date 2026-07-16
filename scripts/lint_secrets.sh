@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
 readonly SECRET_PATTERN='[0-9a-f]{64}|Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? PRIVATE KEY|hf_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|tskey-[A-Za-z0-9-]{20,}'
 # Digest-bearing files get field/format-aware 64-hex validation. They still get
@@ -8,7 +8,7 @@ readonly SECRET_PATTERN_NOHEX='Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? 
 
 is_checksum_file() {
   case "$1" in
-    verification/MANIFEST.sha256|configs/versions.lock|configs/pins/*|configs/build-manifests/*|evalsets/pins.json|results/transcripts/*|results/acc-*.json|results/decision.json|results/DECISION.md|results/holdout-ledger.json|weights/*/manifest.json|*.sha256) return 0 ;;
+    verification/MANIFEST.sha256|configs/versions.lock|configs/pins/*|configs/build-manifests/*|evalsets/pins.json|results/transcripts/*|results/acc-*.json|results/decision.json|results/holdout-ledger.json|weights/*/manifest.json|*.sha256) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -191,19 +191,10 @@ scan_staged() {
   return "$failed"
 }
 
-scan_pushed_ref() {
-  local local_sha="$1"
-  local remote_sha="$2"
-  local zero_sha='0000000000000000000000000000000000000000'
+scan_commit() {
+  local commit="$1"
   local -a files_full files_nohex
-
-  if [[ "$local_sha" == "$zero_sha" ]]; then
-    return 0
-  elif [[ "$remote_sha" == "$zero_sha" ]]; then
-    split_files < <(git ls-tree -r --name-only -z "$local_sha")
-  else
-    split_files < <(git diff --name-only --diff-filter=ACMR -z "$remote_sha" "$local_sha")
-  fi
+  split_files < <(git diff-tree --root --no-commit-id --name-only --diff-filter=ACMR -r -z "$commit")
 
   if ((${#files_full[@]} == 0 && ${#files_nohex[@]} == 0)); then
     return 0
@@ -211,18 +202,37 @@ scan_pushed_ref() {
 
   local failed=0
   if ((${#files_full[@]} > 0)); then
-    { git grep -n -I -E "$SECRET_PATTERN" "$local_sha" -- "${files_full[@]}" 2>/dev/null || true; } \
-      | sed -E "s/^${local_sha}://" \
+    { git grep -n -I -E "$SECRET_PATTERN" "$commit" -- "${files_full[@]}" 2>/dev/null || true; } \
+      | sed -E "s/^${commit}://" \
       | scan_stream || failed=1
   fi
   if ((${#files_nohex[@]} > 0)); then
-    { git grep -n -I -E "$SECRET_PATTERN_NOHEX" "$local_sha" -- "${files_nohex[@]}" 2>/dev/null || true; } \
-      | sed -E "s/^${local_sha}://" \
+    { git grep -n -I -E "$SECRET_PATTERN_NOHEX" "$commit" -- "${files_nohex[@]}" 2>/dev/null || true; } \
+      | sed -E "s/^${commit}://" \
       | scan_stream || failed=1
     local f
     for f in "${files_nohex[@]}"; do
-      git show "${local_sha}:$f" | scan_digest_file "$f" || failed=1
+      git show "${commit}:$f" | scan_digest_file "$f" || failed=1
     done
+  fi
+  return "$failed"
+}
+
+scan_pushed_ref() {
+  local local_sha="$1"
+  local remote_sha="$2"
+  local zero_sha='0000000000000000000000000000000000000000'
+  local commit failed=0
+
+  [[ "$local_sha" != "$zero_sha" ]] || return 0
+  if [[ "$remote_sha" == "$zero_sha" ]]; then
+    while IFS= read -r commit; do
+      scan_commit "$commit" || failed=1
+    done < <(git rev-list "$local_sha")
+  else
+    while IFS= read -r commit; do
+      scan_commit "$commit" || failed=1
+    done < <(git rev-list "$remote_sha..$local_sha")
   fi
   return "$failed"
 }

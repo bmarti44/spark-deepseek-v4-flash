@@ -14,7 +14,8 @@
 #  5. /etc/deepseek-v4-flash config dir (API key lands here later, 0750).
 #  6. Stops + disables ollama.service for the project duration (frees memory;
 #     re-enable later with: sudo systemctl enable --now ollama).
-set -euo pipefail
+#  7. Activates the repository's tracked secret-scanning Git hooks.
+set -Eeuo pipefail
 
 # 1. user
 if ! id dsv4 >/dev/null 2>&1; then
@@ -43,4 +44,9 @@ install -d -m 0750 -o root -g dsv4 /etc/deepseek-v4-flash
 # 6. ollama off for project duration
 systemctl disable --now ollama.service || true
 
-echo "OK: dsv4 user, delegation, /run/dsv4, /etc/deepseek-v4-flash ready; ollama disabled."
+# 7. repository hooks
+REPO=/home/bmarti44/spark-deepseek-v4-flash
+git -C "$REPO" config core.hooksPath .githooks
+echo "Configured core.hooksPath=.githooks in $REPO."
+
+echo "OK: dsv4 user, delegation, runtime/config dirs, and Git hooks ready; ollama disabled."

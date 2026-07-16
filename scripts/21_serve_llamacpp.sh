@@ -7,6 +7,8 @@ PORT=8011
 RUNTIME_DIR=/run/dsv4
 LOCK_FILE=$RUNTIME_DIR/inference.lock
 STATE_FILE=$RUNTIME_DIR/llamacpp.state.json
+TARGET_FILE=$RUNTIME_DIR/llamacpp.engine.target
+WATCHDOG_READY=$RUNTIME_DIR/llamacpp.memwatch.ready
 
 usage() {
     cat <<'EOF'
@@ -74,6 +76,10 @@ try:
     start_ticks = state["server_start_ticks"]
     if not isinstance(start_ticks, int) or isinstance(start_ticks, bool) or start_ticks <= 0:
         raise ValueError("invalid server_start_ticks")
+    for key in ("flock_start_ticks", "memwatch_start_ticks"):
+        value = state.get(key, 0)
+        if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+            raise ValueError(f"invalid {key}")
     boot_id = state["boot_id"]
     if not isinstance(boot_id, str) or not boot_id or any(char.isspace() for char in boot_id):
         raise ValueError("invalid boot_id")
@@ -84,6 +90,8 @@ try:
     print(baseline)
     print(start_ticks)
     print(boot_id)
+    print(state.get("flock_start_ticks", 0))
+    print(state.get("memwatch_start_ticks", 0))
 except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
     print(f"invalid state file: {error}", file=sys.stderr)
     sys.exit(1)
@@ -97,6 +105,8 @@ PY
     baseline_gib=${STATE_VALUES[4]}
     server_start_ticks=${STATE_VALUES[5]}
     state_boot_id=${STATE_VALUES[6]}
+    flock_start_ticks=${STATE_VALUES[7]}
+    memwatch_start_ticks=${STATE_VALUES[8]}
 }
 
 verify_state_identity() {
@@ -120,20 +130,44 @@ verify_state_identity() {
     return 1
 }
 
+verify_aux_identity() {
+    local pid=$1 expected_ticks=$2 signature=$3 label=$4 current_ticks cmdline
+    if (( expected_ticks > 0 )); then
+        current_ticks=$(proc_start_ticks "$pid") || current_ticks=
+        [[ -n $current_ticks && $current_ticks == "$expected_ticks" ]] || {
+            printf 'ERROR: unverified %s pid %s (start time mismatch).\n' "$label" "$pid" >&2
+            return 1
+        }
+        return 0
+    fi
+    [[ -r /proc/$pid/cmdline ]] || return 1
+    cmdline=$(tr '\0' ' ' <"/proc/$pid/cmdline") || return 1
+    [[ $cmdline == *"$signature"* ]] || {
+        printf 'ERROR: unverified legacy %s pid %s (command mismatch).\n' "$label" "$pid" >&2
+        return 1
+    }
+}
+
 write_state() {
     local temporary=$STATE_FILE.tmp.$$
     server_start_ticks=$(proc_start_ticks "$server_pid") \
         || die "cannot read start time for server pid $server_pid"
     state_boot_id=$(< /proc/sys/kernel/random/boot_id) \
         || die 'cannot read kernel boot ID'
+    flock_start_ticks=$(proc_start_ticks "$flock_pid") \
+        || die "cannot read start time for flock pid $flock_pid"
+    memwatch_start_ticks=$(proc_start_ticks "$memwatch_pid") \
+        || die "cannot read start time for memwatch pid $memwatch_pid"
     python3 - "$temporary" "$STATE_FILE" "$server_pid" "$flock_pid" \
         "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" \
-        "$server_start_ticks" "$state_boot_id" <<'PY'
+        "$server_start_ticks" "$state_boot_id" "$flock_start_ticks" \
+        "$memwatch_start_ticks" <<'PY'
 import json
 import os
 import sys
 
-temporary, output, server, flock, watchdog, port, started, baseline, start_ticks, boot_id = sys.argv[1:]
+(temporary, output, server, flock, watchdog, port, started, baseline,
+ start_ticks, boot_id, flock_ticks, watchdog_ticks) = sys.argv[1:]
 state = {
     "server_pid": int(server),
     "flock_pid": int(flock),
@@ -142,6 +176,8 @@ state = {
     "started_at": started,
     "mem_available_baseline_gib": float(baseline),
     "server_start_ticks": int(start_ticks),
+    "flock_start_ticks": int(flock_ticks),
+    "memwatch_start_ticks": int(watchdog_ticks),
     "boot_id": boot_id,
 }
 with open(temporary, "w", encoding="utf-8") as stream:
@@ -152,15 +188,17 @@ PY
 }
 
 terminate_from_state() {
-    local pgid seconds current target recovery_ok=true
+    local pgid seconds current target recovery_ok=true flock_verified=false memwatch_verified=false
     read_state
     verify_state_identity || return 2
+    verify_aux_identity "$flock_pid" "$flock_start_ticks" "$LOCK_FILE" flock && flock_verified=true
+    verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" '01_memwatch.sh' memwatch && memwatch_verified=true
 
     pgid=$(ps -o pgid= -p "$server_pid" 2>/dev/null | tr -d '[:space:]' || true)
-    if [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
+    if "$flock_verified" && [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
         kill -TERM -- "-$pgid" 2>/dev/null || true
     else
-        kill -TERM "$server_pid" "$flock_pid" 2>/dev/null || true
+        kill -TERM "$server_pid" 2>/dev/null || true
     fi
 
     for ((seconds=0; seconds < 60; seconds++)); do
@@ -169,13 +207,13 @@ terminate_from_state() {
     done
     if pid_alive "$server_pid"; then
         printf 'Server did not exit after 60 seconds; sending SIGKILL.\n' >&2
-        if [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
+        if "$flock_verified" && [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
             kill -KILL -- "-$pgid" 2>/dev/null || true
         else
-            kill -KILL "$server_pid" "$flock_pid" 2>/dev/null || true
+            kill -KILL "$server_pid" 2>/dev/null || true
         fi
     fi
-    kill -TERM "$memwatch_pid" 2>/dev/null || true
+    "$memwatch_verified" && kill -TERM "$memwatch_pid" 2>/dev/null || true
 
     target=$(awk -v base="$baseline_gib" 'BEGIN {value=base-5; if (value<0) value=0; printf "%.6f", value}')
     recovery_ok=false
@@ -192,7 +230,7 @@ terminate_from_state() {
         fi
         (( seconds == 120 )) || sleep 1
     done
-    rm -f -- "$STATE_FILE"
+    rm -f -- "$STATE_FILE" "$TARGET_FILE" "$WATCHDOG_READY"
     "$recovery_ok" || { printf 'ERROR: memory did not recover within 120 seconds.\n' >&2; return 1; }
 }
 
@@ -215,8 +253,10 @@ do_status() {
     verify_state_identity || { printf 'ERROR: %s is not running (stale state removed)\n' "$STACK" >&2; return 1; }
     local server_alive=false flock_alive=false memwatch_alive=false healthy=false
     pid_alive "$server_pid" && server_alive=true
-    pid_alive "$flock_pid" && flock_alive=true
-    pid_alive "$memwatch_pid" && memwatch_alive=true
+    pid_alive "$flock_pid" && verify_aux_identity "$flock_pid" "$flock_start_ticks" "$LOCK_FILE" flock \
+        && flock_alive=true
+    pid_alive "$memwatch_pid" && verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" '01_memwatch.sh' memwatch \
+        && memwatch_alive=true
     if "$server_alive" && curl --silent --show-error --fail --max-time 3 \
             "http://127.0.0.1:$state_port/health" >/dev/null 2>&1; then
         healthy=true
@@ -394,14 +434,28 @@ do_start() {
     command_text=$(build_server_command "${server_command[@]}")
     printf '\n===== llama.cpp session start %s ctx=%s =====\n' \
         "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$CTX" >>"$SERVER_LOG"
+    rm -f -- "$TARGET_FILE" "$WATCHDOG_READY"
+    setsid bash "$MEMWATCH" --target-file "$TARGET_FILE" --ready-file "$WATCHDOG_READY" --threshold-gib 12 \
+        --interval-sec 1 --log "$MEMWATCH_LOG" >/dev/null 2>&1 &
+    memwatch_pid=$!
+    for ((watchdog_wait=0; watchdog_wait < 100; watchdog_wait++)); do
+        [[ -e $WATCHDOG_READY ]] && break
+        pid_alive "$memwatch_pid" || die 'memory watchdog failed during initialization'
+        sleep 0.05
+    done
+    [[ -e $WATCHDOG_READY ]] || { kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'memory watchdog initialization timed out'; }
+
     setsid flock -n -E 75 "$LOCK_FILE" -c "$command_text" >>"$SERVER_LOG" 2>&1 &
     flock_pid=$!
     discover_server_pid
 
-    setsid bash "$MEMWATCH" --target-pid "$server_pid" --threshold-gib 12 \
-        --interval-sec 1 --log "$MEMWATCH_LOG" >/dev/null 2>&1 &
-    memwatch_pid=$!
-    pid_alive "$memwatch_pid" || { kill -TERM -- "-$flock_pid" 2>/dev/null || true; die 'memory watchdog failed to start'; }
+    server_pgid=$(ps -o pgid= -p "$server_pid" | tr -d '[:space:]') \
+        || die "cannot determine server process group for pid $server_pid"
+    [[ $server_pgid =~ ^[0-9]+$ ]] && (( server_pgid > 1 )) \
+        || die "invalid server process group: $server_pgid"
+    target_tmp=$TARGET_FILE.tmp.$$
+    printf '%s %s\n' "$server_pid" "$server_pgid" >"$target_tmp"
+    mv -- "$target_tmp" "$TARGET_FILE"
     started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     write_state || { kill -TERM -- "-$flock_pid" 2>/dev/null || true; kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'failed to write state file'; }
 

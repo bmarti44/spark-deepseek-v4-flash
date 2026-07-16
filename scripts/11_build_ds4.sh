@@ -66,6 +66,12 @@ actual_commit="$(git -C "$SRC_DIR" rev-parse HEAD 2>/dev/null)" \
     || die_build "cannot read engine HEAD: $SRC_DIR"
 [[ "$actual_commit" == "$engine_commit" ]] \
     || die_build "engine HEAD mismatch: expected $engine_commit, got $actual_commit"
+[[ -z $(git -C "$SRC_DIR" status --porcelain) ]] \
+    || die_build "engine worktree is dirty: $SRC_DIR"
+engine_describe=$(git -C "$SRC_DIR" describe --always --dirty) \
+    || die_build "cannot describe engine worktree: $SRC_DIR"
+[[ $engine_describe != *-dirty ]] \
+    || die_build "engine worktree describe reports dirty: $engine_describe"
 
 export PATH="/usr/local/cuda/bin:$PATH"
 command -v nvcc >/dev/null 2>&1 || die_env 'nvcc not found after adding /usr/local/cuda/bin to PATH'
@@ -105,7 +111,7 @@ done
 built_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)" || die_env 'cannot obtain current UTC time'
 manifest="$DS4_HOME/build-manifest.json"
 manifest_tmp="$manifest.partial"
-python3 - "$manifest_tmp" "$manifest" "$engine_commit" "$BUILD_COMMAND" \
+python3 - "$manifest_tmp" "$manifest" "$engine_commit" "$engine_describe" "$BUILD_COMMAND" \
     "$nvcc_version" "$gcc_version" "$built_at" \
     "${hashes[0]}" "${hashes[1]}" "${hashes[2]}" <<'PY' \
     || die_build 'failed to write build manifest'
@@ -113,10 +119,11 @@ import json
 import os
 import sys
 
-(temporary, output, commit, command, nvcc, gcc, built_at,
+(temporary, output, commit, describe, command, nvcc, gcc, built_at,
  ds4_hash, server_hash, bench_hash) = sys.argv[1:]
 manifest = {
     "engine_commit": commit,
+    "engine_describe": describe,
     "build_command": command,
     "nvcc_version": nvcc,
     "gcc_version": gcc,

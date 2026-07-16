@@ -1,0 +1,57 @@
+{
+  "kind": "accuracy-audit",
+  "pass": true,
+  "stack": "llamacpp",
+  "suites": {
+    "gsm8k-dev": {
+      "n": 100,
+      "correct_recount": 97,
+      "summary_correct": 97,
+      "match": true
+    },
+    "gsm8k-holdout": {
+      "n": 100,
+      "correct_recount": 97,
+      "summary_correct": 97,
+      "match": true
+    },
+    "mmlu-pro-dev": {
+      "n": 253,
+      "correct_recount": 197,
+      "summary_correct": 197,
+      "match": true
+    },
+    "humaneval": {
+      "n": 164,
+      "correct_recount": 133,
+      "summary_correct": 133,
+      "match": true
+    }
+  },
+  "present_suites": [
+    "gsm8k-dev",
+    "gsm8k-holdout",
+    "mmlu-pro-dev",
+    "humaneval"
+  ],
+  "absent_suites": [
+    "mmlu-pro-holdout"
+  ],
+  "humaneval_taxonomy": {
+    "correct": 133,
+    "assertion": 27,
+    "syntax_error": 0,
+    "timeout": 0,
+    "other": 4,
+    "stored_correct_count": 133,
+    "syntax_cases": [],
+    "other_cases": [
+      "HumanEval/9 rc=1 IndexError: list index out of range",
+      "HumanEval/129 rc=1 NameError: name 'heapq' is not defined. Did you mean: 'help'? Or did you forget to import 'heapq'?",
+      "HumanEval/130 rc=1 IndexError: list index out of range",
+      "HumanEval/133 rc=1 NameError: name 'math' is not defined. Did you forget to import 'math'?"
+    ],
+    "present": true
+  },
+  "generated_by": "scripts/36_audit_accuracy.py"
+}

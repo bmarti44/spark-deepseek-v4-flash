@@ -204,16 +204,23 @@ PY
     done
 fi
 
+[[ -z $(git -C "$SRC_DIR" status --porcelain) ]] \
+    || die_verify "engine worktree is dirty: $SRC_DIR"
+engine_describe=$(git -C "$SRC_DIR" describe --always --dirty) \
+    || die_verify "cannot describe engine worktree: $SRC_DIR"
+[[ $engine_describe != *-dirty ]] \
+    || die_verify "engine worktree describe reports dirty: $engine_describe"
+
 verified_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     || die_env 'cannot obtain current UTC time'
 manifest_tmp="$GGUF_DIR/manifest.json.partial"
-python3 - "$PIN_FILE" "$manifest_tmp" "$engine_commit" "$verified_at" <<'PY' \
+python3 - "$PIN_FILE" "$manifest_tmp" "$engine_commit" "$engine_describe" "$verified_at" <<'PY' \
     || die_verify 'failed to write weight manifest'
 import json
 import os
 import sys
 
-pin_file, output, engine_commit, verified_at = sys.argv[1:]
+pin_file, output, engine_commit, engine_describe, verified_at = sys.argv[1:]
 with open(pin_file, encoding="utf-8") as stream:
     pins = json.load(stream)
 manifest = {
@@ -230,6 +237,7 @@ manifest = {
         for item in pins["files"]
     ],
     "engine_commit": engine_commit,
+    "engine_describe": engine_describe,
     "verified_at": verified_at,
 }
 with open(output, "w", encoding="utf-8") as stream:

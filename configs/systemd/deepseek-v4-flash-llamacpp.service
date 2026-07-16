@@ -15,14 +15,14 @@ WorkingDirectory=/home/bmarti44/spark-deepseek-v4-flash
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
 RuntimeDirectoryPreserve=yes
-# This report is advisory: the serve script enforces the authoritative memory
-# budget, binary, shard, residency-lock, and watchdog checks on every start.
-ExecStartPre=/bin/sh -c '/home/bmarti44/spark-deepseek-v4-flash/scripts/00_preflight.sh --out /tmp/preflight-service.json || true'
+# This report remains advisory, but preflight failure blocks engine startup;
+# the serve script also enforces its authoritative checks on every start.
+ExecStartPre=/home/bmarti44/spark-deepseek-v4-flash/scripts/00_preflight.sh --out /tmp/preflight-service.json
 ExecStart=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh start
 ExecStop=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh stop
 TimeoutStartSec=700
 TimeoutStopSec=240
-# Supervised restarts are manual per the runbook; the OOM watchdog handles kills.
+# The external dsv4-guard timer supervises health; the OOM watchdog handles kills.
 Restart=no
 
 # /home/dsv4 contains the engine build and logs, so it cannot be hidden. It is

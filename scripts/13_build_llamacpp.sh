@@ -90,6 +90,12 @@ actual_commit="$(git -C "$SRC_DIR" rev-parse HEAD 2>/dev/null)" \
     || die_build "cannot read llama.cpp HEAD: $SRC_DIR"
 [[ "$actual_commit" == "$llamacpp_commit" ]] \
     || die_build "llama.cpp HEAD mismatch: expected $llamacpp_commit, got $actual_commit"
+[[ -z $(git -C "$SRC_DIR" status --porcelain) ]] \
+    || die_build "llama.cpp worktree is dirty: $SRC_DIR"
+source_describe=$(git -C "$SRC_DIR" describe --always --dirty) \
+    || die_build "cannot describe llama.cpp worktree: $SRC_DIR"
+[[ $source_describe != *-dirty ]] \
+    || die_build "llama.cpp worktree describe reports dirty: $source_describe"
 
 [[ "$(uname -m)" == aarch64 ]] \
     || die_env 'this build requires uname -m to report aarch64'
@@ -156,7 +162,7 @@ built_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     || die_env 'cannot obtain current UTC time'
 manifest="$LLAMACPP_HOME/build-manifest.json"
 manifest_tmp="$manifest.partial"
-python3 - "$manifest_tmp" "$manifest" "$llamacpp_commit" \
+python3 - "$manifest_tmp" "$manifest" "$llamacpp_commit" "$source_describe" \
     "$SRC_DIR" "$BUILD_DIR" "$parallelism" "$nvcc_version" \
     "$gcc_version" "$cmake_version" "$built_at" \
     "${hashes[0]}" "${hashes[1]}" "${hashes[2]}" <<'PY' \
@@ -166,7 +172,7 @@ import os
 import shlex
 import sys
 
-(temporary, output, commit, source, build, parallelism, nvcc, gcc, cmake,
+(temporary, output, commit, describe, source, build, parallelism, nvcc, gcc, cmake,
  built_at, server_hash, cli_hash, bench_hash) = sys.argv[1:]
 configure = [
     "cmake", "-S", source, "-B", build, "-DGGML_CUDA=ON",
@@ -179,6 +185,7 @@ build_command = [
 ]
 manifest = {
     "commit": commit,
+    "source_describe": describe,
     "cmake_configure_command": shlex.join(configure),
     "cmake_build_command": shlex.join(build_command),
     "nvcc_version": nvcc,

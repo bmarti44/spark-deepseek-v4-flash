@@ -5,12 +5,34 @@ import hmac
 import os
 import signal
 import sys
+import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 
 KEY_PATH = Path(os.environ["API_KEY_FILE"])
 API_KEY = b""
+MAX_IN_FLIGHT = 64
+RATE_PER_SECOND = 120 / 60
+RATE_BURST = 240
+IN_FLIGHT = threading.BoundedSemaphore(MAX_IN_FLIGHT)
+RATE_LOCK = threading.Lock()
+RATE_TOKENS = float(RATE_BURST)
+RATE_UPDATED = time.monotonic()
+
+
+def consume_rate_token() -> bool:
+    """Consume one global bucket token without ever blocking on request I/O."""
+    global RATE_TOKENS, RATE_UPDATED
+    with RATE_LOCK:
+        now = time.monotonic()
+        RATE_TOKENS = min(RATE_BURST, RATE_TOKENS + (now - RATE_UPDATED) * RATE_PER_SECOND)
+        RATE_UPDATED = now
+        if RATE_TOKENS < 1:
+            return False
+        RATE_TOKENS -= 1
+        return True
 
 
 def read_key() -> bytes:
@@ -37,6 +59,25 @@ class AuthHandler(BaseHTTPRequestHandler):
     sys_version = ""
 
     def authorize(self) -> None:
+        if not consume_rate_token():
+            self._empty_response(429)
+            return
+        if not IN_FLIGHT.acquire(blocking=False):
+            self._empty_response(503)
+            return
+        try:
+            self._authorize_bounded()
+        finally:
+            IN_FLIGHT.release()
+
+    def _empty_response(self, status: int, authenticate: bool = False) -> None:
+        self.send_response(status)
+        if authenticate:
+            self.send_header("WWW-Authenticate", "Bearer")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
+    def _authorize_bounded(self) -> None:
         # get_all is required: get()/mapping access can hide duplicate headers.
         headers = self.headers.get_all("Authorization", failobj=[])
         accepted = False
@@ -49,11 +90,7 @@ class AuthHandler(BaseHTTPRequestHandler):
             if candidate and not any(char.isspace() for char in candidate):
                 accepted = hmac.compare_digest(encoded, API_KEY)
 
-        self.send_response(204 if accepted else 401)
-        if not accepted:
-            self.send_header("WWW-Authenticate", "Bearer")
-        self.send_header("Content-Length", "0")
-        self.end_headers()
+        self._empty_response(204 if accepted else 401, authenticate=not accepted)
 
     do_GET = authorize
     do_HEAD = authorize

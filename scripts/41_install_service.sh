@@ -12,8 +12,6 @@ die() {
     exit 1
 }
 
-(( EUID == 0 )) || die 'must run as root'
-
 stack=
 keep_key=false
 while (( $# > 0 )); do
@@ -31,6 +29,7 @@ while (( $# > 0 )); do
     shift
 done
 [[ -n $stack ]] || usage
+(( EUID == 0 )) || die 'must run as root'
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." && pwd -P)
@@ -38,11 +37,12 @@ SYSTEMD_DIR=$REPO_ROOT/configs/systemd
 KEY_DIR=/etc/deepseek-v4-flash
 KEY_FILE=$KEY_DIR/api-key
 KEY_PREV=$KEY_DIR/api-key.prev
+AUTH_HEADER=$KEY_DIR/auth-header
 ENV_FILE=$KEY_DIR/env
 CADDY_DROPIN_DIR=/etc/systemd/system/dsv4-caddy.service.d
 CADDY_DROPIN=$CADDY_DROPIN_DIR/upstream.conf
 
-for command_name in install openssl chown chmod mv systemctl getent id; do
+for command_name in install openssl chown chmod mv systemctl getent id curl ss tailscale python3; do
     command -v "$command_name" >/dev/null 2>&1 || die "required command not found: $command_name"
 done
 getent group dsv4 >/dev/null || die 'required group does not exist: dsv4'
@@ -75,8 +75,19 @@ fi
 chown root:dsv4auth "$KEY_FILE"
 chmod 0640 "$KEY_FILE"
 
+[[ ! -L $AUTH_HEADER ]] || die "refusing symlink auth header: $AUTH_HEADER"
+[[ ! -e $AUTH_HEADER || -f $AUTH_HEADER ]] || die "auth header is not a regular file: $AUTH_HEADER"
+header_temporary=$KEY_DIR/.auth-header.new.$$
+trap 'rm -f -- "$header_temporary"' EXIT
+printf 'Authorization: Bearer ' >"$header_temporary"
+cat -- "$KEY_FILE" >>"$header_temporary"
+chown root:dsv4auth "$header_temporary"
+chmod 0640 "$header_temporary"
+mv -f -- "$header_temporary" "$AUTH_HEADER"
+trap - EXIT
+
 install -o root -g dsv4auth -m 0640 /dev/null "$ENV_FILE"
-printf 'API_KEY_FILE=%s\n' "$KEY_FILE" >"$ENV_FILE"
+printf 'API_KEY_FILE=%s\nSTACK=%s\n' "$KEY_FILE" "$stack" >"$ENV_FILE"
 
 if [[ $stack == ds4 ]]; then
     engine_unit=deepseek-v4-flash-ds4.service
@@ -93,6 +104,8 @@ for source in \
     "$SYSTEMD_DIR/$engine_unit" \
     "$SYSTEMD_DIR/dsv4-authhelper.service" \
     "$SYSTEMD_DIR/dsv4-caddy.service" \
+    "$SYSTEMD_DIR/dsv4-guard.service" \
+    "$SYSTEMD_DIR/dsv4-guard.timer" \
     "$REPO_ROOT/configs/caddy/Caddyfile" \
     "$REPO_ROOT/scripts/40_auth_helper.py"; do
     [[ -f $source ]] || die "missing production artifact: $source"
@@ -101,6 +114,8 @@ done
 install -o root -g root -m 0644 "$SYSTEMD_DIR/$engine_unit" /etc/systemd/system/
 install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-authhelper.service" /etc/systemd/system/
 install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-caddy.service" /etc/systemd/system/
+install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-guard.service" /etc/systemd/system/
+install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-guard.timer" /etc/systemd/system/
 install -D -o root -g root -m 0644 "$REPO_ROOT/configs/caddy/Caddyfile" /etc/caddy/Caddyfile
 install -D -o root -g root -m 0755 "$REPO_ROOT/scripts/40_auth_helper.py" \
     /usr/local/lib/deepseek-v4-flash/40_auth_helper.py
@@ -116,17 +131,81 @@ systemctl daemon-reload
 # second listener or compete with the hardened dsv4-caddy.service.
 systemctl disable --now caddy.service 2>/dev/null || true
 systemctl disable --now "deepseek-v4-flash-$other.service" 2>/dev/null || true
-systemctl enable "$engine_unit" dsv4-authhelper.service dsv4-caddy.service
+systemctl enable "$engine_unit" dsv4-authhelper.service dsv4-caddy.service dsv4-guard.timer
 systemctl restart dsv4-authhelper.service
 systemctl restart "$engine_unit"
 systemctl restart dsv4-caddy.service
+systemctl start dsv4-guard.timer
+
+printf 'Waiting up to 600 seconds for authenticated readiness...\n'
+deadline=$((SECONDS + 600))
+ready=false
+while (( SECONDS < deadline )); do
+    code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 5 \
+        -H "@$AUTH_HEADER" http://127.0.0.1:8010/v1/models || true)
+    if [[ $code == 200 ]]; then
+        ready=true
+        break
+    fi
+    sleep 2
+done
+"$ready" || die 'readiness timed out after 600 seconds'
+
+unauth_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 10 \
+    http://127.0.0.1:8010/v1/models || true)
+[[ $unauth_code == 401 ]] \
+    || die "post-install auth rejection failed: expected 401, got ${unauth_code:-curl-error}"
+auth_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 10 \
+    -H "@$AUTH_HEADER" http://127.0.0.1:8010/v1/models || true)
+[[ $auth_code == 200 ]] \
+    || die "post-install authenticated request failed: expected 200, got ${auth_code:-curl-error}"
+
+ss_output=$(ss -H -tlnp) || die 'ss failed during loopback-listener verification'
+python3 - "$upstream_port" 3<<<"$ss_output" <<'PY' \
+    || die 'ports 8010-8014 are not restricted to the required loopback listeners'
+import sys
+
+expected = {8010, int(sys.argv[1]), 8014}
+seen = set()
+for line in open(3, encoding="utf-8"):
+    fields = line.split()
+    if len(fields) < 4 or ":" not in fields[3]:
+        continue
+    address, port_text = fields[3].rsplit(":", 1)
+    try:
+        port = int(port_text)
+    except ValueError:
+        continue
+    if 8010 <= port <= 8014:
+        address = address.strip("[]")
+        if address != "127.0.0.1":
+            print(f"non-loopback listener: {fields[3]}", file=sys.stderr)
+            raise SystemExit(1)
+        seen.add(port)
+missing = expected - seen
+if missing:
+    print(f"missing loopback listeners: {sorted(missing)}", file=sys.stderr)
+    raise SystemExit(1)
+PY
+
+set +e
+tailscale_status=$(tailscale serve status 2>&1)
+tailscale_rc=$?
+set -e
+printf '%s\n' "$tailscale_status"
+if grep -Eq '(^|[^0-9])(8011|8012)([^0-9]|$)' <<<"$tailscale_status"; then
+    die 'DANGER: tailscale serve routes directly to engine port 8011/8012 and bypasses authentication; remove that route'
+fi
+(( tailscale_rc == 0 )) || printf 'WARNING: tailscale serve status exited %d; no direct engine port was reported.\n' "$tailscale_rc" >&2
+
+printf 'Post-install verification passed: auth, models endpoint, loopback binds, and Tailscale route safety.\n'
 
 cat <<EOF
 Installed $stack production services behind the authenticated proxy.
 Verification commands:
   systemctl status $engine_unit dsv4-authhelper.service dsv4-caddy.service
   curl -i http://127.0.0.1:8010/v1/models
-  KEY=\$(cat /etc/deepseek-v4-flash/api-key); curl -i -H "Authorization: Bearer \$KEY" http://127.0.0.1:8010/v1/models
+  curl -i -H @/etc/deepseek-v4-flash/auth-header http://127.0.0.1:8010/v1/models
   tailscale serve status
 
 The installer rotates the production key by default. Deliver the current key

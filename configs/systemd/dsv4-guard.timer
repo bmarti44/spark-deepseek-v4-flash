@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the DeepSeek V4 Flash engine guard every 60 seconds
+
+[Timer]
+OnBootSec=60s
+OnUnitActiveSec=60s
+AccuracySec=1s
+Unit=dsv4-guard.service
+
+[Install]
+WantedBy=timers.target
