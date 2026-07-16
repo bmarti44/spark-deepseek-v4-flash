@@ -1,0 +1,5 @@
+{"gate":"G1.3-smoke","stack":"ds4","engine_commit":"baa889025b16a7060f5f854226cb0d14e260eb52","profile":"dspark","ts":"2026-07-16T14:19:14Z",
+ "readiness":{"artifact_source":"built","derived_artifacts":474},
+ "speed":{"cold_first_request_tok_s":13.8,"warm_300tok_client_tok_s":22.9,"tok_per_step_60s":2.727,"spec_accept_rate":0.69},
+ "memory":{"baseline_gib":114.81,"available_after_load_gib":19.3,"floor_gib":16},
+ "notes":"No native auth (audited) - Caddy front planned in P4 if A wins. Thinking mode ON by default in chat endpoint; accuracy harness controls mode via official encoder over /v1/completions. Sanity floor >=12 tok/s: PASS."}
