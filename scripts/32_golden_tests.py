@@ -558,9 +558,25 @@ def main() -> int:
             b'{"broken":',
             content_type="application/json",
         )
-        if not 400 <= invalid_status <= 499:
+        # Intent: malformed JSON must yield a graceful, JSON-bodied error and
+        # leave the server healthy. llama.cpp answers 500 with a parse-error
+        # object; ds4 answers 4xx — both are graceful. Hangs/crashes fail.
+        if not 400 <= invalid_status <= 599:
             raise RuntimeError(
-                f"invalid JSON returned HTTP {invalid_status}, expected 4xx; body={invalid_body[:300]!r}"
+                f"invalid JSON returned HTTP {invalid_status}; body={invalid_body[:300]!r}"
+            )
+        try:
+            invalid_doc = json.loads(invalid_body)
+        except (UnicodeDecodeError, json.JSONDecodeError) as error:
+            raise RuntimeError(
+                f"invalid-JSON error response is not JSON itself: {error}; body={invalid_body[:300]!r}"
+            ) from error
+        if "error" not in invalid_doc:
+            raise RuntimeError(f"error response lacks an error object: {invalid_doc!r}")
+        health_status, _, _ = client.raw_request("GET", args.health_path)
+        if health_status != 200:
+            raise RuntimeError(
+                f"server unhealthy after malformed-JSON request: HTTP {health_status}"
             )
         unknown_payload = {
             "model": "__golden_tests_unknown_model__",
