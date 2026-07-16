@@ -1,0 +1,22 @@
+{
+  "repo": "unsloth/DeepSeek-V4-Flash-GGUF",
+  "revision": "e3aa0d6a5fa4f820d9e132ac1fd1d01e1b2b49e0",
+  "files": [
+    {
+      "name": "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+      "bytes": 5256864,
+      "sha256": "5475dce5d7189b4304d490bf559d438c967bbc924ce5384ba8e9ecc0385cb003"
+    },
+    {
+      "name": "DeepSeek-V4-Flash-UD-Q2_K_XL-00002-of-00003.gguf",
+      "bytes": 49437013568,
+      "sha256": "3faf8797868960141239b69bdd8105b0459fbc0f1927652889ae936a967fc4ca"
+    },
+    {
+      "name": "DeepSeek-V4-Flash-UD-Q2_K_XL-00003-of-00003.gguf",
+      "bytes": 47390237120,
+      "sha256": "4083f1f78e2730006acf78a458ac6b190faf1f515c30cce479a6f8d5066dda80"
+    }
+  ],
+  "verified_at": "2026-07-16T13:48:26Z"
+}
