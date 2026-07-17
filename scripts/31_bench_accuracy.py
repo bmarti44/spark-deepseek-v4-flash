@@ -34,6 +34,7 @@ PINS_PATH = EVALSETS_DIR / "pins.json"
 LEDGER_PATH = REPO_ROOT / "results" / "holdout-ledger.json"
 LEDGER_LOCK_PATH = REPO_ROOT / "results" / "holdout-ledger.json.lock"
 HARNESS_MANIFEST_PATH = REPO_ROOT / "verification" / "MANIFEST.sha256"
+HUMANEVAL_RUNTIME_PIN_PATH = REPO_ROOT / "configs" / "pins" / "humaneval-runtime.json"
 ENCODER_PATH = (
     REPO_ROOT / "vendor" / "official-encoding" / "encoding" / "encoding_dsv4.py"
 )
@@ -177,6 +178,56 @@ def canonical_json(document: Any) -> bytes:
     return json.dumps(
         document, ensure_ascii=False, sort_keys=True, separators=(",", ":")
     ).encode("utf-8")
+
+
+def resolve_humaneval_runtime_digest() -> dict[str, str]:
+    """Fail closed unless the local HumanEval image has the pinned RepoDigest."""
+    try:
+        pin = json.loads(HUMANEVAL_RUNTIME_PIN_PATH.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise RuntimeError(
+            f"cannot read HumanEval runtime pin {HUMANEVAL_RUNTIME_PIN_PATH}: {error}"
+        ) from error
+    if not isinstance(pin, dict):
+        raise RuntimeError("HumanEval runtime pin must be a JSON object")
+    image = pin.get("image")
+    expected = pin.get("repo_digest")
+    if image != "python:3.12-slim" or not isinstance(expected, str) or not re.fullmatch(
+        r"python@sha256:[0-9a-f]{64}", expected
+    ):
+        raise RuntimeError("HumanEval runtime pin has an invalid image or RepoDigest")
+    command = [
+        "docker",
+        "inspect",
+        image,
+        "--format",
+        "{{index .RepoDigests 0}}",
+    ]
+    try:
+        completed = subprocess.run(
+            command,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except (OSError, subprocess.SubprocessError) as error:
+        raise RuntimeError(f"HumanEval Docker image inspection failed: {error}") from error
+    resolved = completed.stdout.strip()
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or f"exit {completed.returncode}"
+        raise RuntimeError(f"HumanEval Docker image inspection failed: {detail}")
+    if resolved != expected:
+        raise RuntimeError(
+            f"HumanEval Docker image RepoDigest mismatch: expected {expected}, got "
+            f"{resolved or 'empty output'}"
+        )
+    return {
+        "image": image,
+        "repo_digest": resolved,
+        "pin_path": str(HUMANEVAL_RUNTIME_PIN_PATH.relative_to(REPO_ROOT)),
+        "pin_sha256": sha256_file(HUMANEVAL_RUNTIME_PIN_PATH),
+    }
 
 
 def load_harness_manifest_line() -> str:
@@ -870,6 +921,15 @@ def load_holdout_entries() -> list[dict[str, Any]]:
     return entries
 
 
+def load_ledger_namespace() -> str:
+    namespace = os.environ.get("DSV4_LEDGER_NAMESPACE", "")
+    if namespace and not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}", namespace):
+        raise RuntimeError(
+            "DSV4_LEDGER_NAMESPACE must be 1-128 safe characters beginning with an alphanumeric"
+        )
+    return namespace
+
+
 def acquire_holdout_ledger() -> BinaryIO:
     LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
     stream = LEDGER_LOCK_PATH.open("a+b")
@@ -883,18 +943,24 @@ def append_holdout_ledger(
     stream = acquire_holdout_ledger()
     try:
         entries = load_holdout_entries()
-        key = (entry["stack_label"], entry["suite"], entry["config_digest"])
+        key = (
+            entry.get("ledger_namespace", ""),
+            entry["stack_label"],
+            entry["suite"],
+            entry["config_digest"],
+        )
         if refuse_existing:
             for existing in entries:
                 existing_key = (
+                    existing.get("ledger_namespace", ""),
                     existing.get("stack_label"),
                     existing.get("suite"),
                     existing.get("config_digest"),
                 )
                 if existing_key == key and existing.get("phase") in ("started", "completed"):
                     raise HoldoutAlreadyRun(
-                        f"holdout already recorded for stack={key[0]!r}, "
-                        f"suite={key[1]!r}, config_digest={key[2]!r}"
+                        f"holdout already recorded for namespace={key[0]!r}, "
+                        f"stack={key[1]!r}, suite={key[2]!r}, config_digest={key[3]!r}"
                     )
         entries.append(entry)
         write_json(LEDGER_PATH, entries)
@@ -909,6 +975,10 @@ class HoldoutAlreadyRun(RuntimeError):
 def main() -> int:
     args = parse_args()
     started_at = utc_now()
+    ledger_namespace = load_ledger_namespace()
+    humaneval_runtime = (
+        resolve_humaneval_runtime_digest() if args.suite == "humaneval" else None
+    )
     config_digest, config_digest_payload, config_evidence = derive_config_digest(args)
     pins, revisions = load_pins()
     rows = load_jsonl(args.suite, pins)
@@ -928,6 +998,7 @@ def main() -> int:
         try:
             append_holdout_ledger(
                 {
+                    "ledger_namespace": ledger_namespace,
                     "stack_label": args.stack_label,
                     "suite": args.suite,
                     "config_digest": config_digest,
@@ -1043,6 +1114,7 @@ def main() -> int:
             "config_digest": config_digest,
             "config_digest_payload": config_digest_payload,
             "config_evidence": config_evidence,
+            "ledger_namespace": ledger_namespace,
             "model": model,
             "n": len(indices),
             "correct": correct_count,
@@ -1055,6 +1127,7 @@ def main() -> int:
             "transcript_dir": str(args.transcripts_dir.resolve()),
             "transcript_files": transcript_files,
             "models_response": models_response,
+            "provenance": {"humaneval_runtime": humaneval_runtime},
             "generation": {
                 "endpoint": args.completions_endpoint,
                 "temperature": 0,
@@ -1070,6 +1143,7 @@ def main() -> int:
                 raise RuntimeError("internal error: holdout config digest is missing")
             append_holdout_ledger(
                 {
+                    "ledger_namespace": ledger_namespace,
                     "stack_label": args.stack_label,
                     "suite": args.suite,
                     "config_digest": config_digest,

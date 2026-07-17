@@ -1,0 +1,4 @@
+{
+  "description": "sha256 of bench.canonical_json() for results/holdout-ledger.json entry zero — the sole pre-start-record holdout exception recorded in PROTOCOL v7. Introduced by commit 02891bcfa8e1381e035afa750644caad0ef0f1fc; any edit to that entry breaks the exception.",
+  "entry_sha256": "59053fc37c43e1a8c53eea45963f7248345d10f9c05f223403168f6895c53ca6"
+}

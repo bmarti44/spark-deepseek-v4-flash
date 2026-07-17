@@ -24,6 +24,16 @@ REPO = Path(__file__).resolve().parent.parent
 RESULTS = REPO / "results"
 TRANSCRIPTS = RESULTS / "transcripts"
 HARNESS = REPO / "scripts" / "31_bench_accuracy.py"
+LEDGER = RESULTS / "holdout-ledger.json"
+# PROTOCOL v7 records the sole pre-start-record exception: the sha256 of
+# bench.canonical_json() for ledger entry zero, frozen in the MANIFEST-covered
+# pin file (introduced by commit 02891bcfa8e1381e035afa750644caad0ef0f1fc).
+GRANDFATHER_PIN = REPO / "configs" / "pins" / "holdout-grandfather.json"
+GRANDFATHERED_LEDGER_ENTRY_SHA256 = json.loads(
+    GRANDFATHER_PIN.read_text(encoding="utf-8")
+)["entry_sha256"]
+if not re.fullmatch(r"[0-9a-f]{64}", GRANDFATHERED_LEDGER_ENTRY_SHA256):
+    raise RuntimeError(f"invalid entry_sha256 in {GRANDFATHER_PIN}")
 
 spec = importlib.util.spec_from_file_location("bench", HARNESS)
 if spec is None or spec.loader is None:
@@ -66,6 +76,17 @@ def load_json_object(path: Path) -> tuple[dict[str, Any] | None, list[str]]:
     if not isinstance(document, dict):
         return None, [f"{path.name}: top-level JSON value is not an object"]
     return document, []
+
+
+def grandfathered_ledger_entry_is_exact() -> bool:
+    try:
+        entries = json.loads(LEDGER.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return False
+    if not isinstance(entries, list) or not entries or not isinstance(entries[0], dict):
+        return False
+    digest = hashlib.sha256(bench.canonical_json(entries[0])).hexdigest()
+    return digest == GRANDFATHERED_LEDGER_ENTRY_SHA256
 
 
 def audit_result_schema(
@@ -134,9 +155,13 @@ def audit_result_schema(
     if not isinstance(invalid_count, int) or isinstance(invalid_count, bool):
         problems.append(f"{path.name}: bad invalid_count={invalid_count!r}")
     if split == "holdout" and not document.get("config_digest"):
-        # This one result's ledger entry predates config digests; no other
-        # holdout result is grandfathered.
-        if path.name != "acc-gsm8k-holdout-llamacpp.json":
+        # PROTOCOL v7 permits only the exact first ledger entry witnessed by
+        # commit 02891bcfa8e1381e035afa750644caad0ef0f1fc; a filename alone is
+        # never sufficient, and any edit changes the canonical content hash.
+        if (
+            path.name != "acc-gsm8k-holdout-llamacpp.json"
+            or not grandfathered_ledger_entry_is_exact()
+        ):
             problems.append(f"{path.name}: missing config_digest (required for holdout)")
     return problems
 
@@ -457,6 +482,7 @@ def main() -> int:
     parser.add_argument("--stack", required=True, help="result suffix, e.g. llamacpp or ds4")
     args = parser.parse_args()
     stack = args.stack
+    humaneval_runtime = bench.resolve_humaneval_runtime_digest()
 
     pins, _revisions = bench.load_pins()
     rows_by_suite = {
@@ -526,6 +552,7 @@ def main() -> int:
         "absent_suites": [],
         "humaneval_taxonomy": humaneval_taxonomy,
         "bindings": bindings,
+        "humaneval_runtime": humaneval_runtime,
         "generated_by": "scripts/36_audit_accuracy.py",
     }
     artifact_path = RESULTS / f"audit-{stack}.json"

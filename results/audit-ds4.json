@@ -80,7 +80,13 @@
       "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
       "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
     },
-    "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
+    "harness_manifest_line": "8b445a3682635d071a51c34491dee5492e56ca1d029a9c6f6cdccb1c25398ad1  scripts/31_bench_accuracy.py"
+  },
+  "humaneval_runtime": {
+    "image": "python:3.12-slim",
+    "repo_digest": "python@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+    "pin_path": "configs/pins/humaneval-runtime.json",
+    "pin_sha256": "548912ac64a29b3dcaa30bf45616954d329c19862c781fe901b8bc18d7fe54f5"
   },
   "generated_by": "scripts/36_audit_accuracy.py"
 }

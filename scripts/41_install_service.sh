@@ -112,7 +112,8 @@ for source in \
     "$SYSTEMD_DIR/dsv4-guard.service" \
     "$SYSTEMD_DIR/dsv4-guard.timer" \
     "$REPO_ROOT/configs/caddy/Caddyfile" \
-    "$REPO_ROOT/scripts/40_auth_helper.py"; do
+    "$REPO_ROOT/scripts/40_auth_helper.py" \
+    "$REPO_ROOT/scripts/42_verify_exposure.sh"; do
     [[ -f $source ]] || die "missing production artifact: $source"
 done
 
@@ -162,15 +163,6 @@ while (( SECONDS < deadline )); do
 done
 "$ready" || die 'readiness timed out after 600 seconds'
 
-unauth_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 10 \
-    http://127.0.0.1:8010/v1/models || true)
-[[ $unauth_code == 401 ]] \
-    || die "post-install auth rejection failed: expected 401, got ${unauth_code:-curl-error}"
-auth_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 10 \
-    -H "@$AUTH_HEADER" http://127.0.0.1:8010/v1/models || true)
-[[ $auth_code == 200 ]] \
-    || die "post-install authenticated request failed: expected 200, got ${auth_code:-curl-error}"
-
 ss_output=$(ss -H -tlnp) || die 'ss failed during loopback-listener verification'
 python3 - "$upstream_port" 3<<<"$ss_output" <<'PY' \
     || die 'ports 8010-8014 are not restricted to the required loopback listeners'
@@ -199,42 +191,9 @@ if missing:
     raise SystemExit(1)
 PY
 
-set +e
-tailscale_status=$(tailscale serve status 2>&1)
-tailscale_rc=$?
-set -e
-printf '%s\n' "$tailscale_status"
-(( tailscale_rc == 0 )) \
-    || die "INSTALL FAILED: tailscale serve status exited $tailscale_rc; installation remains unverified and services must not be exposed"
-python3 - "$tailscale_status" <<'PY' \
-    || die 'INSTALL FAILED: Tailscale Serve routes must proxy to loopback port 8010 only; remove unsafe routes'
-import re
-import sys
-from urllib.parse import urlsplit
-
-status = sys.argv[1]
-if re.search(r"(^|[^0-9])(8011|8012)([^0-9]|$)", status):
-    raise SystemExit(1)
-if re.search(r"no (serve )?config", status, re.IGNORECASE):
-    raise SystemExit(0)
-targets = re.findall(r"\bproxy\s+(\S+)", status, re.IGNORECASE)
-if not targets:
-    raise SystemExit(1)
-for target in targets:
-    parsed = urlsplit(target)
-    if parsed.hostname not in {"127.0.0.1", "localhost"} or parsed.port != 8010:
-        raise SystemExit(1)
-PY
-
-set +e
-funnel_status=$(tailscale funnel status 2>&1)
-funnel_rc=$?
-set -e
-printf '%s\n' "$funnel_status"
-(( funnel_rc == 0 )) \
-    || die "INSTALL FAILED: tailscale funnel status exited $funnel_rc; cannot prove Funnel is disabled"
-grep -Eiq 'no (serve|funnel) config' <<<"$funnel_status" \
-    || die 'INSTALL FAILED: Tailscale Funnel is configured; disable Funnel before exposing this service'
+"$REPO_ROOT/scripts/42_verify_exposure.sh" \
+    --service-user dsv4auth --auth-header "$AUTH_HEADER" \
+    || die 'INSTALL FAILED: exposure-chain verification failed'
 
 printf 'Post-install verification passed: Caddy-to-helper-to-engine auth chain, loopback-only engine bind, and Tailscale Serve/Funnel safety.\n'
 
@@ -244,7 +203,7 @@ Verification commands:
   systemctl status $engine_unit dsv4-authhelper.service dsv4-caddy.service
   curl -i http://127.0.0.1:8010/v1/models
   curl -i -H @/etc/deepseek-v4-flash/auth-header http://127.0.0.1:8010/v1/models
-  tailscale serve status
+  $REPO_ROOT/scripts/42_verify_exposure.sh
 
 The installer rotates the production key by default. Deliver the current key
 to authorized laptops out-of-band; use --keep-key only for intentional reuse.

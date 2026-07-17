@@ -46,11 +46,24 @@ sudo env DSV4_REPO="$DSV4_REPO" bash setup/02-dgxos-update.sh
 Step 01 installs a targeted AppArmor exception for `/usr/bin/bwrap`, preserving the global
 unprivileged-user-namespace restriction. It supported the implementation agent's sandbox.
 Step 02 performs `apt-get update` and `apt-get full-upgrade -y`, then reboots after a
-15-second warning. A full upgrade is intentionally not package-reproducible: repositories
-can advance after this evaluation. It does not update EC, UEFI, or other firmware. After
-the reboot, compare the actual OS, kernel, driver, CUDA, and tool versions with
-[configs/versions.lock](configs/versions.lock); `00_preflight.sh` must pass before any build
-or benchmark. Do not silently update the lock to bless a different host:
+15-second warning. This is a known reproducibility limitation: the upgrade is unpinned and
+repositories can advance after this evaluation. It does not update EC, UEFI, or other
+firmware. After the reboot, capture the installed package list plus kernel, driver, and GPU
+state in the reproducer's notes, then cross-check them against
+[configs/versions.lock](configs/versions.lock):
+
+```bash
+mkdir -p reproducer-notes
+dpkg -l >reproducer-notes/dpkg-l.after-setup.txt
+uname -a >reproducer-notes/kernel.after-setup.txt
+nvidia-smi -q >reproducer-notes/nvidia-smi.after-setup.txt
+cp configs/versions.lock reproducer-notes/versions.lock.reference
+```
+
+Record every divergence and preserve an observed `versions.lock` in those notes. A
+`00_preflight.sh` version-mismatch rejection is expected on a future host; do not bypass it
+or silently overwrite the repository lock. Record the future host's own lock and explain
+the mismatch before deciding whether a new protocol/versioned reproduction is warranted:
 
 ```bash
 cd "$DSV4_REPO"
@@ -88,6 +101,20 @@ As the repository owner, create the isolated harness environment:
 cd "$DSV4_REPO"
 python3 -m venv .venv-harness
 .venv-harness/bin/python -m pip install -r requirements-harness.txt
+```
+
+Install the evidence-workflow secret scanner at its pinned aarch64 release. The hooks and
+`scripts/lint_secrets.sh` discover this repository-local binary automatically:
+
+```bash
+mkdir -p bin /tmp/gitleaks-v8.24.3
+curl --fail --location --output /tmp/gitleaks-v8.24.3.tar.gz \
+  https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_arm64.tar.gz
+printf '%s  %s\n' "$(python3 -c 'import json; print(json.load(open("configs/pins/gitleaks.json"))["tarball_sha256"])')" \
+  /tmp/gitleaks-v8.24.3.tar.gz | sha256sum -c -
+tar -xzf /tmp/gitleaks-v8.24.3.tar.gz -C /tmp/gitleaks-v8.24.3 gitleaks
+install -m 0755 /tmp/gitleaks-v8.24.3/gitleaks bin/gitleaks
+bin/gitleaks version
 ```
 
 The harness pins `tokenizers` and `pyarrow`. HumanEval runs generated programs in the
@@ -267,17 +294,26 @@ changing a gate or scoring rule requires a protocol version entry and symmetric 
 ### Clean-room reproduction and the holdout witness
 
 A fresh reproducer must generate config evidence from their own built binary and fetched
-weights rather than copying the evaluated host's live manifests. Those binary/weight hashes
-produce a different config-digest identity, so the committed once-only ledger does not block
-their independent holdout. If the hashes are identical, it is the same frozen identity and
-the ledger correctly refuses another query.
+weights rather than copying the evaluated host's live manifests. Set one stable, unique
+namespace for every holdout command in that clean-room run, including bit-identical builds:
+
+```bash
+export DSV4_LEDGER_NAMESPACE="reproducer-name-2026-07-17"
+```
+
+The namespace is recorded in every new ledger entry and participates in the once-only
+identity alongside stack, suite, and config digest. It permits a bit-identical clean-room
+build to create its own started/completed witness without editing this repository's entries.
+Use the default empty namespace only for this repository's historical identity.
 
 Do not re-query the endpoint to “verify” this repository's published holdout numbers. Verify
 them offline from the committed transcripts with `scripts/36_audit_accuracy.py`: protocol v6
 reconstructs pinned rows and split indices, re-renders prompt hashes, re-scores GSM8K and
 MMLU-Pro, re-extracts and sandbox-executes all HumanEval completions, and binds the results
-and transcript tree. Editing or deleting the committed ledger voids its public-history
-witness, even if replacement result files happen to contain the same summary numbers.
+and transcript tree. Editing or deleting any committed ledger entry still voids its public-
+history witness, regardless of namespace and even if replacement result files contain the
+same summary numbers. A clean-room run appends only its namespaced entries in its own
+evidence branch.
 
 The soak duration and thresholds are constants, not CLI options. Run each while its stack
 is resident:
@@ -339,11 +375,14 @@ commit it, or put it on a process command line. Then expose only the authenticat
 
 ```bash
 sudo tailscale serve --bg http://127.0.0.1:8010
-tailscale serve status
+sudo "$DSV4_REPO/scripts/42_verify_exposure.sh"
 ```
 
 Keep Funnel off. `tailscale funnel` would make the endpoint Internet-accessible; Serve is
-intended to remain tailnet-only. Never route Serve directly to 8011, 8012, or 8014.
+intended to remain tailnet-only. Never route Serve directly to 8011, 8012, 8013, or 8014.
+Run `scripts/42_verify_exposure.sh` immediately after any Tailscale Serve, Funnel, reset, or
+other routing configuration change; a root run also proves authenticated 200 using key
+material read by the `dsv4auth` service user.
 
 ## 9. Expected evidence
 

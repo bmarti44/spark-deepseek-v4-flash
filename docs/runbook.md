@@ -80,8 +80,25 @@ tailscale serve status
 tailscale funnel status
 ```
 
+When configuring or replacing the Serve route, keep the mutation and verification
+together:
+
+```bash
+sudo tailscale serve --bg http://127.0.0.1:8010
+sudo "$DSV4_REPO/scripts/42_verify_exposure.sh"
+```
+
 Serve must target `http://127.0.0.1:8010`, never engine port 8011/8012 or helper port
-8014, and Funnel must remain off.
+8013/8014, and Funnel must remain off. After any Tailscale Serve, Funnel, reset, or other
+routing configuration change, immediately run the complete chain check as root:
+
+```bash
+sudo "$DSV4_REPO/scripts/42_verify_exposure.sh"
+```
+
+It rejects unsafe or unparseable routes, proves Funnel is off and unauthenticated traffic is
+401, and delegates the authenticated 200 probe to the `dsv4auth` service user so root does
+not read the key into shell state.
 
 ## Key rotation
 

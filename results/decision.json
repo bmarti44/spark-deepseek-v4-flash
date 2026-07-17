@@ -81,7 +81,7 @@
             "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
             "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
           },
-          "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
+          "harness_manifest_line": "8b445a3682635d071a51c34491dee5492e56ca1d029a9c6f6cdccb1c25398ad1  scripts/31_bench_accuracy.py"
         }
       },
       "context_envelope_exception": {
@@ -174,7 +174,24 @@
         "median_ttft_s": {
           "4096": 5.335727048499848,
           "16384": 21.77833792599995
-        }
+        },
+        "identity": {
+          "stack_label": "ds4-dspark",
+          "base_url": "http://127.0.0.1:8012",
+          "reps": 5,
+          "warmup_reps": 1,
+          "ignore_eos_supported": false,
+          "max_tokens": 256,
+          "temperature": 0,
+          "seed": 42,
+          "prefill_rate_label": "incl. queue+setup",
+          "iqr_method": "inclusive quartiles",
+          "model": "deepseek-v4-flash",
+          "fixture_path": "fixtures/ctx-32k.txt",
+          "fixture_total_tokens": 40657
+        },
+        "tokenizer_path": "vendor/official-encoding/tokenizer.json",
+        "tokenizer_sha256": "8f9f37ca37fdc4f5fd36d5cf4d3b0e8392edb4e894fd10cc0d70b4957c8633cf"
       }
     },
     "llamacpp": {
@@ -258,7 +275,7 @@
             "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
             "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
           },
-          "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
+          "harness_manifest_line": "8b445a3682635d071a51c34491dee5492e56ca1d029a9c6f6cdccb1c25398ad1  scripts/31_bench_accuracy.py"
         }
       },
       "context_envelope_exception": null,
@@ -339,7 +356,24 @@
         "median_ttft_s": {
           "4096": 14.268049599999358,
           "16384": 57.789383261000694
-        }
+        },
+        "identity": {
+          "stack_label": "llamacpp-udq2kxl",
+          "base_url": "http://127.0.0.1:8011",
+          "reps": 5,
+          "warmup_reps": 1,
+          "ignore_eos_supported": true,
+          "max_tokens": 256,
+          "temperature": 0,
+          "seed": 42,
+          "prefill_rate_label": "incl. queue+setup",
+          "iqr_method": "inclusive quartiles",
+          "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+          "fixture_path": "fixtures/ctx-32k.txt",
+          "fixture_total_tokens": 40657
+        },
+        "tokenizer_path": "vendor/official-encoding/tokenizer.json",
+        "tokenizer_sha256": "8f9f37ca37fdc4f5fd36d5cf4d3b0e8392edb4e894fd10cc0d70b4957c8633cf"
       }
     }
   },

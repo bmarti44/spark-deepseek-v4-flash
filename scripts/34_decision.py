@@ -35,6 +35,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = REPO_ROOT / "results"
 TRANSCRIPTS_DIR = RESULTS_DIR / "transcripts"
 MANIFEST_PATH = REPO_ROOT / "verification" / "MANIFEST.sha256"
+ACCURACY_HARNESS_PATH = REPO_ROOT / "scripts" / "31_bench_accuracy.py"
+SPEED_TOKENIZER_PATH = REPO_ROOT / "vendor" / "official-encoding" / "tokenizer.json"
 STACKS = ("ds4", "llamacpp")
 INPUT_PATHS = {
     "ds4": {
@@ -73,6 +75,13 @@ AUDIT_BINDING_SUITES = (
     ("acc-mmlu-holdout-{stack}.json", "mmlu-holdout-{stack}"),
     ("acc-humaneval-{stack}.json", "humaneval-{stack}"),
 )
+AUDIT_RESULT_PATHS = {
+    "gsm8k-dev": "acc-gsm8k-dev-{stack}.json",
+    "gsm8k-holdout": "acc-gsm8k-holdout-{stack}.json",
+    "mmlu-pro-dev": "acc-mmlu-dev-{stack}.json",
+    "mmlu-pro-holdout": "acc-mmlu-holdout-{stack}.json",
+    "humaneval": "acc-humaneval-{stack}.json",
+}
 EVALSET_BINDING_PATHS = (
     REPO_ROOT / "evalsets" / "gsm8k-test.jsonl",
     REPO_ROOT / "evalsets" / "humaneval.jsonl",
@@ -104,9 +113,62 @@ SOAK_MEM_SAMPLE_DENSITY = 0.8
 SOAK_MIN_WINDOW_REQUESTS = 5
 SOAK_DURATION_RATIO = 0.95
 SOAK_HEALTH_PROBE_INTERVAL = 30.0
+SOAK_MEMORY_SAMPLE_INTERVAL = 1.0
 SOAK_MIN_HEALTH_PROBES = max(
     10, math.floor(SOAK_DURATION / SOAK_HEALTH_PROBE_INTERVAL / 2)
 )
+SPEED_EXPECTED_METADATA = {
+    "ds4": {
+        "stack_label": "ds4-dspark",
+        "base_url": "http://127.0.0.1:8012",
+        "reps": 5,
+        "warmup_reps": 1,
+        "ignore_eos_supported": False,
+        "max_tokens": 256,
+        "temperature": 0,
+        "seed": 42,
+        "prefill_rate_label": "incl. queue+setup",
+        "iqr_method": "inclusive quartiles",
+        "model": "deepseek-v4-flash",
+        "fixture_path": "fixtures/ctx-32k.txt",
+        "fixture_total_tokens": 40657,
+    },
+    "llamacpp": {
+        "stack_label": "llamacpp-udq2kxl",
+        "base_url": "http://127.0.0.1:8011",
+        "reps": 5,
+        "warmup_reps": 1,
+        "ignore_eos_supported": True,
+        "max_tokens": 256,
+        "temperature": 0,
+        "seed": 42,
+        "prefill_rate_label": "incl. queue+setup",
+        "iqr_method": "inclusive quartiles",
+        "model": (
+            "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/"
+            "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
+        ),
+        "fixture_path": "fixtures/ctx-32k.txt",
+        "fixture_total_tokens": 40657,
+    },
+}
+SOAK_EXPECTED_IDENTITY = {
+    "ds4": {
+        "config_hash": "ds4-baa88902-dspark-ctx32768-nothink-v1",
+        "model": "deepseek-v4-flash",
+        "max_tokens": 256,
+        "extra_body": {"enable_thinking": False},
+    },
+    "llamacpp": {
+        "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
+        "model": (
+            "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/"
+            "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
+        ),
+        "max_tokens": 256,
+        "extra_body": {"chat_template_kwargs": {"enable_thinking": False}},
+    },
+}
 
 
 class DecisionInputError(RuntimeError):
@@ -140,19 +202,34 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--soak-evidence",
-        required=True,
+        required=False,
         type=parse_stack_evidence,
         metavar="ds4=PATH,llamacpp=PATH",
         help="JSON soak evidence for both stacks",
     )
     parser.add_argument(
         "--audit-evidence",
-        required=True,
+        required=False,
         type=parse_stack_evidence,
         metavar="ds4=PATH,llamacpp=PATH",
         help="accuracy-audit JSON evidence for both stacks",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--validate-evidence-only",
+        action="store_true",
+        help="validate every input without writing or computing a verdict",
+    )
+    args = parser.parse_args()
+    if args.validate_evidence_only:
+        args.soak_evidence = args.soak_evidence or {
+            stack: RESULTS_DIR / f"soak-{stack}.json" for stack in STACKS
+        }
+        args.audit_evidence = args.audit_evidence or {
+            stack: RESULTS_DIR / f"audit-{stack}.json" for stack in STACKS
+        }
+    elif args.soak_evidence is None or args.audit_evidence is None:
+        parser.error("--soak-evidence and --audit-evidence are required")
+    return args
 
 
 def relative(path: Path) -> str:
@@ -177,6 +254,60 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_manifest() -> dict[str, str]:
+    entries: dict[str, str] = {}
+    previous_path: str | None = None
+    try:
+        stream = MANIFEST_PATH.open("r", encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as error:
+        raise DecisionInputError(f"cannot read {relative(MANIFEST_PATH)}: {error}") from error
+    with stream:
+        for line_number, raw_line in enumerate(stream, 1):
+            line = raw_line.rstrip("\n")
+            match = re.fullmatch(r"([0-9a-f]{64})  (\S+)", line)
+            if match is None:
+                raise DecisionInputError(
+                    f"{relative(MANIFEST_PATH)}:{line_number}: malformed sha256sum entry"
+                )
+            expected, relative_name = match.groups()
+            if relative_name in entries:
+                raise DecisionInputError(
+                    f"{relative(MANIFEST_PATH)}:{line_number}: duplicate path {relative_name!r}"
+                )
+            if previous_path is not None and relative_name <= previous_path:
+                raise DecisionInputError(
+                    f"{relative(MANIFEST_PATH)}:{line_number}: entries are not sorted by path"
+                )
+            candidate = (REPO_ROOT / relative_name).resolve()
+            try:
+                candidate.relative_to(REPO_ROOT)
+            except ValueError as error:
+                raise DecisionInputError(
+                    f"{relative(MANIFEST_PATH)}:{line_number}: path escapes repository"
+                ) from error
+            actual = sha256_file(candidate)
+            if actual != expected:
+                raise DecisionInputError(
+                    f"{relative(MANIFEST_PATH)}:{line_number}: checksum failed for "
+                    f"{relative_name} (expected {expected}, got {actual})"
+                )
+            entries[relative_name] = expected
+            previous_path = relative_name
+    if not entries:
+        raise DecisionInputError(f"{relative(MANIFEST_PATH)}: manifest is empty")
+    harness_digest = entries.get("scripts/31_bench_accuracy.py")
+    if harness_digest is None:
+        raise DecisionInputError(
+            f"{relative(MANIFEST_PATH)}: scripts/31_bench_accuracy.py is not listed"
+        )
+    current_harness_digest = sha256_file(ACCURACY_HARNESS_PATH)
+    if current_harness_digest != harness_digest:
+        raise DecisionInputError(
+            "current scripts/31_bench_accuracy.py does not match its manifest digest"
+        )
+    return entries
+
+
 def load_accuracy_harness_manifest_line() -> str:
     try:
         lines = MANIFEST_PATH.read_text(encoding="utf-8").splitlines()
@@ -188,7 +319,28 @@ def load_accuracy_harness_manifest_line() -> str:
         raise DecisionInputError(
             f"{relative(MANIFEST_PATH)}: expected exactly one valid scripts/31 entry"
         )
+    manifest_digest = matches[0].split("  ", 1)[0]
+    current_digest = sha256_file(ACCURACY_HARNESS_PATH)
+    if current_digest != manifest_digest:
+        raise DecisionInputError(
+            "current scripts/31_bench_accuracy.py does not match its manifest line"
+        )
     return matches[0]
+
+
+def speed_tokenizer_expected_digest() -> str:
+    try:
+        lines = MANIFEST_PATH.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeDecodeError) as error:
+        raise DecisionInputError(f"cannot read {relative(MANIFEST_PATH)}: {error}") from error
+    suffix = f"  {relative(SPEED_TOKENIZER_PATH)}"
+    matches = [line for line in lines if line.endswith(suffix)]
+    if len(matches) != 1 or not re.fullmatch(r"[0-9a-f]{64}  \S+", matches[0]):
+        raise DecisionInputError(
+            f"{relative(MANIFEST_PATH)}: expected exactly one valid "
+            f"{relative(SPEED_TOKENIZER_PATH)} entry"
+        )
+    return matches[0].split("  ", 1)[0]
 
 
 def transcript_tree_binding(stack: str) -> dict[str, Any]:
@@ -316,6 +468,38 @@ def read_audit_evidence(path: Path, stack: str) -> dict[str, Any]:
                 f"accuracy audit suite {suite!r} has bad expected_n="
                 f"{entry.get('expected_n')!r}",
             )
+        result_path = RESULTS_DIR / AUDIT_RESULT_PATHS[suite].format(stack=stack)
+        try:
+            result_document = load_object(result_path)
+            result_correct = require_int(
+                field(result_document, "correct", result_path),
+                f"{relative(result_path)}.correct",
+            )
+        except DecisionInputError as error:
+            return evidence_failure(path, str(error))
+        if "correct_recount" not in entry or "summary_correct" not in entry:
+            return evidence_failure(
+                path,
+                f"accuracy audit suite {suite!r} lacks correct_recount or summary_correct",
+            )
+        recount = entry["correct_recount"]
+        summary_correct = entry["summary_correct"]
+        if (
+            not isinstance(recount, int)
+            or isinstance(recount, bool)
+            or not isinstance(summary_correct, int)
+            or isinstance(summary_correct, bool)
+            or recount != summary_correct
+            or recount != result_correct
+        ):
+            return evidence_failure(
+                path,
+                f"accuracy audit suite {suite!r} correct counts do not match "
+                f"each other and {relative(result_path)}.correct",
+                correct_recount=recount,
+                summary_correct=summary_correct,
+                result_correct=result_correct,
+            )
         counts[suite] = n
     try:
         current_bindings = current_audit_bindings(stack)
@@ -347,6 +531,40 @@ def summary_matches(actual: float | None, reported: Any) -> bool:
     return math.isclose(actual, float(reported), rel_tol=0.0, abs_tol=SUMMARY_TOLERANCE)
 
 
+def validated_timestamps(
+    records: list[Any], key: str, label: str, elapsed: float
+) -> list[float]:
+    timestamps: list[float] = []
+    for index, record in enumerate(records):
+        if not isinstance(record, dict):
+            raise DecisionInputError(f"{label}[{index}] is not an object")
+        timestamp = require_number(record.get(key), f"{label}[{index}].{key}")
+        if not 0.0 <= timestamp <= elapsed:
+            raise DecisionInputError(
+                f"{label}[{index}].{key}={timestamp!r} is outside [0, {elapsed!r}]"
+            )
+        if timestamps and timestamp <= timestamps[-1]:
+            raise DecisionInputError(
+                f"{label}[{index}].{key} is not strictly monotonic (duplicate or reversal)"
+            )
+        timestamps.append(timestamp)
+    return timestamps
+
+
+def require_frozen_spacing(
+    timestamps: list[float], interval: float, label: str
+) -> None:
+    minimum = interval * 0.5
+    maximum = interval * 1.5
+    for index, (previous, current) in enumerate(zip(timestamps, timestamps[1:]), 1):
+        spacing = current - previous
+        if not minimum <= spacing <= maximum:
+            raise DecisionInputError(
+                f"{label} spacing before item {index} is {spacing!r}; "
+                f"expected [{minimum!r}, {maximum!r}]"
+            )
+
+
 def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     label = path_label(path)
     if not path.is_file():
@@ -361,6 +579,15 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         return evidence_failure(path, "requires kind='soak' and pass=true")
     if document.get("stack_label") != stack:
         return evidence_failure(path, "soak stack_label does not match candidate")
+    expected_identity = SOAK_EXPECTED_IDENTITY[stack]
+    for name, expected in expected_identity.items():
+        if name not in document or document[name] != expected:
+            return evidence_failure(
+                path,
+                f"soak identity field {name!r} does not match candidate",
+                expected=expected,
+                actual=document.get(name),
+            )
     try:
         elapsed = require_number(
             document.get("duration_seconds_actual"), f"{label}.duration_seconds_actual"
@@ -417,10 +644,22 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     first: list[float] = []
     last: list[float] = []
     try:
+        rep_timestamps = validated_timestamps(reps, "t_start", f"{label}.reps", elapsed)
+        error_timestamps = validated_timestamps(errors, "t", f"{label}.errors", elapsed)
+        mem_timestamps = validated_timestamps(
+            mem_samples, "t", f"{label}.mem_samples", elapsed
+        )
+        health_timestamps = validated_timestamps(
+            health_probes, "t", f"{label}.health_probes", elapsed
+        )
+        require_frozen_spacing(
+            mem_timestamps, SOAK_MEMORY_SAMPLE_INTERVAL, f"{label}.mem_samples"
+        )
+        require_frozen_spacing(
+            health_timestamps, SOAK_HEALTH_PROBE_INTERVAL, f"{label}.health_probes"
+        )
         for index, rep in enumerate(reps):
-            if not isinstance(rep, dict):
-                raise DecisionInputError(f"{label}.reps[{index}] is not an object")
-            t_start = require_number(rep.get("t_start"), f"{label}.reps[{index}].t_start")
+            t_start = rep_timestamps[index]
             decode = require_number(
                 rep.get("decode_tok_s"), f"{label}.reps[{index}].decode_tok_s"
             )
@@ -430,20 +669,13 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
                 last.append(decode)
         memory_values: list[float] = []
         for index, sample in enumerate(mem_samples):
-            if not isinstance(sample, dict):
-                raise DecisionInputError(f"{label}.mem_samples[{index}] is not an object")
-            require_number(sample.get("t"), f"{label}.mem_samples[{index}].t")
             memory_values.append(
                 require_number(sample.get("gib"), f"{label}.mem_samples[{index}].gib")
             )
         for index, error_record in enumerate(errors):
-            if not isinstance(error_record, dict):
-                raise DecisionInputError(f"{label}.errors[{index}] is not an object")
+            require_number(error_timestamps[index], f"{label}.errors[{index}].t")
         health_statuses: list[int] = []
         for index, probe in enumerate(health_probes):
-            if not isinstance(probe, dict):
-                raise DecisionInputError(f"{label}.health_probes[{index}] is not an object")
-            require_number(probe.get("t"), f"{label}.health_probes[{index}].t")
             health_statuses.append(
                 require_int(probe.get("status"), f"{label}.health_probes[{index}].status")
             )
@@ -533,8 +765,23 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     }
 
 
-def read_speed(path: Path) -> dict[str, Any]:
+def read_speed(path: Path, stack: str) -> dict[str, Any]:
     document = load_object(path)
+    metadata = field(document, "metadata", path)
+    if not isinstance(metadata, dict):
+        raise DecisionInputError(f"{relative(path)}.metadata: expected an object")
+    expected_metadata = SPEED_EXPECTED_METADATA[stack]
+    for name, expected in expected_metadata.items():
+        if name not in metadata or metadata[name] != expected:
+            raise DecisionInputError(
+                f"{relative(path)}.metadata.{name}: expected {expected!r}, "
+                f"got {metadata.get(name)!r}"
+            )
+    tokenizer_digest = sha256_file(SPEED_TOKENIZER_PATH)
+    if tokenizer_digest != speed_tokenizer_expected_digest():
+        raise DecisionInputError(
+            f"speed tokenizer identity mismatch: {relative(SPEED_TOKENIZER_PATH)}"
+        )
     reported_suite_valid = require_bool(
         field(document, "suite_valid", path), f"{relative(path)}.suite_valid"
     )
@@ -684,6 +931,9 @@ def read_speed(path: Path) -> dict[str, Any]:
         "expected_rep_count": 5,
         "samples_pass": rep_counts["4096"] == 5 and valid_rep_counts["4096"] >= 4,
         "median_ttft_s": ttft_medians,
+        "identity": expected_metadata,
+        "tokenizer_path": relative(SPEED_TOKENIZER_PATH),
+        "tokenizer_sha256": tokenizer_digest,
     }
 
 
@@ -806,7 +1056,7 @@ def collect_candidate(
         raise DecisionInputError(
             f"{relative(paths['parity'])}.parity_level: expected a string"
         )
-    speed = read_speed(paths["speed"])
+    speed = read_speed(paths["speed"], stack)
     envelope_exception = (
         read_envelope_exception(stack, speed) if not speed["suite_valid"] else None
     )
@@ -1108,6 +1358,7 @@ def atomic_write_text(path: Path, content: str) -> None:
 def main() -> int:
     args = parse_args()
     try:
+        verify_manifest()
         require_files()
         candidates = {
             stack: collect_candidate(
@@ -1115,6 +1366,30 @@ def main() -> int:
             )
             for stack in STACKS
         }
+        if args.validate_evidence_only:
+            failures: list[str] = []
+            for stack in STACKS:
+                candidate = candidates[stack]
+                print(f"PASS {stack}: speed identity and raw speed evidence")
+                if candidate["soak_evidence"]["status"] == "pass":
+                    print(f"PASS {stack}: soak identity, timestamps, spacing, and gates")
+                else:
+                    failures.append(
+                        f"{stack} soak: {candidate['soak_evidence'].get('reason')}"
+                    )
+                if candidate["accuracy_audit_evidence"]["status"] == "pass":
+                    print(f"PASS {stack}: accuracy audit bindings and recounts")
+                else:
+                    failures.append(
+                        f"{stack} audit: "
+                        f"{candidate['accuracy_audit_evidence'].get('reason')}"
+                    )
+            if failures:
+                for failure in failures:
+                    print(f"EXPECTED EVIDENCE FAILURE: {failure}", file=os.sys.stderr)
+                return 1
+            print("PASS: all decision evidence is current")
+            return 0
         decision = decide(candidates)
         machine_report = {
             "candidates": candidates,

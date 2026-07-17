@@ -18,13 +18,21 @@ UPSTREAM_HOST = os.environ.get("UPSTREAM_HOST", "127.0.0.1")
 UPSTREAM_PORT = int(os.environ["UPSTREAM_PORT"])
 API_KEY = b""
 MAX_IN_FLIGHT = 64
+MAX_CONNECTIONS = 128
 MAX_REQUEST_BYTES = 10 * 1024 * 1024
+HEADER_TIMEOUT_SECONDS = 10
 RATE_PER_SECOND = 120 / 60
 RATE_BURST = 240
+UNAUTH_RATE_PER_SECOND = 1 / 2
+UNAUTH_RATE_BURST = 30
 IN_FLIGHT = threading.BoundedSemaphore(MAX_IN_FLIGHT)
+CONNECTIONS = threading.BoundedSemaphore(MAX_CONNECTIONS)
 RATE_LOCK = threading.Lock()
 RATE_TOKENS = float(RATE_BURST)
 RATE_UPDATED = time.monotonic()
+UNAUTH_RATE_LOCK = threading.Lock()
+UNAUTH_RATE_TOKENS = float(UNAUTH_RATE_BURST)
+UNAUTH_RATE_UPDATED = time.monotonic()
 HOP_BY_HOP = {
     "connection",
     "keep-alive",
@@ -47,6 +55,23 @@ def consume_rate_token() -> bool:
         if RATE_TOKENS < 1:
             return False
         RATE_TOKENS -= 1
+        return True
+
+
+def consume_unauth_rate_token() -> bool:
+    """Limit rejected authentication attempts without charging keyed clients."""
+    global UNAUTH_RATE_TOKENS, UNAUTH_RATE_UPDATED
+    with UNAUTH_RATE_LOCK:
+        now = time.monotonic()
+        UNAUTH_RATE_TOKENS = min(
+            UNAUTH_RATE_BURST,
+            UNAUTH_RATE_TOKENS
+            + (now - UNAUTH_RATE_UPDATED) * UNAUTH_RATE_PER_SECOND,
+        )
+        UNAUTH_RATE_UPDATED = now
+        if UNAUTH_RATE_TOKENS < 1:
+            return False
+        UNAUTH_RATE_TOKENS -= 1
         return True
 
 
@@ -73,8 +98,15 @@ class ProxyHandler(BaseHTTPRequestHandler):
     server_version = "dsv4-auth"
     sys_version = ""
     protocol_version = "HTTP/1.1"
+    timeout = HEADER_TIMEOUT_SECONDS
 
     def handle_request(self) -> None:
+        if not self._authorized():
+            if not consume_unauth_rate_token():
+                self._empty_response(429)
+            else:
+                self._empty_response(401, authenticate=True)
+            return
         if not consume_rate_token():
             self._empty_response(429)
             return
@@ -82,9 +114,6 @@ class ProxyHandler(BaseHTTPRequestHandler):
             self._empty_response(503)
             return
         try:
-            if not self._authorized():
-                self._empty_response(401, authenticate=True)
-                return
             self._proxy_bounded()
         finally:
             IN_FLIGHT.release()
@@ -92,15 +121,21 @@ class ProxyHandler(BaseHTTPRequestHandler):
     def _authorized(self) -> bool:
         # get_all is required: get()/mapping access can hide duplicate headers.
         headers = self.headers.get_all("Authorization", failobj=[])
-        if len(headers) != 1 or not headers[0].startswith("Bearer "):
-            return False
-        candidate = headers[0][len("Bearer ") :]
+        candidate = ""
+        well_formed = len(headers) == 1 and headers[0].startswith("Bearer ")
+        if well_formed:
+            candidate = headers[0][len("Bearer ") :]
         try:
             encoded = candidate.encode("ascii")
         except UnicodeEncodeError:
             encoded = b""
-        return bool(candidate) and not any(char.isspace() for char in candidate) and hmac.compare_digest(
-            encoded, API_KEY
+            well_formed = False
+        matches = hmac.compare_digest(encoded, API_KEY)
+        return (
+            well_formed
+            and bool(candidate)
+            and not any(char.isspace() for char in candidate)
+            and matches
         )
 
     def _empty_response(self, status: int, authenticate: bool = False) -> None:
@@ -254,6 +289,22 @@ class ProxyServer(ThreadingHTTPServer):
     daemon_threads = True
     request_queue_size = 128
 
+    def process_request(self, request, client_address) -> None:
+        if not CONNECTIONS.acquire(blocking=False):
+            self.shutdown_request(request)
+            return
+        try:
+            super().process_request(request, client_address)
+        except BaseException:
+            CONNECTIONS.release()
+            raise
+
+    def process_request_thread(self, request, client_address) -> None:
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            CONNECTIONS.release()
+
 
 if __name__ == "__main__":
     try:
@@ -264,4 +315,6 @@ if __name__ == "__main__":
         print("auth helper: invalid configuration or API key", file=sys.stderr)
         raise SystemExit(1)
     signal.signal(signal.SIGHUP, reload_key)
-    ProxyServer(("127.0.0.1", LISTEN_PORT), ProxyHandler).serve_forever()
+    server = ProxyServer(("127.0.0.1", LISTEN_PORT), ProxyHandler)
+    server.socket.settimeout(HEADER_TIMEOUT_SECONDS)
+    server.serve_forever()

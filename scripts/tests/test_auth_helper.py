@@ -184,14 +184,19 @@ class AuthHelperTests(unittest.TestCase):
         connection.close()
         self.assertEqual(self.state.authorizations, [])
 
-    def test_token_bucket_returns_429_after_burst(self) -> None:
+    def test_unauthenticated_bucket_returns_429_after_burst(self) -> None:
         statuses = []
-        for _ in range(300):
+        for _ in range(60):
             status, _body = self.request("/ok", "wrong-key")
             statuses.append(status)
             if status == 429:
                 break
         self.assertIn(429, statuses)
+
+    def test_unauthenticated_flood_does_not_drain_keyed_bucket(self) -> None:
+        statuses = [self.request("/ok", "wrong-key")[0] for _ in range(40)]
+        self.assertIn(429, statuses)
+        self.assertEqual(self.request("/ok"), (200, b"ok"))
 
     def test_503_when_all_64_slots_are_held(self) -> None:
         results: list[int] = []

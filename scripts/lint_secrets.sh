@@ -90,6 +90,10 @@ allowlist = {
     "canonical_sha256",
     "source_summary_sha256",
     "source_transcript_sha256",
+    "tokenizer_sha256",
+    "pin_sha256",
+    "entry_sha256",
+    "tarball_sha256",
 }
 # Keys whose value is a MAP of repo-relative path -> sha256 (audit bindings).
 # Every string leaf under them is an allowed digest.

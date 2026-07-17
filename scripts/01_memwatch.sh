@@ -7,6 +7,7 @@ ready_file=""
 target_pid=""
 target_pgid=""
 target_start_ticks=""
+target_role=""
 threshold_gib="12"
 interval_sec="1"
 log_file=""
@@ -23,7 +24,7 @@ Watch MemAvailable immediately, then watch and terminate the engine process
 group after its PID and PGID are published to PATH.
 
 Options:
-  --target-file PATH     File containing "PID PGID START_TICKS" once engine starts
+  --target-file PATH     File containing "PID PGID START_TICKS ROLE" when armed
   --ready-file PATH      Created only after watchdog initialization succeeds
   --threshold-gib N      Breach threshold in GiB (default: 12)
   --interval-sec N       Sampling interval in seconds (default: 1)
@@ -67,6 +68,53 @@ verify_target_identity() {
         printf '01_memwatch.sh: FAIL_CLOSED target identity mismatch; refusing to signal pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
             "$target_pid" "$target_start_ticks" "${current_ticks:-unavailable}" >&2
         return 1
+    fi
+}
+
+refresh_target() {
+    local new_pid new_pgid new_start_ticks new_role extra previous_identity current_ticks
+    local previously_armed=$armed
+    if [[ ! -e $target_file ]]; then
+        if "$armed"; then
+            safe_log "DISARMED previous_target_pid=$target_pid previous_target_role=$target_role"
+        fi
+        armed=false
+        target_pid=
+        target_pgid=
+        target_start_ticks=
+        target_role=
+        return 1
+    fi
+    if ! read -r new_pid new_pgid new_start_ticks new_role extra <"$target_file"; then
+        [[ ! -e $target_file ]] && return 1
+        return 2
+    fi
+    # A missing role is accepted as a legacy final-engine target. New publishers
+    # always identify provisional versus final targets explicitly.
+    [[ -n ${new_role:-} ]] || new_role=engine
+    [[ -z ${extra:-} && $new_pid =~ ^[0-9]+$ && $new_pgid =~ ^[0-9]+$ &&
+            $new_start_ticks =~ ^[0-9]+$ && $new_role =~ ^(provisional|engine)$ ]] \
+        || return 2
+    (( new_pid > 1 && new_pgid > 1 && new_start_ticks > 0 )) || return 2
+    current_ticks=$(proc_start_ticks "$new_pid") || current_ticks=
+    if [[ -z $current_ticks || $current_ticks != "$new_start_ticks" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED target identity mismatch; refusing to arm pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
+            "$new_pid" "$new_start_ticks" "${current_ticks:-unavailable}" >&2
+        return 2
+    fi
+
+    previous_identity=${target_pid:-}:${target_pgid:-}:${target_start_ticks:-}:${target_role:-}
+    target_pid=$new_pid
+    target_pgid=$new_pgid
+    target_start_ticks=$new_start_ticks
+    target_role=$new_role
+    armed=true
+    if ! "$previously_armed" || [[ $previous_identity != "$target_pid:$target_pgid:$target_start_ticks:$target_role" ]]; then
+        safe_log "ARMED target_pid=$target_pid target_pgid=$target_pgid target_start_ticks=$target_start_ticks target_role=$target_role" \
+            || return 2
+        printf 'ARMED %s %s %s %s\n' \
+            "$target_pid" "$target_pgid" "$target_start_ticks" "$target_role" >"$ready_file" \
+            || return 2
     fi
 }
 
@@ -121,14 +169,44 @@ on_exit() {
 }
 
 on_term() {
+    local signal=${1:-TERM}
+    trap - ERR
+    if [[ ! -e $target_file ]]; then
+        expected_exit=true
+        armed=false
+        safe_log "STOP clean_disarmed signal=$signal" || \
+            printf '01_memwatch.sh: clean disarmed stop; log write failed\n' >&2
+        exit 0
+    fi
+    if ! refresh_target; then
+        if "$armed" && verify_target_identity; then
+            terminate_engine_group immediate || true
+        fi
+        expected_exit=true
+        safe_log "FAIL_CLOSED signal=$signal armed_target_unreadable" || true
+        printf '01_memwatch.sh: FAIL_CLOSED %s received with a published but invalid target; exiting nonzero\n' \
+            "$signal" >&2
+        exit 1
+    fi
+    if ! terminate_engine_group immediate; then
+        expected_exit=true
+        safe_log "FAIL_CLOSED signal=$signal emergency_kill_identity_failure target_pid=$target_pid" || true
+        printf '01_memwatch.sh: FAIL_CLOSED %s emergency engine-group kill failed identity verification\n' \
+            "$signal" >&2
+        exit 1
+    fi
+    safe_log "EMERGENCY_STOP signal=$signal target_pid=$target_pid target_pgid=$target_pgid target_role=$target_role" || true
+    printf '01_memwatch.sh: EMERGENCY_STOP %s received while armed; verified engine group SIGKILLed\n' \
+        "$signal" >&2
     expected_exit=true
-    safe_log 'STOP requested_by_supervisor' || fail_closed 'log_write_failure_during_stop'
-    exit 0
+    exit 3
 }
 
 trap on_error ERR
 trap on_exit EXIT
-trap on_term TERM INT HUP
+trap 'on_term TERM' TERM
+trap 'on_term INT' INT
+trap 'on_term HUP' HUP
 
 while (($# > 0)); do
     case "$1" in
@@ -180,22 +258,16 @@ is_positive_number "$interval_sec" || { printf '%s\n' '01_memwatch.sh: --interva
 safe_log "START target_file=$target_file threshold_gib=$threshold_gib"
 initial_available_kib=$(awk '$1 == "MemAvailable:" {print $2; found=1; exit} END {if (!found) exit 1}' /proc/meminfo)
 [[ $initial_available_kib =~ ^[0-9]+$ ]] || { fail_closed 'invalid_initial_MemAvailable'; exit 1; }
-: >"$ready_file"
+printf '%s\n' READY >"$ready_file"
 
 while true; do
     available_kib=$(awk '$1 == "MemAvailable:" {print $2; found=1; exit} END {if (!found) exit 1}' /proc/meminfo)
     [[ $available_kib =~ ^[0-9]+$ ]] || { fail_closed 'invalid_MemAvailable'; exit 1; }
 
-    if ! "$armed" && [[ -e $target_file ]]; then
-        read -r target_pid target_pgid target_start_ticks extra <"$target_file"
-        [[ -z ${extra:-} && $target_pid =~ ^[0-9]+$ && $target_pgid =~ ^[0-9]+$ &&
-                $target_start_ticks =~ ^[0-9]+$ ]] \
-            || { fail_closed 'invalid_target_file'; exit 1; }
-        (( target_pid > 1 && target_pgid > 1 && target_start_ticks > 0 )) \
-            || { fail_closed 'invalid_target_identity'; exit 1; }
-        verify_target_identity || { fail_closed 'target_start_ticks_mismatch_before_arm'; exit 1; }
-        armed=true
-        safe_log "ARMED target_pid=$target_pid target_pgid=$target_pgid target_start_ticks=$target_start_ticks"
+    if [[ -e $target_file ]]; then
+        refresh_target || { fail_closed 'invalid_or_unverifiable_target_file'; exit 1; }
+    elif "$armed"; then
+        refresh_target || true
     fi
 
     sample_number=$((sample_number + 1))
@@ -216,7 +288,7 @@ while true; do
                 expected_exit=true
                 exit 1
             fi
-            safe_log "BREACH mem_available_gib=$available_gib threshold_gib=$threshold_gib" || true
+            safe_log "BREACH mem_available_gib=$available_gib threshold_gib=$threshold_gib target_role=$target_role" || true
             cat /proc/meminfo >>"$log_file" 2>/dev/null || \
                 printf '%s\n' '01_memwatch.sh: failed to append /proc/meminfo after breach kill' >&2
             expected_exit=true

@@ -14,10 +14,12 @@ memwatch_pid=
 memwatch_start_ticks=0
 flock_pid=
 flock_start_ticks=0
+flock_pgid=
 server_pid=
 server_start_ticks=0
 server_pgid=
 target_tmp=
+start_gate=
 target_published=false
 state_published=false
 
@@ -65,36 +67,48 @@ proc_start_ticks() {
 }
 
 cleanup_failed_start() {
-    local rc=$1
+    local rc=$1 start_group_signaled=false
     "$startup_cleanup_armed" || return "$rc"
     startup_cleanup_armed=false
     trap - ERR EXIT
 
-    if [[ ${memwatch_pid:-} =~ ^[0-9]+$ ]] && (( memwatch_pid > 1 )) &&
-            verify_aux_identity "$memwatch_pid" "${memwatch_start_ticks:-0}" \
-                '01_memwatch.sh' memwatch; then
-        kill -TERM "$memwatch_pid" 2>/dev/null || true
-        kill -KILL "$memwatch_pid" 2>/dev/null || true
-    fi
-
+    # Preserve supervision until the engine/start group is dead. During the
+    # gated window flock_pid is the verified provisional group leader; after
+    # discovery server_pid verifies the same process group through the engine.
     if [[ ${server_pid:-} =~ ^[0-9]+$ && ${server_pgid:-} =~ ^[0-9]+$ ]] &&
             (( server_pid > 1 && server_pgid > 1 )) &&
             [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "${server_start_ticks:-0}" ]]; then
         kill -TERM -- "-$server_pgid" 2>/dev/null || true
         kill -KILL -- "-$server_pgid" 2>/dev/null || true
-    fi
-    if [[ ${flock_pid:-} =~ ^[0-9]+$ ]] && (( flock_pid > 1 )) &&
+        start_group_signaled=true
+    elif [[ ${flock_pid:-} =~ ^[0-9]+$ && ${flock_pgid:-} =~ ^[0-9]+$ ]] &&
+            (( flock_pid > 1 && flock_pgid > 1 )) &&
             verify_aux_identity "$flock_pid" "${flock_start_ticks:-0}" \
                 "$LOCK_FILE" flock; then
-        kill -TERM -- "-$flock_pid" 2>/dev/null || true
-        kill -KILL -- "-$flock_pid" 2>/dev/null || true
+        kill -TERM -- "-$flock_pgid" 2>/dev/null || true
+        kill -KILL -- "-$flock_pgid" 2>/dev/null || true
+        start_group_signaled=true
+    fi
+    if "$start_group_signaled"; then
         wait "$flock_pid" 2>/dev/null || true
     fi
 
+    # Explicit disarm handshake: engine first, retract target, then TERM the
+    # watchdog. TERM while the target still exists is an emergency SIGKILL path.
     "$target_published" && rm -f -- "$TARGET_FILE"
+    target_published=false
+    if [[ ${memwatch_pid:-} =~ ^[0-9]+$ ]] && (( memwatch_pid > 1 )) &&
+            verify_aux_identity "$memwatch_pid" "${memwatch_start_ticks:-0}" \
+                '01_memwatch.sh' memwatch; then
+        kill -TERM "$memwatch_pid" 2>/dev/null || true
+        wait "$memwatch_pid" 2>/dev/null || true
+        kill -KILL "$memwatch_pid" 2>/dev/null || true
+    fi
+
     "$state_published" && rm -f -- "$STATE_FILE"
-    "$target_published" && rm -f -- "$WATCHDOG_READY"
+    rm -f -- "$WATCHDOG_READY"
     [[ -z ${target_tmp:-} ]] || rm -f -- "$target_tmp"
+    [[ -z ${start_gate:-} ]] || rm -f -- "$start_gate"
     return "$rc"
 }
 
@@ -270,7 +284,27 @@ terminate_from_state() {
             kill -KILL "$server_pid" 2>/dev/null || true
         fi
     fi
-    "$memwatch_verified" && kill -TERM "$memwatch_pid" 2>/dev/null || true
+    for ((seconds=0; seconds < 5; seconds++)); do
+        pid_alive "$server_pid" || break
+        sleep 1
+    done
+    if pid_alive "$server_pid"; then
+        printf 'ERROR: server remains alive after SIGKILL; watchdog stays armed.\n' >&2
+        return 1
+    fi
+    rm -f -- "$TARGET_FILE"
+    if "$memwatch_verified"; then
+        kill -TERM "$memwatch_pid" 2>/dev/null || true
+        for ((seconds=0; seconds < 50; seconds++)); do
+            pid_alive "$memwatch_pid" || break
+            sleep 0.1
+        done
+        if pid_alive "$memwatch_pid" &&
+                verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" \
+                    '01_memwatch.sh' memwatch; then
+            kill -KILL "$memwatch_pid" 2>/dev/null || true
+        fi
+    fi
 
     target=$(awk -v base="$baseline_gib" 'BEGIN {value=base-5; if (value<0) value=0; printf "%.6f", value}')
     recovery_ok=false
@@ -287,7 +321,7 @@ terminate_from_state() {
         fi
         (( seconds == 120 )) || sleep 1
     done
-    rm -f -- "$STATE_FILE" "$TARGET_FILE" "$WATCHDOG_READY"
+    rm -f -- "$STATE_FILE" "$WATCHDOG_READY"
     "$recovery_ok" || { printf 'ERROR: memory did not recover within 120 seconds.\n' >&2; return 1; }
 }
 
@@ -349,6 +383,35 @@ build_server_command() {
         command_text+="$(shell_quote "$item") "
     done
     printf '%s' "$command_text"
+}
+
+publish_target() {
+    local pid=$1 pgid=$2 start_ticks=$3 role=$4
+    [[ $pid =~ ^[0-9]+$ && $pgid =~ ^[0-9]+$ && $start_ticks =~ ^[0-9]+$ ]] \
+        || die 'cannot publish non-numeric watchdog target identity'
+    [[ $role == provisional || $role == engine ]] || die "invalid watchdog target role: $role"
+    target_tmp=$TARGET_FILE.tmp.$$
+    printf '%s %s %s %s\n' "$pid" "$pgid" "$start_ticks" "$role" >"$target_tmp"
+    mv -- "$target_tmp" "$TARGET_FILE"
+    target_tmp=
+    target_published=true
+}
+
+wait_for_watchdog_target() {
+    local expected_pid=$1 expected_pgid=$2 expected_ticks=$3 expected_role=$4
+    local marker ack_pid ack_pgid ack_ticks ack_role extra attempt
+    for ((attempt=0; attempt < 250; attempt++)); do
+        if read -r marker ack_pid ack_pgid ack_ticks ack_role extra \
+                <"$WATCHDOG_READY" 2>/dev/null &&
+                [[ $marker == ARMED && $ack_pid == "$expected_pid" &&
+                    $ack_pgid == "$expected_pgid" && $ack_ticks == "$expected_ticks" &&
+                    $ack_role == "$expected_role" && -z ${extra:-} ]]; then
+            return 0
+        fi
+        pid_alive "$memwatch_pid" || die 'memory watchdog exited before acknowledging its target'
+        sleep 0.02
+    done
+    die "memory watchdog did not acknowledge $expected_role target before launch"
 }
 
 discover_server_pid() {
@@ -537,10 +600,28 @@ do_start() {
     done
     [[ -e $WATCHDOG_READY ]] || { kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'memory watchdog initialization timed out'; }
 
-    setsid flock -n -E 75 "$LOCK_FILE" -c "$command_text" >>"$SERVER_LOG" 2>&1 &
+    # The dedicated start group is gated so the watchdog target is published
+    # before the engine can exec. The launcher becomes flock without changing
+    # PID/start-ticks, and the engine remains in this process group.
+    start_gate=$RUNTIME_DIR/$STACK.start.gate.$$
+    rm -f -- "$start_gate"
+    setsid bash -Eeuo pipefail -c '
+        gate=$1
+        lock_file=$2
+        command_text=$3
+        while [[ ! -e $gate ]]; do sleep 0.02; done
+        exec flock -n -E 75 "$lock_file" -c "$command_text"
+    ' dsv4-start-group "$start_gate" "$LOCK_FILE" "$command_text" >>"$SERVER_LOG" 2>&1 &
     flock_pid=$!
     flock_start_ticks=$(proc_start_ticks "$flock_pid") \
         || die "cannot read start time for flock pid $flock_pid"
+    flock_pgid=$(ps -o pgid= -p "$flock_pid" | tr -d '[:space:]') \
+        || die "cannot determine provisional process group for pid $flock_pid"
+    [[ $flock_pgid =~ ^[0-9]+$ ]] && (( flock_pgid > 1 )) \
+        || die "invalid provisional process group: $flock_pgid"
+    publish_target "$flock_pid" "$flock_pgid" "$flock_start_ticks" provisional
+    wait_for_watchdog_target "$flock_pid" "$flock_pgid" "$flock_start_ticks" provisional
+    : >"$start_gate"
     discover_server_pid
     server_start_ticks=$(proc_start_ticks "$server_pid") \
         || die "cannot read start time for server pid $server_pid"
@@ -548,11 +629,11 @@ do_start() {
         || die "cannot determine server process group for pid $server_pid"
     [[ $server_pgid =~ ^[0-9]+$ ]] && (( server_pgid > 1 )) \
         || die "invalid server process group: $server_pgid"
-    target_tmp=$TARGET_FILE.tmp.$$
-    printf '%s %s %s\n' "$server_pid" "$server_pgid" "$server_start_ticks" >"$target_tmp"
-    mv -- "$target_tmp" "$TARGET_FILE"
-    target_tmp=
-    target_published=true
+    [[ $server_pgid == "$flock_pgid" ]] \
+        || die "engine escaped provisional process group: expected $flock_pgid, got $server_pgid"
+    publish_target "$server_pid" "$server_pgid" "$server_start_ticks" engine
+    rm -f -- "$start_gate"
+    start_gate=
     started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     state_published=true
     write_state || die 'failed to write state file'

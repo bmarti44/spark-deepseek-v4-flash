@@ -1,0 +1,12 @@
+# Repo-local gitleaks config. Public integrity digests (sha256 of vendored
+# public files) are not secrets; keep the allowlist as narrow as the exact
+# JSON field that carries them.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "public integrity digests recorded by the decision/speed harness"
+regexTarget = "line"
+regexes = [
+  '''"tokenizer_sha256": "[0-9a-f]{64}"''',
+]
