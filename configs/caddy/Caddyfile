@@ -6,10 +6,13 @@
 	auto_https off
 }
 
-http://127.0.0.1:8010 {
-	# The site address sets the host matcher; `bind` restricts the actual
-	# listener to loopback. Without it Caddy binds 0.0.0.0/::, exposing the
-	# auth endpoint on every interface instead of only via Tailscale Serve.
+:8010 {
+	# `bind 127.0.0.1` restricts the listener to loopback (only localhost and
+	# the same-host Tailscale Serve proxy can connect). The site address is a
+	# bare port with NO host, so it matches every Host header — Tailscale Serve
+	# forwards the original tailnet Host (spark-aba1.<tailnet>.ts.net), and a
+	# host-specific matcher would drop those to Caddy's empty default handler
+	# instead of the auth proxy. Loopback bind is the real access control here.
 	bind 127.0.0.1
 
 	request_body {

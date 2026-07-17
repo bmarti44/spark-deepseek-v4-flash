@@ -58,6 +58,16 @@ unauth_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-
     || die "unauthenticated local probe expected 401, got ${unauth_code:-curl-error}"
 safe_log 'PASS local unauthenticated request returned 401'
 
+# Tailscale Serve forwards the original tailnet Host, not 127.0.0.1:8010. A
+# host-specific Caddy site matcher would drop those requests to Caddy's empty
+# default handler (HTTP 200, no auth) instead of the auth proxy. Probe with a
+# non-loopback Host: it must still be challenged with 401.
+proxied_code=$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 10 \
+    -H 'Host: tailnet-host.example.ts.net' "$LOCAL_URL" || true)
+[[ $proxied_code == 401 ]] \
+    || die "forwarded-Host unauthenticated probe expected 401, got ${proxied_code:-curl-error} (Caddy site matcher likely too specific; the tailnet path would bypass the auth proxy)"
+safe_log 'PASS forwarded-Host unauthenticated request returned 401'
+
 if (( EUID == 0 )); then
     command -v runuser >/dev/null 2>&1 || die 'required command not found: runuser'
     id -u "$SERVICE_USER" >/dev/null 2>&1 \
@@ -108,13 +118,27 @@ for target in targets:
 PY
 safe_log 'PASS every Tailscale Serve route targets http://127.0.0.1:8010 only'
 
+# Funnel state must come from the authoritative serve config, not funnel-status
+# text: with Serve enabled, `tailscale funnel status` prints the tailnet-only
+# serve routes (no "no config" line), which naive text matching misreads as
+# Funnel being on. AllowFunnel is empty/absent exactly when Funnel is off.
 set +e
-funnel_status=$(tailscale funnel status 2>&1)
-funnel_rc=$?
+serve_json=$(tailscale serve status --json 2>&1)
+serve_rc=$?
 set -e
-printf '%s\n' "$funnel_status"
-(( funnel_rc == 0 )) \
-    || die "tailscale funnel status exited $funnel_rc; cannot prove Funnel is off"
-grep -Eiq 'no (serve|funnel) config' <<<"$funnel_status" \
-    || die 'Tailscale Funnel is configured; disable it before exposing this service'
+(( serve_rc == 0 )) \
+    || die "tailscale serve status --json exited $serve_rc; cannot prove Funnel is off"
+python3 - "$serve_json" <<'PY' \
+    || die 'Tailscale Funnel is enabled; disable it (tailscale funnel reset) before exposing this service'
+import json
+import sys
+
+try:
+    document = json.loads(sys.argv[1])
+except (ValueError, IndexError):
+    raise SystemExit(1)
+allow = document.get("AllowFunnel") or {}
+# AllowFunnel maps "host:port" -> true only when Funnel is enabled for it.
+raise SystemExit(1 if any(allow.values()) else 0)
+PY
 safe_log 'PASS Tailscale Funnel is off; exposure-chain verification complete'
