@@ -7,19 +7,11 @@
 }
 
 http://127.0.0.1:8010 {
-	# No matcher means authentication covers every path, including metadata.
-	# The helper authorizes on any path; `uri /` satisfies forward_auth's
-	# required subdirective. Installer runs `caddy validate` before enabling.
-	forward_auth 127.0.0.1:8014 {
-		uri /
-	}
-
 	request_body {
 		max_size 10MB
 	}
 
-	reverse_proxy 127.0.0.1:{$DSV4_UPSTREAM_PORT} {
-		# The unauthenticated engine must never receive client credentials.
-		header_up -Authorization
-	}
+	# The helper authenticates and holds its concurrency slot through the full
+	# streamed response. It strips Authorization before forwarding to the engine.
+	reverse_proxy 127.0.0.1:8014
 }

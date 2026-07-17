@@ -9,6 +9,17 @@ LOCK_FILE=$RUNTIME_DIR/inference.lock
 STATE_FILE=$RUNTIME_DIR/ds4.state.json
 TARGET_FILE=$RUNTIME_DIR/ds4.engine.target
 WATCHDOG_READY=$RUNTIME_DIR/ds4.memwatch.ready
+startup_cleanup_armed=false
+memwatch_pid=
+memwatch_start_ticks=0
+flock_pid=
+flock_start_ticks=0
+server_pid=
+server_start_ticks=0
+server_pgid=
+target_tmp=
+target_published=false
+state_published=false
 
 usage() {
     cat <<'EOF'
@@ -51,6 +62,51 @@ proc_start_ticks() {
     (( ${#stat_fields[@]} > 19 )) || return 1
     [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
     printf '%s\n' "${stat_fields[19]}"
+}
+
+cleanup_failed_start() {
+    local rc=$1
+    "$startup_cleanup_armed" || return "$rc"
+    startup_cleanup_armed=false
+    trap - ERR EXIT
+
+    if [[ ${memwatch_pid:-} =~ ^[0-9]+$ ]] && (( memwatch_pid > 1 )) &&
+            verify_aux_identity "$memwatch_pid" "${memwatch_start_ticks:-0}" \
+                '01_memwatch.sh' memwatch; then
+        kill -TERM "$memwatch_pid" 2>/dev/null || true
+        kill -KILL "$memwatch_pid" 2>/dev/null || true
+    fi
+
+    if [[ ${server_pid:-} =~ ^[0-9]+$ && ${server_pgid:-} =~ ^[0-9]+$ ]] &&
+            (( server_pid > 1 && server_pgid > 1 )) &&
+            [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "${server_start_ticks:-0}" ]]; then
+        kill -TERM -- "-$server_pgid" 2>/dev/null || true
+        kill -KILL -- "-$server_pgid" 2>/dev/null || true
+    fi
+    if [[ ${flock_pid:-} =~ ^[0-9]+$ ]] && (( flock_pid > 1 )) &&
+            verify_aux_identity "$flock_pid" "${flock_start_ticks:-0}" \
+                "$LOCK_FILE" flock; then
+        kill -TERM -- "-$flock_pid" 2>/dev/null || true
+        kill -KILL -- "-$flock_pid" 2>/dev/null || true
+        wait "$flock_pid" 2>/dev/null || true
+    fi
+
+    "$target_published" && rm -f -- "$TARGET_FILE"
+    "$state_published" && rm -f -- "$STATE_FILE"
+    "$target_published" && rm -f -- "$WATCHDOG_READY"
+    [[ -z ${target_tmp:-} ]] || rm -f -- "$target_tmp"
+    return "$rc"
+}
+
+on_start_error() {
+    local rc=$?
+    cleanup_failed_start "$rc"
+    exit "$rc"
+}
+
+on_start_exit() {
+    local rc=$?
+    cleanup_failed_start "$rc"
 }
 
 mem_available_gib() {
@@ -151,14 +207,14 @@ verify_aux_identity() {
 
 write_state() {
     local temporary=$STATE_FILE.tmp.$$
-    server_start_ticks=$(proc_start_ticks "$server_pid") \
-        || die "cannot read start time for server pid $server_pid"
+    [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "$server_start_ticks" ]] \
+        || die "server pid $server_pid changed identity before state publication"
     state_boot_id=$(< /proc/sys/kernel/random/boot_id) \
         || die 'cannot read kernel boot ID'
-    flock_start_ticks=$(proc_start_ticks "$flock_pid") \
-        || die "cannot read start time for flock pid $flock_pid"
-    memwatch_start_ticks=$(proc_start_ticks "$memwatch_pid") \
-        || die "cannot read start time for memwatch pid $memwatch_pid"
+    [[ $(proc_start_ticks "$flock_pid" 2>/dev/null || true) == "$flock_start_ticks" ]] \
+        || die "flock pid $flock_pid changed identity before state publication"
+    [[ $(proc_start_ticks "$memwatch_pid" 2>/dev/null || true) == "$memwatch_start_ticks" ]] \
+        || die "memwatch pid $memwatch_pid changed identity before state publication"
     python3 - "$temporary" "$STATE_FILE" "$server_pid" "$flock_pid" \
         "$memwatch_pid" "$PORT" "$started_at" "$baseline_gib" \
         "$server_start_ticks" "$state_boot_id" "$flock_start_ticks" \
@@ -466,9 +522,14 @@ do_start() {
     printf '\n===== ds4 session start %s profile=%s ctx=%s =====\n' \
         "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$profile" "$CTX" >>"$SERVER_LOG"
     rm -f -- "$TARGET_FILE" "$WATCHDOG_READY"
+    startup_cleanup_armed=true
+    trap on_start_error ERR
+    trap on_start_exit EXIT
     setsid bash "$MEMWATCH" --target-file "$TARGET_FILE" --ready-file "$WATCHDOG_READY" --threshold-gib 12 \
         --interval-sec 1 --log "$MEMWATCH_LOG" >/dev/null 2>&1 &
     memwatch_pid=$!
+    memwatch_start_ticks=$(proc_start_ticks "$memwatch_pid") \
+        || die "cannot read start time for memwatch pid $memwatch_pid"
     for ((watchdog_wait=0; watchdog_wait < 100; watchdog_wait++)); do
         [[ -e $WATCHDOG_READY ]] && break
         pid_alive "$memwatch_pid" || die 'memory watchdog failed during initialization'
@@ -478,32 +539,39 @@ do_start() {
 
     setsid flock -n -E 75 "$LOCK_FILE" -c "$command_text" >>"$SERVER_LOG" 2>&1 &
     flock_pid=$!
+    flock_start_ticks=$(proc_start_ticks "$flock_pid") \
+        || die "cannot read start time for flock pid $flock_pid"
     discover_server_pid
+    server_start_ticks=$(proc_start_ticks "$server_pid") \
+        || die "cannot read start time for server pid $server_pid"
     server_pgid=$(ps -o pgid= -p "$server_pid" | tr -d '[:space:]') \
         || die "cannot determine server process group for pid $server_pid"
     [[ $server_pgid =~ ^[0-9]+$ ]] && (( server_pgid > 1 )) \
         || die "invalid server process group: $server_pgid"
     target_tmp=$TARGET_FILE.tmp.$$
-    printf '%s %s\n' "$server_pid" "$server_pgid" >"$target_tmp"
+    printf '%s %s %s\n' "$server_pid" "$server_pgid" "$server_start_ticks" >"$target_tmp"
     mv -- "$target_tmp" "$TARGET_FILE"
+    target_tmp=
+    target_published=true
     started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-    write_state || { kill -TERM -- "-$flock_pid" 2>/dev/null || true; kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'failed to write state file'; }
+    state_published=true
+    write_state || die 'failed to write state file'
 
     local deadline stats
     deadline=$((SECONDS + 600))
     while (( SECONDS < deadline )); do
         if ! pid_alive "$server_pid"; then
-            terminate_from_state || true
             die "ds4 server exited during startup; see $SERVER_LOG"
         fi
         if curl --silent --show-error --fail --max-time 3 "http://127.0.0.1:$PORT/v1/models" >/dev/null 2>&1; then
             stats=$(curl --silent --show-error --fail --max-time 3 "http://127.0.0.1:$PORT/v1/stats" 2>/dev/null || true)
             if grep -Eq 'artifact_source[^a-zA-Z]*none' <<<"$stats"; then
-                terminate_from_state || true
                 die 'ds4 readiness failed: artifact source is none (raw-tier fallback)'
             fi
             if grep -Eq 'artifact_source[^a-zA-Z]*(built|imported)' <<<"$stats"; then
                 printf '{"ok":true,"stack":"ds4","pid":%d,"port":%d}\n' "$server_pid" "$PORT"
+                startup_cleanup_armed=false
+                trap - ERR EXIT
                 return 0
             fi
         fi
@@ -511,7 +579,6 @@ do_start() {
             sleep 2
         fi
     done
-    terminate_from_state || true
     die 'ds4 readiness timed out after 600 seconds'
 }
 

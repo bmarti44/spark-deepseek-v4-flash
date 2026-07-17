@@ -6,6 +6,7 @@ target_file=""
 ready_file=""
 target_pid=""
 target_pgid=""
+target_start_ticks=""
 threshold_gib="12"
 interval_sec="1"
 log_file=""
@@ -22,7 +23,7 @@ Watch MemAvailable immediately, then watch and terminate the engine process
 group after its PID and PGID are published to PATH.
 
 Options:
-  --target-file PATH     File containing "PID PGID" once engine starts
+  --target-file PATH     File containing "PID PGID START_TICKS" once engine starts
   --ready-file PATH      Created only after watchdog initialization succeeds
   --threshold-gib N      Breach threshold in GiB (default: 12)
   --interval-sec N       Sampling interval in seconds (default: 1)
@@ -47,6 +48,28 @@ safe_log() {
     fi
 }
 
+proc_start_ticks() {
+    local stat_line
+    local -a stat_fields
+    [[ $1 =~ ^[0-9]+$ ]] && [[ -r /proc/$1/stat ]] || return 1
+    IFS= read -r stat_line <"/proc/$1/stat" || return 1
+    stat_line=${stat_line##*) }
+    read -r -a stat_fields <<<"$stat_line"
+    (( ${#stat_fields[@]} > 19 )) || return 1
+    [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
+    printf '%s\n' "${stat_fields[19]}"
+}
+
+verify_target_identity() {
+    local current_ticks
+    current_ticks=$(proc_start_ticks "$target_pid") || current_ticks=
+    if [[ -z $current_ticks || $current_ticks != "$target_start_ticks" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED target identity mismatch; refusing to signal pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
+            "$target_pid" "$target_start_ticks" "${current_ticks:-unavailable}" >&2
+        return 1
+    fi
+}
+
 # mode "immediate": SIGKILL now — used on memory breach, where every second of
 # grace risks a hard UMA freeze. mode "graceful": TERM, 10s, then KILL — used on
 # watchdog-internal failures where memory itself is not known to be critical.
@@ -54,6 +77,7 @@ terminate_engine_group() {
     local mode=${1:-immediate}
     local seconds
     "$armed" || return 0
+    verify_target_identity || return 1
     if [[ $mode == graceful ]]; then
         if [[ $target_pgid =~ ^[0-9]+$ ]] && (( target_pgid > 1 )); then
             kill -TERM -- "-$target_pgid" 2>/dev/null || true
@@ -64,7 +88,9 @@ terminate_engine_group() {
             [[ -d /proc/$target_pid ]] || break
             sleep 1
         done
+        [[ -d /proc/$target_pid ]] || return 0
     fi
+    verify_target_identity || return 1
     if [[ $target_pgid =~ ^[0-9]+$ ]] && (( target_pgid > 1 )); then
         kill -KILL -- "-$target_pgid" 2>/dev/null || true
     fi
@@ -75,8 +101,8 @@ fail_closed() {
     local reason=${1:-unexpected watchdog exit}
     "$handling_failure" && return 0
     handling_failure=true
-    safe_log "FAIL_CLOSED reason=$reason target_pid=${target_pid:-unarmed} target_pgid=${target_pgid:-unarmed}" || true
-    terminate_engine_group graceful
+    safe_log "FAIL_CLOSED reason=$reason target_pid=${target_pid:-unarmed} target_pgid=${target_pgid:-unarmed} target_start_ticks=${target_start_ticks:-unarmed}" || true
+    terminate_engine_group graceful || true
 }
 
 on_error() {
@@ -161,13 +187,15 @@ while true; do
     [[ $available_kib =~ ^[0-9]+$ ]] || { fail_closed 'invalid_MemAvailable'; exit 1; }
 
     if ! "$armed" && [[ -e $target_file ]]; then
-        read -r target_pid target_pgid extra <"$target_file"
-        [[ -z ${extra:-} && $target_pid =~ ^[0-9]+$ && $target_pgid =~ ^[0-9]+$ ]] \
+        read -r target_pid target_pgid target_start_ticks extra <"$target_file"
+        [[ -z ${extra:-} && $target_pid =~ ^[0-9]+$ && $target_pgid =~ ^[0-9]+$ &&
+                $target_start_ticks =~ ^[0-9]+$ ]] \
             || { fail_closed 'invalid_target_file'; exit 1; }
-        (( target_pid > 1 && target_pgid > 1 )) \
+        (( target_pid > 1 && target_pgid > 1 && target_start_ticks > 0 )) \
             || { fail_closed 'invalid_target_identity'; exit 1; }
+        verify_target_identity || { fail_closed 'target_start_ticks_mismatch_before_arm'; exit 1; }
         armed=true
-        safe_log "ARMED target_pid=$target_pid target_pgid=$target_pgid"
+        safe_log "ARMED target_pid=$target_pid target_pgid=$target_pgid target_start_ticks=$target_start_ticks"
     fi
 
     sample_number=$((sample_number + 1))
@@ -179,13 +207,22 @@ while true; do
     if awk -v kib="$available_kib" -v threshold="$threshold_gib" \
             'BEGIN {exit !(kib / 1048576 < threshold)}'; then
         available_gib=$(awk -v kib="$available_kib" 'BEGIN {printf "%.2f", kib / 1048576}')
-        safe_log "BREACH mem_available_gib=$available_gib threshold_gib=$threshold_gib"
         if "$armed"; then
-            cat /proc/meminfo >>"$log_file"
-            terminate_engine_group
+            # Memory breach handling is deliberately independent of all logging.
+            # Disable ERR first, SIGKILL the verified engine identity, then make
+            # best-effort evidence writes without falling into the graceful path.
+            trap - ERR
+            if ! terminate_engine_group immediate; then
+                expected_exit=true
+                exit 1
+            fi
+            safe_log "BREACH mem_available_gib=$available_gib threshold_gib=$threshold_gib" || true
+            cat /proc/meminfo >>"$log_file" 2>/dev/null || \
+                printf '%s\n' '01_memwatch.sh: failed to append /proc/meminfo after breach kill' >&2
             expected_exit=true
             exit 2
         fi
+        safe_log "BREACH mem_available_gib=$available_gib threshold_gib=$threshold_gib"
         safe_log 'BREACH while_unarmed; continuing_to_watch'
     fi
 

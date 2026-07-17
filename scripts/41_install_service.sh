@@ -32,17 +32,18 @@ done
 (( EUID == 0 )) || die 'must run as root'
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
-REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." && pwd -P)
+DSV4_REPO=${DSV4_REPO:-$(cd -- "$SCRIPT_DIR/.." && pwd -P)}
+[[ $DSV4_REPO =~ ^/[A-Za-z0-9._/+:-]+$ && -d $DSV4_REPO ]] \
+    || die "DSV4_REPO must be an existing absolute path using safe path characters: $DSV4_REPO"
+REPO_ROOT=$(cd -- "$DSV4_REPO" && pwd -P)
 SYSTEMD_DIR=$REPO_ROOT/configs/systemd
 KEY_DIR=/etc/deepseek-v4-flash
 KEY_FILE=$KEY_DIR/api-key
 KEY_PREV=$KEY_DIR/api-key.prev
 AUTH_HEADER=$KEY_DIR/auth-header
 ENV_FILE=$KEY_DIR/env
-CADDY_DROPIN_DIR=/etc/systemd/system/dsv4-caddy.service.d
-CADDY_DROPIN=$CADDY_DROPIN_DIR/upstream.conf
 
-for command_name in install openssl chown chmod mv systemctl getent id curl ss tailscale python3; do
+for command_name in install openssl chown chmod mv systemctl getent id curl ss tailscale python3 sed grep mktemp; do
     command -v "$command_name" >/dev/null 2>&1 || die "required command not found: $command_name"
 done
 getent group dsv4 >/dev/null || die 'required group does not exist: dsv4'
@@ -86,9 +87,6 @@ chmod 0640 "$header_temporary"
 mv -f -- "$header_temporary" "$AUTH_HEADER"
 trap - EXIT
 
-install -o root -g dsv4auth -m 0640 /dev/null "$ENV_FILE"
-printf 'API_KEY_FILE=%s\nSTACK=%s\n' "$KEY_FILE" "$stack" >"$ENV_FILE"
-
 if [[ $stack == ds4 ]]; then
     engine_unit=deepseek-v4-flash-ds4.service
     other=llamacpp
@@ -99,7 +97,14 @@ else
     upstream_port=8011
 fi
 
+install -o root -g dsv4auth -m 0640 /dev/null "$ENV_FILE"
+printf 'API_KEY_FILE=%s\nSTACK=%s\nUPSTREAM_HOST=127.0.0.1\nUPSTREAM_PORT=%s\nLISTEN_PORT=8014\n' \
+    "$KEY_FILE" "$stack" "$upstream_port" >"$ENV_FILE"
+
 [[ -x /usr/bin/caddy ]] || die '/usr/bin/caddy is missing; the orchestrator must install the apt package first'
+caddy_version=$(/usr/bin/caddy version) || die 'cannot determine installed Caddy version'
+[[ ${caddy_version#v} == 2.6.2* ]] \
+    || die "unsupported Caddy version $caddy_version; install pinned 2.6.2 package"
 for source in \
     "$SYSTEMD_DIR/$engine_unit" \
     "$SYSTEMD_DIR/dsv4-authhelper.service" \
@@ -111,19 +116,25 @@ for source in \
     [[ -f $source ]] || die "missing production artifact: $source"
 done
 
-install -o root -g root -m 0644 "$SYSTEMD_DIR/$engine_unit" /etc/systemd/system/
-install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-authhelper.service" /etc/systemd/system/
-install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-caddy.service" /etc/systemd/system/
-install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-guard.service" /etc/systemd/system/
+install_unit() {
+    local source=$1 destination=/etc/systemd/system/${1##*/} temporary
+    temporary=$(mktemp)
+    sed "s|@DSV4_REPO@|$REPO_ROOT|g" "$source" >"$temporary"
+    grep -F '@DSV4_REPO@' "$temporary" >/dev/null \
+        && { rm -f -- "$temporary"; die "unexpanded DSV4_REPO placeholder in $source"; }
+    install -o root -g root -m 0644 "$temporary" "$destination"
+    rm -f -- "$temporary"
+}
+
+install_unit "$SYSTEMD_DIR/$engine_unit"
+install_unit "$SYSTEMD_DIR/dsv4-authhelper.service"
+install_unit "$SYSTEMD_DIR/dsv4-caddy.service"
+install_unit "$SYSTEMD_DIR/dsv4-guard.service"
 install -o root -g root -m 0644 "$SYSTEMD_DIR/dsv4-guard.timer" /etc/systemd/system/
 install -D -o root -g root -m 0644 "$REPO_ROOT/configs/caddy/Caddyfile" /etc/caddy/Caddyfile
 install -D -o root -g root -m 0755 "$REPO_ROOT/scripts/40_auth_helper.py" \
     /usr/local/lib/deepseek-v4-flash/40_auth_helper.py
-install -d -o root -g root -m 0755 "$CADDY_DROPIN_DIR"
-install -o root -g root -m 0644 /dev/null "$CADDY_DROPIN"
-printf '[Service]\nEnvironment=DSV4_UPSTREAM_PORT=%s\n' "$upstream_port" >"$CADDY_DROPIN"
-
-DSV4_UPSTREAM_PORT=$upstream_port /usr/bin/caddy validate --config /etc/caddy/Caddyfile \
+/usr/bin/caddy validate --config /etc/caddy/Caddyfile \
     || die 'Caddyfile failed validation'
 
 systemctl daemon-reload
@@ -193,12 +204,39 @@ tailscale_status=$(tailscale serve status 2>&1)
 tailscale_rc=$?
 set -e
 printf '%s\n' "$tailscale_status"
-if grep -Eq '(^|[^0-9])(8011|8012)([^0-9]|$)' <<<"$tailscale_status"; then
-    die 'DANGER: tailscale serve routes directly to engine port 8011/8012 and bypasses authentication; remove that route'
-fi
-(( tailscale_rc == 0 )) || printf 'WARNING: tailscale serve status exited %d; no direct engine port was reported.\n' "$tailscale_rc" >&2
+(( tailscale_rc == 0 )) \
+    || die "INSTALL FAILED: tailscale serve status exited $tailscale_rc; installation remains unverified and services must not be exposed"
+python3 - "$tailscale_status" <<'PY' \
+    || die 'INSTALL FAILED: Tailscale Serve routes must proxy to loopback port 8010 only; remove unsafe routes'
+import re
+import sys
+from urllib.parse import urlsplit
 
-printf 'Post-install verification passed: auth, models endpoint, loopback binds, and Tailscale route safety.\n'
+status = sys.argv[1]
+if re.search(r"(^|[^0-9])(8011|8012)([^0-9]|$)", status):
+    raise SystemExit(1)
+if re.search(r"no (serve )?config", status, re.IGNORECASE):
+    raise SystemExit(0)
+targets = re.findall(r"\bproxy\s+(\S+)", status, re.IGNORECASE)
+if not targets:
+    raise SystemExit(1)
+for target in targets:
+    parsed = urlsplit(target)
+    if parsed.hostname not in {"127.0.0.1", "localhost"} or parsed.port != 8010:
+        raise SystemExit(1)
+PY
+
+set +e
+funnel_status=$(tailscale funnel status 2>&1)
+funnel_rc=$?
+set -e
+printf '%s\n' "$funnel_status"
+(( funnel_rc == 0 )) \
+    || die "INSTALL FAILED: tailscale funnel status exited $funnel_rc; cannot prove Funnel is disabled"
+grep -Eiq 'no (serve|funnel) config' <<<"$funnel_status" \
+    || die 'INSTALL FAILED: Tailscale Funnel is configured; disable Funnel before exposing this service'
+
+printf 'Post-install verification passed: Caddy-to-helper-to-engine auth chain, loopback-only engine bind, and Tailscale Serve/Funnel safety.\n'
 
 cat <<EOF
 Installed $stack production services behind the authenticated proxy.

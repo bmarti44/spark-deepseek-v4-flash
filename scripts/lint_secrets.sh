@@ -36,6 +36,17 @@ gitleaks_binary() {
   fi
 }
 
+require_gitleaks() {
+  local binary
+  binary="$(gitleaks_binary || true)"
+  if [[ -z "$binary" ]]; then
+    printf '%s\n' \
+      'gitleaks is required; install it from https://github.com/gitleaks/gitleaks#installing or place the pinned binary at bin/gitleaks' >&2
+    return 1
+  fi
+  printf '%s\n' "$binary"
+}
+
 redact_matches() {
   sed -E \
     -e 's/([0-9a-f]{6})[0-9a-f]{58}/\1[REDACTED]/g' \
@@ -173,10 +184,8 @@ scan_digest_file() {
 
 scan_staged() {
   local gitleaks
-  gitleaks="$(gitleaks_binary || true)"
-  if [[ -n "$gitleaks" ]]; then
-    "$gitleaks" protect --staged
-  fi
+  gitleaks="$(require_gitleaks)" || return 1
+  "$gitleaks" protect --staged
 
   # Diff base must exist even on an unborn branch (first commit), else zero
   # files are scanned and staged secrets pass silently.
@@ -251,10 +260,8 @@ scan_pushed_ref() {
 
 scan_push() {
   local gitleaks
-  gitleaks="$(gitleaks_binary || true)"
-  if [[ -n "$gitleaks" ]]; then
-    "$gitleaks" detect
-  fi
+  gitleaks="$(require_gitleaks)" || return 1
+  "$gitleaks" detect
 
   local local_ref local_sha remote_ref remote_sha
   local failed=0

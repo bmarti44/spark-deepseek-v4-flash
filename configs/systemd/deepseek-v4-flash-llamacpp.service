@@ -11,15 +11,15 @@ RemainAfterExit=yes
 User=dsv4
 Group=dsv4
 Environment=HOME=/home/dsv4
-WorkingDirectory=/home/bmarti44/spark-deepseek-v4-flash
+WorkingDirectory=@DSV4_REPO@
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
 RuntimeDirectoryPreserve=yes
 # This report remains advisory, but preflight failure blocks engine startup;
 # the serve script also enforces its authoritative checks on every start.
-ExecStartPre=/home/bmarti44/spark-deepseek-v4-flash/scripts/00_preflight.sh --out /tmp/preflight-service.json
-ExecStart=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh start
-ExecStop=/home/bmarti44/spark-deepseek-v4-flash/scripts/21_serve_llamacpp.sh stop
+ExecStartPre=@DSV4_REPO@/scripts/00_preflight.sh --out /tmp/preflight-service.json
+ExecStart=@DSV4_REPO@/scripts/21_serve_llamacpp.sh start
+ExecStop=@DSV4_REPO@/scripts/21_serve_llamacpp.sh stop
 TimeoutStartSec=700
 TimeoutStopSec=240
 # The external dsv4-guard timer supervises health; the OOM watchdog handles kills.

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "image": "python:3.12-slim",
+  "repo_digest": "python@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+  "sha256": "57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+  "inspection_command": "docker inspect python:3.12-slim --format '{{index .RepoDigests 0}}'",
+  "pulled_at_utc": "2026-07-16T15:01:46Z",
+  "note": "RepoDigest of the python:3.12-slim image present on the verdict host (docker inspect, 2026-07-17); this is the image every HumanEval sandbox execution and audit re-execution actually used."
+}

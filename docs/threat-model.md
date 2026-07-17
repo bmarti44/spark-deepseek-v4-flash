@@ -17,15 +17,19 @@ signing authority in the loop.
    making the thing true: weakened scorers, fabricated summaries, self-reported success.
    Controls: the frozen-harness manifest (`verification/MANIFEST.sha256`), Claude-run
    gates only (Codex self-reports never count), per-task diff review, transcript
-   spot-checks, and the independent recount in `scripts/36_audit_accuracy.py` whose
-   artifact `scripts/34_decision.py` requires.
+   spot-checks, and the protocol-v6 audit in `scripts/36_audit_accuracy.py`. That audit
+   reconstructs pinned rows/splits and prompt hashes, independently re-scores every
+   GSM8K/MMLU-Pro transcript, re-extracts and Docker-executes every HumanEval completion,
+   and binds result/transcript/evalset hashes in the artifact required by
+   `scripts/34_decision.py`.
 2. **Accidental evidence corruption.** Concurrent benchmark clients, stale servers,
    half-written results, config drift between what was measured and what is served.
    Controls: single-model residency lock, config digests binding results to binary+weights
    manifests, holdout ledger, decision-layer recomputation of summaries from raw arrays.
 3. **Remote attackers on the served endpoint.** Key theft, auth bypass, resource
-   exhaustion. Controls: Caddy forward-auth in front of both engines, key file readable
-   only by a dedicated no-login user, rate/concurrency limits in the auth helper,
+   exhaustion. Controls: Caddy sends all traffic through an authenticating streaming proxy,
+   its key file is readable only by a dedicated no-login user, its token bucket and 64-slot
+   cap cover the full upstream response, Authorization is stripped before the engine,
    loopback-only listeners, tailnet-only exposure with funnel off.
 4. **The host freezing itself.** UMA exhaustion on this hardware is a hard freeze, so an
    honest-but-buggy engine is an adversary. Controls: static memory budget with floor,

@@ -9,9 +9,16 @@ die() {
 
 (( EUID == 0 )) || die 'must run as root'
 
-for command_name in getent groupadd id useradd install chown chmod gpasswd; do
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) \
+    || die 'cannot resolve setup directory'
+DSV4_REPO=${DSV4_REPO:-$(cd -- "$SCRIPT_DIR/.." && pwd -P)}
+[[ -d $DSV4_REPO && $DSV4_REPO == /* ]] || die "invalid DSV4_REPO: $DSV4_REPO"
+
+for command_name in getent groupadd id useradd install chown chmod gpasswd stat; do
     command -v "$command_name" >/dev/null 2>&1 || die "required command not found: $command_name"
 done
+REPO_OWNER=$(stat -c %U -- "$DSV4_REPO") || die "cannot determine owner of DSV4_REPO: $DSV4_REPO"
+[[ $REPO_OWNER =~ ^[a-z_][a-z0-9_-]*$ ]] || die "invalid repository owner: $REPO_OWNER"
 
 if ! getent group dsv4auth >/dev/null; then
     groupadd --system dsv4auth
@@ -39,7 +46,7 @@ else
     printf 'Production API key is not present yet; the installer will create it as root:dsv4auth mode 0640.\n'
 fi
 
-# Repository ACLs already grant dsv4 read access; bmarti44 operates dsv4 only
+# Repository ACLs already grant dsv4 read access; the repository owner operates dsv4 only
 # through the scoped sudoers rule and does not need dsv4 group membership.
-gpasswd -d bmarti44 dsv4 || true
-printf 'Ensured bmarti44 is not a member of the dsv4 group.\n'
+gpasswd -d "$REPO_OWNER" dsv4 || true
+printf 'Ensured %s is not a member of the dsv4 group.\n' "$REPO_OWNER"

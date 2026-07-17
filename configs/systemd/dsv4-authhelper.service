@@ -1,5 +1,5 @@
 [Unit]
-Description=DeepSeek V4 Flash bearer-token authentication helper
+Description=DeepSeek V4 Flash authenticated streaming engine proxy
 Wants=network-online.target
 After=network-online.target
 
@@ -19,8 +19,8 @@ Restart=on-failure
 RestartSec=2
 TimeoutStopSec=30
 
-# The helper reads its root-owned key from /etc and otherwise needs only the
-# shared volatile runtime directory. It accepts connections on loopback only.
+# The helper reads its root-owned key and UPSTREAM_PORT from EnvironmentFile,
+# accepts Caddy traffic on loopback, and is the only proxy that reaches engine.
 NoNewPrivileges=yes
 ProtectSystem=strict
 ReadWritePaths=/run/dsv4auth
