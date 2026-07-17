@@ -523,12 +523,16 @@ wait_for_watchdog_target() {
 }
 
 discover_server_pid() {
-    local children child attempt rc
-    for ((attempt=0; attempt < 100; attempt++)); do
-        if [[ -r /proc/$flock_pid/task/$flock_pid/children ]]; then
+    local children child attempt rc flock_comm
+    for ((attempt=0; attempt < 200; attempt++)); do
+        # Until the launcher execs into flock, its only children are the
+        # transient gate-wait `sleep` processes; scanning then would race and
+        # capture a sleep pid. flock's sole child is the engine command.
+        flock_comm=$(cat "/proc/$flock_pid/comm" 2>/dev/null || true)
+        if [[ $flock_comm == flock && -r /proc/$flock_pid/task/$flock_pid/children ]]; then
             read -r children < "/proc/$flock_pid/task/$flock_pid/children" || true
             for child in $children; do
-                if pid_alive "$child"; then
+                if pid_alive "$child" && proc_start_ticks "$child" >/dev/null 2>&1; then
                     server_pid=$child
                     return 0
                 fi
