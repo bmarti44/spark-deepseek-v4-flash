@@ -43,6 +43,22 @@ accuracy/speed/golden/parity results remain valid** and are not rerun.
 |---|---|---|
 | `extract_humaneval_code` validates candidates with `ast.parse` and returns the first that parses, in a fixed order: (1) every fenced block re-declaring `def <entry_point>` (standalone), (2) the prompt+continuation splice, (3) the splice of the completion truncated at the classic HumanEval stop words (`\ndef `, `\nclass `, `\nif __name__`, `\nprint(`) applied POST-HOC, (4) longest parseable line-prefix of the splice. No candidate parses → v4 behavior. | B's v4 rerun (104/164) FAILED the independent audit: 23 SyntaxError transcripts. Two extractor defects, both harness-side: (a) the fence regex paired a completion's CLOSING fence with a later fence and extracted the garbage between them; (b) completions that finish the function then ramble until `max_tokens` cuts mid-line left an unparseable tail in the splice. | Harness defect, not a model result. Generation is untouched (same prompts, temperature 0, seed 42, max_tokens 512, no stops), so stored v4 completions are re-graded OFFLINE and deterministically for BOTH candidates by `scripts/37_rescore_humaneval.py` (re-extraction + sandbox re-execution; no servers). Candidate order tries the plain splice BEFORE the stop-word cut so the post-hoc stops can only rescue otherwise-unparseable completions, never change the grade of ones that already parse. Under v5 the audit's SyntaxError taxonomy must be 0 for both stacks. |
 
+## v5 → v6 changes and why (round-2 verifier review, 2026-07-16)
+
+These changes harden only the decision and verifier boundary. They do not alter
+any scorer, prompt, rendering, dataset, split, generation parameter, or soak
+measurement, so the standing rule classifies them as non-voiding.
+
+| Change | Kind | Why it does not void existing results |
+|---|---|---|
+| `36_audit_accuracy.py` loads the pinned rows through script 31, derives the exact split indices and suite sizes, verifies transcript identities and re-rendered prompt hashes, reconstructs reference answers, and rescoring GSM8K/MMLU-Pro without trusting transcript fields. | verifier-side recount hardening | Stored completions and script 31's frozen renderers/scorers are unchanged; only independent provenance checks are added. |
+| The accuracy audit re-extracts and re-executes all 164 HumanEval completions in script 31's Docker sandbox, compares fresh verdicts with stored verdict fields, and builds its failure taxonomy only from fresh executions. | verifier-side execution hardening | No generation or extraction rule changes; this independently repeats the v5 offline grading. |
+| Accuracy audit artifacts bind every audited `acc-*.json`, the deterministic transcript-tree digest, pinned evalset files, and script 31's current manifest entry. `34_decision.py` recomputes these bindings from current files and requires exact suite and transcript counts. | verifier/decision artifact binding | Raw evidence and scores are unchanged; stale or substituted evidence now fails closed. |
+| `34_decision.py` recomputes every soak gate from raw request, error, memory, and health arrays using script 35's frozen constants; reported gates must be true and identical. Health requires a conservative minimum probe population, so an empty probe list cannot pass. | decision-layer verification hardening | Existing soak samples and frozen thresholds are unchanged; the consumer no longer trusts producer booleans. |
+| Context-envelope exceptions must identify exactly the speed cells that failed and may accept only cells whose raw reps show they passed. | decision-layer exception hardening | The speed measurements and pre-registered exception policy are unchanged; the exception is now bound to its cited evidence. |
+| `verification/MANIFEST.sha256` covers `configs/versions.lock`, every build manifest, pinned evalset JSONL and pins files, and all modified verifier files. Results remain outside the manifest: Git history witnesses result artifacts, while accuracy-audit binding hashes witness the current accuracy results and transcripts. | integrity-scope clarification | This expands verification coverage without changing measurement inputs or outputs. |
+| `results/decision.json` is tracked alongside `results/DECISION.md` as the machine-readable decision witness. | witness completeness | The report is derived from existing evidence and does not affect any measurement. |
+
 ## Standing rule
 
 Any future gate/harness change after a candidate has produced results under the

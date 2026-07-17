@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import statistics
 import sys
 import threading
@@ -48,6 +49,10 @@ MIN_REQUESTS = 30
 MEM_FLOOR_GIB = 12.0
 WINDOW_SECONDS = 300
 REQUEST_TIMEOUT = 600
+HEALTH_PROBE_INTERVAL = 30.0
+MIN_HEALTH_PROBES = max(
+    10, math.floor(DURATION / HEALTH_PROBE_INTERVAL / 2)
+)
 FORBIDDEN_EXTRA_BODY_KEYS = {
     "model",
     "messages",
@@ -233,7 +238,9 @@ BASE_PROMPT = (
 class HealthProber(threading.Thread):
     """Probe endpoint health independently of long-running decode requests."""
 
-    def __init__(self, client: Client, start: float, interval: float = 30.0) -> None:
+    def __init__(
+        self, client: Client, start: float, interval: float = HEALTH_PROBE_INTERVAL
+    ) -> None:
         super().__init__(daemon=True)
         self.client = client
         self.start_time = start
@@ -384,7 +391,10 @@ def main() -> int:
             and degradation <= DEG_THRESHOLD
         ),
         "memory_above_floor": (min_mem is not None and min_mem >= MEM_FLOOR_GIB),
-        "health_all_ok": all(p["status"] == 200 for p in health_probes),
+        "health_all_ok": (
+            len(health_probes) >= MIN_HEALTH_PROBES
+            and all(p["status"] == 200 for p in health_probes)
+        ),
         "duration_met": elapsed >= 0.95 * DURATION,
     }
     passed = all(gates.values())

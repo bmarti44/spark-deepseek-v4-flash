@@ -8,7 +8,7 @@ readonly SECRET_PATTERN_NOHEX='Bearer [A-Za-z0-9._-]{20,}|BEGIN( RSA| OPENSSH)? 
 
 is_checksum_file() {
   case "$1" in
-    verification/MANIFEST.sha256|configs/versions.lock|configs/pins/*|configs/build-manifests/*|evalsets/pins.json|results/transcripts/*|results/acc-*.json|results/decision.json|results/holdout-ledger.json|weights/*/manifest.json|*.sha256) return 0 ;;
+    verification/MANIFEST.sha256|configs/versions.lock|configs/pins/*|configs/build-manifests/*|evalsets/pins.json|results/transcripts/*|results/acc-*.json|results/audit-*.json|results/decision.json|results/holdout-ledger.json|weights/*/manifest.json|*.sha256) return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -80,6 +80,12 @@ allowlist = {
     "source_summary_sha256",
     "source_transcript_sha256",
 }
+# Keys whose value is a MAP of repo-relative path -> sha256 (audit bindings).
+# Every string leaf under them is an allowed digest.
+map_allowlist = {
+    "accuracy_result_sha256",
+    "evalset_sha256",
+}
 hex64 = re.compile(r"[0-9a-fA-F]{64}")
 raw = os.fdopen(3, encoding="utf-8").read()
 try:
@@ -105,6 +111,10 @@ def walk(value, path, allowed_string=False):
     if isinstance(value, dict):
         for key, item in value.items():
             item_path = child_path(path, key)
+            if key in map_allowlist and isinstance(item, dict) and all(
+                isinstance(child, str) for child in item.values()
+            ):
+                continue
             leaf_allowed = key in allowlist
             if isinstance(item, list):
                 for index, element in enumerate(item):

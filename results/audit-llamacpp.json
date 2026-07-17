@@ -5,30 +5,35 @@
   "suites": {
     "gsm8k-dev": {
       "n": 100,
+      "expected_n": 100,
       "correct_recount": 97,
       "summary_correct": 97,
       "match": true
     },
     "gsm8k-holdout": {
       "n": 100,
+      "expected_n": 100,
       "correct_recount": 97,
       "summary_correct": 97,
       "match": true
     },
     "mmlu-pro-dev": {
       "n": 253,
+      "expected_n": 253,
       "correct_recount": 197,
       "summary_correct": 197,
       "match": true
     },
     "mmlu-pro-holdout": {
       "n": 247,
+      "expected_n": 247,
       "correct_recount": 183,
       "summary_correct": 183,
       "match": true
     },
     "humaneval": {
       "n": 164,
+      "expected_n": 164,
       "correct_recount": 121,
       "summary_correct": 121,
       "match": true
@@ -48,7 +53,7 @@
     "syntax_error": 0,
     "timeout": 0,
     "other": 11,
-    "stored_correct_count": 121,
+    "fresh_correct_count": 121,
     "syntax_cases": [],
     "other_cases": [
       "HumanEval/34 rc=1 EOFError: EOF when reading a line",
@@ -64,6 +69,27 @@
       "HumanEval/162 rc=1 NameError: name 'hashlib' is not defined. Did you forget to import 'hashlib'?"
     ],
     "present": true
+  },
+  "bindings": {
+    "accuracy_result_sha256": {
+      "results/acc-gsm8k-dev-llamacpp.json": "304233edafc97af11c702940b33bcdf004824ee54e014c112c8cfe6d46e92ae8",
+      "results/acc-gsm8k-holdout-llamacpp.json": "33bb6ca0b69600883d569591e3f5ab0868fef78117c67366cb8c50a25e558758",
+      "results/acc-mmlu-dev-llamacpp.json": "1360f7df44d95937a15c64f1a175dc2672892f3f5461ff9f3f80de05e15b56ae",
+      "results/acc-mmlu-holdout-llamacpp.json": "4ace2a91409f13267217f0cb49a8694c0264bc7602d0846eac1d877d028c6b27",
+      "results/acc-humaneval-llamacpp.json": "79bd2654299f6d91206a7ff7331c0e3bcb7b615658d1c88c1b67f6dd45da8729"
+    },
+    "transcript_tree": {
+      "sha256": "cfdc93bfe3691d34572947362e1a0372d9f966f4529cc147f51593b533a07a40",
+      "file_count": 864,
+      "line_format": "repo-relative-path:sha256\\n, sorted by path"
+    },
+    "evalset_sha256": {
+      "evalsets/gsm8k-test.jsonl": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "evalsets/humaneval.jsonl": "9a5b81ac8a9aa1ac8f4457ad1aadade38d64cb479f37aad6e752b0179fd1d3e3",
+      "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
+      "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
+    },
+    "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
   },
   "generated_by": "scripts/36_audit_accuracy.py"
 }

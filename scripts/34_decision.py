@@ -4,11 +4,11 @@
 Frozen rule: both stacks require passing golden and exact-ID parity evidence,
 a verifier-owned passing accuracy audit containing matching gsm8k-holdout,
 mmlu-pro-holdout, and humaneval entries, and deeply validated soak evidence.
-Soak validation requires the stack label, >=1500 actual seconds, >=30 requests,
-all gates true, and first/last-window decode degradation plus minimum available
-memory reproduced from raw arrays within 1e-6.  Accuracy result counts must equal
-the audit counts.  The 4K and 16K valid-rep decode medians are also reproduced
-within 1e-6 and speed suite_valid must be true, unless the stack has a valid
+Soak validation recomputes every frozen gate from raw request, error, memory,
+and health arrays and requires the reported gates to match.  Accuracy suite
+sizes and verifier-owned audit bindings are reproduced from current files.  The
+4K and 16K valid-rep decode medians are also reproduced within 1e-6 and speed
+suite_valid must be true, unless the stack has a valid, speed-bound
 results/envelope-exception-<stack>.json whose reason is surfaced in DECISION.md.
 
 Among eligible candidates, the existing composite/delta/speed rule applies.  A
@@ -20,6 +20,7 @@ truncated to at most 12 hexadecimal characters.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -32,6 +33,8 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = REPO_ROOT / "results"
+TRANSCRIPTS_DIR = RESULTS_DIR / "transcripts"
+MANIFEST_PATH = REPO_ROOT / "verification" / "MANIFEST.sha256"
 STACKS = ("ds4", "llamacpp")
 INPUT_PATHS = {
     "ds4": {
@@ -56,7 +59,26 @@ ACCURACY_EXPECTATIONS = {
     "mmlu-pro-holdout": ("mmlu-pro", "holdout"),
     "humaneval": ("humaneval", "all"),
 }
-AUDIT_REQUIRED_SUITES = tuple(ACCURACY_EXPECTATIONS)
+EXACT_SUITE_SIZES = {
+    "gsm8k-dev": 100,
+    "gsm8k-holdout": 100,
+    "mmlu-pro-dev": 253,
+    "mmlu-pro-holdout": 247,
+    "humaneval": 164,
+}
+AUDIT_BINDING_SUITES = (
+    ("acc-gsm8k-dev-{stack}.json", "gsm8k-dev-{stack}"),
+    ("acc-gsm8k-holdout-{stack}.json", "gsm8k-holdout-{stack}"),
+    ("acc-mmlu-dev-{stack}.json", "mmlu-dev-{stack}"),
+    ("acc-mmlu-holdout-{stack}.json", "mmlu-holdout-{stack}"),
+    ("acc-humaneval-{stack}.json", "humaneval-{stack}"),
+)
+EVALSET_BINDING_PATHS = (
+    REPO_ROOT / "evalsets" / "gsm8k-test.jsonl",
+    REPO_ROOT / "evalsets" / "humaneval.jsonl",
+    REPO_ROOT / "evalsets" / "mmlu-pro-test.jsonl",
+    REPO_ROOT / "evalsets" / "pins.json",
+)
 SOAK_REQUIRED_GATES = {
     "zero_errors",
     "enough_requests",
@@ -72,6 +94,19 @@ SOAK_REQUIRED_GATES = {
 SOLE_CANDIDATE_COMPOSITE_FLOOR = 60.0
 SOLE_CANDIDATE_SPEED_FLOOR = 5.0
 SUMMARY_TOLERANCE = 1e-6
+# These verifier-side constants must equal the frozen values in scripts/35_soak.py.
+SOAK_DURATION = 1800
+SOAK_MIN_REQUESTS = 30
+SOAK_MEM_FLOOR_GIB = 12.0
+SOAK_WINDOW_SECONDS = 300
+SOAK_DEG_THRESHOLD = 0.25
+SOAK_MEM_SAMPLE_DENSITY = 0.8
+SOAK_MIN_WINDOW_REQUESTS = 5
+SOAK_DURATION_RATIO = 0.95
+SOAK_HEALTH_PROBE_INTERVAL = 30.0
+SOAK_MIN_HEALTH_PROBES = max(
+    10, math.floor(SOAK_DURATION / SOAK_HEALTH_PROBE_INTERVAL / 2)
+)
 
 
 class DecisionInputError(RuntimeError):
@@ -129,6 +164,64 @@ def path_label(path: Path) -> str:
         return relative(path.resolve())
     except ValueError:
         return str(path.resolve())
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    try:
+        with path.open("rb") as stream:
+            while chunk := stream.read(1024 * 1024):
+                digest.update(chunk)
+    except OSError as error:
+        raise DecisionInputError(f"cannot hash {path_label(path)}: {error}") from error
+    return digest.hexdigest()
+
+
+def load_accuracy_harness_manifest_line() -> str:
+    try:
+        lines = MANIFEST_PATH.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeDecodeError) as error:
+        raise DecisionInputError(f"cannot read {relative(MANIFEST_PATH)}: {error}") from error
+    suffix = "  scripts/31_bench_accuracy.py"
+    matches = [line for line in lines if line.endswith(suffix)]
+    if len(matches) != 1 or not re.fullmatch(r"[0-9a-f]{64}  \S+", matches[0]):
+        raise DecisionInputError(
+            f"{relative(MANIFEST_PATH)}: expected exactly one valid scripts/31 entry"
+        )
+    return matches[0]
+
+
+def transcript_tree_binding(stack: str) -> dict[str, Any]:
+    paths: list[Path] = []
+    for _result_pattern, transcript_pattern in AUDIT_BINDING_SUITES:
+        directory = TRANSCRIPTS_DIR / transcript_pattern.format(stack=stack)
+        if directory.is_dir():
+            paths.extend(path for path in directory.rglob("*") if path.is_file())
+    lines = [f"{relative(path)}:{sha256_file(path)}" for path in sorted(paths)]
+    payload = ("\n".join(lines) + ("\n" if lines else "")).encode("utf-8")
+    return {
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "file_count": len(lines),
+        "line_format": "repo-relative-path:sha256\\n, sorted by path",
+    }
+
+
+def current_audit_bindings(stack: str) -> dict[str, Any]:
+    accuracy_results = {
+        relative(RESULTS_DIR / result_pattern.format(stack=stack)): sha256_file(
+            RESULTS_DIR / result_pattern.format(stack=stack)
+        )
+        for result_pattern, _transcript_pattern in AUDIT_BINDING_SUITES
+    }
+    evalsets = {
+        relative(path): sha256_file(path) for path in sorted(EVALSET_BINDING_PATHS)
+    }
+    return {
+        "accuracy_result_sha256": accuracy_results,
+        "transcript_tree": transcript_tree_binding(stack),
+        "evalset_sha256": evalsets,
+        "harness_manifest_line": load_accuracy_harness_manifest_line(),
+    }
 
 
 def require_files() -> None:
@@ -205,16 +298,36 @@ def read_audit_evidence(path: Path, stack: str) -> dict[str, Any]:
     if not isinstance(suites, dict):
         return evidence_failure(path, "accuracy audit suites is not an object")
     counts: dict[str, int] = {}
-    for suite in AUDIT_REQUIRED_SUITES:
+    for suite, expected_n in EXACT_SUITE_SIZES.items():
         entry = suites.get(suite)
         if not isinstance(entry, dict) or entry.get("match") is not True:
             return evidence_failure(
                 path, f"accuracy audit suite {suite!r} is absent or does not match"
             )
         n = entry.get("n")
-        if not isinstance(n, int) or isinstance(n, bool) or n <= 0:
-            return evidence_failure(path, f"accuracy audit suite {suite!r} has bad n={n!r}")
+        if not isinstance(n, int) or isinstance(n, bool) or n != expected_n:
+            return evidence_failure(
+                path,
+                f"accuracy audit suite {suite!r} has n={n!r}; expected {expected_n}",
+            )
+        if entry.get("expected_n") != expected_n:
+            return evidence_failure(
+                path,
+                f"accuracy audit suite {suite!r} has bad expected_n="
+                f"{entry.get('expected_n')!r}",
+            )
         counts[suite] = n
+    try:
+        current_bindings = current_audit_bindings(stack)
+    except DecisionInputError as error:
+        return evidence_failure(path, str(error))
+    bindings = document.get("bindings")
+    if bindings != current_bindings:
+        return evidence_failure(
+            path,
+            "accuracy audit bindings do not match current results, transcripts, "
+            "evalsets, or scripts/31 manifest entry",
+        )
     return {
         "path": label,
         "status": "pass",
@@ -222,6 +335,7 @@ def read_audit_evidence(path: Path, stack: str) -> dict[str, Any]:
         "pass": True,
         "stack": stack,
         "suite_counts": counts,
+        "bindings": current_bindings,
     }
 
 
@@ -252,29 +366,54 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
             document.get("duration_seconds_actual"), f"{label}.duration_seconds_actual"
         )
         n_requests = require_int(document.get("n_requests"), f"{label}.n_requests")
+        n_errors = require_int(document.get("n_errors"), f"{label}.n_errors")
         window = require_number(document.get("window_seconds"), f"{label}.window_seconds")
+        duration_requested = require_number(
+            document.get("duration_seconds_requested"),
+            f"{label}.duration_seconds_requested",
+        )
+        degradation_threshold = require_number(
+            document.get("degradation_threshold"), f"{label}.degradation_threshold"
+        )
+        mem_floor = require_number(
+            document.get("mem_floor_gib"), f"{label}.mem_floor_gib"
+        )
     except DecisionInputError as error:
         return evidence_failure(path, str(error))
-    if elapsed < 1500:
-        return evidence_failure(path, "duration_seconds_actual is below 1500")
-    if n_requests < 30:
-        return evidence_failure(path, "n_requests is below 30")
-    if window <= 0:
-        return evidence_failure(path, "window_seconds must be positive")
+    frozen_fields = (
+        (duration_requested, SOAK_DURATION, "duration_seconds_requested"),
+        (window, SOAK_WINDOW_SECONDS, "window_seconds"),
+        (degradation_threshold, SOAK_DEG_THRESHOLD, "degradation_threshold"),
+        (mem_floor, SOAK_MEM_FLOOR_GIB, "mem_floor_gib"),
+    )
+    for actual, expected, name in frozen_fields:
+        if actual != expected:
+            return evidence_failure(
+                path, f"{name}={actual!r} does not match frozen value {expected!r}"
+            )
     gates = document.get("gates")
     if not isinstance(gates, dict):
         return evidence_failure(path, "gates is not an object")
-    if not SOAK_REQUIRED_GATES.issubset(gates):
+    if set(gates) != SOAK_REQUIRED_GATES:
         missing = sorted(SOAK_REQUIRED_GATES.difference(gates))
-        return evidence_failure(path, "soak gates are incomplete: " + ", ".join(missing))
-    if any(value is not True for value in gates.values()):
-        return evidence_failure(path, "not every soak gate is true")
+        extra = sorted(set(gates).difference(SOAK_REQUIRED_GATES))
+        return evidence_failure(
+            path, f"soak gates differ from frozen set; missing={missing!r} extra={extra!r}"
+        )
+    if any(not isinstance(value, bool) for value in gates.values()):
+        return evidence_failure(path, "every reported soak gate must be boolean")
     reps = document.get("reps")
     mem_samples = document.get("mem_samples")
-    if not isinstance(reps, list) or not isinstance(mem_samples, list):
-        return evidence_failure(path, "raw reps and mem_samples arrays are required")
+    errors = document.get("errors")
+    health_probes = document.get("health_probes")
+    if not all(isinstance(value, list) for value in (reps, mem_samples, errors, health_probes)):
+        return evidence_failure(
+            path, "raw reps, errors, mem_samples, and health_probes arrays are required"
+        )
     if len(reps) != n_requests:
         return evidence_failure(path, "n_requests does not equal raw reps count")
+    if len(errors) != n_errors:
+        return evidence_failure(path, "n_errors does not equal raw errors count")
     first: list[float] = []
     last: list[float] = []
     try:
@@ -293,8 +432,20 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         for index, sample in enumerate(mem_samples):
             if not isinstance(sample, dict):
                 raise DecisionInputError(f"{label}.mem_samples[{index}] is not an object")
+            require_number(sample.get("t"), f"{label}.mem_samples[{index}].t")
             memory_values.append(
                 require_number(sample.get("gib"), f"{label}.mem_samples[{index}].gib")
+            )
+        for index, error_record in enumerate(errors):
+            if not isinstance(error_record, dict):
+                raise DecisionInputError(f"{label}.errors[{index}] is not an object")
+        health_statuses: list[int] = []
+        for index, probe in enumerate(health_probes):
+            if not isinstance(probe, dict):
+                raise DecisionInputError(f"{label}.health_probes[{index}] is not an object")
+            require_number(probe.get("t"), f"{label}.health_probes[{index}].t")
+            health_statuses.append(
+                require_int(probe.get("status"), f"{label}.health_probes[{index}].status")
             )
     except DecisionInputError as error:
         return evidence_failure(path, str(error))
@@ -308,6 +459,45 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         else None
     )
     min_memory = min(memory_values) if memory_values else None
+    memory_sampler_error = document.get("memory_sampler_error")
+    if memory_sampler_error is not None and not isinstance(memory_sampler_error, str):
+        return evidence_failure(path, "memory_sampler_error must be null or a string")
+    recomputed_gates = {
+        "zero_errors": len(errors) == 0,
+        "enough_requests": len(reps) >= SOAK_MIN_REQUESTS,
+        "sampler_healthy": memory_sampler_error is None and bool(mem_samples),
+        "mem_sample_density": len(mem_samples) >= SOAK_MEM_SAMPLE_DENSITY * elapsed,
+        "windows_disjoint": elapsed >= 2 * SOAK_WINDOW_SECONDS,
+        "windows_populated": (
+            len(first) >= SOAK_MIN_WINDOW_REQUESTS
+            and len(last) >= SOAK_MIN_WINDOW_REQUESTS
+        ),
+        "degradation_within_threshold": (
+            elapsed >= 2 * SOAK_WINDOW_SECONDS
+            and len(first) >= SOAK_MIN_WINDOW_REQUESTS
+            and len(last) >= SOAK_MIN_WINDOW_REQUESTS
+            and degradation is not None
+            and degradation <= SOAK_DEG_THRESHOLD
+        ),
+        "memory_above_floor": (
+            min_memory is not None and min_memory >= SOAK_MEM_FLOOR_GIB
+        ),
+        "health_all_ok": (
+            len(health_statuses) >= SOAK_MIN_HEALTH_PROBES
+            and all(status == 200 for status in health_statuses)
+        ),
+        "duration_met": elapsed >= SOAK_DURATION_RATIO * SOAK_DURATION,
+    }
+    if gates != recomputed_gates:
+        mismatches = sorted(
+            name for name in SOAK_REQUIRED_GATES if gates[name] != recomputed_gates[name]
+        )
+        return evidence_failure(
+            path, "reported soak gates do not match raw evidence: " + ", ".join(mismatches)
+        )
+    if not all(recomputed_gates.values()):
+        failed = sorted(name for name, passed in recomputed_gates.items() if not passed)
+        return evidence_failure(path, "recomputed soak gates failed: " + ", ".join(failed))
     summaries = (
         (first_median, document.get("decode_first_window_median_tok_s")),
         (last_median, document.get("decode_last_window_median_tok_s")),
@@ -316,6 +506,14 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     )
     if any(not summary_matches(actual, reported) for actual, reported in summaries):
         return evidence_failure(path, "soak summary does not match raw samples")
+    count_summaries = (
+        (len(mem_samples), document.get("n_mem_samples"), "n_mem_samples"),
+        (len(first), document.get("n_first_window"), "n_first_window"),
+        (len(last), document.get("n_last_window"), "n_last_window"),
+    )
+    for actual, reported, name in count_summaries:
+        if reported != actual:
+            return evidence_failure(path, f"{name}={reported!r} != raw count {actual}")
     return {
         "path": label,
         "status": "pass",
@@ -323,6 +521,9 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         "pass": True,
         "duration_seconds_actual": elapsed,
         "n_requests": n_requests,
+        "n_health_probes": len(health_statuses),
+        "minimum_health_probes": SOAK_MIN_HEALTH_PROBES,
+        "recomputed_gates": recomputed_gates,
         "recomputed": {
             "decode_first_window_median_tok_s": first_median,
             "decode_last_window_median_tok_s": last_median,
@@ -334,12 +535,55 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
 
 def read_speed(path: Path) -> dict[str, Any]:
     document = load_object(path)
-    suite_valid = require_bool(
+    reported_suite_valid = require_bool(
         field(document, "suite_valid", path), f"{relative(path)}.suite_valid"
     )
     cells = field(document, "cells", path)
     if not isinstance(cells, list):
         raise DecisionInputError(f"{relative(path)}.cells: expected an array")
+    cell_validity: dict[int, bool] = {}
+    for cell_index, cell in enumerate(cells):
+        if not isinstance(cell, dict):
+            raise DecisionInputError(
+                f"{relative(path)}.cells[{cell_index}]: expected an object"
+            )
+        context = require_int(
+            field(cell, "ctx_tokens", path),
+            f"{relative(path)}.cells[{cell_index}].ctx_tokens",
+        )
+        if context in cell_validity:
+            raise DecisionInputError(f"{relative(path)}: duplicate cell {context}")
+        reps = field(cell, "reps", path)
+        if not isinstance(reps, list):
+            raise DecisionInputError(f"{relative(path)} {context} reps: expected an array")
+        invalid_reps = 0
+        for rep_index, rep in enumerate(reps):
+            if not isinstance(rep, dict):
+                raise DecisionInputError(
+                    f"{relative(path)} {context} reps[{rep_index}]: expected an object"
+                )
+            if not require_bool(
+                field(rep, "valid", path),
+                f"{relative(path)} {context} reps[{rep_index}].valid",
+            ):
+                invalid_reps += 1
+        actual_valid = invalid_reps <= 2
+        if cell.get("invalid_reps") != invalid_reps or cell.get("valid") is not actual_valid:
+            raise DecisionInputError(
+                f"{relative(path)} {context}: reported cell validity does not match raw reps"
+            )
+        cell_validity[context] = actual_valid
+    expected_contexts = {0, 4096, 16384, 28672}
+    if set(cell_validity) != expected_contexts:
+        raise DecisionInputError(
+            f"{relative(path)}: cell contexts {sorted(cell_validity)!r} "
+            f"!= frozen contexts {sorted(expected_contexts)!r}"
+        )
+    suite_valid = all(cell_validity.values())
+    if reported_suite_valid is not suite_valid:
+        raise DecisionInputError(
+            f"{relative(path)}.suite_valid does not match recomputed cell validity"
+        )
     selected: dict[int, dict[str, Any]] = {}
     for context in (4096, 16384):
         matches = [
@@ -429,6 +673,8 @@ def read_speed(path: Path) -> dict[str, Any]:
     return {
         "ctx_tokens": 4096,
         "suite_valid": suite_valid,
+        "passed_cells": sorted(context for context, valid in cell_validity.items() if valid),
+        "failed_cells": sorted(context for context, valid in cell_validity.items() if not valid),
         "median_decode": decode_medians["4096"],
         "median_decode_all_reps": all_decode_medians["4096"],
         "median_decode_by_context": decode_medians,
@@ -441,22 +687,43 @@ def read_speed(path: Path) -> dict[str, Any]:
     }
 
 
-def read_envelope_exception(stack: str) -> dict[str, Any] | None:
+def read_envelope_exception(stack: str, speed: dict[str, Any]) -> dict[str, Any] | None:
     path = RESULTS_DIR / f"envelope-exception-{stack}.json"
     if not path.is_file():
         return None
     document = load_object(path)
     reason = document.get("reason")
     accepted_cells = document.get("accepted_cells")
+    failed_cell_tokens = document.get("failed_cell_tokens")
     if (
         document.get("kind") != "envelope-exception"
         or document.get("stack") != stack
         or not isinstance(reason, str)
         or not reason.strip()
         or not isinstance(accepted_cells, list)
+        or any(
+            not isinstance(context, int) or isinstance(context, bool)
+            for context in accepted_cells
+        )
+        or len(set(accepted_cells)) != len(accepted_cells)
+        or not isinstance(failed_cell_tokens, int)
+        or isinstance(failed_cell_tokens, bool)
     ):
         raise DecisionInputError(
             f"{relative(path)}: invalid context-envelope exception artifact"
+        )
+    if sorted(accepted_cells) != speed["passed_cells"]:
+        raise DecisionInputError(
+            f"{relative(path)}: accepted_cells must exactly match passing speed cells"
+        )
+    if [failed_cell_tokens] != speed["failed_cells"]:
+        raise DecisionInputError(
+            f"{relative(path)}: failed_cell_tokens must identify the actual failed speed cell"
+        )
+    evidence = document.get("evidence")
+    if evidence != relative(INPUT_PATHS[stack]["speed"]):
+        raise DecisionInputError(
+            f"{relative(path)}: evidence must name the candidate speed JSON"
         )
     return {
         "path": relative(path),
@@ -464,6 +731,7 @@ def read_envelope_exception(stack: str) -> dict[str, Any] | None:
         "stack": stack,
         "reason": reason,
         "accepted_cells": accepted_cells,
+        "failed_cell_tokens": failed_cell_tokens,
     }
 
 
@@ -490,8 +758,11 @@ def read_accuracy(path: Path, report_name: str) -> dict[str, Any]:
         raise DecisionInputError(f"{relative(path)}.wilson95: expected [lower, upper]")
     lower = require_number(wilson[0], f"{relative(path)}.wilson95[0]")
     upper = require_number(wilson[1], f"{relative(path)}.wilson95[1]")
-    if n <= 0:
-        raise DecisionInputError(f"{relative(path)}.n: must be positive")
+    expected_n = EXACT_SUITE_SIZES[report_name]
+    if n != expected_n:
+        raise DecisionInputError(
+            f"{relative(path)}.n: expected exactly {expected_n}, got {n}"
+        )
     if not 0 <= correct <= n:
         raise DecisionInputError(f"{relative(path)}.correct: must be between 0 and n")
     if not 0.0 <= accuracy <= 1.0:
@@ -536,7 +807,9 @@ def collect_candidate(
             f"{relative(paths['parity'])}.parity_level: expected a string"
         )
     speed = read_speed(paths["speed"])
-    envelope_exception = read_envelope_exception(stack) if not speed["suite_valid"] else None
+    envelope_exception = (
+        read_envelope_exception(stack, speed) if not speed["suite_valid"] else None
+    )
     speed_envelope_pass = speed["suite_valid"] or envelope_exception is not None
     soak = read_soak_evidence(soak_path, stack)
     stability_pass = soak["status"] == "pass"

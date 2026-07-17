@@ -1,0 +1,356 @@
+{
+  "candidates": {
+    "ds4": {
+      "input_files": {
+        "speed": "results/speed-ds4-dspark.json",
+        "golden": "results/golden-ds4-dspark.json",
+        "parity": "results/parity-ds4.json",
+        "gsm8k-holdout": "results/acc-gsm8k-holdout-ds4.json",
+        "mmlu-pro-holdout": "results/acc-mmlu-holdout-ds4.json",
+        "humaneval": "results/acc-humaneval-ds4.json",
+        "soak": "results/soak-ds4.json",
+        "accuracy_audit": "results/audit-ds4.json"
+      },
+      "eligibility_inputs": {
+        "golden_pass": true,
+        "parity_pass": true,
+        "parity_level": "exact-ids",
+        "stability": "pass",
+        "accuracy_audit": "pass",
+        "speed_suite_valid": false,
+        "speed_envelope": "pass",
+        "speed_4k_samples_pass": true
+      },
+      "soak_evidence": {
+        "path": "results/soak-ds4.json",
+        "status": "pass",
+        "kind": "soak",
+        "pass": true,
+        "duration_seconds_actual": 1805.9439398960021,
+        "n_requests": 175,
+        "n_health_probes": 61,
+        "minimum_health_probes": 30,
+        "recomputed_gates": {
+          "zero_errors": true,
+          "enough_requests": true,
+          "sampler_healthy": true,
+          "mem_sample_density": true,
+          "windows_disjoint": true,
+          "windows_populated": true,
+          "degradation_within_threshold": true,
+          "memory_above_floor": true,
+          "health_all_ok": true,
+          "duration_met": true
+        },
+        "recomputed": {
+          "decode_first_window_median_tok_s": 26.20005794329003,
+          "decode_last_window_median_tok_s": 26.536919832363473,
+          "degradation_fraction": -0.012857295575551016,
+          "mem_available_min_gib": 12.43880844116211
+        }
+      },
+      "accuracy_audit_evidence": {
+        "path": "results/audit-ds4.json",
+        "status": "pass",
+        "kind": "accuracy-audit",
+        "pass": true,
+        "stack": "ds4",
+        "suite_counts": {
+          "gsm8k-dev": 100,
+          "gsm8k-holdout": 100,
+          "mmlu-pro-dev": 253,
+          "mmlu-pro-holdout": 247,
+          "humaneval": 164
+        },
+        "bindings": {
+          "accuracy_result_sha256": {
+            "results/acc-gsm8k-dev-ds4.json": "20ce03248ce82deaa45b1d10b76def62ad712930cdfebebd627ff8ba64996006",
+            "results/acc-gsm8k-holdout-ds4.json": "8487111037ce954a2ba02a440c32f7977d68e008bb4333a589aae906787563ba",
+            "results/acc-mmlu-dev-ds4.json": "2baaf4856491582941a726939539c72dd4453c38342a885fc0a7d1d2544ecba6",
+            "results/acc-mmlu-holdout-ds4.json": "daf4718c3782a15760ab6287c9de9d72494fd0de0504a5e725137b7aa1629ed7",
+            "results/acc-humaneval-ds4.json": "901d83a1cb087272bd1a4dd425306c1958b895dfa3a3265fd49c5bcb3f4e2280"
+          },
+          "transcript_tree": {
+            "sha256": "6069f7715b1d22b84fe3a02b82db266b865900b042c08de27b2b9d60b87aea37",
+            "file_count": 864,
+            "line_format": "repo-relative-path:sha256\\n, sorted by path"
+          },
+          "evalset_sha256": {
+            "evalsets/gsm8k-test.jsonl": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+            "evalsets/humaneval.jsonl": "9a5b81ac8a9aa1ac8f4457ad1aadade38d64cb479f37aad6e752b0179fd1d3e3",
+            "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
+            "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
+          },
+          "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
+        }
+      },
+      "context_envelope_exception": {
+        "path": "results/envelope-exception-ds4.json",
+        "kind": "envelope-exception",
+        "stack": "ds4",
+        "reason": "The ds4 engine (DSpark profile, commit baa88902) fails warm-server requests above ~28K prompt tokens with HTTP 500 (lazy session-graph allocation; DS4_SESSION_LAZY_GRAPH=0 was tested and rejected because eager allocation breached the memory watchdog). The speed suite records this as 5/5 invalid reps in the 28672-token cell, so suite_valid=false. Protocol v2 pre-registered the 4K cell as the decision metric and the max-context cell as an engine-envelope check; this exception accepts the documented envelope: candidate A serves prompts up to ~28K tokens only. If A wins, the endpoint documentation MUST state this limit, and B remains the fallback for full-context workloads.",
+        "accepted_cells": [
+          0,
+          4096,
+          16384
+        ],
+        "failed_cell_tokens": 28672
+      },
+      "eligible": true,
+      "failed_eligibility_checks": [],
+      "accuracy": {
+        "gsm8k-holdout": {
+          "suite": "gsm8k",
+          "split": "holdout",
+          "n": 100,
+          "correct": 98,
+          "accuracy": 0.98,
+          "accuracy_percent": 98.0,
+          "wilson95": [
+            0.929988209271456,
+            0.9944980324498376
+          ],
+          "wilson95_percent": [
+            92.9988209271456,
+            99.44980324498376
+          ]
+        },
+        "mmlu-pro-holdout": {
+          "suite": "mmlu-pro",
+          "split": "holdout",
+          "n": 247,
+          "correct": 174,
+          "accuracy": 0.7044534412955465,
+          "accuracy_percent": 70.44534412955466,
+          "wilson95": [
+            0.6447695733801222,
+            0.7578751906666241
+          ],
+          "wilson95_percent": [
+            64.47695733801223,
+            75.78751906666241
+          ]
+        },
+        "humaneval": {
+          "suite": "humaneval",
+          "split": "all",
+          "n": 164,
+          "correct": 147,
+          "accuracy": 0.8963414634146342,
+          "accuracy_percent": 89.63414634146342,
+          "wilson95": [
+            0.8402719638865523,
+            0.9342684918114623
+          ],
+          "wilson95_percent": [
+            84.02719638865523,
+            93.42684918114624
+          ]
+        }
+      },
+      "composite_percent": 86.02649682367269,
+      "speed": {
+        "ctx_tokens": 4096,
+        "suite_valid": false,
+        "passed_cells": [
+          0,
+          4096,
+          16384
+        ],
+        "failed_cells": [
+          28672
+        ],
+        "median_decode": 18.739125039839152,
+        "median_decode_all_reps": 17.00383752580829,
+        "median_decode_by_context": {
+          "4096": 18.739125039839152,
+          "16384": 16.175413955157453
+        },
+        "rep_count": 5,
+        "valid_rep_count": 4,
+        "valid_reps_required": 4,
+        "expected_rep_count": 5,
+        "samples_pass": true,
+        "median_ttft_s": {
+          "4096": 5.335727048499848,
+          "16384": 21.77833792599995
+        }
+      }
+    },
+    "llamacpp": {
+      "input_files": {
+        "speed": "results/speed-llamacpp.json",
+        "golden": "results/golden-llamacpp.json",
+        "parity": "results/parity-llamacpp.json",
+        "gsm8k-holdout": "results/acc-gsm8k-holdout-llamacpp.json",
+        "mmlu-pro-holdout": "results/acc-mmlu-holdout-llamacpp.json",
+        "humaneval": "results/acc-humaneval-llamacpp.json",
+        "soak": "results/soak-llamacpp.json",
+        "accuracy_audit": "results/audit-llamacpp.json"
+      },
+      "eligibility_inputs": {
+        "golden_pass": true,
+        "parity_pass": true,
+        "parity_level": "exact-ids",
+        "stability": "pass",
+        "accuracy_audit": "pass",
+        "speed_suite_valid": true,
+        "speed_envelope": "pass",
+        "speed_4k_samples_pass": true
+      },
+      "soak_evidence": {
+        "path": "results/soak-llamacpp.json",
+        "status": "pass",
+        "kind": "soak",
+        "pass": true,
+        "duration_seconds_actual": 1804.5047062679987,
+        "n_requests": 96,
+        "n_health_probes": 61,
+        "minimum_health_probes": 30,
+        "recomputed_gates": {
+          "zero_errors": true,
+          "enough_requests": true,
+          "sampler_healthy": true,
+          "mem_sample_density": true,
+          "windows_disjoint": true,
+          "windows_populated": true,
+          "degradation_within_threshold": true,
+          "memory_above_floor": true,
+          "health_all_ok": true,
+          "duration_met": true
+        },
+        "recomputed": {
+          "decode_first_window_median_tok_s": 14.046697796244374,
+          "decode_last_window_median_tok_s": 14.027463297041248,
+          "degradation_fraction": 0.0013693253376796215,
+          "mem_available_min_gib": 20.903316497802734
+        }
+      },
+      "accuracy_audit_evidence": {
+        "path": "results/audit-llamacpp.json",
+        "status": "pass",
+        "kind": "accuracy-audit",
+        "pass": true,
+        "stack": "llamacpp",
+        "suite_counts": {
+          "gsm8k-dev": 100,
+          "gsm8k-holdout": 100,
+          "mmlu-pro-dev": 253,
+          "mmlu-pro-holdout": 247,
+          "humaneval": 164
+        },
+        "bindings": {
+          "accuracy_result_sha256": {
+            "results/acc-gsm8k-dev-llamacpp.json": "304233edafc97af11c702940b33bcdf004824ee54e014c112c8cfe6d46e92ae8",
+            "results/acc-gsm8k-holdout-llamacpp.json": "33bb6ca0b69600883d569591e3f5ab0868fef78117c67366cb8c50a25e558758",
+            "results/acc-mmlu-dev-llamacpp.json": "1360f7df44d95937a15c64f1a175dc2672892f3f5461ff9f3f80de05e15b56ae",
+            "results/acc-mmlu-holdout-llamacpp.json": "4ace2a91409f13267217f0cb49a8694c0264bc7602d0846eac1d877d028c6b27",
+            "results/acc-humaneval-llamacpp.json": "79bd2654299f6d91206a7ff7331c0e3bcb7b615658d1c88c1b67f6dd45da8729"
+          },
+          "transcript_tree": {
+            "sha256": "cfdc93bfe3691d34572947362e1a0372d9f966f4529cc147f51593b533a07a40",
+            "file_count": 864,
+            "line_format": "repo-relative-path:sha256\\n, sorted by path"
+          },
+          "evalset_sha256": {
+            "evalsets/gsm8k-test.jsonl": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+            "evalsets/humaneval.jsonl": "9a5b81ac8a9aa1ac8f4457ad1aadade38d64cb479f37aad6e752b0179fd1d3e3",
+            "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
+            "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
+          },
+          "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
+        }
+      },
+      "context_envelope_exception": null,
+      "eligible": true,
+      "failed_eligibility_checks": [],
+      "accuracy": {
+        "gsm8k-holdout": {
+          "suite": "gsm8k",
+          "split": "holdout",
+          "n": 100,
+          "correct": 97,
+          "accuracy": 0.97,
+          "accuracy_percent": 97.0,
+          "wilson95": [
+            0.9154806357094724,
+            0.9897454759759611
+          ],
+          "wilson95_percent": [
+            91.54806357094724,
+            98.97454759759611
+          ]
+        },
+        "mmlu-pro-holdout": {
+          "suite": "mmlu-pro",
+          "split": "holdout",
+          "n": 247,
+          "correct": 183,
+          "accuracy": 0.7408906882591093,
+          "accuracy_percent": 74.08906882591093,
+          "wilson95": [
+            0.6828553293055076,
+            0.7915479075416488
+          ],
+          "wilson95_percent": [
+            68.28553293055076,
+            79.15479075416488
+          ]
+        },
+        "humaneval": {
+          "suite": "humaneval",
+          "split": "all",
+          "n": 164,
+          "correct": 121,
+          "accuracy": 0.7378048780487805,
+          "accuracy_percent": 73.78048780487805,
+          "wilson95": [
+            0.6656001020438637,
+            0.7991241713749452
+          ],
+          "wilson95_percent": [
+            66.56001020438637,
+            79.91241713749451
+          ]
+        }
+      },
+      "composite_percent": 81.62318554359632,
+      "speed": {
+        "ctx_tokens": 4096,
+        "suite_valid": true,
+        "passed_cells": [
+          0,
+          4096,
+          16384,
+          28672
+        ],
+        "failed_cells": [],
+        "median_decode": 13.882382984959598,
+        "median_decode_all_reps": 13.882382984959598,
+        "median_decode_by_context": {
+          "4096": 13.882382984959598,
+          "16384": 13.511961621401106
+        },
+        "rep_count": 5,
+        "valid_rep_count": 5,
+        "valid_reps_required": 4,
+        "expected_rep_count": 5,
+        "samples_pass": true,
+        "median_ttft_s": {
+          "4096": 14.268049599999358,
+          "16384": 57.789383261000694
+        }
+      }
+    }
+  },
+  "decision": {
+    "verdict": "DS4",
+    "winner": "ds4",
+    "rule_branch": "both_eligible_composite_delta_over_3_higher_composite_speed_at_least_10",
+    "absolute_composite_delta_points": 4.403311280076366,
+    "composite_delta_threshold_points": 3.0,
+    "composite_delta_at_most_threshold": false,
+    "sole_candidate_composite_floor": 60.0,
+    "sole_candidate_speed_4k_floor_tok_s": 5.0
+  }
+}

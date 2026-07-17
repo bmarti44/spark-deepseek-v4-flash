@@ -5,30 +5,35 @@
   "suites": {
     "gsm8k-dev": {
       "n": 100,
+      "expected_n": 100,
       "correct_recount": 98,
       "summary_correct": 98,
       "match": true
     },
     "gsm8k-holdout": {
       "n": 100,
+      "expected_n": 100,
       "correct_recount": 98,
       "summary_correct": 98,
       "match": true
     },
     "mmlu-pro-dev": {
       "n": 253,
+      "expected_n": 253,
       "correct_recount": 192,
       "summary_correct": 192,
       "match": true
     },
     "mmlu-pro-holdout": {
       "n": 247,
+      "expected_n": 247,
       "correct_recount": 174,
       "summary_correct": 174,
       "match": true
     },
     "humaneval": {
       "n": 164,
+      "expected_n": 164,
       "correct_recount": 147,
       "summary_correct": 147,
       "match": true
@@ -48,13 +53,34 @@
     "syntax_error": 0,
     "timeout": 0,
     "other": 2,
-    "stored_correct_count": 147,
+    "fresh_correct_count": 147,
     "syntax_cases": [],
     "other_cases": [
       "HumanEval/38 rc=1 NameError: name 'encode_cyclic' is not defined. Did you mean: 'decode_cyclic'?",
       "HumanEval/67 rc=1 ValueError: invalid literal for int() with base 10: 'and'"
     ],
     "present": true
+  },
+  "bindings": {
+    "accuracy_result_sha256": {
+      "results/acc-gsm8k-dev-ds4.json": "20ce03248ce82deaa45b1d10b76def62ad712930cdfebebd627ff8ba64996006",
+      "results/acc-gsm8k-holdout-ds4.json": "8487111037ce954a2ba02a440c32f7977d68e008bb4333a589aae906787563ba",
+      "results/acc-mmlu-dev-ds4.json": "2baaf4856491582941a726939539c72dd4453c38342a885fc0a7d1d2544ecba6",
+      "results/acc-mmlu-holdout-ds4.json": "daf4718c3782a15760ab6287c9de9d72494fd0de0504a5e725137b7aa1629ed7",
+      "results/acc-humaneval-ds4.json": "901d83a1cb087272bd1a4dd425306c1958b895dfa3a3265fd49c5bcb3f4e2280"
+    },
+    "transcript_tree": {
+      "sha256": "6069f7715b1d22b84fe3a02b82db266b865900b042c08de27b2b9d60b87aea37",
+      "file_count": 864,
+      "line_format": "repo-relative-path:sha256\\n, sorted by path"
+    },
+    "evalset_sha256": {
+      "evalsets/gsm8k-test.jsonl": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "evalsets/humaneval.jsonl": "9a5b81ac8a9aa1ac8f4457ad1aadade38d64cb479f37aad6e752b0179fd1d3e3",
+      "evalsets/mmlu-pro-test.jsonl": "090500171db56bf1284c3cdec548be69610ba70a7099eb6b514582751c0c228f",
+      "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
+    },
+    "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py"
   },
   "generated_by": "scripts/36_audit_accuracy.py"
 }
