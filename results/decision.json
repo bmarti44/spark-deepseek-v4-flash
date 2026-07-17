@@ -29,7 +29,7 @@
         "duration_seconds_actual": 1805.9439398960021,
         "n_requests": 175,
         "n_health_probes": 61,
-        "minimum_health_probes": 30,
+        "minimum_health_probes": 48.0,
         "recomputed_gates": {
           "zero_errors": true,
           "enough_requests": true,
@@ -82,6 +82,11 @@
             "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
           },
           "harness_manifest_line": "8b445a3682635d071a51c34491dee5492e56ca1d029a9c6f6cdccb1c25398ad1  scripts/31_bench_accuracy.py"
+        },
+        "humaneval_runtime": {
+          "image": "python:3.12-slim",
+          "repo_digest": "python@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+          "pin_sha256": "548912ac64a29b3dcaa30bf45616954d329c19862c781fe901b8bc18d7fe54f5"
         }
       },
       "context_envelope_exception": {
@@ -172,6 +177,7 @@
         "expected_rep_count": 5,
         "samples_pass": true,
         "median_ttft_s": {
+          "0": 0.5761111530000562,
           "4096": 5.335727048499848,
           "16384": 21.77833792599995
         },
@@ -223,7 +229,7 @@
         "duration_seconds_actual": 1804.5047062679987,
         "n_requests": 96,
         "n_health_probes": 61,
-        "minimum_health_probes": 30,
+        "minimum_health_probes": 48.0,
         "recomputed_gates": {
           "zero_errors": true,
           "enough_requests": true,
@@ -276,6 +282,11 @@
             "evalsets/pins.json": "7e37c3ecaad79e8a6608330f79f24e0d3bd7f52a479e890037ce88f49f2132d5"
           },
           "harness_manifest_line": "8b445a3682635d071a51c34491dee5492e56ca1d029a9c6f6cdccb1c25398ad1  scripts/31_bench_accuracy.py"
+        },
+        "humaneval_runtime": {
+          "image": "python:3.12-slim",
+          "repo_digest": "python@sha256:57cd7c3a7a273101a6485ba99423ee568157882804b1124b4dd04266317710de",
+          "pin_sha256": "548912ac64a29b3dcaa30bf45616954d329c19862c781fe901b8bc18d7fe54f5"
         }
       },
       "context_envelope_exception": null,
@@ -354,8 +365,10 @@
         "expected_rep_count": 5,
         "samples_pass": true,
         "median_ttft_s": {
+          "0": 0.5538013440000213,
           "4096": 14.268049599999358,
-          "16384": 57.789383261000694
+          "16384": 57.789383261000694,
+          "28672": 104.52591501200004
         },
         "identity": {
           "stack_label": "llamacpp-udq2kxl",
@@ -368,7 +381,7 @@
           "seed": 42,
           "prefill_rate_label": "incl. queue+setup",
           "iqr_method": "inclusive quartiles",
-          "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
+          "model": "weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
           "fixture_path": "fixtures/ctx-32k.txt",
           "fixture_total_tokens": 40657
         },

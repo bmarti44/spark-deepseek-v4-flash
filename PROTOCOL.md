@@ -2,8 +2,8 @@
 
 The adversarial review (2026-07-16) correctly found that gate definitions changed
 after observing candidate failures, while being described as "frozen". This file
-makes protocol versioning explicit. Protocol v6 was binding at the start of the
-round-3 remediation; v7 becomes binding with the entry below. Numbers used by the
+makes protocol versioning explicit. Protocol v8 is binding with the entry below.
+Numbers used by the
 decision come from the version applicable to each suite: v2 speed/golden and the
 non-HumanEval accuracy suites, v4 generation plus v5 grading for HumanEval, and
 v6-or-later verifier enforcement. A later verifier version does not relabel or
@@ -81,11 +81,24 @@ not voided.
 | The lone `llamacpp` GSM8K holdout exception is restricted to the canonical SHA-256 ``59053fc37c43` (full value frozen in configs/pins/holdout-grandfather.json)` of ledger entry zero. That holdout was carried into v2 before the v2 started-entry mechanism existed; commit `02891bcfa8e1381e035afa750644caad0ef0f1fc` introduced `results/holdout-ledger.json` and publicly witnesses the exact pre-start-record content. Any edit breaks the exception. | explicit historical exception | This narrows an existing grandfather rather than accepting new evidence; the stored completion/scoring evidence is unchanged and remains independently auditable. |
 | Reproduction guidance now records the unpinned host full-upgrade limitation, observed package/driver/kernel versions, the pinned gitleaks install, namespace procedure, and mandatory exposure recheck after Tailscale changes. | documentation | Documents operational reality; no measurement changes. |
 
-Editing script 31 changes its manifest line, which both committed accuracy audits bind
-as `harness_manifest_line`. Therefore the committed `results/audit-ds4.json` and
-`results/audit-llamacpp.json` are expected to be stale immediately after this batch.
+## v7 → v8 changes and why (round-4 review, 2026-07-17)
+
+Every v8 change is verifier, operational, process-integrity, or reproducibility
+hardening. No scorer, prompt, rendering, extractor, dataset, split, generation control,
+recorded speed sample, soak measurement, or soak threshold changed. The existing
+measurements are therefore not voided.
+
+| Change | Kind | Why it does not void existing results |
+|---|---|---|
+| The watchdog disarms only after an atomic `DISARM PID PGID START_TICKS` record matches its armed identity. Missing, unreadable, mismatched, or unauthenticated target state fails closed. Every engine signal rechecks both start ticks and the published process group, while status and the systemd guard require the live watchdog, `ARMED` ready record, target record, and process identity to agree. | memory-safety/operations | Serving lifecycle and failure handling only; no benchmark request or measurement definition changed. |
+| Both serve wrappers size-check selected weights against MANIFEST-frozen manifests and hash their live server binary against the committed build manifest. llama.cpp additionally supports logged full-shard verification through `DSV4_VERIFY_WEIGHTS=full`; ds4 retains its full-verification flag. | benchmark operations/evidence binding | This rejects substituted live bytes before launch without changing prompts, generation, or scoring. |
+| The decision verifier independently reapplies speed-rep completion-count, tokenizer-agreement, and timing predicates, recomputes TTFT medians, accepts portable model-path suffixes, strengthens soak endpoint coverage/request/rotation checks, and validates HumanEval runtime provenance against its pin. | decision-layer verification hardening | Raw speed, soak, and audit evidence is unchanged; only the consumer's distrust and portability improved. |
+| The accuracy auditor requires each holdout result to have the exact started/completed ledger pair and ordered timestamps. Only the existing content-hash-pinned grandfather may omit `started`. | process-integrity verification | This verifies the historical once-only witness and does not alter a completion or score. |
+| Reproduction now uses the reproducer's generated build manifests for fresh accuracy evidence, freezes the known-good harness resolution, records DGX OS Docker installation/version, and puts authenticated, HTTPS-enabled Tailscale setup before production installation. | reproducibility/security documentation | Documentation and dependency identity only; measured evidence is untouched. |
+| The installer requires explicit acknowledgement before installing a stack other than the production-selected llama.cpp, and the MANIFEST adds the gitleaks policy, harness lock, and repository weight manifest. | operations/integrity scope | Production choice enforcement and file coverage are outside benchmark measurement. |
+
 After the batch lands, the Docker-capable operator—not the implementation sandbox—must
-run, in order:
+regenerate derived artifacts in this order:
 
 ```bash
 .venv-harness/bin/python scripts/36_audit_accuracy.py --stack ds4
@@ -93,10 +106,11 @@ run, in order:
 .venv-harness/bin/python scripts/34_decision.py --soak-evidence ds4=results/soak-ds4.json,llamacpp=results/soak-llamacpp.json --audit-evidence ds4=results/audit-ds4.json,llamacpp=results/audit-llamacpp.json
 ```
 
-The first two commands refresh the audit bindings and Docker provenance; the last
-refreshes `results/decision.json` and `results/DECISION.md`. This required derived-
-artifact regeneration is not a rerun of generation or any measured suite, and stale
-committed audits during the implementation batch are the expected sole evidence failure.
+The first two commands apply script 36's ledger-pair rule while refreshing audit bindings
+and Docker provenance. Only then may script 34 consume those regenerated audits with its
+new speed, soak, path, and runtime checks and refresh `results/decision.json` plus
+`results/DECISION.md`. This derived-artifact sequence is not a rerun of generation or any
+measured suite.
 
 ## Standing rule
 

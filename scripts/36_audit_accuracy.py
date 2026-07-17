@@ -17,6 +17,7 @@ import math
 import re
 import sys
 import tempfile
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -87,6 +88,109 @@ def grandfathered_ledger_entry_is_exact() -> bool:
         return False
     digest = hashlib.sha256(bench.canonical_json(entries[0])).hexdigest()
     return digest == GRANDFATHERED_LEDGER_ENTRY_SHA256
+
+
+def ledger_timestamp(value: Any, label: str, problems: list[str]) -> datetime | None:
+    if not isinstance(value, str):
+        problems.append(f"{label}: timestamp is not a string")
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        problems.append(f"{label}: timestamp is not ISO-8601")
+        return None
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        problems.append(f"{label}: timestamp lacks a UTC offset")
+        return None
+    return parsed
+
+
+def audit_holdout_ledger(path: Path, document: dict[str, Any]) -> list[str]:
+    problems: list[str] = []
+    try:
+        entries = json.loads(LEDGER.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        return [f"{path.name}: cannot read holdout ledger: {error}"]
+    if not isinstance(entries, list) or any(not isinstance(entry, dict) for entry in entries):
+        return [f"{path.name}: holdout ledger is not an array of objects"]
+
+    namespace = document.get("ledger_namespace", "")
+    stack_label = document.get("stack_label")
+    suite = document.get("suite")
+    config_digest = document.get("config_digest")
+    if not isinstance(namespace, str):
+        problems.append(f"{path.name}: ledger_namespace is not a string")
+        return problems
+
+    if path.name == "acc-gsm8k-holdout-llamacpp.json" and grandfathered_ledger_entry_is_exact():
+        legacy = entries[0]
+        legacy_key = (
+            legacy.get("ledger_namespace", ""),
+            legacy.get("stack_label"),
+            legacy.get("suite"),
+            legacy.get("config_digest"),
+        )
+        result_key = (namespace, stack_label, suite, config_digest)
+        if legacy_key != result_key:
+            problems.append(
+                f"{path.name}: grandfathered completed ledger entry does not match result identity"
+            )
+        ledger_timestamp(
+            legacy.get("completed_at"),
+            f"{path.name}: grandfathered completed_at",
+            problems,
+        )
+        return problems
+
+    if not isinstance(config_digest, str) or not re.fullmatch(
+        r"[0-9a-f]{64}", config_digest
+    ):
+        problems.append(f"{path.name}: holdout config_digest is not a SHA-256")
+        return problems
+    result_key = (namespace, stack_label, suite, config_digest)
+
+    def entry_key(entry: dict[str, Any]) -> tuple[Any, Any, Any, Any]:
+        return (
+            entry.get("ledger_namespace", ""),
+            entry.get("stack_label"),
+            entry.get("suite"),
+            entry.get("config_digest"),
+        )
+
+    started_entries = [
+        entry
+        for entry in entries
+        if entry.get("phase") == "started" and entry_key(entry) == result_key
+    ]
+    completed_entries = [
+        entry
+        for entry in entries
+        if entry.get("phase") == "completed" and entry_key(entry) == result_key
+    ]
+    if len(started_entries) != 1:
+        problems.append(
+            f"{path.name}: expected exactly one matching started ledger entry; "
+            f"found {len(started_entries)}"
+        )
+    if len(completed_entries) != 1:
+        problems.append(
+            f"{path.name}: expected exactly one matching completed ledger entry; "
+            f"found {len(completed_entries)}"
+        )
+    if len(started_entries) == 1 and len(completed_entries) == 1:
+        started_at = ledger_timestamp(
+            started_entries[0].get("started_at"),
+            f"{path.name}: ledger started_at",
+            problems,
+        )
+        completed_at = ledger_timestamp(
+            completed_entries[0].get("completed_at"),
+            f"{path.name}: ledger completed_at",
+            problems,
+        )
+        if started_at is not None and completed_at is not None and started_at > completed_at:
+            problems.append(f"{path.name}: ledger started_at is after completed_at")
+    return problems
 
 
 def audit_result_schema(
@@ -163,6 +267,8 @@ def audit_result_schema(
             or not grandfathered_ledger_entry_is_exact()
         ):
             problems.append(f"{path.name}: missing config_digest (required for holdout)")
+    if split == "holdout":
+        problems.extend(audit_holdout_ledger(path, document))
     return problems
 
 

@@ -21,6 +21,9 @@ server_pgid=
 target_tmp=
 start_gate=
 target_published=false
+published_target_pid=
+published_target_pgid=
+published_target_start_ticks=
 state_published=false
 
 usage() {
@@ -37,6 +40,11 @@ Environment:
   MODEL_PATH     First GGUF split shard (default: repository UD-Q2_K_XL shard)
   API_KEY_FILE   Optional API key path (unset/empty disables engine auth)
   CTX            Context length (default: 32768)
+  DSV4_VERIFY_WEIGHTS  Verification mode: size or full (default: size)
+
+Every shard is size-checked against the MANIFEST-frozen repository manifest.
+Full mode additionally hashes every shard; the selected mode is logged. The
+server binary must match the committed build manifest.
 EOF
 }
 
@@ -54,6 +62,12 @@ pid_alive() {
 }
 
 proc_start_ticks() {
+    local identity
+    identity=$(proc_identity "$1") || return 1
+    printf '%s\n' "${identity#* }"
+}
+
+proc_identity() {
     local stat_line
     local -a stat_fields
     [[ $1 =~ ^[0-9]+$ ]] && [[ -r /proc/$1/stat ]] || return 1
@@ -61,12 +75,41 @@ proc_start_ticks() {
     stat_line=${stat_line##*) }
     read -r -a stat_fields <<<"$stat_line"
     (( ${#stat_fields[@]} > 19 )) || return 1
-    [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
-    printf '%s\n' "${stat_fields[19]}"
+    [[ ${stat_fields[2]} =~ ^[0-9]+$ && ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
+    printf '%s %s\n' "${stat_fields[2]}" "${stat_fields[19]}"
+}
+
+signal_engine_identity() {
+    local signal=$1 pid=$2 expected_pgid=$3 expected_ticks=$4
+    local identity current_pgid= current_ticks=
+    identity=$(proc_identity "$pid") || identity=
+    [[ -z $identity ]] || read -r current_pgid current_ticks <<<"$identity"
+    if [[ -z $current_ticks || $current_ticks != "$expected_ticks" ]]; then
+        printf 'ERROR: FAIL_CLOSED refusing %s for pid %s (start time mismatch).\n' \
+            "$signal" "$pid" >&2
+        return 1
+    fi
+    if [[ $current_pgid != "$expected_pgid" ]]; then
+        printf 'ERROR: FAIL_CLOSED %s process-group mismatch for pid %s; signaling verified pid only (expected pgid %s, got %s).\n' \
+            "$signal" "$pid" "$expected_pgid" "${current_pgid:-unavailable}" >&2
+        kill -"$signal" -- "$pid" 2>/dev/null || true
+        return 2
+    fi
+    kill -"$signal" -- "-$expected_pgid" 2>/dev/null || true
+}
+
+signal_verified_pid() {
+    local signal=$1 pid=$2 expected_ticks=$3
+    [[ $(proc_start_ticks "$pid" 2>/dev/null || true) == "$expected_ticks" ]] || {
+        printf 'ERROR: FAIL_CLOSED refusing %s for pid %s (start time mismatch).\n' \
+            "$signal" "$pid" >&2
+        return 1
+    }
+    kill -"$signal" -- "$pid" 2>/dev/null || true
 }
 
 cleanup_failed_start() {
-    local rc=$1 start_group_signaled=false
+    local rc=$1 start_group_signaled=false watchdog_disarmed=false identity_ok=true
     "$startup_cleanup_armed" || return "$rc"
     startup_cleanup_armed=false
     trap - ERR EXIT
@@ -77,35 +120,52 @@ cleanup_failed_start() {
     if [[ ${server_pid:-} =~ ^[0-9]+$ && ${server_pgid:-} =~ ^[0-9]+$ ]] &&
             (( server_pid > 1 && server_pgid > 1 )) &&
             [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "${server_start_ticks:-0}" ]]; then
-        kill -TERM -- "-$server_pgid" 2>/dev/null || true
-        kill -KILL -- "-$server_pgid" 2>/dev/null || true
+        signal_engine_identity TERM "$server_pid" "$server_pgid" "$server_start_ticks" \
+            || identity_ok=false
+        if [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "$server_start_ticks" ]]; then
+            signal_engine_identity KILL "$server_pid" "$server_pgid" "$server_start_ticks" \
+                || identity_ok=false
+        fi
         start_group_signaled=true
     elif [[ ${flock_pid:-} =~ ^[0-9]+$ && ${flock_pgid:-} =~ ^[0-9]+$ ]] &&
             (( flock_pid > 1 && flock_pgid > 1 )) &&
             verify_aux_identity "$flock_pid" "${flock_start_ticks:-0}" \
                 "$LOCK_FILE" flock; then
-        kill -TERM -- "-$flock_pgid" 2>/dev/null || true
-        kill -KILL -- "-$flock_pgid" 2>/dev/null || true
+        signal_engine_identity TERM "$flock_pid" "$flock_pgid" "$flock_start_ticks" \
+            || identity_ok=false
+        if [[ $(proc_start_ticks "$flock_pid" 2>/dev/null || true) == "$flock_start_ticks" ]]; then
+            signal_engine_identity KILL "$flock_pid" "$flock_pgid" "$flock_start_ticks" \
+                || identity_ok=false
+        fi
         start_group_signaled=true
     fi
     if "$start_group_signaled"; then
         wait "$flock_pid" 2>/dev/null || true
     fi
 
-    # Explicit disarm handshake: engine first, retract target, then TERM the
-    # watchdog. TERM while the target still exists is an emergency SIGKILL path.
-    "$target_published" && rm -f -- "$TARGET_FILE"
-    target_published=false
+    # The watchdog accepts only an identity-bound DISARM record after the
+    # supervised start group is dead. Missing or malformed targets fail closed.
+    if "$target_published" && "$identity_ok" &&
+            [[ $(proc_start_ticks "$published_target_pid" 2>/dev/null || true) !=
+                "$published_target_start_ticks" ]]; then
+        publish_disarm "$published_target_pid" "$published_target_pgid" \
+            "$published_target_start_ticks"
+        watchdog_disarmed=true
+    fi
     if [[ ${memwatch_pid:-} =~ ^[0-9]+$ ]] && (( memwatch_pid > 1 )) &&
             verify_aux_identity "$memwatch_pid" "${memwatch_start_ticks:-0}" \
                 '01_memwatch.sh' memwatch; then
         kill -TERM "$memwatch_pid" 2>/dev/null || true
         wait "$memwatch_pid" 2>/dev/null || true
-        kill -KILL "$memwatch_pid" 2>/dev/null || true
+        if pid_alive "$memwatch_pid" &&
+                verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" \
+                    '01_memwatch.sh' memwatch; then
+            kill -KILL "$memwatch_pid" 2>/dev/null || true
+        fi
     fi
 
     "$state_published" && rm -f -- "$STATE_FILE"
-    rm -f -- "$WATCHDOG_READY"
+    "$watchdog_disarmed" && rm -f -- "$WATCHDOG_READY"
     [[ -z ${target_tmp:-} ]] || rm -f -- "$target_tmp"
     [[ -z ${start_gate:-} ]] || rm -f -- "$start_gate"
     return "$rc"
@@ -218,6 +278,27 @@ verify_aux_identity() {
     }
 }
 
+verify_watchdog_armed() {
+    local marker ready_pid ready_pgid ready_ticks ready_role ready_extra
+    local target_pid target_pgid target_ticks target_role target_extra identity
+    local current_pgid= current_ticks=
+    read -r marker ready_pid ready_pgid ready_ticks ready_role ready_extra \
+        <"$WATCHDOG_READY" 2>/dev/null || return 1
+    read -r target_pid target_pgid target_ticks target_role target_extra \
+        <"$TARGET_FILE" 2>/dev/null || return 1
+    [[ $marker == ARMED && -z ${ready_extra:-} && -z ${target_extra:-} &&
+        $ready_pid == "$target_pid" && $ready_pgid == "$target_pgid" &&
+        $ready_ticks == "$target_ticks" && $ready_role == "$target_role" &&
+        $target_pid == "$server_pid" && $target_ticks == "$server_start_ticks" &&
+        $target_role == engine ]] || return 1
+    identity=$(proc_identity "$target_pid") || return 1
+    read -r current_pgid current_ticks <<<"$identity"
+    [[ $current_pgid == "$target_pgid" && $current_ticks == "$target_ticks" ]] || return 1
+    armed_target_pid=$target_pid
+    armed_target_pgid=$target_pgid
+    armed_target_start_ticks=$target_ticks
+}
+
 write_state() {
     local temporary=$STATE_FILE.tmp.$$
     [[ $(proc_start_ticks "$server_pid" 2>/dev/null || true) == "$server_start_ticks" ]] \
@@ -258,17 +339,23 @@ PY
 }
 
 terminate_from_state() {
-    local pgid seconds current target recovery_ok=true flock_verified=false memwatch_verified=false
+    local seconds current target recovery_ok=true flock_verified=false memwatch_verified=false
+    local watchdog_armed=false identity_ok=true
     read_state
     verify_state_identity || return 2
     verify_aux_identity "$flock_pid" "$flock_start_ticks" "$LOCK_FILE" flock && flock_verified=true
     verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" '01_memwatch.sh' memwatch && memwatch_verified=true
+    verify_watchdog_armed && watchdog_armed=true
+    if ! "$memwatch_verified" || ! "$watchdog_armed"; then
+        printf 'ERROR: watchdog is DEGRADED; stopping only the verified server PID without a process-group signal.\n' >&2
+        identity_ok=false
+    fi
 
-    pgid=$(ps -o pgid= -p "$server_pid" 2>/dev/null | tr -d '[:space:]' || true)
-    if "$flock_verified" && [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
-        kill -TERM -- "-$pgid" 2>/dev/null || true
+    if "$memwatch_verified" && "$watchdog_armed"; then
+        signal_engine_identity TERM "$server_pid" "$armed_target_pgid" \
+            "$server_start_ticks" || identity_ok=false
     else
-        kill -TERM "$server_pid" 2>/dev/null || true
+        signal_verified_pid TERM "$server_pid" "$server_start_ticks" || identity_ok=false
     fi
 
     for ((seconds=0; seconds < 60; seconds++)); do
@@ -277,10 +364,11 @@ terminate_from_state() {
     done
     if pid_alive "$server_pid"; then
         printf 'Server did not exit after 60 seconds; sending SIGKILL.\n' >&2
-        if "$flock_verified" && [[ $pgid =~ ^[0-9]+$ ]] && (( pgid > 1 )); then
-            kill -KILL -- "-$pgid" 2>/dev/null || true
+        if "$memwatch_verified" && "$watchdog_armed"; then
+            signal_engine_identity KILL "$server_pid" "$armed_target_pgid" \
+                "$server_start_ticks" || identity_ok=false
         else
-            kill -KILL "$server_pid" 2>/dev/null || true
+            signal_verified_pid KILL "$server_pid" "$server_start_ticks" || identity_ok=false
         fi
     fi
     for ((seconds=0; seconds < 5; seconds++)); do
@@ -291,8 +379,13 @@ terminate_from_state() {
         printf 'ERROR: server remains alive after SIGKILL; watchdog stays armed.\n' >&2
         return 1
     fi
-    rm -f -- "$TARGET_FILE"
-    if "$memwatch_verified"; then
+    if "$watchdog_armed" && "$identity_ok"; then
+        publish_disarm "$armed_target_pid" "$armed_target_pgid" \
+            "$armed_target_start_ticks"
+    fi
+    if "$memwatch_verified" &&
+            verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" \
+                '01_memwatch.sh' memwatch; then
         kill -TERM "$memwatch_pid" 2>/dev/null || true
         for ((seconds=0; seconds < 50; seconds++)); do
             pid_alive "$memwatch_pid" || break
@@ -322,6 +415,7 @@ terminate_from_state() {
     done
     rm -f -- "$STATE_FILE" "$WATCHDOG_READY"
     "$recovery_ok" || { printf 'ERROR: memory did not recover within 120 seconds.\n' >&2; return 1; }
+    "$identity_ok" || return 1
 }
 
 do_stop() {
@@ -341,12 +435,13 @@ do_status() {
     [[ -r $STATE_FILE ]] || { printf 'ERROR: %s is not running (state file absent)\n' "$STACK" >&2; return 1; }
     read_state
     verify_state_identity || { printf 'ERROR: %s is not running (stale state removed)\n' "$STACK" >&2; return 1; }
-    local server_alive=false flock_alive=false memwatch_alive=false healthy=false
+    local server_alive=false flock_alive=false memwatch_alive=false watchdog_armed=false healthy=false
     pid_alive "$server_pid" && server_alive=true
     pid_alive "$flock_pid" && verify_aux_identity "$flock_pid" "$flock_start_ticks" "$LOCK_FILE" flock \
         && flock_alive=true
     pid_alive "$memwatch_pid" && verify_aux_identity "$memwatch_pid" "$memwatch_start_ticks" '01_memwatch.sh' memwatch \
         && memwatch_alive=true
+    "$memwatch_alive" && verify_watchdog_armed && watchdog_armed=true
     if "$server_alive" && curl --silent --show-error --fail --max-time 3 \
             "http://127.0.0.1:$state_port/health" >/dev/null 2>&1; then
         healthy=true
@@ -354,17 +449,21 @@ do_status() {
     "$server_alive" || printf 'ERROR: server_pid is dead\n' >&2
     "$flock_alive" || printf 'ERROR: flock_pid is dead\n' >&2
     "$memwatch_alive" || printf 'ERROR: memwatch_pid is dead\n' >&2
+    "$watchdog_armed" || printf 'ERROR: watchdog is DEGRADED (armed identity handshake is invalid)\n' >&2
     "$healthy" || printf 'ERROR: server health check failed\n' >&2
-    python3 - "$STATE_FILE" "$server_alive" "$flock_alive" "$memwatch_alive" "$healthy" <<'PY'
+    python3 - "$STATE_FILE" "$server_alive" "$flock_alive" "$memwatch_alive" "$watchdog_armed" "$healthy" <<'PY'
 import json
 import sys
 with open(sys.argv[1], encoding="utf-8") as stream:
     result = json.load(stream)
-for key, value in zip(("server_alive", "flock_alive", "memwatch_alive", "healthy"), sys.argv[2:]):
+for key, value in zip(
+    ("server_alive", "flock_alive", "memwatch_alive", "watchdog_armed", "healthy"),
+    sys.argv[2:],
+):
     result[key] = value == "true"
 print(json.dumps(result, separators=(",", ":")))
 PY
-    "$server_alive" && "$healthy" && "$flock_alive" && "$memwatch_alive"
+    "$server_alive" && "$healthy" && "$flock_alive" && "$memwatch_alive" && "$watchdog_armed"
 }
 
 shell_quote() {
@@ -391,6 +490,20 @@ publish_target() {
     mv -- "$target_tmp" "$TARGET_FILE"
     target_tmp=
     target_published=true
+    published_target_pid=$pid
+    published_target_pgid=$pgid
+    published_target_start_ticks=$start_ticks
+}
+
+publish_disarm() {
+    local pid=$1 pgid=$2 start_ticks=$3
+    [[ $pid =~ ^[0-9]+$ && $pgid =~ ^[0-9]+$ && $start_ticks =~ ^[0-9]+$ ]] \
+        || die 'cannot publish non-numeric watchdog disarm identity'
+    target_tmp=$TARGET_FILE.tmp.$$
+    printf 'DISARM %s %s %s\n' "$pid" "$pgid" "$start_ticks" >"$target_tmp"
+    mv -- "$target_tmp" "$TARGET_FILE"
+    target_tmp=
+    target_published=false
 }
 
 wait_for_watchdog_target() {
@@ -435,38 +548,62 @@ discover_server_pid() {
     die "server process did not appear; see $SERVER_LOG"
 }
 
-verify_shards() {
-    local path
-    for path in "${weights[@]}"; do
-        [[ ! -L $path ]] || die "model shard is a symlink: $path"
-        [[ -f $path && -r $path ]] || die "model shard is missing or unreadable: $path"
-    done
-}
-
-verify_binary() {
-    python3 - "$BUILD_MANIFEST" "$BINARY" <<'PY'
+verify_live_artifacts() {
+    local selected
+    selected=$(printf '%s\n' "${weights[@]}")
+    python3 - "$WEIGHTS_MANIFEST" "$BUILD_MANIFEST" "$BINARY" \
+        "$verify_weights" "$selected" <<'PY'
 import hashlib
 import json
 import os
+import stat
 import sys
 
-manifest_path, binary_path = sys.argv[1:]
+weights_manifest_path, build_manifest_path, binary_path, verify_mode, selected = sys.argv[1:]
+paths = selected.splitlines()
 try:
     if os.path.islink(binary_path):
         raise ValueError(f"server binary is a symlink: {binary_path}")
-    with open(manifest_path, encoding="utf-8") as stream:
-        manifest = json.load(stream)
-    expected = manifest["binaries"]["llama-server"]["sha256"]
+    with open(build_manifest_path, encoding="utf-8") as stream:
+        build_manifest = json.load(stream)
+    expected = build_manifest["binaries"]["llama-server"]["sha256"]
     if not isinstance(expected, str) or len(expected) != 64:
-        raise ValueError("invalid llama-server sha256 in build manifest")
+        raise ValueError("invalid llama-server sha256 in committed build manifest")
     digest = hashlib.sha256()
     with open(binary_path, "rb") as binary:
         for chunk in iter(lambda: binary.read(1024 * 1024), b""):
             digest.update(chunk)
     if digest.hexdigest() != expected:
         raise ValueError(f"server binary sha256 mismatch: {binary_path}")
+
+    with open(weights_manifest_path, encoding="utf-8") as stream:
+        weights_manifest = json.load(stream)
+    entries = {item["name"]: item for item in weights_manifest["files"]}
+    if set(entries) != {os.path.basename(path) for path in paths}:
+        raise ValueError("selected shard names do not exactly match weights manifest")
+    for path in paths:
+        if os.path.islink(path):
+            raise ValueError(f"model shard is a symlink: {path}")
+        info = os.stat(path)
+        if not stat.S_ISREG(info.st_mode):
+            raise ValueError(f"model shard is not a regular file: {path}")
+        if info.st_mode & (stat.S_IWGRP | stat.S_IWOTH):
+            raise ValueError(f"model shard is group/other writable: {path}")
+        entry = entries[os.path.basename(path)]
+        expected_bytes = entry.get("bytes")
+        if not isinstance(expected_bytes, int) or isinstance(expected_bytes, bool):
+            raise ValueError(f"invalid shard byte size in manifest: {path}")
+        if info.st_size != expected_bytes:
+            raise ValueError(f"model shard byte-size mismatch: {path}")
+        if verify_mode == "full":
+            shard_digest = hashlib.sha256()
+            with open(path, "rb") as shard:
+                for chunk in iter(lambda: shard.read(16 * 1024 * 1024), b""):
+                    shard_digest.update(chunk)
+            if shard_digest.hexdigest() != entry["sha256"]:
+                raise ValueError(f"model shard sha256 mismatch: {path}")
 except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
-    print(f"binary integrity check failed: {error}", file=sys.stderr)
+    print(f"live artifact integrity check failed: {error}", file=sys.stderr)
     sys.exit(1)
 PY
 }
@@ -477,6 +614,9 @@ do_start() {
     CTX=${CTX:-32768}
     [[ $CTX =~ ^[1-9][0-9]*$ ]] || die 'CTX must be a positive integer'
     API_KEY_FILE=${API_KEY_FILE:-}
+    verify_weights=${DSV4_VERIFY_WEIGHTS:-size}
+    [[ $verify_weights == size || $verify_weights == full ]] \
+        || die 'DSV4_VERIFY_WEIGHTS must be size or full'
 
     SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) || die 'cannot resolve script directory'
     REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." && pwd -P) || die 'cannot resolve repository root'
@@ -484,14 +624,16 @@ do_start() {
     MEMBUDGET=$REPO_ROOT/scripts/02_membudget.py
     MEMWATCH=$REPO_ROOT/scripts/01_memwatch.sh
     BINARY=$LLAMACPP_HOME/src/llama.cpp/build/bin/llama-server
-    BUILD_MANIFEST=$LLAMACPP_HOME/build-manifest.json
+    BUILD_MANIFEST=$REPO_ROOT/configs/build-manifests/llamacpp.json
+    WEIGHTS_MANIFEST=$REPO_ROOT/weights/unsloth-ud-q2_k_xl/manifest.json
     LOG_DIR=$HOME/logs
     SERVER_LOG=$LOG_DIR/llamacpp-server.log
     MEMWATCH_LOG=$LOG_DIR/memwatch-llamacpp.log
 
     for command_name in python3 flock setsid curl awk ps tr date mkdir; do need_command "$command_name"; done
     [[ -x $BINARY ]] || die "llama-server is missing or not executable: $BINARY"
-    [[ -r $BUILD_MANIFEST ]] || die "build manifest is missing or unreadable: $BUILD_MANIFEST"
+    [[ -r $BUILD_MANIFEST ]] || die "committed build manifest is missing or unreadable: $BUILD_MANIFEST"
+    [[ -r $WEIGHTS_MANIFEST ]] || die "weights manifest is missing or unreadable: $WEIGHTS_MANIFEST"
     [[ -r $MEMBUDGET && -r $MEMWATCH ]] || die 'memory safety scripts are missing or unreadable'
     if [[ -n $API_KEY_FILE ]]; then
         [[ -f $API_KEY_FILE && -r $API_KEY_FILE ]] \
@@ -517,8 +659,12 @@ do_start() {
     else
         die 'MODEL_PATH must name the first shard with suffix -00001-of-00003.gguf'
     fi
-    verify_shards
-    verify_binary
+    if [[ $verify_weights == full ]]; then
+        printf 'Weight verification mode: full SHA-256 against repository manifest.\n' >&2
+    else
+        printf 'Weight verification mode: size-only against repository manifest (set DSV4_VERIFY_WEIGHTS=full for SHA-256).\n' >&2
+    fi
+    verify_live_artifacts
 
     local help_output
     help_output=$("$BINARY" --help 2>&1) || die 'llama-server --help failed'
@@ -567,7 +713,7 @@ do_start() {
         pid_alive "$memwatch_pid" || die 'memory watchdog failed during initialization'
         sleep 0.05
     done
-    [[ -e $WATCHDOG_READY ]] || { kill -TERM "$memwatch_pid" 2>/dev/null || true; die 'memory watchdog initialization timed out'; }
+    [[ -e $WATCHDOG_READY ]] || { signal_verified_pid TERM "$memwatch_pid" "$memwatch_start_ticks" || true; die 'memory watchdog initialization timed out'; }
 
     # The dedicated start group is gated so the watchdog target is published
     # before the engine can exec. The launcher becomes flock without changing

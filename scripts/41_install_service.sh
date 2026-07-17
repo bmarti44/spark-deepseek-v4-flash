@@ -3,7 +3,8 @@ set -Eeuo pipefail
 umask 077
 
 usage() {
-    printf 'Usage: %s <ds4|llamacpp> [--keep-key]\n' "${0##*/}" >&2
+    printf 'Usage: %s <ds4|llamacpp> [--keep-key] [--acknowledge-decision-override]\n' \
+        "${0##*/}" >&2
     exit 2
 }
 
@@ -14,6 +15,7 @@ die() {
 
 stack=
 keep_key=false
+acknowledge_decision_override=false
 while (( $# > 0 )); do
     case $1 in
         ds4|llamacpp)
@@ -24,11 +26,25 @@ while (( $# > 0 )); do
             "$keep_key" && usage
             keep_key=true
             ;;
+        --acknowledge-decision-override)
+            "$acknowledge_decision_override" && usage
+            acknowledge_decision_override=true
+            ;;
         *) usage ;;
     esac
     shift
 done
 [[ -n $stack ]] || usage
+if [[ $stack != llamacpp ]] && ! "$acknowledge_decision_override"; then
+    cat >&2 <<'EOF'
+DECISION-OVERRIDE.md summary:
+  The frozen benchmark verdict selected ds4 for the measured <=28K workload.
+  The product decision overrides that benchmark verdict: llamacpp is the
+  production engine because the large-context roadmap exceeds ds4's envelope.
+  Installing any other stack requires --acknowledge-decision-override.
+EOF
+    die 'refusing non-production stack without explicit decision-override acknowledgement'
+fi
 (( EUID == 0 )) || die 'must run as root'
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)

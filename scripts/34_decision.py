@@ -37,6 +37,9 @@ TRANSCRIPTS_DIR = RESULTS_DIR / "transcripts"
 MANIFEST_PATH = REPO_ROOT / "verification" / "MANIFEST.sha256"
 ACCURACY_HARNESS_PATH = REPO_ROOT / "scripts" / "31_bench_accuracy.py"
 SPEED_TOKENIZER_PATH = REPO_ROOT / "vendor" / "official-encoding" / "tokenizer.json"
+HUMANEVAL_RUNTIME_PIN_PATH = (
+    REPO_ROOT / "configs" / "pins" / "humaneval-runtime.json"
+)
 STACKS = ("ds4", "llamacpp")
 INPUT_PATHS = {
     "ds4": {
@@ -114,8 +117,15 @@ SOAK_MIN_WINDOW_REQUESTS = 5
 SOAK_DURATION_RATIO = 0.95
 SOAK_HEALTH_PROBE_INTERVAL = 30.0
 SOAK_MEMORY_SAMPLE_INTERVAL = 1.0
+SOAK_PROMPT_ROTATION_SIZE = 8
 SOAK_MIN_HEALTH_PROBES = max(
     10, math.floor(SOAK_DURATION / SOAK_HEALTH_PROBE_INTERVAL / 2)
+)
+SPEED_MIN_VALID_COMPLETION_TOKENS = 200
+SPEED_MAX_TOKEN_COUNT_ERROR = 0.02
+LLAMACPP_MODEL_SUFFIX = (
+    "weights/unsloth-ud-q2_k_xl/"
+    "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
 )
 SPEED_EXPECTED_METADATA = {
     "ds4": {
@@ -144,10 +154,7 @@ SPEED_EXPECTED_METADATA = {
         "seed": 42,
         "prefill_rate_label": "incl. queue+setup",
         "iqr_method": "inclusive quartiles",
-        "model": (
-            "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/"
-            "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
-        ),
+        "model": LLAMACPP_MODEL_SUFFIX,
         "fixture_path": "fixtures/ctx-32k.txt",
         "fixture_total_tokens": 40657,
     },
@@ -161,10 +168,7 @@ SOAK_EXPECTED_IDENTITY = {
     },
     "llamacpp": {
         "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
-        "model": (
-            "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/"
-            "DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
-        ),
+        "model": LLAMACPP_MODEL_SUFFIX,
         "max_tokens": 256,
         "extra_body": {"chat_template_kwargs": {"enable_thinking": False}},
     },
@@ -420,6 +424,12 @@ def require_int(value: Any, label: str) -> int:
     return value
 
 
+def identity_matches(name: str, actual: Any, expected: Any) -> bool:
+    if name == "model" and expected == LLAMACPP_MODEL_SUFFIX:
+        return isinstance(actual, str) and actual.endswith(expected)
+    return actual == expected
+
+
 def evidence_failure(path: Path, reason: str, **details: Any) -> dict[str, Any]:
     return {"path": path_label(path), "status": "fail", "reason": reason, **details}
 
@@ -512,6 +522,25 @@ def read_audit_evidence(path: Path, stack: str) -> dict[str, Any]:
             "accuracy audit bindings do not match current results, transcripts, "
             "evalsets, or scripts/31 manifest entry",
         )
+    runtime = document.get("humaneval_runtime")
+    if not isinstance(runtime, dict):
+        return evidence_failure(path, "accuracy audit humaneval_runtime is absent or invalid")
+    try:
+        runtime_pin = load_object(HUMANEVAL_RUNTIME_PIN_PATH)
+        current_pin_sha256 = sha256_file(HUMANEVAL_RUNTIME_PIN_PATH)
+    except DecisionInputError as error:
+        return evidence_failure(path, str(error))
+    expected_runtime = {
+        "image": "python:3.12-slim",
+        "repo_digest": runtime_pin.get("repo_digest"),
+        "pin_sha256": current_pin_sha256,
+    }
+    for name, expected in expected_runtime.items():
+        if runtime.get(name) != expected:
+            return evidence_failure(
+                path,
+                f"accuracy audit humaneval_runtime.{name} does not match current pin",
+            )
     return {
         "path": label,
         "status": "pass",
@@ -520,6 +549,7 @@ def read_audit_evidence(path: Path, stack: str) -> dict[str, Any]:
         "stack": stack,
         "suite_counts": counts,
         "bindings": current_bindings,
+        "humaneval_runtime": expected_runtime,
     }
 
 
@@ -581,7 +611,7 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         return evidence_failure(path, "soak stack_label does not match candidate")
     expected_identity = SOAK_EXPECTED_IDENTITY[stack]
     for name, expected in expected_identity.items():
-        if name not in document or document[name] != expected:
+        if name not in document or not identity_matches(name, document[name], expected):
             return evidence_failure(
                 path,
                 f"soak identity field {name!r} does not match candidate",
@@ -658,11 +688,61 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         require_frozen_spacing(
             health_timestamps, SOAK_HEALTH_PROBE_INTERVAL, f"{label}.health_probes"
         )
+        if (
+            not mem_timestamps
+            or mem_timestamps[0] > 2 * SOAK_MEMORY_SAMPLE_INTERVAL
+            or elapsed - mem_timestamps[-1] > 2 * SOAK_MEMORY_SAMPLE_INTERVAL
+        ):
+            raise DecisionInputError(
+                f"{label}.mem_samples do not cover both run endpoints within "
+                f"{2 * SOAK_MEMORY_SAMPLE_INTERVAL!r} seconds"
+            )
+        if (
+            not health_timestamps
+            or health_timestamps[0] > 2 * SOAK_HEALTH_PROBE_INTERVAL
+            or elapsed - health_timestamps[-1] > 2 * SOAK_HEALTH_PROBE_INTERVAL
+        ):
+            raise DecisionInputError(
+                f"{label}.health_probes do not cover both run endpoints within "
+                f"{2 * SOAK_HEALTH_PROBE_INTERVAL!r} seconds"
+            )
+        request_events: list[tuple[int, int, float, str, dict[str, Any]]] = []
+        previous_rep_index: int | None = None
         for index, rep in enumerate(reps):
             t_start = rep_timestamps[index]
+            request_index = require_int(
+                rep.get("index"), f"{label}.reps[{index}].index"
+            )
+            if previous_rep_index is not None and request_index <= previous_rep_index:
+                raise DecisionInputError(
+                    f"{label}.reps[{index}].index is not strictly increasing"
+                )
+            previous_rep_index = request_index
+            prompt_index = require_int(
+                rep.get("prompt_index"), f"{label}.reps[{index}].prompt_index"
+            )
+            completion_tokens = require_int(
+                rep.get("completion_tokens"),
+                f"{label}.reps[{index}].completion_tokens",
+            )
+            if not 0 < completion_tokens <= expected_identity["max_tokens"]:
+                raise DecisionInputError(
+                    f"{label}.reps[{index}].completion_tokens={completion_tokens!r} "
+                    f"is outside [1, {expected_identity['max_tokens']}]"
+                )
+            ttft = require_number(rep.get("ttft_s"), f"{label}.reps[{index}].ttft_s")
+            if ttft <= 0:
+                raise DecisionInputError(
+                    f"{label}.reps[{index}].ttft_s must be positive"
+                )
             decode = require_number(
                 rep.get("decode_tok_s"), f"{label}.reps[{index}].decode_tok_s"
             )
+            if decode <= 0:
+                raise DecisionInputError(
+                    f"{label}.reps[{index}].decode_tok_s must be positive"
+                )
+            request_events.append((request_index, prompt_index, t_start, "rep", rep))
             if t_start < window:
                 first.append(decode)
             if t_start >= elapsed - window:
@@ -672,8 +752,55 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
             memory_values.append(
                 require_number(sample.get("gib"), f"{label}.mem_samples[{index}].gib")
             )
+        previous_error_index: int | None = None
         for index, error_record in enumerate(errors):
-            require_number(error_timestamps[index], f"{label}.errors[{index}].t")
+            request_index = require_int(
+                error_record.get("index"), f"{label}.errors[{index}].index"
+            )
+            if previous_error_index is not None and request_index <= previous_error_index:
+                raise DecisionInputError(
+                    f"{label}.errors[{index}].index is not strictly increasing"
+                )
+            previous_error_index = request_index
+            prompt_index = require_int(
+                error_record.get("prompt_index"),
+                f"{label}.errors[{index}].prompt_index",
+            )
+            request_events.append(
+                (request_index, prompt_index, error_timestamps[index], "error", error_record)
+            )
+        request_events.sort(key=lambda item: item[0])
+        request_indices = [item[0] for item in request_events]
+        if request_indices != list(range(len(request_events))):
+            raise DecisionInputError(
+                f"{label} request indices are not strictly increasing and contiguous from zero"
+            )
+        for position, (request_index, prompt_index, timestamp, kind, record) in enumerate(
+            request_events
+        ):
+            if position > 0 and timestamp <= request_events[position - 1][2]:
+                raise DecisionInputError(
+                    f"{label} request timestamps are not strictly increasing by index"
+                )
+            if prompt_index != request_index % SOAK_PROMPT_ROTATION_SIZE:
+                raise DecisionInputError(
+                    f"{label} request {request_index} prompt_index={prompt_index!r}; "
+                    "expected the frozen eight-prompt rotation"
+                )
+            if kind == "rep":
+                request_end = (
+                    request_events[position + 1][2]
+                    if position + 1 < len(request_events)
+                    else elapsed
+                )
+                ttft = require_number(
+                    record.get("ttft_s"), f"{label}.reps request {request_index}.ttft_s"
+                )
+                if request_end <= timestamp or ttft >= request_end - timestamp:
+                    raise DecisionInputError(
+                        f"{label} request {request_index} TTFT is not less than its "
+                        "total request duration"
+                    )
         health_statuses: list[int] = []
         for index, probe in enumerate(health_probes):
             health_statuses.append(
@@ -694,6 +821,11 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     memory_sampler_error = document.get("memory_sampler_error")
     if memory_sampler_error is not None and not isinstance(memory_sampler_error, str):
         return evidence_failure(path, "memory_sampler_error must be null or a string")
+    minimum_health_probes = max(
+        SOAK_MIN_HEALTH_PROBES,
+        SOAK_MEM_SAMPLE_DENSITY
+        * math.floor(elapsed / SOAK_HEALTH_PROBE_INTERVAL),
+    )
     recomputed_gates = {
         "zero_errors": len(errors) == 0,
         "enough_requests": len(reps) >= SOAK_MIN_REQUESTS,
@@ -715,7 +847,7 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
             min_memory is not None and min_memory >= SOAK_MEM_FLOOR_GIB
         ),
         "health_all_ok": (
-            len(health_statuses) >= SOAK_MIN_HEALTH_PROBES
+            len(health_statuses) >= minimum_health_probes
             and all(status == 200 for status in health_statuses)
         ),
         "duration_met": elapsed >= SOAK_DURATION_RATIO * SOAK_DURATION,
@@ -754,7 +886,7 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
         "duration_seconds_actual": elapsed,
         "n_requests": n_requests,
         "n_health_probes": len(health_statuses),
-        "minimum_health_probes": SOAK_MIN_HEALTH_PROBES,
+        "minimum_health_probes": minimum_health_probes,
         "recomputed_gates": recomputed_gates,
         "recomputed": {
             "decode_first_window_median_tok_s": first_median,
@@ -765,6 +897,33 @@ def read_soak_evidence(path: Path, stack: str) -> dict[str, Any]:
     }
 
 
+def recompute_speed_rep_validity(rep: dict[str, Any]) -> bool:
+    completion_tokens = rep.get("completion_tokens")
+    client_completion_tokens = rep.get("client_completion_tokens")
+    ttft = rep.get("ttft_s")
+    decode = rep.get("decode_tok_s")
+    if (
+        not isinstance(completion_tokens, int)
+        or isinstance(completion_tokens, bool)
+        or completion_tokens < SPEED_MIN_VALID_COMPLETION_TOKENS
+        or not isinstance(client_completion_tokens, int)
+        or isinstance(client_completion_tokens, bool)
+        or not isinstance(ttft, (int, float))
+        or isinstance(ttft, bool)
+        or not math.isfinite(float(ttft))
+        or float(ttft) <= 0
+        or not isinstance(decode, (int, float))
+        or isinstance(decode, bool)
+        or not math.isfinite(float(decode))
+        or float(decode) <= 0
+    ):
+        return False
+    token_count_error = (
+        abs(client_completion_tokens - completion_tokens) / completion_tokens
+    )
+    return token_count_error <= SPEED_MAX_TOKEN_COUNT_ERROR
+
+
 def read_speed(path: Path, stack: str) -> dict[str, Any]:
     document = load_object(path)
     metadata = field(document, "metadata", path)
@@ -772,7 +931,7 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
         raise DecisionInputError(f"{relative(path)}.metadata: expected an object")
     expected_metadata = SPEED_EXPECTED_METADATA[stack]
     for name, expected in expected_metadata.items():
-        if name not in metadata or metadata[name] != expected:
+        if name not in metadata or not identity_matches(name, metadata[name], expected):
             raise DecisionInputError(
                 f"{relative(path)}.metadata.{name}: expected {expected!r}, "
                 f"got {metadata.get(name)!r}"
@@ -789,6 +948,8 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
     if not isinstance(cells, list):
         raise DecisionInputError(f"{relative(path)}.cells: expected an array")
     cell_validity: dict[int, bool] = {}
+    rep_validity_by_context: dict[int, list[bool]] = {}
+    ttft_medians: dict[str, float] = {}
     for cell_index, cell in enumerate(cells):
         if not isinstance(cell, dict):
             raise DecisionInputError(
@@ -804,22 +965,44 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
         if not isinstance(reps, list):
             raise DecisionInputError(f"{relative(path)} {context} reps: expected an array")
         invalid_reps = 0
+        recomputed_rep_validity: list[bool] = []
+        valid_ttft_values: list[float] = []
         for rep_index, rep in enumerate(reps):
             if not isinstance(rep, dict):
                 raise DecisionInputError(
                     f"{relative(path)} {context} reps[{rep_index}]: expected an object"
                 )
-            if not require_bool(
+            reported_valid = require_bool(
                 field(rep, "valid", path),
                 f"{relative(path)} {context} reps[{rep_index}].valid",
-            ):
+            )
+            recomputed_valid = recompute_speed_rep_validity(rep)
+            if reported_valid is not recomputed_valid:
+                raise DecisionInputError(
+                    f"{relative(path)} {context} reps[{rep_index}].valid does not "
+                    "match recomputed completion-token, tokenizer, and timing predicates"
+                )
+            recomputed_rep_validity.append(recomputed_valid)
+            if recomputed_valid:
+                valid_ttft_values.append(float(rep["ttft_s"]))
+            else:
                 invalid_reps += 1
+        recomputed_ttft = (
+            statistics.median(valid_ttft_values) if valid_ttft_values else None
+        )
+        if not summary_matches(recomputed_ttft, cell.get("median_ttft")):
+            raise DecisionInputError(
+                f"{relative(path)} {context} median_ttft does not match raw valid reps"
+            )
+        if recomputed_ttft is not None:
+            ttft_medians[str(context)] = recomputed_ttft
         actual_valid = invalid_reps <= 2
         if cell.get("invalid_reps") != invalid_reps or cell.get("valid") is not actual_valid:
             raise DecisionInputError(
                 f"{relative(path)} {context}: reported cell validity does not match raw reps"
             )
         cell_validity[context] = actual_valid
+        rep_validity_by_context[context] = recomputed_rep_validity
     expected_contexts = {0, 4096, 16384, 28672}
     if set(cell_validity) != expected_contexts:
         raise DecisionInputError(
@@ -844,7 +1027,6 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
                 f"ctx_tokens=={context}; found {len(matches)}"
             )
         selected[context] = matches[0]
-    ttft_medians: dict[str, float] = {}
     decode_medians: dict[str, float] = {}
     all_decode_medians: dict[str, float] = {}
     rep_counts: dict[str, int] = {}
@@ -858,17 +1040,10 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
         reported_median = require_number(
             raw_median, f"{relative(path)} {context} median_decode"
         )
-        raw_ttft = field(context_cell, "median_ttft", path)
-        if raw_ttft is None:
+        if str(context) not in ttft_medians:
             raise DecisionInputError(
                 f"{relative(path)}: {context} cell required field 'median_ttft' is null"
             )
-        ttft = require_number(raw_ttft, f"{relative(path)} {context} median_ttft")
-        if ttft < 0:
-            raise DecisionInputError(
-                f"{relative(path)} {context} median_ttft: must be nonnegative"
-            )
-        ttft_medians[str(context)] = ttft
         reps = field(context_cell, "reps", path)
         if not isinstance(reps, list):
             raise DecisionInputError(
@@ -876,15 +1051,13 @@ def read_speed(path: Path, stack: str) -> dict[str, Any]:
             )
         valid_decode_values: list[float] = []
         all_decode_values: list[float] = []
-        for index, rep in enumerate(reps):
+        for index, (rep, valid) in enumerate(
+            zip(reps, rep_validity_by_context[context], strict=True)
+        ):
             if not isinstance(rep, dict):
                 raise DecisionInputError(
                     f"{relative(path)} {context} reps[{index}]: expected an object"
                 )
-            valid = require_bool(
-                field(rep, "valid", path),
-                f"{relative(path)} {context} reps[{index}].valid",
-            )
             raw_decode = field(rep, "decode_tok_s", path)
             if raw_decode is not None:
                 decode = require_number(

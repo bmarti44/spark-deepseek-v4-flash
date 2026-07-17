@@ -24,7 +24,7 @@ Watch MemAvailable immediately, then watch and terminate the engine process
 group after its PID and PGID are published to PATH.
 
 Options:
-  --target-file PATH     File containing "PID PGID START_TICKS ROLE" when armed
+  --target-file PATH     Armed identity or "DISARM PID PGID START_TICKS"
   --ready-file PATH      Created only after watchdog initialization succeeds
   --threshold-gib N      Breach threshold in GiB (default: 12)
   --interval-sec N       Sampling interval in seconds (default: 1)
@@ -50,6 +50,12 @@ safe_log() {
 }
 
 proc_start_ticks() {
+    local identity
+    identity=$(proc_identity "$1") || return 1
+    printf '%s\n' "${identity#* }"
+}
+
+proc_identity() {
     local stat_line
     local -a stat_fields
     [[ $1 =~ ^[0-9]+$ ]] && [[ -r /proc/$1/stat ]] || return 1
@@ -57,38 +63,40 @@ proc_start_ticks() {
     stat_line=${stat_line##*) }
     read -r -a stat_fields <<<"$stat_line"
     (( ${#stat_fields[@]} > 19 )) || return 1
-    [[ ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
-    printf '%s\n' "${stat_fields[19]}"
-}
-
-verify_target_identity() {
-    local current_ticks
-    current_ticks=$(proc_start_ticks "$target_pid") || current_ticks=
-    if [[ -z $current_ticks || $current_ticks != "$target_start_ticks" ]]; then
-        printf '01_memwatch.sh: FAIL_CLOSED target identity mismatch; refusing to signal pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
-            "$target_pid" "$target_start_ticks" "${current_ticks:-unavailable}" >&2
-        return 1
-    fi
+    [[ ${stat_fields[2]} =~ ^[0-9]+$ && ${stat_fields[19]} =~ ^[0-9]+$ ]] || return 1
+    printf '%s %s\n' "${stat_fields[2]}" "${stat_fields[19]}"
 }
 
 refresh_target() {
-    local new_pid new_pgid new_start_ticks new_role extra previous_identity current_ticks
+    local first second third fourth extra previous_identity identity current_pgid current_ticks
+    local new_pid new_pgid new_start_ticks new_role
     local previously_armed=$armed
-    if [[ ! -e $target_file ]]; then
-        if "$armed"; then
-            safe_log "DISARMED previous_target_pid=$target_pid previous_target_role=$target_role"
-        fi
-        armed=false
-        target_pid=
-        target_pgid=
-        target_start_ticks=
-        target_role=
-        return 1
-    fi
-    if ! read -r new_pid new_pgid new_start_ticks new_role extra <"$target_file"; then
-        [[ ! -e $target_file ]] && return 1
+    [[ -e $target_file ]] || return 2
+    if ! read -r first second third fourth extra <"$target_file"; then
         return 2
     fi
+    if [[ $first == DISARM ]]; then
+        [[ -z ${extra:-} && $second =~ ^[0-9]+$ && $third =~ ^[0-9]+$ &&
+                $fourth =~ ^[0-9]+$ ]] || return 2
+        if ! "$armed" || [[ $second != "$target_pid" || $third != "$target_pgid" ||
+                $fourth != "$target_start_ticks" ]]; then
+            printf '01_memwatch.sh: FAIL_CLOSED unauthenticated DISARM record expected=%s/%s/%s actual=%s/%s/%s\n' \
+                "${target_pid:-unarmed}" "${target_pgid:-unarmed}" \
+                "${target_start_ticks:-unarmed}" "$second" "$third" "$fourth" >&2
+            return 2
+        fi
+        safe_log "DISARMED target_pid=$target_pid target_pgid=$target_pgid target_start_ticks=$target_start_ticks target_role=$target_role" \
+            || return 2
+        printf 'DISARMED %s %s %s\n' "$target_pid" "$target_pgid" \
+            "$target_start_ticks" >"$ready_file" || return 2
+        armed=false
+        expected_exit=true
+        exit 0
+    fi
+    new_pid=$first
+    new_pgid=$second
+    new_start_ticks=$third
+    new_role=$fourth
     # A missing role is accepted as a legacy final-engine target. New publishers
     # always identify provisional versus final targets explicitly.
     [[ -n ${new_role:-} ]] || new_role=engine
@@ -96,14 +104,30 @@ refresh_target() {
             $new_start_ticks =~ ^[0-9]+$ && $new_role =~ ^(provisional|engine)$ ]] \
         || return 2
     (( new_pid > 1 && new_pgid > 1 && new_start_ticks > 0 )) || return 2
-    current_ticks=$(proc_start_ticks "$new_pid") || current_ticks=
+    identity=$(proc_identity "$new_pid") || identity=
+    current_pgid=
+    current_ticks=
+    [[ -z $identity ]] || read -r current_pgid current_ticks <<<"$identity"
     if [[ -z $current_ticks || $current_ticks != "$new_start_ticks" ]]; then
         printf '01_memwatch.sh: FAIL_CLOSED target identity mismatch; refusing to arm pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
             "$new_pid" "$new_start_ticks" "${current_ticks:-unavailable}" >&2
         return 2
     fi
+    if [[ $current_pgid != "$new_pgid" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED target process-group mismatch; refusing to arm pid=%s expected_pgid=%s actual_pgid=%s\n' \
+            "$new_pid" "$new_pgid" "${current_pgid:-unavailable}" >&2
+        return 2
+    fi
 
     previous_identity=${target_pid:-}:${target_pgid:-}:${target_start_ticks:-}:${target_role:-}
+    if "$previously_armed" &&
+            [[ $previous_identity != "$new_pid:$new_pgid:$new_start_ticks:$new_role" ]] &&
+            ! [[ $target_role == provisional && $new_role == engine &&
+                $new_pgid == "$target_pgid" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED armed target record changed without an authorized provisional-to-engine transition\n' >&2
+        return 2
+    fi
+
     target_pid=$new_pid
     target_pgid=$new_pgid
     target_start_ticks=$new_start_ticks
@@ -118,39 +142,60 @@ refresh_target() {
     fi
 }
 
+signal_verified_target() {
+    local signal=$1 identity current_pgid= current_ticks=
+    identity=$(proc_identity "$target_pid") || identity=
+    if [[ -n $identity ]]; then
+        read -r current_pgid current_ticks <<<"$identity"
+    fi
+    if [[ -z $current_ticks || $current_ticks != "$target_start_ticks" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED refusing %s; pid=%s expected_start_ticks=%s actual_start_ticks=%s\n' \
+            "$signal" "$target_pid" "$target_start_ticks" \
+            "${current_ticks:-unavailable}" >&2
+        return 1
+    fi
+    if [[ $current_pgid != "$target_pgid" ]]; then
+        printf '01_memwatch.sh: FAIL_CLOSED %s process-group mismatch; signaling verified pid only pid=%s expected_pgid=%s actual_pgid=%s\n' \
+            "$signal" "$target_pid" "$target_pgid" \
+            "${current_pgid:-unavailable}" >&2
+        kill -"$signal" -- "$target_pid" 2>/dev/null || true
+        return 2
+    fi
+    kill -"$signal" -- "-$target_pgid" 2>/dev/null || true
+}
+
 # mode "immediate": SIGKILL now — used on memory breach, where every second of
 # grace risks a hard UMA freeze. mode "graceful": TERM, 10s, then KILL — used on
 # watchdog-internal failures where memory itself is not known to be critical.
 terminate_engine_group() {
     local mode=${1:-immediate}
     local seconds
+    local identity_ok=true
     "$armed" || return 0
-    verify_target_identity || return 1
     if [[ $mode == graceful ]]; then
-        if [[ $target_pgid =~ ^[0-9]+$ ]] && (( target_pgid > 1 )); then
-            kill -TERM -- "-$target_pgid" 2>/dev/null || true
-        else
-            kill -TERM -- "$target_pid" 2>/dev/null || true
-        fi
+        signal_verified_target TERM || identity_ok=false
         for ((seconds=0; seconds < 10; seconds++)); do
             [[ -d /proc/$target_pid ]] || break
             sleep 1
         done
-        [[ -d /proc/$target_pid ]] || return 0
+        if [[ ! -d /proc/$target_pid ]]; then
+            "$identity_ok" && return 0
+            return 1
+        fi
     fi
-    verify_target_identity || return 1
-    if [[ $target_pgid =~ ^[0-9]+$ ]] && (( target_pgid > 1 )); then
-        kill -KILL -- "-$target_pgid" 2>/dev/null || true
-    fi
-    kill -KILL -- "$target_pid" 2>/dev/null || true
+    signal_verified_target KILL || identity_ok=false
+    "$identity_ok"
 }
 
 fail_closed() {
     local reason=${1:-unexpected watchdog exit}
+    local mode=${2:-graceful}
     "$handling_failure" && return 0
     handling_failure=true
     safe_log "FAIL_CLOSED reason=$reason target_pid=${target_pid:-unarmed} target_pgid=${target_pgid:-unarmed} target_start_ticks=${target_start_ticks:-unarmed}" || true
-    terminate_engine_group graceful || true
+    printf '01_memwatch.sh: FAIL_CLOSED reason=%s target_pid=%s target_pgid=%s\n' \
+        "$reason" "${target_pid:-unarmed}" "${target_pgid:-unarmed}" >&2
+    terminate_engine_group "$mode" || true
 }
 
 on_error() {
@@ -171,20 +216,17 @@ on_exit() {
 on_term() {
     local signal=${1:-TERM}
     trap - ERR
-    if [[ ! -e $target_file ]]; then
+    if ! "$armed" && [[ ! -e $target_file ]]; then
         expected_exit=true
-        armed=false
-        safe_log "STOP clean_disarmed signal=$signal" || \
-            printf '01_memwatch.sh: clean disarmed stop; log write failed\n' >&2
+        safe_log "STOP unarmed signal=$signal" || \
+            printf '01_memwatch.sh: clean unarmed stop; log write failed\n' >&2
         exit 0
     fi
     if ! refresh_target; then
-        if "$armed" && verify_target_identity; then
-            terminate_engine_group immediate || true
-        fi
+        "$armed" && terminate_engine_group immediate || true
         expected_exit=true
         safe_log "FAIL_CLOSED signal=$signal armed_target_unreadable" || true
-        printf '01_memwatch.sh: FAIL_CLOSED %s received with a published but invalid target; exiting nonzero\n' \
+        printf '01_memwatch.sh: FAIL_CLOSED %s received with a missing, unreadable, or invalid armed target; exiting nonzero\n' \
             "$signal" >&2
         exit 1
     fi
@@ -264,10 +306,10 @@ while true; do
     available_kib=$(awk '$1 == "MemAvailable:" {print $2; found=1; exit} END {if (!found) exit 1}' /proc/meminfo)
     [[ $available_kib =~ ^[0-9]+$ ]] || { fail_closed 'invalid_MemAvailable'; exit 1; }
 
-    if [[ -e $target_file ]]; then
+    if "$armed"; then
+        refresh_target || { fail_closed 'missing_invalid_or_unverifiable_armed_target' immediate; exit 1; }
+    elif [[ -e $target_file ]]; then
         refresh_target || { fail_closed 'invalid_or_unverifiable_target_file'; exit 1; }
-    elif "$armed"; then
-        refresh_target || true
     fi
 
     sample_number=$((sample_number + 1))
@@ -299,9 +341,10 @@ while true; do
     fi
 
     if "$armed" && [[ ! -d /proc/$target_pid ]]; then
-        safe_log 'TARGET_EXITED normally'
+        safe_log 'FAIL_CLOSED target_exited_without_authenticated_disarm' || true
+        printf '01_memwatch.sh: FAIL_CLOSED armed target exited without an authenticated DISARM record\n' >&2
         expected_exit=true
-        exit 0
+        exit 1
     fi
     sleep "$interval_sec"
 done
