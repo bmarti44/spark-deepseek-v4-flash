@@ -11,6 +11,11 @@ RemainAfterExit=yes
 User=dsv4
 Group=dsv4
 Environment=HOME=/home/dsv4
+# Projected-free memory floor for the startup budget gate. 15 GiB keeps a 3 GiB
+# buffer above the 12 GiB external watchdog kill line; the 90 GiB model on this
+# 119 GiB host lands at ~16-20 GiB free in practice. 16 was too tight once the
+# host's non-reclaimable baseline settled after first boot (projected 15.9).
+Environment=DSV4_MEM_FLOOR_GIB=15
 WorkingDirectory=@DSV4_REPO@
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
