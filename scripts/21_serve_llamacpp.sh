@@ -626,8 +626,11 @@ do_start() {
     MODEL_PATH=${MODEL_PATH:-$REPO_ROOT/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf}
     MEMBUDGET=$REPO_ROOT/scripts/02_membudget.py
     MEMWATCH=$REPO_ROOT/scripts/01_memwatch.sh
-    BINARY=$LLAMACPP_HOME/src/llama.cpp/build/bin/llama-server
-    BUILD_MANIFEST=$REPO_ROOT/configs/build-manifests/llamacpp.json
+    # DSV4_SERVER_BINARY / DSV4_BUILD_MANIFEST let a benchmark run point the
+    # watchdog-protected server at an alternate build (e.g. a candidate rebuild)
+    # with its own committed manifest. Defaults preserve production exactly.
+    BINARY=${DSV4_SERVER_BINARY:-$LLAMACPP_HOME/src/llama.cpp/build/bin/llama-server}
+    BUILD_MANIFEST=${DSV4_BUILD_MANIFEST:-$REPO_ROOT/configs/build-manifests/llamacpp.json}
     WEIGHTS_MANIFEST=$REPO_ROOT/weights/unsloth-ud-q2_k_xl/manifest.json
     LOG_DIR=$HOME/logs
     SERVER_LOG=$LOG_DIR/llamacpp-server.log
@@ -679,8 +682,11 @@ do_start() {
     # overhead-gib 6: llama.cpp non-weight footprint for this config (compute
     # buffers at b=2048/ub=512, CUDA context, KV pool) measures 3-5 GiB; 6 keeps
     # slack without double-counting against the hard 16 GiB floor.
+    # DSV4_MEM_FLOOR_GIB lets a benchmark run relax the projected-free floor
+    # (still well above the 12 GiB watchdog kill line); defaults to 16.
+    mem_floor_gib=${DSV4_MEM_FLOOR_GIB:-16}
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
-        --kv-bytes-per-token 4096 --overhead-gib 6 --floor-gib 16 2>&1)
+        --kv-bytes-per-token 4096 --overhead-gib 6 --floor-gib "$mem_floor_gib" 2>&1)
     rc=$?
     set -e
     if (( rc != 0 )); then

@@ -1,0 +1,49 @@
+{
+ "commit": "0dc74e332edee2616e4d8d9ab3b68dfc340fc14a",
+ "commit_subject": "DeepseekV4: Add fused hyper-connection ops (#25585)",
+ "binaries": {
+  "llama-server": {
+   "sha256": "757274c8a23cb297e0a79349bd47fb14c13985a35d37391065a886eeecfd74f4"
+  },
+  "llama-cli": {
+   "sha256": "dcb1f85730cbd808314de5564a7e384812158eb407408d3e1a53a405e023704b"
+  },
+  "llama-bench": {
+   "sha256": "e278749ac40aa563f6dd73b05562a48f97b847446b5d95134f587066ed87fc11"
+  }
+ },
+ "shared_libraries": {
+  "libggml-base.so": {
+   "sha256": "df61c597954c7b959fede9b5d8e9f673e7ad6378ce47871a2018bb9da3ad11b5"
+  },
+  "libggml-cpu.so": {
+   "sha256": "98c6ee7f1e0d932759306810e665b2c4e55c3c852ef58b403437b266803dec3a"
+  },
+  "libggml-cuda.so": {
+   "sha256": "55d6159cb940090f86ed56c009936923bc64b748692fac5d12d5607763eeb8b0"
+  },
+  "libggml.so": {
+   "sha256": "a83c919198d2cc941623cccf31f64d542e0fd9728443e8bd614d1c0f3a6576a1"
+  },
+  "libllama-bench-impl.so": {
+   "sha256": "ffec2e823d0e6e2f9e77ebc8dfcd064b05f51a892a5093f6fb82c8906756afe7"
+  },
+  "libllama-cli-impl.so": {
+   "sha256": "75524063da421b7a31ecb0bc3e9a5da4bcaacc364b1ddddc20ef2364605b9f78"
+  },
+  "libllama-common.so": {
+   "sha256": "8b7ba72ebaf5d9711f78c5775c11289d6654b25594637983838ab4f4749949ca"
+  },
+  "libllama-server-impl.so": {
+   "sha256": "5e2e45971fb65c4c5351529370e3888911f199a0bfa80c2d1716eba000bb6455"
+  },
+  "libllama.so": {
+   "sha256": "5ac4597b3059532d538283a9169c7f68dfaa5d1e2b6a08dee87a2a0f58613102"
+  },
+  "libmtmd.so": {
+   "sha256": "1d8fa500c7a35dd8e69f53c60b3519691c2a8db1567ecbfa3bff4c5acb5f8d07"
+  }
+ },
+ "cmake_configure_command": "cmake -S . -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=121 -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF",
+ "cmake_build_command": "cmake --build build --config Release -j20 --target llama-server llama-cli llama-bench"
+}

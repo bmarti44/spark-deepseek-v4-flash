@@ -1,0 +1,88 @@
+{
+  "stack_label": "llamacpp-fusion",
+  "base_url": "http://127.0.0.1:8011",
+  "started_at": "2026-07-17T18:58:41.295810+00:00",
+  "finished_at": "2026-07-17T19:01:46.384620+00:00",
+  "pass": false,
+  "checks": [
+    {
+      "name": "health",
+      "pass": true,
+      "detail": "GET /health returned HTTP 200"
+    },
+    {
+      "name": "models_endpoint",
+      "pass": true,
+      "detail": "exactly one model: /home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf"
+    },
+    {
+      "name": "basic_fact",
+      "pass": true,
+      "detail": {
+        "expected": "Paris",
+        "completion": "Paris"
+      }
+    },
+    {
+      "name": "arithmetic",
+      "pass": true,
+      "detail": {
+        "expected": "391",
+        "completion": "391"
+      }
+    },
+    {
+      "name": "determinism",
+      "pass": true,
+      "detail": {
+        "first": "The first five prime numbers are 2, 3, 5, 7, and 11.",
+        "second": "The first five prime numbers are 2, 3, 5, 7, and 11."
+      }
+    },
+    {
+      "name": "needle_16k",
+      "pass": false,
+      "detail": "RuntimeError: secret code not found in completion: ''"
+    },
+    {
+      "name": "multiturn_cache_consistency",
+      "pass": true,
+      "detail": {
+        "full_history": "CACHE-ANCHOR",
+        "incremental": "CACHE-ANCHOR",
+        "incremental_first_reply": "CACHE-ANCHOR"
+      }
+    },
+    {
+      "name": "streaming_sse",
+      "pass": true,
+      "detail": {
+        "data_chunks": 60,
+        "done": true,
+        "content": "The blue river wound through the valley like a ribbon of sky.",
+        "usage": {
+          "completion_tokens": 59,
+          "prompt_tokens": 13,
+          "total_tokens": 72,
+          "prompt_tokens_details": {
+            "cached_tokens": 1
+          }
+        }
+      }
+    },
+    {
+      "name": "error_schema",
+      "pass": true,
+      "detail": {
+        "invalid_json_status": 500,
+        "unknown_model_status": 200,
+        "unknown_model_behavior": "served_configured_model"
+      }
+    },
+    {
+      "name": "sustained_ctx",
+      "pass": false,
+      "detail": "RuntimeError: sustained stream final content is empty"
+    }
+  ]
+}
