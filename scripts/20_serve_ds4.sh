@@ -142,9 +142,8 @@ cleanup_failed_start() {
 
     # The watchdog accepts only an identity-bound DISARM record after the
     # supervised start group is dead. Missing or malformed targets fail closed.
-    if "$target_published" && "$identity_ok" &&
-            [[ $(proc_start_ticks "$published_target_pid" 2>/dev/null || true) !=
-                "$published_target_start_ticks" ]]; then
+    if "$target_published" && "$identity_ok" \
+            && [[ "$(proc_start_ticks "$published_target_pid" 2>/dev/null || true)" != "$published_target_start_ticks" ]]; then
         publish_disarm "$published_target_pid" "$published_target_pgid" \
             "$published_target_start_ticks"
         watchdog_disarmed=true
