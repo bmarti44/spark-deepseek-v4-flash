@@ -3,8 +3,8 @@
   "task_id": "HumanEval/101",
   "rendered_prompt_sha256": "96a270267ea64b34c5d4364f00c969284296ae45017b988c20a1c1c306dfc486",
   "rendering": "raw",
-  "completion": "    words = []\n    word = \"\"\n    for char in s:\n        if char == \",\" or char == \" \":\n            if word:\n                words.append(word)\n                word = \"\"\n        else:\n            word += char\n    if word:\n        words.append(word)\n    return words",
-  "finish_reason": "stop",
+  "completion": "    # Replace commas with spaces and then split by spaces\n    s = s.replace(',', ' ')\n    words = s.split()\n    return words\n``` \n\nNow, we can test the function with the given examples:\n\n```python\nprint(words_string(\"Hi, my name is John\"))  # Output: [\"Hi\", \"my\", \"name\", \"is\", \"John\"]\nprint(words_string(\"One, two, three, four, five, six\"))  # Output: [\"One\", \"two\", \"three\", \"four\", \"five\", \"six\"]\n``` \n\nThe function works as expected. It splits the string by commas or spaces and returns a list of words. Note that the function uses the `split()` method without any arguments, which splits the string by any whitespace (spaces, tabs, newlines, etc.). This is fine for the given examples, but if you want to split only by spaces and commas, you can use `s.replace(',', ' ').split()`. This replaces commas with spaces and then splits by spaces. This ensures that the splitting is done only by commas and spaces, not by other whitespace characters. However, for the given examples, both approaches work. The function is case-sensitive, so \"Hi\" and \"hi\" are considered different words. If you want to ignore case, you can convert the string to lowercase before splitting. But the problem statement doesn't specify this, so we'll keep it as is. The function returns a list of strings. The problem statement says \"return an array of the words\", but in Python, we return a list. This is fine. The function is simple and efficient. It uses O(n) time and space, where n is the length of the string. It's also robust to multiple spaces or commas. For example, \"Hi,, my name is John\" would be split into [\"Hi\", \"my\", \"name\", \"is\", \"John\"] because the double comma is replaced by a space, and then the split removes empty strings. However, if there are multiple spaces, the split method will still work correctly. For example, \"Hi   my name is John\" would be split into [\"Hi\", \"my\", \"name\", \"is\", \"John\"]. So the function is robust. We can also add a docstring to explain the function. The function is ready to use. We can also add a test suite to verify the function. But for the purpose of this problem, the function is complete",
+  "finish_reason": "length",
   "expected": "    if not s:\n        return []\n\n    s_list = []\n\n    for letter in s:\n        if letter == ',':\n            s_list.append(' ')\n        else:\n            s_list.append(letter)\n\n    s_list = \"\".join(s_list)\n    return s_list.split()\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.005703155002266
+    "elapsed_s": 39.4589641470011
   },
   "response": {
     "choices": [
       {
-        "text": "    words = []\n    word = \"\"\n    for char in s:\n        if char == \",\" or char == \" \":\n            if word:\n                words.append(word)\n                word = \"\"\n        else:\n            word += char\n    if word:\n        words.append(word)\n    return words",
+        "text": "    # Replace commas with spaces and then split by spaces\n    s = s.replace(',', ' ')\n    words = s.split()\n    return words\n``` \n\nNow, we can test the function with the given examples:\n\n```python\nprint(words_string(\"Hi, my name is John\"))  # Output: [\"Hi\", \"my\", \"name\", \"is\", \"John\"]\nprint(words_string(\"One, two, three, four, five, six\"))  # Output: [\"One\", \"two\", \"three\", \"four\", \"five\", \"six\"]\n``` \n\nThe function works as expected. It splits the string by commas or spaces and returns a list of words. Note that the function uses the `split()` method without any arguments, which splits the string by any whitespace (spaces, tabs, newlines, etc.). This is fine for the given examples, but if you want to split only by spaces and commas, you can use `s.replace(',', ' ').split()`. This replaces commas with spaces and then splits by spaces. This ensures that the splitting is done only by commas and spaces, not by other whitespace characters. However, for the given examples, both approaches work. The function is case-sensitive, so \"Hi\" and \"hi\" are considered different words. If you want to ignore case, you can convert the string to lowercase before splitting. But the problem statement doesn't specify this, so we'll keep it as is. The function returns a list of strings. The problem statement says \"return an array of the words\", but in Python, we return a list. This is fine. The function is simple and efficient. It uses O(n) time and space, where n is the length of the string. It's also robust to multiple spaces or commas. For example, \"Hi,, my name is John\" would be split into [\"Hi\", \"my\", \"name\", \"is\", \"John\"] because the double comma is replaced by a space, and then the split removes empty strings. However, if there are multiple spaces, the split method will still work correctly. For example, \"Hi   my name is John\" would be split into [\"Hi\", \"my\", \"name\", \"is\", \"John\"]. So the function is robust. We can also add a docstring to explain the function. The function is ready to use. We can also add a test suite to verify the function. But for the purpose of this problem, the function is complete",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228505,
+    "created": 1784249295,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 59,
+      "completion_tokens": 512,
       "prompt_tokens": 111,
-      "total_tokens": 170,
+      "total_tokens": 623,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-YsnFZqUikyXWOjZcHUoT7sCbMXfjjFBG",
+    "id": "chatcmpl-M1SlyGIJJhMizZfyQHYSnnqvGYyLT9Mh",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 110,
-      "prompt_ms": 829.811,
-      "prompt_per_token_ms": 7.543736363636364,
-      "prompt_per_second": 132.56030590098226,
-      "predicted_n": 59,
-      "predicted_ms": 4173.593,
-      "predicted_per_token_ms": 70.73886440677965,
-      "predicted_per_second": 14.136500612302157
+      "cache_n": 0,
+      "prompt_n": 111,
+      "prompt_ms": 859.873,
+      "prompt_per_token_ms": 7.746603603603604,
+      "prompt_per_second": 129.08883055986175,
+      "predicted_n": 512,
+      "predicted_ms": 38595.672,
+      "predicted_per_token_ms": 75.382171875,
+      "predicted_per_second": 13.265736116733503
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00101:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00101:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

@@ -3,8 +3,8 @@
   "task_id": "HumanEval/96",
   "rendered_prompt_sha256": "87a89ca2716858e3f17b04c2b3a30af694d0daa68da3e197f801a408d3b6bfb5",
   "rendering": "raw",
-  "completion": "    primes = []\n    for num in range(2, n):\n        if all(num % i != 0 for i in range(2, int(num ** 0.5) + 1)):\n            primes.append(num)\n    return primes",
-  "finish_reason": "stop",
+  "completion": "    # Check if n is non-negative\n    if n < 0:\n        return []\n    # Check if n is 0 or 1\n    if n == 0 or n == 1:\n        return []\n    # Initialize an empty list to store the prime numbers\n    primes = []\n    # Loop through numbers from 2 to n-1\n    for num in range(2, n):\n        # Check if num is prime\n        if is_prime(num):\n            # Add num to the list of primes\n            primes.append(num)\n    # Return the list of primes\n    return primes\ndef is_prime(num):\n    # Check if num is less than 2\n    if num < 2:\n        return False\n    # Check if num is 2\n    if num == 2:\n        return True\n    # Check if num is even\n    if num % 2 == 0:\n        return False\n    # Loop through odd numbers from 3 to the square root of num\n    for i in range(3, int(num ** 0.5) + 1, 2):\n        if num % i == 0:\n            return False\n    return True\n```\n\n### Response\n```python\ndef count_up_to(n):\n    \"\"\"Implement a function that takes an non-negative integer and returns an array of the first n\n    integers that are prime numbers and less than n.\n    for example:\n    count_up_to(5) => [2,3]\n    count_up_to(11) => [2,3,5,7]\n    count_up_to(0) => []\n    count_up_to(20) => [2,3,5,7,11,13,17,19]\n    count_up_to(1) => []\n    count_up_to(18) => [2,3,5,7,11,13,17]\n    \"\"\"\n    # Check if n is non-negative\n    if n < 0:\n        return []\n    # Check if n is 0 or 1\n    if n == 0 or n == 1:\n        return []\n    # Initialize an empty list to store the prime numbers\n    primes = []\n    # Loop through numbers from 2 to n-1\n    for num in range(2, n):\n        # Check if num is prime\n        if is_prime(num):\n            # Add num to the list of primes\n            primes.append(num)\n   ",
+  "finish_reason": "length",
   "expected": "    primes = []\n    for i in range(2, n):\n        is_prime = True\n        for j in range(2, i):\n            if i % j == 0:\n                is_prime = False\n                break\n        if is_prime:\n            primes.append(i)\n    return primes\n\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.488676726999984
+    "elapsed_s": 37.146021000000474
   },
   "response": {
     "choices": [
       {
-        "text": "    primes = []\n    for num in range(2, n):\n        if all(num % i != 0 for i in range(2, int(num ** 0.5) + 1)):\n            primes.append(num)\n    return primes",
+        "text": "    # Check if n is non-negative\n    if n < 0:\n        return []\n    # Check if n is 0 or 1\n    if n == 0 or n == 1:\n        return []\n    # Initialize an empty list to store the prime numbers\n    primes = []\n    # Loop through numbers from 2 to n-1\n    for num in range(2, n):\n        # Check if num is prime\n        if is_prime(num):\n            # Add num to the list of primes\n            primes.append(num)\n    # Return the list of primes\n    return primes\ndef is_prime(num):\n    # Check if num is less than 2\n    if num < 2:\n        return False\n    # Check if num is 2\n    if num == 2:\n        return True\n    # Check if num is even\n    if num % 2 == 0:\n        return False\n    # Loop through odd numbers from 3 to the square root of num\n    for i in range(3, int(num ** 0.5) + 1, 2):\n        if num % i == 0:\n            return False\n    return True\n```\n\n### Response\n```python<rendered-prompt-redacted>    # Check if n is non-negative\n    if n < 0:\n        return []\n    # Check if n is 0 or 1\n    if n == 0 or n == 1:\n        return []\n    # Initialize an empty list to store the prime numbers\n    primes = []\n    # Loop through numbers from 2 to n-1\n    for num in range(2, n):\n        # Check if num is prime\n        if is_prime(num):\n            # Add num to the list of primes\n            primes.append(num)\n   ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228480,
+    "created": 1784249105,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 51,
+      "completion_tokens": 512,
       "prompt_tokens": 140,
-      "total_tokens": 191,
+      "total_tokens": 652,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-U84FA5CprCssNbcEEBxWT2lEKooHClQM",
+    "id": "chatcmpl-UKNbwXdJIDnmr7RvWMIPRcsURzhprPRq",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 139,
-      "prompt_ms": 772.868,
-      "prompt_per_token_ms": 5.560201438848921,
-      "prompt_per_second": 179.84959915535381,
-      "predicted_n": 51,
-      "predicted_ms": 3713.515,
-      "predicted_per_token_ms": 72.81401960784314,
-      "predicted_per_second": 13.733618956702745
+      "cache_n": 0,
+      "prompt_n": 140,
+      "prompt_ms": 811.732,
+      "prompt_per_token_ms": 5.7980857142857145,
+      "prompt_per_second": 172.47071693613165,
+      "predicted_n": 512,
+      "predicted_ms": 36331.476,
+      "predicted_per_token_ms": 70.9599140625,
+      "predicted_per_second": 14.092463515657881
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00096:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00096:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

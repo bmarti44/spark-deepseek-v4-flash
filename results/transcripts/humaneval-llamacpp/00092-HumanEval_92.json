@@ -3,8 +3,8 @@
   "task_id": "HumanEval/92",
   "rendered_prompt_sha256": "1d19b808783c5f57c39df1de99cec4193d4b59538aa48ed22d6ca85c727a51e2",
   "rendering": "raw",
-  "completion": "    # Check if all inputs are integers\n    if not all(isinstance(n, int) for n in [x, y, z]):\n        return False\n    \n    # Check if one of the numbers is equal to the sum of the other two\n    if x == y + z or y == x + z or z == x + y:\n        return True\n    else:\n        return False",
-  "finish_reason": "stop",
+  "completion": "    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int):\n        if x == y + z or y == x + z or z == x + y:\n            return True\n        else:\n            return False\n    else:\n        return False\n#<----------------- Tests ------------------>\n\n# Test 1: Check if function returns True for valid integers where one equals sum of other two\nprint(any_int(5, 2, 7))  # Expected: True\n\n# Test 2: Check if function returns False for integers where no number equals sum of other two\nprint(any_int(3, 2, 2))  # Expected: False\n\n# Test 3: Check if function returns True for negative integers where one equals sum of other two\nprint(any_int(3, -2, 1))  # Expected: True\n\n# Test 4: Check if function returns False for floats\nprint(any_int(3.6, -2.2, 2))  # Expected: False\n\n# Test 5: Check if function returns False for mixed types (int and float)\nprint(any_int(5, 2.5, 7.5))  # Expected: False\n\n# Test 6: Check if function returns False for large numbers\nprint(any_int(1000000, 2000000, 3000000))  # Expected: True\n\n# Test 7: Check if function returns False for zero\nprint(any_int(0, 0, 0))  # Expected: True\n\n# Test 8: Check if function returns False for negative numbers\nprint(any_int(-5, -2, -7))  # Expected: True\n\n# Test 9: Check if function returns False for strings\nprint(any_int(\"5\", \"2\", \"7\"))  # Expected: False\n\n# Test 10: Check if function returns False for None\nprint(any_int(None, None, None))  # Expected: False\n\n# Test 11: Check if function returns False for empty list\nprint(any_int([], [], []))  # Expected: False\n\n# Test 12: Check if function returns False for empty tuple\nprint(any_int((), (), ()))  # Expected: False\n\n# Test 13: Check if function returns False for empty dictionary\nprint(any_int({}, {}, {}))  # Expected",
+  "finish_reason": "length",
   "expected": "    \n    if isinstance(x,int) and isinstance(y,int) and isinstance(z,int):\n        if (x+y==z) or (x+z==y) or (y+z==x):\n            return True\n        return False\n    return False\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.8598815009972895
+    "elapsed_s": 37.26295425800345
   },
   "response": {
     "choices": [
       {
-        "text": "    # Check if all inputs are integers\n    if not all(isinstance(n, int) for n in [x, y, z]):\n        return False\n    \n    # Check if one of the numbers is equal to the sum of the other two\n    if x == y + z or y == x + z or z == x + y:\n        return True\n    else:\n        return False",
+        "text": "    if isinstance(x, int) and isinstance(y, int) and isinstance(z, int):\n        if x == y + z or y == x + z or z == x + y:\n            return True\n        else:\n            return False\n    else:\n        return False\n#<----------------- Tests ------------------>\n\n# Test 1: Check if function returns True for valid integers where one equals sum of other two\nprint(any_int(5, 2, 7))  # Expected: True\n\n# Test 2: Check if function returns False for integers where no number equals sum of other two\nprint(any_int(3, 2, 2))  # Expected: False\n\n# Test 3: Check if function returns True for negative integers where one equals sum of other two\nprint(any_int(3, -2, 1))  # Expected: True\n\n# Test 4: Check if function returns False for floats\nprint(any_int(3.6, -2.2, 2))  # Expected: False\n\n# Test 5: Check if function returns False for mixed types (int and float)\nprint(any_int(5, 2.5, 7.5))  # Expected: False\n\n# Test 6: Check if function returns False for large numbers\nprint(any_int(1000000, 2000000, 3000000))  # Expected: True\n\n# Test 7: Check if function returns False for zero\nprint(any_int(0, 0, 0))  # Expected: True\n\n# Test 8: Check if function returns False for negative numbers\nprint(any_int(-5, -2, -7))  # Expected: True\n\n# Test 9: Check if function returns False for strings\nprint(any_int(\"5\", \"2\", \"7\"))  # Expected: False\n\n# Test 10: Check if function returns False for None\nprint(any_int(None, None, None))  # Expected: False\n\n# Test 11: Check if function returns False for empty list\nprint(any_int([], [], []))  # Expected: False\n\n# Test 12: Check if function returns False for empty tuple\nprint(any_int((), (), ()))  # Expected: False\n\n# Test 13: Check if function returns False for empty dictionary\nprint(any_int({}, {}, {}))  # Expected",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228413,
+    "created": 1784248976,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 82,
+      "completion_tokens": 512,
       "prompt_tokens": 130,
-      "total_tokens": 212,
+      "total_tokens": 642,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-iutLeh23QHcJ8YGqKcV3jCGWyuSnX1dh",
+    "id": "chatcmpl-XpX2JGyz7Edmd2AoIwCXlTfIG6zuuUoX",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 129,
-      "prompt_ms": 884.816,
-      "prompt_per_token_ms": 6.8590387596899225,
-      "prompt_per_second": 145.79302363429233,
-      "predicted_n": 82,
-      "predicted_ms": 5972.88,
-      "predicted_per_token_ms": 72.84,
-      "predicted_per_second": 13.72872048325096
+      "cache_n": 0,
+      "prompt_n": 130,
+      "prompt_ms": 884.539,
+      "prompt_per_token_ms": 6.804146153846154,
+      "prompt_per_second": 146.96921221110657,
+      "predicted_n": 512,
+      "predicted_ms": 36375.159,
+      "predicted_per_token_ms": 71.045232421875,
+      "predicted_per_second": 14.075539848499357
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00092:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00092:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

@@ -3,7 +3,7 @@
   "task_id": "HumanEval/4",
   "rendered_prompt_sha256": "2717edd5d203ea22a6eebf62263effd9b792e1a2ef93e017868cedaac7b5ef10",
   "rendering": "raw",
-  "completion": "    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\n",
+  "completion": "    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\n\n# Test the function\nnumbers = [1.0, 2.0, 3.0, 4.0]\nmean_absolute_deviation(numbers)",
   "finish_reason": "stop",
   "expected": "    mean = sum(numbers) / len(numbers)\n    return sum(abs(x - mean) for x in numbers) / len(numbers)\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.248139766001259
+    "elapsed_s": 9.056709421005507
   },
   "response": {
     "choices": [
       {
-        "text": "    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\n",
+        "text": "    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    mean = sum(numbers) / len(numbers)\n    mad = sum(abs(x - mean) for x in numbers) / len(numbers)\n    return mad\n\n# Test the function\nnumbers = [1.0, 2.0, 3.0, 4.0]\nmean_absolute_deviation(numbers)",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784227806,
+    "created": 1784246377,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 33,
+      "completion_tokens": 114,
       "prompt_tokens": 111,
-      "total_tokens": 144,
+      "total_tokens": 225,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-C0SC7bq2gfbaE5LUfUv79JSqkMzjJesS",
+    "id": "chatcmpl-WeRCjhHLz6utuP5yaZK3aolN2ZZJtpBJ",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 110,
-      "prompt_ms": 816.408,
-      "prompt_per_token_ms": 7.4218909090909095,
-      "prompt_per_second": 134.73655329198147,
-      "predicted_n": 33,
-      "predicted_ms": 2429.69,
-      "predicted_per_token_ms": 73.6269696969697,
-      "predicted_per_second": 13.581979594104597
+      "cache_n": 0,
+      "prompt_n": 111,
+      "prompt_ms": 832.626,
+      "prompt_per_token_ms": 7.501135135135135,
+      "prompt_per_second": 133.3131562069885,
+      "predicted_n": 114,
+      "predicted_ms": 8157.219,
+      "predicted_per_token_ms": 71.55455263157894,
+      "predicted_per_second": 13.975351158280782
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00004:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00004:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

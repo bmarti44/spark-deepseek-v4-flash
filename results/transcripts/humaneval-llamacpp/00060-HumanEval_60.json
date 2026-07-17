@@ -3,11 +3,11 @@
   "task_id": "HumanEval/60",
   "rendered_prompt_sha256": "864d47767142cb4e635dfefba79f1d7ce448f7cb99dac09c2695a5c96619994e",
   "rendering": "raw",
-  "completion": "    return n * (n + 1) // 2",
-  "finish_reason": "stop",
+  "completion": "    return n * (n + 1) // 2\n\ndef flip_case(string: str):\n    \"\"\" For every character in the given string, flip the case if it is a letter.\n    >>> flip_case('Hello World!')\n    'hELLO wORLD!'\n    \"\"\"\n    result = ''\n    for char in string:\n        if char.isalpha():\n            result += char.swapcase()\n        else:\n            result += char\n    return result\n\ndef count_up_to(n):\n    \"\"\" Count from 1 to n (inclusive) and return a list of numbers.\n    >>> count_up_to(5)\n    [1, 2, 3, 4, 5]\n    >>> count_up_to(10)\n    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(1, n + 1))\n\ndef count_down_to(n):\n    \"\"\" Count from n down to 1 (inclusive) and return a list of numbers.\n    >>> count_down_to(5)\n    [5, 4, 3, 2, 1]\n    >>> count_down_to(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]\n    \"\"\"\n    return list(range(n, 0, -1))\n\ndef count_up_to_0(n):\n    \"\"\" Count from 0 to n (inclusive) and return a list of numbers.\n    >>> count_up_to_0(5)\n    [0, 1, 2, 3, 4, 5]\n    >>> count_up_to_0(10)\n    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(0, n + 1))\n\ndef count_down_to_0(n):\n    \"\"\" Count from n down to 0 (inclusive) and return a list of numbers.\n    >>> count_down_to_0(5)\n    [5, 4, 3, 2, 1, 0]\n    >>> count_down_to_0(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, ",
+  "finish_reason": "length",
   "expected": "    return sum(range(n + 1))\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 1.6085000109997054
+    "elapsed_s": 37.708311852002225
   },
   "response": {
     "choices": [
       {
-        "text": "    return n * (n + 1) // 2",
+        "text": "    return n * (n + 1) // 2\n\ndef flip_case(string: str):\n    \"\"\" For every character in the given string, flip the case if it is a letter.\n    >>> flip_case('Hello World!')\n    'hELLO wORLD!'\n    \"\"\"\n    result = ''\n    for char in string:\n        if char.isalpha():\n            result += char.swapcase()\n        else:\n            result += char\n    return result\n\ndef count_up_to(n):\n    \"\"\" Count from 1 to n (inclusive) and return a list of numbers.\n    >>> count_up_to(5)\n    [1, 2, 3, 4, 5]\n    >>> count_up_to(10)\n    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(1, n + 1))\n\ndef count_down_to(n):\n    \"\"\" Count from n down to 1 (inclusive) and return a list of numbers.\n    >>> count_down_to(5)\n    [5, 4, 3, 2, 1]\n    >>> count_down_to(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]\n    \"\"\"\n    return list(range(n, 0, -1))\n\ndef count_up_to_0(n):\n    \"\"\" Count from 0 to n (inclusive) and return a list of numbers.\n    >>> count_up_to_0(5)\n    [0, 1, 2, 3, 4, 5]\n    >>> count_up_to_0(10)\n    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(0, n + 1))\n\ndef count_down_to_0(n):\n    \"\"\" Count from n down to 0 (inclusive) and return a list of numbers.\n    >>> count_down_to_0(5)\n    [5, 4, 3, 2, 1, 0]\n    >>> count_down_to_0(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228162,
+    "created": 1784247937,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 14,
+      "completion_tokens": 512,
       "prompt_tokens": 84,
-      "total_tokens": 98,
+      "total_tokens": 596,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-izW8Lbwnvm8ZfXpvUzVh5K8M2645msAj",
+    "id": "chatcmpl-M84SuyZ5fVXrKjYwUfQxXGfwJxRsGYoU",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 83,
-      "prompt_ms": 603.28,
-      "prompt_per_token_ms": 7.268433734939759,
-      "prompt_per_second": 137.58122264951598,
-      "predicted_n": 14,
-      "predicted_ms": 1003.202,
-      "predicted_per_token_ms": 71.65728571428572,
-      "predicted_per_second": 13.955315081110285
+      "cache_n": 0,
+      "prompt_n": 84,
+      "prompt_ms": 659.02,
+      "prompt_per_token_ms": 7.84547619047619,
+      "prompt_per_second": 127.46198901399048,
+      "predicted_n": 512,
+      "predicted_ms": 37035.528,
+      "predicted_per_token_ms": 72.335015625,
+      "predicted_per_second": 13.824563268005793
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00060:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00060:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 59\n    \"\"\" Count from n down to 0 (inclusive) and return a list of numbers.\n    ^\nSyntaxError: unterminated triple-quoted string literal (detected at line 80)\n"
   }
 }

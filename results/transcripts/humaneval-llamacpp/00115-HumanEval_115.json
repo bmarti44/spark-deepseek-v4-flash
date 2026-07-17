@@ -3,11 +3,11 @@
   "task_id": "HumanEval/115",
   "rendered_prompt_sha256": "c3a3940108ef0c6a7e15e737fd5d29759d8a27f7cfe7a44411ff3f4b3ff3771b",
   "rendering": "raw",
-  "completion": "    total_water = sum(sum(row) for row in grid)\n    if total_water == 0:\n        return 0\n    num_wells = len(grid)\n    num_units_per_well = len(grid[0])\n    total_buckets_needed = math.ceil(total_water / capacity)\n    return total_buckets_needed",
-  "finish_reason": "stop",
+  "completion": "    # Count the number of units of water in each well\n    # Then divide by the bucket capacity and round up\n    # Sum the results\n    total = 0\n    for row in grid:\n        total += math.ceil(sum(row) / capacity)\n    return total\n</original_code_python>\n<matches>\n</matches>\n</function>\n<function>\n    <name>max_fill</name>\n    <original_code_python>\nimport math\ndef max_fill(grid, capacity):\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n    # Count the number of units of water in each well\n    # Then divide by the bucket capacity and round up\n    # Sum the results\n    total = 0\n    for row in grid:\n        total += math.ceil(sum(row) / capacity)\n    return total\n</original_code_python>\n<matches>\n</matches>\n</function>\n<function>\n    <name>max_fill</name>\n    <original_code_python>\nimport math\ndef",
+  "finish_reason": "length",
   "expected": "    return sum([math.ceil(sum(arr)/capacity) for arr in grid])\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.84611454500191
+    "elapsed_s": 38.10713686700183
   },
   "response": {
     "choices": [
       {
-        "text": "    total_water = sum(sum(row) for row in grid)\n    if total_water == 0:\n        return 0\n    num_wells = len(grid)\n    num_units_per_well = len(grid[0])\n    total_buckets_needed = math.ceil(total_water / capacity)\n    return total_buckets_needed",
+        "text": "    # Count the number of units of water in each well\n    # Then divide by the bucket capacity and round up\n    # Sum the results\n    total = 0\n    for row in grid:\n        total += math.ceil(sum(row) / capacity)\n    return total\n</original_code_python>\n<matches>\n</matches>\n</function>\n<function>\n    <name>max_fill</name>\n    <original_code_python>\nimport math\ndef max_fill(grid, capacity):\n    \"\"\"\n    You are given a rectangular grid of wells. Each row represents a single well,\n    and each 1 in a row represents a single unit of water.\n    Each well has a corresponding bucket that can be used to extract water from it, \n    and all buckets have the same capacity.\n    Your task is to use the buckets to empty the wells.\n    Output the number of times you need to lower the buckets.\n\n    Example 1:\n        Input: \n            grid : [[0,0,1,0], [0,1,0,0], [1,1,1,1]]\n            bucket_capacity : 1\n        Output: 6\n\n    Example 2:\n        Input: \n            grid : [[0,0,1,1], [0,0,0,0], [1,1,1,1], [0,1,1,1]]\n            bucket_capacity : 2\n        Output: 5\n    \n    Example 3:\n        Input: \n            grid : [[0,0,0], [0,0,0]]\n            bucket_capacity : 5\n        Output: 0\n\n    Constraints:\n        * all wells have the same length\n        * 1 <= grid.length <= 10^2\n        * 1 <= grid[:,1].length <= 10^2\n        * grid[i][j] -> 0 | 1\n        * 1 <= capacity <= 10\n    \"\"\"\n    # Count the number of units of water in each well\n    # Then divide by the bucket capacity and round up\n    # Sum the results\n    total = 0\n    for row in grid:\n        total += math.ceil(sum(row) / capacity)\n    return total\n</original_code_python>\n<matches>\n</matches>\n</function>\n<function>\n    <name>max_fill</name>\n    <original_code_python>\nimport math\ndef",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228602,
+    "created": 1784249795,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 76,
+      "completion_tokens": 512,
       "prompt_tokens": 322,
-      "total_tokens": 398,
+      "total_tokens": 834,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-L7QwDMDZn5ewAVxtqOkFxa5viJOfKm8f",
+    "id": "chatcmpl-Zex3AxkWYJrdiIRqCRJ1r0TSoK1AlQQv",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 321,
-      "prompt_ms": 1325.484,
-      "prompt_per_token_ms": 4.129233644859813,
-      "prompt_per_second": 242.17568827688606,
-      "predicted_n": 76,
-      "predicted_ms": 5518.51,
-      "predicted_per_token_ms": 72.61197368421053,
-      "predicted_per_second": 13.771833339071597
+      "cache_n": 0,
+      "prompt_n": 322,
+      "prompt_ms": 1380.56,
+      "prompt_per_token_ms": 4.287453416149068,
+      "prompt_per_second": 233.23868575070986,
+      "predicted_n": 512,
+      "predicted_ms": 36721.291,
+      "predicted_per_token_ms": 71.721271484375,
+      "predicted_per_second": 13.942864917249233
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00115:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00115:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 62, in <module>\n    check(max_fill)\n  File \"/case/main.py\", line 58, in check\n    assert candidate([[1,1,1,1], [1,1,1,1]], 9) == 2, \"Error\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Error\n"
+    "stderr": ""
   }
 }

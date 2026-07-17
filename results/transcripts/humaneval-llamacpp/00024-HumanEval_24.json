@@ -3,8 +3,8 @@
   "task_id": "HumanEval/24",
   "rendered_prompt_sha256": "3bc8bf3f66a3b5e171a358bbd5f33fba1a5d16ea65459198757dcb662dbaaac2",
   "rendering": "raw",
-  "completion": "    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1",
-  "finish_reason": "stop",
+  "completion": "    # Find the largest divisor of n that is less than n\n    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1\n```\n\n## Test cases\nThe following test cases are provided for the function `largest_divisor`:\n\n```python\n# Test case 1\nn = 15\n# Expected output: 5\nprint(largest_divisor(n))\n\n# Test case 2\nn = 12\n# Expected output: 6\nprint(largest_divisor(n))\n\n# Test case 3\nn = 7\n# Expected output: 1\nprint(largest_divisor(n))\n\n# Test case 4\nn = 1\n# Expected output: 1\nprint(largest_divisor(n))\n```\n\n## Additional requirements\nThe function should be named `largest_divisor` and should take a single integer argument `n`. The function should return an integer.\n\n## Note\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be",
+  "finish_reason": "length",
   "expected": "    for i in reversed(range(n)):\n        if n % i == 0:\n            return i\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 2.9807375589989533
+    "elapsed_s": 36.898853291000705
   },
   "response": {
     "choices": [
       {
-        "text": "    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1",
+        "text": "    # Find the largest divisor of n that is less than n\n    for i in range(n // 2, 0, -1):\n        if n % i == 0:\n            return i\n    return 1\n```\n\n## Test cases\nThe following test cases are provided for the function `largest_divisor`:\n\n```python\n# Test case 1\nn = 15\n# Expected output: 5\nprint(largest_divisor(n))\n\n# Test case 2\nn = 12\n# Expected output: 6\nprint(largest_divisor(n))\n\n# Test case 3\nn = 7\n# Expected output: 1\nprint(largest_divisor(n))\n\n# Test case 4\nn = 1\n# Expected output: 1\nprint(largest_divisor(n))\n```\n\n## Additional requirements\nThe function should be named `largest_divisor` and should take a single integer argument `n`. The function should return an integer.\n\n## Note\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be written in Python 3.\n- The function should be named `largest_divisor` and should take a single integer argument `n`.\n- The function should return an integer.\n- The function should be efficient and handle large numbers.\n- The function should not use any external libraries.\n- The function should be well-documented with comments.\n- The function should be tested with the provided test cases.\n- The function should be",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227980,
+    "created": 1784246990,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 34,
+      "completion_tokens": 512,
       "prompt_tokens": 46,
-      "total_tokens": 80,
+      "total_tokens": 558,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-RhRAk0KIJ9Nn6M2bcilHGrPr6CxzBKcm",
+    "id": "chatcmpl-YpHPOMSiKSAHjIcbBiKFLyEuPf4tydge",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 45,
-      "prompt_ms": 457.472,
-      "prompt_per_token_ms": 10.166044444444443,
-      "prompt_per_second": 98.36667599328484,
-      "predicted_n": 34,
-      "predicted_ms": 2521.769,
-      "predicted_per_token_ms": 74.16967647058823,
-      "predicted_per_second": 13.482598921630014
+      "cache_n": 0,
+      "prompt_n": 46,
+      "prompt_ms": 472.335,
+      "prompt_per_token_ms": 10.268152173913043,
+      "prompt_per_second": 97.38850603914595,
+      "predicted_n": 512,
+      "predicted_ms": 36412.646,
+      "predicted_per_token_ms": 71.11844921875,
+      "predicted_per_second": 14.061049010280659
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00024:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00024:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

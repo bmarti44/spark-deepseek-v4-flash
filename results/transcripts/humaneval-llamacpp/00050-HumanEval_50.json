@@ -3,8 +3,8 @@
   "task_id": "HumanEval/50",
   "rendered_prompt_sha256": "e887c2acd0e721f727626a0eb8e1dd45c88ec9f8fdbf1e5c2c637cf5cf2d907c",
   "rendering": "raw",
-  "completion": "    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n",
-  "finish_reason": "stop",
+  "completion": "    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\n# <test>\n# TESTS\n# </test>\ndef test_encode_shift():\n    # Test 1: Empty string\n    assert encode_shift(\"\") == \"\"\n\n    # Test 2: Single character\n    assert encode_shift(\"a\") == \"f\"\n\n    # Test 3: Multiple characters\n    assert encode_shift(\"abc\") == \"fgh\"\n\n    # Test 4: Wrap around from z to e\n    assert encode_shift(\"z\") == \"e\"\n\n    # Test 5: Wrap around from y to d\n    assert encode_shift(\"y\") == \"d\"\n\n    # Test 6: All letters\n    assert encode_shift(\"abcdefghijklmnopqrstuvwxyz\") == \"fghijklmnopqrstuvwxyzabcde\"\n\n    # Test 7: Mixed case (should only work with lowercase)\n    assert encode_shift(\"AbC\") == \"FgH\"\n\n    # Test 8: Non-alphabetic characters (should remain unchanged)\n    assert encode_shift(\"hello!\") == \"mjqqt!\"\n\n\ndef test_decode_shift():\n    # Test 1: Empty string\n    assert decode_shift(\"\") == \"\"\n\n    # Test 2: Single character\n    assert decode_shift(\"f\") == \"a\"\n\n    # Test 3: Multiple characters\n    assert decode_shift(\"fgh\") == \"abc\"\n\n    # Test 4: Wrap around from e to z\n    assert decode_shift(\"e\") == \"z\"\n\n    # Test 5: Wrap around from d to y\n    assert decode_shift(\"d\") == \"y\"\n\n    # Test 6: All letters\n    assert decode_shift(\"fghijklmnopqrstuvwxyzabcde\") == \"abcdefghijklmnopqrstuvwxyz\"\n\n    # Test 7: Mixed case (should only work with lowercase)\n    assert decode_shift(\"FgH\") == \"AbC\"\n\n    # Test 8: Non-alphabetic characters (should remain unchanged)\n    assert decode_shift(\"mjqqt!\") == \"hello!\"\n\n\n# Run the tests\ntest_encode_shift()\ntest_decode_shift()\nprint(\"All tests passed",
+  "finish_reason": "length",
   "expected": "    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.0961408220027806
+    "elapsed_s": 37.32948852299887
   },
   "response": {
     "choices": [
       {
-        "text": "    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n",
+        "text": "    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\n# <test>\n# TESTS\n# </test>\ndef test_encode_shift():\n    # Test 1: Empty string\n    assert encode_shift(\"\") == \"\"\n\n    # Test 2: Single character\n    assert encode_shift(\"a\") == \"f\"\n\n    # Test 3: Multiple characters\n    assert encode_shift(\"abc\") == \"fgh\"\n\n    # Test 4: Wrap around from z to e\n    assert encode_shift(\"z\") == \"e\"\n\n    # Test 5: Wrap around from y to d\n    assert encode_shift(\"y\") == \"d\"\n\n    # Test 6: All letters\n    assert encode_shift(\"abcdefghijklmnopqrstuvwxyz\") == \"fghijklmnopqrstuvwxyzabcde\"\n\n    # Test 7: Mixed case (should only work with lowercase)\n    assert encode_shift(\"AbC\") == \"FgH\"\n\n    # Test 8: Non-alphabetic characters (should remain unchanged)\n    assert encode_shift(\"hello!\") == \"mjqqt!\"\n\n\ndef test_decode_shift():\n    # Test 1: Empty string\n    assert decode_shift(\"\") == \"\"\n\n    # Test 2: Single character\n    assert decode_shift(\"f\") == \"a\"\n\n    # Test 3: Multiple characters\n    assert decode_shift(\"fgh\") == \"abc\"\n\n    # Test 4: Wrap around from e to z\n    assert decode_shift(\"e\") == \"z\"\n\n    # Test 5: Wrap around from d to y\n    assert decode_shift(\"d\") == \"y\"\n\n    # Test 6: All letters\n    assert decode_shift(\"fghijklmnopqrstuvwxyzabcde\") == \"abcdefghijklmnopqrstuvwxyz\"\n\n    # Test 7: Mixed case (should only work with lowercase)\n    assert decode_shift(\"FgH\") == \"AbC\"\n\n    # Test 8: Non-alphabetic characters (should remain unchanged)\n    assert decode_shift(\"mjqqt!\") == \"hello!\"\n\n\n# Run the tests\ntest_encode_shift()\ntest_decode_shift()\nprint(\"All tests passed",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228126,
+    "created": 1784247612,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 34,
+      "completion_tokens": 512,
       "prompt_tokens": 90,
-      "total_tokens": 124,
+      "total_tokens": 602,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-CkjbOnhj3Db3RSwdppZe01jrUxqrtJ1a",
+    "id": "chatcmpl-byueSVoNZ56hXJ0WlK7owhDlUh5wYzhF",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 89,
-      "prompt_ms": 676.281,
-      "prompt_per_token_ms": 7.598662921348314,
-      "prompt_per_second": 131.60210031037394,
-      "predicted_n": 34,
-      "predicted_ms": 2417.724,
-      "predicted_per_token_ms": 71.10952941176471,
-      "predicted_per_second": 14.062812794181633
+      "cache_n": 0,
+      "prompt_n": 90,
+      "prompt_ms": 705.976,
+      "prompt_per_token_ms": 7.8441777777777775,
+      "prompt_per_second": 127.48308724375899,
+      "predicted_n": 512,
+      "predicted_ms": 36617.185,
+      "predicted_per_token_ms": 71.517939453125,
+      "predicted_per_second": 13.982505755152943
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00050:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00050:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

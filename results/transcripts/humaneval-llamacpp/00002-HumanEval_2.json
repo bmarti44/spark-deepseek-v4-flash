@@ -3,8 +3,8 @@
   "task_id": "HumanEval/2",
   "rendered_prompt_sha256": "fecb9ddd4f103f1c3e9d9c7d6c3b948a4b1285b50c3498437c85a9d604d957eb",
   "rendering": "raw",
-  "completion": "    return number - int(number) if number >= 0 else number - int(number) + 1",
-  "finish_reason": "stop",
+  "completion": "    return number - int(number) if number >= 0 else number - int(number) + 1\ndef check(candidate):\n    assert candidate(3.5) == 0.5\n    assert candidate(1.33) == 0.33\n    assert candidate(123.456) == 0.456\n\ncheck(truncate_number)\n\ninference/merge/merge_eval/merge_2L_gsm1k/gsm1k_merge_2L_gsm1k_epoch_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
+  "finish_reason": "length",
   "expected": "    return number % 1.0\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 2.4686036050006805
+    "elapsed_s": 37.21769520000089
   },
   "response": {
     "choices": [
       {
-        "text": "    return number - int(number) if number >= 0 else number - int(number) + 1",
+        "text": "    return number - int(number) if number >= 0 else number - int(number) + 1\ndef check(candidate):\n    assert candidate(3.5) == 0.5\n    assert candidate(1.33) == 0.33\n    assert candidate(123.456) == 0.456\n\ncheck(truncate_number)\n\ninference/merge/merge_eval/merge_2L_gsm1k/gsm1k_merge_2L_gsm1k_epoch_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227798,
+    "created": 1784246330,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 24,
+      "completion_tokens": 512,
       "prompt_tokens": 80,
-      "total_tokens": 104,
+      "total_tokens": 592,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-nXb82iixG8bF4RNw2ry3n8Hh40vJe99s",
+    "id": "chatcmpl-y2htb0R6HCwo46yK16Nn8fUCSHFp2paf",
     "timings": {
       "cache_n": 0,
       "prompt_n": 80,
-      "prompt_ms": 689.985,
-      "prompt_per_token_ms": 8.6248125,
-      "prompt_per_second": 115.94454951919245,
-      "predicted_n": 24,
-      "predicted_ms": 1776.576,
-      "predicted_per_token_ms": 74.024,
-      "predicted_per_second": 13.509132173349183
+      "prompt_ms": 657.681,
+      "prompt_per_token_ms": 8.2210125,
+      "prompt_per_second": 121.63951824668798,
+      "predicted_n": 512,
+      "predicted_ms": 36491.5,
+      "predicted_per_token_ms": 71.2724609375,
+      "predicted_per_second": 14.030664675335352
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00002:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00002:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

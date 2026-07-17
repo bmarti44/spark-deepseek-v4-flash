@@ -3,8 +3,8 @@
   "task_id": "HumanEval/149",
   "rendered_prompt_sha256": "387c54540db444ab39a66ed7c465db9a9145f9437273960b116cd1c7c974727a",
   "rendering": "raw",
-  "completion": "    lst = [word for word in lst if len(word) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst",
-  "finish_reason": "stop",
+  "completion": "    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\ndef sorted_list_sum(lst):\n    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\n```\n\n### Response\n```python\ndef sorted_list_sum(lst):\n    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\n```\n\nsolutions/CodeLlama34b_1.13/CodeLlama34b_1.13.json\n\n\n{\n    \"additional_info\": \"The model was trained using a Python code generation dataset consisting of 100k+ problems. The model is a 34b parameter model.\",\n    \"temperature\": 1.13,\n    \"top_p\": 0.9,\n    \"frequency_penalty\": 0,\n    \"presence_penalty\": 0\n}\n\nsolutions/CodeLlama34b_1.13/CodeLlama34b_1.13_18_0.py\n\n\ndef how_many_times(string, substring):\n    \"\"\"Given a string and a substring, return the number of times the substring appears in the string.\n    Example:\n    string = \"aaaaaa\", substring = \"aa\" => 5\n    string = \"aaaaaa\", substring = \"aaa\" => 4\n    string = \"aaaaaa\", substring = \"a\" => 6\n    string = \"aaaaaa\", substring = \"xyz\" => 0\n    \"\"\"\n    count = 0\n    for i in range(len(string) - len(substring) + 1):\n        if string[i:i+len(substring)] == substring:\n            count += 1\n    return count\n\ndef main():\n    print(how_many_times(\"aaaaaa\", \"aa\"))\n    print(how_many_times(\"aaaaaa\", \"aaa\"))\n    print(how_many_times(\"aaaaaa\", \"a\"))\n    print(how_many_times(\"aaaaaa\", \"xyz\"))\n\nif __name__ == \"__main__\":\n    main()\n\nsolutions/CodeLlama34b_1.13/",
+  "finish_reason": "length",
   "expected": "    lst.sort()\n    new_lst = []\n    for i in lst:\n        if len(i)%2 == 0:\n            new_lst.append(i)\n    return sorted(new_lst, key=len)\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.5383427390006545
+    "elapsed_s": 37.75832824299869
   },
   "response": {
     "choices": [
       {
-        "text": "    lst = [word for word in lst if len(word) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst",
+        "text": "    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\ndef sorted_list_sum(lst):\n    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\n```\n\n### Response\n```python\ndef sorted_list_sum(lst):\n    lst = [i for i in lst if len(i) % 2 == 0]\n    lst.sort(key=lambda x: (len(x), x))\n    return lst\n```\n\nsolutions/CodeLlama34b_1.13/CodeLlama34b_1.13.json\n\n\n{\n    \"additional_info\": \"The model was trained using a Python code generation dataset consisting of 100k+ problems. The model is a 34b parameter model.\",\n    \"temperature\": 1.13,\n    \"top_p\": 0.9,\n    \"frequency_penalty\": 0,\n    \"presence_penalty\": 0\n}\n\nsolutions/CodeLlama34b_1.13/CodeLlama34b_1.13_18_0.py\n\n\ndef how_many_times(string, substring):\n    \"\"\"Given a string and a substring, return the number of times the substring appears in the string.\n    Example:\n    string = \"aaaaaa\", substring = \"aa\" => 5\n    string = \"aaaaaa\", substring = \"aaa\" => 4\n    string = \"aaaaaa\", substring = \"a\" => 6\n    string = \"aaaaaa\", substring = \"xyz\" => 0\n    \"\"\"\n    count = 0\n    for i in range(len(string) - len(substring) + 1):\n        if string[i:i+len(substring)] == substring:\n            count += 1\n    return count\n\ndef main():\n    print(how_many_times(\"aaaaaa\", \"aa\"))\n    print(how_many_times(\"aaaaaa\", \"aaa\"))\n    print(how_many_times(\"aaaaaa\", \"a\"))\n    print(how_many_times(\"aaaaaa\", \"xyz\"))\n\nif __name__ == \"__main__\":\n    main()\n\nsolutions/CodeLlama34b_1.13/",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228919,
+    "created": 1784250918,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 37,
+      "completion_tokens": 512,
       "prompt_tokens": 183,
-      "total_tokens": 220,
+      "total_tokens": 695,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-3NutcmSwM4IJvrj9wPGdDArMA1Fjp8WP",
+    "id": "chatcmpl-8o7WD9LbfF5yLfV0u6OeRWF9guqAvFfo",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 182,
-      "prompt_ms": 904.992,
-      "prompt_per_token_ms": 4.972483516483516,
-      "prompt_per_second": 201.10675011491813,
-      "predicted_n": 37,
-      "predicted_ms": 2631.556,
-      "predicted_per_token_ms": 71.12313513513513,
-      "predicted_per_second": 14.06012260426911
+      "cache_n": 0,
+      "prompt_n": 183,
+      "prompt_ms": 953.258,
+      "prompt_per_token_ms": 5.209060109289617,
+      "prompt_per_second": 191.97321186918967,
+      "predicted_n": 512,
+      "predicted_ms": 36802.029,
+      "predicted_per_token_ms": 71.878962890625,
+      "predicted_per_second": 13.912276412803218
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00149:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00149:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

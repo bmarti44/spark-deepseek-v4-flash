@@ -3,8 +3,8 @@
   "task_id": "HumanEval/148",
   "rendered_prompt_sha256": "6cc1444376f53913622a070cd5c475b9cc33b4e199573da8e2b9051d689a314d",
   "rendering": "raw",
-  "completion": "    planets = [\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    index1 = planets.index(planet1)\n    index2 = planets.index(planet2)\n    if index1 > index2:\n        index1, index2 = index2, index1\n    return tuple(planets[index1+1:index2])",
-  "finish_reason": "stop",
+  "completion": "    # Define the list of planets in order from the sun\n    planets = [\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"]\n    \n    # Check if both planets are valid\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    \n    # Find the indices of the two planets\n    index1 = planets.index(planet1)\n    index2 = planets.index(planet2)\n    \n    # Determine the start and end indices for the slice\n    if index1 < index2:\n        start = index1 + 1\n        end = index2\n    else:\n        start = index2 + 1\n        end = index1\n    \n    # Return the planets between them as a tuple\n    return tuple(planets[start:end])\n\n# Test the function\nprint(bf(\"Jupiter\", \"Neptune\"))  # Expected: (\"Saturn\", \"Uranus\")\nprint(bf(\"Earth\", \"Mercury\"))    # Expected: (\"Venus\")\nprint(bf(\"Mercury\", \"Uranus\"))   # Expected: (\"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\")\nprint(bf(\"Earth\", \"Earth\"))      # Expected: ()\nprint(bf(\"Pluto\", \"Earth\"))      # Expected: ()\n```\n\n### Explanation:\n- The function first checks if both planet names are valid by verifying they are in the predefined list of planets.\n- It then finds the indices of the two planets in the list.\n- Depending on the order of the indices, it slices the list to get the planets between them.\n- The result is returned as a tuple.\n\nThis solution is straightforward and efficient, with a time complexity of O(1) for the lookups and slicing, and a space complexity of O(1) for the tuple creation.\n\n---\n## **Explanation**\nThe function `bf` takes two planet names as input and returns a tuple of planets whose orbits are located between the orbits of the two given planets, sorted by proximity to the sun. The function first checks if both planet names are valid by verifying they are in the predefined list of planets. If either planet is not valid, it returns an empty tuple. Otherwise, it finds the indices of the two planets in the list and determines the start and end indices for the slice. Depending on the order of the indices, it slices the list to get the planets",
+  "finish_reason": "length",
   "expected": "    planet_names = (\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\")\n    if planet1 not in planet_names or planet2 not in planet_names or planet1 == planet2:\n        return ()\n    planet1_index = planet_names.index(planet1)\n    planet2_index = planet_names.index(planet2)\n    if planet1_index < planet2_index:\n        return (planet_names[planet1_index + 1: planet2_index])\n    else:\n        return (planet_names[planet2_index + 1 : planet1_index])\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 8.714723059998505
+    "elapsed_s": 37.937658287002705
   },
   "response": {
     "choices": [
       {
-        "text": "    planets = [\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"]\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    index1 = planets.index(planet1)\n    index2 = planets.index(planet2)\n    if index1 > index2:\n        index1, index2 = index2, index1\n    return tuple(planets[index1+1:index2])",
+        "text": "    # Define the list of planets in order from the sun\n    planets = [\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\"]\n    \n    # Check if both planets are valid\n    if planet1 not in planets or planet2 not in planets:\n        return ()\n    \n    # Find the indices of the two planets\n    index1 = planets.index(planet1)\n    index2 = planets.index(planet2)\n    \n    # Determine the start and end indices for the slice\n    if index1 < index2:\n        start = index1 + 1\n        end = index2\n    else:\n        start = index2 + 1\n        end = index1\n    \n    # Return the planets between them as a tuple\n    return tuple(planets[start:end])\n\n# Test the function\nprint(bf(\"Jupiter\", \"Neptune\"))  # Expected: (\"Saturn\", \"Uranus\")\nprint(bf(\"Earth\", \"Mercury\"))    # Expected: (\"Venus\")\nprint(bf(\"Mercury\", \"Uranus\"))   # Expected: (\"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\")\nprint(bf(\"Earth\", \"Earth\"))      # Expected: ()\nprint(bf(\"Pluto\", \"Earth\"))      # Expected: ()\n```\n\n### Explanation:\n- The function first checks if both planet names are valid by verifying they are in the predefined list of planets.\n- It then finds the indices of the two planets in the list.\n- Depending on the order of the indices, it slices the list to get the planets between them.\n- The result is returned as a tuple.\n\nThis solution is straightforward and efficient, with a time complexity of O(1) for the lookups and slicing, and a space complexity of O(1) for the tuple creation.\n\n---\n## **Explanation**\nThe function `bf` takes two planet names as input and returns a tuple of planets whose orbits are located between the orbits of the two given planets, sorted by proximity to the sun. The function first checks if both planet names are valid by verifying they are in the predefined list of planets. If either planet is not valid, it returns an empty tuple. Otherwise, it finds the indices of the two planets in the list and determines the start and end indices for the slice. Depending on the order of the indices, it slices the list to get the planets",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228915,
+    "created": 1784250880,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 107,
+      "completion_tokens": 512,
       "prompt_tokens": 208,
-      "total_tokens": 315,
+      "total_tokens": 720,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-XGrxpIXVZtcoRHsCQZh4exoZcPxtJZ9S",
+    "id": "chatcmpl-nX9ep1HkuErkFdUh4GmRFs1aDGnOeLPq",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 207,
-      "prompt_ms": 1035.668,
-      "prompt_per_token_ms": 5.003227053140096,
-      "prompt_per_second": 199.8710011316368,
-      "predicted_n": 107,
-      "predicted_ms": 7677.19,
-      "predicted_per_token_ms": 71.74943925233644,
-      "predicted_per_second": 13.9373911548366
+      "cache_n": 0,
+      "prompt_n": 208,
+      "prompt_ms": 1071.63,
+      "prompt_per_token_ms": 5.152067307692308,
+      "prompt_per_second": 194.09684312682546,
+      "predicted_n": 512,
+      "predicted_ms": 36850.456,
+      "predicted_per_token_ms": 71.973546875,
+      "predicted_per_second": 13.893993604855257
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00148:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00148:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

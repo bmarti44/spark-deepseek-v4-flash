@@ -3,8 +3,8 @@
   "task_id": "HumanEval/61",
   "rendered_prompt_sha256": "f900fc0b3f9f9e3d6380108cad345c8211f454cac5496d16402442819340e1bb",
   "rendering": "raw",
-  "completion": "    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0",
-  "finish_reason": "stop",
+  "completion": "    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n        if count < 0:\n            return False\n    return count == 0\n```\n\nExplanation:\n- We initialize a variable `count` to keep track of the balance of brackets.\n- We iterate through each character in the input string `brackets`.\n- If the character is an opening bracket \"(\", we increment `count` by 1.\n- If the character is a closing bracket \")\", we decrement `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so we return `False`.\n- After iterating through all characters, we check if `count` is equal to 0. If it is, then every opening bracket has a corresponding closing bracket, so we return `True`. Otherwise, we return `False`.\n\nThe function correctly handles the given examples and returns the expected outputs.</think>>Sure! Here's the implementation of the `correct_bracketing` function:\n\n```python\ndef correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"(\" and \")\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"(\")\n    False\n    >>> correct_bracketing(\"()\")\n    True\n    >>> correct_bracketing(\"(()())\")\n    True\n    >>> correct_bracketing(\")(()\")\n    False\n    \"\"\"\n    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n        if count < 0:\n            return False\n    return count == 0\n```\n\nExplanation:\n- We initialize a variable `count` to keep track of the balance of brackets.\n- We iterate through each character in the input string `brackets`.\n- If the character is an opening bracket \"(\", we increment `count` by 1.\n- If the character is a closing bracket \")\", we decrement `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so we return `False`.\n- After iterating through all characters, we check if `count` is equal to 0. If it is,",
+  "finish_reason": "length",
   "expected": "    depth = 0\n    for b in brackets:\n        if b == \"(\":\n            depth += 1\n        else:\n            depth -= 1\n        if depth < 0:\n            return False\n    return depth == 0\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.724999957001273
+    "elapsed_s": 38.084808780004096
   },
   "response": {
     "choices": [
       {
-        "text": "    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0",
+        "text": "    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n        if count < 0:\n            return False\n    return count == 0\n```\n\nExplanation:\n- We initialize a variable `count` to keep track of the balance of brackets.\n- We iterate through each character in the input string `brackets`.\n- If the character is an opening bracket \"(\", we increment `count` by 1.\n- If the character is a closing bracket \")\", we decrement `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so we return `False`.\n- After iterating through all characters, we check if `count` is equal to 0. If it is, then every opening bracket has a corresponding closing bracket, so we return `True`. Otherwise, we return `False`.\n\nThe function correctly handles the given examples and returns the expected outputs.</think>>Sure! Here's the implementation of the `correct_bracketing` function:\n\n```python\ndef correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"(\" and \")\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"(\")\n    False\n    >>> correct_bracketing(\"()\")\n    True\n    >>> correct_bracketing(\"(()())\")\n    True\n    >>> correct_bracketing(\")(()\")\n    False\n    \"\"\"\n    count = 0\n    for bracket in brackets:\n        if bracket == \"(\":\n            count += 1\n        elif bracket == \")\":\n            count -= 1\n        if count < 0:\n            return False\n    return count == 0\n```\n\nExplanation:\n- We initialize a variable `count` to keep track of the balance of brackets.\n- We iterate through each character in the input string `brackets`.\n- If the character is an opening bracket \"(\", we increment `count` by 1.\n- If the character is a closing bracket \")\", we decrement `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so we return `False`.\n- After iterating through all characters, we check if `count` is equal to 0. If it is,",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228167,
+    "created": 1784247975,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 55,
+      "completion_tokens": 512,
       "prompt_tokens": 90,
-      "total_tokens": 145,
+      "total_tokens": 602,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-oivi6ydGKF2JcPuDps5AH5JNtYkocc0k",
+    "id": "chatcmpl-v7ukdEzZdJwgWaFYMoiEzLO0nmiMsk74",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 89,
-      "prompt_ms": 687.91,
-      "prompt_per_token_ms": 7.729325842696629,
-      "prompt_per_second": 129.3773894840895,
-      "predicted_n": 55,
-      "predicted_ms": 4034.803,
-      "predicted_per_token_ms": 73.36005454545455,
-      "predicted_per_second": 13.631396625808001
+      "cache_n": 0,
+      "prompt_n": 90,
+      "prompt_ms": 717.953,
+      "prompt_per_token_ms": 7.977255555555555,
+      "prompt_per_second": 125.35639519578581,
+      "predicted_n": 512,
+      "predicted_ms": 37364.117,
+      "predicted_per_token_ms": 72.976791015625,
+      "predicted_per_second": 13.702986745277562
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00061:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00061:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

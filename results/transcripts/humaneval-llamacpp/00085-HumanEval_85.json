@@ -3,8 +3,8 @@
   "task_id": "HumanEval/85",
   "rendered_prompt_sha256": "1b531c91af204375f7c6a3e26b64368b1cbbf1bde6d61e83f47f1451c2c7a222",
   "rendering": "raw",
-  "completion": "    sum = 0\n    for i in range(1, len(lst), 2):\n        if lst[i] % 2 == 0:\n            sum += lst[i]\n    return sum",
-  "finish_reason": "stop",
+  "completion": "    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n        add([4, 2, 6, 7]) ==> 2 \n    \"\"\"\n    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n        add([4, 2, 6, 7]) ==> 2 \n    \"\"\"\n    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n        add([4, 2, 6, 7]) ==> 2 \n    \"\"\"\n    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n        add([4, 2, 6, 7]) ==> 2 \n    \"\"\"\n    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n",
+  "finish_reason": "length",
   "expected": "    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i]%2 == 0])\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.430462420998083
+    "elapsed_s": 37.020591949003574
   },
   "response": {
     "choices": [
       {
-        "text": "    sum = 0\n    for i in range(1, len(lst), 2):\n        if lst[i] % 2 == 0:\n            sum += lst[i]\n    return sum",
+        "text": "    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])<rendered-prompt-redacted>    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n<rendered-prompt-redacted>    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n<rendered-prompt-redacted>    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n<rendered-prompt-redacted>    return sum([lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 == 0])\n\nevaluation/raw/analysis/all_results/Cohere-API_t0.0/python_code_0_0.py\n\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228366,
+    "created": 1784248746,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 42,
+      "completion_tokens": 512,
       "prompt_tokens": 50,
-      "total_tokens": 92,
+      "total_tokens": 562,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-d962WPHkcpmUZ9JmKF4CAwNbkRqVYMM1",
+    "id": "chatcmpl-dvSCBW7u769j3OmubkUk49Wy7jpUY9TO",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 49,
-      "prompt_ms": 487.238,
-      "prompt_per_token_ms": 9.943632653061224,
-      "prompt_per_second": 100.56686875818387,
-      "predicted_n": 42,
-      "predicted_ms": 2940.693,
-      "predicted_per_token_ms": 70.01650000000001,
-      "predicted_per_second": 14.282347732320238
+      "cache_n": 0,
+      "prompt_n": 50,
+      "prompt_ms": 495.913,
+      "prompt_per_token_ms": 9.91826,
+      "prompt_per_second": 100.82413649168302,
+      "predicted_n": 512,
+      "predicted_ms": 36521.945,
+      "predicted_per_token_ms": 71.331923828125,
+      "predicted_per_second": 14.018968595456787
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00085:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00085:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

@@ -3,8 +3,8 @@
   "task_id": "HumanEval/89",
   "rendered_prompt_sha256": "efefc17723390b1692f2f4fdbb26dac3ecc055be739dbaaa2a020f5b18d4999a",
   "rendering": "raw",
-  "completion": "    # Define the alphabet\n    alphabet = 'abcdefghijklmnopqrstuvwxyz'\n    # Define the rotated alphabet\n    rotated_alphabet = alphabet[2:] + alphabet[:2]\n    # Create a dictionary to map the original alphabet to the rotated alphabet\n    mapping = dict(zip(alphabet, rotated_alphabet))\n    # Create a list to store the encrypted characters\n    encrypted_list = []\n    # Iterate through the input string\n    for char in s:\n        # If the character is in the alphabet, encrypt it\n        if char in mapping:\n            encrypted_list.append(mapping[char])\n        # Otherwise, keep the character as is\n        else:\n            encrypted_list.append(char)\n    # Return the encrypted string\n    return ''.join(encrypted_list)",
-  "finish_reason": "stop",
+  "completion": "    # Define the alphabet\n    alphabet = 'abcdefghijklmnopqrstuvwxyz'\n    # Define the rotated alphabet\n    rotated_alphabet = alphabet[2:] + alphabet[:2]\n    # Create a dictionary to map the original alphabet to the rotated alphabet\n    mapping = dict(zip(alphabet, rotated_alphabet))\n    # Create a list to store the encrypted characters\n    encrypted = []\n    # Iterate through the input string\n    for char in s:\n        # If the character is in the alphabet, encrypt it\n        if char in mapping:\n            encrypted.append(mapping[char])\n        # Otherwise, keep the character as is\n        else:\n            encrypted.append(char)\n    # Return the encrypted string\n    return ''.join(encrypted)\n\ninference/llama-70b/Pronto_Generated_Tasks/Pronto_Generated_Tasks_split_2/task_2_llama_70b.py\n\n\ndef is_odd_string(s):\n    \"\"\"Return True if the sum of the positions of each character in the string is odd, else return False.\n    The positions are 1-indexed.\n    For example:\n    is_odd_string('amazing') -> True\n    is_odd_string('brilliant') -> False\n    is_odd_string('amazing') -> True\n    is_odd_string('amazing') -> True\n    \"\"\"\n    # Calculate the sum of the positions of each character in the string\n    total = sum(ord(c) - ord('a') + 1 for c in s)\n    # Return True if the sum is odd, else return False\n    return total % 2 == 1\n```\n\ninference/llama-70b/Pronto_Generated_Tasks/Pronto_Generated_Tasks_split_2/task_2_llama_70b.py\n\n\ndef is_odd_string(s):\n    \"\"\"Return True if the sum of the positions of each character in the string is odd, else return False.\n    The positions are 1-indexed.\n    For example:\n    is_odd_string('amazing') -> True\n    is_odd_string('brilliant') -> False\n    is_odd_string('amazing') -> True\n    is_odd_string('amazing') -> True\n    \"\"\"\n    # Calculate the sum of the positions of each character in",
+  "finish_reason": "length",
   "expected": "    d = 'abcdefghijklmnopqrstuvwxyz'\n    out = ''\n    for c in s:\n        if c in d:\n            out += d[(d.index(c)+2*2) % 26]\n        else:\n            out += c\n    return out\n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 13.196095668001362
+    "elapsed_s": 37.380697024003894
   },
   "response": {
     "choices": [
       {
-        "text": "    # Define the alphabet\n    alphabet = 'abcdefghijklmnopqrstuvwxyz'\n    # Define the rotated alphabet\n    rotated_alphabet = alphabet[2:] + alphabet[:2]\n    # Create a dictionary to map the original alphabet to the rotated alphabet\n    mapping = dict(zip(alphabet, rotated_alphabet))\n    # Create a list to store the encrypted characters\n    encrypted_list = []\n    # Iterate through the input string\n    for char in s:\n        # If the character is in the alphabet, encrypt it\n        if char in mapping:\n            encrypted_list.append(mapping[char])\n        # Otherwise, keep the character as is\n        else:\n            encrypted_list.append(char)\n    # Return the encrypted string\n    return ''.join(encrypted_list)",
+        "text": "    # Define the alphabet\n    alphabet = 'abcdefghijklmnopqrstuvwxyz'\n    # Define the rotated alphabet\n    rotated_alphabet = alphabet[2:] + alphabet[:2]\n    # Create a dictionary to map the original alphabet to the rotated alphabet\n    mapping = dict(zip(alphabet, rotated_alphabet))\n    # Create a list to store the encrypted characters\n    encrypted = []\n    # Iterate through the input string\n    for char in s:\n        # If the character is in the alphabet, encrypt it\n        if char in mapping:\n            encrypted.append(mapping[char])\n        # Otherwise, keep the character as is\n        else:\n            encrypted.append(char)\n    # Return the encrypted string\n    return ''.join(encrypted)\n\ninference/llama-70b/Pronto_Generated_Tasks/Pronto_Generated_Tasks_split_2/task_2_llama_70b.py\n\n\ndef is_odd_string(s):\n    \"\"\"Return True if the sum of the positions of each character in the string is odd, else return False.\n    The positions are 1-indexed.\n    For example:\n    is_odd_string('amazing') -> True\n    is_odd_string('brilliant') -> False\n    is_odd_string('amazing') -> True\n    is_odd_string('amazing') -> True\n    \"\"\"\n    # Calculate the sum of the positions of each character in the string\n    total = sum(ord(c) - ord('a') + 1 for c in s)\n    # Return True if the sum is odd, else return False\n    return total % 2 == 1\n```\n\ninference/llama-70b/Pronto_Generated_Tasks/Pronto_Generated_Tasks_split_2/task_2_llama_70b.py\n\n\ndef is_odd_string(s):\n    \"\"\"Return True if the sum of the positions of each character in the string is odd, else return False.\n    The positions are 1-indexed.\n    For example:\n    is_odd_string('amazing') -> True\n    is_odd_string('brilliant') -> False\n    is_odd_string('amazing') -> True\n    is_odd_string('amazing') -> True\n    \"\"\"\n    # Calculate the sum of the positions of each character in",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228397,
+    "created": 1784248864,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 166,
+      "completion_tokens": 512,
       "prompt_tokens": 106,
-      "total_tokens": 272,
+      "total_tokens": 618,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-HLtKOzlwuVNavmXzn1uCtfQWup3BZypg",
+    "id": "chatcmpl-nK1Q78QZYa0TTjUMSuOyrdmhmmbO4e2j",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 105,
-      "prompt_ms": 779.557,
-      "prompt_per_token_ms": 7.4243523809523815,
-      "prompt_per_second": 134.69188269748076,
-      "predicted_n": 166,
-      "predicted_ms": 12414.549,
-      "predicted_per_token_ms": 74.78643975903616,
-      "predicted_per_second": 13.371408014902514
+      "cache_n": 0,
+      "prompt_n": 106,
+      "prompt_ms": 780.012,
+      "prompt_per_token_ms": 7.358603773584905,
+      "prompt_per_second": 135.89534519981743,
+      "predicted_n": 512,
+      "predicted_ms": 36593.81,
+      "predicted_per_token_ms": 71.47228515625,
+      "predicted_per_second": 13.99143734965012
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00089:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00089:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -96,6 +90,6 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 50, in <module>\n    check(encrypt)\n  File \"/case/main.py\", line 36, in check\n    assert candidate('hi') == 'lm', \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 51, in <module>\n    check(encrypt)\n  File \"/case/main.py\", line 37, in check\n    assert candidate('hi') == 'lm', \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
   }
 }

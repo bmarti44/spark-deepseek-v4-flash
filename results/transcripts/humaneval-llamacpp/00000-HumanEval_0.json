@@ -3,11 +3,11 @@
   "task_id": "HumanEval/0",
   "rendered_prompt_sha256": "00b2e074e127a6a9d1376278bef732933760ab706057ec755a8c2642217b557a",
   "rendering": "raw",
-  "completion": "    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n",
-  "finish_reason": "stop",
+  "completion": "    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List",
+  "finish_reason": "length",
   "expected": "    for idx, elem in enumerate(numbers):\n        for idx2, elem2 in enumerate(numbers):\n            if idx != idx2:\n                distance = abs(elem - elem2)\n                if distance < threshold:\n                    return True\n\n    return False\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 8.096132030001172
+    "elapsed_s": 39.98337391500536
   },
   "response": {
     "choices": [
       {
-        "text": "    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n",
+        "text": "    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\n<rendered-prompt-redacted>    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\n<rendered-prompt-redacted>    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227783,
+    "created": 1784246254,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 95,
+      "completion_tokens": 512,
       "prompt_tokens": 122,
-      "total_tokens": 217,
+      "total_tokens": 634,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-JQyf94dALweY2lNf0dpfboI07vfwKtz5",
+    "id": "chatcmpl-xjQJRguzKZU7Y5HpgKXzIOPWe5Dvlvla",
     "timings": {
       "cache_n": 0,
       "prompt_n": 122,
-      "prompt_ms": 970.661,
-      "prompt_per_token_ms": 7.956237704918032,
-      "prompt_per_second": 125.68754693966278,
-      "predicted_n": 95,
-      "predicted_ms": 7123.521,
-      "predicted_per_token_ms": 74.98443157894737,
-      "predicted_per_second": 13.336101627271121
+      "prompt_ms": 1530.781,
+      "prompt_per_token_ms": 12.547385245901639,
+      "prompt_per_second": 79.69787970976907,
+      "predicted_n": 512,
+      "predicted_ms": 38253.14,
+      "predicted_per_token_ms": 74.7131640625,
+      "predicted_per_second": 13.384522159488084
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00000:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00000:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 2\n    evaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n                                                                                                  ^^\nSyntaxError: invalid syntax\n"
   }
 }

@@ -3,8 +3,8 @@
   "task_id": "HumanEval/38",
   "rendered_prompt_sha256": "76b76b6f211ef2f4243678ddb1df6013ceac62da09fefe7bc38ba55e404a1ef8",
   "rendering": "raw",
-  "completion": "    # split string to groups. Each of length 3.\n    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]\n    # cycle elements in each group. Unless group has fewer elements than 3.\n    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]\n    return \"\".join(groups)",
-  "finish_reason": "stop",
+  "completion": "    # split string to groups. Each of length 3.\n    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]\n    # cycle elements in each group. Unless group has fewer elements than 3.\n    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]\n    return \"\".join(groups)\n\n\n# <test>\n# </test>\nclass Test(unittest.TestCase):\n    def test(self):\n        # Test case for encode_cyclic\n        self.assertEqual(encode_cyclic(\"abc\"), \"bca\")\n        self.assertEqual(encode_cyclic(\"abcd\"), \"bcad\")\n        self.assertEqual(encode_cyclic(\"abcdef\"), \"bcaefd\")\n        self.assertEqual(encode_cyclic(\"\"), \"\")\n        self.assertEqual(encode_cyclic(\"a\"), \"a\")\n        self.assertEqual(encode_cyclic(\"ab\"), \"ab\")\n\n        # Test case for decode_cyclic\n        self.assertEqual(decode_cyclic(\"bca\"), \"abc\")\n        self.assertEqual(decode_cyclic(\"bcad\"), \"abcd\")\n        self.assertEqual(decode_cyclic(\"bcaefd\"), \"abcdef\")\n        self.assertEqual(decode_cyclic(\"\"), \"\")\n        self.assertEqual(decode_cyclic(\"a\"), \"a\")\n        self.assertEqual(decode_cyclic(\"ab\"), \"ab\")\n\n        # Additional test cases for encode_cyclic\n        self.assertEqual(encode_cyclic(\"xyz\"), \"yzx\")\n        self.assertEqual(encode_cyclic(\"123456\"), \"231564\")\n        self.assertEqual(encode_cyclic(\"hello\"), \"ehllo\")\n        self.assertEqual(encode_cyclic(\"world\"), \"owrld\")\n\n        # Additional test cases for decode_cyclic\n        self.assertEqual(decode_cyclic(\"yzx\"), \"xyz\")\n        self.assertEqual(decode_cyclic(\"231564\"), \"123456\")\n        self.assertEqual(decode_cyclic(\"ehllo\"), \"hello\")\n        self.assertEqual(decode_cyclic(\"owrld\"), \"world\")\n\nif __name__ == '__main__':\n    unittest.main()\n\nplatform/tasks/unified/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment",
+  "finish_reason": "length",
   "expected": "    return encode_cyclic(encode_cyclic(s))\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 8.837152027997945
+    "elapsed_s": 37.499524075996305
   },
   "response": {
     "choices": [
       {
-        "text": "    # split string to groups. Each of length 3.\n    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]\n    # cycle elements in each group. Unless group has fewer elements than 3.\n    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]\n    return \"\".join(groups)",
+        "text": "    # split string to groups. Each of length 3.\n    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]\n    # cycle elements in each group. Unless group has fewer elements than 3.\n    groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]\n    return \"\".join(groups)\n\n\n# <test>\n# </test>\nclass Test(unittest.TestCase):\n    def test(self):\n        # Test case for encode_cyclic\n        self.assertEqual(encode_cyclic(\"abc\"), \"bca\")\n        self.assertEqual(encode_cyclic(\"abcd\"), \"bcad\")\n        self.assertEqual(encode_cyclic(\"abcdef\"), \"bcaefd\")\n        self.assertEqual(encode_cyclic(\"\"), \"\")\n        self.assertEqual(encode_cyclic(\"a\"), \"a\")\n        self.assertEqual(encode_cyclic(\"ab\"), \"ab\")\n\n        # Test case for decode_cyclic\n        self.assertEqual(decode_cyclic(\"bca\"), \"abc\")\n        self.assertEqual(decode_cyclic(\"bcad\"), \"abcd\")\n        self.assertEqual(decode_cyclic(\"bcaefd\"), \"abcdef\")\n        self.assertEqual(decode_cyclic(\"\"), \"\")\n        self.assertEqual(decode_cyclic(\"a\"), \"a\")\n        self.assertEqual(decode_cyclic(\"ab\"), \"ab\")\n\n        # Additional test cases for encode_cyclic\n        self.assertEqual(encode_cyclic(\"xyz\"), \"yzx\")\n        self.assertEqual(encode_cyclic(\"123456\"), \"231564\")\n        self.assertEqual(encode_cyclic(\"hello\"), \"ehllo\")\n        self.assertEqual(encode_cyclic(\"world\"), \"owrld\")\n\n        # Additional test cases for decode_cyclic\n        self.assertEqual(decode_cyclic(\"yzx\"), \"xyz\")\n        self.assertEqual(decode_cyclic(\"231564\"), \"123456\")\n        self.assertEqual(decode_cyclic(\"ehllo\"), \"hello\")\n        self.assertEqual(decode_cyclic(\"owrld\"), \"world\")\n\nif __name__ == '__main__':\n    unittest.main()\n\nplatform/tasks/unified/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment/0.8.0/experiment",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228047,
+    "created": 1784247256,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 105,
+      "completion_tokens": 512,
       "prompt_tokens": 156,
-      "total_tokens": 261,
+      "total_tokens": 668,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-uY9QM4e6eAZAjqFvALDB9Pi8VAp7uIJP",
+    "id": "chatcmpl-wsoy4FCFTqrfslFfR4FLLMpjjl0DkKx6",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 155,
-      "prompt_ms": 863.428,
-      "prompt_per_token_ms": 5.570503225806451,
-      "prompt_per_second": 179.51699504764727,
-      "predicted_n": 105,
-      "predicted_ms": 7971.448,
-      "predicted_per_token_ms": 75.91855238095238,
-      "predicted_per_second": 13.17201090692682
+      "cache_n": 0,
+      "prompt_n": 156,
+      "prompt_ms": 864.745,
+      "prompt_per_token_ms": 5.543237179487179,
+      "prompt_per_second": 180.40000231282053,
+      "predicted_n": 512,
+      "predicted_ms": 36611.821,
+      "predicted_per_token_ms": 71.507462890625,
+      "predicted_per_second": 13.984554332875165
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00038:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00038:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

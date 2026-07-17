@@ -3,11 +3,11 @@
   "task_id": "HumanEval/156",
   "rendered_prompt_sha256": "8959ac1c6c2fd7f47f748d3f39d4698b9ef610a28fbd428fad7dc4e856e9d737",
   "rendering": "raw",
-  "completion": "    if number < 1 or number > 1000:\n        raise ValueError(\"Number must be between 1 and 1000\")\n\n    roman_numerals = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n\n    result = ''\n    for value, numeral in roman_numerals:\n        while number >= value:\n            result += numeral\n            number -= value\n\n    return result",
-  "finish_reason": "stop",
+  "completion": "    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, '",
+  "finish_reason": "length",
   "expected": "    num = [1, 4, 5, 9, 10, 40, 50, 90,  \n           100, 400, 500, 900, 1000] \n    sym = [\"I\", \"IV\", \"V\", \"IX\", \"X\", \"XL\",  \n           \"L\", \"XC\", \"C\", \"CD\", \"D\", \"CM\", \"M\"] \n    i = 12\n    res = ''\n    while number: \n        div = number // num[i] \n        number %= num[i] \n        while div: \n            res += sym[i] \n            div -= 1\n        i -= 1\n    return res.lower()\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 12.348595162999118
+    "elapsed_s": 37.20800226400024
   },
   "response": {
     "choices": [
       {
-        "text": "    if number < 1 or number > 1000:\n        raise ValueError(\"Number must be between 1 and 1000\")\n\n    roman_numerals = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n\n    result = ''\n    for value, numeral in roman_numerals:\n        while number >= value:\n            result += numeral\n            number -= value\n\n    return result",
+        "text": "    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, 'c'),\n        (90, 'xc'),\n        (50, 'l'),\n        (40, 'xl'),\n        (10, 'x'),\n        (9, 'ix'),\n        (5, 'v'),\n        (4, 'iv'),\n        (1, 'i')\n    ]\n    result = ''\n    for value, roman in val_to_roman:\n        while number >= value:\n            result += roman\n            number -= value\n    return result\ndef int_to_mini_roman(number):\n    # Mapping of values to roman numerals\n    val_to_roman = [\n        (1000, 'm'),\n        (900, 'cm'),\n        (500, 'd'),\n        (400, 'cd'),\n        (100, '",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228969,
+    "created": 1784251147,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 164,
+      "completion_tokens": 512,
       "prompt_tokens": 100,
-      "total_tokens": 264,
+      "total_tokens": 612,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-nhTLJ26i6SDfn0Hc3QiBxawj1GL8cmpy",
+    "id": "chatcmpl-cJ55uXk1byDYN7r2uPCjXft0GYLTQRKP",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 99,
-      "prompt_ms": 710.272,
-      "prompt_per_token_ms": 7.174464646464647,
-      "prompt_per_second": 139.3832222021986,
-      "predicted_n": 164,
-      "predicted_ms": 11635.933,
-      "predicted_per_token_ms": 70.95081097560976,
-      "predicted_per_second": 14.094271598160628
+      "cache_n": 0,
+      "prompt_n": 100,
+      "prompt_ms": 750.722,
+      "prompt_per_token_ms": 7.50722,
+      "prompt_per_second": 133.2051012225564,
+      "predicted_n": 512,
+      "predicted_ms": 36443.143,
+      "predicted_per_token_ms": 71.178013671875,
+      "predicted_per_second": 14.049282192811965
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00156:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00156:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 88\n    (100, '\n          ^\nSyntaxError: unterminated string literal (detected at line 88)\n"
   }
 }

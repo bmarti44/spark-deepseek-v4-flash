@@ -3,8 +3,8 @@
   "task_id": "HumanEval/39",
   "rendered_prompt_sha256": "6dde5c311a83caad26ca80e7e914c596b9cb6e8467630530600e21c98d547c5a",
   "rendering": "raw",
-  "completion": "    fib = [0, 1]\n    while True:\n        fib.append(fib[-1] + fib[-2])\n        if fib[-1] > 1:\n            for i in range(2, int(fib[-1] ** 0.5) + 1):\n                if fib[-1] % i == 0:\n                    break\n            else:\n                n -= 1\n                if n == 0:\n                    return fib[-1]",
-  "finish_reason": "stop",
+  "completion": "    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    fib = [0, 1]\n    count = 0\n    i = 2\n    while count < n:\n        fib.append(fib[i-1] + fib[i-2])\n        if is_prime(fib[-1]):\n            count += 1\n        i += 1\n    return fib[-1] if count == n else None\n``` \n\nNote: The function returns the n-th number that is both a Fibonacci number and prime. The Fibonacci sequence starts with 0 and 1, but the first prime Fibonacci number is 2 (which is the 4th term in the sequence if we start with 0, 1, 1, 2). However, the problem statement expects the first prime Fibonacci number to be 2, which is the 1st term in the sequence if we consider only prime Fibonacci numbers. So the function above returns the n-th prime Fibonacci number, not the n-th term in the Fibonacci sequence that is prime. The examples given in the problem statement confirm this interpretation. \n\nThe function uses a helper function `is_prime` to check if a number is prime. It then generates Fibonacci numbers until it has found `n` prime Fibonacci numbers. The function returns the last prime Fibonacci number found. If `n` is 0, the function returns `None`. \n\nThe function is efficient for small values of `n`, but for larger values, it may be slow because it generates all Fibonacci numbers up to the n-th prime Fibonacci number. However, the problem statement does not specify any constraints on `n`, so this implementation should be acceptable. \n\nThe function also uses a list to store the Fibonacci numbers, which could be memory-intensive for large `n`. However, since the problem statement does not specify any constraints, this should be acceptable. \n\nThe function could be optimized by only storing the last two Fibonacci numbers and checking each new Fibonacci number for primality. However, this would require a more complex implementation. \n\nThe function could also be optimized by using a more efficient primality test, such as the Miller-Rabin test, for large numbers. However, this would require additional libraries or more complex code. \n\nGiven the simplicity of the problem statement, the current implementation should be sufficient.",
+  "finish_reason": "length",
   "expected": "    import math\n\n    def is_prime(p):\n        if p < 2:\n            return False\n        for k in range(2, min(int(math.sqrt(p)) + 1, p - 1)):\n            if p % k == 0:\n                return False\n        return True\n    f = [0, 1]\n    while True:\n        f.append(f[-1] + f[-2])\n        if is_prime(f[-1]):\n            n -= 1\n        if n == 0:\n            return f[-1]\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 8.006155110000691
+    "elapsed_s": 37.242234549004934
   },
   "response": {
     "choices": [
       {
-        "text": "    fib = [0, 1]\n    while True:\n        fib.append(fib[-1] + fib[-2])\n        if fib[-1] > 1:\n            for i in range(2, int(fib[-1] ** 0.5) + 1):\n                if fib[-1] % i == 0:\n                    break\n            else:\n                n -= 1\n                if n == 0:\n                    return fib[-1]",
+        "text": "    def is_prime(num):\n        if num < 2:\n            return False\n        for i in range(2, int(num**0.5) + 1):\n            if num % i == 0:\n                return False\n        return True\n\n    fib = [0, 1]\n    count = 0\n    i = 2\n    while count < n:\n        fib.append(fib[i-1] + fib[i-2])\n        if is_prime(fib[-1]):\n            count += 1\n        i += 1\n    return fib[-1] if count == n else None\n``` \n\nNote: The function returns the n-th number that is both a Fibonacci number and prime. The Fibonacci sequence starts with 0 and 1, but the first prime Fibonacci number is 2 (which is the 4th term in the sequence if we start with 0, 1, 1, 2). However, the problem statement expects the first prime Fibonacci number to be 2, which is the 1st term in the sequence if we consider only prime Fibonacci numbers. So the function above returns the n-th prime Fibonacci number, not the n-th term in the Fibonacci sequence that is prime. The examples given in the problem statement confirm this interpretation. \n\nThe function uses a helper function `is_prime` to check if a number is prime. It then generates Fibonacci numbers until it has found `n` prime Fibonacci numbers. The function returns the last prime Fibonacci number found. If `n` is 0, the function returns `None`. \n\nThe function is efficient for small values of `n`, but for larger values, it may be slow because it generates all Fibonacci numbers up to the n-th prime Fibonacci number. However, the problem statement does not specify any constraints on `n`, so this implementation should be acceptable. \n\nThe function also uses a list to store the Fibonacci numbers, which could be memory-intensive for large `n`. However, since the problem statement does not specify any constraints, this should be acceptable. \n\nThe function could be optimized by only storing the last two Fibonacci numbers and checking each new Fibonacci number for primality. However, this would require a more complex implementation. \n\nThe function could also be optimized by using a more efficient primality test, such as the Miller-Rabin test, for large numbers. However, this would require additional libraries or more complex code. \n\nGiven the simplicity of the problem statement, the current implementation should be sufficient.",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228056,
+    "created": 1784247293,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 98,
+      "completion_tokens": 512,
       "prompt_tokens": 87,
-      "total_tokens": 185,
+      "total_tokens": 599,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-zCTPmpI4XjJQkC8j0h19Eca7o25Hs3b8",
+    "id": "chatcmpl-VWtTTWFPYnNRIC4CwZ1pwZHVvxMVw5fW",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 86,
-      "prompt_ms": 690.24,
-      "prompt_per_token_ms": 8.026046511627907,
-      "prompt_per_second": 124.59434399629114,
-      "predicted_n": 98,
-      "predicted_ms": 7314.188,
-      "predicted_per_token_ms": 74.63457142857143,
-      "predicted_per_second": 13.398616497142266
+      "cache_n": 0,
+      "prompt_n": 87,
+      "prompt_ms": 704.25,
+      "prompt_per_token_ms": 8.094827586206897,
+      "prompt_per_second": 123.5356762513312,
+      "predicted_n": 512,
+      "predicted_ms": 36533.131,
+      "predicted_per_token_ms": 71.353771484375,
+      "predicted_per_second": 14.014676157923612
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00039:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00039:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

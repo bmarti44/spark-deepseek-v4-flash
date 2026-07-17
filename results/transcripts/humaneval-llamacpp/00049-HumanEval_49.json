@@ -3,8 +3,8 @@
   "task_id": "HumanEval/49",
   "rendered_prompt_sha256": "e66b53fb6c885a4c550b997add2be1d3229f04eabfca6e66e7a2d1e2845b164f",
   "rendering": "raw",
-  "completion": "    if n == 0:\n        return 1\n    if n == 1:\n        return 2 % p\n    if n % 2 == 0:\n        return (modp(n // 2, p) ** 2) % p\n    else:\n        return (2 * modp(n - 1, p)) % p",
-  "finish_reason": "stop",
+  "completion": "    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n    # Compute 2^n modulo p\n    result = pow(2, n, p)\n    return result\n```\n\nThis implementation uses Python's built-in `pow` function with three arguments, which efficiently computes `2^n mod p` using modular exponentiation. The function also includes input validation to handle invalid inputs as specified in the docstring.</think>\n```python\n\ndef modp(n: int, p: int):\n    \"\"\"Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"\n    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n    # Compute 2^n modulo p\n    result = pow(2, n, p)\n    return result\n```\n\nThis implementation uses Python's built-in `pow` function with three arguments, which efficiently computes `2^n mod p` using modular exponentiation. The function also includes input validation to handle invalid inputs as specified in the docstring.</think>\n```python\n\ndef modp(n: int, p: int):\n    \"\"\"Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"\n    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n   ",
+  "finish_reason": "length",
   "expected": "    ret = 1\n    for i in range(n):\n        ret = (2 * ret) % p\n    return ret\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.030182491998858
+    "elapsed_s": 37.289543822997075
   },
   "response": {
     "choices": [
       {
-        "text": "    if n == 0:\n        return 1\n    if n == 1:\n        return 2 % p\n    if n % 2 == 0:\n        return (modp(n // 2, p) ** 2) % p\n    else:\n        return (2 * modp(n - 1, p)) % p",
+        "text": "    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n    # Compute 2^n modulo p\n    result = pow(2, n, p)\n    return result\n```\n\nThis implementation uses Python's built-in `pow` function with three arguments, which efficiently computes `2^n mod p` using modular exponentiation. The function also includes input validation to handle invalid inputs as specified in the docstring.</think>\n```python<rendered-prompt-redacted>    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n    # Compute 2^n modulo p\n    result = pow(2, n, p)\n    return result\n```\n\nThis implementation uses Python's built-in `pow` function with three arguments, which efficiently computes `2^n mod p` using modular exponentiation. The function also includes input validation to handle invalid inputs as specified in the docstring.</think>\n```python<rendered-prompt-redacted>    # Check if p is 0 or negative, return -1 for invalid input\n    if p <= 0:\n        return -1\n    \n    # Check if n is negative, return -1 for invalid input\n    if n < 0:\n        return -1\n    \n   ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228123,
+    "created": 1784247574,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 75,
+      "completion_tokens": 512,
       "prompt_tokens": 95,
-      "total_tokens": 170,
+      "total_tokens": 607,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-WMyN1nplSl4rrD3qm954Prq4PHryh7Gc",
+    "id": "chatcmpl-AU1D5erJMYHEdVp2qfDJkqcvRu4mQbJ5",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 94,
-      "prompt_ms": 662.006,
-      "prompt_per_token_ms": 7.0426170212765955,
-      "prompt_per_second": 141.9926707612922,
-      "predicted_n": 75,
-      "predicted_ms": 5365.815,
-      "predicted_per_token_ms": 71.54419999999999,
-      "predicted_per_second": 13.977373427894925
+      "cache_n": 0,
+      "prompt_n": 95,
+      "prompt_ms": 693.416,
+      "prompt_per_token_ms": 7.299115789473685,
+      "prompt_per_second": 137.00289580857665,
+      "predicted_n": 512,
+      "predicted_ms": 36592.64,
+      "predicted_per_token_ms": 71.47,
+      "predicted_per_second": 13.991884706870016
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00049:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00049:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

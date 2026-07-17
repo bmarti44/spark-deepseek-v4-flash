@@ -3,8 +3,8 @@
   "task_id": "HumanEval/154",
   "rendered_prompt_sha256": "66607b421ed8b5eb91de52ca96f1b071ecc536edf716451650816ae4e7701f64",
   "rendering": "raw",
-  "completion": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    \n    # Generate all rotations of b\n    for i in range(len(b)):\n        # Rotate b by i positions\n        rotated = b[i:] + b[:i]\n        # Check if rotated is a substring of a\n        if rotated in a:\n            return True\n    \n    return False",
-  "finish_reason": "stop",
+  "completion": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    # Check if any rotation of b is a substring of a\n    for i in range(len(b)):\n        if b[i:] + b[:i] in a:\n            return True\n    return False\n```\n\n### Response\n```python\ndef cycpattern_check(a, b):\n    # Check if b is a substring of a\n    if b in a:\n        return True\n    # Check if any rotation of b is a substring of a\n    for i in range(len(b)):\n        if b[i:] + b[:i] in a:\n            return True\n    return False\n```\n\nsolutions/Code_Only/CodeOnly_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+  "finish_reason": "length",
   "expected": "    l = len(b)\n    pat = b + b\n    for i in range(len(a) - l + 1):\n        for j in range(l + 1):\n            if a[i:i+l] == pat[j:j+l]:\n                return True\n    return False\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.646295156999258
+    "elapsed_s": 38.687308025000675
   },
   "response": {
     "choices": [
       {
-        "text": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    \n    # Generate all rotations of b\n    for i in range(len(b)):\n        # Rotate b by i positions\n        rotated = b[i:] + b[:i]\n        # Check if rotated is a substring of a\n        if rotated in a:\n            return True\n    \n    return False",
+        "text": "    # Check if b is a substring of a\n    if b in a:\n        return True\n    # Check if any rotation of b is a substring of a\n    for i in range(len(b)):\n        if b[i:] + b[:i] in a:\n            return True\n    return False\n```\n\n### Response\n```python\ndef cycpattern_check(a, b):\n    # Check if b is a substring of a\n    if b in a:\n        return True\n    # Check if any rotation of b is a substring of a\n    for i in range(len(b)):\n        if b[i:] + b[:i] in a:\n            return True\n    return False\n```\n\nsolutions/Code_Only/CodeOnly_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228950,
+    "created": 1784251087,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 82,
+      "completion_tokens": 512,
       "prompt_tokens": 131,
-      "total_tokens": 213,
+      "total_tokens": 643,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-h4KFlL5BQ5n1tug7fPY6qULdD316JIcN",
+    "id": "chatcmpl-XgGu60ntuMeadW1tNiLtcexSjojcyoRS",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 130,
-      "prompt_ms": 865.408,
-      "prompt_per_token_ms": 6.656984615384616,
-      "prompt_per_second": 150.21816299364,
-      "predicted_n": 82,
-      "predicted_ms": 5778.472,
-      "predicted_per_token_ms": 70.46917073170731,
-      "predicted_per_second": 14.19060263682164
+      "cache_n": 0,
+      "prompt_n": 131,
+      "prompt_ms": 913.269,
+      "prompt_per_token_ms": 6.971519083969466,
+      "prompt_per_second": 143.44076060832023,
+      "predicted_n": 512,
+      "predicted_ms": 37758.518,
+      "predicted_per_token_ms": 73.74710546875,
+      "predicted_per_second": 13.559854229448307
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00154:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00154:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

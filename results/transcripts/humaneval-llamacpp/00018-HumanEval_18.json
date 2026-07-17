@@ -3,11 +3,11 @@
   "task_id": "HumanEval/18",
   "rendered_prompt_sha256": "6fc9c00aa6b110ecf79f34e36f14b6b4c9a27128463ef6733b948e32a35c2bfc",
   "rendering": "raw",
-  "completion": "    count = 0\n    start = 0\n    while True:\n        start = string.find(substring, start)\n        if start == -1:\n            break\n        count += 1\n        start += 1\n    return count",
-  "finish_reason": "stop",
+  "completion": "    count = 0\n    start = 0\n    while True:\n        start = string.find(substring, start)\n        if start == -1:\n            break\n        count += 1\n        start += 1\n    return count\ndef check(candidate):\n    assert candidate('', 'a') == 0\n    assert candidate('aaa', 'a') == 3\n    assert candidate('aaaa', 'aa') == 3\n    assert candidate('', 'x') == 0\n    assert candidate('x', '') == 0\n    assert candidate('', '') == 0\n    assert candidate('abcabc', 'ab') == 2\n    assert candidate('abcabc', 'abc') == 2\n    assert candidate('abcabc', 'abcabc') == 1\n    assert candidate('abcabc', 'abcd') == 0\n    assert candidate('abcabc', '') == 0\n    assert candidate('aaaaaa', 'aa') == 5\n    assert candidate('aaaaaa', 'aaa') == 4\n    assert candidate('aaaaaa', 'aaaa') == 3\n    assert candidate('aaaaaa', 'aaaaa') == 2\n    assert candidate('aaaaaa', 'aaaaaa') == 1\n    assert candidate('aaaaaa', 'aaaaaaa') == 0\n    assert candidate('aaaaaa', '') == 0\n    assert candidate('abcabc', 'abcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc',",
+  "finish_reason": "length",
   "expected": "    times = 0\n\n    for i in range(len(string) - len(substring) + 1):\n        if string[i:i+len(substring)] == substring:\n            times += 1\n\n    return times\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.802369255998201
+    "elapsed_s": 37.16131429500092
   },
   "response": {
     "choices": [
       {
-        "text": "    count = 0\n    start = 0\n    while True:\n        start = string.find(substring, start)\n        if start == -1:\n            break\n        count += 1\n        start += 1\n    return count",
+        "text": "    count = 0\n    start = 0\n    while True:\n        start = string.find(substring, start)\n        if start == -1:\n            break\n        count += 1\n        start += 1\n    return count\ndef check(candidate):\n    assert candidate('', 'a') == 0\n    assert candidate('aaa', 'a') == 3\n    assert candidate('aaaa', 'aa') == 3\n    assert candidate('', 'x') == 0\n    assert candidate('x', '') == 0\n    assert candidate('', '') == 0\n    assert candidate('abcabc', 'ab') == 2\n    assert candidate('abcabc', 'abc') == 2\n    assert candidate('abcabc', 'abcabc') == 1\n    assert candidate('abcabc', 'abcd') == 0\n    assert candidate('abcabc', '') == 0\n    assert candidate('aaaaaa', 'aa') == 5\n    assert candidate('aaaaaa', 'aaa') == 4\n    assert candidate('aaaaaa', 'aaaa') == 3\n    assert candidate('aaaaaa', 'aaaaa') == 2\n    assert candidate('aaaaaa', 'aaaaaa') == 1\n    assert candidate('aaaaaa', 'aaaaaaa') == 0\n    assert candidate('aaaaaa', '') == 0\n    assert candidate('abcabc', 'abcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc',",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227919,
+    "created": 1784246791,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 54,
+      "completion_tokens": 512,
       "prompt_tokens": 89,
-      "total_tokens": 143,
+      "total_tokens": 601,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-Dhx91A0TDOpSYeVxFr02t0npkteISmz1",
+    "id": "chatcmpl-SI8zxgS1d3zumEr0mti1DONsywRzxjnh",
     "timings": {
       "cache_n": 0,
       "prompt_n": 89,
-      "prompt_ms": 723.343,
-      "prompt_per_token_ms": 8.127449438202246,
-      "prompt_per_second": 123.03983034328114,
-      "predicted_n": 54,
-      "predicted_ms": 4076.3,
-      "predicted_per_token_ms": 75.48703703703704,
-      "predicted_per_second": 13.247307607389054
+      "prompt_ms": 719.124,
+      "prompt_per_token_ms": 8.080044943820225,
+      "prompt_per_second": 123.76168783130586,
+      "predicted_n": 512,
+      "predicted_ms": 36432.31,
+      "predicted_per_token_ms": 71.15685546875,
+      "predicted_per_second": 14.05345969003887
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00018:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00018:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 50\n    assert candidate('abcabc',\n                    ^\nSyntaxError: '(' was never closed\n"
   }
 }

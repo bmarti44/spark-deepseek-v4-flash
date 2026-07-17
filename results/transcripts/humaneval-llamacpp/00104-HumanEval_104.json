@@ -3,8 +3,8 @@
   "task_id": "HumanEval/104",
   "rendered_prompt_sha256": "bebe5af48f3614d96f23c19fa6134409f0b3bfe2f759662569f0987e15e0507c",
   "rendering": "raw",
-  "completion": "    result = []\n    for num in x:\n        if all(int(digit) % 2 != 0 for digit in str(num)):\n            result.append(num)\n    return sorted(result)",
-  "finish_reason": "stop",
+  "completion": "    result = []\n    for num in x:\n        if all(int(digit) % 2 != 0 for digit in str(num)):\n            result.append(num)\n    result.sort()\n    return result\ndef test_unique_digits():\n    # Test case 1: Example from the problem statement\n    result = unique_digits([15, 33, 1422, 1])\n    assert result == [1, 15, 33], f\"Test case 1 failed: {result}\"\n\n    # Test case 2: Example from the problem statement\n    result = unique_digits([152, 323, 1422, 10])\n    assert result == [], f\"Test case 2 failed: {result}\"\n\n    # Test case 3: All numbers have odd digits only\n    result = unique_digits([1, 3, 5, 7, 9, 11, 13])\n    assert result == [1, 3, 5, 7, 9, 11, 13], f\"Test case 3 failed: {result}\"\n\n    # Test case 4: All numbers have at least one even digit\n    result = unique_digits([2, 4, 6, 8, 10, 12])\n    assert result == [], f\"Test case 4 failed: {result}\"\n\n    # Test case 5: Mixed numbers\n    result = unique_digits([111, 222, 333, 444, 555])\n    assert result == [111, 333, 555], f\"Test case 5 failed: {result}\"\n\n    # Test case 6: Single digit numbers\n    result = unique_digits([1, 2, 3, 4, 5, 6, 7, 8, 9])\n    assert result == [1, 3, 5, 7, 9], f\"Test case 6 failed: {result}\"\n\n    # Test case 7: Empty list\n    result = unique_digits([])\n    assert result == [], f\"Test case 7 failed: {result}\"\n\n    # Test case 8: Large numbers\n    result = unique_digits([123456789, 987654321, 111111111])\n    assert result == [111111111], f\"Test case 8 failed: {result}\"\n\n    # Test case ",
+  "finish_reason": "length",
   "expected": "    odd_digit_elements = []\n    for i in x:\n        if all (int(c) % 2 == 1 for c in str(i)):\n            odd_digit_elements.append(i)\n    return sorted(odd_digit_elements)\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.5866492729983293
+    "elapsed_s": 37.499903333002294
   },
   "response": {
     "choices": [
       {
-        "text": "    result = []\n    for num in x:\n        if all(int(digit) % 2 != 0 for digit in str(num)):\n            result.append(num)\n    return sorted(result)",
+        "text": "    result = []\n    for num in x:\n        if all(int(digit) % 2 != 0 for digit in str(num)):\n            result.append(num)\n    result.sort()\n    return result\ndef test_unique_digits():\n    # Test case 1: Example from the problem statement\n    result = unique_digits([15, 33, 1422, 1])\n    assert result == [1, 15, 33], f\"Test case 1 failed: {result}\"\n\n    # Test case 2: Example from the problem statement\n    result = unique_digits([152, 323, 1422, 10])\n    assert result == [], f\"Test case 2 failed: {result}\"\n\n    # Test case 3: All numbers have odd digits only\n    result = unique_digits([1, 3, 5, 7, 9, 11, 13])\n    assert result == [1, 3, 5, 7, 9, 11, 13], f\"Test case 3 failed: {result}\"\n\n    # Test case 4: All numbers have at least one even digit\n    result = unique_digits([2, 4, 6, 8, 10, 12])\n    assert result == [], f\"Test case 4 failed: {result}\"\n\n    # Test case 5: Mixed numbers\n    result = unique_digits([111, 222, 333, 444, 555])\n    assert result == [111, 333, 555], f\"Test case 5 failed: {result}\"\n\n    # Test case 6: Single digit numbers\n    result = unique_digits([1, 2, 3, 4, 5, 6, 7, 8, 9])\n    assert result == [1, 3, 5, 7, 9], f\"Test case 6 failed: {result}\"\n\n    # Test case 7: Empty list\n    result = unique_digits([])\n    assert result == [], f\"Test case 7 failed: {result}\"\n\n    # Test case 8: Large numbers\n    result = unique_digits([123456789, 987654321, 111111111])\n    assert result == [111111111], f\"Test case 8 failed: {result}\"\n\n    # Test case ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228520,
+    "created": 1784249403,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 40,
+      "completion_tokens": 512,
       "prompt_tokens": 101,
-      "total_tokens": 141,
+      "total_tokens": 613,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-M6fnHVmnp2Sc69TivaILCctDw0AbWzmR",
+    "id": "chatcmpl-A9KPWwtGwS5OBnJJLph3LlxZjGq12BPf",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 100,
-      "prompt_ms": 681.721,
-      "prompt_per_token_ms": 6.81721,
-      "prompt_per_second": 146.6875745356238,
-      "predicted_n": 40,
-      "predicted_ms": 2902.494,
-      "predicted_per_token_ms": 72.56235000000001,
-      "predicted_per_second": 13.781251571924006
+      "cache_n": 0,
+      "prompt_n": 101,
+      "prompt_ms": 771.426,
+      "prompt_per_token_ms": 7.637881188118812,
+      "prompt_per_second": 130.92636234713373,
+      "predicted_n": 512,
+      "predicted_ms": 36726.433,
+      "predicted_per_token_ms": 71.731314453125,
+      "predicted_per_second": 13.940912802503854
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00104:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00104:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

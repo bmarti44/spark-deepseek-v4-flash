@@ -3,11 +3,11 @@
   "task_id": "HumanEval/57",
   "rendered_prompt_sha256": "5656ff21e3b01209978415c290235784e32350405706cebc0045defa6271dd99",
   "rendering": "raw",
-  "completion": "    if len(l) < 2:\n        return True\n    increasing = all(l[i] <= l[i+1] for i in range(len(l)-1))\n    decreasing = all(l[i] >= l[i+1] for i in range(len(l)-1))\n    return increasing or decreasing",
-  "finish_reason": "stop",
+  "completion": "    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n    else:\n        for i in range(1, len(l)):\n            if l[i] != l[i-1]:\n                return False\n        return True\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n    else:\n        for i in range(1, len(l)):\n            if l[i] != l[i-1]:\n                return False\n        return True\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n   ",
+  "finish_reason": "length",
   "expected": "    if l == sorted(l) or l == sorted(l, reverse=True):\n        return True\n    return False\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.320267405000777
+    "elapsed_s": 37.132005191000644
   },
   "response": {
     "choices": [
       {
-        "text": "    if len(l) < 2:\n        return True\n    increasing = all(l[i] <= l[i+1] for i in range(len(l)-1))\n    decreasing = all(l[i] >= l[i+1] for i in range(len(l)-1))\n    return increasing or decreasing",
+        "text": "    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n    else:\n        for i in range(1, len(l)):\n            if l[i] != l[i-1]:\n                return False\n        return True\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n    else:\n        for i in range(1, len(l)):\n            if l[i] != l[i-1]:\n                return False\n        return True\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n    if len(l) <= 1:\n        return True\n    if l[0] < l[1]:\n        for i in range(1, len(l)):\n            if l[i] < l[i-1]:\n                return False\n        return True\n    elif l[0] > l[1]:\n        for i in range(1, len(l)):\n            if l[i] > l[i-1]:\n                return False\n        return True\n   ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228153,
+    "created": 1784247876,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 63,
+      "completion_tokens": 512,
       "prompt_tokens": 81,
-      "total_tokens": 144,
+      "total_tokens": 593,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-LTo2K7Undg96HJPkPgSkggbKWYdcWsQ5",
+    "id": "chatcmpl-hwdtfaTJcnXixZgk2KHNutj2URwBlfDe",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 80,
-      "prompt_ms": 620.144,
-      "prompt_per_token_ms": 7.7518,
-      "prompt_per_second": 129.00229624087308,
-      "predicted_n": 63,
-      "predicted_ms": 4697.909,
-      "predicted_per_token_ms": 74.56998412698412,
-      "predicted_per_second": 13.410221441070911
+      "cache_n": 0,
+      "prompt_n": 81,
+      "prompt_ms": 646.242,
+      "prompt_per_token_ms": 7.978296296296296,
+      "prompt_per_second": 125.34004289414803,
+      "predicted_n": 512,
+      "predicted_ms": 36482.474,
+      "predicted_per_token_ms": 71.25483203125,
+      "predicted_per_second": 14.03413595251243
     }
   },
   "execution": {
@@ -87,16 +81,16 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00057:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00057:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 96, in <module>\n    check(monotonic)\n  File \"/case/main.py\", line 92, in check\n    assert candidate([9, 9, 9, 9]) == True\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
   },
   "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n"
 }

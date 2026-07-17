@@ -3,8 +3,8 @@
   "task_id": "HumanEval/113",
   "rendered_prompt_sha256": "2e684f86c7166a064ce81c06ad2a26b4d974f41c507e6e65e4dccd32f2345bcd",
   "rendering": "raw",
-  "completion": "    result = []\n    for i, s in enumerate(lst):\n        count = sum(1 for c in s if int(c) % 2 != 0)\n        result.append(f\"the number of odd elements {count}n the str{count}ng {count} of the {count}nput.\")\n    return result",
-  "finish_reason": "stop",
+  "completion": "    result = []\n    for i, s in enumerate(lst):\n        count = sum(1 for c in s if int(c) % 2 != 0)\n        result.append(f\"the number of odd elements {count}n the str{count}ng {count} of the {count}nput.\")\n    return result\n```. The code should not contain \"the number of odd elements\" in the output, but instead, the output should contain the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as",
+  "finish_reason": "length",
   "expected": "    res = []\n    for arr in lst:\n        n = sum(int(d)%2==1 for d in arr)\n        res.append(\"the number of odd elements \" + str(n) + \"n the str\"+ str(n) +\"ng \"+ str(n) +\" of the \"+ str(n) +\"nput.\")\n    return res\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.529338742002437
+    "elapsed_s": 38.09499717700237
   },
   "response": {
     "choices": [
       {
-        "text": "    result = []\n    for i, s in enumerate(lst):\n        count = sum(1 for c in s if int(c) % 2 != 0)\n        result.append(f\"the number of odd elements {count}n the str{count}ng {count} of the {count}nput.\")\n    return result",
+        "text": "    result = []\n    for i, s in enumerate(lst):\n        count = sum(1 for c in s if int(c) % 2 != 0)\n        result.append(f\"the number of odd elements {count}n the str{count}ng {count} of the {count}nput.\")\n    return result\n```. The code should not contain \"the number of odd elements\" in the output, but instead, the output should contain the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as the input string but with the number of odd digits replaced by the number of odd digits in the string. The output should be a list of strings, each string being the same as",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228590,
+    "created": 1784249719,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 67,
+      "completion_tokens": 512,
       "prompt_tokens": 170,
-      "total_tokens": 237,
+      "total_tokens": 682,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-hHZTygDraDTiblFubebQ8wn86SAU4zHV",
+    "id": "chatcmpl-XSukJcruNte0dQR1Z9KqTA5MY0cTCbPt",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 169,
-      "prompt_ms": 857.415,
-      "prompt_per_token_ms": 5.0734615384615385,
-      "prompt_per_second": 197.1040861193238,
-      "predicted_n": 67,
-      "predicted_ms": 4669.541,
-      "predicted_per_token_ms": 69.69464179104477,
-      "predicted_per_second": 14.348305325941029
+      "cache_n": 0,
+      "prompt_n": 170,
+      "prompt_ms": 893.06,
+      "prompt_per_token_ms": 5.253294117647059,
+      "prompt_per_second": 190.35675094618506,
+      "predicted_n": 512,
+      "predicted_ms": 37189.171,
+      "predicted_per_token_ms": 72.635099609375,
+      "predicted_per_second": 13.767448594108215
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00113:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00113:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

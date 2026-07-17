@@ -3,7 +3,7 @@
   "task_id": "HumanEval/15",
   "rendered_prompt_sha256": "1eb46648867a6e499ee7e4fa6500b594937f325209204606d7391c8cad9df9c4",
   "rendering": "raw",
-  "completion": "    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.</think>```python",
+  "completion": "    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.</think>```python\ndef string_sequence(n: int) -> str:\n    \"\"\" Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.",
   "finish_reason": "stop",
   "expected": "    return ' '.join([str(x) for x in range(n + 1)])\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 9.453492198997992
+    "elapsed_s": 22.039043628006766
   },
   "response": {
     "choices": [
       {
-        "text": "    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.</think>```python",
+        "text": "    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.</think>```python\ndef string_sequence(n: int) -> str:\n    \"\"\" Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n    return ' '.join(str(i) for i in range(n+1))\n\n# Test the function\nfor i in range(6):\n    print(f\"string_sequence({i}) -> '{string_sequence(i)}'\")\n``` \n\nThis code defines a function `string_sequence` that takes an integer `n` and returns a string containing space-delimited numbers from 0 to `n` inclusive. It uses a generator expression inside `join` to create the string. The test loop demonstrates the function for `n` from 0 to 5.",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784227904,
+    "created": 1784246709,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 121,
+      "completion_tokens": 301,
       "prompt_tokens": 67,
-      "total_tokens": 188,
+      "total_tokens": 368,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-glqezd3duzHqlWgr97ZoA0B0ErdZYOiv",
+    "id": "chatcmpl-4iZRSg3Jj0i4aroMFNXBQgIcNrLqDpzj",
     "timings": {
       "cache_n": 0,
       "prompt_n": 67,
-      "prompt_ms": 586.538,
-      "prompt_per_token_ms": 8.754298507462687,
-      "prompt_per_second": 114.2295980823067,
-      "predicted_n": 121,
-      "predicted_ms": 8865.133,
-      "predicted_per_token_ms": 73.26556198347107,
-      "predicted_per_second": 13.648977403948706
+      "prompt_ms": 571.062,
+      "prompt_per_token_ms": 8.52331343283582,
+      "prompt_per_second": 117.32526415695669,
+      "predicted_n": 301,
+      "predicted_ms": 21459.392,
+      "predicted_per_token_ms": 71.29366112956811,
+      "predicted_per_second": 14.026492456077042
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00015:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00015:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -95,7 +89,7 @@
       "/case/main.py"
     ],
     "returncode": 0,
-    "stdout": "",
+    "stdout": "string_sequence(0) -> '0'\nstring_sequence(1) -> '0 1'\nstring_sequence(2) -> '0 1 2'\nstring_sequence(3) -> '0 1 2 3'\nstring_sequence(4) -> '0 1 2 3 4'\nstring_sequence(5) -> '0 1 2 3 4 5'\n",
     "stderr": ""
   }
 }

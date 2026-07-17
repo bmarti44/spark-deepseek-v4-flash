@@ -3,8 +3,8 @@
   "task_id": "HumanEval/144",
   "rendered_prompt_sha256": "2a0addf544cd38216f359d1e48649ae659b89cd25c4f7fa72060ee8cbb404735",
   "rendering": "raw",
-  "completion": "    # Split the fractions into numerator and denominator\n    x_num, x_den = x.split('/')\n    n_num, n_den = n.split('/')\n\n    # Convert to integers\n    x_num = int(x_num)\n    x_den = int(x_den)\n    n_num = int(n_num)\n    n_den = int(n_den)\n\n    # Multiply the fractions\n    result_num = x_num * n_num\n    result_den = x_den * n_den\n\n    # Check if the result is a whole number\n    if result_num % result_den == 0:\n        return True\n    else:\n        return False",
-  "finish_reason": "stop",
+  "completion": "    # Split the fractions into numerator and denominator\n    x_num, x_den = map(int, x.split('/'))\n    n_num, n_den = map(int, n.split('/'))\n\n    # Multiply the fractions\n    result_num = x_num * n_num\n    result_den = x_den * n_den\n\n    # Check if the result is a whole number\n    return result_num % result_den == 0\n```\n\n### ⚠️ Note\n> 1. The code is written in a way that it can be executed in the given environment. \n2. The code is written in a way that it can be executed in the given environment. \n3. The code is written in a way that it can be executed in the given environment. \n4. The code is written in a way that it can be executed in the given environment. \n5. The code is written in a way that it can be executed in the given environment. \n6. The code is written in a way that it can be executed in the given environment. \n7. The code is written in a way that it can be executed in the given environment. \n8. The code is written in a way that it can be executed in the given environment. \n9. The code is written in a way that it can be executed in the given environment. \n10. The code is written in a way that it can be executed in the given environment. \n11. The code is written in a way that it can be executed in the given environment. \n12. The code is written in a way that it can be executed in the given environment. \n13. The code is written in a way that it can be executed in the given environment. \n14. The code is written in a way that it can be executed in the given environment. \n15. The code is written in a way that it can be executed in the given environment. \n16. The code is written in a way that it can be executed in the given environment. \n17. The code is written in a way that it can be executed in the given environment. \n18. The code is written in a way that it can be executed in the given environment. \n19. The code is written in a way that it can be executed in the given environment. \n20. The code is written in a way that it can be executed in the given environment. \n21. The code is written in a way that",
+  "finish_reason": "length",
   "expected": "    a, b = x.split(\"/\")\n    c, d = n.split(\"/\")\n    numerator = int(a) * int(c)\n    denom = int(b) * int(d)\n    if (numerator/denom == int(numerator/denom)):\n        return True\n    return False\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 10.812193138997827
+    "elapsed_s": 37.722350028998335
   },
   "response": {
     "choices": [
       {
-        "text": "    # Split the fractions into numerator and denominator\n    x_num, x_den = x.split('/')\n    n_num, n_den = n.split('/')\n\n    # Convert to integers\n    x_num = int(x_num)\n    x_den = int(x_den)\n    n_num = int(n_num)\n    n_den = int(n_den)\n\n    # Multiply the fractions\n    result_num = x_num * n_num\n    result_den = x_den * n_den\n\n    # Check if the result is a whole number\n    if result_num % result_den == 0:\n        return True\n    else:\n        return False",
+        "text": "    # Split the fractions into numerator and denominator\n    x_num, x_den = map(int, x.split('/'))\n    n_num, n_den = map(int, n.split('/'))\n\n    # Multiply the fractions\n    result_num = x_num * n_num\n    result_den = x_den * n_den\n\n    # Check if the result is a whole number\n    return result_num % result_den == 0\n```\n\n### ⚠️ Note\n> 1. The code is written in a way that it can be executed in the given environment. \n2. The code is written in a way that it can be executed in the given environment. \n3. The code is written in a way that it can be executed in the given environment. \n4. The code is written in a way that it can be executed in the given environment. \n5. The code is written in a way that it can be executed in the given environment. \n6. The code is written in a way that it can be executed in the given environment. \n7. The code is written in a way that it can be executed in the given environment. \n8. The code is written in a way that it can be executed in the given environment. \n9. The code is written in a way that it can be executed in the given environment. \n10. The code is written in a way that it can be executed in the given environment. \n11. The code is written in a way that it can be executed in the given environment. \n12. The code is written in a way that it can be executed in the given environment. \n13. The code is written in a way that it can be executed in the given environment. \n14. The code is written in a way that it can be executed in the given environment. \n15. The code is written in a way that it can be executed in the given environment. \n16. The code is written in a way that it can be executed in the given environment. \n17. The code is written in a way that it can be executed in the given environment. \n18. The code is written in a way that it can be executed in the given environment. \n19. The code is written in a way that it can be executed in the given environment. \n20. The code is written in a way that it can be executed in the given environment. \n21. The code is written in a way that",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228881,
+    "created": 1784250762,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 139,
+      "completion_tokens": 512,
       "prompt_tokens": 152,
-      "total_tokens": 291,
+      "total_tokens": 664,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-q4jW8xcHKBsF5I6bvXxXSSNfHRPun3d2",
+    "id": "chatcmpl-MFh2mbWBkow7zdFtrFBIUvgVsPvCz9Ye",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 151,
-      "prompt_ms": 817.118,
-      "prompt_per_token_ms": 5.411377483443709,
-      "prompt_per_second": 184.79583120185822,
-      "predicted_n": 139,
-      "predicted_ms": 9992.697,
-      "predicted_per_token_ms": 71.88990647482015,
-      "predicted_per_second": 13.910158588817414
+      "cache_n": 0,
+      "prompt_n": 152,
+      "prompt_ms": 846.492,
+      "prompt_per_token_ms": 5.569026315789474,
+      "prompt_per_second": 179.5646030913464,
+      "predicted_n": 512,
+      "predicted_ms": 36862.042,
+      "predicted_per_token_ms": 71.99617578125,
+      "predicted_per_second": 13.889626624591225
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00144:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00144:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

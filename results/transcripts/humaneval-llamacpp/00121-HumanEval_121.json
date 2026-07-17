@@ -3,7 +3,7 @@
   "task_id": "HumanEval/121",
   "rendered_prompt_sha256": "f5c091f79c729b97c5ed96f86e84d4d3ebee2ccae5b5ab192e98f6e265df18d5",
   "rendering": "raw",
-  "completion": "    total = 0\n    for i in range(0, len(lst), 2):\n        if lst[i] % 2 != 0:\n            total += lst[i]\n    return total",
+  "completion": "    total = 0\n    for i in range(len(lst)):\n        if i % 2 == 0 and lst[i] % 2 != 0:\n            total += lst[i]\n    return total\n```\n\n# Test the function\nprint(solution([5, 8, 7, 1]))  # 12\nprint(solution([3, 3, 3, 3, 3]))  # 9\nprint(solution([30, 13, 24, 321]))  # 0\n```",
   "finish_reason": "stop",
   "expected": "    return sum([x for idx, x in enumerate(lst) if idx%2==0 and x%2==1])\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.765191644997685
+    "elapsed_s": 8.687052761000814
   },
   "response": {
     "choices": [
       {
-        "text": "    total = 0\n    for i in range(0, len(lst), 2):\n        if lst[i] % 2 != 0:\n            total += lst[i]\n    return total",
+        "text": "    total = 0\n    for i in range(len(lst)):\n        if i % 2 == 0 and lst[i] % 2 != 0:\n            total += lst[i]\n    return total\n```\n\n# Test the function\nprint(solution([5, 8, 7, 1]))  # 12\nprint(solution([3, 3, 3, 3, 3]))  # 9\nprint(solution([30, 13, 24, 321]))  # 0\n```",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228642,
+    "created": 1784249960,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 42,
+      "completion_tokens": 112,
       "prompt_tokens": 92,
-      "total_tokens": 134,
+      "total_tokens": 204,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-N23UOIgiI2dnwYi73vkQVxK0D0pYr0jl",
+    "id": "chatcmpl-WGRzZDmuKreG9AMsJ7tOfno0cDPBdBNC",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 91,
-      "prompt_ms": 677.99,
-      "prompt_per_token_ms": 7.450439560439561,
-      "prompt_per_second": 134.22026873552707,
-      "predicted_n": 42,
-      "predicted_ms": 3084.948,
-      "predicted_per_token_ms": 73.45114285714286,
-      "predicted_per_second": 13.614492043301864
+      "cache_n": 0,
+      "prompt_n": 92,
+      "prompt_ms": 701.253,
+      "prompt_per_token_ms": 7.6223152173913045,
+      "prompt_per_second": 131.19373464355945,
+      "predicted_n": 112,
+      "predicted_ms": 7982.718,
+      "predicted_per_token_ms": 71.27426785714286,
+      "predicted_per_second": 14.030308974963166
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00121:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00121:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

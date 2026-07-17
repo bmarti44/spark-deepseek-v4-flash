@@ -3,7 +3,7 @@
   "suite": "humaneval",
   "split": "all",
   "config_hash": "llamacpp-32e789fd-udq2kxl-ctx32768-nothink-v1",
-  "config_digest": "1ff8069c4cb9873150a94041421e4b8d3596674499d89e4952a5ab438aa6d603",
+  "config_digest": "eb7cb8b6eedae62c2301f596d2c197d1e9b21c8ab0b038677c66627cd3e80e01",
   "config_digest_payload": {
     "stack_label": "llamacpp-udq2kxl",
     "server_binary_sha256": "8556ecf160a5884ff0133d66e199f98e7ee68895ab5ae9a15fe2af96365fe53d",
@@ -18,7 +18,7 @@
       }
     },
     "max_tokens": 512,
-    "harness_manifest_line": "7a742b64b37ff64af8a2dafcc1f11afdccd92c97d94e7f561d47e67cbd4a5024  scripts/31_bench_accuracy.py"
+    "harness_manifest_line": "cab08acfe02513d4ef878708b12933fc1df97de862815b5c8ae61681a9133998  scripts/31_bench_accuracy.py"
   },
   "config_evidence": [
     {
@@ -32,15 +32,15 @@
   ],
   "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
   "n": 164,
-  "correct": 133,
-  "accuracy": 0.8109756097560976,
+  "correct": 104,
+  "accuracy": 0.6341463414634146,
   "wilson95": [
-    0.7441994269930745,
-    0.8635169305545987
+    0.5581417362781567,
+    0.7040104179580944
   ],
   "invalid_count": 0,
-  "started_at": "2026-07-16T18:49:35.397876+00:00",
-  "finished_at": "2026-07-16T19:10:10.544792+00:00",
+  "started_at": "2026-07-16T23:56:54.641628+00:00",
+  "finished_at": "2026-07-17T01:23:21.298206+00:00",
   "dataset_revisions": {
     "openai/gsm8k": "740312add88f781978c0658806c59bc2815b9866",
     "TIGER-Lab/MMLU-Pro": "b189ec765aa7ed75c8acfea42df31fdae71f97be",
@@ -251,7 +251,7 @@
         ],
         "tags": [],
         "object": "model",
-        "created": 1784227775,
+        "created": 1784246214,
         "owned_by": "llamacpp",
         "meta": {
           "vocab_type": 2,
@@ -271,12 +271,7 @@
     "temperature": 0,
     "seed": 42,
     "max_tokens": 512,
-    "stop": [
-      "\ndef ",
-      "\nclass ",
-      "\nif __name__",
-      "\nprint("
-    ],
+    "stop": null,
     "extra_body": {
       "chat_template_kwargs": {
         "enable_thinking": false

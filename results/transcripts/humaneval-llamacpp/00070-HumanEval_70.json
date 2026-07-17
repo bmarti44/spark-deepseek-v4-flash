@@ -3,7 +3,7 @@
   "task_id": "HumanEval/70",
   "rendered_prompt_sha256": "431d1a56bd425ed0718c9996fd486badefa4547c69e80bc5e81526cec2abae70",
   "rendering": "raw",
-  "completion": "    if not lst:\n        return []\n    lst.sort()\n    result = []\n    while lst:\n        result.append(lst.pop(0))\n        if lst:\n            result.append(lst.pop())\n    return result",
+  "completion": "    if not lst:\n        return []\n    lst.sort()\n    result = []\n    while lst:\n        result.append(lst.pop(0))\n        if lst:\n            result.append(lst.pop())\n    return result\n\n# Test cases\nprint(strange_sort_list([1, 2, 3, 4]))  # Expected: [1, 4, 2, 3]\nprint(strange_sort_list([5, 5, 5, 5]))  # Expected: [5, 5, 5, 5]\nprint(strange_sort_list([]))  # Expected: []",
   "finish_reason": "stop",
   "expected": "    res, switch = [], True\n    while lst:\n        res.append(min(lst) if switch else max(lst))\n        lst.remove(res[-1])\n        switch = not switch\n    return res\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.10445703699952
+    "elapsed_s": 9.853046213997004
   },
   "response": {
     "choices": [
       {
-        "text": "    if not lst:\n        return []\n    lst.sort()\n    result = []\n    while lst:\n        result.append(lst.pop(0))\n        if lst:\n            result.append(lst.pop())\n    return result",
+        "text": "    if not lst:\n        return []\n    lst.sort()\n    result = []\n    while lst:\n        result.append(lst.pop(0))\n        if lst:\n            result.append(lst.pop())\n    return result\n\n# Test cases\nprint(strange_sort_list([1, 2, 3, 4]))  # Expected: [1, 4, 2, 3]\nprint(strange_sort_list([5, 5, 5, 5]))  # Expected: [5, 5, 5, 5]\nprint(strange_sort_list([]))  # Expected: []",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228229,
+    "created": 1784248206,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 42,
+      "completion_tokens": 125,
       "prompt_tokens": 119,
-      "total_tokens": 161,
+      "total_tokens": 244,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-BeJKyunuhARGvn1Mi2iWgLYculhAupAj",
+    "id": "chatcmpl-78TAcllhOec9PorOSOxe5pBzXAEqt61X",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 118,
-      "prompt_ms": 857.672,
-      "prompt_per_token_ms": 7.268406779661017,
-      "prompt_per_second": 137.58173287690397,
-      "predicted_n": 42,
-      "predicted_ms": 3245.139,
-      "predicted_per_token_ms": 77.2652142857143,
-      "predicted_per_second": 12.942434823284918
+      "cache_n": 0,
+      "prompt_n": 119,
+      "prompt_ms": 895.007,
+      "prompt_per_token_ms": 7.5210672268907555,
+      "prompt_per_second": 132.95985394527642,
+      "predicted_n": 125,
+      "predicted_ms": 8943.969,
+      "predicted_per_token_ms": 71.551752,
+      "predicted_per_second": 13.97589817227676
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00070:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00070:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

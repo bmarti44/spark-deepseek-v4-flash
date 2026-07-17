@@ -3,7 +3,7 @@
   "task_id": "HumanEval/65",
   "rendered_prompt_sha256": "2751ca433b3ea9f4f348dd18f65c357482e140739e26ec98b1e056e55b491dc0",
   "rendering": "raw",
-  "completion": "    x_str = str(x)\n    n = len(x_str)\n    if shift > n:\n        return x_str[::-1]\n    else:\n        shifted = x_str[-shift:] + x_str[:-shift]\n        return shifted",
+  "completion": "    s = str(x)\n    if shift > len(s):\n        return s[::-1]\n    else:\n        return s[-shift:] + s[:-shift]",
   "finish_reason": "stop",
   "expected": "    s = str(x)\n    if shift > len(s):\n        return s[::-1]\n    else:\n        return s[len(s) - shift:] + s[:len(s) - shift]\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.1298278069989465
+    "elapsed_s": 3.018396858002234
   },
   "response": {
     "choices": [
       {
-        "text": "    x_str = str(x)\n    n = len(x_str)\n    if shift > n:\n        return x_str[::-1]\n    else:\n        shifted = x_str[-shift:] + x_str[:-shift]\n        return shifted",
+        "text": "    s = str(x)\n    if shift > len(s):\n        return s[::-1]\n    else:\n        return s[-shift:] + s[:-shift]",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228193,
+    "created": 1784248069,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 48,
+      "completion_tokens": 34,
       "prompt_tokens": 81,
-      "total_tokens": 129,
+      "total_tokens": 115,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-MDli37cEHxx1FWG7NcHgxdwfw0RwusFP",
+    "id": "chatcmpl-hbJZ1jpvGitg7PMMlDhgP6IntcEeZRDI",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 80,
-      "prompt_ms": 612.241,
-      "prompt_per_token_ms": 7.6530125,
-      "prompt_per_second": 130.66749858307432,
-      "predicted_n": 48,
-      "predicted_ms": 3515.396,
-      "predicted_per_token_ms": 73.23741666666668,
-      "predicted_per_second": 13.654222739059838
+      "cache_n": 0,
+      "prompt_n": 81,
+      "prompt_ms": 624.433,
+      "prompt_per_token_ms": 7.709049382716049,
+      "prompt_per_second": 129.7176798791864,
+      "predicted_n": 34,
+      "predicted_ms": 2380.52,
+      "predicted_per_token_ms": 70.01529411764706,
+      "predicted_per_second": 14.282593719019374
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00065:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00065:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

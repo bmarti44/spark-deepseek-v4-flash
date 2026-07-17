@@ -3,11 +3,11 @@
   "task_id": "HumanEval/51",
   "rendered_prompt_sha256": "94f4ed2b675b10bfe15e0adb2ea620b19790cfb4df26b9362df57d6daa6c9b8b",
   "rendering": "raw",
-  "completion": "    vowels = 'aeiouyAEIOUY'\n    return ''.join([char for char in text if char not in vowels])\n\n",
-  "finish_reason": "stop",
+  "completion": "    # your code here\n    return ''.join([char for char in text if char not in 'aeiouAEIOU'])\n\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n",
+  "finish_reason": "length",
   "expected": "    return \"\".join([s for s in text if s.lower() not in [\"a\", \"e\", \"i\", \"o\", \"u\"]])\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.203185880000092
+    "elapsed_s": 37.74799706700287
   },
   "response": {
     "choices": [
       {
-        "text": "    vowels = 'aeiouyAEIOUY'\n    return ''.join([char for char in text if char not in vowels])\n\n",
+        "text": "    # your code here\n    return ''.join([char for char in text if char not in 'aeiouAEIOU'])\n\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n# </test>\n# <test>\n",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228130,
+    "created": 1784247650,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 33,
+      "completion_tokens": 512,
       "prompt_tokens": 111,
-      "total_tokens": 144,
+      "total_tokens": 623,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-ReUSd5PHhtyazSEs64Tysor0VMLv4BoL",
+    "id": "chatcmpl-QIADfDe2n44VuSZ93b5x4F8UuNvQsBGE",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 110,
-      "prompt_ms": 742.775,
-      "prompt_per_token_ms": 6.7524999999999995,
-      "prompt_per_second": 148.0932987782303,
-      "predicted_n": 33,
-      "predicted_ms": 2458.685,
-      "predicted_per_token_ms": 74.50560606060606,
-      "predicted_per_second": 13.42180881243429
+      "cache_n": 0,
+      "prompt_n": 111,
+      "prompt_ms": 781.525,
+      "prompt_per_token_ms": 7.040765765765766,
+      "prompt_per_second": 142.0300054380858,
+      "predicted_n": 512,
+      "predicted_ms": 36959.589,
+      "predicted_per_token_ms": 72.186697265625,
+      "predicted_per_second": 13.852967899615983
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00051:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00051:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 40, in <module>\n    check(remove_vowels)\n  File \"/case/main.py\", line 36, in check\n    assert candidate('ybcd') == 'ybcd'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    "stderr": ""
   }
 }

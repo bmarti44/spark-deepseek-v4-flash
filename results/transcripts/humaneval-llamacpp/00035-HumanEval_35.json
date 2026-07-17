@@ -3,7 +3,7 @@
   "task_id": "HumanEval/35",
   "rendered_prompt_sha256": "75ceb54ce0c4ea472f0613ef75a8b6bc8d5b530e6749df89eff0779faa70a96b",
   "rendering": "raw",
-  "completion": "    if not l:\n        return None\n    max_val = l[0]\n    for num in l:\n        if num > max_val:\n            max_val = num\n    return max_val",
+  "completion": "    return max(l)",
   "finish_reason": "stop",
   "expected": "    m = l[0]\n    for e in l:\n        if e > m:\n            m = e\n    return m\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.584431046998361
+    "elapsed_s": 1.0555071659982787
   },
   "response": {
     "choices": [
       {
-        "text": "    if not l:\n        return None\n    max_val = l[0]\n    for num in l:\n        if num > max_val:\n            max_val = num\n    return max_val",
+        "text": "    return max(l)",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228028,
+    "created": 1784247171,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 41,
+      "completion_tokens": 6,
       "prompt_tokens": 75,
-      "total_tokens": 116,
+      "total_tokens": 81,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-MELm6vXf4ECGFJqTy3CYzx0JTstbAnS1",
+    "id": "chatcmpl-cHAvbRoaLUyJrA79wuZctVIX2a7Kx49t",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 74,
-      "prompt_ms": 575.992,
-      "prompt_per_token_ms": 7.783675675675675,
-      "prompt_per_second": 128.4740065834248,
-      "predicted_n": 41,
-      "predicted_ms": 3006.473,
-      "predicted_per_token_ms": 73.32860975609756,
-      "predicted_per_second": 13.637242044082884
+      "cache_n": 0,
+      "prompt_n": 75,
+      "prompt_ms": 606.865,
+      "prompt_per_token_ms": 8.091533333333333,
+      "prompt_per_second": 123.58597052062649,
+      "predicted_n": 6,
+      "predicted_ms": 436.131,
+      "predicted_per_token_ms": 72.68849999999999,
+      "predicted_per_second": 13.757334378890747
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00035:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00035:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

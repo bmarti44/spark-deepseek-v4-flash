@@ -3,11 +3,11 @@
   "task_id": "HumanEval/95",
   "rendered_prompt_sha256": "e8a971e0e8838d69639de6628a8eff45638ce938c172670b7274c41d63207631",
   "rendering": "raw",
-  "completion": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python",
-  "finish_reason": "stop",
+  "completion": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n```\n\nsolutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_1.py\n\n\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n```\n\nsolutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_2.py\n\n\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n",
+  "finish_reason": "length",
   "expected": "    if len(dict.keys()) == 0:\n        return False\n    else:\n        state = \"start\"\n        for key in dict.keys():\n\n            if isinstance(key, str) == False:\n                state = \"mixed\"\n                break\n            if state == \"start\":\n                if key.isupper():\n                    state = \"upper\"\n                elif key.islower():\n                    state = \"lower\"\n                else:\n                    break\n            elif (state == \"upper\" and not key.isupper()) or (state == \"lower\" and not key.islower()):\n                    state = \"mixed\"\n                    break\n            else:\n                break\n        return state == \"upper\" or state == \"lower\" \n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 7.113147555999603
+    "elapsed_s": 37.35413341400272
   },
   "response": {
     "choices": [
       {
-        "text": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python",
+        "text": "    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```\n\n### Response\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n```\n\nsolutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_1.py\n\n\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n```\n\nsolutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_2.py\n\n\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n        return True\n    elif all(isinstance(key, str) and key.isupper() for key in keys):\n        return True\n    else:\n        return False\n    return False\n```python\ndef check_dict_case(dict):\n    if not dict:\n        return False\n    keys = list(dict.keys())\n    if all(isinstance(key, str) and key.islower() for key in keys):\n",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228476,
+    "created": 1784249067,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 83,
+      "completion_tokens": 512,
       "prompt_tokens": 175,
-      "total_tokens": 258,
+      "total_tokens": 687,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-MCviN4ZNwHfNFWbZBoTOKoNi5ihVw8cc",
+    "id": "chatcmpl-2CAyQlIkm2RiupWRg0LTbJKXtkbbN4aP",
     "timings": {
       "cache_n": 0,
       "prompt_n": 175,
-      "prompt_ms": 975.87,
-      "prompt_per_token_ms": 5.5764000000000005,
-      "prompt_per_second": 179.32716447887526,
-      "predicted_n": 83,
-      "predicted_ms": 6134.985,
-      "predicted_per_token_ms": 73.91548192771084,
-      "predicted_per_second": 13.528965433493319
+      "prompt_ms": 938.768,
+      "prompt_per_token_ms": 5.364388571428572,
+      "prompt_per_second": 186.4145347945392,
+      "predicted_n": 512,
+      "predicted_ms": 36397.505,
+      "predicted_per_token_ms": 71.088876953125,
+      "predicted_per_second": 14.06689826679054
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00095:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00095:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 2, in <module>\n    solutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_1.py\n    ^^^^^^^^^\nNameError: name 'solutions' is not defined\n"
   }
 }

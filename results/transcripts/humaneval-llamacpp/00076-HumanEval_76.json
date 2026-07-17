@@ -3,8 +3,8 @@
   "task_id": "HumanEval/76",
   "rendered_prompt_sha256": "4d99f80a460939bc03631f3a652d9af5d5a09da2fd8fab20205c9682f766a361",
   "rendering": "raw",
-  "completion": "    if n == 1:\n        return x == 1\n    power = 1\n    while power < x:\n        power *= n\n    return power == x",
-  "finish_reason": "stop",
+  "completion": "    if n == 1:\n        return x == 1\n    power = 1\n    while power <= x:\n        if power == x:\n            return True\n        power *= n\n    return False\ndef check(candidate):\n    assert candidate(1, 4) == True\n    assert candidate(2, 2) == True\n    assert candidate(8, 2) == True\n    assert candidate(3, 2) == False\n    assert candidate(3, 1) == False\n    assert candidate(5, 3) == False\n\ndef test_check():\n    check(is_simple_power)\n\nautofp_autoprompt/tool_code/generated/over_tool_code_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
+  "finish_reason": "length",
   "expected": "    if (n == 1): \n        return (x == 1) \n    power = 1\n    while (power < x): \n        power = power * n \n    return (power == x) \n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.5571136649996333
+    "elapsed_s": 37.63956595500349
   },
   "response": {
     "choices": [
       {
-        "text": "    if n == 1:\n        return x == 1\n    power = 1\n    while power < x:\n        power *= n\n    return power == x",
+        "text": "    if n == 1:\n        return x == 1\n    power = 1\n    while power <= x:\n        if power == x:\n            return True\n        power *= n\n    return False\ndef check(candidate):\n    assert candidate(1, 4) == True\n    assert candidate(2, 2) == True\n    assert candidate(8, 2) == True\n    assert candidate(3, 2) == False\n    assert candidate(3, 1) == False\n    assert candidate(5, 3) == False\n\ndef test_check():\n    check(is_simple_power)\n\nautofp_autoprompt/tool_code/generated/over_tool_code_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228273,
+    "created": 1784248434,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 37,
+      "completion_tokens": 512,
       "prompt_tokens": 151,
-      "total_tokens": 188,
+      "total_tokens": 663,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-JbBep7732gSaRhtwMpNFDhIWROBwLDQb",
+    "id": "chatcmpl-4kjlIn4r3jlQ04bvrRETtLLG6ziIo9Mw",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 150,
-      "prompt_ms": 822.801,
-      "prompt_per_token_ms": 5.48534,
-      "prompt_per_second": 182.30410512383918,
-      "predicted_n": 37,
-      "predicted_ms": 2731.886,
-      "predicted_per_token_ms": 73.83475675675676,
-      "predicted_per_second": 13.543756950326625
+      "cache_n": 0,
+      "prompt_n": 151,
+      "prompt_ms": 844.992,
+      "prompt_per_token_ms": 5.595973509933774,
+      "prompt_per_second": 178.69991668560178,
+      "predicted_n": 512,
+      "predicted_ms": 36791.232,
+      "predicted_per_token_ms": 71.857875,
+      "predicted_per_second": 13.916359202105545
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00076:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00076:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

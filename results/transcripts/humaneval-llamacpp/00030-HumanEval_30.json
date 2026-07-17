@@ -3,8 +3,8 @@
   "task_id": "HumanEval/30",
   "rendered_prompt_sha256": "278875ddc3e598e47227263e6384f3c169b8526e9ab6475e52e939d6a151f00b",
   "rendering": "raw",
-  "completion": "    return [i for i in l if i > 0]\n```\n\n### Response\n```python",
-  "finish_reason": "stop",
+  "completion": "    return [i for i in l if i > 0]\n```\n\n### Response\n```python\ndef get_positive(l: list):\n    return [i for i in l if i > 0]\n```\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_2.py\n\n\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n    return [i for i in l if i > 0]\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_1.py\n\n\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n    return [i for i in l if i > 0]\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_0.py\n\n\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n    return",
+  "finish_reason": "length",
   "expected": "    return [e for e in l if e > 0]\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 2.6088604659998964
+    "elapsed_s": 37.24094915800379
   },
   "response": {
     "choices": [
       {
-        "text": "    return [i for i in l if i > 0]\n```\n\n### Response\n```python",
+        "text": "    return [i for i in l if i > 0]\n```\n\n### Response\n```python\ndef get_positive(l: list):\n    return [i for i in l if i > 0]\n```\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_2.py\n<rendered-prompt-redacted>    return [i for i in l if i > 0]\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_1.py\n<rendered-prompt-redacted>    return [i for i in l if i > 0]\n\neval/chatgpt_self_fix/code/chatgpt_self_fix_2_2_0.py\n<rendered-prompt-redacted>    return",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228001,
+    "created": 1784247079,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 23,
+      "completion_tokens": 512,
       "prompt_tokens": 112,
-      "total_tokens": 135,
+      "total_tokens": 624,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-b6TyHVApZOUW50qH4XwsdOS610BAIsx2",
+    "id": "chatcmpl-58sJqOtViDD3a01bm2ayZTbwFVREhfE4",
     "timings": {
       "cache_n": 0,
       "prompt_n": 112,
-      "prompt_ms": 793.168,
-      "prompt_per_token_ms": 7.081857142857143,
-      "prompt_per_second": 141.20589837209772,
-      "predicted_n": 23,
-      "predicted_ms": 1813.624,
-      "predicted_per_token_ms": 78.85321739130436,
-      "predicted_per_second": 12.681790712959245
+      "prompt_ms": 792.548,
+      "prompt_per_token_ms": 7.076321428571428,
+      "prompt_per_second": 141.31636191120285,
+      "predicted_n": 512,
+      "predicted_ms": 36434.602,
+      "predicted_per_token_ms": 71.16133203125,
+      "predicted_per_second": 14.052575625774642
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00030:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00030:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

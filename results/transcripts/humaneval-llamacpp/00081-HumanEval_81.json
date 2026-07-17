@@ -3,8 +3,8 @@
   "task_id": "HumanEval/81",
   "rendered_prompt_sha256": "489ff1f658e105a21a1e28c105082983a77af3a6b0576d9cdfb43745de1b507c",
   "rendering": "raw",
-  "completion": "    # dictionary for grade mapping\n    grade_map = {\n        4.0: 'A+',\n        3.7: 'A',\n        3.3: 'A-',\n        3.0: 'B+',\n        2.7: 'B',\n        2.3: 'B-',\n        2.0: 'C+',\n        1.7: 'C',\n        1.3: 'C-',\n        1.0: 'D+',\n        0.7: 'D',\n        0.0: 'D-',\n    }\n    # list to store the letter grades\n    letter_grades = []\n    # iterate over the grades\n    for grade in grades:\n        # find the letter grade for the current grade\n        for gpa, letter in grade_map.items():\n            if grade >= gpa:\n                letter_grades.append(letter)\n                break\n        else:\n            letter_grades.append('E')\n    return letter_grades",
-  "finish_reason": "stop",
+  "completion": "    # Define the mapping from GPA to letter grade\n    grade_mapping = [\n        (4.0, 'A+'),\n        (3.7, 'A'),\n        (3.3, 'A-'),\n        (3.0, 'B+'),\n        (2.7, 'B'),\n        (2.3, 'B-'),\n        (2.0, 'C+'),\n        (1.7, 'C'),\n        (1.3, 'C-'),\n        (1.0, 'D+'),\n        (0.7, 'D'),\n        (0.0, 'D-'),\n        (-1.0, 'E')  # Catch-all for 0.0\n    ]\n    \n    # Initialize an empty list to store the letter grades\n    letter_grades = []\n    \n    # Iterate over the list of GPAs\n    for gpa in grades:\n        # Find the appropriate letter grade for the current GPA\n        for threshold, grade in grade_mapping:\n            if gpa >= threshold:\n                letter_grades.append(grade)\n                break\n    \n    return letter_grades\n\n# Test the function with the example\nprint(numerical_letter_grade([4.0, 3, 1.7, 2, 3.5]))  # Expected: ['A+', 'B', 'C-', 'C', 'A-']\" \\\n\"```\" \\\n\"```python\" \\\n\"def numerical_letter_grade(grades):\n    # Define the mapping from GPA to letter grade\n    grade_mapping = [\n        (4.0, 'A+'),\n        (3.7, 'A'),\n        (3.3, 'A-'),\n        (3.0, 'B+'),\n        (2.7, 'B'),\n        (2.3, 'B-'),\n        (2.0, 'C+'),\n        (1.7, 'C'),\n        (1.3, 'C-'),\n        (1.0, 'D+'),\n        (0.7, 'D'),\n        (0.0, 'D-'),\n        (-1.0, 'E')  # Catch-all for 0.0\n    ]\n    \n    # Initialize an empty list to store the letter grades\n    letter_grades = []\n    \n    # Iterate over the list of GPAs\n    for gpa in grades:\n        #",
+  "finish_reason": "length",
   "expected": "\n   \n    letter_grade = []\n    for gpa in grades:\n        if gpa == 4.0:\n            letter_grade.append(\"A+\")\n        elif gpa > 3.7:\n            letter_grade.append(\"A\")\n        elif gpa > 3.3:\n            letter_grade.append(\"A-\")\n        elif gpa > 3.0:\n            letter_grade.append(\"B+\")\n        elif gpa > 2.7:\n            letter_grade.append(\"B\")\n        elif gpa > 2.3:\n            letter_grade.append(\"B-\")\n        elif gpa > 2.0:\n            letter_grade.append(\"C+\")\n        elif gpa > 1.7:\n            letter_grade.append(\"C\")\n        elif gpa > 1.3:\n            letter_grade.append(\"C-\")\n        elif gpa > 1.0:\n            letter_grade.append(\"D+\")\n        elif gpa > 0.7:\n            letter_grade.append(\"D\")\n        elif gpa > 0.0:\n            letter_grade.append(\"D-\")\n        else:\n            letter_grade.append(\"E\")\n    return letter_grade\n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 16.41112462899764
+    "elapsed_s": 38.11527998200472
   },
   "response": {
     "choices": [
       {
-        "text": "    # dictionary for grade mapping\n    grade_map = {\n        4.0: 'A+',\n        3.7: 'A',\n        3.3: 'A-',\n        3.0: 'B+',\n        2.7: 'B',\n        2.3: 'B-',\n        2.0: 'C+',\n        1.7: 'C',\n        1.3: 'C-',\n        1.0: 'D+',\n        0.7: 'D',\n        0.0: 'D-',\n    }\n    # list to store the letter grades\n    letter_grades = []\n    # iterate over the grades\n    for grade in grades:\n        # find the letter grade for the current grade\n        for gpa, letter in grade_map.items():\n            if grade >= gpa:\n                letter_grades.append(letter)\n                break\n        else:\n            letter_grades.append('E')\n    return letter_grades",
+        "text": "    # Define the mapping from GPA to letter grade\n    grade_mapping = [\n        (4.0, 'A+'),\n        (3.7, 'A'),\n        (3.3, 'A-'),\n        (3.0, 'B+'),\n        (2.7, 'B'),\n        (2.3, 'B-'),\n        (2.0, 'C+'),\n        (1.7, 'C'),\n        (1.3, 'C-'),\n        (1.0, 'D+'),\n        (0.7, 'D'),\n        (0.0, 'D-'),\n        (-1.0, 'E')  # Catch-all for 0.0\n    ]\n    \n    # Initialize an empty list to store the letter grades\n    letter_grades = []\n    \n    # Iterate over the list of GPAs\n    for gpa in grades:\n        # Find the appropriate letter grade for the current GPA\n        for threshold, grade in grade_mapping:\n            if gpa >= threshold:\n                letter_grades.append(grade)\n                break\n    \n    return letter_grades\n\n# Test the function with the example\nprint(numerical_letter_grade([4.0, 3, 1.7, 2, 3.5]))  # Expected: ['A+', 'B', 'C-', 'C', 'A-']\" \\\n\"```\" \\\n\"```python\" \\\n\"def numerical_letter_grade(grades):\n    # Define the mapping from GPA to letter grade\n    grade_mapping = [\n        (4.0, 'A+'),\n        (3.7, 'A'),\n        (3.3, 'A-'),\n        (3.0, 'B+'),\n        (2.7, 'B'),\n        (2.3, 'B-'),\n        (2.0, 'C+'),\n        (1.7, 'C'),\n        (1.3, 'C-'),\n        (1.0, 'D+'),\n        (0.7, 'D'),\n        (0.0, 'D-'),\n        (-1.0, 'E')  # Catch-all for 0.0\n    ]\n    \n    # Initialize an empty list to store the letter grades\n    letter_grades = []\n    \n    # Iterate over the list of GPAs\n    for gpa in grades:\n        #",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228343,
+    "created": 1784248595,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 203,
+      "completion_tokens": 512,
       "prompt_tokens": 268,
-      "total_tokens": 471,
+      "total_tokens": 780,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-o6C49WN22X6449Bbjb9cRWoXlNMzAGMB",
+    "id": "chatcmpl-x3dnIxGNYDp8JUgniZK3IKLPuKrUnulW",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 267,
-      "prompt_ms": 1218.184,
-      "prompt_per_token_ms": 4.562486891385768,
-      "prompt_per_second": 219.17871191872493,
-      "predicted_n": 203,
-      "predicted_ms": 15189.55,
-      "predicted_per_token_ms": 74.82536945812808,
-      "predicted_per_second": 13.364451218107188
+      "cache_n": 0,
+      "prompt_n": 268,
+      "prompt_ms": 1220.193,
+      "prompt_per_token_ms": 4.552958955223881,
+      "prompt_per_second": 219.63738523331963,
+      "predicted_n": 512,
+      "predicted_ms": 36875.423,
+      "predicted_per_token_ms": 72.022310546875,
+      "predicted_per_second": 13.884586490031584
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00081:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00081:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -96,6 +90,6 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 71, in <module>\n    check(numerical_letter_grade)\n  File \"/case/main.py\", line 59, in check\n    assert candidate([4.0, 3, 1.7, 2, 3.5]) == ['A+', 'B', 'C-', 'C', 'A-']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 74, in <module>\n    check(numerical_letter_grade)\n  File \"/case/main.py\", line 62, in check\n    assert candidate([4.0, 3, 1.7, 2, 3.5]) == ['A+', 'B', 'C-', 'C', 'A-']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
   }
 }

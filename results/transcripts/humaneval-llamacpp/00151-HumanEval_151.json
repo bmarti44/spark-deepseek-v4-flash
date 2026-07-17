@@ -3,11 +3,11 @@
   "task_id": "HumanEval/151",
   "rendered_prompt_sha256": "76075722f14f440573576993f00d079bbb312818c40a47974f99bf0d9374d905",
   "rendering": "raw",
-  "completion": "    # Filter out non-integers and negative numbers\n    filtered = [num for num in lst if isinstance(num, int) and num >= 0]\n    # Filter out even numbers\n    odd_numbers = [num for num in filtered if num % 2 != 0]\n    # Square each odd number and sum them\n    result = sum(num ** 2 for num in odd_numbers)\n    return result",
+  "completion": "    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\ndef double_the_difference(lst):\n    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\n\n# Test cases\nprint(double_the_difference([1, 3, 2, 0]))  # Expected: 10\nprint(double_the_difference([-1, -2, 0]))  # Expected: 0\nprint(double_the_difference([9, -2]))  # Expected: 81\nprint(double_the_difference([0]))  # Expected: 0\nprint(double_the_difference([]))  # Expected: 0\n```\n```python\ndef double_the_difference(lst):\n    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\n\n# Test cases\nprint(double_the_difference([1, 3, 2, 0]))  # Expected: 10\nprint(double_the_difference([-1, -2, 0]))  # Expected: 0\nprint(double_the_difference([9, -2]))  # Expected: 81\nprint(double_the_difference([0]))  # Expected: 0\nprint(double_the_difference([]))  # Expected: 0\n```",
   "finish_reason": "stop",
   "expected": "    return sum([i**2 for i in lst if i > 0 and i%2!=0 and \".\" not in str(i)])\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.820888092999667
+    "elapsed_s": 25.47154068099917
   },
   "response": {
     "choices": [
       {
-        "text": "    # Filter out non-integers and negative numbers\n    filtered = [num for num in lst if isinstance(num, int) and num >= 0]\n    # Filter out even numbers\n    odd_numbers = [num for num in filtered if num % 2 != 0]\n    # Square each odd number and sum them\n    result = sum(num ** 2 for num in odd_numbers)\n    return result",
+        "text": "    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\ndef double_the_difference(lst):\n    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\n\n# Test cases\nprint(double_the_difference([1, 3, 2, 0]))  # Expected: 10\nprint(double_the_difference([-1, -2, 0]))  # Expected: 0\nprint(double_the_difference([9, -2]))  # Expected: 81\nprint(double_the_difference([0]))  # Expected: 0\nprint(double_the_difference([]))  # Expected: 0\n```\n```python\ndef double_the_difference(lst):\n    sum = 0\n    for num in lst:\n        if num % 2 != 0 and num >= 0 and isinstance(num, int):\n            sum += num ** 2\n    return sum\n\n# Test cases\nprint(double_the_difference([1, 3, 2, 0]))  # Expected: 10\nprint(double_the_difference([-1, -2, 0]))  # Expected: 0\nprint(double_the_difference([9, -2]))  # Expected: 81\nprint(double_the_difference([0]))  # Expected: 0\nprint(double_the_difference([]))  # Expected: 0\n```",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228930,
+    "created": 1784250972,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 87,
+      "completion_tokens": 346,
       "prompt_tokens": 139,
-      "total_tokens": 226,
+      "total_tokens": 485,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-zRgaZlDtZGNNsENaraCVYdQrhNpLd3s9",
+    "id": "chatcmpl-08c6nbfQ3McPRmkH9COcDEentjqDqgUv",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 138,
-      "prompt_ms": 751.212,
-      "prompt_per_token_ms": 5.4435652173913045,
-      "prompt_per_second": 183.70313573265602,
-      "predicted_n": 87,
-      "predicted_ms": 6067.871,
-      "predicted_per_token_ms": 69.74564367816092,
-      "predicted_per_second": 14.337813048431649
+      "cache_n": 0,
+      "prompt_n": 139,
+      "prompt_ms": 847.284,
+      "prompt_per_token_ms": 6.095568345323741,
+      "prompt_per_second": 164.05361130388394,
+      "predicted_n": 346,
+      "predicted_ms": 24621.218,
+      "predicted_per_token_ms": 71.15958959537572,
+      "predicted_per_second": 14.052919721518244
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00151:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00151:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 1\n    ```python\n    ^\nSyntaxError: invalid syntax\n"
   }
 }

@@ -3,7 +3,7 @@
   "task_id": "HumanEval/67",
   "rendered_prompt_sha256": "287ace00706dbc14460387cbd37396f40de3816fb26bd13182cec8a85fd6dddb",
   "rendering": "raw",
-  "completion": "    words = s.split()\n    apples = int(words[0])\n    oranges = int(words[3])\n    return n - apples - oranges",
+  "completion": "    # Parse the string to extract the number of apples and oranges\n    import re\n    apples = int(re.search(r'(\\d+) apples', s).group(1))\n    oranges = int(re.search(r'(\\d+) oranges', s).group(1))\n    return n - apples - oranges\ndef check_fruit_distribution(fruit_distribution):\n    # Check some simple cases\n    assert fruit_distribution(\"5 apples and 6 oranges\", 19) == 8\n    assert fruit_distribution(\"0 apples and 1 oranges\",3) == 2\n    assert fruit_distribution(\"2 apples and 3 oranges\", 100) == 95\n    assert fruit_distribution(\"100 apples and 1 oranges\",120) == 19\ncheck_fruit_distribution(fruit_distribution)",
   "finish_reason": "stop",
   "expected": "    lis = list()\n    for i in s.split(' '):\n        if i.isdigit():\n            lis.append(int(i))\n    return n - sum(lis)\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.324490661998425
+    "elapsed_s": 13.263210103999882
   },
   "response": {
     "choices": [
       {
-        "text": "    words = s.split()\n    apples = int(words[0])\n    oranges = int(words[3])\n    return n - apples - oranges",
+        "text": "    # Parse the string to extract the number of apples and oranges\n    import re\n    apples = int(re.search(r'(\\d+) apples', s).group(1))\n    oranges = int(re.search(r'(\\d+) oranges', s).group(1))\n    return n - apples - oranges\ndef check_fruit_distribution(fruit_distribution):\n    # Check some simple cases\n    assert fruit_distribution(\"5 apples and 6 oranges\", 19) == 8\n    assert fruit_distribution(\"0 apples and 1 oranges\",3) == 2\n    assert fruit_distribution(\"2 apples and 3 oranges\", 100) == 95\n    assert fruit_distribution(\"100 apples and 1 oranges\",120) == 19\ncheck_fruit_distribution(fruit_distribution)",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228200,
+    "created": 1784248120,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 30,
+      "completion_tokens": 171,
       "prompt_tokens": 210,
-      "total_tokens": 240,
+      "total_tokens": 381,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-B8EdN0GhvMaBrDBdTk40rTr5d32HDupG",
+    "id": "chatcmpl-AfJWZKpvmByKmcc8ff2r2LxQ7FinSIZR",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 209,
-      "prompt_ms": 1067.7,
-      "prompt_per_token_ms": 5.108612440191388,
-      "prompt_per_second": 195.74786925166245,
-      "predicted_n": 30,
-      "predicted_ms": 2254.049,
-      "predicted_per_token_ms": 75.13496666666667,
-      "predicted_per_second": 13.309382360365724
+      "cache_n": 0,
+      "prompt_n": 210,
+      "prompt_ms": 1044.993,
+      "prompt_per_token_ms": 4.976157142857143,
+      "prompt_per_second": 200.95828393108854,
+      "predicted_n": 171,
+      "predicted_ms": 12200.97,
+      "predicted_per_token_ms": 71.35070175438597,
+      "predicted_per_second": 14.015279113054127
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00067:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00067:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

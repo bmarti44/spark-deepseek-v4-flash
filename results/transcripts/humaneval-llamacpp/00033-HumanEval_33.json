@@ -18,15 +18,9 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 8.397798019999755
+    "elapsed_s": 7.985924435997731
   },
   "response": {
     "choices": [
@@ -37,7 +31,7 @@
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228023,
+    "created": 1784247133,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
@@ -49,17 +43,17 @@
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-TMt6jjZBQsLpLZrVjU8i6b4vfCoDmYNm",
+    "id": "chatcmpl-j0HrEbcHfj0I2chCOCreBFyRQxLaErMs",
     "timings": {
       "cache_n": 0,
       "prompt_n": 148,
-      "prompt_ms": 896.571,
-      "prompt_per_token_ms": 6.057912162162163,
-      "prompt_per_second": 165.07337399938208,
+      "prompt_ms": 847.614,
+      "prompt_per_token_ms": 5.727121621621622,
+      "prompt_per_second": 174.6077813721812,
       "predicted_n": 101,
-      "predicted_ms": 7498.482,
-      "predicted_per_token_ms": 74.24239603960396,
-      "predicted_per_second": 13.469392871783915
+      "predicted_ms": 7130.981,
+      "predicted_per_token_ms": 70.60377227722772,
+      "predicted_per_second": 14.163549166657434
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00033:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00033:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

@@ -3,8 +3,8 @@
   "task_id": "HumanEval/163",
   "rendered_prompt_sha256": "746b974c17bfa8fea903c131acce2f7af0d087460803f42cb265a26d69e5089a",
   "rendering": "raw",
-  "completion": "    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result",
-  "finish_reason": "stop",
+  "completion": "    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result\n```\n\n### Response\n```python\ndef generate_integers(a, b):\n    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result\n```\n\nsolutions/CodeLlama34b_hf/CodeLlama34b_hf_humaneval_2_0.py\n\n\n\ndef truncate_number(number):\n    return number - int(number)  # Remove the integer part, keep the decimal part\n```\n\nThis function works by subtracting the integer part of the number (obtained by `int(number)`) from the original number. The result is the decimal part of the number. For example, `truncate_number(3.5)` returns `0.5`. Note that this function assumes that the input is a positive float. If the input is negative, the integer part will be negative and the decimal part will be positive, so the function will still work correctly. However, if the input is a negative float, the decimal part will be negative, which may not be what you want. If you want to always return a positive decimal part, you can use `abs(number - int(number))` instead. Also, if the input is an integer, the function will return `0.0`, which is correct. If you want to return an integer instead of a float, you can use `int(number - int(number))` but this will truncate the decimal part, which may not be what you want. For example, `truncate_number(3.5)` would return `0` instead of `0.5`. So, it's better to return a float. If you want to return an integer, you can use `int(number - int(number))` but then you need to handle the case where the decimal part is not zero. For example, `truncate_number(3.5)` would return `0` instead of `0.5`. So, it's better to return a float. If you want to return an integer, you can use `int(number - int(number))` but then you need to",
+  "finish_reason": "length",
   "expected": "    lower = max(2, min(a, b))\n    upper = min(8, max(a, b))\n\n    return [i for i in range(lower, upper+1) if i % 2 == 0]\n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.190069846998085
+    "elapsed_s": 37.346778671999346
   },
   "response": {
     "choices": [
       {
-        "text": "    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result",
+        "text": "    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result\n```\n\n### Response\n```python\ndef generate_integers(a, b):\n    if a > b:\n        a, b = b, a\n    result = []\n    for i in range(a, b+1):\n        if i % 2 == 0:\n            result.append(i)\n    return result\n```\n\nsolutions/CodeLlama34b_hf/CodeLlama34b_hf_humaneval_2_0.py\n\n\n\ndef truncate_number(number):\n    return number - int(number)  # Remove the integer part, keep the decimal part\n```\n\nThis function works by subtracting the integer part of the number (obtained by `int(number)`) from the original number. The result is the decimal part of the number. For example, `truncate_number(3.5)` returns `0.5`. Note that this function assumes that the input is a positive float. If the input is negative, the integer part will be negative and the decimal part will be positive, so the function will still work correctly. However, if the input is a negative float, the decimal part will be negative, which may not be what you want. If you want to always return a positive decimal part, you can use `abs(number - int(number))` instead. Also, if the input is an integer, the function will return `0.0`, which is correct. If you want to return an integer instead of a float, you can use `int(number - int(number))` but this will truncate the decimal part, which may not be what you want. For example, `truncate_number(3.5)` would return `0` instead of `0.5`. So, it's better to return a float. If you want to return an integer, you can use `int(number - int(number))` but then you need to handle the case where the decimal part is not zero. For example, `truncate_number(3.5)` would return `0` instead of `0.5`. So, it's better to return a float. If you want to return an integer, you can use `int(number - int(number))` but then you need to",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784229010,
+    "created": 1784251401,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 49,
+      "completion_tokens": 512,
       "prompt_tokens": 103,
-      "total_tokens": 152,
+      "total_tokens": 615,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-ngfB6pWwiUqx60Zb9m3HJ65f4AnRcxQb",
+    "id": "chatcmpl-KFKlMNbGwbAok77YQKtmSFPwr8fYONpt",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 102,
-      "prompt_ms": 729.948,
-      "prompt_per_token_ms": 7.15635294117647,
-      "prompt_per_second": 139.7359811931809,
-      "predicted_n": 49,
-      "predicted_ms": 3458.022,
-      "predicted_per_token_ms": 70.5718775510204,
-      "predicted_per_second": 14.169950335769986
+      "cache_n": 0,
+      "prompt_n": 103,
+      "prompt_ms": 790.103,
+      "prompt_per_token_ms": 7.670902912621359,
+      "prompt_per_second": 130.36275017307872,
+      "predicted_n": 512,
+      "predicted_ms": 36554.623,
+      "predicted_per_token_ms": 71.395748046875,
+      "predicted_per_second": 14.006436340486948
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00163:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00163:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

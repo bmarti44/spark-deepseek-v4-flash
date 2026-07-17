@@ -3,8 +3,8 @@
   "task_id": "HumanEval/48",
   "rendered_prompt_sha256": "6d590205867a7577346310fe8cba6e45655e25a7ef57acb964a6d34b02363081",
   "rendering": "raw",
-  "completion": "    # Convert to lowercase and remove non-alphanumeric characters\n    cleaned = ''.join(char.lower() for char in text if char.isalnum())\n    # Check if cleaned string is equal to its reverse\n    return cleaned == cleaned[::-1]",
-  "finish_reason": "stop",
+  "completion": "    return text == text[::-1]\n\ntiny-squad/result/result_2024-01-05/result_2024-01-05_22-23-26.565176_llama-2-7b_4_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0",
+  "finish_reason": "length",
   "expected": "    for i in range(len(text)):\n        if text[i] != text[len(text) - 1 - i]:\n            return False\n    return True\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.32103008500053
+    "elapsed_s": 37.693270670002676
   },
   "response": {
     "choices": [
       {
-        "text": "    # Convert to lowercase and remove non-alphanumeric characters\n    cleaned = ''.join(char.lower() for char in text if char.isalnum())\n    # Check if cleaned string is equal to its reverse\n    return cleaned == cleaned[::-1]",
+        "text": "    return text == text[::-1]\n\ntiny-squad/result/result_2024-01-05/result_2024-01-05_22-23-26.565176_llama-2-7b_4_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0.0_0",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228117,
+    "created": 1784247537,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 52,
+      "completion_tokens": 512,
       "prompt_tokens": 72,
-      "total_tokens": 124,
+      "total_tokens": 584,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-mQnFccNgxiRuguy5RCM80LUwEtmElVL0",
+    "id": "chatcmpl-phDRg3EvaPV5rC4nTzCAd4RISUymwGAb",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 71,
-      "prompt_ms": 586.04,
-      "prompt_per_token_ms": 8.254084507042252,
-      "prompt_per_second": 121.15213978568016,
-      "predicted_n": 52,
-      "predicted_ms": 3732.444,
-      "predicted_per_token_ms": 71.77776923076922,
-      "predicted_per_second": 13.931890203844986
+      "cache_n": 0,
+      "prompt_n": 72,
+      "prompt_ms": 606.653,
+      "prompt_per_token_ms": 8.425736111111112,
+      "prompt_per_second": 118.68399233169538,
+      "predicted_n": 512,
+      "predicted_ms": 37081.005,
+      "predicted_per_token_ms": 72.423837890625,
+      "predicted_per_second": 13.8076085046778
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00048:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00048:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

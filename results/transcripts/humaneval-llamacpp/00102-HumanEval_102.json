@@ -3,7 +3,7 @@
   "task_id": "HumanEval/102",
   "rendered_prompt_sha256": "3b2e226ef819e4547fbd11a4ee933844a256dcd27e6d79fc1da3d380ff755d18",
   "rendering": "raw",
-  "completion": "    # Ensure x <= y\n    if x > y:\n        return -1\n    # Find the biggest even number in the range\n    for num in range(y, x - 1, -1):\n        if num % 2 == 0:\n            return num\n    return -1",
+  "completion": "    # Ensure x <= y\n    if x > y:\n        return -1\n    \n    # Find the largest even number in the range\n    # If y is even, return y\n    if y % 2 == 0:\n        return y\n    # If y is odd, the largest even number is y-1 if it's >= x\n    elif y - 1 >= x:\n        return y - 1\n    else:\n        return -1\ndef check_choose_num(choose_num):\n    assert choose_num(12, 15) == 14\n    assert choose_num(13, 12) == -1\n    assert choose_num(2, 2) == 2\n    assert choose_num(3, 3) == -1\n    assert choose_num(1, 2) == 2\n    assert choose_num(2, 1) == -1\n    assert choose_num(10, 20) == 20\n    assert choose_num(11, 20) == 20\n    assert choose_num(10, 19) == 18\n    assert choose_num(11, 19) == 18\n    assert choose_num(100, 100) == 100\n    assert choose_num(101, 101) == -1\n    assert choose_num(99, 100) == 100\n    assert choose_num(100, 99) == -1\n    assert choose_num(1, 100) == 100\n    assert choose_num(2, 100) == 100\n    assert choose_num(3, 100) == 100\n    assert choose_num(4, 100) == 100\n    assert choose_num(5, 100) == 100\n    assert choose_num(6, 100) == 100\n    assert choose_num(7, 100) == 100\n    assert choose_num(8, 100) == 100\n    assert choose_num(9, 100) == 100\n    assert choose_num(10, 100) == 100\ncheck_choose_num(choose_num)",
   "finish_reason": "stop",
   "expected": "    if x > y:\n        return -1\n    if y % 2 == 0:\n        return y\n    if x == y:\n        return -1\n    return y - 1\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.067228371000965
+    "elapsed_s": 33.23672890599846
   },
   "response": {
     "choices": [
       {
-        "text": "    # Ensure x <= y\n    if x > y:\n        return -1\n    # Find the biggest even number in the range\n    for num in range(y, x - 1, -1):\n        if num % 2 == 0:\n            return num\n    return -1",
+        "text": "    # Ensure x <= y\n    if x > y:\n        return -1\n    \n    # Find the largest even number in the range\n    # If y is even, return y\n    if y % 2 == 0:\n        return y\n    # If y is odd, the largest even number is y-1 if it's >= x\n    elif y - 1 >= x:\n        return y - 1\n    else:\n        return -1\ndef check_choose_num(choose_num):\n    assert choose_num(12, 15) == 14\n    assert choose_num(13, 12) == -1\n    assert choose_num(2, 2) == 2\n    assert choose_num(3, 3) == -1\n    assert choose_num(1, 2) == 2\n    assert choose_num(2, 1) == -1\n    assert choose_num(10, 20) == 20\n    assert choose_num(11, 20) == 20\n    assert choose_num(10, 19) == 18\n    assert choose_num(11, 19) == 18\n    assert choose_num(100, 100) == 100\n    assert choose_num(101, 101) == -1\n    assert choose_num(99, 100) == 100\n    assert choose_num(100, 99) == -1\n    assert choose_num(1, 100) == 100\n    assert choose_num(2, 100) == 100\n    assert choose_num(3, 100) == 100\n    assert choose_num(4, 100) == 100\n    assert choose_num(5, 100) == 100\n    assert choose_num(6, 100) == 100\n    assert choose_num(7, 100) == 100\n    assert choose_num(8, 100) == 100\n    assert choose_num(9, 100) == 100\n    assert choose_num(10, 100) == 100\ncheck_choose_num(choose_num)",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228511,
+    "created": 1784249328,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 63,
+      "completion_tokens": 452,
       "prompt_tokens": 89,
-      "total_tokens": 152,
+      "total_tokens": 541,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-bjIVxCmFSpzJz2LS4BjQdjGDzbn4xGPP",
+    "id": "chatcmpl-CpnBT9N8kV4EnhGbkfhluwqC8GIYLWIa",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 88,
-      "prompt_ms": 655.347,
-      "prompt_per_token_ms": 7.447125,
-      "prompt_per_second": 134.2800073854004,
-      "predicted_n": 63,
-      "predicted_ms": 4410.101,
-      "predicted_per_token_ms": 70.00160317460318,
-      "predicted_per_second": 14.285387114716876
+      "cache_n": 0,
+      "prompt_n": 89,
+      "prompt_ms": 737.116,
+      "prompt_per_token_ms": 8.28220224719101,
+      "prompt_per_second": 120.74083319314734,
+      "predicted_n": 452,
+      "predicted_ms": 32496.358,
+      "predicted_per_token_ms": 71.89459734513274,
+      "predicted_per_second": 13.90925099975819
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00102:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00102:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

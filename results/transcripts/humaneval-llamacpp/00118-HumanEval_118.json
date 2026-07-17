@@ -3,8 +3,8 @@
   "task_id": "HumanEval/118",
   "rendered_prompt_sha256": "0eec1170b109fb6d89c6ef7ccf3407439aa820f170e9377d84d5fef4a8da296d",
   "rendering": "raw",
-  "completion": "    vowels = \"aeiouAEIOU\"\n    for i in range(len(word)-2, 0, -1):\n        if word[i] in vowels and word[i-1] not in vowels and word[i+1] not in vowels:\n            return word[i]\n    return \"\"",
-  "finish_reason": "stop",
+  "completion": "    # Define vowels\n    vowels = \"aeiouAEIOU\"\n    \n    # Iterate from right to left\n    for i in range(len(word)-2, 0, -1):\n        # Check if the character is a vowel\n        if word[i] in vowels:\n            # Check if the character is between two consonants\n            if word[i-1] not in vowels and word[i+1] not in vowels:\n                return word[i]\n    \n    return \"\"\n```\n\n\n## Test cases from the assignment\nThe test cases from the assignment are not available. However, we can test the function with the given examples.\n\n```python\nprint(get_closest_vowel(\"yogurt\"))  # Expected: \"u\"\nprint(get_closest_vowel(\"FULL\"))  # Expected: \"U\"\nprint(get_closest_vowel(\"quick\"))  # Expected: \"\"\nprint(get_closest_vowel(\"ab\"))  # Expected: \"\"\n```\n\n\n## Evaluation \nCheck the function for correctness and efficiency. \n\n## Unit test\n```python\nimport unittest\n\nclass TestGetClosestVowel(unittest.TestCase):\n    def test_yogurt(self):\n        self.assertEqual(get_closest_vowel(\"yogurt\"), \"u\")\n    def test_FULL(self):\n        self.assertEqual(get_closest_vowel(\"FULL\"), \"U\")\n    def test_quick(self):\n        self.assertEqual(get_closest_vowel(\"quick\"), \"\")\n    def test_ab(self):\n        self.assertEqual(get_closest_vowel(\"ab\"), \"\")\n    def test_empty(self):\n        self.assertEqual(get_closest_vowel(\"\"), \"\")\n    def test_no_vowel_between_consonants(self):\n        self.assertEqual(get_closest_vowel(\"strength\"), \"\")\n    def test_vowel_at_end(self):\n        self.assertEqual(get_closest_vowel(\"hello\"), \"\")\n    def test_vowel_at_start(self):\n        self.assertEqual(get_closest_vowel(\"apple\"), \"\")\n    def test_multiple_vowels(self):\n        self.assertEqual(get_closest_vowel(\"education\"), \"u\")\n    def test_case_sensitive(self):\n        self.assertEqual(get_closest_vowel(\"FULL\"), \"U\")\n    def test_vowel_between_consonants_at_end(self):\n        self.assertEqual(get_closest_vowel(\"hand\"), \"\")\n    def test_vowel_between_consonants_at_start(self):\n        self.assertEqual(get_closest_vowel(\"art\"), \"\")\n    def test_vowel_between_consonants_middle(self):\n",
+  "finish_reason": "length",
   "expected": "    if len(word) < 3:\n        return \"\"\n\n    vowels = {\"a\", \"e\", \"i\", \"o\", \"u\", \"A\", \"E\", 'O', 'U', 'I'}\n    for i in range(len(word)-2, 0, -1):\n        if word[i] in vowels:\n            if (word[i+1] not in vowels) and (word[i-1] not in vowels):\n                return word[i]\n    return \"\"\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.077505804001703
+    "elapsed_s": 38.585381283999595
   },
   "response": {
     "choices": [
       {
-        "text": "    vowels = \"aeiouAEIOU\"\n    for i in range(len(word)-2, 0, -1):\n        if word[i] in vowels and word[i-1] not in vowels and word[i+1] not in vowels:\n            return word[i]\n    return \"\"",
+        "text": "    # Define vowels\n    vowels = \"aeiouAEIOU\"\n    \n    # Iterate from right to left\n    for i in range(len(word)-2, 0, -1):\n        # Check if the character is a vowel\n        if word[i] in vowels:\n            # Check if the character is between two consonants\n            if word[i-1] not in vowels and word[i+1] not in vowels:\n                return word[i]\n    \n    return \"\"\n```\n\n\n## Test cases from the assignment\nThe test cases from the assignment are not available. However, we can test the function with the given examples.\n\n```python\nprint(get_closest_vowel(\"yogurt\"))  # Expected: \"u\"\nprint(get_closest_vowel(\"FULL\"))  # Expected: \"U\"\nprint(get_closest_vowel(\"quick\"))  # Expected: \"\"\nprint(get_closest_vowel(\"ab\"))  # Expected: \"\"\n```\n\n\n## Evaluation \nCheck the function for correctness and efficiency. \n\n## Unit test\n```python\nimport unittest\n\nclass TestGetClosestVowel(unittest.TestCase):\n    def test_yogurt(self):\n        self.assertEqual(get_closest_vowel(\"yogurt\"), \"u\")\n    def test_FULL(self):\n        self.assertEqual(get_closest_vowel(\"FULL\"), \"U\")\n    def test_quick(self):\n        self.assertEqual(get_closest_vowel(\"quick\"), \"\")\n    def test_ab(self):\n        self.assertEqual(get_closest_vowel(\"ab\"), \"\")\n    def test_empty(self):\n        self.assertEqual(get_closest_vowel(\"\"), \"\")\n    def test_no_vowel_between_consonants(self):\n        self.assertEqual(get_closest_vowel(\"strength\"), \"\")\n    def test_vowel_at_end(self):\n        self.assertEqual(get_closest_vowel(\"hello\"), \"\")\n    def test_vowel_at_start(self):\n        self.assertEqual(get_closest_vowel(\"apple\"), \"\")\n    def test_multiple_vowels(self):\n        self.assertEqual(get_closest_vowel(\"education\"), \"u\")\n    def test_case_sensitive(self):\n        self.assertEqual(get_closest_vowel(\"FULL\"), \"U\")\n    def test_vowel_between_consonants_at_end(self):\n        self.assertEqual(get_closest_vowel(\"hand\"), \"\")\n    def test_vowel_between_consonants_at_start(self):\n        self.assertEqual(get_closest_vowel(\"art\"), \"\")\n    def test_vowel_between_consonants_middle(self):\n",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228616,
+    "created": 1784249911,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 61,
+      "completion_tokens": 512,
       "prompt_tokens": 143,
-      "total_tokens": 204,
+      "total_tokens": 655,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-ZDNIPVaz7pIeAtvoPLlaMvIVamKuPGit",
+    "id": "chatcmpl-Nm9Rf0Q0WRb0ayRH6mxs9l8e0cRylIf0",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 142,
-      "prompt_ms": 822.004,
-      "prompt_per_token_ms": 5.788760563380282,
-      "prompt_per_second": 172.7485511019411,
-      "predicted_n": 61,
-      "predicted_ms": 4252.794,
-      "predicted_per_token_ms": 69.7179344262295,
-      "predicted_per_second": 14.343511583208592
+      "cache_n": 0,
+      "prompt_n": 143,
+      "prompt_ms": 890.67,
+      "prompt_per_token_ms": 6.228461538461538,
+      "prompt_per_second": 160.55329134247253,
+      "predicted_n": 512,
+      "predicted_ms": 37690.699,
+      "predicted_per_token_ms": 73.614646484375,
+      "predicted_per_second": 13.584253239771435
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00118:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00118:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

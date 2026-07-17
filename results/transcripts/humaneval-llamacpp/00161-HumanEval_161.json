@@ -3,8 +3,8 @@
   "task_id": "HumanEval/161",
   "rendered_prompt_sha256": "fa29d7f413a74f20646e32cd02cb87cdd6766bf4f81745a92db8bcd19d9734d2",
   "rendering": "raw",
-  "completion": "    if not any([c.isalpha() for c in s]):\n        return s[::-1]\n    else:\n        return ''.join([c.upper() if c.islower() else c.lower() if c.isupper() else c for c in s])",
-  "finish_reason": "stop",
+  "completion": "    # Check if the string contains any letters\n    if not any(c.isalpha() for c in s):\n        return s[::-1]\n    \n    result = []\n    for char in s:\n        if char.isalpha():\n            # Reverse case\n            if char.islower():\n                result.append(char.upper())\n            else:\n                result.append(char.lower())\n        else:\n            result.append(char)\n    \n    return ''.join(result)\n\n# Test cases\nprint(solve(\"1234\"))  # Expected: \"4321\"\nprint(solve(\"ab\"))    # Expected: \"AB\"\nprint(solve(\"#a@C\"))  # Expected: \"#A@c\"\n```\n\n**Explanation:**\n- First, we check if the string contains any letters using `any(c.isalpha() for c in s)`. If not, we simply reverse the string.\n- For strings containing letters, we iterate through each character:\n  - If it's a letter, we reverse its case (lower to upper, upper to lower)\n  - If it's not a letter, we keep it unchanged\n- Finally, we join the characters back into a string.\n\nThe solution handles all the given examples correctly and follows the specified rules.</think>The solution is correct and handles all the given examples properly. Here's a breakdown of how it works:\n\n1. **Check for letters**: Uses `any(c.isalpha() for c in s)` to determine if the string contains any alphabetic characters.\n2. **No letters case**: If no letters are found, returns the reversed string `s[::-1]`.\n3. **Letters present case**: Iterates through each character:\n   - If alphabetic, reverses the case using `char.upper()` for lowercase and `char.lower()` for uppercase.\n   - If non-alphabetic, keeps the character unchanged.\n4. **Returns** the joined result string.\n\nThe solution correctly handles:\n- `\"1234\"` → `\"4321\"` (no letters, reversed)\n- `\"ab\"` → `\"AB\"` (letters, case reversed)\n- `\"#a@C\"` → `\"#A@c\"` (mixed, case reversed for letters only)\n\nThe implementation is efficient with O(n) time complexity and O(n) space complexity, where n is the length of the string.</think>The solution is correct and handles all the given examples properly. Here's a breakdown of how it works:\n\n1. **Check for letters**: Uses `any",
+  "finish_reason": "length",
   "expected": "    flg = 0\n    idx = 0\n    new_str = list(s)\n    for i in s:\n        if i.isalpha():\n            new_str[idx] = i.swapcase()\n            flg = 1\n        idx += 1\n    s = \"\"\n    for i in new_str:\n        s += i\n    if flg == 0:\n        return s[len(s)::-1]\n    return s\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.700651465998817
+    "elapsed_s": 37.37904388199968
   },
   "response": {
     "choices": [
       {
-        "text": "    if not any([c.isalpha() for c in s]):\n        return s[::-1]\n    else:\n        return ''.join([c.upper() if c.islower() else c.lower() if c.isupper() else c for c in s])",
+        "text": "    # Check if the string contains any letters\n    if not any(c.isalpha() for c in s):\n        return s[::-1]\n    \n    result = []\n    for char in s:\n        if char.isalpha():\n            # Reverse case\n            if char.islower():\n                result.append(char.upper())\n            else:\n                result.append(char.lower())\n        else:\n            result.append(char)\n    \n    return ''.join(result)\n\n# Test cases\nprint(solve(\"1234\"))  # Expected: \"4321\"\nprint(solve(\"ab\"))    # Expected: \"AB\"\nprint(solve(\"#a@C\"))  # Expected: \"#A@c\"\n```\n\n**Explanation:**\n- First, we check if the string contains any letters using `any(c.isalpha() for c in s)`. If not, we simply reverse the string.\n- For strings containing letters, we iterate through each character:\n  - If it's a letter, we reverse its case (lower to upper, upper to lower)\n  - If it's not a letter, we keep it unchanged\n- Finally, we join the characters back into a string.\n\nThe solution handles all the given examples correctly and follows the specified rules.</think>The solution is correct and handles all the given examples properly. Here's a breakdown of how it works:\n\n1. **Check for letters**: Uses `any(c.isalpha() for c in s)` to determine if the string contains any alphabetic characters.\n2. **No letters case**: If no letters are found, returns the reversed string `s[::-1]`.\n3. **Letters present case**: Iterates through each character:\n   - If alphabetic, reverses the case using `char.upper()` for lowercase and `char.lower()` for uppercase.\n   - If non-alphabetic, keeps the character unchanged.\n4. **Returns** the joined result string.\n\nThe solution correctly handles:\n- `\"1234\"` → `\"4321\"` (no letters, reversed)\n- `\"ab\"` → `\"AB\"` (letters, case reversed)\n- `\"#a@C\"` → `\"#A@c\"` (mixed, case reversed for letters only)\n\nThe implementation is efficient with O(n) time complexity and O(n) space complexity, where n is the length of the string.</think>The solution is correct and handles all the given examples properly. Here's a breakdown of how it works:\n\n1. **Check for letters**: Uses `any",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784229002,
+    "created": 1784251326,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 54,
+      "completion_tokens": 512,
       "prompt_tokens": 102,
-      "total_tokens": 156,
+      "total_tokens": 614,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-VhsUVCwsfYiqER7mjCM4Nr8Fma8Pa38j",
+    "id": "chatcmpl-fTWRwSF4a1WPsFwIyt1YlSyJ591iGaxi",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 101,
-      "prompt_ms": 773.429,
-      "prompt_per_token_ms": 7.657712871287129,
-      "prompt_per_second": 130.58729372702604,
-      "predicted_n": 54,
-      "predicted_ms": 3925.127,
-      "predicted_per_token_ms": 72.68753703703703,
-      "predicted_per_second": 13.757516635767455
+      "cache_n": 0,
+      "prompt_n": 102,
+      "prompt_ms": 802.751,
+      "prompt_per_token_ms": 7.870107843137255,
+      "prompt_per_second": 127.06306189590546,
+      "predicted_n": 512,
+      "predicted_ms": 36563.415,
+      "predicted_per_token_ms": 71.412919921875,
+      "predicted_per_second": 14.003068367656576
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00161:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00161:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

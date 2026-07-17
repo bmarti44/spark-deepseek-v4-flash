@@ -3,11 +3,11 @@
   "task_id": "HumanEval/68",
   "rendered_prompt_sha256": "cd3be7d4325387ffeafdc0c15742e1e5f66dfe1e94b683910809f5c17a9c3a74",
   "rendering": "raw",
-  "completion": "    # Initialize variables to store the smallest even value and its index\n    smallest_even_value = None\n    smallest_even_index = None\n\n    # Iterate through the array\n    for i, value in enumerate(arr):\n        # Check if the value is even\n        if value % 2 == 0:\n            # If it's the first even value encountered, set it as the smallest\n            if smallest_even_value is None:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's smaller than the current smallest even value, update\n            elif value < smallest_even_value:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's equal to the current smallest even value, check the index\n            elif value == smallest_even_value and i < smallest_even_index:\n                smallest_even_index = i\n\n    # If no even values were found, return an empty list\n    if smallest_even_value is None:\n        return []\n    else:\n        return [smallest_even_value, smallest_even_index]",
-  "finish_reason": "stop",
+  "completion": "    # your code here\n```\n\n### Solution\n\n```python\ndef pluck(arr):\n    if not arr:\n        return []\n    min_val = None\n    min_idx = None\n    for i, v in enumerate(arr):\n        if v % 2 == 0:\n            if min_val is None or v < min_val:\n                min_val = v\n                min_idx = i\n    if min_val is None:\n        return []\n    return [min_val, min_idx]\n```\n\n\n### Test\n```python\nfrom pluck import pluck\nimport random\n\ndef test_pluck():\n    # Test case 1\n    assert pluck([4, 2, 3]) == [2, 1]\n\n    # Test case 2\n    assert pluck([1, 2, 3]) == [2, 1]\n\n    # Test case 3\n    assert pluck([]) == []\n\n    # Test case 4\n    assert pluck([5, 0, 3, 0, 4, 2]) == [0, 1]\n\n    # Test case 5\n    assert pluck([1, 3, 5, 7, 9]) == []\n\n    # Test case 6\n    assert pluck([2, 2, 2, 2]) == [2, 0]\n\n    # Test case 7\n    assert pluck([10]) == [10, 0]\n\n    # Test case 8\n    assert pluck([11]) == []\n\n    # Test case 9\n    assert pluck([2, 4, 6, 8, 10]) == [2, 0]\n\n    # Test case 10\n    assert pluck([10, 8, 6, 4, 2]) == [2, 4]\n\n    # Test case 11\n    assert pluck([0, 0, 0, 0]) == [0, 0]\n\n    # Test case 12\n    assert pluck([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == [2, 1]\n\n    # Test case 13\n    assert pluck([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]) == [2",
+  "finish_reason": "length",
   "expected": "    if(len(arr) == 0): return []\n    evens = list(filter(lambda x: x%2 == 0, arr))\n    if(evens == []): return []\n    return [min(evens), arr.index(min(evens))]\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 18.966410335000546
+    "elapsed_s": 37.92196505899483
   },
   "response": {
     "choices": [
       {
-        "text": "    # Initialize variables to store the smallest even value and its index\n    smallest_even_value = None\n    smallest_even_index = None\n\n    # Iterate through the array\n    for i, value in enumerate(arr):\n        # Check if the value is even\n        if value % 2 == 0:\n            # If it's the first even value encountered, set it as the smallest\n            if smallest_even_value is None:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's smaller than the current smallest even value, update\n            elif value < smallest_even_value:\n                smallest_even_value = value\n                smallest_even_index = i\n            # If it's equal to the current smallest even value, check the index\n            elif value == smallest_even_value and i < smallest_even_index:\n                smallest_even_index = i\n\n    # If no even values were found, return an empty list\n    if smallest_even_value is None:\n        return []\n    else:\n        return [smallest_even_value, smallest_even_index]",
+        "text": "    # your code here\n```\n\n### Solution\n\n```python\ndef pluck(arr):\n    if not arr:\n        return []\n    min_val = None\n    min_idx = None\n    for i, v in enumerate(arr):\n        if v % 2 == 0:\n            if min_val is None or v < min_val:\n                min_val = v\n                min_idx = i\n    if min_val is None:\n        return []\n    return [min_val, min_idx]\n```\n\n\n### Test\n```python\nfrom pluck import pluck\nimport random\n\ndef test_pluck():\n    # Test case 1\n    assert pluck([4, 2, 3]) == [2, 1]\n\n    # Test case 2\n    assert pluck([1, 2, 3]) == [2, 1]\n\n    # Test case 3\n    assert pluck([]) == []\n\n    # Test case 4\n    assert pluck([5, 0, 3, 0, 4, 2]) == [0, 1]\n\n    # Test case 5\n    assert pluck([1, 3, 5, 7, 9]) == []\n\n    # Test case 6\n    assert pluck([2, 2, 2, 2]) == [2, 0]\n\n    # Test case 7\n    assert pluck([10]) == [10, 0]\n\n    # Test case 8\n    assert pluck([11]) == []\n\n    # Test case 9\n    assert pluck([2, 4, 6, 8, 10]) == [2, 0]\n\n    # Test case 10\n    assert pluck([10, 8, 6, 4, 2]) == [2, 4]\n\n    # Test case 11\n    assert pluck([0, 0, 0, 0]) == [0, 0]\n\n    # Test case 12\n    assert pluck([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) == [2, 1]\n\n    # Test case 13\n    assert pluck([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]) == [2",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228219,
+    "created": 1784248158,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 233,
+      "completion_tokens": 512,
       "prompt_tokens": 307,
-      "total_tokens": 540,
+      "total_tokens": 819,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-RXlKgbVUTlCZTNLnhZwpGrt4MbtGHn5i",
+    "id": "chatcmpl-KBku6CvQbMQ2jmjRJUFlSUbc63dg3f9S",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 306,
-      "prompt_ms": 1378.587,
-      "prompt_per_token_ms": 4.5051862745098035,
-      "prompt_per_second": 221.96640473180148,
-      "predicted_n": 233,
-      "predicted_ms": 17584.715,
-      "predicted_per_token_ms": 75.47087982832618,
-      "predicted_per_second": 13.250143661697104
+      "cache_n": 0,
+      "prompt_n": 307,
+      "prompt_ms": 1368.052,
+      "prompt_per_token_ms": 4.456195439739413,
+      "prompt_per_second": 224.4066746000883,
+      "predicted_n": 512,
+      "predicted_ms": 36543.246,
+      "predicted_per_token_ms": 71.37352734375,
+      "predicted_per_second": 14.01079696094868
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00068:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00068:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 57, in <module>\n    check(pluck)\n  File \"/case/main.py\", line 43, in check\n    assert candidate([4,2,3]) == [2, 1], \"Error\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Error\n"
   }
 }

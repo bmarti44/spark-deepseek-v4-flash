@@ -3,8 +3,8 @@
   "task_id": "HumanEval/122",
   "rendered_prompt_sha256": "0e13fa71b137d4f1598346bec0d43a7a97585397568c34e2040e71c198b2acf0",
   "rendering": "raw",
-  "completion": "    sum = 0\n    for i in range(k):\n        if len(str(arr[i])) <= 2:\n            sum += arr[i]\n    return sum",
-  "finish_reason": "stop",
+  "completion": "    # Count the sum of elements with at most two digits from the first k elements\n    sum = 0\n    for i in range(k):\n        if len(str(abs(arr[i]))) <= 2:\n            sum += arr[i]\n    return sum\n```\n\n### Test Cases\n```python\n# Test case 1: Basic example\narr = [111, 21, 3, 4000, 5, 6, 7, 8, 9]\nk = 4\nresult = add_elements(arr, k)\nassert result == 24, f\"Expected 24 but got {result}\"\n\n# Test case 2: All elements have at most two digits\narr = [1, 2, 3, 4, 5]\nk = 3\nresult = add_elements(arr, k)\nassert result == 6, f\"Expected 6 but got {result}\"\n\n# Test case 3: No elements have at most two digits\narr = [100, 200, 300]\nk = 2\nresult = add_elements(arr, k)\nassert result == 0, f\"Expected 0 but got {result}\"\n\n# Test case 4: k equals length of array\narr = [10, 20, 30, 40]\nk = 4\nresult = add_elements(arr, k)\nassert result == 100, f\"Expected 100 but got {result}\"\n\n# Test case 5: Negative numbers with at most two digits\narr = [-5, 100, 20]\nk = 2\nresult = add_elements(arr, k)\nassert result == -5, f\"Expected -5 but got {result}\"\n\n# Test case 6: Single element array\narr = [99]\nk = 1\nresult = add_elements(arr, k)\nassert result == 99, f\"Expected 99 but got {result}\"\n\n# Test case 7: Large numbers with at most two digits\narr = [1000, 2000, 3000]\nk = 2\nresult = add_elements(arr, k)\nassert result == 0, f\"Expected 0 but got {result}\"\n\n# Test case 8: Mixed numbers\narr = [1, 100, 2, 200, 3]\nk = 5\nresult = add_elements(arr, k)\nassert result == ",
+  "finish_reason": "length",
   "expected": "    return sum(elem for elem in arr[:k] if len(str(elem)) <= 2)\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.2620842569995148
+    "elapsed_s": 37.325188916001935
   },
   "response": {
     "choices": [
       {
-        "text": "    sum = 0\n    for i in range(k):\n        if len(str(arr[i])) <= 2:\n            sum += arr[i]\n    return sum",
+        "text": "    # Count the sum of elements with at most two digits from the first k elements\n    sum = 0\n    for i in range(k):\n        if len(str(abs(arr[i]))) <= 2:\n            sum += arr[i]\n    return sum\n```\n\n### Test Cases\n```python\n# Test case 1: Basic example\narr = [111, 21, 3, 4000, 5, 6, 7, 8, 9]\nk = 4\nresult = add_elements(arr, k)\nassert result == 24, f\"Expected 24 but got {result}\"\n\n# Test case 2: All elements have at most two digits\narr = [1, 2, 3, 4, 5]\nk = 3\nresult = add_elements(arr, k)\nassert result == 6, f\"Expected 6 but got {result}\"\n\n# Test case 3: No elements have at most two digits\narr = [100, 200, 300]\nk = 2\nresult = add_elements(arr, k)\nassert result == 0, f\"Expected 0 but got {result}\"\n\n# Test case 4: k equals length of array\narr = [10, 20, 30, 40]\nk = 4\nresult = add_elements(arr, k)\nassert result == 100, f\"Expected 100 but got {result}\"\n\n# Test case 5: Negative numbers with at most two digits\narr = [-5, 100, 20]\nk = 2\nresult = add_elements(arr, k)\nassert result == -5, f\"Expected -5 but got {result}\"\n\n# Test case 6: Single element array\narr = [99]\nk = 1\nresult = add_elements(arr, k)\nassert result == 99, f\"Expected 99 but got {result}\"\n\n# Test case 7: Large numbers with at most two digits\narr = [1000, 2000, 3000]\nk = 2\nresult = add_elements(arr, k)\nassert result == 0, f\"Expected 0 but got {result}\"\n\n# Test case 8: Mixed numbers\narr = [1, 100, 2, 200, 3]\nk = 5\nresult = add_elements(arr, k)\nassert result == ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228646,
+    "created": 1784249998,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 34,
+      "completion_tokens": 512,
       "prompt_tokens": 122,
-      "total_tokens": 156,
+      "total_tokens": 634,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-BktA2lrJywFoZvcggKdPnv763EcPHCrk",
+    "id": "chatcmpl-8qvVwkohnRvFpTPAdo0EHcQfEUtU8NSC",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 121,
-      "prompt_ms": 839.741,
-      "prompt_per_token_ms": 6.94000826446281,
-      "prompt_per_second": 144.09204742890964,
-      "predicted_n": 34,
-      "predicted_ms": 2419.959,
-      "predicted_per_token_ms": 71.17526470588234,
-      "predicted_per_second": 14.049824811081512
+      "cache_n": 0,
+      "prompt_n": 122,
+      "prompt_ms": 893.696,
+      "prompt_per_token_ms": 7.325377049180328,
+      "prompt_per_second": 136.51174448582069,
+      "predicted_n": 512,
+      "predicted_ms": 36429.317,
+      "predicted_per_token_ms": 71.151009765625,
+      "predicted_per_second": 14.054614309678108
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00122:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00122:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

@@ -3,8 +3,8 @@
   "task_id": "HumanEval/116",
   "rendered_prompt_sha256": "dc8d425f9133ada84c2a380d6cab8321aba622d443cee4d54bcc98c4859a2289",
   "rendering": "raw",
-  "completion": "    return sorted(arr, key=lambda x: (bin(x).count('1'), x))\n",
-  "finish_reason": "stop",
+  "completion": "    return sorted(arr, key=lambda x: (bin(x).count('1'), x))\n```\n\n### 2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.",
+  "finish_reason": "length",
   "expected": "    return sorted(sorted(arr), key=lambda x: bin(x)[2:].count('1'))\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 2.352368748997833
+    "elapsed_s": 38.178950699999405
   },
   "response": {
     "choices": [
       {
-        "text": "    return sorted(arr, key=lambda x: (bin(x).count('1'), x))\n",
+        "text": "    return sorted(arr, key=lambda x: (bin(x).count('1'), x))\n```\n\n### 2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228605,
+    "created": 1784249834,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 20,
+      "completion_tokens": 512,
       "prompt_tokens": 166,
-      "total_tokens": 186,
+      "total_tokens": 678,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-D6gjkugaVsrdP8vcovpUpbHoxVxVvo3A",
+    "id": "chatcmpl-EqH26RkzzGwDwtXlxOPmH607npFmMAu6",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 165,
-      "prompt_ms": 906.511,
-      "prompt_per_token_ms": 5.49400606060606,
-      "prompt_per_second": 182.0165447523527,
-      "predicted_n": 20,
-      "predicted_ms": 1443.506,
-      "predicted_per_token_ms": 72.17530000000001,
-      "predicted_per_second": 13.855155434061237
+      "cache_n": 0,
+      "prompt_n": 166,
+      "prompt_ms": 1001.791,
+      "prompt_per_token_ms": 6.034885542168675,
+      "prompt_per_second": 165.70322552308815,
+      "predicted_n": 512,
+      "predicted_ms": 37163.167,
+      "predicted_per_token_ms": 72.584310546875,
+      "predicted_per_second": 13.777082023176334
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00116:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00116:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

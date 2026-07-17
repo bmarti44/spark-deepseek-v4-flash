@@ -3,8 +3,8 @@
   "task_id": "HumanEval/88",
   "rendered_prompt_sha256": "a5d671eb2ad240d7b0a2b9b6f889f990b1374fa0a9ee025dd04730328ab328c1",
   "rendering": "raw",
-  "completion": "    if not array:\n        return []\n    if len(array) == 1:\n        return array\n    first = array[0]\n    last = array[-1]\n    if (first + last) % 2 == 0:\n        return sorted(array, reverse=True)\n    else:\n        return sorted(array)",
-  "finish_reason": "stop",
+  "completion": "    # Check if array is empty\n    if not array:\n        return array\n    \n    # Calculate sum of first and last index values\n    first = array[0]\n    last = array[-1]\n    total = first + last\n    \n    # Sort array based on sum\n    if total % 2 == 0:\n        # Sort in descending order\n        return sorted(array, reverse=True)\n    else:\n        # Sort in ascending order\n        return sorted(array)\n\nresults/zero-shot/CodeLlama-13b-Instruct/0.0/zero-shot/2024-05-07-19-05-11/CodeLlama-13b-Instruct/check_citations/check_citations.py\n\n\nimport re\n\ndef check_citations(paper_text):\n    \"\"\"\n    Given a paper text, return the number of citations included in the text.\n    A citation is considered as a string that is present between the citation marks.\n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double",
+  "finish_reason": "length",
   "expected": "    return [] if len(array) == 0 else sorted(array, reverse= (array[0]+array[-1]) % 2 == 0) \n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 6.022732006000297
+    "elapsed_s": 37.490819265003665
   },
   "response": {
     "choices": [
       {
-        "text": "    if not array:\n        return []\n    if len(array) == 1:\n        return array\n    first = array[0]\n    last = array[-1]\n    if (first + last) % 2 == 0:\n        return sorted(array, reverse=True)\n    else:\n        return sorted(array)",
+        "text": "    # Check if array is empty\n    if not array:\n        return array\n    \n    # Calculate sum of first and last index values\n    first = array[0]\n    last = array[-1]\n    total = first + last\n    \n    # Sort array based on sum\n    if total % 2 == 0:\n        # Sort in descending order\n        return sorted(array, reverse=True)\n    else:\n        # Sort in ascending order\n        return sorted(array)\n\nresults/zero-shot/CodeLlama-13b-Instruct/0.0/zero-shot/2024-05-07-19-05-11/CodeLlama-13b-Instruct/check_citations/check_citations.py\n\n\nimport re\n\ndef check_citations(paper_text):\n    \"\"\"\n    Given a paper text, return the number of citations included in the text.\n    A citation is considered as a string that is present between the citation marks.\n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double. \n    The citation marks can be either single or double",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228383,
+    "created": 1784248826,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 66,
+      "completion_tokens": 512,
       "prompt_tokens": 198,
-      "total_tokens": 264,
+      "total_tokens": 710,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-tPtagiAzBi67FduuR7pOXdieZJWa7bqo",
+    "id": "chatcmpl-wMOppUerj87UXwGGSq2AAbI8qQCzCFxk",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 197,
-      "prompt_ms": 1058.543,
-      "prompt_per_token_ms": 5.373314720812182,
-      "prompt_per_second": 186.10486300509288,
-      "predicted_n": 66,
-      "predicted_ms": 4961.582,
-      "predicted_per_token_ms": 75.17548484848486,
-      "predicted_per_second": 13.302208851934726
+      "cache_n": 0,
+      "prompt_n": 198,
+      "prompt_ms": 1057.76,
+      "prompt_per_token_ms": 5.342222222222222,
+      "prompt_per_second": 187.18801996672215,
+      "predicted_n": 512,
+      "predicted_ms": 36430.709,
+      "predicted_per_token_ms": 71.153728515625,
+      "predicted_per_second": 14.054077289574572
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00088:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00088:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

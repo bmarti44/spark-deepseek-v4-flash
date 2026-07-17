@@ -3,7 +3,7 @@
   "task_id": "HumanEval/131",
   "rendered_prompt_sha256": "4a1c555a3cd7fb8a1b3a2786b00cb13d927f9a5509630d781ee1e2e0fdd8767c",
   "rendering": "raw",
-  "completion": "    product = 1\n    has_odd = False\n    for digit in str(n):\n        if int(digit) % 2 != 0:\n            product *= int(digit)\n            has_odd = True\n    if not has_odd:\n        return 0\n    return product",
+  "completion": "    product = 1\n    has_odd = False\n    for digit in str(n):\n        if int(digit) % 2 != 0:\n            product *= int(digit)\n            has_odd = True\n    if has_odd:\n        return product\n    else:\n        return 0\n```\n\nThis function iterates over each digit in the string representation of `n`. If a digit is odd, it multiplies it into the product and sets `has_odd` to `True`. If no odd digits are found, it returns 0. Otherwise, it returns the product of the odd digits.",
   "finish_reason": "stop",
   "expected": "    product = 1\n    odd_count = 0\n    for digit in str(n):\n        int_digit = int(digit)\n        if int_digit%2 == 1:\n            product= product*int_digit\n            odd_count+=1\n    if odd_count ==0:\n        return 0\n    else:\n        return product\n",
   "scored_correct": true,
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.1343755690031685
+    "elapsed_s": 9.855199103003542
   },
   "response": {
     "choices": [
       {
-        "text": "    product = 1\n    has_odd = False\n    for digit in str(n):\n        if int(digit) % 2 != 0:\n            product *= int(digit)\n            has_odd = True\n    if not has_odd:\n        return 0\n    return product",
+        "text": "    product = 1\n    has_odd = False\n    for digit in str(n):\n        if int(digit) % 2 != 0:\n            product *= int(digit)\n            has_odd = True\n    if has_odd:\n        return product\n    else:\n        return 0\n```\n\nThis function iterates over each digit in the string representation of `n`. If a digit is odd, it multiplies it into the product and sets `has_odd` to `True`. If no odd digits are found, it returns 0. Otherwise, it returns the product of the odd digits.",
         "index": 0,
         "logprobs": null,
         "finish_reason": "stop"
       }
     ],
-    "created": 1784228731,
+    "created": 1784250302,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 63,
+      "completion_tokens": 129,
       "prompt_tokens": 66,
-      "total_tokens": 129,
+      "total_tokens": 195,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-N6xrnF4nlSafrQEucLq5Loi9NyQTZx6i",
+    "id": "chatcmpl-AdFreoONLiBZXxMZy0ZloZOSHQ60QOXv",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 65,
-      "prompt_ms": 564.077,
-      "prompt_per_token_ms": 8.678107692307693,
-      "prompt_per_second": 115.23249485442591,
-      "predicted_n": 63,
-      "predicted_ms": 4568.142,
-      "predicted_per_token_ms": 72.51019047619047,
-      "predicted_per_second": 13.791164985676891
+      "cache_n": 0,
+      "prompt_n": 66,
+      "prompt_ms": 560.702,
+      "prompt_per_token_ms": 8.495484848484848,
+      "prompt_per_second": 117.70958548391124,
+      "predicted_n": 129,
+      "predicted_ms": 9293.207,
+      "predicted_per_token_ms": 72.04036434108528,
+      "predicted_per_second": 13.881106920355911
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00131:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00131:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

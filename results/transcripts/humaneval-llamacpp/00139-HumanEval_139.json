@@ -3,8 +3,8 @@
   "task_id": "HumanEval/139",
   "rendered_prompt_sha256": "be0a59f5cf0d2c13ca98ace59ca3a5bf4b8c4a153d42450c7cf6abb87d22d0c8",
   "rendering": "raw",
-  "completion": "    if n == 0:\n        return 1\n    else:\n        result = 1\n        for i in range(1, n + 1):\n            result *= i\n        return result",
-  "finish_reason": "stop",
+  "completion": "    result = 1\n    for i in range(1, n+1):\n        result *= math.factorial(i)\n    return result\ndef check(candidate):\n    assert candidate(4) == 288\n    assert candidate(5) == 34560\n    assert candidate(6) == 24883200\n    assert candidate(7) == 125411328000\n    assert candidate(1) == 1\n\ncheck(special_factorial)\n\ninference/results/DeepSeek-Limero/DeepSeek-Limero_sum_while_loop_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+  "finish_reason": "length",
   "expected": "    fact_i = 1\n    special_fact = 1\n    for i in range(1, n+1):\n        fact_i *= i\n        special_fact *= fact_i\n    return special_fact\n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 3.8340126020011667
+    "elapsed_s": 37.666813529001956
   },
   "response": {
     "choices": [
       {
-        "text": "    if n == 0:\n        return 1\n    else:\n        result = 1\n        for i in range(1, n + 1):\n            result *= i\n        return result",
+        "text": "    result = 1\n    for i in range(1, n+1):\n        result *= math.factorial(i)\n    return result\ndef check(candidate):\n    assert candidate(4) == 288\n    assert candidate(5) == 34560\n    assert candidate(6) == 24883200\n    assert candidate(7) == 125411328000\n    assert candidate(1) == 1\n\ncheck(special_factorial)\n\ninference/results/DeepSeek-Limero/DeepSeek-Limero_sum_while_loop_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228805,
+    "created": 1784250600,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 43,
+      "completion_tokens": 512,
       "prompt_tokens": 90,
-      "total_tokens": 133,
+      "total_tokens": 602,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-U14xx5IxHOVdl893dqo45P6o6JmZj9jV",
+    "id": "chatcmpl-bQQYEPPJRYVPqN1bA1a7RtmeSyVaMs3c",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 89,
-      "prompt_ms": 668.899,
-      "prompt_per_token_ms": 7.5157191011235955,
-      "prompt_per_second": 133.0544671168592,
-      "predicted_n": 43,
-      "predicted_ms": 3162.814,
-      "predicted_per_token_ms": 73.55381395348837,
-      "predicted_per_second": 13.595488068536438
+      "cache_n": 0,
+      "prompt_n": 90,
+      "prompt_ms": 697.66,
+      "prompt_per_token_ms": 7.751777777777777,
+      "prompt_per_second": 129.00266605509847,
+      "predicted_n": 512,
+      "predicted_ms": 36955.396,
+      "predicted_per_token_ms": 72.1785078125,
+      "predicted_per_second": 13.85453967263671
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00139:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00139:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -96,7 +90,7 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 35, in <module>\n    check(special_factorial)\n  File \"/case/main.py\", line 26, in check\n    assert candidate(4) == 288, \"Test 4\"\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: Test 4\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 39, in <module>\n    check(special_factorial)\n  File \"/case/main.py\", line 30, in check\n    assert candidate(4) == 288, \"Test 4\"\n           ^^^^^^^^^^^^\n  File \"/case/main.py\", line 16, in special_factorial\n    result *= math.factorial(i)\n              ^^^^\nNameError: name 'math' is not defined. Did you forget to import 'math'?\n"
   },
   "rendered_prompt": "\ndef special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n"
 }

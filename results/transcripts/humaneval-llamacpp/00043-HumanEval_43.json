@@ -3,8 +3,8 @@
   "task_id": "HumanEval/43",
   "rendered_prompt_sha256": "f20511ba41a7533e3f9593f29edff94e9190de6b789e91155c06a6b40eb83917",
   "rendering": "raw",
-  "completion": "    # Create a set to store the numbers we have seen\n    seen = set()\n    for num in l:\n        # If the opposite of the current number is in the set, we have found a pair\n        if -num in seen:\n            return True\n        # Otherwise, add the current number to the set\n        seen.add(num)\n    # If we have gone through the entire list without finding a pair, return False\n    return False",
-  "finish_reason": "stop",
+  "completion": "    # write code here\n    return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+",
+  "finish_reason": "length",
   "expected": "    for i, l1 in enumerate(l):\n        for j in range(i + 1, len(l)):\n            if l1 + l[j] == 0:\n                return True\n    return False\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 7.7298000379996665
+    "elapsed_s": 37.11603200299578
   },
   "response": {
     "choices": [
       {
-        "text": "    # Create a set to store the numbers we have seen\n    seen = set()\n    for num in l:\n        # If the opposite of the current number is in the set, we have found a pair\n        if -num in seen:\n            return True\n        # Otherwise, add the current number to the set\n        seen.add(num)\n    # If we have gone through the entire list without finding a pair, return False\n    return False",
+        "text": "    # write code here\n    return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+1, len(l)))\n    # return any(l[i] + l[j] == 0 for i in range(len(l)) for j in range(i+",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228086,
+    "created": 1784247443,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 94,
+      "completion_tokens": 512,
       "prompt_tokens": 152,
-      "total_tokens": 246,
+      "total_tokens": 664,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-B2wD8sv9NszzYmEUrqvVjEDtNucV7WjF",
+    "id": "chatcmpl-ESdcppcakitxtE7mmLgQ6AfKKG4f59o6",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 151,
-      "prompt_ms": 819.751,
-      "prompt_per_token_ms": 5.428814569536423,
-      "prompt_per_second": 184.2022760569978,
-      "predicted_n": 94,
-      "predicted_ms": 6907.712,
-      "predicted_per_token_ms": 73.48629787234043,
-      "predicted_per_second": 13.607979024024162
+      "cache_n": 0,
+      "prompt_n": 152,
+      "prompt_ms": 830.995,
+      "prompt_per_token_ms": 5.467072368421053,
+      "prompt_per_second": 182.91325459238624,
+      "predicted_n": 512,
+      "predicted_ms": 36282.306,
+      "predicted_per_token_ms": 70.86387890625,
+      "predicted_per_second": 14.111561707240991
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00043:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00043:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

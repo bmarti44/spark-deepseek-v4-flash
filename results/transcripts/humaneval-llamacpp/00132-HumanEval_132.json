@@ -3,8 +3,8 @@
   "task_id": "HumanEval/132",
   "rendered_prompt_sha256": "ceeef7227e3911edf98ea8a7c714116780f3468053e4cccc66bbb2dfa185c334",
   "rendering": "raw",
-  "completion": "    # Count the number of opening and closing brackets\n    open_brackets = 0\n    close_brackets = 0\n    for char in string:\n        if char == '[':\n            open_brackets += 1\n        elif char == ']':\n            close_brackets += 1\n    # If there is at least one opening bracket and one closing bracket, then there is a valid subsequence\n    if open_brackets > 0 and close_brackets > 0:\n        return True\n    else:\n        return False",
-  "finish_reason": "stop",
+  "completion": "    # Your code here\n    return False\n\n\n# Tests\ndef test_is_nested():\n    assert is_nested('[[]]') == True\n    assert is_nested('[]]]]]]][[[[[]') == False\n    assert is_nested('[][]') == False\n    assert is_nested('[]') == False\n    assert is_nested('[[][]]') == True\n    assert is_nested('[[]][[') == True\n    assert is_nested('[[[]]]') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][')",
+  "finish_reason": "length",
   "expected": "    opening_bracket_index = []\n    closing_bracket_index = []\n    for i in range(len(string)):\n        if string[i] == '[':\n            opening_bracket_index.append(i)\n        else:\n            closing_bracket_index.append(i)\n    closing_bracket_index.reverse()\n    cnt = 0\n    i = 0\n    l = len(closing_bracket_index)\n    for idx in opening_bracket_index:\n        if i < l and idx < closing_bracket_index[i]:\n            cnt += 1\n            i += 1\n    return cnt >= 2\n\n    \n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 9.139568634996976
+    "elapsed_s": 37.81191498500266
   },
   "response": {
     "choices": [
       {
-        "text": "    # Count the number of opening and closing brackets\n    open_brackets = 0\n    close_brackets = 0\n    for char in string:\n        if char == '[':\n            open_brackets += 1\n        elif char == ']':\n            close_brackets += 1\n    # If there is at least one opening bracket and one closing bracket, then there is a valid subsequence\n    if open_brackets > 0 and close_brackets > 0:\n        return True\n    else:\n        return False",
+        "text": "    # Your code here\n    return False\n\n\n# Tests\ndef test_is_nested():\n    assert is_nested('[[]]') == True\n    assert is_nested('[]]]]]]][[[[[]') == False\n    assert is_nested('[][]') == False\n    assert is_nested('[]') == False\n    assert is_nested('[[][]]') == True\n    assert is_nested('[[]][[') == True\n    assert is_nested('[[[]]]') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][') == True\n    assert is_nested('[[[]]]][')",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228741,
+    "created": 1784250340,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 119,
+      "completion_tokens": 512,
       "prompt_tokens": 136,
-      "total_tokens": 255,
+      "total_tokens": 648,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-Vw5vqQV0g3lNhMs0oOAdqGjk3MnWJ4gO",
+    "id": "chatcmpl-SH5pjySngUZGZySLbdoR5s96alnmDQDT",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 135,
-      "prompt_ms": 763.329,
-      "prompt_per_token_ms": 5.654288888888889,
-      "prompt_per_second": 176.85689918763734,
-      "predicted_n": 119,
-      "predicted_ms": 8373.97,
-      "predicted_per_token_ms": 70.36949579831932,
-      "predicted_per_second": 14.210702928240728
+      "cache_n": 0,
+      "prompt_n": 136,
+      "prompt_ms": 819.008,
+      "prompt_per_token_ms": 6.022117647058824,
+      "prompt_per_second": 166.0545440337579,
+      "predicted_n": 512,
+      "predicted_ms": 36988.482,
+      "predicted_per_token_ms": 72.24312890625,
+      "predicted_per_second": 13.842146860744379
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00132:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00132:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -96,6 +90,6 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 52, in <module>\n    check(is_nested)\n  File \"/case/main.py\", line 34, in check\n    assert candidate('[]]]]]]][[[[[]') == False\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 43, in <module>\n    check(is_nested)\n  File \"/case/main.py\", line 24, in check\n    assert candidate('[[]]') == True, \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
   }
 }

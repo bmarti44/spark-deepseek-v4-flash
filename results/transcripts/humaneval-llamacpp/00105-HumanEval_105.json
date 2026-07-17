@@ -3,8 +3,8 @@
   "task_id": "HumanEval/105",
   "rendered_prompt_sha256": "7610e97e9e03b58b9d2f83c6ffb2e08c7a8827a982645a091f53b347cdfa7a5b",
   "rendering": "raw",
-  "completion": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    # Sort the filtered list\n    filtered.sort()\n    # Reverse the sorted list\n    filtered.reverse()\n    # Map each number to its corresponding word\n    num_to_word = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    # Return the list of words\n    return [num_to_word[num] for num in filtered]",
-  "finish_reason": "stop",
+  "completion": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    \n    # Sort the filtered list\n    filtered.sort()\n    \n    # Reverse the sorted list\n    filtered.reverse()\n    \n    # Map numbers to their corresponding names\n    num_to_name = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    \n    # Replace each number with its name\n    result = [num_to_name[num] for num in filtered]\n    \n    return result\n```python\ndef by_length(arr):\n    \"\"\"\n    Given an array of integers, sort the integers that are between 1 and 9 inclusive,\n    reverse the resulting array, and then replace each digit by its corresponding name from\n    \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\".\n\n    For example:\n      arr = [2, 1, 1, 4, 5, 8, 2, 3]   \n            -> sort arr -> [1, 1, 2, 2, 3, 4, 5, 8] \n            -> reverse arr -> [8, 5, 4, 3, 2, 2, 1, 1]\n      return [\"Eight\", \"Five\", \"Four\", \"Three\", \"Two\", \"Two\", \"One\", \"One\"]\n    \n      If the array is empty, return an empty array:\n      arr = []\n      return []\n    \n      If the array has any strange number ignore it:\n      arr = [1, -1 , 55] \n            -> sort arr -> [-1, 1, 55]\n            -> reverse arr -> [55, 1, -1]\n      return = ['One']\n    \"\"\"\n    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    \n    # Sort the filtered list\n    filtered.sort()\n    \n    # Reverse the sorted list\n    filtered.reverse()\n    \n    # Map numbers to their corresponding names\n    num_to_name = {\n        1: \"One\",\n",
+  "finish_reason": "length",
   "expected": "    dic = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\",\n    }\n    sorted_arr = sorted(arr, reverse=True)\n    new_arr = []\n    for var in sorted_arr:\n        try:\n            new_arr.append(dic[var])\n        except:\n            pass\n    return new_arr\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 11.859926678000193
+    "elapsed_s": 38.44765724299941
   },
   "response": {
     "choices": [
       {
-        "text": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    # Sort the filtered list\n    filtered.sort()\n    # Reverse the sorted list\n    filtered.reverse()\n    # Map each number to its corresponding word\n    num_to_word = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    # Return the list of words\n    return [num_to_word[num] for num in filtered]",
+        "text": "    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    \n    # Sort the filtered list\n    filtered.sort()\n    \n    # Reverse the sorted list\n    filtered.reverse()\n    \n    # Map numbers to their corresponding names\n    num_to_name = {\n        1: \"One\",\n        2: \"Two\",\n        3: \"Three\",\n        4: \"Four\",\n        5: \"Five\",\n        6: \"Six\",\n        7: \"Seven\",\n        8: \"Eight\",\n        9: \"Nine\"\n    }\n    \n    # Replace each number with its name\n    result = [num_to_name[num] for num in filtered]\n    \n    return result\n```python<rendered-prompt-redacted>    # Filter out numbers that are not between 1 and 9 inclusive\n    filtered = [num for num in arr if 1 <= num <= 9]\n    \n    # Sort the filtered list\n    filtered.sort()\n    \n    # Reverse the sorted list\n    filtered.reverse()\n    \n    # Map numbers to their corresponding names\n    num_to_name = {\n        1: \"One\",\n",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228532,
+    "created": 1784249442,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 150,
+      "completion_tokens": 512,
       "prompt_tokens": 271,
-      "total_tokens": 421,
+      "total_tokens": 783,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-1cTEMedVRNZmipLcIJ2FY5AxpouA4yuA",
+    "id": "chatcmpl-iQPWJ8J9b3oA55en9Rr0jPehNXGpbTuY",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 270,
-      "prompt_ms": 1125.294,
-      "prompt_per_token_ms": 4.167755555555556,
-      "prompt_per_second": 239.9372963865443,
-      "predicted_n": 150,
-      "predicted_ms": 10731.504,
-      "predicted_per_token_ms": 71.54336,
-      "predicted_per_second": 13.977537538074811
+      "cache_n": 0,
+      "prompt_n": 271,
+      "prompt_ms": 1218.297,
+      "prompt_per_token_ms": 4.495560885608856,
+      "prompt_per_second": 222.44165421075485,
+      "predicted_n": 512,
+      "predicted_ms": 37226.793,
+      "predicted_per_token_ms": 72.708580078125,
+      "predicted_per_second": 13.753534987555872
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00105:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00105:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

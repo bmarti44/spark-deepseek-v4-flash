@@ -3,8 +3,8 @@
   "task_id": "HumanEval/7",
   "rendered_prompt_sha256": "5eecb2c6bb2b4fcd70989d66291a7c4c02d3afbf31591ad684e926a1e60ee969",
   "rendering": "raw",
-  "completion": "    return [string for string in strings if substring in string]",
-  "finish_reason": "stop",
+  "completion": "    return [string for string in strings if substring in string]\n\nCodeinsight/tst/TestData/Outputs/Scenario_Follow_Up_Question/Code_01Wizard/CodeWizardSolutions/01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_",
+  "finish_reason": "length",
   "expected": "    return [x for x in strings if substring in x]\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 1.7205251209998096
+    "elapsed_s": 37.19702271799906
   },
   "response": {
     "choices": [
       {
-        "text": "    return [string for string in strings if substring in string]",
+        "text": "    return [string for string in strings if substring in string]\n\nCodeinsight/tst/TestData/Outputs/Scenario_Follow_Up_Question/Code_01Wizard/CodeWizardSolutions/01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_01_",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227819,
+    "created": 1784246490,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 14,
+      "completion_tokens": 512,
       "prompt_tokens": 89,
-      "total_tokens": 103,
+      "total_tokens": 601,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-XknOuHovXRLiu3L1WQJADFtIXUj8W6EZ",
+    "id": "chatcmpl-9h5hYHoD8fzBfbxyC99EVHqZGzlq7CuD",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 88,
-      "prompt_ms": 702.923,
-      "prompt_per_token_ms": 7.987761363636364,
-      "prompt_per_second": 125.19152168871983,
-      "predicted_n": 14,
-      "predicted_ms": 1016.023,
-      "predicted_per_token_ms": 72.57307142857142,
-      "predicted_per_second": 13.779215627992674
+      "cache_n": 0,
+      "prompt_n": 89,
+      "prompt_ms": 701.786,
+      "prompt_per_token_ms": 7.885235955056179,
+      "prompt_per_second": 126.81928679113007,
+      "predicted_n": 512,
+      "predicted_ms": 36464.104,
+      "predicted_per_token_ms": 71.218953125,
+      "predicted_per_second": 14.04120611327787
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00007:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00007:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

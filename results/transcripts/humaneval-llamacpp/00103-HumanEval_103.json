@@ -3,11 +3,11 @@
   "task_id": "HumanEval/103",
   "rendered_prompt_sha256": "60808c911a60e25f559e0f929c49206062eb742f0e32ab431f5ba9daf280a694",
   "rendering": "raw",
-  "completion": "    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m + 1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded_avg = round(avg)\n    return bin(rounded_avg)",
-  "finish_reason": "stop",
+  "completion": "    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count =",
+  "finish_reason": "length",
   "expected": "    if m < n:\n        return -1\n    summation = 0\n    for i in range(n, m+1):\n        summation += i\n    return bin(round(summation/(m - n + 1)))\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.80291905500053
+    "elapsed_s": 37.17691334399569
   },
   "response": {
     "choices": [
       {
-        "text": "    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m + 1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded_avg = round(avg)\n    return bin(rounded_avg)",
+        "text": "    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count =",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228517,
+    "created": 1784249366,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 71,
+      "completion_tokens": 512,
       "prompt_tokens": 140,
-      "total_tokens": 211,
+      "total_tokens": 652,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-rp6isLeuOGcmJ8bXWYIGYWDMeRbvjTX4",
+    "id": "chatcmpl-NfmSmCyeri2JOB61dLthgbCY7zoCRguX",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 139,
-      "prompt_ms": 790.387,
-      "prompt_per_token_ms": 5.686237410071942,
-      "prompt_per_second": 175.8632163737511,
-      "predicted_n": 71,
-      "predicted_ms": 5010.166,
-      "predicted_per_token_ms": 70.56571830985915,
-      "predicted_per_second": 14.17118714230227
+      "cache_n": 0,
+      "prompt_n": 140,
+      "prompt_ms": 826.244,
+      "prompt_per_token_ms": 5.901742857142858,
+      "prompt_per_second": 169.44147249480784,
+      "predicted_n": 512,
+      "predicted_ms": 36346.711,
+      "predicted_per_token_ms": 70.989669921875,
+      "predicted_per_second": 14.086556552530983
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00103:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00103:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 82\n    count =\n           ^\nSyntaxError: invalid syntax\n"
   }
 }

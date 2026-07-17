@@ -3,8 +3,8 @@
   "task_id": "HumanEval/11",
   "rendered_prompt_sha256": "ab1ec5c88f83f3fd16def18381c88b33bd5109b84f05147a54f50f95eca66c89",
   "rendering": "raw",
-  "completion": "    return ''.join('1' if a[i] != b[i] else '0' for i in range(len(a)))\n``` \n\nThe function uses a list comprehension to iterate over the indices of the strings and compare the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string.\n\nThe function assumes that the input strings are of equal length. If they are not, the function will raise an IndexError. To handle this, you could add a check at the beginning of the function to ensure the strings are of equal length, or you could pad the shorter string with leading zeros.\n\nHere is an example of how to handle strings of different lengths by padding the shorter string with leading zeros:\n\n```python",
-  "finish_reason": "stop",
+  "completion": "    return ''.join('1' if a[i] != b[i] else '0' for i in range(len(a)))\n``` \n\nThe function uses a list comprehension to iterate over the indices of the strings and compare the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string.\n\nThe function assumes that the input strings are of equal length. If they are not, the function will raise an IndexError. To handle this, you could add a check at the beginning of the function to ensure the strings are of equal length, or you could pad the shorter string with leading zeros.\n\nHere is an example of how to handle strings of different lengths by padding the shorter string with leading zeros:\n\n```python\ndef string_xor(a: str, b: str) -> str:\n    max_len = max(len(a), len(b))\n    a = a.zfill(max_len)\n    b = b.zfill(max_len)\n    return ''.join('1' if a[i] != b[i] else '0' for i in range(max_len))\n``` \n\nThis version of the function pads the shorter string with leading zeros to match the length of the longer string before performing the XOR operation. The `zfill` method is used to pad the strings with zeros on the left. The function then iterates over the indices of the strings and compares the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string. \n\nThe function is then tested with the example provided in the docstring:\n\n```python\nprint(string_xor('010', '110'))  # Output: '100'\n``` \n\nThis will output '100', which is the result of XORing '010' and '110'. \n\nThe function is also tested with strings of different lengths:\n\n```python\nprint(string_xor('010', '1100'))  # Output: '1110'\n``` \n\nThis will output '1110', which is the result of XORing '010' and '1100' after padding '010' to '0010'. \n\nThe function is also tested with strings that are not of equal length:\n\n```python\nprint(string_xor('010', '1100'))  # Output: '1110'\n``` \n\nThis will output '1110', which is the result of XORing '010' and '1100' after padding '010' to '0010",
+  "finish_reason": "length",
   "expected": "    def xor(i, j):\n        if i == j:\n            return '0'\n        else:\n            return '1'\n\n    return ''.join(xor(x, y) for x, y in zip(a, b))\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 12.403298356999585
+    "elapsed_s": 37.33281149800314
   },
   "response": {
     "choices": [
       {
-        "text": "    return ''.join('1' if a[i] != b[i] else '0' for i in range(len(a)))\n``` \n\nThe function uses a list comprehension to iterate over the indices of the strings and compare the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string.\n\nThe function assumes that the input strings are of equal length. If they are not, the function will raise an IndexError. To handle this, you could add a check at the beginning of the function to ensure the strings are of equal length, or you could pad the shorter string with leading zeros.\n\nHere is an example of how to handle strings of different lengths by padding the shorter string with leading zeros:\n\n```python",
+        "text": "    return ''.join('1' if a[i] != b[i] else '0' for i in range(len(a)))\n``` \n\nThe function uses a list comprehension to iterate over the indices of the strings and compare the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string.\n\nThe function assumes that the input strings are of equal length. If they are not, the function will raise an IndexError. To handle this, you could add a check at the beginning of the function to ensure the strings are of equal length, or you could pad the shorter string with leading zeros.\n\nHere is an example of how to handle strings of different lengths by padding the shorter string with leading zeros:\n\n```python\ndef string_xor(a: str, b: str) -> str:\n    max_len = max(len(a), len(b))\n    a = a.zfill(max_len)\n    b = b.zfill(max_len)\n    return ''.join('1' if a[i] != b[i] else '0' for i in range(max_len))\n``` \n\nThis version of the function pads the shorter string with leading zeros to match the length of the longer string before performing the XOR operation. The `zfill` method is used to pad the strings with zeros on the left. The function then iterates over the indices of the strings and compares the characters at each position. If they are different, it returns '1', otherwise '0'. The resulting list is then joined into a string. \n\nThe function is then tested with the example provided in the docstring:\n\n```python\nprint(string_xor('010', '110'))  # Output: '100'\n``` \n\nThis will output '100', which is the result of XORing '010' and '110'. \n\nThe function is also tested with strings of different lengths:\n\n```python\nprint(string_xor('010', '1100'))  # Output: '1110'\n``` \n\nThis will output '1110', which is the result of XORing '010' and '1100' after padding '010' to '0010'. \n\nThe function is also tested with strings that are not of equal length:\n\n```python\nprint(string_xor('010', '1100'))  # Output: '1110'\n``` \n\nThis will output '1110', which is the result of XORing '010' and '1100' after padding '010' to '0010",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227848,
+    "created": 1784246608,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 160,
+      "completion_tokens": 512,
       "prompt_tokens": 72,
-      "total_tokens": 232,
+      "total_tokens": 584,
       "prompt_tokens_details": {
         "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-ftGVt6VafiZES0V7ehfLR4rGA5Vzi7Bz",
+    "id": "chatcmpl-Fd62cRWNA0yRwXlH7mGVtXzv2bMCs6al",
     "timings": {
       "cache_n": 0,
       "prompt_n": 72,
-      "prompt_ms": 638.55,
-      "prompt_per_token_ms": 8.868749999999999,
-      "prompt_per_second": 112.75546159267091,
-      "predicted_n": 160,
-      "predicted_ms": 11762.785,
-      "predicted_per_token_ms": 73.51740625,
-      "predicted_per_second": 13.602220902617875
+      "prompt_ms": 626.633,
+      "prompt_per_token_ms": 8.703236111111112,
+      "prompt_per_second": 114.89978982913443,
+      "predicted_n": 512,
+      "predicted_ms": 36684.582,
+      "predicted_per_token_ms": 71.64957421875,
+      "predicted_per_second": 13.95681706281947
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00011:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00011:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

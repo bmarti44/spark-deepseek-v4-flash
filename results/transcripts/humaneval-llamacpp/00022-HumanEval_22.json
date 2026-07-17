@@ -3,11 +3,11 @@
   "task_id": "HumanEval/22",
   "rendered_prompt_sha256": "b7bde40423debe285816bdcee858624a7ded823a414e8cf0e71d1185fc6cdb32",
   "rendering": "raw",
-  "completion": "    result = []\n    for value in values:\n        if isinstance(value, int):\n            result.append(value)\n    return result",
-  "finish_reason": "stop",
+  "completion": "    return [v for v in values if isinstance(v, int)]\n\n\ndef filter_integers2(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers2(['a', 3.14, 5])\n    [5]\n    >>> filter_integers2([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if type(v) == int]\n\n\ndef filter_integers3(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers3(['a', 3.14, 5])\n    [5]\n    >>> filter_integers3([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n\n\ndef filter_integers4(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers4(['a', 3.14, 5])\n    [5]\n    >>> filter_integers4([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if type(v) == int and not isinstance(v, bool)]\n\n\ndef filter_integers5(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers5(['a', 3.14, 5])\n    [5]\n    >>> filter_integers5([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n\n\ndef filter_integers6(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers6(['a', 3.14, 5])\n    [5]\n    >>> filter_integers6([1, 2, 3, 'abc', {}, []])\n    [1",
+  "finish_reason": "length",
   "expected": "    return [x for x in values if isinstance(x, int)]\n",
-  "scored_correct": true,
-  "reason": "correct",
+  "scored_correct": false,
+  "reason": "sandbox failed with exit 1",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 2.600292568997247
+    "elapsed_s": 37.21483354600059
   },
   "response": {
     "choices": [
       {
-        "text": "    result = []\n    for value in values:\n        if isinstance(value, int):\n            result.append(value)\n    return result",
+        "text": "    return [v for v in values if isinstance(v, int)]\n\n\ndef filter_integers2(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers2(['a', 3.14, 5])\n    [5]\n    >>> filter_integers2([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if type(v) == int]\n\n\ndef filter_integers3(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers3(['a', 3.14, 5])\n    [5]\n    >>> filter_integers3([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n\n\ndef filter_integers4(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers4(['a', 3.14, 5])\n    [5]\n    >>> filter_integers4([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if type(v) == int and not isinstance(v, bool)]\n\n\ndef filter_integers5(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers5(['a', 3.14, 5])\n    [5]\n    >>> filter_integers5([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [v for v in values if isinstance(v, int) and not isinstance(v, bool)]\n\n\ndef filter_integers6(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers6(['a', 3.14, 5])\n    [5]\n    >>> filter_integers6([1, 2, 3, 'abc', {}, []])\n    [1",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227951,
+    "created": 1784246916,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 26,
+      "completion_tokens": 512,
       "prompt_tokens": 89,
-      "total_tokens": 115,
+      "total_tokens": 601,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-BwXjj3ESHYoIi7eZgvMAzBkjRmLXyD2U",
+    "id": "chatcmpl-49ZxwzqR6d9OZLx13IFRxEn7DFrZJBkk",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 88,
-      "prompt_ms": 715.137,
-      "prompt_per_token_ms": 8.126556818181818,
-      "prompt_per_second": 123.0533450234011,
-      "predicted_n": 26,
-      "predicted_ms": 1883.609,
-      "predicted_per_token_ms": 72.4465,
-      "predicted_per_second": 13.803289323845872
+      "cache_n": 0,
+      "prompt_n": 89,
+      "prompt_ms": 720.13,
+      "prompt_per_token_ms": 8.09134831460674,
+      "prompt_per_second": 123.58879646730452,
+      "predicted_n": 512,
+      "predicted_ms": 36484.844,
+      "predicted_per_token_ms": 71.2594609375,
+      "predicted_per_second": 14.033224316376412
     }
   },
   "execution": {
@@ -87,16 +81,16 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00022:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00022:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 0,
+    "returncode": 1,
     "stdout": "",
-    "stderr": ""
+    "stderr": "  File \"/case/main.py\", line 55\n    \"\"\" Filter given list of any python values only for integers\n    ^\nSyntaxError: unterminated triple-quoted string literal (detected at line 76)\n"
   },
   "rendered_prompt": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n"
 }

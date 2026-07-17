@@ -3,8 +3,8 @@
   "task_id": "HumanEval/21",
   "rendered_prompt_sha256": "f5d1f07614da8dffb7e6ede02cdedd73f58405f47aeb516b82318416a4acf0c7",
   "rendering": "raw",
-  "completion": "    min_val = min(numbers)\n    max_val = max(numbers)\n    range_val = max_val - min_val\n    if range_val == 0:\n        return [0.0] * len(numbers)\n    return [(x - min_val) / range_val for x in numbers]",
-  "finish_reason": "stop",
+  "completion": "    min_val = min(numbers)\n    max_val = max(numbers)\n    range_val = max_val - min_val\n    if range_val == 0:\n        return [0.0] * len(numbers)\n    return [(x - min_val) / range_val for x in numbers]\n\nevaluation/uncertainty/data_generation/prepare_generated_dataset.sh\n\n\n#!/bin/bash\n\n# This script prepares the generated dataset for evaluation.\n# It copies the generated dataset to the evaluation directory and renames it.\n\n# Usage: ./prepare_generated_dataset.sh <generated_dataset_path> <evaluation_dataset_path> <dataset_name>\n\n# Example: ./prepare_generated_dataset.sh /path/to/generated_dataset.json /path/to/evaluation_dataset.json dataset_name\n\n# Check if the number of arguments is correct\nif [ \"$#\" -ne 3 ]; then\n    echo \"Usage: ./prepare_generated_dataset.sh <generated_dataset_path> <evaluation_dataset_path> <dataset_name>\"\n    exit 1\nfi\n\n# Assign arguments to variables\nGENERATED_DATASET_PATH=$1\nEVALUATION_DATASET_PATH=$2\nDATASET_NAME=$3\n\n# Copy the generated dataset to the evaluation directory\ncp $GENERATED_DATASET_PATH $EVALUATION_DATASET_PATH\n\n# Rename the dataset\nmv $EVALUATION_DATASET_PATH/$GENERATED_DATASET_PATH $EVALUATION_DATASET_PATH/$DATASET_NAME.json\n\necho \"Dataset prepared successfully!\"\n\nevaluation/uncertainty/data_generation/generate_gsm8k.sh\n\n\n#!/bin/bash\n\n# Sample: ./generate_gsm8k.sh <model_name> <dataset_name> <output_dir> <max_tokens> <temperature> <top_p> <top_k> <num_return_sequences> <stop_tokens> <prompt_index> <prompt_type> <log_dir> <master_model_name>\n\n# Example: ./generate_gsm8k.sh gpt2 gsm8k /path/to/output 512 0.7 0.9 50 5 \"stop1,stop2\" 0 \"prompt1\" /path/to/logs gpt2-medium\n\n# Check if the number of arguments is correct\nif [ \"$#\" -ne 13 ]; then\n   ",
+  "finish_reason": "length",
   "expected": "    min_number = min(numbers)\n    max_number = max(numbers)\n    return [(x - min_number) / (max_number - min_number) for x in numbers]\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.417562304999592
+    "elapsed_s": 37.89966222699877
   },
   "response": {
     "choices": [
       {
-        "text": "    min_val = min(numbers)\n    max_val = max(numbers)\n    range_val = max_val - min_val\n    if range_val == 0:\n        return [0.0] * len(numbers)\n    return [(x - min_val) / range_val for x in numbers]",
+        "text": "    min_val = min(numbers)\n    max_val = max(numbers)\n    range_val = max_val - min_val\n    if range_val == 0:\n        return [0.0] * len(numbers)\n    return [(x - min_val) / range_val for x in numbers]\n\nevaluation/uncertainty/data_generation/prepare_generated_dataset.sh\n\n\n#!/bin/bash\n\n# This script prepares the generated dataset for evaluation.\n# It copies the generated dataset to the evaluation directory and renames it.\n\n# Usage: ./prepare_generated_dataset.sh <generated_dataset_path> <evaluation_dataset_path> <dataset_name>\n\n# Example: ./prepare_generated_dataset.sh /path/to/generated_dataset.json /path/to/evaluation_dataset.json dataset_name\n\n# Check if the number of arguments is correct\nif [ \"$#\" -ne 3 ]; then\n    echo \"Usage: ./prepare_generated_dataset.sh <generated_dataset_path> <evaluation_dataset_path> <dataset_name>\"\n    exit 1\nfi\n\n# Assign arguments to variables\nGENERATED_DATASET_PATH=$1\nEVALUATION_DATASET_PATH=$2\nDATASET_NAME=$3\n\n# Copy the generated dataset to the evaluation directory\ncp $GENERATED_DATASET_PATH $EVALUATION_DATASET_PATH\n\n# Rename the dataset\nmv $EVALUATION_DATASET_PATH/$GENERATED_DATASET_PATH $EVALUATION_DATASET_PATH/$DATASET_NAME.json\n\necho \"Dataset prepared successfully!\"\n\nevaluation/uncertainty/data_generation/generate_gsm8k.sh\n\n\n#!/bin/bash\n\n# Sample: ./generate_gsm8k.sh <model_name> <dataset_name> <output_dir> <max_tokens> <temperature> <top_p> <top_k> <num_return_sequences> <stop_tokens> <prompt_index> <prompt_type> <log_dir> <master_model_name>\n\n# Example: ./generate_gsm8k.sh gpt2 gsm8k /path/to/output 512 0.7 0.9 50 5 \"stop1,stop2\" 0 \"prompt1\" /path/to/logs gpt2-medium\n\n# Check if the number of arguments is correct\nif [ \"$#\" -ne 13 ]; then\n   ",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227948,
+    "created": 1784246878,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 60,
+      "completion_tokens": 512,
       "prompt_tokens": 119,
-      "total_tokens": 179,
+      "total_tokens": 631,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-iwpfznZhW3vNNka2Qc6oYEn4DeB06sMm",
+    "id": "chatcmpl-Ota5nj2MGiaRmjpUQLgPeC7UeDLbHzKG",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 118,
-      "prompt_ms": 879.288,
-      "prompt_per_token_ms": 7.451593220338983,
-      "prompt_per_second": 134.19948867720245,
-      "predicted_n": 60,
-      "predicted_ms": 4536.122,
-      "predicted_per_token_ms": 75.60203333333334,
-      "predicted_per_second": 13.227157470632402
+      "cache_n": 0,
+      "prompt_n": 119,
+      "prompt_ms": 902.341,
+      "prompt_per_token_ms": 7.582697478991597,
+      "prompt_per_second": 131.87918979631868,
+      "predicted_n": 512,
+      "predicted_ms": 36978.155,
+      "predicted_per_token_ms": 72.222958984375,
+      "predicted_per_second": 13.846012598519316
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00021:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00021:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

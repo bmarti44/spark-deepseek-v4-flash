@@ -3,8 +3,8 @@
   "task_id": "HumanEval/97",
   "rendered_prompt_sha256": "cadfab7a20c335c251fcd403e9c144183ae36eee01a205783c534184aa1d3004",
   "rendering": "raw",
-  "completion": "    return abs(a) % 10 * abs(b) % 10",
-  "finish_reason": "stop",
+  "completion": "    return abs(a) % 10 * abs(b) % 10\n```\n\n### 2.2.2.2. 字符串\n\n#### 2.2.2.2.1. 字符串基础\n\n字符串是 Python 中最常用的数据类型之一。我们可以使用引号('或\")来创建字符串。\n\n```python\n# 创建字符串\nstr1 = 'Hello'\nstr2 = \"World\"\nstr3 = '''This is a \nmultiline string'''\nstr4 = \"\"\"This is also \nmultiline string\"\"\"\n\n# 字符串拼接\nstr5 = str1 + \" \" + str2  # \"Hello World\"\n\n# 字符串重复\nstr6 = str1 * 3  # \"HelloHelloHello\"\n\n# 字符串长度\nlen(str1)  # 5\n\n# 字符串索引\nstr1[0]  # 'H'\nstr1[-1]  # 'o'\n\n# 字符串切片\nstr1[1:4]  # 'ell'\nstr1[:2]  # 'He'\nstr1[2:]  # 'llo'\nstr1[::-1]  # 'olleH'\n```\n\n#### 2.2.2.2.2. 字符串方法\n\nPython 提供了丰富的字符串方法：\n\n```python\ntext = \"Hello World\"\n\n# 大小写转换\ntext.upper()  # \"HELLO WORLD\"\ntext.lower()  # \"hello world\"\ntext.title()  # \"Hello World\"\ntext.capitalize()  # \"Hello world\"\ntext.swapcase()  # \"hELLO wORLD\"\n\n# 查找和替换\ntext.find(\"World\")  # 6\ntext.find(\"Python\")  # -1\ntext.index(\"World\")  # 6\ntext.replace(\"World\", \"Python\")  # \"Hello Python\"\n\n# 判断\ntext.startswith(\"Hello\")  # True\ntext.endswith(\"World\")  # True\ntext.isalpha()  # False (因为有空格)\ntext.isdigit()  # False\ntext.isalnum()  # False (因为有空格)\ntext.isspace()  # False\n\n# 分割和连接\ntext.split()  # ['Hello', 'World']\ntext.split('o')  # ['Hell', 'W', 'rld']\n'-'.join(['Hello', 'World'])  # \"Hello-World\"\n\n# 去除空白\n\"  Hello  \".strip()  # \"",
+  "finish_reason": "length",
   "expected": "    return abs(a % 10) * abs(b % 10)\n",
   "scored_correct": false,
   "reason": "sandbox failed with exit 1",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 1.9166520140024659
+    "elapsed_s": 37.45280392099812
   },
   "response": {
     "choices": [
       {
-        "text": "    return abs(a) % 10 * abs(b) % 10",
+        "text": "    return abs(a) % 10 * abs(b) % 10\n```\n\n### 2.2.2.2. 字符串\n\n#### 2.2.2.2.1. 字符串基础\n\n字符串是 Python 中最常用的数据类型之一。我们可以使用引号('或\")来创建字符串。\n\n```python\n# 创建字符串\nstr1 = 'Hello'\nstr2 = \"World\"\nstr3 = '''This is a \nmultiline string'''\nstr4 = \"\"\"This is also \nmultiline string\"\"\"\n\n# 字符串拼接\nstr5 = str1 + \" \" + str2  # \"Hello World\"\n\n# 字符串重复\nstr6 = str1 * 3  # \"HelloHelloHello\"\n\n# 字符串长度\nlen(str1)  # 5\n\n# 字符串索引\nstr1[0]  # 'H'\nstr1[-1]  # 'o'\n\n# 字符串切片\nstr1[1:4]  # 'ell'\nstr1[:2]  # 'He'\nstr1[2:]  # 'llo'\nstr1[::-1]  # 'olleH'\n```\n\n#### 2.2.2.2.2. 字符串方法\n\nPython 提供了丰富的字符串方法：\n\n```python\ntext = \"Hello World\"\n\n# 大小写转换\ntext.upper()  # \"HELLO WORLD\"\ntext.lower()  # \"hello world\"\ntext.title()  # \"Hello World\"\ntext.capitalize()  # \"Hello world\"\ntext.swapcase()  # \"hELLO wORLD\"\n\n# 查找和替换\ntext.find(\"World\")  # 6\ntext.find(\"Python\")  # -1\ntext.index(\"World\")  # 6\ntext.replace(\"World\", \"Python\")  # \"Hello Python\"\n\n# 判断\ntext.startswith(\"Hello\")  # True\ntext.endswith(\"World\")  # True\ntext.isalpha()  # False (因为有空格)\ntext.isdigit()  # False\ntext.isalnum()  # False (因为有空格)\ntext.isspace()  # False\n\n# 分割和连接\ntext.split()  # ['Hello', 'World']\ntext.split('o')  # ['Hell', 'W', 'rld']\n'-'.join(['Hello', 'World'])  # \"Hello-World\"\n\n# 去除空白\n\"  Hello  \".strip()  # \"",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228482,
+    "created": 1784249142,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 16,
+      "completion_tokens": 512,
       "prompt_tokens": 93,
-      "total_tokens": 109,
+      "total_tokens": 605,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-qFIsddS75OtkGnqeDED8d6ZHY1VNvxvp",
+    "id": "chatcmpl-2s1AxL5Xsl20GgPXfYDTL6FDCN7taMiK",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 92,
-      "prompt_ms": 727.977,
-      "prompt_per_token_ms": 7.912793478260869,
-      "prompt_per_second": 126.37761907313005,
-      "predicted_n": 16,
-      "predicted_ms": 1186.357,
-      "predicted_per_token_ms": 74.1473125,
-      "predicted_per_second": 13.486665480963994
+      "cache_n": 0,
+      "prompt_n": 93,
+      "prompt_ms": 727.559,
+      "prompt_per_token_ms": 7.82321505376344,
+      "prompt_per_second": 127.82468500836359,
+      "predicted_n": 512,
+      "predicted_ms": 36711.433,
+      "predicted_per_token_ms": 71.702017578125,
+      "predicted_per_second": 13.94660894877081
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00097:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00097:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

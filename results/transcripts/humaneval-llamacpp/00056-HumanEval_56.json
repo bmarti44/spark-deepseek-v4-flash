@@ -3,8 +3,8 @@
   "task_id": "HumanEval/56",
   "rendered_prompt_sha256": "4d14ffd571dae1770eb5e26636b128c8520cee2173f2f4a592277c6cd094e644",
   "rendering": "raw",
-  "completion": "    count = 0\n    for bracket in brackets:\n        if bracket == \"<\":\n            count += 1\n        elif bracket == \">\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0",
-  "finish_reason": "stop",
+  "completion": "    count = 0\n    for bracket in brackets:\n        if bracket == \"<\":\n            count += 1\n        elif bracket == \">\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0\n```\n\nExplanation:\n- The function `correct_bracketing` takes a string `brackets` as input.\n- It initializes a variable `count` to 0.\n- It iterates over each character in the string.\n- If the character is \"<\", it increments `count` by 1.\n- If the character is \">\", it decrements `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so the function returns `False`.\n- After iterating through all characters, if `count` is 0, it means every opening bracket has a corresponding closing bracket, so the function returns `True`. Otherwise, it returns `False`.\n\nThe function correctly handles the given examples:\n- `correct_bracketing(\"<\")` returns `False` because there is an opening bracket without a closing bracket.\n- `correct_bracketing(\"<>\")` returns `True` because the opening bracket is followed by a closing bracket.\n- `correct_bracketing(\"<<><>>\")` returns `True` because each opening bracket has a corresponding closing bracket.\n- `correct_bracketing(\"><<>\")` returns `False` because the first character is a closing bracket without an opening bracket.</think>\nThe function `correct_bracketing` is designed to check if every opening bracket (\"<\") has a corresponding closing bracket (\">\") in the given string. It does this by maintaining a count of open brackets and ensuring that the count never goes negative (which would indicate a closing bracket without a matching opening bracket) and that the count is zero at the end (meaning all brackets are properly closed).\n\nHere's the function:\n\n```python\ndef correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"<\" and \">\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n    count = 0\n    for bracket in brackets:\n        if",
+  "finish_reason": "length",
   "expected": "    depth = 0\n    for b in brackets:\n        if b == \"<\":\n            depth += 1\n        else:\n            depth -= 1\n        if depth < 0:\n            return False\n    return depth == 0\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.859134801001346
+    "elapsed_s": 37.28373131999979
   },
   "response": {
     "choices": [
       {
-        "text": "    count = 0\n    for bracket in brackets:\n        if bracket == \"<\":\n            count += 1\n        elif bracket == \">\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0",
+        "text": "    count = 0\n    for bracket in brackets:\n        if bracket == \"<\":\n            count += 1\n        elif bracket == \">\":\n            count -= 1\n            if count < 0:\n                return False\n    return count == 0\n```\n\nExplanation:\n- The function `correct_bracketing` takes a string `brackets` as input.\n- It initializes a variable `count` to 0.\n- It iterates over each character in the string.\n- If the character is \"<\", it increments `count` by 1.\n- If the character is \">\", it decrements `count` by 1.\n- If at any point `count` becomes negative, it means there is a closing bracket without a corresponding opening bracket, so the function returns `False`.\n- After iterating through all characters, if `count` is 0, it means every opening bracket has a corresponding closing bracket, so the function returns `True`. Otherwise, it returns `False`.\n\nThe function correctly handles the given examples:\n- `correct_bracketing(\"<\")` returns `False` because there is an opening bracket without a closing bracket.\n- `correct_bracketing(\"<>\")` returns `True` because the opening bracket is followed by a closing bracket.\n- `correct_bracketing(\"<<><>>\")` returns `True` because each opening bracket has a corresponding closing bracket.\n- `correct_bracketing(\"><<>\")` returns `False` because the first character is a closing bracket without an opening bracket.</think>\nThe function `correct_bracketing` is designed to check if every opening bracket (\"<\") has a corresponding closing bracket (\">\") in the given string. It does this by maintaining a count of open brackets and ensuring that the count never goes negative (which would indicate a closing bracket without a matching opening bracket) and that the count is zero at the end (meaning all brackets are properly closed).\n\nHere's the function:\n\n```python\ndef correct_bracketing(brackets: str):\n    \"\"\" brackets is a string of \"<\" and \">\".\n    return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n    count = 0\n    for bracket in brackets:\n        if",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228148,
+    "created": 1784247838,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 55,
+      "completion_tokens": 512,
       "prompt_tokens": 90,
-      "total_tokens": 145,
+      "total_tokens": 602,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-NaHwpWe0uUoFT27dx4ug60ABqVlkbGWS",
+    "id": "chatcmpl-f3umJVkZNxr1MqkEGMQRsC2Nmp30JvJo",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 89,
-      "prompt_ms": 667.611,
-      "prompt_per_token_ms": 7.5012471910112355,
-      "prompt_per_second": 133.31116473515266,
-      "predicted_n": 55,
-      "predicted_ms": 4188.983,
-      "predicted_per_token_ms": 76.16332727272727,
-      "predicted_per_second": 13.12967849236915
+      "cache_n": 0,
+      "prompt_n": 90,
+      "prompt_ms": 695.707,
+      "prompt_per_token_ms": 7.730077777777778,
+      "prompt_per_second": 129.36480443635037,
+      "predicted_n": 512,
+      "predicted_ms": 36578.399,
+      "predicted_per_token_ms": 71.442185546875,
+      "predicted_per_second": 13.997332141300117
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00056:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00056:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",

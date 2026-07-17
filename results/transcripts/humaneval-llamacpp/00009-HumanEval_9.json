@@ -3,11 +3,11 @@
   "task_id": "HumanEval/9",
   "rendered_prompt_sha256": "583b281fbe1bf261fbade6e1a03119de96084ac87b508387f0d23c3b0cfdbbdb",
   "rendering": "raw",
-  "completion": "    max_so_far = numbers[0]\n    result = [max_so_far]\n    for i in range(1, len(numbers)):\n        if numbers[i] > max_so_far:\n            max_so_far = numbers[i]\n        result.append(max_so_far)\n    return result",
-  "finish_reason": "stop",
+  "completion": "    max_so_far = None\n    result = []\n    for num in numbers:\n        if max_so_far is None or num > max_so_far:\n            max_so_far = num\n        result.append(max_so_far)\n    return result\n```\n\n### Response\n```python\nfrom typing import List, Tuple\n\n\ndef rolling_max(numbers: List[int]) -> List[int]:\n    max_so_far = None\n    result = []\n    for num in numbers:\n        if max_so_far is None or num > max_so_far:\n            max_so_far = num\n        result.append(max_so_far)\n    return result\n```\n\nsolutions/CodeWExplanation/CodeWExplanation_0_0_TestOutput_0_0_0_remaining_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
+  "finish_reason": "length",
   "expected": "    running_max = None\n    result = []\n\n    for n in numbers:\n        if running_max is None:\n            running_max = n\n        else:\n            running_max = max(running_max, n)\n\n        result.append(running_max)\n\n    return result\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 5.62049879299957
+    "elapsed_s": 37.183640811999794
   },
   "response": {
     "choices": [
       {
-        "text": "    max_so_far = numbers[0]\n    result = [max_so_far]\n    for i in range(1, len(numbers)):\n        if numbers[i] > max_so_far:\n            max_so_far = numbers[i]\n        result.append(max_so_far)\n    return result",
+        "text": "    max_so_far = None\n    result = []\n    for num in numbers:\n        if max_so_far is None or num > max_so_far:\n            max_so_far = num\n        result.append(max_so_far)\n    return result\n```\n\n### Response\n```python\nfrom typing import List, Tuple\n\n\ndef rolling_max(numbers: List[int]) -> List[int]:\n    max_so_far = None\n    result = []\n    for num in numbers:\n        if max_so_far is None or num > max_so_far:\n            max_so_far = num\n        result.append(max_so_far)\n    return result\n```\n\nsolutions/CodeWExplanation/CodeWExplanation_0_0_TestOutput_0_0_0_remaining_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784227830,
+    "created": 1784246565,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 67,
+      "completion_tokens": 512,
       "prompt_tokens": 94,
-      "total_tokens": 161,
+      "total_tokens": 606,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-r1Aa1LNVudr7m8X2ce4aeEWJVIUHtATT",
+    "id": "chatcmpl-HTILqtXDhySainVT84HZ7TDTKTVbVs3n",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 93,
-      "prompt_ms": 702.522,
-      "prompt_per_token_ms": 7.554,
-      "prompt_per_second": 132.38019592268995,
-      "predicted_n": 67,
-      "predicted_ms": 4915.416,
-      "predicted_per_token_ms": 73.36441791044777,
-      "predicted_per_second": 13.630585895476598
+      "cache_n": 0,
+      "prompt_n": 94,
+      "prompt_ms": 726.062,
+      "prompt_per_token_ms": 7.724063829787235,
+      "prompt_per_second": 129.46552773730068,
+      "predicted_n": 512,
+      "predicted_ms": 36432.515,
+      "predicted_per_token_ms": 71.157255859375,
+      "predicted_per_second": 14.053380613443789
     }
   },
   "execution": {
@@ -87,15 +81,15 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00009:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00009:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 34, in <module>\n    check(rolling_max)\n  File \"/case/main.py\", line 28, in check\n    assert candidate([]) == []\n           ^^^^^^^^^^^^^\n  File \"/case/main.py\", line 10, in rolling_max\n    max_so_far = numbers[0]\n                 ~~~~~~~^^^\nIndexError: list index out of range\n"
+    "stderr": ""
   }
 }

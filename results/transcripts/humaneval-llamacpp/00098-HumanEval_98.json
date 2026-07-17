@@ -3,8 +3,8 @@
   "task_id": "HumanEval/98",
   "rendered_prompt_sha256": "c59b8aa1ac5937e60adc6e6d0d4e1dd3b24ae04f158915d618d3eb210b02028d",
   "rendering": "raw",
-  "completion": "    vowels = ['A', 'E', 'I', 'O', 'U']\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i] in vowels:\n            count += 1\n    return count",
-  "finish_reason": "stop",
+  "completion": "    vowels = 'AEIOU'\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i].isupper() and s[i] in vowels:\n            count += 1\n    return count\n```\n\n### Response\n```python\ndef count_upper(s):\n    vowels = 'AEIOU'\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i].isupper() and s[i] in vowels:\n            count += 1\n    return count\n```\n\nsolutions/Code_Description/CodeDescription_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
+  "finish_reason": "length",
   "expected": "    count = 0\n    for i in range(0,len(s),2):\n        if s[i] in \"AEIOU\":\n            count += 1\n    return count\n",
   "scored_correct": true,
   "reason": "correct",
@@ -18,48 +18,42 @@
       "max_tokens": 512,
       "temperature": 0,
       "seed": 42,
-      "stream": false,
-      "stop": [
-        "\ndef ",
-        "\nclass ",
-        "\nif __name__",
-        "\nprint("
-      ]
+      "stream": false
     },
-    "elapsed_s": 4.689759231001517
+    "elapsed_s": 37.10934598099993
   },
   "response": {
     "choices": [
       {
-        "text": "    vowels = ['A', 'E', 'I', 'O', 'U']\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i] in vowels:\n            count += 1\n    return count",
+        "text": "    vowels = 'AEIOU'\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i].isupper() and s[i] in vowels:\n            count += 1\n    return count\n```\n\n### Response\n```python\ndef count_upper(s):\n    vowels = 'AEIOU'\n    count = 0\n    for i in range(0, len(s), 2):\n        if s[i].isupper() and s[i] in vowels:\n            count += 1\n    return count\n```\n\nsolutions/Code_Description/CodeDescription_2_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_",
         "index": 0,
         "logprobs": null,
-        "finish_reason": "stop"
+        "finish_reason": "length"
       }
     ],
-    "created": 1784228487,
+    "created": 1784249180,
     "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
     "system_fingerprint": "b10046-32e789fdf",
     "object": "text_completion",
     "usage": {
-      "completion_tokens": 56,
+      "completion_tokens": 512,
       "prompt_tokens": 72,
-      "total_tokens": 128,
+      "total_tokens": 584,
       "prompt_tokens_details": {
-        "cached_tokens": 1
+        "cached_tokens": 0
       }
     },
-    "id": "chatcmpl-rxivPsjd8hdNoauB6eainM2KysWsUeRI",
+    "id": "chatcmpl-KaeiAv7qzbECqjOlmXv61FcjYHKcJ9b1",
     "timings": {
-      "cache_n": 1,
-      "prompt_n": 71,
-      "prompt_ms": 609.009,
-      "prompt_per_token_ms": 8.577591549295775,
-      "prompt_per_second": 116.58284196128464,
-      "predicted_n": 56,
-      "predicted_ms": 4078.495,
-      "predicted_per_token_ms": 72.83026785714286,
-      "predicted_per_second": 13.730555020908449
+      "cache_n": 0,
+      "prompt_n": 72,
+      "prompt_ms": 602.526,
+      "prompt_per_token_ms": 8.368416666666667,
+      "prompt_per_second": 119.4969179753239,
+      "predicted_n": 512,
+      "predicted_ms": 36504.304,
+      "predicted_per_token_ms": 71.29746875,
+      "predicted_per_second": 14.025743375356507
     }
   },
   "execution": {
@@ -87,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-4zjsyynq/case-00098:/case:ro",
+      "/tmp/dsv4-humaneval-41q3vd7i/case-00098:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
