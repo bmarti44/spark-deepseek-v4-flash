@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00097:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00097:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 32, in <module>\n    check(multiply)\n  File \"/case/main.py\", line 18, in check\n    assert candidate(148, 412) == 16, \"First test error: \" + str(candidate(148, 412))                    \n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: First test error: 6\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "97a2fb9702a226bda1db0c402843b5c9388abb9b0c46c97736eaee8d8fd3fab2",
+    "rescored_at": "2026-07-17T01:47:33.595022+00:00"
   }
 }

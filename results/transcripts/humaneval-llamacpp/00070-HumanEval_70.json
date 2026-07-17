@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00070:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00070:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -92,5 +92,12 @@
     "stdout": "",
     "stderr": ""
   },
-  "rendered_prompt": "\ndef strange_sort_list(lst):\n    '''\n    Given list of integers, return list in strange order.\n    Strange sorting, is when you start with the minimum value,\n    then maximum of the remaining integers, then minimum and so on.\n\n    Examples:\n    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\n    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\n    strange_sort_list([]) == []\n    '''\n"
+  "rendered_prompt": "\ndef strange_sort_list(lst):\n    '''\n    Given list of integers, return list in strange order.\n    Strange sorting, is when you start with the minimum value,\n    then maximum of the remaining integers, then minimum and so on.\n\n    Examples:\n    strange_sort_list([1, 2, 3, 4]) == [1, 4, 2, 3]\n    strange_sort_list([5, 5, 5, 5]) == [5, 5, 5, 5]\n    strange_sort_list([]) == []\n    '''\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "ab281049334e53f64859ed45b3b53211b97c33df9cfbbc5bc40547f45bc5015c",
+    "rescored_at": "2026-07-17T01:47:27.655319+00:00"
+  }
 }

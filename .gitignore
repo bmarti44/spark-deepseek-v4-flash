@@ -17,3 +17,4 @@ __pycache__/
 .cache/
 vendor/
 .venv-harness/
+results/holdout-ledger.json.lock

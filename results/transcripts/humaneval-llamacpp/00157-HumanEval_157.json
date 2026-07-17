@@ -6,8 +6,8 @@
   "completion": "    # Using the Pythagorean theorem: a^2 + b^2 = c^2\n    sides = sorted([a, b, c])\n    return sides[0]**2 + sides[1]**2 == sides[2]**2\n\n# Test the function\nprint(right_angle_triangle(3, 4, 5))  # True\nprint(right_angle_triangle(1, 2, 3))  # False\n```\n\nNow, let's test the function with the given examples:\n\n```python\nprint(right_angle_triangle(3, 4, 5))  # True\nprint(right_angle_triangle(1, 2, 3))  # False\n```\n\nThe function should return `True` for the first example and `False` for the second example.</think>```python\ndef right_angle_triangle(a, b, c):\n    '''\n    Given the lengths of the three sides of a triangle. Return True if the three\n    sides form a right-angled triangle, False otherwise.\n    A right-angled triangle is a triangle in which one angle is right angle or \n    90 degree.\n    Example:\n    right_angle_triangle(3, 4, 5) == True\n    right_angle_triangle(1, 2, 3) == False\n    '''\n    # Using the Pythagorean theorem: a^2 + b^2 = c^2\n    sides = sorted([a, b, c])\n    return sides[0]**2 + sides[1]**2 == sides[2]**2\n\n# Test the function\nprint(right_angle_triangle(3, 4, 5))  # True\nprint(right_angle_triangle(1, 2, 3))  # False\n```",
   "finish_reason": "stop",
   "expected": "    return a*a == b*b + c*c or b*b == a*a + c*c or c*c == a*a + b*b\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00157:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00157:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 2\n    The function should return `True` for the first example and `False` for the second example.</think>```python\n        ^^^^^^^^\nSyntaxError: invalid syntax\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "24472d8fe02f61665fe248c1d4dcf1fcb139929960e40d0ccc45257dfb5bb6ab",
+    "rescored_at": "2026-07-17T01:47:46.755270+00:00"
   }
 }

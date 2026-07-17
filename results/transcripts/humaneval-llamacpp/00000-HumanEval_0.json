@@ -6,8 +6,8 @@
   "completion": "    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n    for i in range(len(numbers)):\n        for j in range(i+1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False\n```\n\nevaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n\n\nfrom typing import List",
   "finish_reason": "length",
   "expected": "    for idx, elem in enumerate(numbers):\n        for idx2, elem2 in enumerate(numbers):\n            if idx != idx2:\n                distance = abs(elem - elem2)\n                if distance < threshold:\n                    return True\n\n    return False\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00000:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00000:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 2\n    evaluation/raw/translation_assertion_poisoned_regenerate_restart/similarity-matching/SE3/SE3_0.5/sm.py\n                                                                                                  ^^\nSyntaxError: invalid syntax\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "12910f0c71f770c4bec008da9a4b548be3fb835c4c7959ec5560493fbe87b1eb",
+    "rescored_at": "2026-07-17T01:47:11.342900+00:00"
   }
 }

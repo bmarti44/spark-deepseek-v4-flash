@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00132:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00132:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 43, in <module>\n    check(is_nested)\n  File \"/case/main.py\", line 24, in check\n    assert candidate('[[]]') == True, \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "8df11235289bd4bf3c083dffe9581c910b8e7325ecf0152e9f47a316b29ec958",
+    "rescored_at": "2026-07-17T01:47:41.228911+00:00"
   }
 }

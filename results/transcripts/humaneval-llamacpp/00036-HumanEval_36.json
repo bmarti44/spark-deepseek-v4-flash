@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00036:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00036:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 37, in <module>\n    check(fizz_buzz)\n  File \"/case/main.py\", line 27, in check\n    assert candidate(78) == 2\n           ^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "b61740cbc945398f723d356743be11ae89bd4490c0657411216ca323255d9a68",
+    "rescored_at": "2026-07-17T01:47:20.123302+00:00"
   }
 }

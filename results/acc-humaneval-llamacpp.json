@@ -32,11 +32,11 @@
   ],
   "model": "/home/bmarti44/spark-deepseek-v4-flash/weights/unsloth-ud-q2_k_xl/DeepSeek-V4-Flash-UD-Q2_K_XL-00001-of-00003.gguf",
   "n": 164,
-  "correct": 104,
-  "accuracy": 0.6341463414634146,
+  "correct": 121,
+  "accuracy": 0.7378048780487805,
   "wilson95": [
-    0.5581417362781567,
-    0.7040104179580944
+    0.6656001020438637,
+    0.7991241713749452
   ],
   "invalid_count": 0,
   "started_at": "2026-07-16T23:56:54.641628+00:00",
@@ -277,5 +277,119 @@
         "enable_thinking": false
       }
     }
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "method": "offline re-extraction (ast.parse-validated candidates) + docker sandbox re-execution of stored v4 completions; generation untouched",
+    "source_summary_sha256": "7c3eeaefe1cb2f5479d234f5fea921e1f60296eb560875ff527a98a24b40c646",
+    "previous_correct": 104,
+    "changed": [
+      {
+        "task_id": "HumanEval/0",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/1",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/18",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/22",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/31",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/40",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/53",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/60",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/71",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/72",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/103",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/123",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/128",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/150",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/151",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/156",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      },
+      {
+        "task_id": "HumanEval/157",
+        "was": false,
+        "now": true,
+        "reason": "correct"
+      }
+    ],
+    "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py",
+    "rescore_script": "scripts/37_rescore_humaneval.py",
+    "started_at": "2026-07-17T01:47:11.065330+00:00",
+    "finished_at": "2026-07-17T01:47:48.107012+00:00"
   }
 }

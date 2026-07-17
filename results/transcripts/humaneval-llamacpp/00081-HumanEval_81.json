@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00081:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00081:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 74, in <module>\n    check(numerical_letter_grade)\n  File \"/case/main.py\", line 62, in check\n    assert candidate([4.0, 3, 1.7, 2, 3.5]) == ['A+', 'B', 'C-', 'C', 'A-']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "467bb41b34f24df35dc3e47e15c4b7ce95bdd05fa31830c848672a4868919983",
+    "rescored_at": "2026-07-17T01:47:30.038725+00:00"
   }
 }

@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00028:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00028:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -87,5 +87,12 @@
     "stdout": "",
     "stderr": ""
   },
-  "rendered_prompt": "from typing import List\n\n\ndef concatenate(strings: List[str]) -> str:\n    \"\"\" Concatenate list of strings into a single string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"\n"
+  "rendered_prompt": "from typing import List\n\n\ndef concatenate(strings: List[str]) -> str:\n    \"\"\" Concatenate list of strings into a single string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "a06a29a38efe190625df520b6d39c80c825b8ae76c9ab48bb4e6f7958f790dc4",
+    "rescored_at": "2026-07-17T01:46:40.508806+00:00"
+  }
 }

@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00108:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00108:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 46, in <module>\n    check(count_nums)\n  File \"/case/main.py\", line 37, in check\n    assert candidate([12, 23, 34, -45, -56, 0]) == 5\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "4fa127fd641f66953f410ed84165197ffa7e636080794d1390cac5e3abd0030a",
+    "rescored_at": "2026-07-17T01:47:36.032962+00:00"
   }
 }

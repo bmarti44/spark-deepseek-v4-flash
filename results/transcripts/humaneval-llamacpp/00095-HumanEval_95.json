@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00095:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00095:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 2, in <module>\n    solutions/Code_Only/Code_Only_1/check_dict_case/check_dict_case_1.py\n    ^^^^^^^^^\nNameError: name 'solutions' is not defined\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "1922bcaf99c60f21a1e582220f1cfc1d990adb8786bb042492d2e724220c6bf0",
+    "rescored_at": "2026-07-17T01:47:33.151693+00:00"
   }
 }

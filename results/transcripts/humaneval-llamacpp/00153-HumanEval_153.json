@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00153:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00153:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 42, in <module>\n    check(Strongest_Extension)\n  File \"/case/main.py\", line 32, in check\n    assert candidate('__HAHA', ['Tab', '123', '781345', '-_-']) == '__HAHA.123'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "e61c7143c2e75e0315fa56b3fff08fb50699dba93adfcc6ae60c0c81dd4f3e8b",
+    "rescored_at": "2026-07-17T01:47:45.859529+00:00"
   }
 }

@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00057:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00057:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -87,5 +87,12 @@
     "stdout": "",
     "stderr": ""
   },
-  "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n"
+  "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "5ec838ff4ce43264a2f3461507f6ec3475a6dd1cfecf1af8ba21d4abd195da09",
+    "rescored_at": "2026-07-17T01:46:47.205297+00:00"
+  }
 }

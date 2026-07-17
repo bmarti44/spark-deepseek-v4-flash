@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00139:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00139:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -92,5 +92,12 @@
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 39, in <module>\n    check(special_factorial)\n  File \"/case/main.py\", line 30, in check\n    assert candidate(4) == 288, \"Test 4\"\n           ^^^^^^^^^^^^\n  File \"/case/main.py\", line 16, in special_factorial\n    result *= math.factorial(i)\n              ^^^^\nNameError: name 'math' is not defined. Did you forget to import 'math'?\n"
   },
-  "rendered_prompt": "\ndef special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n"
+  "rendered_prompt": "\ndef special_factorial(n):\n    \"\"\"The Brazilian factorial is defined as:\n    brazilian_factorial(n) = n! * (n-1)! * (n-2)! * ... * 1!\n    where n > 0\n\n    For example:\n    >>> special_factorial(4)\n    288\n\n    The function will receive an integer as input and should return the special\n    factorial of this integer.\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "5a83e58066c5c8b069500368c4f1d5145b53356ecc1fb4233ffcae01aa307613",
+    "rescored_at": "2026-07-17T01:47:42.771723+00:00"
+  }
 }

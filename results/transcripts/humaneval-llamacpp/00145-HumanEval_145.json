@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00145:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00145:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 33, in <module>\n    check(order_by_points)\n  File \"/case/main.py\", line 21, in check\n    assert candidate([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "18752c8cc7150b49c539bf5434ca621979901dbafac2f4e7155f56e4ff8d1d36",
+    "rescored_at": "2026-07-17T01:47:44.057340+00:00"
   }
 }

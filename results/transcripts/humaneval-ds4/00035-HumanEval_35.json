@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00035:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00035:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -87,5 +87,12 @@
     "stdout": "",
     "stderr": ""
   },
-  "rendered_prompt": "\n\ndef max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n"
+  "rendered_prompt": "\n\ndef max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "6ecdb4007618e2b0fdf1d46389edf280c7923d20d50774696031d7f4148fe2c5",
+    "rescored_at": "2026-07-17T01:46:42.164100+00:00"
+  }
 }

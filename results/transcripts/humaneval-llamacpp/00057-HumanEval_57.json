@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00057:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00057:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -92,5 +92,12 @@
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 96, in <module>\n    check(monotonic)\n  File \"/case/main.py\", line 92, in check\n    assert candidate([9, 9, 9, 9]) == True\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
   },
-  "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n"
+  "rendered_prompt": "\n\ndef monotonic(l: list):\n    \"\"\"Return True is list elements are monotonically increasing or decreasing.\n    >>> monotonic([1, 2, 4, 20])\n    True\n    >>> monotonic([1, 20, 4, 10])\n    False\n    >>> monotonic([4, 1, 0, -10])\n    True\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "901f51f9464b1ced6f1f0381c3826137e26b31be03d9c0d0e5260b68cf002746",
+    "rescored_at": "2026-07-17T01:47:24.773352+00:00"
+  }
 }

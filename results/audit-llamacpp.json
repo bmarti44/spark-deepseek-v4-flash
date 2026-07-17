@@ -1,6 +1,6 @@
 {
   "kind": "accuracy-audit",
-  "pass": false,
+  "pass": true,
   "stack": "llamacpp",
   "suites": {
     "gsm8k-dev": {
@@ -29,9 +29,9 @@
     },
     "humaneval": {
       "n": 164,
-      "correct_recount": 104,
-      "summary_correct": 104,
-      "match": false
+      "correct_recount": 121,
+      "summary_correct": 121,
+      "match": true
     }
   },
   "present_suites": [
@@ -43,37 +43,13 @@
   ],
   "absent_suites": [],
   "humaneval_taxonomy": {
-    "correct": 104,
-    "assertion": 26,
-    "syntax_error": 23,
+    "correct": 121,
+    "assertion": 32,
+    "syntax_error": 0,
     "timeout": 0,
     "other": 11,
-    "stored_correct_count": 104,
-    "syntax_cases": [
-      "HumanEval/0",
-      "HumanEval/1",
-      "HumanEval/18",
-      "HumanEval/22",
-      "HumanEval/26",
-      "HumanEval/31",
-      "HumanEval/40",
-      "HumanEval/53",
-      "HumanEval/60",
-      "HumanEval/62",
-      "HumanEval/71",
-      "HumanEval/72",
-      "HumanEval/103",
-      "HumanEval/109",
-      "HumanEval/119",
-      "HumanEval/123",
-      "HumanEval/128",
-      "HumanEval/129",
-      "HumanEval/130",
-      "HumanEval/150",
-      "HumanEval/151",
-      "HumanEval/156",
-      "HumanEval/157"
-    ],
+    "stored_correct_count": 121,
+    "syntax_cases": [],
     "other_cases": [
       "HumanEval/34 rc=1 EOFError: EOF when reading a line",
       "HumanEval/77 rc=1 NameError: name 'test_checked' is not defined",

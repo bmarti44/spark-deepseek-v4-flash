@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00022:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00022:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -87,5 +87,12 @@
     "stdout": "",
     "stderr": ""
   },
-  "rendered_prompt": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n"
+  "rendered_prompt": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "4d5be5ef2320075e5d95db0f09fd87c86a4b55382fef42e3f668ecd9c0afc6ad",
+    "rescored_at": "2026-07-17T01:46:39.022307+00:00"
+  }
 }

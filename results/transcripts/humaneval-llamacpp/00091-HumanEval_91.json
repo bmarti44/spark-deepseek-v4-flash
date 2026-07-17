@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00091:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00091:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 39, in <module>\n    check(is_bored)\n  File \"/case/main.py\", line 28, in check\n    assert candidate(\"Is the sky blue?\") == 0, \"Test 2\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Test 2\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "499340d0b10c53449aa67d1fdda9191b0f9c0dc343659e5eff792580fa15c8b7",
+    "rescored_at": "2026-07-17T01:47:32.230751+00:00"
   }
 }

@@ -6,8 +6,8 @@
   "completion": "    collatz = [n]\n    while n != 1:\n        if n % 2 == 0:\n            n = n // 2\n        else:\n            n = 3 * n + 1\n        collatz.append(n)\n    odd_collatz = [i for i in collatz if i % 2 != 0]\n    odd_collatz.sort()\n    return odd_collatz\ndef check(candidate):\n    assert candidate(14) == [1, 5, 7, 11, 13, 17]\n    assert candidate(5) == [1, 5]\n    assert candidate(12) == [1, 3, 5], \"It should be [1, 3, 5]\"\n    assert candidate(1) == [1]\n    assert candidate(5) == [1, 5]\n    assert candidate(15) == [1, 5, 13, 17, 53, 113, 341, 1139, 3413, 10237, 30713, 92137, 276413, 829237, 2487713, 7463137, 22389413, 67168237, 201504713, 604514137, 1813542413, 5440627237, 16321881713, 48965645137, 146896934113, 440690802337, 1322072407013, 3966217221037, 11898651663113, 35695954989337, 107087864968013, 321263594904037, 963790784712113, 2891372354136337, 8674117062409013, 26022351187227037, 78067053561681113, 234201160685043337, 702603482055130013, 2107810446165390037, 6323431338496170113, 18970294015488510337, 56910882046465531013, 170732646139396593037, 512197938418189779113, 1536593815254569337341, 4609781445763708012037, 13829344337291124036113, 41488033011873372108337, 124464099035620116325013, 373392297106",
   "finish_reason": "length",
   "expected": "    if n%2==0:\n        odd_collatz = [] \n    else:\n        odd_collatz = [n]\n    while n > 1:\n        if n % 2 == 0:\n            n = n/2\n        else:\n            n = n*3 + 1\n            \n        if n%2 == 1:\n            odd_collatz.append(int(n))\n\n    return sorted(odd_collatz)\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00123:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00123:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 35\n    assert candidate(15) == [1, 5, 13, 17, 53, 113, 341, 1139, 3413, 10237, 30713, 92137, 276413, 829237, 2487713, 7463137, 22389413, 67168237, 201504713, 604514137, 1813542413, 5440627237, 16321881713, 48965645137, 146896934113, 440690802337, 1322072407013, 3966217221037, 11898651663113, 35695954989337, 107087864968013, 321263594904037, 963790784712113, 2891372354136337, 8674117062409013, 26022351187227037, 78067053561681113, 234201160685043337, 702603482055130013, 2107810446165390037, 6323431338496170113, 18970294015488510337, 56910882046465531013, 170732646139396593037, 512197938418189779113, 1536593815254569337341, 4609781445763708012037, 13829344337291124036113, 41488033011873372108337, 124464099035620116325013, 373392297106\n                            ^\nSyntaxError: '[' was never closed\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "7676a0944fd36361dfe59831afc6419a275cf13aff8ab510d0fb9427bce3b8ff",
+    "rescored_at": "2026-07-17T01:47:39.297806+00:00"
   }
 }

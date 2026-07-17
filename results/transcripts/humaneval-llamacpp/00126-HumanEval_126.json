@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00126:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00126:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 67, in <module>\n    check(is_sorted)\n  File \"/case/main.py\", line 62, in check\n    assert candidate([1, 2, 2, 3, 3, 4]) == True, \"This prints if this assert fails 7 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 7 (good for debugging!)\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "f7be461c0ba2835ff360fc215d56fdc690b4598de42d99db63be1c2ccd9c57bd",
+    "rescored_at": "2026-07-17T01:47:39.942219+00:00"
   }
 }

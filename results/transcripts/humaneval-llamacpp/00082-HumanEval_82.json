@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00082:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00082:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 39, in <module>\n    check(prime_length)\n  File \"/case/main.py\", line 18, in check\n    assert candidate('Hello') == True\n           ^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 12, in prime_length\n    return is_prime(len(string))\n           ^^^^^^^^\nNameError: name 'is_prime' is not defined\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "8d096b49a1c1c95e2bda8e4f1eee841f7781b17180337c6c1cae64bd9ea74627",
+    "rescored_at": "2026-07-17T01:47:30.260503+00:00"
   }
 }

@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00162:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00162:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 57, in <module>\n    check(string_to_md5)\n  File \"/case/main.py\", line 47, in check\n    assert candidate('Hello world') == '3e25960a79dbc69b674cd4ec67a72c62'\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 11, in string_to_md5\n    md5_hash = hashlib.md5(text.encode()).hexdigest()\n               ^^^^^^^\nNameError: name 'hashlib' is not defined. Did you forget to import 'hashlib'?\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "24463d4a860aac69e186a2ba3dfa89fa3e542b8997ead9b45c38c0e0ac40d9f0",
+    "rescored_at": "2026-07-17T01:47:47.899636+00:00"
   }
 }

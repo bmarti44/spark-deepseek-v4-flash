@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00111:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00111:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 36, in <module>\n    check(histogram)\n  File \"/case/main.py\", line 22, in check\n    assert candidate('a b b a') == {'a':2,'b': 2}, \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 16, in histogram\n    return histogram(test)\n           ^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 16, in histogram\n    return histogram(test)\n           ^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 16, in histogram\n    return histogram(test)\n           ^^^^^^^^^^^^^^^\n  [Previous line repeated 995 more times]\nRecursionError: maximum recursion depth exceeded\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "ef8aa84b356aabecb1e0da41ba7723bc4f6b2a17a1120c08573cdf2b86f03de9",
+    "rescored_at": "2026-07-17T01:47:36.684429+00:00"
   }
 }

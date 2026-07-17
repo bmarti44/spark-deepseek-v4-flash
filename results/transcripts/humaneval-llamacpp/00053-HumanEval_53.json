@@ -6,8 +6,8 @@
   "completion": "    return x + y\n\n\ndef factorial(n: int):\n    \"\"\"Return factorial of n\n    >>> factorial(5)\n    120\n    >>> factorial(10)\n    3628800\n    \"\"\"\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)\n\n\ndef count_vowels(s: str):\n    \"\"\"Count the number of vowels in a string\n    >>> count_vowels(\"hello\")\n    2\n    >>> count_vowels(\"world\")\n    1\n    \"\"\"\n    vowels = \"aeiou\"\n    count = 0\n    for char in s:\n        if char in vowels:\n            count += 1\n    return count\n\n\ndef reverse_string(s: str):\n    \"\"\"Reverse a string\n    >>> reverse_string(\"hello\")\n    'olleh'\n    >>> reverse_string(\"world\")\n    'dlrow'\n    \"\"\"\n    return s[::-1]\n\n\ndef is_palindrome(s: str):\n    \"\"\"Check if a string is a palindrome\n    >>> is_palindrome(\"racecar\")\n    True\n    >>> is_palindrome(\"hello\")\n    False\n    \"\"\"\n    return s == s[::-1]\n\n\ndef find_maximum(numbers: list):\n    \"\"\"Find the maximum value in a list\n    >>> find_maximum([1, 2, 3, 4, 5])\n    5\n    >>> find_maximum([10, 20, 30, 40, 50])\n    50\n    \"\"\"\n    return max(numbers)\n\n\ndef find_minimum(numbers: list):\n    \"\"\"Find the minimum value in a list\n    >>> find_minimum([1, 2, 3, 4, 5])\n    1\n    >>> find_minimum([10, 20, 30, 40, 50])\n    10\n    \"\"\"\n    return min(numbers)\n\n\ndef sum_of_even_numbers(numbers: list):\n    \"\"\"Calculate the sum of even numbers in a list\n    >>> sum_of_even_numbers([1, 2, 3, 4, 5])\n    6\n    >>> sum_of_even_numbers([10, 20, 30, 40, 50])\n    150\n    \"\"\"\n    return sum(num for num in numbers if num % 2 == 0)\n\n\ndef sum_of_odd_numbers(numbers: list):\n    \"\"\"Calculate the sum of odd numbers in a list\n    >>> sum_of_odd_numbers([1, 2, ",
   "finish_reason": "length",
   "expected": "    return x + y\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00053:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00053:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 92\n    \"\"\"Calculate the sum of odd numbers in a list\n    ^\nSyntaxError: unterminated triple-quoted string literal (detected at line 116)\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "6db8ce69c52c2759fec78b4b303fff9891e711d123d3178c11ee0340a711aaab",
+    "rescored_at": "2026-07-17T01:47:23.906928+00:00"
   }
 }

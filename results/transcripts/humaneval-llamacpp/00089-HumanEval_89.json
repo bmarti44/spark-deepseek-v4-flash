@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00089:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00089:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 51, in <module>\n    check(encrypt)\n  File \"/case/main.py\", line 37, in check\n    assert candidate('hi') == 'lm', \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "e36edf41343028a1d560c01d006941e711fb30ee05bd5739d3f727ef7d0bce06",
+    "rescored_at": "2026-07-17T01:47:31.806372+00:00"
   }
 }

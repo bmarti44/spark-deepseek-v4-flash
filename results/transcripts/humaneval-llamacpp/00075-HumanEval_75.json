@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00075:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00075:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 44, in <module>\n    check(is_multiply_prime)\n  File \"/case/main.py\", line 35, in check\n    assert candidate(125) == True\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "04d3a0b66af70cf58f085604543268daa6dec21623bccfe2ac32a9762ece55c3",
+    "rescored_at": "2026-07-17T01:47:28.721115+00:00"
   }
 }

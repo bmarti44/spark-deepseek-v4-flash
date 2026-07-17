@@ -251,5 +251,16 @@
     "extra_body": {
       "enable_thinking": false
     }
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "method": "offline re-extraction (ast.parse-validated candidates) + docker sandbox re-execution of stored v4 completions; generation untouched",
+    "source_summary_sha256": "2f067b193e5f281525a970921ab1f39f39aa22f394a9a6580cea071f05529cd5",
+    "previous_correct": 147,
+    "changed": [],
+    "harness_manifest_line": "8e9bd597f0b4c195c9443729a3f9f185a5ab9df95c4d72c2f33672548f1c2a07  scripts/31_bench_accuracy.py",
+    "rescore_script": "scripts/37_rescore_humaneval.py",
+    "started_at": "2026-07-17T01:46:33.032215+00:00",
+    "finished_at": "2026-07-17T01:47:10.998706+00:00"
   }
 }

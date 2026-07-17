@@ -6,8 +6,8 @@
   "completion": "    count = 0\n    start = 0\n    while True:\n        start = string.find(substring, start)\n        if start == -1:\n            break\n        count += 1\n        start += 1\n    return count\ndef check(candidate):\n    assert candidate('', 'a') == 0\n    assert candidate('aaa', 'a') == 3\n    assert candidate('aaaa', 'aa') == 3\n    assert candidate('', 'x') == 0\n    assert candidate('x', '') == 0\n    assert candidate('', '') == 0\n    assert candidate('abcabc', 'ab') == 2\n    assert candidate('abcabc', 'abc') == 2\n    assert candidate('abcabc', 'abcabc') == 1\n    assert candidate('abcabc', 'abcd') == 0\n    assert candidate('abcabc', '') == 0\n    assert candidate('aaaaaa', 'aa') == 5\n    assert candidate('aaaaaa', 'aaa') == 4\n    assert candidate('aaaaaa', 'aaaa') == 3\n    assert candidate('aaaaaa', 'aaaaa') == 2\n    assert candidate('aaaaaa', 'aaaaaa') == 1\n    assert candidate('aaaaaa', 'aaaaaaa') == 0\n    assert candidate('aaaaaa', '') == 0\n    assert candidate('abcabc', 'abcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc', 'abcabcabcabcabcabcabcabcabcabcabcabc') == 0\n    assert candidate('abcabc',",
   "finish_reason": "length",
   "expected": "    times = 0\n\n    for i in range(len(string) - len(substring) + 1):\n        if string[i:i+len(substring)] == substring:\n            times += 1\n\n    return times\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00018:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00018:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 50\n    assert candidate('abcabc',\n                    ^\nSyntaxError: '(' was never closed\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "fcc8f9d3addaceee083c700afddeeccd46db3dc51d9976092e7b7c5ef83a6483",
+    "rescored_at": "2026-07-17T01:47:15.757819+00:00"
   }
 }

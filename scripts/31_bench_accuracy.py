@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import decimal
 import fcntl
 import hashlib
@@ -72,6 +73,10 @@ MAX_TOKENS = {"gsm8k": 512, "mmlu-pro": 768, "humaneval": 512}
 # bounded by MAX_TOKENS; extract_humaneval_code handles fenced and
 # continuation styles.
 HUMANEVAL_STOPS = None
+# Protocol v5: the classic HumanEval stop list, applied POST-HOC inside the
+# extractor (never at generation time) and only when the plain splice does not
+# parse. See extract_humaneval_code.
+HUMANEVAL_POSTHOC_STOPS = ("\ndef ", "\nclass ", "\nif __name__", "\nprint(")
 GSM_ANSWER_RE = re.compile(r"Answer:\s*(-?[\d,\.]+)", re.IGNORECASE)
 NUMBER_RE = re.compile(r"-?(?:\d[\d,]*)(?:\.\d+)?")
 MMLU_ANSWER_RE = re.compile(r"Answer:\s*([A-J])", re.IGNORECASE)
@@ -629,26 +634,12 @@ def expected_for_row(suite: str, row: dict[str, Any]) -> str:
     return row["canonical_solution"]
 
 
-def extract_humaneval_code(prompt: str, completion: str, entry_point: str) -> str:
-    """Turn an instruct-model completion into code that continues `prompt`.
+def splice_humaneval_continuation(prompt: str, completion: str) -> str:
+    """Treat `completion` as a continuation of the prompt's function body.
 
-    Chat/instruct models wrap answers in Markdown fences and add prose even
-    when handed a raw-completion prompt, so a naive prompt+completion splice
-    is a SyntaxError. Canonical HumanEval-for-instruct handling: if the
-    completion contains a fenced block, take the first block's body; if that
-    body is a full solution (re-declares `def <entry_point>`), return it
-    standalone, otherwise treat it as a continuation of the prompt. With no
-    fence, cut the completion at the first line that dedents to a new
-    top-level statement (prose/markdown), keeping the indented function body.
+    Strip a leading opening fence, then cut at the first closing fence or the
+    first top-level PROSE line (dedented text that is not code).
     """
-    # A fully fenced solution that re-declares the function → use it standalone.
-    for body in re.finditer(r"```(?:python)?\n(.*?)\n```", completion, re.DOTALL):
-        block = body.group(1)
-        if re.search(rf"^\s*def\s+{re.escape(entry_point)}\b", block, re.MULTILINE):
-            return block + "\n"
-    # Otherwise the completion continues the prompt's function body. Strip a
-    # leading opening fence, then cut at the first closing fence (`) or the
-    # first top-level PROSE line (dedented text that is not code).
     text = re.sub(r"^\s*```(?:python)?\n", "", completion)
     code_lead = re.compile(
         r"(def |class |@|import |from |return\b|if |for |while |with |try|else|elif|except|finally|raise|yield|assert|pass|break|continue|[)\]}])"
@@ -662,6 +653,62 @@ def extract_humaneval_code(prompt: str, completion: str, entry_point: str) -> st
             break
         kept.append(line)
     return prompt + "\n".join(kept) + "\n"
+
+
+def extract_humaneval_code(prompt: str, completion: str, entry_point: str) -> str:
+    """Turn an instruct-model completion into code that continues `prompt`.
+
+    Chat/instruct models wrap answers in Markdown fences and add prose even
+    when handed a raw-completion prompt, so a naive prompt+completion splice
+    is a SyntaxError. Protocol v5: build ordered candidates — every fenced
+    block that re-declares `def <entry_point>` (standalone), then the
+    prompt+continuation splice — and return the FIRST candidate that
+    `ast.parse` accepts. Without the parse check (v4), a completion that ends
+    its code with a closing fence and then rambles caused the fence regex to
+    pair the CLOSING fence with a later fence and extract garbage between
+    them. If no candidate parses, fall back to the v4 choice so failures
+    remain visible as sandbox errors rather than crashes.
+    """
+    candidates: list[str] = []
+    for body in re.finditer(r"```(?:python)?\n(.*?)\n```", completion, re.DOTALL):
+        block = body.group(1)
+        if re.search(rf"^\s*def\s+{re.escape(entry_point)}\b", block, re.MULTILINE):
+            candidates.append(block + "\n")
+    splice = splice_humaneval_continuation(prompt, completion)
+    candidates.append(splice)
+    # Canonical HumanEval stop-word truncation, applied post-hoc: models that
+    # finish the function and then ramble (self-tests, re-declarations) until
+    # max_tokens cuts mid-line leave an unparseable tail; cutting at the first
+    # new top-level statement recovers the intended program. Tried AFTER the
+    # plain splice so it can only rescue otherwise-unparseable completions,
+    # never change the grading of ones that already parse.
+    stop_positions = [
+        position
+        for position in (completion.find(stop) for stop in HUMANEVAL_POSTHOC_STOPS)
+        if position != -1
+    ]
+    if stop_positions:
+        candidates.append(
+            splice_humaneval_continuation(prompt, completion[: min(stop_positions)] + "\n")
+        )
+    for candidate in candidates:
+        try:
+            ast.parse(candidate)
+        except SyntaxError:
+            continue
+        return candidate
+    # Last resort: longest parseable line-prefix of the splice. This only
+    # removes trailing lines (typically a max_tokens truncation mid-line); it
+    # never adds code, and an incomplete function still fails the tests.
+    lines = splice.splitlines()
+    for end in range(len(lines) - 1, 0, -1):
+        candidate = "\n".join(lines[:end]) + "\n"
+        try:
+            ast.parse(candidate)
+        except SyntaxError:
+            continue
+        return candidate
+    return candidates[0]
 
 
 def run_humaneval(

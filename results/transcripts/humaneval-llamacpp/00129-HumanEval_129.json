@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00129:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00129:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -90,6 +90,13 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 72\n    for di\n          ^\nSyntaxError: invalid syntax\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 91, in <module>\n    check(minPath)\n  File \"/case/main.py\", line 75, in check\n    assert candidate([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3) == [1, 2, 1]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "ecf99e4bb65417eb69a506cf00ea802237551459bc8ce590d08588304a2e2fd7",
+    "rescored_at": "2026-07-17T01:47:40.566861+00:00"
   }
 }

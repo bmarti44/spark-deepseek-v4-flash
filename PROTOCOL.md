@@ -37,6 +37,12 @@ accuracy/speed/golden/parity results remain valid** and are not rerun.
 |---|---|---|
 | HumanEval generation: stop list `["\ndef ", "\nclass ", "\nif __name__", "\nprint("]` → none (generation bounded by max_tokens 512; extractor handles all styles) | A scored 0/164 with `finish_reason=stop` on EVERY item: A's quant answers each task with prose + a fenced full function re-declaration, and the `"\ndef "` stop truncated at the fence header before any body was generated. The stop list assumed base-model continuation style. | Harness defect, not a model result. HumanEval is VOID for BOTH candidates (A's 0/164 and B's v2 133/164) and reruns under v4 for both. B's rerun requires a residency swap back to B after A's remaining evidence. GSM8K and MMLU-Pro are untouched — the stop list applied only to HumanEval (`HUMANEVAL_STOPS`, used nowhere else). |
 
+## v4 → v5 changes and why (B's HumanEval audit failure, 2026-07-16)
+
+| Change | Trigger | Fairness handling |
+|---|---|---|
+| `extract_humaneval_code` validates candidates with `ast.parse` and returns the first that parses, in a fixed order: (1) every fenced block re-declaring `def <entry_point>` (standalone), (2) the prompt+continuation splice, (3) the splice of the completion truncated at the classic HumanEval stop words (`\ndef `, `\nclass `, `\nif __name__`, `\nprint(`) applied POST-HOC, (4) longest parseable line-prefix of the splice. No candidate parses → v4 behavior. | B's v4 rerun (104/164) FAILED the independent audit: 23 SyntaxError transcripts. Two extractor defects, both harness-side: (a) the fence regex paired a completion's CLOSING fence with a later fence and extracted the garbage between them; (b) completions that finish the function then ramble until `max_tokens` cuts mid-line left an unparseable tail in the splice. | Harness defect, not a model result. Generation is untouched (same prompts, temperature 0, seed 42, max_tokens 512, no stops), so stored v4 completions are re-graded OFFLINE and deterministically for BOTH candidates by `scripts/37_rescore_humaneval.py` (re-extraction + sandbox re-execution; no servers). Candidate order tries the plain splice BEFORE the stop-word cut so the post-hoc stops can only rescue otherwise-unparseable completions, never change the grade of ones that already parse. Under v5 the audit's SyntaxError taxonomy must be 0 for both stacks. |
+
 ## Standing rule
 
 Any future gate/harness change after a candidate has produced results under the

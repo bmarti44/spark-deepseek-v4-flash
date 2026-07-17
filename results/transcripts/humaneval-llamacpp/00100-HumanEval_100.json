@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00100:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00100:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 2, in <module>\n    solutions/Code_Only/Code_Only_1/Code_Only_1_2.py\n    ^^^^^^^^^\nNameError: name 'solutions' is not defined\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "0a4ee2a2b67acf6fded1bc63dba3331321398d1e1f7f3218fa6ed3d988967884",
+    "rescored_at": "2026-07-17T01:47:34.261362+00:00"
   }
 }

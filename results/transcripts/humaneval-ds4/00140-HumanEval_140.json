@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00140:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00140:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -86,5 +86,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 43, in <module>\n    check(fix_spaces)\n  File \"/case/main.py\", line 35, in check\n    assert candidate(\"Yellow Yellow  Dirty  Fellow\") == \"Yellow_Yellow__Dirty__Fellow\", \"This prints if this assert fails 3 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 3 (good for debugging!)\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "647eb16ac51d02f9736f2c12300e78711465e1a235b28fb959ffa82199996c28",
+    "rescored_at": "2026-07-17T01:47:05.881250+00:00"
   }
 }

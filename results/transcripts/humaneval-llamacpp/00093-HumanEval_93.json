@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00093:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00093:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 56, in <module>\n    check(encode)\n  File \"/case/main.py\", line 46, in check\n    assert candidate('TEST') == 'tgst', \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: This prints if this assert fails 1 (good for debugging!)\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "14c5e85c9ae6f63be3d68059222cfed5614102f067d79e8beec8ef3f46813929",
+    "rescored_at": "2026-07-17T01:47:32.683871+00:00"
   }
 }

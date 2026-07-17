@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00073:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00073:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 40, in <module>\n    check(smallest_change)\n  File \"/case/main.py\", line 27, in check\n    assert candidate([1,2,3,5,4,7,9,6]) == 4\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "fe1530b13be7a1fe63f6ad16c1f0d525df71cb17c62d3074631cd7bd52de0b60",
+    "rescored_at": "2026-07-17T01:47:28.294382+00:00"
   }
 }

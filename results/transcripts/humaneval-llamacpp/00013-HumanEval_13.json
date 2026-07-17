@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00013:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00013:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 0,
     "stdout": "",
     "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": true,
+    "previous_reason": "correct",
+    "source_transcript_sha256": "7f6b3a5dec1f0b4ffb9ce60b5ba727f91987c48776d749b8f1f3b7b10dcf78b5",
+    "rescored_at": "2026-07-17T01:47:14.573621+00:00"
   }
 }

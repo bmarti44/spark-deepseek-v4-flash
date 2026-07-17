@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00127:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00127:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 59, in <module>\n    check(intersection)\n  File \"/case/main.py\", line 47, in check\n    assert candidate((-1, 1), (0, 4)) == \"NO\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "aef467c38780ff3c542133629000d24dcd0a00931b9554023d8ff7e8e3401d16",
+    "rescored_at": "2026-07-17T01:47:40.154013+00:00"
   }
 }

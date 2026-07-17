@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00124:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00124:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 107, in <module>\n    check(valid_date)\n  File \"/case/main.py\", line 74, in check\n    assert candidate('03-11-2000') == True\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 27, in valid_date\n    if not re.match(r'\\d{2}-\\d{2}-\\d{4}', date):\n           ^^\nNameError: name 're' is not defined. Did you forget to import 're'?\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "b2228f6fad9c55d011fc25e55ca88d71d717d4c48a7af9a04f4f141ab4e48199",
+    "rescored_at": "2026-07-17T01:47:39.510387+00:00"
   }
 }

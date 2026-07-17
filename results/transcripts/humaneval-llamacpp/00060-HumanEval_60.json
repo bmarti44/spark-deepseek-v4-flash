@@ -6,8 +6,8 @@
   "completion": "    return n * (n + 1) // 2\n\ndef flip_case(string: str):\n    \"\"\" For every character in the given string, flip the case if it is a letter.\n    >>> flip_case('Hello World!')\n    'hELLO wORLD!'\n    \"\"\"\n    result = ''\n    for char in string:\n        if char.isalpha():\n            result += char.swapcase()\n        else:\n            result += char\n    return result\n\ndef count_up_to(n):\n    \"\"\" Count from 1 to n (inclusive) and return a list of numbers.\n    >>> count_up_to(5)\n    [1, 2, 3, 4, 5]\n    >>> count_up_to(10)\n    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(1, n + 1))\n\ndef count_down_to(n):\n    \"\"\" Count from n down to 1 (inclusive) and return a list of numbers.\n    >>> count_down_to(5)\n    [5, 4, 3, 2, 1]\n    >>> count_down_to(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]\n    \"\"\"\n    return list(range(n, 0, -1))\n\ndef count_up_to_0(n):\n    \"\"\" Count from 0 to n (inclusive) and return a list of numbers.\n    >>> count_up_to_0(5)\n    [0, 1, 2, 3, 4, 5]\n    >>> count_up_to_0(10)\n    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n    \"\"\"\n    return list(range(0, n + 1))\n\ndef count_down_to_0(n):\n    \"\"\" Count from n down to 0 (inclusive) and return a list of numbers.\n    >>> count_down_to_0(5)\n    [5, 4, 3, 2, 1, 0]\n    >>> count_down_to_0(10)\n    [10, 9, 8, 7, 6, 5, 4, 3, 2, ",
   "finish_reason": "length",
   "expected": "    return sum(range(n + 1))\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00060:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00060:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 59\n    \"\"\" Count from n down to 0 (inclusive) and return a list of numbers.\n    ^\nSyntaxError: unterminated triple-quoted string literal (detected at line 80)\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "d6804c92ffb084e6c36346db066dc2360a5d5cf92e220b653435fa1a430667d4",
+    "rescored_at": "2026-07-17T01:47:25.449141+00:00"
   }
 }

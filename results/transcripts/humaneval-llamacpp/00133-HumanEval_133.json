@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00133:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00133:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 43, in <module>\n    check(sum_squares)\n  File \"/case/main.py\", line 24, in check\n    assert candidate([1,2,3])==14, \"This prints if this assert fails 1 (good for debugging!)\"\n           ^^^^^^^^^^^^^^^^^^\n  File \"/case/main.py\", line 17, in sum_squares\n    return sum([math.ceil(i)**2 for i in lst])\n                ^^^^\nNameError: name 'math' is not defined. Did you forget to import 'math'?\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "e584569d9c665ba5a1566a5f270ed5ec33425b8ba3f7db4578b43c78d5bcf9ca",
+    "rescored_at": "2026-07-17T01:47:41.447621+00:00"
   }
 }

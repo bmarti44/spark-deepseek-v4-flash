@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00034:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00034:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 16, in <module>\n    main()\n  File \"/case/main.py\", line 12, in main\n    numbers = list(map(int, input().split()))\n                            ^^^^^^^\nEOFError: EOF when reading a line\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "3abdab22e43c83da3e793389f2b3f990e08d0481b6d7c8900a22e40172a5edde",
+    "rescored_at": "2026-07-17T01:47:19.682051+00:00"
   }
 }

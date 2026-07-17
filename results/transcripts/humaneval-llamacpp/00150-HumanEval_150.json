@@ -6,8 +6,8 @@
   "completion": "    if is_prime(n):\n        return x\n    else:\n        return y\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\ndef x_or_y(n, x, y):\n    if is_prime(n):\n        return x\n    else:\n        return y\n\n# Test cases\nprint(x_or_y(7, 34, 12))  # Expected: 34\nprint(x_or_y(15, 8, 5))   # Expected: 5\n```\n\nThis code defines a function `is_prime` that checks if a number is prime, and then uses it in `x_or_y` to return `x` if `n` is prime, otherwise `y`. The test cases are included to verify the functionality.</think>```python\ndef is_prime(n: int) -> bool:\n    \"\"\"Check if a number is prime.\"\"\"\n    if n < 2:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef x_or_y(n: int, x: int, y: int) -> int:\n    \"\"\"Return x if n is prime, otherwise return y.\"\"\"\n    if is_prime(n):\n        return x\n    else:\n        return y\n\n# Test cases\nprint(x_or_y(7, 34, 12))  # Expected: 34\nprint(x_or_y(15, 8, 5))   # Expected: 5\n```",
   "finish_reason": "stop",
   "expected": "    if n == 1:\n        return y\n    for i in range(2, n):\n        if n % i == 0:\n            return y\n            break\n    else:\n        return x\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00150:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00150:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 2\n    This code defines a function `is_prime` that checks if a number is prime, and then uses it in `x_or_y` to return `x` if `n` is prime, otherwise `y`. The test cases are included to verify the functionality.</think>```python\n         ^^^^\nSyntaxError: invalid syntax\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "3b6dbdebbed161c78f48dac5a18e316987e08033b184c296e707b9b9eab55693",
+    "rescored_at": "2026-07-17T01:47:45.188398+00:00"
   }
 }

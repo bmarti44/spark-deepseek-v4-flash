@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00106:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00106:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 28, in <module>\n    check(f)\n  File \"/case/main.py\", line 22, in check\n    assert candidate(5) == [1, 2, 6, 24, 15]\n           ^^^^^^^^^^^^\n  File \"/case/main.py\", line 14, in f\n    result.append(math.factorial(i))\n                  ^^^^\nNameError: name 'math' is not defined. Did you forget to import 'math'?\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "5bf5ac929820a649ac99dd14909e8a62efd636fd305e3b094f25534c9540ccb0",
+    "rescored_at": "2026-07-17T01:47:35.588806+00:00"
   }
 }

@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00064:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00064:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -86,5 +86,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 37, in <module>\n    check(vowels_count)\n  File \"/case/main.py\", line 24, in check\n    assert candidate(\"abcde\") == 2, \"Test 1\"\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Test 1\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "fd1285d5ff329fa29a4db58677b66b88a10d4242abfe05b902444e4d0c81b6d7",
+    "rescored_at": "2026-07-17T01:46:48.783471+00:00"
   }
 }

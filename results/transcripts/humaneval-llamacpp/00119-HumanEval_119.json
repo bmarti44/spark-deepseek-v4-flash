@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00119:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00119:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -90,6 +90,13 @@
     ],
     "returncode": 1,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 56\n    assert match_parens([')(', '\n                               ^\nSyntaxError: unterminated string literal (detected at line 56)\n"
+    "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 56, in <module>\n    check(match_parens)\n  File \"/case/main.py\", line 47, in check\n    assert candidate([')(', ')(']) == 'No'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "b32e811bfa1cc4faf507f5cbd3546e52db7040246113b7c41bfbfb415602ecbd",
+    "rescored_at": "2026-07-17T01:47:38.419645+00:00"
   }
 }

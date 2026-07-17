@@ -6,8 +6,8 @@
   "completion": "    \"\"\"\n    The main idea is to iterate through the string and keep track of the current group.\n    When we see an open parenthesis, we start a new group.\n    When we see a close parenthesis, we close the current group.\n    \"\"\"\n    groups = []\n    current_group = \"\"\n    open_count = 0\n    for char in paren_string:\n        if char == '(':\n            open_count += 1\n            current_group += char\n        elif char == ')':\n            open_count -= 1\n            current_group += char\n            if open_count == 0:\n                groups.append(current_group)\n                current_group = \"\"\n        elif char == ' ':\n            continue\n        else:\n            current_group += char\n    return groups\ndef check(separate_paren_groups):\n    # Check some simple cases\n    assert separate_paren_groups('(()()) ((())) () ((())()())') == ['(()())', '((()))', '()', '((())()())']\n    # Check some edge cases\n    assert separate_paren_groups('() (()) ((())) ((( )))') == ['()', '(())', '((()))', '((()))']\n    assert separate_paren_groups('(()(())(())((()))') == ['(()(())(())((()))']\n    # Check some more complex cases\n    assert separate_paren_groups('( ) (( )) (( )( ))') == ['()', '(())', '(()())']\n    # Check some cases with spaces\n    assert separate_paren_groups('( ) ( ) ( )') == ['()', '()', '()']\n    assert separate_paren_groups('( ) ( ) ( ) ( )') == ['()', '()', '()', '()']\n    assert separate_paren_groups('( ) ( ) ( ) ( ) ( )') == ['()', '()', '()', '()', '()']\n    assert separate_paren_groups('( ) ( ) ( ) ( ) ( ) ( )') == ['()', '()', '()', '()', '()', '()']\n    assert separate_paren_groups('( ) ( ) ( ) ( ) ( ) ( ) ( )') == ['()', '()', '()', '()', '()', '()', '()']\n    assert separate_paren_groups('( ) ( ) ( ) ( ) ( ) ( ) ( ) (",
   "finish_reason": "length",
   "expected": "    result = []\n    current_string = []\n    current_depth = 0\n\n    for c in paren_string:\n        if c == '(':\n            current_depth += 1\n            current_string.append(c)\n        elif c == ')':\n            current_depth -= 1\n            current_string.append(c)\n\n            if current_depth == 0:\n                result.append(''.join(current_string))\n                current_string.clear()\n\n    return result\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00001:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00001:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 49\n    assert separate_paren_groups('( ) ( ) ( ) ( ) ( ) ( ) ( ) (\n                                 ^\nSyntaxError: unterminated string literal (detected at line 49)\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "f7e646aa46b875f2582d2c98b3337a8e91b6ec1680649f2e92c2a5412aa31b72",
+    "rescored_at": "2026-07-17T01:47:11.609726+00:00"
   }
 }

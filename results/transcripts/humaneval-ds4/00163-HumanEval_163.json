@@ -76,7 +76,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-8csewb4a/case-00163:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-r7j6j0qx/case-00163:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -87,5 +87,12 @@
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 25, in <module>\n    check(generate_integers)\n  File \"/case/main.py\", line 15, in check\n    assert candidate(2, 10) == [2, 4, 6, 8], \"Test 1\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Test 1\n"
   },
-  "rendered_prompt": "\ndef generate_integers(a, b):\n    \"\"\"\n    Given two positive integers a and b, return the even digits between a\n    and b, in ascending order.\n\n    For example:\n    generate_integers(2, 8) => [2, 4, 6, 8]\n    generate_integers(8, 2) => [2, 4, 6, 8]\n    generate_integers(10, 14) => []\n    \"\"\"\n"
+  "rendered_prompt": "\ndef generate_integers(a, b):\n    \"\"\"\n    Given two positive integers a and b, return the even digits between a\n    and b, in ascending order.\n\n    For example:\n    generate_integers(2, 8) => [2, 4, 6, 8]\n    generate_integers(8, 2) => [2, 4, 6, 8]\n    generate_integers(10, 14) => []\n    \"\"\"\n",
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "276b60b0480617707150aea9376755c5470a86e1823d5419f6c2bef810770f0c",
+    "rescored_at": "2026-07-17T01:47:10.986589+00:00"
+  }
 }

@@ -6,8 +6,8 @@
   "completion": "    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count = 0\n    for i in range(n, m+1):\n        total += i\n        count += 1\n    avg = total / count\n    rounded = round(avg)\n    return bin(rounded) if rounded >= 0 else -1\ndef rounded_avg(n, m):\n    if n > m:\n        return -1\n    total = 0\n    count =",
   "finish_reason": "length",
   "expected": "    if m < n:\n        return -1\n    summation = 0\n    for i in range(n, m+1):\n        summation += i\n    return bin(round(summation/(m - n + 1)))\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00103:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00103:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 82\n    count =\n           ^\nSyntaxError: invalid syntax\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "2a124a76e819dca761975e14fbe9e4ffe596d041f9ee8327e5eea53d4319443b",
+    "rescored_at": "2026-07-17T01:47:34.925598+00:00"
   }
 }

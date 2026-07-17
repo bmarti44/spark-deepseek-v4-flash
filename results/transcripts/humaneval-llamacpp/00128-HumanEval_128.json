@@ -6,8 +6,8 @@
   "completion": "    if not arr:\n        return None\n    product = 1\n    sum_magnitudes = 0\n    for num in arr:\n        if num > 0:\n            product *= 1\n        elif num < 0:\n            product *= -1\n        else:\n            product *= 0\n        sum_magnitudes += abs(num)\n    return product * sum_magnitudes\ndef test_prod_signs():\n    assert prod_signs([1, 2, 2, -4]) == -9\n    assert prod_signs([0, 1]) == 0\n    assert prod_signs([]) == None\n    assert prod_signs([-1, -2, -3, -4]) == -10\n    assert prod_signs([1, 2, 3, 4]) == 10\n    assert prod_signs([0, 0, 0]) == 0\n    assert prod_signs([-1, 0, 1]) == 0\n    assert prod_signs([-1, -2, 0, 2, 1]) == 0\n    assert prod_signs([-1, -2, -3, -4, -5]) == -15\n    assert prod_signs([1, 2, 3, 4, 5]) == 15\n    assert prod_signs([-1, 2, -3, 4, -5]) == 15\n    assert prod_signs([-1, -2, -3, -4, -5, -6]) == -21\n    assert prod_signs([1, 2, 3, 4, 5, 6]) == 21\n    assert prod_signs([-1, -2, -3, -4, -5, -6, -7]) == -28\n    assert prod_signs([1, 2, 3, 4, 5, 6, 7]) == 28\n    assert prod_signs([-1, -2, -3, -4, -5, -6, -7, -8]) == -36\n    assert prod_signs([1, 2, 3, 4, 5, 6, 7, 8]) == 36\n    assert prod_signs([-1, -2, -3",
   "finish_reason": "length",
   "expected": "    if not arr: return None\n    prod = 0 if 0 in arr else (-1) ** len(list(filter(lambda x: x < 0, arr)))\n    return prod * sum([abs(i) for i in arr])\n",
-  "scored_correct": false,
-  "reason": "sandbox failed with exit 1",
+  "scored_correct": true,
+  "reason": "correct",
   "request": {
     "endpoint": "/v1/completions",
     "payload_without_prompt": {
@@ -81,15 +81,22 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00128:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00128:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
       "python",
       "/case/main.py"
     ],
-    "returncode": 1,
+    "returncode": 0,
     "stdout": "",
-    "stderr": "  File \"/case/main.py\", line 45\n    assert prod_signs([-1, -2, -3\n                      ^\nSyntaxError: '[' was never closed\n"
+    "stderr": ""
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "3b2d14bb2324112cb92c760e214f360666af5c3bd8199768f729e2db8c554b9c",
+    "rescored_at": "2026-07-17T01:47:40.364646+00:00"
   }
 }

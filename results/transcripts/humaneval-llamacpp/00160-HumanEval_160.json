@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00160:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00160:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 56, in <module>\n    check(do_algebra)\n  File \"/case/main.py\", line 48, in check\n    assert candidate(['+', '*', '-'], [2, 3, 4, 5]) == 9\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "6ff97d7730b935978952188995d478d2ef4d4b09196999a54cdbefd4ea1814be",
+    "rescored_at": "2026-07-17T01:47:47.441343+00:00"
   }
 }

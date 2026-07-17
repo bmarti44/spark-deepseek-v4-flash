@@ -81,7 +81,7 @@
       "-u",
       "65534:65534",
       "-v",
-      "/tmp/dsv4-humaneval-41q3vd7i/case-00112:/case:ro",
+      "/tmp/dsv4-humaneval-rescore-y23qk9jq/case-00112:/case:ro",
       "python:3.12-slim",
       "timeout",
       "10",
@@ -91,5 +91,12 @@
     "returncode": 1,
     "stdout": "",
     "stderr": "Traceback (most recent call last):\n  File \"/case/main.py\", line 82, in <module>\n    check(reverse_delete)\n  File \"/case/main.py\", line 71, in check\n    assert candidate(\"abcde\",\"ae\") == ('bcd',False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "rescore": {
+    "protocol_version": "v5",
+    "previous_scored_correct": false,
+    "previous_reason": "sandbox failed with exit 1",
+    "source_transcript_sha256": "d7f5ad31eb58bd8e19f31b3edea75a6d222c16be8b59ae1757bd3e7dd5a3f0db",
+    "rescored_at": "2026-07-17T01:47:36.896022+00:00"
   }
 }
