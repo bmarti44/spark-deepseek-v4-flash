@@ -55,6 +55,42 @@ multiturn_cache, streaming, error_schema) passed on the fusion binary.
 3. **Protocol + config.** New build manifest + PROTOCOL entry for the binary change;
    systemd/serve pointed at the fusion binary+libs; production restart (needs root).
 
+## Deployment status (2026-07-18) — DEPLOYED PROVISIONALLY; qualification incomplete
+
+The fusion build was deployed as the production engine (systemd env override to the
+`llama.cpp-fusion` worktree). A subsequent sol/max review (docs review + this note)
+found the deployment was **not yet fully qualified**; the honest state:
+
+**Resolved after deploy (commit f74487c, all offline / GPU-free):**
+- Item 2 (integrity): serve now hashes every `shared_libraries` entry in the build
+  manifest, incl. `libggml-cuda.so`. Baseline manifest gained `shared_libraries`.
+  Validated offline (both manifests verify against their libs; a tampered CUDA lib is
+  caught).
+- Guard hammer-restart closed via engine-unit `StartLimitIntervalSec=900/Burst=3`.
+- `-ub 256` startup-peak mitigation is in the repo unit (applies on next deploy).
+
+**STILL OPEN — requires GPU/model time (deferred while the host GPU is in other use):**
+- **Memory safety is unproven.** A startup NVRM/UMA OOM occurred on deploy and recovered.
+  The `-ub 256` mitigation and its assumed root cause (fusion graph-capture buffers) are
+  NOT validated — the review notes `--no-warmup` disables startup decode and fusion
+  *reduces* graph nodes, so the true cause may be scheduler reservation / CUDA context /
+  VMM fragmentation. Neither the membudget gate nor the 1 Hz `MemAvailable` watchdog can
+  observe a GPU-side NVRM failure. **Qualify with attended cold starts** (guard/StartLimit
+  make auto-retry safe now), recording llama.cpp compute-buffer sizes, high-frequency
+  `MemAvailable`, and NVRM errors, at `-ub` 512 vs 256. Then set the budget KV slope to the
+  derived ~6880 B/tok plus measured fusion overhead.
+- **Accuracy is not a controlled comparison.** The fusion GSM8K 97/100 run did NOT disable
+  thinking the way the frozen baseline did, its transcripts are under `/tmp` (untracked),
+  and the per-item pass sequence differs despite the equal total. Re-run identically
+  (thinking off, tracked transcripts) and add MMLU-Pro + HumanEval before treating fusion
+  as accuracy-qualified.
+
+**Canonical baseline vs production:** the frozen A-vs-B benchmark and `configs/versions.lock`
+remain `32e789fd` (unchanged record). Fusion (`0dc74e3`) is a production **deployment
+override**, reversible by removing the two fusion `Environment=` lines from the engine unit.
+Until the memory + accuracy items above are closed, treat the fusion deployment as
+provisional.
+
 ## Lesson
 A correctness gate that reports "empty" without distinguishing "reasoning budget
 exhausted" from "no output" will wrongly fail a reasoning model. Fix the harness to read
