@@ -3,7 +3,11 @@ set -euo pipefail
 export LC_ALL=C
 
 readonly GIB=$((1024 * 1024 * 1024))
-readonly MIN_ROOT_FREE_BYTES=$((350 * GIB))
+# 350 GiB is the SETUP requirement (room to fetch both weight sets + build trees).
+# Running an already-loaded engine needs far less free disk (only logs), so
+# DSV4_MIN_ROOT_FREE_GIB lets the production unit set a runtime-appropriate floor.
+readonly MIN_ROOT_FREE_GIB=${DSV4_MIN_ROOT_FREE_GIB:-350}
+readonly MIN_ROOT_FREE_BYTES=$((MIN_ROOT_FREE_GIB * GIB))
 readonly MIN_MEM_AVAILABLE_KIB=$((100 * 1024 * 1024))
 readonly MAX_SWAP_USED_KIB=$((1024 * 1024))
 
@@ -101,7 +105,7 @@ if root_free_bytes=$(df -B1 --output=avail / 2>/dev/null | awk 'NR == 2 {print $
 else
     root_free_bytes="unavailable"
 fi
-add_check "root_filesystem_free_space" ">= ${MIN_ROOT_FREE_BYTES} bytes (350 GiB)" "${root_free_bytes} bytes" "$root_free_pass"
+add_check "root_filesystem_free_space" ">= ${MIN_ROOT_FREE_BYTES} bytes (${MIN_ROOT_FREE_GIB} GiB)" "${root_free_bytes} bytes" "$root_free_pass"
 
 mem_available_kib=$(awk '$1 == "MemAvailable:" {print $2; found=1} END {if (!found) exit 1}' /proc/meminfo 2>/dev/null || true)
 mem_available_pass=false
