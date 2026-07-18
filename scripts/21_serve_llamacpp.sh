@@ -579,6 +579,32 @@ try:
     if digest.hexdigest() != expected:
         raise ValueError(f"server binary sha256 mismatch: {binary_path}")
 
+    # The llama-server executable is a thin launcher; the actual engine code
+    # (incl. the CUDA fatbinary in libggml-cuda.so) lives in the shared libraries
+    # loaded from the binary's directory via RUNPATH. Verify every library the
+    # build manifest records, so an incremental rebuild of a .so cannot slip
+    # unverified code past the unchanged thin binary.
+    shared_libraries = build_manifest.get("shared_libraries")
+    if shared_libraries is not None:
+        if not isinstance(shared_libraries, dict):
+            raise ValueError("shared_libraries in build manifest is not an object")
+        binary_dir = os.path.dirname(binary_path)
+        for lib_name, lib_entry in shared_libraries.items():
+            if os.path.basename(lib_name) != lib_name or lib_name in (".", ".."):
+                raise ValueError(f"invalid shared library name in manifest: {lib_name!r}")
+            lib_expected = lib_entry.get("sha256") if isinstance(lib_entry, dict) else None
+            if not isinstance(lib_expected, str) or len(lib_expected) != 64:
+                raise ValueError(f"invalid sha256 for shared library {lib_name}")
+            lib_path = os.path.join(binary_dir, lib_name)
+            if not os.path.exists(lib_path):
+                raise ValueError(f"manifest shared library is missing: {lib_path}")
+            lib_digest = hashlib.sha256()
+            with open(lib_path, "rb") as handle:
+                for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                    lib_digest.update(chunk)
+            if lib_digest.hexdigest() != lib_expected:
+                raise ValueError(f"shared library sha256 mismatch: {lib_path}")
+
     with open(weights_manifest_path, encoding="utf-8") as stream:
         weights_manifest = json.load(stream)
     entries = {item["name"]: item for item in weights_manifest["files"]}
@@ -705,6 +731,14 @@ do_start() {
     ubatch=${DSV4_UBATCH:-512}
     [[ $batch =~ ^[1-9][0-9]*$ && $ubatch =~ ^[1-9][0-9]*$ ]] \
         || die 'DSV4_BATCH/DSV4_UBATCH must be positive integers'
+    # Upper bound: the prompt-processing graph scales with -ub, and the memory
+    # budget gate does not (fixed overhead), so an oversized -ub could reserve a
+    # huge graph and OOM at load. Cap at the frozen defaults; -ub must not exceed
+    # -b, and -b must not exceed the context.
+    (( ubatch <= batch )) || die "DSV4_UBATCH ($ubatch) must not exceed DSV4_BATCH ($batch)"
+    (( batch <= CTX )) || die "DSV4_BATCH ($batch) must not exceed CTX ($CTX)"
+    (( batch <= 2048 && ubatch <= 512 )) \
+        || die "DSV4_BATCH/DSV4_UBATCH must not exceed the frozen memory-budgeted maxima 2048/512"
     server_command=("$BINARY" --model "$MODEL_PATH")
     [[ -z $API_KEY_FILE ]] || server_command+=(--api-key-file "$API_KEY_FILE")
     server_command+=(--host 127.0.0.1 --port "$PORT" -c "$CTX" -np 1 -ngl 999

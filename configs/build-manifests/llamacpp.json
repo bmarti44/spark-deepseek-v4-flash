@@ -1,20 +1,52 @@
 {
-  "binaries": {
-    "llama-bench": {
-      "sha256": "c099d9741edabf4bc6994738e0c1c9957b03d5f8c30384ec7307911f86c68918"
-    },
-    "llama-cli": {
-      "sha256": "163924f826c36cb8426800b561228da6bc4a7fe852095057c2461dcecf313710"
-    },
-    "llama-server": {
-      "sha256": "8556ecf160a5884ff0133d66e199f98e7ee68895ab5ae9a15fe2af96365fe53d"
-    }
+ "binaries": {
+  "llama-bench": {
+   "sha256": "c099d9741edabf4bc6994738e0c1c9957b03d5f8c30384ec7307911f86c68918"
   },
-  "built_at": "2026-07-16T13:59:23Z",
-  "cmake_build_command": "cmake --build /home/dsv4/llamacpp-project/src/llama.cpp/build --config Release -j20 --target llama-server llama-cli llama-bench",
-  "cmake_configure_command": "cmake -S /home/dsv4/llamacpp-project/src/llama.cpp -B /home/dsv4/llamacpp-project/src/llama.cpp/build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=121 -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF",
-  "cmake_version": "cmake version 3.28.3",
-  "commit": "32e789fdfd598e9a1872da55ac941e4d94f030bd",
-  "gcc_version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
-  "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:57:39_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0"
+  "llama-cli": {
+   "sha256": "163924f826c36cb8426800b561228da6bc4a7fe852095057c2461dcecf313710"
+  },
+  "llama-server": {
+   "sha256": "8556ecf160a5884ff0133d66e199f98e7ee68895ab5ae9a15fe2af96365fe53d"
+  }
+ },
+ "built_at": "2026-07-16T13:59:23Z",
+ "cmake_build_command": "cmake --build /home/dsv4/llamacpp-project/src/llama.cpp/build --config Release -j20 --target llama-server llama-cli llama-bench",
+ "cmake_configure_command": "cmake -S /home/dsv4/llamacpp-project/src/llama.cpp -B /home/dsv4/llamacpp-project/src/llama.cpp/build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=121 -DCMAKE_BUILD_TYPE=Release -DLLAMA_CURL=OFF",
+ "cmake_version": "cmake version 3.28.3",
+ "commit": "32e789fdfd598e9a1872da55ac941e4d94f030bd",
+ "gcc_version": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+ "nvcc_version": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:57:39_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0",
+ "shared_libraries": {
+  "libggml-base.so": {
+   "sha256": "eb0cb526b36a1d16dc435dd5d5a6bdc7ca242b9a8ec692c22606f86c4a1f9ff8"
+  },
+  "libggml-cpu.so": {
+   "sha256": "29330db66ac2a2671352cf361cedab1f9db640d350c93370d2bd2bcb811eca47"
+  },
+  "libggml-cuda.so": {
+   "sha256": "481b6ebc1306ce798266595c5e89efcd27bf75a6a06286cd066f5f74dc41b462"
+  },
+  "libggml.so": {
+   "sha256": "45b80605ec90be23c846c8fd016a14c3b720a0bd5bb94f910a2dce80a272d89f"
+  },
+  "libllama-bench-impl.so": {
+   "sha256": "2d551a05f1e7eed9dbc6b0a7fa4cae2951c474068eed114afd7e20c17c3a6915"
+  },
+  "libllama-cli-impl.so": {
+   "sha256": "eb8cbc4a34399ded1bd00c04d4606b6fc63bcca009ae1524b77f3481e6259eab"
+  },
+  "libllama-common.so": {
+   "sha256": "27377008e10a2c0ddaf453d2b3870396f70ab0240355d61e622d8e49bdf1c006"
+  },
+  "libllama-server-impl.so": {
+   "sha256": "c51c525fd14cc9960cf7296cd4a4d20d7e5df7dff5b0e687737d3822bc263b3c"
+  },
+  "libllama.so": {
+   "sha256": "e6da632184426fe62886c47e675e5bbb3c35ef11b7f99cc67d56d7563d6fc84f"
+  },
+  "libmtmd.so": {
+   "sha256": "d2eb7dfa1679de9259aeaa176238e960c6a7c35a9169b95cabff6883d2de93db"
+  }
+ }
 }

@@ -7,6 +7,13 @@ readonly GIB=$((1024 * 1024 * 1024))
 # Running an already-loaded engine needs far less free disk (only logs), so
 # DSV4_MIN_ROOT_FREE_GIB lets the production unit set a runtime-appropriate floor.
 readonly MIN_ROOT_FREE_GIB=${DSV4_MIN_ROOT_FREE_GIB:-350}
+# Positive-integer guard: a typo (0, negative, non-numeric) must not silently turn
+# the disk floor into an always-pass condition.
+if ! [[ $MIN_ROOT_FREE_GIB =~ ^[1-9][0-9]*$ ]]; then
+    printf '00_preflight.sh: DSV4_MIN_ROOT_FREE_GIB must be a positive integer, got %q\n' \
+        "$MIN_ROOT_FREE_GIB" >&2
+    exit 2
+fi
 readonly MIN_ROOT_FREE_BYTES=$((MIN_ROOT_FREE_GIB * GIB))
 readonly MIN_MEM_AVAILABLE_KIB=$((100 * 1024 * 1024))
 readonly MAX_SWAP_USED_KIB=$((1024 * 1024))

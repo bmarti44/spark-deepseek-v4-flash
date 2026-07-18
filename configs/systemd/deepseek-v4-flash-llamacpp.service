@@ -2,6 +2,13 @@
 Description=DeepSeek V4 Flash (llama.cpp engine)
 Wants=network-online.target
 After=network-online.target
+# Backoff: a failed start (e.g. a startup memory/NVRM OOM) must not be retried in
+# a tight loop by the guard timer, which would repeatedly re-hit the risky load
+# peak and can culminate in a host freeze. After 3 failed starts in 15 min systemd
+# refuses further (re)starts and the unit latches into failed until a human
+# intervenes. `systemctl reset-failed deepseek-v4-flash-llamacpp.service` clears it.
+StartLimitIntervalSec=900
+StartLimitBurst=3
 
 [Service]
 # The serve script deliberately daemonizes the engine and its OOM watchdog.
