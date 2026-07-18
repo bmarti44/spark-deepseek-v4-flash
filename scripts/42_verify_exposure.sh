@@ -137,8 +137,22 @@ try:
     document = json.loads(sys.argv[1])
 except (ValueError, IndexError):
     raise SystemExit(1)
-allow = document.get("AllowFunnel") or {}
-# AllowFunnel maps "host:port" -> true only when Funnel is enabled for it.
-raise SystemExit(1 if any(allow.values()) else 0)
+
+
+def any_funnel(config):
+    # Tailscale ServeConfig.IsFunnelOn is recursive: Funnel can be enabled at the
+    # top level OR inside any Foreground session config. Checking only top-level
+    # AllowFunnel misses a `tailscale funnel` run held open in a foreground shell.
+    if not isinstance(config, dict):
+        return False
+    if any((config.get("AllowFunnel") or {}).values()):
+        return True
+    foreground = config.get("Foreground") or {}
+    if isinstance(foreground, dict):
+        return any(any_funnel(session) for session in foreground.values())
+    return False
+
+
+raise SystemExit(1 if any_funnel(document) else 0)
 PY
 safe_log 'PASS Tailscale Funnel is off; exposure-chain verification complete'
