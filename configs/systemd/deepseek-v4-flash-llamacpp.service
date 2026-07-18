@@ -27,6 +27,12 @@ Environment=DSV4_BUILD_MANIFEST=@DSV4_REPO@/configs/build-manifests/llamacpp-fus
 # requirement (fetching both weight sets); a loaded engine only writes logs, so
 # 100 GiB is an ample runtime floor now that the host disk is shared/fuller.
 Environment=DSV4_MIN_ROOT_FREE_GIB=100
+# Micro-batch 256 (was 512) halves the prefill compute buffer that dominates the
+# CUDA graph-capture memory peak, so the fusion build (higher startup footprint)
+# loads with margin on this 119 GiB host. Costs a little prefill throughput;
+# decode (~14% faster) is unaffected. Raise toward 512 if a restart shows ample
+# headroom. Applies on the next engine (re)start.
+Environment=DSV4_UBATCH=256
 WorkingDirectory=@DSV4_REPO@
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700

@@ -697,10 +697,18 @@ do_start() {
         || die 'memory budget gate returned invalid JSON'
 
     local -a server_command
+    # DSV4_BATCH / DSV4_UBATCH size the prefill compute buffers, which dominate
+    # the CUDA graph-capture memory peak at startup. Lowering -ub is the main
+    # lever to keep that peak under the UMA limit on this tight host; it costs a
+    # little prefill throughput and does NOT affect decode. Defaults = originals.
+    batch=${DSV4_BATCH:-2048}
+    ubatch=${DSV4_UBATCH:-512}
+    [[ $batch =~ ^[1-9][0-9]*$ && $ubatch =~ ^[1-9][0-9]*$ ]] \
+        || die 'DSV4_BATCH/DSV4_UBATCH must be positive integers'
     server_command=("$BINARY" --model "$MODEL_PATH")
     [[ -z $API_KEY_FILE ]] || server_command+=(--api-key-file "$API_KEY_FILE")
     server_command+=(--host 127.0.0.1 --port "$PORT" -c "$CTX" -np 1 -ngl 999
-        -b 2048 -ub 512 --no-warmup --cache-ram 0)
+        -b "$batch" -ub "$ubatch" --no-warmup --cache-ram 0)
     # Keep the default fp16 K/V cache: upstream quantized-K bugs make -ctk/-ctv
     # inappropriate for this production baseline.
 
