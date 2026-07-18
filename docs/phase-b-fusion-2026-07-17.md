@@ -61,13 +61,24 @@ The fusion build was deployed as the production engine (systemd env override to 
 `llama.cpp-fusion` worktree). A subsequent sol/max review (docs review + this note)
 found the deployment was **not yet fully qualified**; the honest state:
 
-**Resolved after deploy (commit f74487c, all offline / GPU-free):**
-- Item 2 (integrity): serve now hashes every `shared_libraries` entry in the build
-  manifest, incl. `libggml-cuda.so`. Baseline manifest gained `shared_libraries`.
-  Validated offline (both manifests verify against their libs; a tampered CUDA lib is
-  caught).
-- Guard hammer-restart closed via engine-unit `StartLimitIntervalSec=900/Burst=3`.
-- `-ub 256` startup-peak mitigation is in the repo unit (applies on next deploy).
+**Landed in the repo, offline-validated (commits f74487c, and the follow-up batch);
+NOTE all systemd-unit/serve changes below apply only on the NEXT install+restart —
+they are repo-landed, live-deployment unconfirmed:**
+- Integrity: serve now REQUIRES a non-empty `shared_libraries` map and hashes every
+  entry (incl. `libggml-cuda.so`); baseline + fusion manifests both carry them and the
+  builder (`13_build_llamacpp.sh`) now emits them, so generated manifests are covered
+  too. Validated offline (both manifests verify against their libs; a tampered CUDA lib
+  is caught).
+- Restart circuit breaker: `scripts/03_guard.sh` latches after 3 CONSECUTIVE unhealthy
+  checks (count-based, so slow ~600 s failing restarts cannot evade it); engine-unit
+  `StartLimit` is a secondary fast-burst guard only. (The earlier claim that StartLimit
+  alone "closed" the hammer-restart path was wrong — it can be evaded by slow failures.)
+- `-ub 256` startup-peak mitigation is in the repo unit.
+
+Also corrected for accuracy: the "correct" claim above is a golden/smoke-gate + needle
+result, NOT an accuracy qualification (see open items). The +11-19% prefill / +14%
+decode figures were measured at `-ub 512`; the deployed `-ub 256` production config's
+throughput is UNMEASURED (expected slightly lower prefill, unchanged decode).
 
 **STILL OPEN — requires GPU/model time (deferred while the host GPU is in other use):**
 - **Memory safety is unproven.** A startup NVRM/UMA OOM occurred on deploy and recovered.

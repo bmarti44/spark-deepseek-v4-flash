@@ -125,10 +125,24 @@ key in shell history, tickets, chat, logs, or the repository.
 ## Guard timer
 
 `dsv4-guard.timer` runs about 60 seconds after boot and every 60 seconds thereafter. Its
-oneshot service runs the selected serve script's `status`; a failed engine health check,
-dead server, dead residency-lock holder, or dead watchdog causes `systemctl restart` of the
-selected engine unit. The unit itself has `Restart=no`; the timer provides the restart
-policy while the external memory watchdog provides emergency termination.
+oneshot service runs `scripts/03_guard.sh`, which runs the selected serve script's
+`status`; a failed engine health check, dead server, dead residency-lock holder, or dead
+watchdog causes `systemctl restart` of the selected engine unit. The unit itself has
+`Restart=no`; the guard provides the restart policy while the external memory watchdog
+provides emergency termination.
+
+**Circuit breaker.** `03_guard.sh` counts consecutive unhealthy checks in
+`/run/dsv4/guard-consecutive-failures`. After 3 consecutive failed restarts (e.g. a
+repeated startup OOM) it LATCHES: it logs loudly and stops restarting, so the guard never
+re-hits a dangerous load peak indefinitely. A healthy check clears the counter. To recover
+after fixing the cause, clear the breaker AND start the engine (reset alone does not start
+it):
+
+```bash
+sudo rm -f /run/dsv4/guard-consecutive-failures
+sudo systemctl reset-failed deepseek-v4-flash-llamacpp.service   # if StartLimit also tripped
+sudo systemctl restart deepseek-v4-flash-llamacpp.service
+```
 
 Silence automatic restarts for maintenance before stopping or changing the engine:
 

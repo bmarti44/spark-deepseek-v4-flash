@@ -167,6 +167,7 @@ python3 - "$manifest_tmp" "$manifest" "$llamacpp_commit" "$source_describe" \
     "$gcc_version" "$cmake_version" "$built_at" \
     "${hashes[0]}" "${hashes[1]}" "${hashes[2]}" <<'PY' \
     || die_build 'failed to write build manifest'
+import hashlib
 import json
 import os
 import shlex
@@ -174,6 +175,28 @@ import sys
 
 (temporary, output, commit, describe, source, build, parallelism, nvcc, gcc, cmake,
  built_at, server_hash, cli_hash, bench_hash) = sys.argv[1:]
+
+
+def sha256_file(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+# Record every shared library alongside the thin binaries. The engine code (incl.
+# the CUDA fatbinary in libggml-cuda.so) lives here, and the serve-time integrity
+# check requires this map so a library-only rebuild cannot slip unverified code
+# past an unchanged llama-server.
+bin_dir = os.path.join(build, "bin")
+shared_libraries = {
+    name: {"sha256": sha256_file(os.path.join(bin_dir, name))}
+    for name in sorted(os.listdir(bin_dir))
+    if name.endswith(".so")
+}
+if not shared_libraries:
+    raise SystemExit("build produced no shared libraries to record")
 configure = [
     "cmake", "-S", source, "-B", build, "-DGGML_CUDA=ON",
     "-DCMAKE_CUDA_ARCHITECTURES=121", "-DCMAKE_BUILD_TYPE=Release",
@@ -196,6 +219,7 @@ manifest = {
         "llama-cli": {"sha256": cli_hash},
         "llama-bench": {"sha256": bench_hash},
     },
+    "shared_libraries": shared_libraries,
     "built_at": built_at,
 }
 with open(temporary, "w", encoding="utf-8") as stream:

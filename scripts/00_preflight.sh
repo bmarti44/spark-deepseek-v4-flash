@@ -9,7 +9,10 @@ readonly GIB=$((1024 * 1024 * 1024))
 readonly MIN_ROOT_FREE_GIB=${DSV4_MIN_ROOT_FREE_GIB:-350}
 # Positive-integer guard: a typo (0, negative, non-numeric) must not silently turn
 # the disk floor into an always-pass condition.
-if ! [[ $MIN_ROOT_FREE_GIB =~ ^[1-9][0-9]*$ ]]; then
+# Bound the digit count too: MIN_ROOT_FREE_GIB * GIB (2^30) must not overflow
+# signed 64-bit Bash arithmetic into a non-positive floor (always-pass). 6 digits
+# (<=999999 GiB) keeps the product ~1e15, far below 2^63.
+if ! [[ $MIN_ROOT_FREE_GIB =~ ^[1-9][0-9]{0,5}$ ]]; then
     printf '00_preflight.sh: DSV4_MIN_ROOT_FREE_GIB must be a positive integer, got %q\n' \
         "$MIN_ROOT_FREE_GIB" >&2
     exit 2

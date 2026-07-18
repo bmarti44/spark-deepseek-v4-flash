@@ -6,7 +6,7 @@ After=network-online.target
 Type=oneshot
 User=root
 EnvironmentFile=/etc/deepseek-v4-flash/env
-ExecStart=/bin/bash -Eeuo pipefail -c 'case "$$STACK" in ds4) script=@DSV4_REPO@/scripts/20_serve_ds4.sh; unit=deepseek-v4-flash-ds4.service ;; llamacpp) script=@DSV4_REPO@/scripts/21_serve_llamacpp.sh; unit=deepseek-v4-flash-llamacpp.service ;; *) echo "guard: invalid STACK=$$STACK"; exit 1 ;; esac; echo "guard: checking stack=$$STACK"; if /usr/sbin/runuser -u dsv4 -- "$$script" status; then echo "guard: stack=$$STACK healthy"; else echo "guard: stack=$$STACK unhealthy; restarting $$unit"; /usr/bin/systemctl restart "$$unit"; echo "guard: restart completed unit=$$unit"; fi'
+ExecStart=@DSV4_REPO@/scripts/03_guard.sh
 
 NoNewPrivileges=yes
 ProtectSystem=strict

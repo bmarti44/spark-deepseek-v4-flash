@@ -584,10 +584,16 @@ try:
     # loaded from the binary's directory via RUNPATH. Verify every library the
     # build manifest records, so an incremental rebuild of a .so cannot slip
     # unverified code past the unchanged thin binary.
+    # Required and non-empty: an absent or {} shared_libraries would silently skip
+    # library verification, leaving the CUDA code (where fusion behaviour and
+    # memory use live) unchecked behind an unchanged thin binary.
     shared_libraries = build_manifest.get("shared_libraries")
-    if shared_libraries is not None:
-        if not isinstance(shared_libraries, dict):
-            raise ValueError("shared_libraries in build manifest is not an object")
+    if not isinstance(shared_libraries, dict) or not shared_libraries:
+        raise ValueError(
+            "build manifest must record a non-empty shared_libraries map "
+            "(the launcher alone does not identify the loaded engine code)"
+        )
+    if True:
         binary_dir = os.path.dirname(binary_path)
         for lib_name, lib_entry in shared_libraries.items():
             if os.path.basename(lib_name) != lib_name or lib_name in (".", ".."):
@@ -729,8 +735,11 @@ do_start() {
     # little prefill throughput and does NOT affect decode. Defaults = originals.
     batch=${DSV4_BATCH:-2048}
     ubatch=${DSV4_UBATCH:-512}
-    [[ $batch =~ ^[1-9][0-9]*$ && $ubatch =~ ^[1-9][0-9]*$ ]] \
-        || die 'DSV4_BATCH/DSV4_UBATCH must be positive integers'
+    # Digit-bounded (<=5 digits) so a huge decimal cannot wrap fixed-width Bash
+    # arithmetic (a value congruent to 1 mod 2^64 would otherwise pass every
+    # comparison as 1 while the original string reaches llama-server).
+    [[ $batch =~ ^[1-9][0-9]{0,4}$ && $ubatch =~ ^[1-9][0-9]{0,4}$ ]] \
+        || die 'DSV4_BATCH/DSV4_UBATCH must be positive integers of at most 5 digits'
     # Upper bound: the prompt-processing graph scales with -ub, and the memory
     # budget gate does not (fixed overhead), so an oversized -ub could reserve a
     # huge graph and OOM at load. Cap at the frozen defaults; -ub must not exceed
