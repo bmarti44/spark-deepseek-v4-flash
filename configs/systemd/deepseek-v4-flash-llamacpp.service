@@ -16,6 +16,13 @@ Environment=HOME=/home/dsv4
 # 119 GiB host lands at ~16-20 GiB free in practice. 16 was too tight once the
 # host's non-reclaimable baseline settled after first boot (projected 15.9).
 Environment=DSV4_MEM_FLOOR_GIB=15
+# Production serves the fused-hyper-connection build (llama.cpp 0dc74e3, PR
+# #25585): validated correct (GSM8K dev 97/100, identical to the 32e789fd
+# benchmark build; needle retrieval + golden gates pass) and ~14% faster decode
+# / ~11-19% faster prefill. Evidence: docs/phase-b-fusion-2026-07-17.md. Remove
+# these two lines to revert to the 32e789fd build under the default paths.
+Environment=DSV4_SERVER_BINARY=/home/dsv4/llamacpp-project/src/llama.cpp-fusion/build/bin/llama-server
+Environment=DSV4_BUILD_MANIFEST=@DSV4_REPO@/configs/build-manifests/llamacpp-fusion.json
 WorkingDirectory=@DSV4_REPO@
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
