@@ -147,7 +147,7 @@ breaks even. Not pursued. Adoption trigger: a head with mean acceptance
 length >=2.5 (or an official release); our build already carries
 `--spec-type draft-eagle3`, so a well-trained head is a GGUF conversion away.
 
-### Track A: REAP expert pruning — RESULTS BELOW (2026-07-24)
+### Track A: REAP expert pruning — tested, blocked by a kernel crash
 
 [REAP](https://github.com/CerebrasResearch/reap) (Cerebras Research)
 one-shot-prunes MoE experts by router-weighted activation. Community prunes
@@ -161,3 +161,23 @@ token at Q3 exceed production Q2 — raw decode should be modestly SLOWER; the
 prize is accuracy-per-byte, memory headroom (context, speculation, no
 memory-gate friction), and the community-reported 200K-context single-Spark
 deployment (~24 tok/s with 2-token speculation).
+
+**Measured result (2026-07-24): unusable on the fusion build.** The 72.3 GiB
+GGUF loads (`deepseek4`, 144 experts), leaves 37.7 GiB free, and the FIRST
+request decodes coherent prose at **21.4-21.7 tok/s** (faster than
+production's 18.3 despite higher bpw — contrary to the active-bytes
+prediction above). But every SECOND request in the same process aborts with
+`CUDA error: an illegal memory access` (ggml-cuda.cu:106), with and without
+prompt caching (`cache_prompt: false` reproduces it) and with ~37 GiB free —
+so it is the context re-use path with the pruned non-power-of-two expert
+count (144), not memory pressure and not slot LCP reuse specifically.
+One-request-per-process is disqualifying. Action: file upstream with the
+backtrace and this repro (load REAP-144-expert GGUF, send any two requests);
+re-test on future llama.cpp pins. Weights kept at `weights/xik94-reap162b/`
+(~120 GB disk free after both experimental downloads).
+
+Accuracy was NOT evaluated (blocked before a qualification run made sense).
+The single-data-point 21.7 tok/s decode suggests the REAP direction is worth
+re-testing once the crash is fixed upstream — it beat production's decode at
+higher fidelity per active byte, which the naive bandwidth model did not
+predict.
