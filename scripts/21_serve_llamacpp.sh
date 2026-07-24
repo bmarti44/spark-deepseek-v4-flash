@@ -717,8 +717,14 @@ do_start() {
     # DSV4_MEM_FLOOR_GIB lets a benchmark run relax the projected-free floor
     # (still well above the 12 GiB watchdog kill line); defaults to 16.
     mem_floor_gib=${DSV4_MEM_FLOOR_GIB:-16}
+    # Measured on the fusion build (2026-07-23): CUDA0 compute buffer is 267
+    # MiB at ub=512, KV buffers are MB-scale; overhead 6 is already generous.
+    # For ub>512 charge +2 GiB, covering 4x compute-buffer growth plus
+    # graph-reserve slack with wide margin.
+    overhead_gib=6
+    [[ ${DSV4_UBATCH:-512} =~ ^[0-9]{1,5}$ ]] && (( ${DSV4_UBATCH:-512} > 512 )) && overhead_gib=8
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
-        --kv-bytes-per-token 4096 --overhead-gib 6 --floor-gib "$mem_floor_gib" 2>&1)
+        --kv-bytes-per-token 4096 --overhead-gib "$overhead_gib" --floor-gib "$mem_floor_gib" 2>&1)
     rc=$?
     set -e
     if (( rc != 0 )); then
@@ -746,12 +752,67 @@ do_start() {
     # -b, and -b must not exceed the context.
     (( ubatch <= batch )) || die "DSV4_UBATCH ($ubatch) must not exceed DSV4_BATCH ($batch)"
     (( batch <= CTX )) || die "DSV4_BATCH ($batch) must not exceed CTX ($CTX)"
-    (( batch <= 2048 && ubatch <= 512 )) \
-        || die "DSV4_BATCH/DSV4_UBATCH must not exceed the frozen memory-budgeted maxima 2048/512"
+    # DSV4_UBATCH_LARGE=1 permits -ub up to 2048 (ggerganov's canonical DGX
+    # Spark prefill config). The prompt-processing graph grows with -ub, so the
+    # memory budget below charges +4 GiB overhead for ub > 512 instead of
+    # trusting the frozen 6 GiB figure measured at ub=512.
+    ubatch_large=${DSV4_UBATCH_LARGE:-0}
+    [[ $ubatch_large == 0 || $ubatch_large == 1 ]] || die 'DSV4_UBATCH_LARGE must be 0 or 1'
+    if (( ubatch_large )); then
+        (( batch <= 2048 && ubatch <= 2048 )) \
+            || die "DSV4_BATCH/DSV4_UBATCH must not exceed 2048 even with DSV4_UBATCH_LARGE"
+    else
+        (( batch <= 2048 && ubatch <= 512 )) \
+            || die "DSV4_BATCH/DSV4_UBATCH must not exceed the frozen memory-budgeted maxima 2048/512"
+    fi
+    # DSV4_NO_MMAP=1 loads weights with malloc instead of mmap. GB10 mmap
+    # page-fault handling is pathologically slow (NVIDIA forum: 8m44s mmap vs
+    # 1m30s --no-mmap for a comparable load; ggerganov's canonical DGX Spark
+    # config disables mmap). Memory accounting is unchanged: with -ngl 999 the
+    # weights are resident either way, so the budget gate stays valid.
+    # Default 0 = production behavior exactly.
+    no_mmap=${DSV4_NO_MMAP:-0}
+    [[ $no_mmap == 0 || $no_mmap == 1 ]] || die 'DSV4_NO_MMAP must be 0 or 1'
+    # DSV4_LOG_VERBOSITY raises llama-server's -lv (default 3 = production).
+    # Level 4+ logs request bodies to the 700-mode server log; debugging only —
+    # revert after use because prompts land in the log.
+    log_verbosity=${DSV4_LOG_VERBOSITY:-3}
+    [[ $log_verbosity =~ ^[0-9]$ ]] || die 'DSV4_LOG_VERBOSITY must be a single digit'
+    # DSV4_SLOT_SAVE_PATH enables the /slots save/restore API so a prefilled
+    # agent prefix can be persisted and re-loaded instead of re-prefilled
+    # (~130 MiB per 20K-token slot with the DSV4 compressed cache). The
+    # directory is created 700; slot files contain prompt KV state, so it must
+    # stay private to the engine user. Default empty = disabled (production).
+    slot_save_path=${DSV4_SLOT_SAVE_PATH:-}
+    if [[ -n $slot_save_path ]]; then
+        [[ $slot_save_path == /* ]] || die 'DSV4_SLOT_SAVE_PATH must be an absolute path'
+        mkdir -p -- "$slot_save_path" || die 'cannot create slot save directory'
+        chmod 700 -- "$slot_save_path" || die 'cannot secure slot save directory'
+    fi
     server_command=("$BINARY" --model "$MODEL_PATH")
     [[ -z $API_KEY_FILE ]] || server_command+=(--api-key-file "$API_KEY_FILE")
     server_command+=(--host 127.0.0.1 --port "$PORT" -c "$CTX" -np 1 -ngl 999
         -b "$batch" -ub "$ubatch" --no-warmup --cache-ram 0)
+    (( no_mmap == 0 )) || server_command+=(--no-mmap)
+    (( log_verbosity == 3 )) || server_command+=(-lv "$log_verbosity")
+    [[ -z $slot_save_path ]] || server_command+=(--slot-save-path "$slot_save_path")
+    # DSV4_SPEC_TYPE enables speculative decoding. The ngram-* types are
+    # draft-model-free (speculate from the context itself; extra memory ~0);
+    # draft-mtp requires MTP tensors in the GGUF (the current UD-Q2_K_XL
+    # weights do NOT retain them). Whitelist only; default none = production.
+    spec_type=${DSV4_SPEC_TYPE:-none}
+    case $spec_type in
+        none|ngram-simple|ngram-map-k|ngram-map-k4v|ngram-mod|ngram-cache|draft-mtp) ;;
+        *) die 'DSV4_SPEC_TYPE must be one of: none ngram-simple ngram-map-k ngram-map-k4v ngram-mod ngram-cache draft-mtp' ;;
+    esac
+    [[ $spec_type == none ]] || server_command+=(--spec-type "$spec_type")
+    # DSV4_KV_QUANT=q8_0 halves KV-cache size/bandwidth. The DSV4 quantized-KV
+    # garbage bug was fixed upstream 2026-07-07 (PR #25202) and that commit is
+    # an ancestor of this pinned fusion build; still gate any production use on
+    # the golden suite. Default f16 = production.
+    kv_quant=${DSV4_KV_QUANT:-f16}
+    [[ $kv_quant == f16 || $kv_quant == q8_0 ]] || die 'DSV4_KV_QUANT must be f16 or q8_0'
+    [[ $kv_quant == f16 ]] || server_command+=(-ctk "$kv_quant" -ctv "$kv_quant")
     # Keep the default fp16 K/V cache: upstream quantized-K bugs make -ctk/-ctv
     # inappropriate for this production baseline.
 

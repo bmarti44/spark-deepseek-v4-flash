@@ -36,12 +36,21 @@ Environment=DSV4_BUILD_MANIFEST=@DSV4_REPO@/configs/build-manifests/llamacpp-fus
 # requirement (fetching both weight sets); a loaded engine only writes logs, so
 # 100 GiB is an ample runtime floor now that the host disk is shared/fuller.
 Environment=DSV4_MIN_ROOT_FREE_GIB=100
-# Micro-batch 256 (was 512) halves the prefill compute buffer that dominates the
-# CUDA graph-capture memory peak, so the fusion build (higher startup footprint)
-# loads with margin on this 119 GiB host. Costs a little prefill throughput;
-# decode (~14% faster) is unaffected. Raise toward 512 if a restart shows ample
-# headroom. Applies on the next engine (re)start.
-Environment=DSV4_UBATCH=256
+# Tuned 2026-07-23 (docs/speed-tuning-2026-07-23.md). Micro-batch 2048: the
+# fusion build's measured CUDA compute buffer is 267 MiB at ub=512 (the 35 GiB
+# graph-capture peak that motivated ub=256 was the pre-fusion build); ub=2048
+# costs ~1 GiB and lifts 19K-prompt prefill from ~208 to ~434 tok/s. The
+# launcher charges +2 GiB membudget overhead when ub>512 (DSV4_UBATCH_LARGE).
+Environment=DSV4_UBATCH=2048
+Environment=DSV4_BATCH=2048
+Environment=DSV4_UBATCH_LARGE=1
+# GB10 mmap page faults make cold loads pathologically slow (measured here:
+# 6-7 min -> ~92 s with --no-mmap). Weights are resident either way (-ngl 999).
+Environment=DSV4_NO_MMAP=1
+# Draft-model-free n-gram speculative decoding: no memory cost, no effect on
+# prose (18.3 tok/s unchanged), +11% on code echoing context, +50% on
+# repetitive JSON/tool output (86% draft acceptance). Lossless at temp 0.
+Environment=DSV4_SPEC_TYPE=ngram-map-k4v
 WorkingDirectory=@DSV4_REPO@
 RuntimeDirectory=dsv4
 RuntimeDirectoryMode=0700
