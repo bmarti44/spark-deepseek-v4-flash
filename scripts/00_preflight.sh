@@ -204,4 +204,14 @@ fi
 if python3 -c 'import json, sys; raise SystemExit(not json.loads(sys.argv[1])["pass"])' "$report"; then
     exit 0
 fi
+# Name the failing checks on stderr so a failed ExecStartPre is debuggable
+# from journalctl instead of exiting silently (found the hard way 2026-07-23:
+# a stale swap_in_use failure surfaced only as status=1/FAILURE with no clue).
+python3 -c '
+import json, sys
+for check in json.loads(sys.argv[1])["checks"]:
+    if not check["pass"]:
+        name, exp, act = check["name"], check["expected"], check["actual"]
+        print(f"preflight FAIL: {name} (expected {exp}, actual {act})", file=sys.stderr)
+' "$report"
 exit 1
