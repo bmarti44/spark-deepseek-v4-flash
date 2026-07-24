@@ -754,8 +754,8 @@ do_start() {
     (( batch <= CTX )) || die "DSV4_BATCH ($batch) must not exceed CTX ($CTX)"
     # DSV4_UBATCH_LARGE=1 permits -ub up to 2048 (ggerganov's canonical DGX
     # Spark prefill config). The prompt-processing graph grows with -ub, so the
-    # memory budget below charges +4 GiB overhead for ub > 512 instead of
-    # trusting the frozen 6 GiB figure measured at ub=512.
+    # memory budget below charges +2 GiB overhead (6 -> 8) for ub > 512 instead
+    # of trusting the frozen 6 GiB figure measured at ub=512.
     ubatch_large=${DSV4_UBATCH_LARGE:-0}
     [[ $ubatch_large == 0 || $ubatch_large == 1 ]] || die 'DSV4_UBATCH_LARGE must be 0 or 1'
     if (( ubatch_large )); then
@@ -785,8 +785,15 @@ do_start() {
     # stay private to the engine user. Default empty = disabled (production).
     slot_save_path=${DSV4_SLOT_SAVE_PATH:-}
     if [[ -n $slot_save_path ]]; then
-        [[ $slot_save_path == /* ]] || die 'DSV4_SLOT_SAVE_PATH must be an absolute path'
+        # Constrain to a dedicated subtree of the engine user's home and refuse
+        # symlinks so a typo or planted link cannot chmod an arbitrary
+        # directory (sol review 2026-07-24).
+        [[ $slot_save_path == "$HOME"/slot-cache || $slot_save_path == "$HOME"/slot-cache/* ]] \
+            || die "DSV4_SLOT_SAVE_PATH must be under $HOME/slot-cache"
+        [[ ! -L $slot_save_path ]] || die 'DSV4_SLOT_SAVE_PATH must not be a symlink'
         mkdir -p -- "$slot_save_path" || die 'cannot create slot save directory'
+        [[ -d $slot_save_path && ! -L $slot_save_path && -O $slot_save_path ]] \
+            || die 'slot save path is not an owned plain directory'
         chmod 700 -- "$slot_save_path" || die 'cannot secure slot save directory'
     fi
     server_command=("$BINARY" --model "$MODEL_PATH")

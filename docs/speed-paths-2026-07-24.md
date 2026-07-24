@@ -22,7 +22,7 @@ subtracted):
 | code gen (short ctx) | ~19 tok/s (68.4% acceptance, 2.68 tok/step) | 18.4 | tie |
 | code echo-edit | **25.8 tok/s** (97.1% acceptance, 4.71 tok/step) | 19.7 | ds4 |
 | repetitive JSON | **crashed** (watchdog kill, twice) | 27.6 stable | llamacpp |
-| 19K prefill + 256 gen, cold | 42.8 s wall (~870-1100 tok/s prefill implied) | ~73 s (434 tok/s) | ds4 |
+| 19K prefill + 256 gen, cold | 42.8 s wall (prefill NOT separable: ds4 exposes no split timings; implied ~580-1100 tok/s across the plausible 10-26 tok/s decode range) | ~73 s (434 tok/s measured) | ds4, margin unquantified |
 | 19K repeat request | ~37 s (appears to re-prefill; no cross-request prefix cache observed) | 2-4 s (prefix cache) | llamacpp |
 | cold load | 60-76 s | ~92 s | tie |
 
@@ -37,9 +37,10 @@ gate when speculation engages, not the burst size — no memory-budget knob
 exists for it.
 
 Verdict: not a general win over the tuned llama.cpp endpoint for the agent
-workload. Where it clearly wins: cold-prompt TTFT (2-2.5x prefill) and
-context-echoing generation — IF ~3 GiB more slack is freed (close browsers) or
-the burst is qualified. Where it loses: prose decode (slower than tuned
+workload. Where it wins: cold-prompt TTFT (42.8 s vs ~73 s wall on the same
+19K+256 job — a solid 1.7x on wall clock; the per-phase prefill multiple is
+not separable from ds4's opaque timings) and context-echoing generation — IF
+~3 GiB more slack is freed (close browsers) or the burst is qualified. Where it loses: prose decode (slower than tuned
 llamacpp), no observed cross-request prefix reuse (every agent turn re-pays
 prefill: ~40 s vs llamacpp's 2-4 s), ≤~28K context envelope, and the
 demonstrated fragility. The 2026-07-17 DECISION-era 26 tok/s soak decode was
@@ -75,9 +76,12 @@ upstream V4 merge (2026-06-29) and appears stale.
    fails with `unknown model architecture: 'deepseek4_mtp_support'` — a
    ds4-private arch string. llama.cpp exits cleanly at load.
 
-Until someone publishes a V4-Flash GGUF with real NextN tensors (or upstream's
-converter gains that mapping), llama.cpp MTP for this model is not a matter of
-flags or effort — the weights do not exist in loadable form.
+Scope of this conclusion (sol review): what is PROVEN is that neither tested
+quantizer's GGUF contains NextN tensors and the one standalone MTP file on
+this host is format-incompatible. The converter-never-emits-NextN explanation
+is an inference consistent with both data points, not a survey of every
+published conversion. Practical rule stands either way: header-verify
+`nextn` tensors (512 KB range fetch) before committing to any download.
 
 ### Consolation data: IQ2_XXS-XL plain (73 GiB vs 90 GiB), same server flags
 
@@ -93,8 +97,9 @@ flags or effort — the weights do not exist in loadable form.
 Only +5-7% on prose despite 19% smaller weights: decode reads the routed
 active-expert subset per token, and the size savings concentrate in experts
 that are mostly idle per step. Without MTP the smaller quant does not justify
-its bpw drop (2.21 vs UD-Q2_K_XL's class) — accuracy re-qualification would
-almost certainly show regression for a marginal speed gain.
+its bpw drop (2.21 vs UD-Q2_K_XL's class) for a +5-7% speed gain — a
+regression risk we chose not to spend qualification cycles on (untested
+inference, not a measured accuracy result).
 
 ## Bottom line
 
@@ -113,3 +118,46 @@ The 73 GiB IQ2_XXS-XL weights are kept at
 `weights/teamblobfish-iq2_xxs_xl/` (disk now ~190 GB free) as the fallback
 candidate if MTP-bearing conversions appear for this scheme first; delete the
 directory to reclaim the space.
+
+## Academic-track follow-ups (investigated 2026-07-23/24)
+
+### Track B: DSpark upstreaming into llama.cpp — watch, not testable yet
+
+[llama.cpp PR #25173](https://github.com/ggml-org/llama.cpp/pull/25173)
+(DSpark = DFlash + semi-autoregressive Markov head, confidence-scheduled
+verification; design in
+[issue #25096](https://github.com/ggml-org/llama.cpp/issues/25096)) is open
+and active, but scoped Qwen3-first by the author. DeepSeek-V4 is blocked in
+the branch by a rope-type bug (hardcoded NEOX vs V4's NORM; acceptance falls
+~5.5 -> ~2.0 tokens) and by the absence of any published DFlash-format
+V4-Flash drafter (needs `markov_w1`/`markov_w2` tensors; ds4's
+`DSpark-drafter-Q2K-Q8.gguf` is ds4-private format and does not convert).
+Adoption trigger: rope fix lands + a V4-Flash DFlash drafter GGUF appears.
+If both happen, this brings ds4-class speculation into llama.cpp while
+keeping prefix caching, 32K+ context, and the stability ds4 lacked.
+
+### Track C: EAGLE-3 head — exists but proof-of-concept grade
+
+[ManiacLabs/DeepSeek-V4-Flash-EAGLE3.1](https://huggingface.co/ManiacLabs/DeepSeek-V4-Flash-EAGLE3.1)
+(2026-06-07) is the first public EAGLE-3 head for this model, but: trained on
+only 71K tokens, ~11% draft acceptance, mean accepted length 1.33, served
+only via a custom vLLM overlay, explicitly "No SGLang / llama.cpp support."
+At 1.33 mean acceptance a bandwidth-bound single-stream deployment roughly
+breaks even. Not pursued. Adoption trigger: a head with mean acceptance
+length >=2.5 (or an official release); our build already carries
+`--spec-type draft-eagle3`, so a well-trained head is a GGUF conversion away.
+
+### Track A: REAP expert pruning — RESULTS BELOW (2026-07-24)
+
+[REAP](https://github.com/CerebrasResearch/reap) (Cerebras Research)
+one-shot-prunes MoE experts by router-weighted activation. Community prunes
+of V4 Flash exist with standard `deepseek4` GGUF headers (verified by
+range-fetching headers before download — 512 KB instead of 72 GiB).
+Candidate under test: `xik94/DSV4-Flash-162B-REAP-Q3_K_M.gguf` (72.3 GiB,
+144 of the original experts, ~3.8 bpw vs production's ~2.7): higher fidelity
+per byte AND ~18 GiB more headroom. Note the physics before expecting decode
+miracles: expert_used_count is unchanged (6+1 shared), so ACTIVE bytes per
+token at Q3 exceed production Q2 — raw decode should be modestly SLOWER; the
+prize is accuracy-per-byte, memory headroom (context, speculation, no
+memory-gate friction), and the community-reported 200K-context single-Spark
+deployment (~24 tok/s with 2-token speculation).

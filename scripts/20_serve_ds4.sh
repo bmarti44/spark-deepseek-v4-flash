@@ -671,6 +671,9 @@ do_start() {
     # Default 16 preserves production behavior exactly.
     ds4_mem_floor_gib=${DS4_MEM_FLOOR_GIB:-16}
     [[ $ds4_mem_floor_gib =~ ^[0-9]{1,3}$ ]] || die 'DS4_MEM_FLOOR_GIB must be a positive integer'
+    # Never admit a launch projected below the 12 GiB watchdog kill line + 1;
+    # the override relaxes toward the backstop, it must not cross it.
+    (( ds4_mem_floor_gib >= 13 )) || die 'DS4_MEM_FLOOR_GIB must be >= 13 (12 GiB watchdog + 1)'
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
         --kv-bytes-per-token 2048 --overhead-gib 6 --floor-gib "$ds4_mem_floor_gib" 2>&1)
     rc=$?

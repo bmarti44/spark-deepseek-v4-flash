@@ -12,7 +12,7 @@ was measured on this host, same weights, same pinned fusion binary
 |---|---|---|---|
 | Prefill, 19K prompt | ~208 tok/s | **434 tok/s** | 2.1× |
 | TTFT, 19K cold prompt | ~97-100 s | **~59 s** | ~40% |
-| TTFT, cached/repeat turn | ~100 s (cache always missed) | **2-4 s** | ~30× |
+| TTFT, cached/repeat turn | ~100 s (agent payloads missed cache) | **2-4 s** capability, byte-stable prefix only | see §4 note |
 | Decode, prose | 14-15 tok/s (agent-observed) / 18.3 clean | **18.3 tok/s** | — |
 | Decode, code echoing context | — | **19.7 tok/s** | +11% vs baseline 18.3 |
 | Decode, repetitive JSON/tool output | — | **27.6 tok/s** | +50% |
@@ -48,15 +48,21 @@ overhead for ub>512).
    at ub=512 (the historical "35 GiB peak" was the pre-fusion build). ub=2048
    costs ~1 GiB.
 3. **`--spec-type ngram-map-k4v`** (n-gram speculative decoding, no draft
-   model, ~zero memory) — engages only when output echoes context/history:
-   prose 18.3 tok/s (no change, no penalty), code-echo 19.7 (+11%, 61-70%
-   draft acceptance), repetitive JSON 27.6 (+50%, 86% acceptance). Ideal for
-   agent/tool-call traffic; harmless otherwise.
+   model) — engages only when output echoes context/history: prose 18.3
+   tok/s (no regression observed in sampled runs), code-echo 19.7 (+11%,
+   61-70% draft acceptance), repetitive JSON 27.6 (+50%, 86% acceptance).
+   Well-suited to agent/tool-call traffic. Scope note (sol review): memory
+   cost and prose-latency neutrality are observed-negligible in these
+   samples, not proven universally.
 4. **Prompt caching (server side) verified working** — identical 18.7K-token
    repeat request: 4 tokens prefilled, TTFT 2.3 s; same-prefix/new-question:
    517 tokens prefilled, TTFT 4.2 s. `--cache-ram 0` does NOT disable in-slot
    prefix reuse (a web claim to the contrary was refuted 0-3 and disproven
-   locally).
+   locally). Honest scope (sol review): this session did NOT change caching —
+   the 2-4 s number is what the server always could do with a byte-stable
+   prefix; the ~100 s the agent experiences per turn persists until the
+   Hermes payload-instability is fixed client-side. The table row is a
+   capability bound, not a realized production improvement.
 
 ## Rejected / dead ends (all verified, don't re-litigate without new evidence)
 
