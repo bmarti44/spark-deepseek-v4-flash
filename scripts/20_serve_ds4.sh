@@ -665,8 +665,14 @@ do_start() {
     # host; ds4's boot-time artifact repacks add device allocations but the
     # project's published single-Spark footprint (~81 GiB loaded + large KV
     # pool) leaves margin. Floor stays 16; the 12 GiB watchdog is the backstop.
+    # DS4_MEM_FLOOR_GIB mirrors the llamacpp launcher's benchmark override
+    # (scripts/21_serve_llamacpp.sh): lets a supervised run relax the
+    # projected-free floor while the 12 GiB watchdog stays the hard backstop.
+    # Default 16 preserves production behavior exactly.
+    ds4_mem_floor_gib=${DS4_MEM_FLOOR_GIB:-16}
+    [[ $ds4_mem_floor_gib =~ ^[0-9]{1,3}$ ]] || die 'DS4_MEM_FLOOR_GIB must be a positive integer'
     budget=$(python3 "$MEMBUDGET" --weights "${weights[@]}" --ctx "$CTX" \
-        --kv-bytes-per-token 2048 --overhead-gib 6 --floor-gib 16 2>&1)
+        --kv-bytes-per-token 2048 --overhead-gib 6 --floor-gib "$ds4_mem_floor_gib" 2>&1)
     rc=$?
     set -e
     if (( rc != 0 )); then
