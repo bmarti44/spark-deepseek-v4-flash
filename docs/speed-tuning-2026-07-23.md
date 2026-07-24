@@ -105,14 +105,14 @@ Decode ~18 tok/s prose is near the bandwidth bound: ~90 GiB quant on
 tokens are recomputed exactly), so these paths trade memory/disk/accuracy of
 the *weights*, never output correctness of accepted tokens:
 
-1. **MTP-retaining GGUF + `--spec-type draft-mtp`** (this build has the full
-   MTP driver, `common_speculative_impl_draft_mtp`). Candidate:
-   [teamblobfish/DeepSeek-V4-Flash-GGUF](https://huggingface.co/teamblobfish/DeepSeek-V4-Flash-GGUF)
-   -XL variants retain NextN heads at Q8_0. Sizes: Q2_K-XL ~100 GiB (too big
-   for our envelope), **IQ2_XS-XL ~81 GiB / IQ2_XXS-XL ~73 GiB (fit)**.
-   Expected: cross-model Spark data shows ~2.4-2.6× decode at ~72% acceptance
-   (PR #22673); smaller weights also decode faster per-token (up to +20% from
-   73 vs 90 GiB alone). Plausible outcome: 30-40 tok/s prose.
+1. **MTP-retaining GGUF + `--spec-type draft-mtp`** — **SUPERSEDED
+   HYPOTHESIS: falsified 2026-07-24; see docs/speed-paths-2026-07-24.md.**
+   The candidate ([teamblobfish
+   -XL](https://huggingface.co/teamblobfish/DeepSeek-V4-Flash-GGUF)) claims
+   to retain NextN heads, but the downloaded IQ2_XXS-XL's full tensor
+   inventory contains none, so the projections that followed (2.4-2.6×
+   decode, 30-40 tok/s prose) never became testable; the tradeoff list that
+   follows is likewise historical.
    Tradeoffs: (a) ~73-81 GiB download (267 GB free on disk — fits, ~90 GiB
    headroom after); (b) lower bpw than UD-Q2_K_XL ⇒ accuracy re-qualification
    required per protocol (golden + holdout suites) before production; (c)

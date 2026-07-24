@@ -106,7 +106,8 @@ inference, not a measured accuracy result).
 **The tuned llama.cpp endpoint on UD-Q2_K_XL remains the production
 configuration.** Neither path dethrones it today:
 
-- Path 1 (MTP): blocked on the ecosystem — no loadable NextN weights exist.
+- Path 1 (MTP): blocked — no loadable NextN weights were found in any source
+  checked here (two quantizers' full inventories + the one local MTP file).
   Re-check when a quantizer publishes V4-Flash GGUFs with verified `nextn`
   tensors (verify with a header parse BEFORE downloading 70+ GiB).
 - Path 2 (ds4/DSpark): real wins only for cold-prompt TTFT and echo-heavy
@@ -114,10 +115,8 @@ configuration.** Neither path dethrones it today:
   provides; loses on prose decode, per-turn prefix reuse, context ceiling,
   and stability.
 
-The 73 GiB IQ2_XXS-XL weights are kept at
-`weights/teamblobfish-iq2_xxs_xl/` (disk now ~190 GB free) as the fallback
-candidate if MTP-bearing conversions appear for this scheme first; delete the
-directory to reclaim the space.
+The 73 GiB IQ2_XXS-XL weights were deleted 2026-07-24 (disk pressure — see
+Appendix housekeeping note; re-download command preserved there).
 
 ## Academic-track follow-ups (investigated 2026-07-23/24)
 
@@ -132,20 +131,28 @@ the branch by a rope-type bug (hardcoded NEOX vs V4's NORM; acceptance falls
 ~5.5 -> ~2.0 tokens) and by the absence of any published DFlash-format
 V4-Flash drafter (needs `markov_w1`/`markov_w2` tensors; ds4's
 `DSpark-drafter-Q2K-Q8.gguf` is ds4-private format and does not convert).
-Adoption trigger: rope fix lands + a V4-Flash DFlash drafter GGUF appears.
-If both happen, this brings ds4-class speculation into llama.cpp while
-keeping prefix caching, 32K+ context, and the stability ds4 lacked.
+Adoption trigger: rope fix lands + a V4-Flash DFlash drafter GGUF appears —
+NECESSARY conditions, not sufficient (sol re-review): the PR discussion also
+records unresolved quantized-target greedy divergence and draft-cache/state
+cleanup concerns, so DSV4 correctness and stability under this path are
+undemonstrated until measured here.
 
 ### Track C: EAGLE-3 head — exists but proof-of-concept grade
 
 [ManiacLabs/DeepSeek-V4-Flash-EAGLE3.1](https://huggingface.co/ManiacLabs/DeepSeek-V4-Flash-EAGLE3.1)
 (2026-06-07) is the first public EAGLE-3 head for this model, but: trained on
-only 71K tokens, ~11% draft acceptance, mean accepted length 1.33, served
-only via a custom vLLM overlay, explicitly "No SGLang / llama.cpp support."
-At 1.33 mean acceptance a bandwidth-bound single-stream deployment roughly
-breaks even. Not pursued. Adoption trigger: a head with mean acceptance
-length >=2.5 (or an official release); our build already carries
-`--spec-type draft-eagle3`, so a well-trained head is a GGUF conversion away.
+a 71K-example corpus (65K general + 6K agentic, 4 epochs — examples, not
+tokens; corrected per sol re-review), ~11% draft acceptance, mean accepted
+length 1.33, served only via a custom vLLM overlay (stock serving lacks the
+V4 auxiliary-state capture it needs), explicitly "No SGLang / llama.cpp
+support." The card reports 2.63x throughput on 4x B200 despite the 1.33 mean
+acceptance — we have NOT built a single-Spark cost model, so the local gain
+is unknown rather than provably break-even. Not pursued. Adoption trigger: a
+head with mean acceptance length >=2.5 (or an official release). Caveat: our
+build's `--spec-type draft-eagle3` flag existing does not establish that
+DSV4 auxiliary-state extraction, tensor mapping, or rope handling work for
+this architecture — adoption would need a conversion AND an integration
+proof, not just a flag.
 
 ### Track A: REAP expert pruning — tested, blocked by a kernel crash
 
@@ -154,30 +161,139 @@ one-shot-prunes MoE experts by router-weighted activation. Community prunes
 of V4 Flash exist with standard `deepseek4` GGUF headers (verified by
 range-fetching headers before download — 512 KB instead of 72 GiB).
 Candidate under test: `xik94/DSV4-Flash-162B-REAP-Q3_K_M.gguf` (72.3 GiB,
-144 of the original experts, ~3.8 bpw vs production's ~2.7): higher fidelity
-per byte AND ~18 GiB more headroom. Note the physics before expecting decode
+144 of the original experts, ~3.8 bpw vs production's ~2.7): more bits per
+RETAINED weight and ~18 GiB more headroom — whether that nets out to higher
+quality than the unpruned Q2 is an open question the holdout suite must
+answer (pruning 75% of experts is itself a fidelity cost). Note the physics before expecting decode
 miracles: expert_used_count is unchanged (6+1 shared), so ACTIVE bytes per
 token at Q3 exceed production Q2 — raw decode should be modestly SLOWER; the
 prize is accuracy-per-byte, memory headroom (context, speculation, no
 memory-gate friction), and the community-reported 200K-context single-Spark
 deployment (~24 tok/s with 2-token speculation).
 
-**Measured result (2026-07-24): unusable on the fusion build.** The 72.3 GiB
-GGUF loads (`deepseek4`, 144 experts), leaves 37.7 GiB free, and the FIRST
-request decodes coherent prose at **21.4-21.7 tok/s** (faster than
-production's 18.3 despite higher bpw — contrary to the active-bytes
-prediction above). But every SECOND request in the same process aborts with
-`CUDA error: an illegal memory access` (ggml-cuda.cu:106), with and without
-prompt caching (`cache_prompt: false` reproduces it) and with ~37 GiB free —
-so it is the context re-use path with the pruned non-power-of-two expert
-count (144), not memory pressure and not slot LCP reuse specifically.
-One-request-per-process is disqualifying. Action: file upstream with the
-backtrace and this repro (load REAP-144-expert GGUF, send any two requests);
-re-test on future llama.cpp pins. Weights kept at `weights/xik94-reap162b/`
-(~120 GB disk free after both experimental downloads).
+**Measured result (2026-07-24): crashes on request 2 — root cause identified
+and a fix ported (see below).** The 72.3 GiB GGUF loads (`deepseek4`, 144
+experts), leaves 37.7 GiB free, and the FIRST request decodes coherent prose
+at 21.4-21.7 tok/s (single data point; exact request: 256-token completion,
+temp 0, 18-token prompt, `-ub 2048 --no-mmap`, ngram spec loaded but idle —
+raw probe transcripts in this doc's appendix). Every SECOND request in the
+same process aborts with `CUDA error: an illegal memory access`.
 
-Accuracy was NOT evaluated (blocked before a qualification run made sense).
-The single-data-point 21.7 tok/s decode suggests the REAP direction is worth
-re-testing once the crash is fixed upstream — it beat production's decode at
-higher fidelity per active byte, which the naive bandwidth model did not
-predict.
+Isolation matrix (all two-request probes, `cache_prompt: false`):
+
+| Variant | Result |
+|---|---|
+| fusion build (0dc74e33) | crash on request 2 |
+| pre-fusion pin (32e789fdf) | crash on request 2 — NOT a fusion regression |
+| fusion + `GGML_CUDA_DISABLE_GRAPHS=1` | crash — not CUDA-graph reuse |
+| fusion + `GGML_CUDA_FORCE_CUBLAS=1` | crash — not MMQ-specific |
+| fusion + `CUDA_LAUNCH_BLOCKING=1` | names the kernel: `ggml_cuda_mul_mat_q` (mmq.cu:221) |
+
+Root cause (confirmed by the quantizer's own model card, which we found
+after the isolation): **REAP remaps several routing slots to the same
+physical expert, and `mm_ids_helper` (ggml/src/ggml-cuda/mmid.cu) races when
+more than one warp thread matches the same expert for a token** —
+`warp_reduce_any` + a single store slot corrupts the compact index stream
+that downstream expert matmuls consume. The quantizer ships a patch
+(prefix-sum ranks instead of any-reduce); their `.patch` file is truncated
+and targets an older base, so the fix was ported semantically to our tree
+(both the generic and neu_padded-optimized paths) in a dev worktree
+(`llama.cpp-reapfix`, production checkout untouched). Earlier phrasing here
+attributed the crash to "context re-use with the pruned non-power-of-two
+expert count" — that causal guess was wrong in the mechanism (it is a
+duplicate-ID warp race that request 2's state happens to expose) and is
+superseded by this section.
+
+Accuracy was NOT evaluated. The 21.7 tok/s figure is a single prompt/config
+data point, not a benchmark; "higher bpw per retained weight" describes the
+quantization arithmetic only — whether REAP-75% pruning at Q3 beats the
+unpruned Q2 on quality is an open empirical question for the holdout suite.
+
+## Appendix: raw REAP probe data (auditability)
+
+Probe: llama-server with the REAP GGUF, loopback :8021, flags
+`-c 32768 -np 1 -ngl 999 --no-warmup --no-mmap --cache-ram 0` (+ per-variant
+env), three sequential /v1/chat/completions requests, `cache_prompt: false`,
+`max_tokens: 64`, `temperature: 0`.
+
+Throughput observations (fusion build, `-ub 2048 -b 2048`, ngram spec loaded):
+
+```
+short-ctx prose r1: prompt_n=18 gen_n=256 decode_tps=21.44 prefill_tps=51.5  (run 1)
+short-ctx prose r1: decode=21.7 t/s                                          (run 2)
+```
+
+Crash matrix raw results:
+
+```
+oldpin          : r1=200 r2=000 r3=000 CRASHES-ON-REUSE   (32e789fdf build)
+fusion-blocking : r1=200 r2=000 r3=000 CRASHES-ON-REUSE   (CUDA_LAUNCH_BLOCKING=1)
+  -> E CUDA error: an illegal memory access was encountered
+  -> E   in function ggml_cuda_mul_mat_q at .../ggml-cuda/mmq.cu:221
+fusion-nographs : r1=200 r2=000 r3=000 CRASHES-ON-REUSE   (GGML_CUDA_DISABLE_GRAPHS=1; 0 'CUDA Graph' log lines)
+fusion-cublas   : r1=200 r2=000 r3=000 CRASHES-ON-REUSE   (GGML_CUDA_FORCE_CUBLAS=1)
+```
+
+The dev fix lives in the dsv4-owned worktree `llama.cpp-reapfix`
+(`git diff` = mmid.cu only, 36 insertions / 8 deletions); the ported change
+mirrors xik94's published fix (prefix-sum ranks for duplicate expert IDs in
+`mm_ids_helper`, both code paths).
+
+Housekeeping: `weights/teamblobfish-iq2_xxs_xl/` (73 GiB) was DELETED
+2026-07-24 after its purpose (MTP tensor inventory: negative) was served —
+the root filesystem was at 97% and only ~21 GiB above the unit's 100 GiB
+startup floor with both experimental weight sets retained (sol re-review).
+Re-download if ever needed:
+`hf download teamblobfish/DeepSeek-V4-Flash-GGUF IQ2_XXS-XL/... --local-dir weights/teamblobfish-iq2_xxs_xl`.
+`weights/xik94-reap162b/` (73 GiB) is retained while the mmid fix is under
+test; delete it too if the REAP line is abandoned.
+
+## Bug-resolution session (2026-07-24, late)
+
+### Bug B (REAP second-request crash): FIXED in a dev build — two-layer root cause
+
+Layer 1 — duplicate-expert-ID warp race in `mm_ids_helper`
+(ggml/src/ggml-cuda/mmid.cu): REAP remaps several routing slots to one
+physical expert; `warp_reduce_any` + a single store slot drop/corrupt compact
+entries when >1 warp thread matches. Community fix by the quantizer (xik94)
+ported semantically to our base (their `.patch` is truncated and targets an
+older tree); both the generic and neu_padded-optimized paths.
+
+Layer 2 — NOVEL, found here: the shared-memory `store` is sized
+`n_tokens * sizeof(entry)`, assuming ≤1 entry per token per expert. With
+duplicates an expert can receive up to n_expert_used entries per token, so
+large prefill batches overrun shared memory even WITH the community fix
+(reproduced: short requests pass, 19K prefill faults in `ggml_cuda_mul_mat_q`
+at the post-`mm_ids_helper` check under CUDA_LAUNCH_BLOCKING). Fix: size the
+store `n_tokens * n_expert_used * sizeof(entry)` (48 KB at ub=2048/6 experts,
+within Blackwell's opt-in limit; the existing smpbo assert now fails loudly
+instead of corrupting). xik94's own build is exposed to this on large
+batches — worth reporting back to them and upstream.
+
+Verified after both fixes (dev worktree `llama.cpp-reapfix`, patch preserved
+at docs/patches/mmid-duplicate-expert-ids.patch, probe at
+docs/patches/reap-two-request-probe.sh): full bench suite passes on
+REAP-162B Q3_K_M — prose 21.4 tok/s, code 21.5, 19K prefill 463 tok/s,
+19K-depth decode 19.2-20.0, math spot-check correct. That is +15-17% decode
+over production at every point measured. Production adoption still requires
+accuracy qualification (holdout suites) and a manifested build per protocol.
+
+### Bug A (slot restore no-op): root-caused — fix requires fork surgery
+
+Instrumented restore handler proves the restored token container is
+byte-perfect (`0 24694 223 1320 ...` = file = fresh tokenization). The
+failure is a three-way interaction:
+1. Slot save files persist tokens + KV cells but NOT the fork's context
+   checkpoints (`slot.prompt.checkpoints`).
+2. The DSV4 compressed cache cannot partial-remove
+   (`common_conte: the context does not support partial sequence removal`).
+3. llama-server's must-evaluate-≥1-token rule decrements n_past even on an
+   exact match, which always demands removing ≥1 tail position.
+Native in-slot reuse survives (observed cache_n values are CHECKPOINT
+positions, e.g. 1614/18726, not raw LCP) because live checkpoints exist;
+restored slots have none, so any repeat degenerates to full re-prefill.
+Even a boundary-exact save (prompt-only request, n_saved == request tokens)
+fails on rule 3. No client-side workaround exists. Recommended fork patch:
+serialize the newest context checkpoint into the slot save file and
+reinstate it on restore (this is precisely the gap the bigctx plan's M1
+"verify checkpoints work with --cache-ram 0" milestone anticipated).

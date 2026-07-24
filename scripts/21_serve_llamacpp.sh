@@ -785,16 +785,26 @@ do_start() {
     # stay private to the engine user. Default empty = disabled (production).
     slot_save_path=${DSV4_SLOT_SAVE_PATH:-}
     if [[ -n $slot_save_path ]]; then
-        # Constrain to a dedicated subtree of the engine user's home and refuse
-        # symlinks so a typo or planted link cannot chmod an arbitrary
-        # directory (sol review 2026-07-24).
-        [[ $slot_save_path == "$HOME"/slot-cache || $slot_save_path == "$HOME"/slot-cache/* ]] \
-            || die "DSV4_SLOT_SAVE_PATH must be under $HOME/slot-cache"
-        [[ ! -L $slot_save_path ]] || die 'DSV4_SLOT_SAVE_PATH must not be a symlink'
-        mkdir -p -- "$slot_save_path" || die 'cannot create slot save directory'
-        [[ -d $slot_save_path && ! -L $slot_save_path && -O $slot_save_path ]] \
+        # Constrain to a dedicated subtree of the engine user's home. The
+        # first sol-review fix was lexical-only and bypassable via `..` and
+        # ancestor symlinks (sol re-review 2026-07-24): now the trusted root
+        # is created first and verified non-symlink/owned, the requested path
+        # is fully canonicalized (realpath resolves every component), and the
+        # canonical result must land inside the verified root.
+        slot_root=$HOME/slot-cache
+        mkdir -p -- "$slot_root" || die 'cannot create slot cache root'
+        [[ ! -L $slot_root && -d $slot_root && -O $slot_root ]] \
+            || die 'slot cache root is not an owned plain directory'
+        chmod 700 -- "$slot_root" || die 'cannot secure slot cache root'
+        slot_save_canonical=$(realpath -m -- "$slot_save_path") \
+            || die 'cannot canonicalize DSV4_SLOT_SAVE_PATH'
+        [[ $slot_save_canonical == "$slot_root" || $slot_save_canonical == "$slot_root"/* ]] \
+            || die "DSV4_SLOT_SAVE_PATH must resolve inside $slot_root (got: $slot_save_canonical)"
+        mkdir -p -- "$slot_save_canonical" || die 'cannot create slot save directory'
+        [[ -d $slot_save_canonical && ! -L $slot_save_canonical && -O $slot_save_canonical ]] \
             || die 'slot save path is not an owned plain directory'
-        chmod 700 -- "$slot_save_path" || die 'cannot secure slot save directory'
+        chmod 700 -- "$slot_save_canonical" || die 'cannot secure slot save directory'
+        slot_save_path=$slot_save_canonical
     fi
     server_command=("$BINARY" --model "$MODEL_PATH")
     [[ -z $API_KEY_FILE ]] || server_command+=(--api-key-file "$API_KEY_FILE")

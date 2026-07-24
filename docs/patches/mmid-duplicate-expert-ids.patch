@@ -1,0 +1,85 @@
+diff --git a/ggml/src/ggml-cuda/mmid.cu b/ggml/src/ggml-cuda/mmid.cu
+index f80442fbe..7425c2441 100644
+--- a/ggml/src/ggml-cuda/mmid.cu
++++ b/ggml/src/ggml-cuda/mmid.cu
+@@ -50,13 +50,27 @@ static __global__ void mm_ids_helper(
+                 }
+             }
+ 
+-            if (iex_used != -1) {
+-                store[it_compact] = mm_ids_helper_store(it, iex_used);
++            // Duplicate expert IDs (e.g. REAP-pruned models remap several
++            // routing slots to one physical expert): the old
++            // warp_reduce_any + single-slot store raced when more than one
++            // thread matched, corrupting the compact index and causing
++            // illegal memory access downstream. Assign each matching thread
++            // a unique rank with an inclusive warp prefix sum instead.
++            const int match = iex_used != -1 ? 1 : 0;
++            int my_rank = match;
++#pragma unroll
++            for (int offset = 1; offset < warp_size; offset <<= 1) {
++                const int tmp = __shfl_up_sync(0xFFFFFFFF, my_rank, offset, warp_size);
++                if (threadIdx.x >= static_cast<unsigned int>(offset)) {
++                    my_rank += tmp;
++                }
+             }
++            const int total_matches = __shfl_sync(0xFFFFFFFF, my_rank, warp_size - 1, warp_size);
+ 
+-            if (warp_reduce_any<warp_size>(iex_used != -1)) {
+-                it_compact++;
++            if (match) {
++                store[it_compact + my_rank - 1] = mm_ids_helper_store(it, iex_used);
+             }
++            it_compact += total_matches;
+         }
+     } else {
+         // Implementation optimized for specific numbers of experts used:
+@@ -71,8 +85,22 @@ static __global__ void mm_ids_helper(
+             const int iex_used = expert_used == expert ? iex : -1;
+             nex_prev += expert_used < expert;
+ 
+-            // Whether the threads at this token position have used the expert:
+-            const int it_compact_add_self = warp_reduce_any<neu_padded>(iex_used != -1);
++            // Duplicate expert IDs (see generic path): rank matching threads
++            // within their neu_padded group with an inclusive prefix sum so
++            // each duplicate gets a unique store slot, and count matches
++            // instead of or-reducing them.
++            const int match = iex_used != -1 ? 1 : 0;
++            int my_rank = match;
++#pragma unroll
++            for (int offset = 1; offset < neu_padded; offset <<= 1) {
++                const int tmp = __shfl_up_sync(0xFFFFFFFF, my_rank, offset, warp_size);
++                if (threadIdx.x % neu_padded >= static_cast<unsigned int>(offset)) {
++                    my_rank += tmp;
++                }
++            }
++            // Count of matches in this token's group (highest lane of the group):
++            const int it_compact_add_self = __shfl_sync(0xFFFFFFFF,
++                my_rank, (threadIdx.x / neu_padded) * neu_padded + neu_padded - 1, warp_size);
+ 
+             // Do a scan over threads at lower token positions in warp to get the correct index for writing data:
+             int it_compact_add_lower = 0;
+@@ -84,8 +112,8 @@ static __global__ void mm_ids_helper(
+                 }
+             }
+ 
+-            if (iex_used != -1) {
+-                store[it_compact + it_compact_add_lower] = mm_ids_helper_store(it, iex_used);
++            if (match) {
++                store[it_compact + it_compact_add_lower + my_rank - 1] = mm_ids_helper_store(it, iex_used);
+             }
+ 
+             // The thread with the highest index in the warp always has the sum over the whole warp, use it to increment all threads:
+@@ -134,7 +162,11 @@ static void launch_mm_ids_helper(
+ 
+     const dim3 num_blocks(n_experts, 1, 1);
+     const dim3 block_size(warp_size, 1, 1);
+-    const size_t nbytes_shared = n_tokens*sizeof(mm_ids_helper_store);
++    // With duplicate expert IDs (REAP-pruned models) a single expert can
++    // receive up to n_expert_used entries per token, not 1: size the shared
++    // store for that worst case or the prefix-sum stores overrun shared
++    // memory (observed as illegal memory access at large prefill batches).
++    const size_t nbytes_shared = (size_t) n_tokens*n_expert_used_var*sizeof(mm_ids_helper_store);
+     GGML_ASSERT(nbytes_shared <= smpbo);
+     mm_ids_helper<n_expert_used_template><<<num_blocks, block_size, nbytes_shared, stream>>>
+         (ids, ids_src1, ids_dst, expert_bounds, n_tokens, n_expert_used_var, nchannels_y, si1, sis1, write_inverse);
